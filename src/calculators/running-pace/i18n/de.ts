@@ -7,7 +7,7 @@ const de: CalculatorTranslation<RunningPaceText> = {
     shortTitle: "Laufpace",
     summary: "Ermitteln Sie Ihre Pace pro Kilometer und pro Meile sowie Ihre Durchschnittsgeschwindigkeit aus Distanz und Zielzeit.",
     metaTitle: "Laufpace-Rechner – Pace pro km und Meile",
-    metaDescription: "Berechnen Sie Ihre Laufpace pro Kilometer und pro Meile sowie die Durchschnittsgeschwindigkeit aus Ihrer Zielzeit für 5 km, 10 km, Halbmarathon, Marathon oder eigene Distanzen.",
+    metaDescription: "Berechnen Sie Ihre Pace pro Kilometer und Meile sowie die Durchschnittsgeschwindigkeit für 5 km, 10 km, Halbmarathon, Marathon oder eine eigene Distanz.",
     keywords: ["Pace berechnen", "Pace-Rechner", "min/km berechnen", "Marathon Pace", "Laufgeschwindigkeit", "10 km Zeit", "Halbmarathon Pace"],
     intro: [
       "Die Pace ist die Zeit, die Sie für einen Kilometer oder eine Meile benötigen. Die meisten Läuferinnen und Läufer planen und vergleichen Wettkämpfe danach.",

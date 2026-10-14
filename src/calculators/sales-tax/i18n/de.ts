@@ -7,7 +7,7 @@ const de: CalculatorTranslation<SalesTaxText> = {
     shortTitle: "Umsatzsteuer",
     summary: "Schlagen Sie die Umsatzsteuer auf einen Preis auf oder ermitteln Sie den Preis vor Steuern aus einem Bruttobetrag.",
     metaTitle: "Umsatzsteuerrechner – Steuer aufschlagen oder herausrechnen",
-    metaDescription: "Berechnen Sie Umsatzsteuer und Gesamtpreis oder rechnen Sie die Steuer aus einem Bruttobetrag heraus, um den Nettopreis zu finden – für jeden Steuersatz und jede Währung.",
+    metaDescription: "Berechnen Sie Umsatzsteuer und Gesamtpreis oder rechnen Sie die Steuer aus einem Bruttobetrag heraus, um den Nettopreis zu finden – für jeden Steuersatz.",
     keywords: ["Umsatzsteuer berechnen", "Mehrwertsteuer berechnen", "MwSt-Rechner", "Brutto Netto", "Steuer herausrechnen", "Sales Tax USA", "Steuersatz"],
     intro: [
       "Geben Sie einen Preis und einen Steuersatz ein, um die Steuer und den zu zahlenden Gesamtbetrag zu sehen. Wechseln Sie zum Herausrechnen, um aus dem Betrag auf einem Kassenbon den Preis vor Steuern zu ermitteln.",

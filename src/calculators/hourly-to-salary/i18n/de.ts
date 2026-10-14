@@ -8,7 +8,7 @@ const de: CalculatorTranslation<HourlyToSalaryText> = {
     summary: "Rechnen Sie einen Stundenlohn in das Brutto-Jahres-, Monats-, Zweiwochen-, Wochen- und Tagesentgelt für Ihren Arbeitsplan um.",
     metaTitle: "Stundenlohn in Gehalt umrechnen – Jahres-, Monats- und Wochenlohn",
     metaDescription:
-      "Rechnen Sie Ihren Stundenlohn in ein Jahresgehalt um und sehen Sie das Bruttoentgelt pro Monat, Halbmonat, zwei Wochen, Woche und Tag – passend zu Ihren Stunden.",
+      "Rechnen Sie Ihren Stundenlohn in ein Jahresgehalt um und sehen Sie das Bruttoentgelt pro Monat, Halbmonat, zwei Wochen, Woche und Tag – passend zu Ihrem Plan.",
     keywords: ["Stundenlohn in Jahresgehalt", "Stundenlohn Rechner", "Jahresgehalt berechnen", "Bruttogehalt pro Monat", "Stundenlohn umrechnen", "Verdienst pro Jahr"],
     intro: [
       "Mit diesem Rechner sehen Sie, was ein Stundenlohn über ein Jahr und in jedem üblichen Abrechnungszeitraum ergibt.",

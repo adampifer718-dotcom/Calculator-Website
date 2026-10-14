@@ -8,7 +8,7 @@ const es: CalculatorTranslation<RainwaterText> = {
     summary: "Estima cuánta agua de lluvia puede recoger un tejado a partir de su superficie, la precipitación y un coeficiente de escorrentía.",
     metaTitle: "Calculadora de recogida de agua de lluvia – Captación en tejado",
     metaDescription:
-      "Estima el agua de lluvia que recoge un tejado en litros o galones estadounidenses a partir de la superficie de captación, la precipitación y el coeficiente de escorrentía.",
+      "Estima el agua de lluvia que recoge un tejado, en litros o galones de EE. UU., según la superficie de captación, la precipitación y la escorrentía.",
     keywords: ["recogida de agua de lluvia", "captación de agua de lluvia", "agua de lluvia tejado", "depósito de agua de lluvia", "litros por metro cuadrado", "aljibe"],
     intro: [
       "Cada milímetro de lluvia que cae sobre un metro cuadrado de tejado equivale a un litro de agua. Esta calculadora amplía ese cálculo y tiene en cuenta las pérdidas.",

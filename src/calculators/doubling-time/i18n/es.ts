@@ -8,7 +8,7 @@ const es: CalculatorTranslation<DoublingTimeText> = {
     summary: "Calcula el tiempo de duplicación (tiempo de generación) y la tasa de crecimiento de una población con crecimiento exponencial.",
     metaTitle: "Calculadora de tiempo de duplicación – Generación y crecimiento",
     metaDescription:
-      "Calcula el tiempo de duplicación, el número de generaciones y la tasa de crecimiento de una población, como las bacterias de un cultivo, a partir de los recuentos inicial y final.",
+      "Calcula el tiempo de duplicación, las generaciones y la tasa de crecimiento de una población, como un cultivo bacteriano, a partir de los recuentos inicial y final.",
     keywords: ["tiempo de duplicación", "tiempo de generación", "crecimiento bacteriano", "crecimiento exponencial", "tasa de crecimiento", "biología"],
     intro: [
       "Durante el crecimiento exponencial, una población se duplica a un ritmo constante. El tiempo de duplicación (o de generación) es lo que tarda cada duplicación.",

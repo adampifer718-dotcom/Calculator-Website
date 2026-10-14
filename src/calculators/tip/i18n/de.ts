@@ -7,7 +7,7 @@ const de: CalculatorTranslation<TipText> = {
     shortTitle: "Trinkgeld",
     summary: "Berechnen Sie das Trinkgeld, den Gesamtbetrag der Rechnung und den Anteil jeder Person beim Aufteilen.",
     metaTitle: "Trinkgeldrechner – Trinkgeld berechnen und Rechnung teilen",
-    metaDescription: "Berechnen Sie das Trinkgeld für jeden Rechnungsbetrag und Prozentsatz, den Gesamtbetrag mit Trinkgeld und wie viel jede Person bei gleichmäßiger Aufteilung zahlt.",
+    metaDescription: "Berechnen Sie das Trinkgeld für jeden Rechnungsbetrag und Prozentsatz, den Gesamtbetrag mit Trinkgeld und wie viel jede Person bei gleicher Aufteilung zahlt.",
     keywords: ["Trinkgeld berechnen", "Trinkgeldrechner", "Rechnung teilen", "wie viel Trinkgeld", "Trinkgeld Restaurant", "Trinkgeld USA", "Servicegebühr"],
     intro: [
       "Geben Sie den Rechnungsbetrag und einen Trinkgeldsatz ein, um Trinkgeld und Gesamtbetrag zu sehen. Ergänzen Sie die Anzahl der Personen, um die Rechnung gleichmäßig aufzuteilen.",

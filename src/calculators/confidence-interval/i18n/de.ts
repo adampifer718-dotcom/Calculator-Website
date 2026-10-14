@@ -7,7 +7,7 @@ const de: CalculatorTranslation<ConfidenceIntervalText> = {
     shortTitle: "Konfidenzintervall",
     summary: "Berechnen Sie ein Konfidenzintervall für einen Mittelwert aus Stichprobenmittelwert, Standardabweichung und Stichprobengröße.",
     metaTitle: "Konfidenzintervallrechner – für einen Mittelwert",
-    metaDescription: "Berechnen Sie ein Konfidenzintervall für einen Mittelwert aus Stichprobenmittelwert, Standardabweichung, Stichprobengröße und Konfidenzniveau – mit Fehlermarge und z*.",
+    metaDescription: "Berechnen Sie ein Konfidenzintervall für einen Mittelwert aus Mittelwert, Standardabweichung, Stichprobengröße und Konfidenzniveau – mit Fehlermarge und z*.",
     keywords: ["Konfidenzintervall berechnen", "Vertrauensintervall", "Fehlermarge", "Standardfehler", "95-%-Konfidenzintervall", "Statistik Mittelwert"],
     intro: [
       "Ein Konfidenzintervall gibt einen Bereich plausibler Werte für den Mittelwert einer Grundgesamtheit an. Ein 95-%-Intervall ist so konstruiert, dass 95 % der auf diese Weise gebildeten Intervalle den wahren Mittelwert enthalten würden.",
