@@ -30,6 +30,10 @@ const APPLICATION_CATEGORY: Record<CalculatorDefinition["category"], string> = {
   "salary-and-pay": "FinanceApplication",
   "finance-and-investing": "FinanceApplication",
   math: "EducationalApplication",
+  statistics: "EducationalApplication",
+  construction: "UtilitiesApplication",
+  "everyday-life": "UtilitiesApplication",
+  health: "HealthApplication",
 };
 
 /** Shared layout for every calculator page. Content comes from the calculator definition. */

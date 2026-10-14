@@ -37,21 +37,34 @@ test("mobile menu opens, navigates and closes", async ({ page, isMobile }) => {
   await page.keyboard.press("Escape");
   await expect(page.locator("#mobile-menu")).toHaveCount(0);
   await page.getByRole("button", { name: "Open menu" }).click();
-  await page.locator("#mobile-menu").getByRole("link", { name: "Salary & Pay" }).click();
-  await expect(page).toHaveURL(/\/categories\/salary-and-pay$/);
+  const menu = page.locator("#mobile-menu");
+  await menu.locator("summary", { hasText: "Statistics" }).click();
+  await menu.getByRole("link", { name: "P-value Calculator" }).click();
+  await expect(page).toHaveURL(/\/calculators\/p-value-calculator$/);
   await expect(page.locator("#mobile-menu")).toHaveCount(0);
 });
 
-test("desktop navigation links work", async ({ page, isMobile }) => {
+test("desktop mega menu lists every category and navigates", async ({ page, isMobile }) => {
   test.skip(isMobile, "desktop only");
   await page.goto("/");
   const nav = page.getByRole("navigation", { name: "Main" });
-  for (const name of ["Salary & Pay", "Math & Percentages", "Finance & Investing", "All calculators"]) {
-    await nav.getByRole("link", { name }).click();
-    // Next.js keeps previously visited pages mounted but hidden, so match visible elements only.
-    await expect(page.getByRole("navigation", { name: "Breadcrumb" }).locator("visible=true").getByText(name, { exact: true })).toBeVisible();
-    await expect(page.locator("h1:visible")).toHaveCount(1);
+  const button = nav.getByRole("button", { name: "Calculators" });
+  await button.click();
+  await expect(button).toHaveAttribute("aria-expanded", "true");
+  const menu = page.locator("#mega-menu");
+  for (const name of ["Salary & Pay", "Finance", "Math", "Statistics", "Construction", "Everyday Life", "Health"]) {
+    await expect(menu.getByRole("link", { name: new RegExp(`^${name} \\d+ calculators?$`) })).toBeVisible();
   }
+  await page.keyboard.press("Escape");
+  await expect(menu).toHaveCount(0);
+  await expect(button).toBeFocused();
+  await button.click();
+  await menu.getByRole("link", { name: "Square Footage Calculator" }).click();
+  await expect(page).toHaveURL(/\/calculators\/square-footage-calculator$/);
+  await expect(page.locator("#mega-menu")).toHaveCount(0);
+  await expect(page.locator("h1:visible")).toHaveText("Square Footage Calculator");
+  await nav.getByRole("link", { name: "All calculators" }).click();
+  await expect(page.locator("h1:visible")).toHaveText("All calculators");
 });
 
 test("skip link moves focus to main content", async ({ page, isMobile }) => {

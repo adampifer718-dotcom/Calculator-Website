@@ -18,6 +18,7 @@ const inputBase =
 /** Main amounts and dropdowns take a full row on phones; short numeric inputs sit two per row. */
 function fieldSpan(field: Field): string {
   if (field.type === "number") return field.prefix === "currency" ? "col-span-2" : "col-span-1";
+  if (field.type === "text") return "col-span-2";
   return "col-span-2 sm:col-span-1";
 }
 
@@ -99,11 +100,11 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
           <input
             id={id}
             type="text"
-            inputMode="decimal"
+            inputMode={field.type === "text" ? "text" : "decimal"}
             autoComplete="off"
             spellCheck={false}
             value={value}
-            placeholder={field.placeholder ?? (field.optional ? "Optional" : undefined)}
+            placeholder={field.type === "number" || field.type === "text" ? (field.placeholder ?? (field.optional ? "Optional" : undefined)) : undefined}
             onChange={(event) => onChange(event.target.value)}
             aria-invalid={error ? true : undefined}
             aria-describedby={describedBy}

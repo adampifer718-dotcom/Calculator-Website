@@ -9,6 +9,9 @@ async function sitemapPaths(page: Page): Promise<string[]> {
 }
 
 test.describe("published pages", () => {
+  // These tests crawl every page in the sitemap.
+  test.describe.configure({ timeout: 240_000 });
+
   test("sitemap lists only working, indexable, uniquely described pages", async ({ page }) => {
     const paths = await sitemapPaths(page);
     expect(paths.length).toBeGreaterThan(5);
@@ -89,4 +92,29 @@ test.describe("published pages", () => {
     }
     expect(errors).toEqual([]);
   });
+});
+
+test("every calculator page renders a valid default result", async ({ page }) => {
+  test.setTimeout(120_000);
+  const paths = (await sitemapPaths(page)).filter((p) => p.startsWith("/calculators/"));
+  expect(paths.length).toBeGreaterThanOrEqual(20);
+  for (const path of paths) {
+    await page.goto(path);
+    const results = page.getByRole("region", { name: "Results" });
+    await expect(results, path).toBeVisible();
+    await expect(results.getByText("Check the highlighted inputs"), path).toHaveCount(0);
+    await expect(page.locator("[aria-invalid=true]"), path).toHaveCount(0);
+  }
+});
+
+test("no horizontal scrolling on a 320px-wide phone", async ({ browser }) => {
+  test.setTimeout(120_000);
+  const context = await browser.newContext({ viewport: { width: 320, height: 640 } });
+  const page = await context.newPage();
+  for (const path of await sitemapPaths(page)) {
+    await page.goto(path);
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    expect(overflow, path).toBeLessThanOrEqual(0);
+  }
+  await context.close();
 });

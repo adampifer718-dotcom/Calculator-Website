@@ -39,7 +39,7 @@ export function CalculatorForm({ engine }: { engine: AnyEngine }) {
   const update = (id: string, value: string) => setRaw((prev) => ({ ...prev, [id]: value }));
 
   return (
-    <div className="grid gap-5 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:items-start">
+    <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:items-start">
       <section ref={inputsRef} aria-labelledby={`${formId}-inputs`} className="card p-5 sm:p-6">
         <div className="mb-4 flex items-center justify-between gap-3">
           <h2 id={`${formId}-inputs`} className="text-lg font-semibold text-ink-900">

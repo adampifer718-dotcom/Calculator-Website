@@ -74,7 +74,7 @@ export default function HomePage() {
           <h2 id="categories-heading" className="sr-only">
             Calculator categories
           </h2>
-          <ul className="grid gap-3 sm:grid-cols-[repeat(auto-fit,minmax(9.5rem,1fr))] sm:gap-4">
+          <ul className="grid gap-3 sm:grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] sm:gap-4">
             {categories.map((category) => (
               <li key={category.slug}>
                 <Link

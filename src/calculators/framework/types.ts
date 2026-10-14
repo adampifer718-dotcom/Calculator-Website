@@ -45,11 +45,21 @@ export interface SelectField<Id extends string = string> extends BaseField<Id> {
   display?: "dropdown" | "segmented";
 }
 
-export type Field<Id extends string = string> = NumberField<Id> | SelectField<Id>;
+/** Free text, for inputs whose exact spelling matters (e.g. trailing zeros in significant figures). */
+export interface TextField<Id extends string = string> extends BaseField<Id> {
+  type: "text";
+  defaultValue: string;
+  placeholder?: string;
+  optional?: boolean;
+  /** Validates the trimmed text; return an error message or undefined. */
+  check?: (text: string) => string | undefined;
+}
+
+export type Field<Id extends string = string> = NumberField<Id> | SelectField<Id> | TextField<Id>;
 
 /** Field definition matched to the value type it produces. */
 export type FieldFor<V extends EngineValues> = {
-  [K in keyof V & string]: V[K] extends string ? SelectField<K> : NumberField<K>;
+  [K in keyof V & string]: V[K] extends string ? SelectField<K> | TextField<K> : NumberField<K>;
 }[keyof V & string];
 
 export type ResultValue =
@@ -100,7 +110,14 @@ export function defineEngine<V extends EngineValues>(engine: CalculatorEngine<V>
 /* Content: metadata and page copy (rendered on the server).           */
 /* ------------------------------------------------------------------ */
 
-export type CategorySlug = "salary-and-pay" | "math" | "finance-and-investing";
+export type CategorySlug =
+  | "salary-and-pay"
+  | "finance-and-investing"
+  | "math"
+  | "statistics"
+  | "construction"
+  | "everyday-life"
+  | "health";
 
 export interface Category {
   slug: CategorySlug;
@@ -121,8 +138,8 @@ export interface WorkedExample {
   /** Values passed to the engine; the page renders the computed result. */
   inputs: EngineValues;
   steps: string[];
-  /** Expected primary result, verified by unit tests. */
-  expectedPrimary: number;
+  /** Expected primary result, verified by unit tests: a number, or the formatted text for text results. */
+  expectedPrimary: number | string;
 }
 
 export interface Faq {

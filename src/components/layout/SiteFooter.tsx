@@ -10,7 +10,7 @@ export function SiteFooter() {
   const categories = activeCategories();
   return (
     <footer className="mt-16 border-t border-neutral-200 bg-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.2fr_repeat(3,1fr)]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <Link href="/" className="focus-ring inline-flex items-center gap-2 rounded-md font-semibold text-ink-900">
             <LogoMark className="size-7" />

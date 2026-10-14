@@ -87,6 +87,17 @@ export function evaluate(engine: AnyEngine, raw: RawValues): Evaluation {
       values[field.id] = null;
       continue;
     }
+    if (field.type === "text") {
+      const trimmed = text.trim();
+      if (trimmed === "") {
+        if (!field.optional) errors[field.id] = `Enter ${field.label.toLowerCase()}.`;
+      } else {
+        const error = field.check?.(trimmed);
+        if (error) errors[field.id] = error;
+      }
+      values[field.id] = trimmed;
+      continue;
+    }
     const parsed = parseNumberInput(text);
     const error = validateNumber(field, parsed);
     if (error) errors[field.id] = error;

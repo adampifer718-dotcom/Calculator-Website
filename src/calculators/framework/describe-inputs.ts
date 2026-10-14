@@ -14,6 +14,7 @@ export function describeInputs(engine: AnyEngine, values: EngineValues): { label
         if (field.display === "segmented") return [];
         return [{ label: field.label, value: field.options.find((o) => o.value === value)?.label ?? String(value) }];
       }
+      if (field.type === "text") return typeof value === "string" ? [{ label: field.label, value }] : [];
       if (typeof value !== "number") return [];
       let text = field.prefix === "currency" ? formatCurrency(value, currency) : formatNumber(value, 6);
       if (field.suffix) text = field.suffix === "%" ? `${text}%` : `${text} ${field.suffix}`;

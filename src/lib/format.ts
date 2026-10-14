@@ -87,3 +87,19 @@ export function currencySymbol(currency: string): string {
     .find((p) => p.type === "currency");
   return part?.value ?? code;
 }
+
+/**
+ * Formats with up to `significant` significant digits, switching to
+ * scientific notation (e.g. "1.23 × 10⁻⁸") for very large or very small values.
+ */
+export function formatSignificant(value: number, significant = 10): string {
+  if (value === 0) return "0";
+  const abs = Math.abs(value);
+  if (abs >= 1e15 || abs < 1e-6) {
+    const [mantissa, exponent] = value.toExponential(significant - 1).split("e");
+    const trimmed = mantissa.includes(".") ? mantissa.replace(/\.?0+$/, "") : mantissa;
+    const digits: Record<string, string> = { "-": "⁻", "+": "", "0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴", "5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹" };
+    return `${trimmed} × 10${exponent.split("").map((ch) => digits[ch] ?? ch).join("")}`;
+  }
+  return getFormatter(`sig:${significant}`, { maximumSignificantDigits: significant }).format(value);
+}

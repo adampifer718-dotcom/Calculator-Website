@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { CATEGORIES } from "./categories";
 import { evaluate, defaultRawValues, rawFromValues } from "./framework/evaluate";
+import { formatResultValue } from "./framework/format-result";
 import type { Field } from "./framework/types";
 import { CALCULATORS, activeCategories, getCalculator, popularCalculators, relatedCalculators } from "./registry";
 
@@ -51,6 +52,10 @@ describe("calculator registry", () => {
       expect(evaluation.ok).toBe(true);
       if (!evaluation.ok) return;
       const value = evaluation.result.primary.value;
+      if (typeof example.expectedPrimary === "string") {
+        expect(formatResultValue(value, String(example.inputs.currency ?? "USD"))).toBe(example.expectedPrimary);
+        return;
+      }
       const actual = value.kind === "currency" ? value.amount : value.kind === "text" ? Number.NaN : value.value;
       expect(actual).toBeCloseTo(example.expectedPrimary, 9);
     },

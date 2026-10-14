@@ -4,15 +4,21 @@ Free online calculators built with Next.js (App Router), React, TypeScript and T
 
 ## Published calculators
 
-| Calculator | URL |
-| --- | --- |
-| Salary to Hourly | `/calculators/salary-to-hourly-calculator` |
-| Hourly to Salary | `/calculators/hourly-to-salary-calculator` |
-| Percentage | `/calculators/percentage-calculator` |
-| Percentage Increase | `/calculators/percentage-increase-calculator` |
-| ROI | `/calculators/roi-calculator` |
+22 calculators in 7 categories, each at `/calculators/<slug>`:
 
-Other pages: `/` (home), `/calculators` (searchable directory, `?q=` supported), `/categories/[slug]`, `/about`, `/sitemap.xml`, `/robots.txt`.
+| Category | Calculators |
+| --- | --- |
+| Salary & Pay | Salary to Hourly, Hourly to Salary |
+| Finance | ROI, Sales Tax, Compound Interest |
+| Math | Percentage, Percentage Increase, Log, Significant Figures, Scientific Notation, Exponent, Square Root, Circumference, Slope, Pythagorean Theorem |
+| Statistics | P-value, Confidence Interval |
+| Construction | Square Footage |
+| Everyday Life | Test Grade, Tip, Discount |
+| Health | BMI |
+
+The registry (`src/calculators/registry.ts`) is the source of truth; the navigation menu, directory, category pages, homepage tiles, counts and sitemap are generated from it.
+
+Other pages: `/` (home, with a featured pay converter), `/calculators` (searchable directory, `?q=` supported), `/categories/[slug]`, `/about`, `/sitemap.xml`, `/robots.txt`.
 
 ## Getting started
 
