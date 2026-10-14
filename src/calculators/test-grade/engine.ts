@@ -1,5 +1,6 @@
+import { englishContext, fill, type EngineContext } from "@/calculators/framework/i18n";
 import { defineEngine, type FieldErrors } from "@/calculators/framework/types";
-import { formatNumber } from "@/lib/format";
+import en, { type TestGradeText } from "./text/en";
 
 export type TestGradeValues = { total: number; mode: string; correct: number | null; wrong: number | null };
 
@@ -12,37 +13,43 @@ export function letterGrade(percent: number): string {
   return "F";
 }
 
-export const testGradeEngine = defineEngine<TestGradeValues>({
-  fields: [
-    { id: "total", type: "number", label: "Total questions or points", defaultValue: 50, min: 0, minExclusive: true },
-    {
-      id: "mode",
-      type: "select",
-      label: "I know the number",
-      options: [
-        { value: "correct", label: "Correct (points earned)" },
-        { value: "wrong", label: "Wrong (points lost)" },
-      ],
-      defaultValue: "correct",
+export function makeTestGradeEngine(ctx: EngineContext<TestGradeText>) {
+  const t = ctx.text;
+  return defineEngine<TestGradeValues>({
+    locale: ctx.locale,
+    fields: [
+      { id: "total", type: "number", label: t.total, defaultValue: 50, min: 0, minExclusive: true },
+      {
+        id: "mode",
+        type: "select",
+        label: t.mode,
+        options: [
+          { value: "correct", label: t.modes.correct },
+          { value: "wrong", label: t.modes.wrong },
+        ],
+        defaultValue: "correct",
+      },
+      { id: "correct", type: "number", label: t.correct, defaultValue: 45, min: 0, visibleWhen: { field: "mode", oneOf: ["correct"] } },
+      { id: "wrong", type: "number", label: t.wrong, defaultValue: 5, min: 0, visibleWhen: { field: "mode", oneOf: ["wrong"] } },
+    ],
+    validate: ({ total, mode, correct, wrong }): FieldErrors => {
+      if (mode === "correct" && (correct ?? 0) > total) return { correct: t.overTotal };
+      if (mode === "wrong" && (wrong ?? 0) > total) return { wrong: t.overTotal };
+      return {};
     },
-    { id: "correct", type: "number", label: "Correct answers or points earned", defaultValue: 45, min: 0, visibleWhen: { field: "mode", oneOf: ["correct"] } },
-    { id: "wrong", type: "number", label: "Wrong answers or points lost", defaultValue: 5, min: 0, visibleWhen: { field: "mode", oneOf: ["wrong"] } },
-  ],
-  validate: ({ total, mode, correct, wrong }): FieldErrors => {
-    if (mode === "correct" && (correct ?? 0) > total) return { correct: "Cannot be more than the total." };
-    if (mode === "wrong" && (wrong ?? 0) > total) return { wrong: "Cannot be more than the total." };
-    return {};
-  },
-  compute: ({ total, mode, correct, wrong }) => {
-    const earned = mode === "wrong" ? total - (wrong ?? 0) : (correct ?? 0);
-    const percent = (earned / total) * 100;
-    return {
-      primary: { label: "Grade", value: { kind: "percent", value: percent, decimals: 2 }, caption: `${formatNumber(earned)} out of ${formatNumber(total)}.` },
-      secondary: [
-        { label: "Letter grade (A–F scale)", value: { kind: "text", text: letterGrade(percent) } },
-        { label: "Points lost", value: { kind: "number", value: total - earned } },
-      ],
-      notes: ["Letter grades use the common scale A ≥ 90%, B ≥ 80%, C ≥ 70%, D ≥ 60%, F below 60%. Your school's scale may differ."],
-    };
-  },
-});
+    compute: ({ total, mode, correct, wrong }) => {
+      const earned = mode === "wrong" ? total - (wrong ?? 0) : (correct ?? 0);
+      const percent = (earned / total) * 100;
+      return {
+        primary: { label: t.grade, value: { kind: "percent", value: percent, decimals: 2 }, caption: fill(t.caption, { earned: ctx.fmt.number(earned), total: ctx.fmt.number(total) }) },
+        secondary: [
+          { label: t.letter, value: { kind: "text", text: letterGrade(percent) } },
+          { label: t.lost, value: { kind: "number", value: total - earned } },
+        ],
+        notes: [t.note],
+      };
+    },
+  });
+}
+
+export const testGradeEngine = makeTestGradeEngine(englishContext(en));

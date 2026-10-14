@@ -1,17 +1,37 @@
+import { fill, type EngineContext } from "@/calculators/framework/i18n";
 import { defineEngine } from "@/calculators/framework/types";
-import { formatSignificant } from "@/lib/format";
 import { convertUnits, findUnit, type UnitDef } from "@/lib/math/units";
 
 export type ConverterValues = { value: number; from: string; to: string };
 
+/** Strings for a unit converter: unit names keyed by unit value, plus shared labels. */
+export interface ConverterText {
+  value: string;
+  from: string;
+  to: string;
+  unitNames: Record<string, string>;
+  /** e.g. "{value} {symbol} in {unit}" */
+  primary: string;
+  /** e.g. "1 {from} = {factor} {to}" */
+  caption: string;
+  tableCaption: string;
+  tableUnit: string;
+  tableValue: string;
+  note: string;
+}
+
 /** Engine for a linear unit converter over one table of units. */
-export function unitConverterEngine(units: readonly UnitDef[], defaults: { value: number; from: string; to: string }, quantity: string) {
-  const options = units.map((u) => ({ value: u.value, label: `${u.label} (${u.symbol})` }));
+export function unitConverterEngine(ctx: EngineContext<ConverterText>, units: readonly UnitDef[], defaults: { value: number; from: string; to: string }) {
+  const t = ctx.text;
+  const s = (v: number) => ctx.fmt.significant(v, 10);
+  const name = (u: UnitDef) => t.unitNames[u.value] ?? u.label;
+  const options = units.map((u) => ({ value: u.value, label: `${name(u)} (${u.symbol})` }));
   return defineEngine<ConverterValues>({
+    locale: ctx.locale,
     fields: [
-      { id: "value", type: "number", label: "Value", defaultValue: defaults.value },
-      { id: "from", type: "select", label: "From", options, defaultValue: defaults.from },
-      { id: "to", type: "select", label: "To", options, defaultValue: defaults.to },
+      { id: "value", type: "number", label: t.value, defaultValue: defaults.value },
+      { id: "from", type: "select", label: t.from, options, defaultValue: defaults.from },
+      { id: "to", type: "select", label: t.to, options, defaultValue: defaults.to },
     ],
     compute: ({ value, from, to }) => {
       const fromUnit = findUnit(units, from);
@@ -19,22 +39,22 @@ export function unitConverterEngine(units: readonly UnitDef[], defaults: { value
       const result = convertUnits(value, fromUnit, toUnit);
       return {
         primary: {
-          label: `${formatSignificant(value, 10)} ${fromUnit.symbol} in ${toUnit.label.toLowerCase()}`,
-          value: { kind: "text", text: `${formatSignificant(result, 10)} ${toUnit.symbol}` },
-          caption: `1 ${fromUnit.symbol} = ${formatSignificant(convertUnits(1, fromUnit, toUnit), 10)} ${toUnit.symbol}`,
+          label: fill(t.primary, { value: s(value), symbol: fromUnit.symbol, unit: name(toUnit).toLocaleLowerCase(ctx.locale) }),
+          value: { kind: "text", text: `${s(result)} ${toUnit.symbol}` },
+          caption: fill(t.caption, { from: fromUnit.symbol, factor: s(convertUnits(1, fromUnit, toUnit)), to: toUnit.symbol }),
         },
         tables: [
           {
-            caption: `${formatSignificant(value, 10)} ${fromUnit.symbol} in every ${quantity} unit`,
-            columns: ["Unit", "Value"],
+            caption: fill(t.tableCaption, { value: s(value), symbol: fromUnit.symbol }),
+            columns: [t.tableUnit, t.tableValue],
             rows: units.map((unit) => ({
-              label: unit.label,
+              label: name(unit),
               highlight: unit.value === toUnit.value,
-              cells: [{ kind: "text" as const, text: `${formatSignificant(convertUnits(value, fromUnit, unit), 10)} ${unit.symbol}` }],
+              cells: [{ kind: "text" as const, text: `${s(convertUnits(value, fromUnit, unit))} ${unit.symbol}` }],
             })),
           },
         ],
-        notes: ["Results are shown to 10 significant digits."],
+        notes: [t.note],
       };
     },
   });

@@ -118,31 +118,36 @@ export function convertPay(amount: number, from: PayPeriod, schedule: WorkSchedu
   return breakdown;
 }
 
-/** Returns validation messages keyed by schedule field, or an empty object when valid. */
-export function validateSchedule(schedule: WorkSchedule): Partial<Record<keyof WorkSchedule, string>> {
-  const errors: Partial<Record<keyof WorkSchedule, string>> = {};
+export type ScheduleIssue = "hoursPositive" | "hoursMax" | "daysPositive" | "daysMax" | "weeksPositive" | "weeksMax" | "hoursPerDay";
+
+/** Validation problems keyed by schedule field, as message codes. Empty when valid. */
+export function scheduleIssues(schedule: WorkSchedule): Partial<Record<keyof WorkSchedule, ScheduleIssue>> {
+  const issues: Partial<Record<keyof WorkSchedule, ScheduleIssue>> = {};
   const { hoursPerWeek, daysPerWeek, weeksPerYear } = schedule;
-  if (!Number.isFinite(hoursPerWeek) || hoursPerWeek <= 0) {
-    errors.hoursPerWeek = "Hours per week must be greater than 0.";
-  } else if (hoursPerWeek > SCHEDULE_LIMITS.hoursPerWeek.max) {
-    errors.hoursPerWeek = "A week has at most 168 hours.";
-  }
-  if (!Number.isFinite(daysPerWeek) || daysPerWeek <= 0) {
-    errors.daysPerWeek = "Workdays per week must be greater than 0.";
-  } else if (daysPerWeek > SCHEDULE_LIMITS.daysPerWeek.max) {
-    errors.daysPerWeek = "A week has at most 7 days.";
-  }
-  if (!Number.isFinite(weeksPerYear) || weeksPerYear <= 0) {
-    errors.weeksPerYear = "Weeks per year must be greater than 0.";
-  } else if (weeksPerYear > SCHEDULE_LIMITS.weeksPerYear.max) {
-    errors.weeksPerYear = "Use 53 weeks per year or fewer.";
-  }
-  if (!errors.hoursPerWeek && !errors.daysPerWeek && hoursPerDay(schedule) > SCHEDULE_LIMITS.hoursPerDay.max) {
-    errors.hoursPerWeek = "Hours per week divided by workdays per week cannot exceed 24 hours per day.";
-  }
-  return errors;
+  if (!Number.isFinite(hoursPerWeek) || hoursPerWeek <= 0) issues.hoursPerWeek = "hoursPositive";
+  else if (hoursPerWeek > SCHEDULE_LIMITS.hoursPerWeek.max) issues.hoursPerWeek = "hoursMax";
+  if (!Number.isFinite(daysPerWeek) || daysPerWeek <= 0) issues.daysPerWeek = "daysPositive";
+  else if (daysPerWeek > SCHEDULE_LIMITS.daysPerWeek.max) issues.daysPerWeek = "daysMax";
+  if (!Number.isFinite(weeksPerYear) || weeksPerYear <= 0) issues.weeksPerYear = "weeksPositive";
+  else if (weeksPerYear > SCHEDULE_LIMITS.weeksPerYear.max) issues.weeksPerYear = "weeksMax";
+  if (!issues.hoursPerWeek && !issues.daysPerWeek && hoursPerDay(schedule) > SCHEDULE_LIMITS.hoursPerDay.max) issues.hoursPerWeek = "hoursPerDay";
+  return issues;
 }
 
+const ENGLISH_ISSUES: Record<ScheduleIssue, string> = {
+  hoursPositive: "Hours per week must be greater than 0.",
+  hoursMax: "A week has at most 168 hours.",
+  daysPositive: "Workdays per week must be greater than 0.",
+  daysMax: "A week has at most 7 days.",
+  weeksPositive: "Weeks per year must be greater than 0.",
+  weeksMax: "Use 53 weeks per year or fewer.",
+  hoursPerDay: "Hours per week divided by workdays per week cannot exceed 24 hours per day.",
+};
+
+/** Returns English validation messages keyed by schedule field, or an empty object when valid. */
+export function validateSchedule(schedule: WorkSchedule): Partial<Record<keyof WorkSchedule, string>> {
+  return Object.fromEntries(Object.entries(scheduleIssues(schedule)).map(([field, issue]) => [field, ENGLISH_ISSUES[issue]]));
+}
 /** Hours of work needed to earn `target` at an hourly rate. Null when the rate is not positive. */
 export function hoursToEarn(target: number, hourlyRate: number): number | null {
   if (!(hourlyRate > 0)) return null;

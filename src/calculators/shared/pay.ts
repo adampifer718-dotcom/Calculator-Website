@@ -1,14 +1,15 @@
+import type { EngineContext } from "@/calculators/framework/i18n";
+import { fill } from "@/calculators/framework/i18n";
 import type { NumberField, ResultTable, SelectField } from "@/calculators/framework/types";
-import { CURRENCIES, DEFAULT_CURRENCY, formatNumber } from "@/lib/format";
+import { CURRENCY_CODES, DEFAULT_CURRENCY } from "@/lib/format";
 import {
   DEFAULT_SCHEDULE,
-  PAY_PERIOD_LABELS,
   PAY_PERIODS,
   SCHEDULE_LIMITS,
   annualHours,
   hoursPerDay,
   periodsPerYear,
-  validateSchedule,
+  scheduleIssues,
   type PayBreakdown,
   type PayPeriod,
   type WorkSchedule,
@@ -22,52 +23,63 @@ export type ScheduleValues = {
   currency: string;
 };
 
-export const currencyField: SelectField<"currency"> = {
-  id: "currency",
-  type: "select",
-  label: "Currency",
-  help: "Changes how amounts are formatted. No exchange-rate conversion is applied.",
-  options: CURRENCIES.map((c) => ({ value: c.code, label: c.label })),
-  defaultValue: DEFAULT_CURRENCY,
-};
+type Ctx = EngineContext<unknown>;
 
-export const hoursPerWeekField: NumberField<"hoursPerWeek"> = {
-  id: "hoursPerWeek",
-  type: "number",
-  label: "Hours per week",
-  help: "Paid hours in a typical week.",
-  defaultValue: DEFAULT_SCHEDULE.hoursPerWeek,
-  min: SCHEDULE_LIMITS.hoursPerWeek.min,
-  minExclusive: true,
-  max: SCHEDULE_LIMITS.hoursPerWeek.max,
-  suffix: "hours",
-};
+/** Currency selector with names in the visitor's language. Formatting only; never converts amounts. */
+export function currencyField(ctx: Ctx): SelectField<"currency"> {
+  return {
+    id: "currency",
+    type: "select",
+    label: ctx.common.currency.label,
+    help: ctx.common.currency.help,
+    options: CURRENCY_CODES.map((code) => ({ value: code, label: ctx.fmt.currencyLabel(code) })),
+    defaultValue: DEFAULT_CURRENCY,
+  };
+}
 
-export const daysPerWeekField: NumberField<"daysPerWeek"> = {
-  id: "daysPerWeek",
-  type: "number",
-  label: "Workdays per week",
-  help: "Used for the daily equivalent.",
-  defaultValue: DEFAULT_SCHEDULE.daysPerWeek,
-  min: SCHEDULE_LIMITS.daysPerWeek.min,
-  minExclusive: true,
-  max: SCHEDULE_LIMITS.daysPerWeek.max,
-  suffix: "days",
-};
+export function payPeriodOptions(ctx: Ctx) {
+  return PAY_PERIODS.map((p) => ({ value: p, label: ctx.common.payPeriods[p] }));
+}
 
-export const weeksPerYearField: NumberField<"weeksPerYear"> = {
-  id: "weeksPerYear",
-  type: "number",
-  label: "Paid weeks per year",
-  help: "52 for a full year. Lower it to exclude unpaid weeks.",
-  defaultValue: DEFAULT_SCHEDULE.weeksPerYear,
-  min: SCHEDULE_LIMITS.weeksPerYear.min,
-  minExclusive: true,
-  max: SCHEDULE_LIMITS.weeksPerYear.max,
-  suffix: "weeks",
-};
-
-export const scheduleFields = [hoursPerWeekField, daysPerWeekField, weeksPerYearField] as const;
+export function scheduleFields(ctx: Ctx): [NumberField<"hoursPerWeek">, NumberField<"daysPerWeek">, NumberField<"weeksPerYear">] {
+  const s = ctx.common.schedule;
+  const u = ctx.common.units;
+  return [
+    {
+      id: "hoursPerWeek",
+      type: "number",
+      label: s.hoursPerWeek,
+      help: s.hoursPerWeekHelp,
+      defaultValue: DEFAULT_SCHEDULE.hoursPerWeek,
+      min: SCHEDULE_LIMITS.hoursPerWeek.min,
+      minExclusive: true,
+      max: SCHEDULE_LIMITS.hoursPerWeek.max,
+      suffix: u.hours,
+    },
+    {
+      id: "daysPerWeek",
+      type: "number",
+      label: s.daysPerWeek,
+      help: s.daysPerWeekHelp,
+      defaultValue: DEFAULT_SCHEDULE.daysPerWeek,
+      min: SCHEDULE_LIMITS.daysPerWeek.min,
+      minExclusive: true,
+      max: SCHEDULE_LIMITS.daysPerWeek.max,
+      suffix: u.days,
+    },
+    {
+      id: "weeksPerYear",
+      type: "number",
+      label: s.weeksPerYear,
+      help: s.weeksPerYearHelp,
+      defaultValue: DEFAULT_SCHEDULE.weeksPerYear,
+      min: SCHEDULE_LIMITS.weeksPerYear.min,
+      minExclusive: true,
+      max: SCHEDULE_LIMITS.weeksPerYear.max,
+      suffix: u.weeks,
+    },
+  ];
+}
 
 export function scheduleFrom(values: ScheduleValues): WorkSchedule {
   return {
@@ -77,31 +89,34 @@ export function scheduleFrom(values: ScheduleValues): WorkSchedule {
   };
 }
 
-export function validateScheduleValues(values: ScheduleValues): Record<string, string> {
-  return validateSchedule(scheduleFrom(values)) as Record<string, string>;
+export function validateScheduleValues(ctx: Ctx, values: ScheduleValues): Record<string, string> {
+  const errors: Record<string, string> = {};
+  for (const [field, issue] of Object.entries(scheduleIssues(scheduleFrom(values)))) {
+    errors[field] = ctx.common.schedule.errors[issue];
+  }
+  return errors;
 }
 
-export function scheduleNotes(schedule: WorkSchedule): string[] {
+export function scheduleNotes(ctx: Ctx, schedule: WorkSchedule): string[] {
+  const n = (v: number) => ctx.fmt.number(v, 2);
+  const notes = ctx.common.schedule.notes;
   return [
-    `Assumes ${formatNumber(schedule.hoursPerWeek, 2)} hours per week × ${formatNumber(schedule.weeksPerYear, 2)} weeks = ${formatNumber(annualHours(schedule), 2)} paid hours per year.`,
-    `Daily pay assumes ${formatNumber(schedule.daysPerWeek, 2)} workdays per week, or ${formatNumber(hoursPerDay(schedule), 2)} hours per workday.`,
-    "All amounts are gross pay before taxes and deductions, not take-home pay.",
+    fill(notes.annualHours, { hours: n(schedule.hoursPerWeek), weeks: n(schedule.weeksPerYear), annual: n(annualHours(schedule)) }),
+    fill(notes.daily, { days: n(schedule.daysPerWeek), perDay: n(hoursPerDay(schedule)) }),
+    notes.gross,
   ];
 }
 
-export function periodsLabel(period: PayPeriod, schedule: WorkSchedule): string {
-  return formatNumber(periodsPerYear(period, schedule), 2);
-}
-
-export function breakdownTable(breakdown: PayBreakdown, schedule: WorkSchedule, highlight: readonly PayPeriod[]): ResultTable {
+export function breakdownTable(ctx: Ctx, breakdown: PayBreakdown, schedule: WorkSchedule, highlight: readonly PayPeriod[]): ResultTable {
+  const t = ctx.common.schedule.table;
   return {
-    caption: "Gross pay by period",
-    columns: ["Pay period", "Periods per year", "Gross pay"],
+    caption: t.caption,
+    columns: [t.period, t.periodsPerYear, t.grossPay],
     rows: PAY_PERIODS.map((period) => ({
-      label: PAY_PERIOD_LABELS[period],
+      label: ctx.common.payPeriods[period],
       highlight: highlight.includes(period),
       cells: [
-        { kind: "text", text: periodsLabel(period, schedule) },
+        { kind: "text", text: ctx.fmt.number(periodsPerYear(period, schedule), 2) },
         { kind: "currency", amount: breakdown[period] },
       ],
     })),

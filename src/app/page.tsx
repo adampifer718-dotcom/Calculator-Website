@@ -18,7 +18,7 @@ import { HeaderSearch } from "@/components/layout/HeaderSearch";
 import { CalculatorCard } from "@/components/ui/CalculatorCard";
 import { CategoryIcon } from "@/components/ui/CategoryIcon";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { CURRENCIES } from "@/lib/format";
+import { CURRENCY_CODES } from "@/lib/format";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { websiteJsonLd } from "@/lib/structured-data";
@@ -31,7 +31,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/",
 });
 
-const HIGHLIGHTS = ["Instant results", `${CURRENCIES.length} currencies`, "No sign-up"];
+const HIGHLIGHTS = ["Instant results", `${CURRENCY_CODES.length} currencies`, "No sign-up"];
 
 function Check({ className = "size-4 text-brand-600" }: { className?: string }) {
   return (

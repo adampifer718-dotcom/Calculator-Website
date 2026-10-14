@@ -1,27 +1,39 @@
+import { englishContext, fill, type EngineContext } from "@/calculators/framework/i18n";
 import { defineEngine, type FieldErrors } from "@/calculators/framework/types";
 import { currencyField } from "@/calculators/shared/pay";
+import en, { type BreakEvenText } from "./text/en";
 
 export type BreakEvenValues = { fixed: number; price: number; variable: number; currency: string };
 
-export const breakEvenEngine = defineEngine<BreakEvenValues>({
-  currencyField: "currency",
-  fields: [
-    { id: "fixed", type: "number", label: "Fixed costs", help: "Costs that don't change with volume, e.g. rent and salaries.", defaultValue: 10000, min: 0, prefix: "currency" },
-    { id: "price", type: "number", label: "Price per unit", defaultValue: 50, min: 0, minExclusive: true, prefix: "currency" },
-    { id: "variable", type: "number", label: "Variable cost per unit", help: "Materials, packaging and other per-unit costs.", defaultValue: 30, min: 0, prefix: "currency" },
-    currencyField,
-  ],
-  validate: ({ price, variable }): FieldErrors => (variable >= price ? { variable: "The variable cost must be lower than the price, or you never break even." } : {}),
-  compute: ({ fixed, price, variable }) => {
-    const contribution = price - variable;
-    const units = fixed / contribution;
-    return {
-      primary: { label: "Break-even volume", value: { kind: "number", value: units, decimals: 2, suffix: "units" }, caption: `Round up to ${Math.ceil(units - 1e-9).toLocaleString("en-US")} whole units.` },
-      secondary: [
-        { label: "Break-even revenue", value: { kind: "currency", amount: units * price } },
-        { label: "Contribution margin per unit", value: { kind: "currency", amount: contribution } },
-        { label: "Contribution margin ratio", value: { kind: "percent", value: (contribution / price) * 100 } },
-      ],
-    };
-  },
-});
+export function makeBreakEvenEngine(ctx: EngineContext<BreakEvenText>) {
+  const t = ctx.text;
+  return defineEngine<BreakEvenValues>({
+    locale: ctx.locale,
+    currencyField: "currency",
+    fields: [
+      { id: "fixed", type: "number", label: t.fixed, help: t.fixedHelp, defaultValue: 10000, min: 0, prefix: "currency" },
+      { id: "price", type: "number", label: t.price, defaultValue: 50, min: 0, minExclusive: true, prefix: "currency" },
+      { id: "variable", type: "number", label: t.variable, help: t.variableHelp, defaultValue: 30, min: 0, prefix: "currency" },
+      currencyField(ctx),
+    ],
+    validate: ({ price, variable }): FieldErrors => (variable >= price ? { variable: t.variableTooHigh } : {}),
+    compute: ({ fixed, price, variable }) => {
+      const contribution = price - variable;
+      const units = fixed / contribution;
+      return {
+        primary: {
+          label: t.units,
+          value: { kind: "number", value: units, decimals: 2, suffix: t.unitsSuffix },
+          caption: fill(t.caption, { count: ctx.fmt.number(Math.ceil(units - 1e-9), 0) }),
+        },
+        secondary: [
+          { label: t.revenue, value: { kind: "currency", amount: units * price } },
+          { label: t.contribution, value: { kind: "currency", amount: contribution } },
+          { label: t.ratio, value: { kind: "percent", value: (contribution / price) * 100 } },
+        ],
+      };
+    },
+  });
+}
+
+export const breakEvenEngine = makeBreakEvenEngine(englishContext(en));

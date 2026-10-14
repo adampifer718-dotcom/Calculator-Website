@@ -2,18 +2,33 @@
 
 export const MAX_DATA_POINTS = 10000;
 
-export type ParsedList = { ok: true; values: number[] } | { ok: false; error: string };
+export type ListIssue = { code: "empty" } | { code: "tooMany" } | { code: "notNumber"; token: string } | { code: "tooLarge"; token: string };
+
+export type ParsedList = { ok: true; values: number[] } | { ok: false; error: string; issue: ListIssue };
+
+/** Localized message for a list parsing problem, or undefined when the list is valid. */
+export function listError(
+  parsed: ParsedList,
+  messages: { empty: string; tooMany: string; notNumber: string; tooLarge: string },
+  maxText: string,
+): string | undefined {
+  if (parsed.ok) return undefined;
+  const { issue } = parsed;
+  const vars: Record<string, string> = { max: maxText, token: "token" in issue ? issue.token : "" };
+  return messages[issue.code].replace(/\{(\w+)\}/g, (m, k: string) => vars[k] ?? m);
+}
 
 /** Parses numbers separated by commas, semicolons, spaces or new lines. */
 export function parseNumberList(text: string): ParsedList {
   const tokens = text.split(/[\s,;]+/).filter(Boolean);
-  if (tokens.length === 0) return { ok: false, error: "Enter at least one number." };
-  if (tokens.length > MAX_DATA_POINTS) return { ok: false, error: `Enter at most ${MAX_DATA_POINTS.toLocaleString("en-US")} numbers.` };
+  if (tokens.length === 0) return { ok: false, error: "Enter at least one number.", issue: { code: "empty" } };
+  if (tokens.length > MAX_DATA_POINTS) return { ok: false, error: `Enter at most ${MAX_DATA_POINTS.toLocaleString("en-US")} numbers.`, issue: { code: "tooMany" } };
   const values: number[] = [];
   for (const token of tokens) {
-    if (!/^[-+]?(\d+\.?\d*|\.\d+)(e[-+]?\d+)?$/i.test(token)) return { ok: false, error: `“${token}” is not a number. Separate values with commas, spaces or new lines.` };
+    if (!/^[-+]?(\d+\.?\d*|\.\d+)(e[-+]?\d+)?$/i.test(token))
+      return { ok: false, error: `“${token}” is not a number. Separate values with commas, spaces or new lines.`, issue: { code: "notNumber", token } };
     const value = Number(token);
-    if (!Number.isFinite(value)) return { ok: false, error: `“${token}” is too large.` };
+    if (!Number.isFinite(value)) return { ok: false, error: `“${token}” is too large.`, issue: { code: "tooLarge", token } };
     values.push(value);
   }
   return { ok: true, values };

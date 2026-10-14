@@ -1,45 +1,48 @@
+import { englishContext, type EngineContext } from "@/calculators/framework/i18n";
 import { defineEngine } from "@/calculators/framework/types";
-import { formatSignificant } from "@/lib/format";
 import { normalCdf, pValue, tCdf, type Tail } from "@/lib/math/stats";
+import en, { type PValueText } from "./text/en";
 
 export type PValueValues = { distribution: string; statistic: number; df: number | null; tail: string };
 
-export const pValueEngine = defineEngine<PValueValues>({
-  fields: [
-    {
-      id: "distribution",
-      type: "select",
-      label: "Test statistic",
-      options: [
-        { value: "z", label: "Z-score (normal)" },
-        { value: "t", label: "T-score (Student's t)" },
-      ],
-      defaultValue: "z",
+export function makePValueEngine(ctx: EngineContext<PValueText>) {
+  const t = ctx.text;
+  return defineEngine<PValueValues>({
+    locale: ctx.locale,
+    fields: [
+      {
+        id: "distribution",
+        type: "select",
+        label: t.distribution,
+        options: [
+          { value: "z", label: t.distributions.z },
+          { value: "t", label: t.distributions.t },
+        ],
+        defaultValue: "z",
+      },
+      { id: "statistic", type: "number", label: t.statistic, defaultValue: 1.96 },
+      { id: "df", type: "number", label: t.df, defaultValue: 10, min: 1, integer: true, max: 1000000, visibleWhen: { field: "distribution", oneOf: ["t"] } },
+      {
+        id: "tail",
+        type: "select",
+        label: t.tail,
+        options: (["two", "left", "right"] as const).map((value) => ({ value, label: t.tails[value] })),
+        defaultValue: "two",
+      },
+    ],
+    compute: ({ distribution, statistic, df, tail }) => {
+      const cdf = distribution === "t" ? (x: number) => tCdf(x, df ?? 1) : normalCdf;
+      const p = pValue(statistic, (["two", "left", "right"].includes(tail) ? tail : "two") as Tail, cdf);
+      return {
+        primary: { label: t.pValue, value: { kind: "text", text: ctx.fmt.significant(p, 6) } },
+        secondary: [
+          { label: t.sig05, value: { kind: "text", text: p < 0.05 ? t.yes05 : t.no05 } },
+          { label: t.sig01, value: { kind: "text", text: p < 0.01 ? t.yes01 : t.no01 } },
+        ],
+        notes: [t.note],
+      };
     },
-    { id: "statistic", type: "number", label: "Statistic value", defaultValue: 1.96 },
-    { id: "df", type: "number", label: "Degrees of freedom", defaultValue: 10, min: 1, integer: true, max: 1000000, visibleWhen: { field: "distribution", oneOf: ["t"] } },
-    {
-      id: "tail",
-      type: "select",
-      label: "Alternative hypothesis",
-      options: [
-        { value: "two", label: "Two-tailed (≠)" },
-        { value: "left", label: "Left-tailed (<)" },
-        { value: "right", label: "Right-tailed (>)" },
-      ],
-      defaultValue: "two",
-    },
-  ],
-  compute: ({ distribution, statistic, df, tail }) => {
-    const cdf = distribution === "t" ? (x: number) => tCdf(x, df ?? 1) : normalCdf;
-    const p = pValue(statistic, (["two", "left", "right"].includes(tail) ? tail : "two") as Tail, cdf);
-    return {
-      primary: { label: "p-value", value: { kind: "text", text: formatSignificant(p, 6) } },
-      secondary: [
-        { label: "Significant at α = 0.05?", value: { kind: "text", text: p < 0.05 ? "Yes (p < 0.05)" : "No (p ≥ 0.05)" } },
-        { label: "Significant at α = 0.01?", value: { kind: "text", text: p < 0.01 ? "Yes (p < 0.01)" : "No (p ≥ 0.01)" } },
-      ],
-      notes: ["A p-value is the probability of a result at least this extreme if the null hypothesis were true. It is not the probability that the null hypothesis is true."],
-    };
-  },
-});
+  });
+}
+
+export const pValueEngine = makePValueEngine(englishContext(en));

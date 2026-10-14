@@ -1,0 +1,25 @@
+const text = {
+  solve: "Find",
+  solveOptions: { speed: "Speed", distance: "Distance", time: "Time" },
+  units: "Units",
+  unitOptions: { metric: "Kilometers and km/h", imperial: "Miles and mph" },
+  distance: "Distance",
+  speed: "Speed",
+  hours: "Hours",
+  minutes: "Minutes",
+  timeZero: "Enter a time greater than zero.",
+  distanceOut: "Distance",
+  inKm: "In kilometers",
+  inMiles: "In miles",
+  timeOut: "Time",
+  inHours: "In hours",
+  speedOut: "Average speed",
+  inKmh: "In km/h",
+  inMph: "In mph",
+  inMps: "In meters per second",
+  hoursMinutes: "{h} h {m} min",
+  hoursOnly: "{h} h",
+  minutesOnly: "{m} min",
+};
+export type SpeedDistanceTimeText = typeof text;
+export default text;

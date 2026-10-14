@@ -1,3 +1,4 @@
+import type { Locale } from "@/i18n/config";
 /* ------------------------------------------------------------------ */
 /* Engine: inputs, validation and calculation (runs in the browser).   */
 /* ------------------------------------------------------------------ */
@@ -92,6 +93,8 @@ export interface CalculationResult {
 export type FieldErrors = Partial<Record<string, string>>;
 
 export interface CalculatorEngine<V extends EngineValues = EngineValues> {
+  /** Locale used for input parsing, validation messages and result formatting. Defaults to English. */
+  locale?: Locale;
   fields: readonly FieldFor<V>[];
   /** Field whose value is used as the currency code for formatting. */
   currencyField?: keyof V & string;
