@@ -5,18 +5,18 @@ const fr: CalculatorTranslation<SquareFootageText> = {
   content: {
     title: "Calculateur de surface en pieds carrés",
     shortTitle: "Surface en pieds carrés",
-    summary: "Calculez la surface d'un rectangle, d'un cercle ou d'un triangle en pieds carrés, mètres carrés et yards carrés.",
+    summary: "Calculez la surface d’un rectangle, d’un cercle ou d’un triangle en pieds carrés, mètres carrés et yards carrés.",
     metaTitle: "Calculateur de surface – Pieds carrés (pi²) et m²",
     metaDescription:
-      "Calculez la surface en pieds carrés d'un rectangle, d'un cercle ou d'un triangle à partir de pieds, pouces, yards, mètres ou centimètres, avec m² et yards carrés.",
-    keywords: ["pieds carrés", "calcul surface", "surface d'une pièce", "calcul m2", "convertir pieds carrés en m2", "surface au sol", "revêtement de sol"],
+      "Calculez la surface en pieds carrés d’un rectangle, d’un cercle ou d’un triangle à partir de pieds, pouces, yards, mètres ou centimètres, avec m² et yards carrés.",
+    keywords: ["pieds carrés", "calcul surface", "surface d’une pièce", "calcul m2", "convertir pieds carrés en m2", "surface au sol", "revêtement de sol"],
     intro: [
-      "La surface en pieds carrés est l'aire d'une surface mesurée en pieds carrés. Elle sert pour les revêtements de sol, la peinture, le carrelage, la moquette et les annonces immobilières.",
-      "Mesurez chaque dimension, choisissez la forme et l'unité, et le calculateur convertit la surface en pieds carrés, mètres carrés et yards carrés.",
+      "La surface en pieds carrés est l’aire d’une surface mesurée en pieds carrés. Elle sert pour les revêtements de sol, la peinture, le carrelage, la moquette et les annonces immobilières.",
+      "Mesurez chaque dimension, choisissez la forme et l’unité, et le calculateur convertit la surface en pieds carrés, mètres carrés et yards carrés.",
     ],
     howToUse: [
       "Choisissez la forme : rectangle, cercle ou triangle.",
-      "Sélectionnez l'unité dans laquelle vous avez mesuré.",
+      "Sélectionnez l’unité dans laquelle vous avez mesuré.",
       "Saisissez les dimensions et, si nécessaire, le nombre de surfaces identiques.",
       "Lisez la surface en pieds carrés, mètres carrés et yards carrés.",
     ],
@@ -25,7 +25,7 @@ const fr: CalculatorTranslation<SquareFootageText> = {
       { title: "Cercle", expression: "Surface = π × (diamètre ÷ 2)²", explanation: "La moitié du diamètre correspond au rayon." },
       { title: "Triangle", expression: "Surface = base × hauteur ÷ 2", explanation: "La hauteur se mesure perpendiculairement à la base." },
       {
-        title: "Conversion d'unités",
+        title: "Conversion d’unités",
         expression: "1 pi = 12 po = 0,3048 m\n1 pi² = 0,09290304 m²\n1 yd² = 9 pi²",
         explanation: "Les surfaces se convertissent avec le carré du facteur de longueur.",
       },
@@ -37,7 +37,7 @@ const fr: CalculatorTranslation<SquareFootageText> = {
     ],
     assumptions: [
       "Les mesures sont prises à angle droit et la forme est régulière.",
-      "Pour les pièces en L ou irrégulières, divisez l'espace en rectangles et additionnez les résultats.",
+      "Pour les pièces en L ou irrégulières, divisez l’espace en rectangles et additionnez les résultats.",
       "Prévoyez du matériau supplémentaire (souvent 5 à 10 %) pour les découpes et les chutes ; ce calculateur donne uniquement la surface exacte.",
     ],
     faqs: [

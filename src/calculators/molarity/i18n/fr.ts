@@ -5,13 +5,13 @@ const fr: CalculatorTranslation<MolarityText> = {
   content: {
     title: "Calculateur de molarité",
     shortTitle: "Molarité",
-    summary: "Calculez la concentration molaire d'une solution à partir de la masse de soluté, de sa masse molaire et du volume.",
+    summary: "Calculez la concentration molaire d’une solution à partir de la masse de soluté, de sa masse molaire et du volume.",
     metaTitle: "Calculateur de molarité – Concentration molaire (mol/L)",
     metaDescription:
       "Calculez la molarité en mol/L à partir de la masse de soluté, de sa masse molaire et du volume de la solution, avec la quantité de matière et la valeur en millimolaire.",
     keywords: ["molarité", "concentration molaire", "calcul concentration molaire", "mol/L", "quantité de matière", "solution", "chimie"],
     intro: [
-      "La molarité est le nombre de moles de soluté par litre de solution. C'est la façon la plus courante d'exprimer une concentration en laboratoire de chimie.",
+      "La molarité est le nombre de moles de soluté par litre de solution. C’est la façon la plus courante d’exprimer une concentration en laboratoire de chimie.",
       "Saisissez la masse pesée, la masse molaire du soluté et le volume final de la solution.",
     ],
     howToUse: [
@@ -30,16 +30,16 @@ const fr: CalculatorTranslation<MolarityText> = {
     ],
     assumptions: [
       "Le volume est le volume final de la solution, une fois le soluté dissous.",
-      "La masse molaire doit correspondre à la forme exacte utilisée, eau d'hydratation comprise le cas échéant.",
+      "La masse molaire doit correspondre à la forme exacte utilisée, eau d’hydratation comprise le cas échéant.",
     ],
     faqs: [
       {
         question: "Quelle est la différence entre molarité et molalité ?",
-        answer: "La molarité s'exprime en moles par litre de solution ; la molalité, en moles par kilogramme de solvant.",
+        answer: "La molarité s’exprime en moles par litre de solution ; la molalité, en moles par kilogramme de solvant.",
       },
       {
         question: "Comment préparer une solution à 1 M ?",
-        answer: "Dissolvez une quantité de soluté égale à sa masse molaire en grammes, puis ajoutez du solvant jusqu'à obtenir un volume total de 1 litre.",
+        answer: "Dissolvez une quantité de soluté égale à sa masse molaire en grammes, puis ajoutez du solvant jusqu’à obtenir un volume total de 1 litre.",
       },
       { question: "Que signifie mM ?", answer: "Millimolaire : un millième de mole par litre." },
     ],
@@ -48,7 +48,7 @@ const fr: CalculatorTranslation<MolarityText> = {
   text: {
     mass: "Masse de soluté",
     molarMass: "Masse molaire",
-    molarMassHelp: "D'après le tableau périodique, par exemple NaCl = 58,44 g/mol.",
+    molarMassHelp: "D’après le tableau périodique, par exemple NaCl = 58,44 g/mol.",
     volume: "Volume de la solution",
     volumeUnit: "Unité de volume",
     volumeUnits: { L: "Litres (L)", mL: "Millilitres (mL)" },

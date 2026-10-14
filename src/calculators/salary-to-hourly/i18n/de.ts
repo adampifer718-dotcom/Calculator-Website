@@ -3,10 +3,10 @@ import type { SalaryToHourlyText } from "../text/en";
 
 const de: CalculatorTranslation<SalaryToHourlyText> = {
   content: {
-    title: "Gehalt-in-Stundenlohn-Rechner",
+    title: "Stundenlohnrechner",
     shortTitle: "Gehalt in Stundenlohn",
     summary: "Rechnen Sie Jahres-, Monats-, Zweiwochen- oder andere Bruttobezüge anhand Ihrer eigenen Arbeitszeit in einen Stundenlohn um.",
-    metaTitle: "Gehalt-in-Stundenlohn-Rechner – jeden Zahlungszeitraum umrechnen",
+    metaTitle: "Stundenlohnrechner – jeden Zahlungszeitraum umrechnen",
     metaDescription:
       "Rechnen Sie Ihr Gehalt in einen Stundenlohn um: Jahres-, Monats-, Halbmonats-, Zweiwochen-, Wochen- oder Tagesbrutto mit Ihren Stunden, Arbeitstagen und Wochen.",
     keywords: ["Gehalt in Stundenlohn", "Stundenlohn berechnen", "Jahresgehalt in Stundenlohn", "Monatsgehalt in Stundenlohn", "Bruttostundenlohn", "Stundensatz Rechner"],

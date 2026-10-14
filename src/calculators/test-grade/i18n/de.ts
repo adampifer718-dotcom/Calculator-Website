@@ -3,10 +3,10 @@ import type { TestGradeText } from "../text/en";
 
 const de: CalculatorTranslation<TestGradeText> = {
   content: {
-    title: "Testnotenrechner",
+    title: "Notenrechner",
     shortTitle: "Testnote",
     summary: "Wandeln Sie richtige Antworten oder Punkte in ein Ergebnis in Prozent und eine Buchstabennote um.",
-    metaTitle: "Testnotenrechner – Prozentsatz und Buchstabennote",
+    metaTitle: "Notenrechner – Prozentsatz und Buchstabennote",
     metaDescription:
       "Ermitteln Sie das Testergebnis in Prozent und die Buchstabennote aus der Zahl richtiger oder falscher Antworten oder aus den erreichten Punkten von der Gesamtpunktzahl.",
     keywords: ["Notenrechner", "Testergebnis Prozent", "Punkte in Prozent", "Prüfung Note berechnen", "Klausur Punkte", "Buchstabennote"],

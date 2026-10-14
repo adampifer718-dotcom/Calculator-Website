@@ -3,10 +3,10 @@ import type { PValueText } from "../text/en";
 
 const de: CalculatorTranslation<PValueText> = {
   content: {
-    title: "P-Wert-Rechner",
-    shortTitle: "P-Wert",
+    title: "p-Wert-Rechner",
+    shortTitle: "p-Wert",
     summary: "Ermitteln Sie den p-Wert für einen z-Wert oder t-Wert bei einem zweiseitigen, linksseitigen oder rechtsseitigen Test.",
-    metaTitle: "P-Wert-Rechner – aus z-Wert oder t-Wert",
+    metaTitle: "p-Wert-Rechner – aus z-Wert oder t-Wert",
     metaDescription: "Berechnen Sie den p-Wert aus einem z-Wert oder einem t-Wert mit Freiheitsgraden – für zweiseitige, linksseitige oder rechtsseitige Hypothesentests.",
     keywords: ["p-Wert berechnen", "p-Wert", "z-Wert", "t-Wert", "Hypothesentest", "Signifikanz", "t-Test", "Statistik"],
     intro: [

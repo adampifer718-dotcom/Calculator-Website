@@ -3,10 +3,10 @@ import type { OhmsLawText } from "../text/en";
 
 const de: CalculatorTranslation<OhmsLawText> = {
   content: {
-    title: "Ohmsches-Gesetz-Rechner",
+    title: "Rechner für das ohmsche Gesetz",
     shortTitle: "Ohmsches Gesetz",
     summary: "Berechnen Sie Spannung, Strom, Widerstand und Leistung aus zwei beliebigen der Werte V, I und R.",
-    metaTitle: "Ohmsches-Gesetz-Rechner – Spannung, Strom, Widerstand",
+    metaTitle: "Rechner für das ohmsche Gesetz – Spannung, Strom, Widerstand",
     metaDescription: "Berechnen Sie mit dem ohmschen Gesetz Spannung, Strom oder Widerstand aus den beiden anderen Werten sowie die umgesetzte elektrische Leistung – mit Formeln.",
     keywords: ["ohmsches Gesetz", "ohmsches Gesetz Rechner", "Spannung berechnen", "Widerstand berechnen", "Stromstärke berechnen", "Leistung Watt", "Elektrotechnik"],
     intro: [

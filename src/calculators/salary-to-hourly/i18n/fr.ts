@@ -3,10 +3,10 @@ import type { SalaryToHourlyText } from "../text/en";
 
 const fr: CalculatorTranslation<SalaryToHourlyText> = {
   content: {
-    title: "Calculateur de salaire horaire",
+    title: "Calculateur de salaire en taux horaire",
     shortTitle: "Salaire en taux horaire",
     summary: "Convertissez une rémunération brute annuelle, mensuelle, toutes les deux semaines ou autre en taux horaire selon votre propre emploi du temps.",
-    metaTitle: "Calculateur de salaire horaire – Convertir toute période de paie",
+    metaTitle: "Calculateur de salaire en taux horaire – Convertir toute période de paie",
     metaDescription:
       "Convertissez un salaire en taux horaire. Saisissez une rémunération brute annuelle, mensuelle, bimensuelle, hebdomadaire ou journalière et votre temps de travail.",
     keywords: ["salaire horaire", "convertir salaire annuel en horaire", "taux horaire brut", "salaire mensuel en horaire", "calcul salaire par heure", "brut horaire"],

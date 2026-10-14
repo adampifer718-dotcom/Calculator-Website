@@ -12,7 +12,7 @@ const fr: CalculatorTranslation<ProfitMarginText> = {
     keywords: ["calcul marge", "marge bénéficiaire", "taux de marge", "taux de marque", "marge brute", "coefficient multiplicateur", "prix de vente", "e-commerce"],
     intro: [
       "Le taux de marge et le taux de marque décrivent tous deux le bénéfice, mais par rapport à des bases différentes. La marge compare le bénéfice au prix de vente ; la marque le compare au coût.",
-      "Saisissez ce qu'un article vous coûte et le prix auquel vous le vendez.",
+      "Saisissez ce qu’un article vous coûte et le prix auquel vous le vendez.",
     ],
     howToUse: ["Saisissez le coût.", "Saisissez le prix de vente.", "Consultez le bénéfice, le taux de marge et le taux de marque."],
     formulas: [
@@ -31,8 +31,8 @@ const fr: CalculatorTranslation<ProfitMarginText> = {
       },
     ],
     assumptions: [
-      "Il s'agit de la marge brute : seul le coût saisi est pris en compte, pas les frais généraux ni les impôts.",
-      "Le choix d'une devise ne modifie que la mise en forme.",
+      "Il s’agit de la marge brute : seul le coût saisi est pris en compte, pas les frais généraux ni les impôts.",
+      "Le choix d’une devise ne modifie que la mise en forme.",
     ],
     faqs: [
       {
@@ -52,7 +52,7 @@ const fr: CalculatorTranslation<ProfitMarginText> = {
   },
   text: {
     cost: "Coût",
-    price: "Prix de vente (chiffre d'affaires)",
+    price: "Prix de vente (chiffre d’affaires)",
     margin: "Taux de marge",
     caption: "Bénéfice exprimé en part du prix de vente.",
     profit: "Bénéfice",

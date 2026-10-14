@@ -11,24 +11,24 @@ const fr: CalculatorTranslation<WeightConverterText> = {
       "Convertissez un poids (une masse) entre kilogrammes, grammes, milligrammes, tonnes, livres, onces et stones grâce à la définition internationale exacte de la livre.",
     keywords: ["convertisseur de poids", "convertir kg en livres", "livres en kg", "onces en grammes", "conversion lb kg", "stone en kg", "conversion de masse"],
     intro: [
-      "Convertissez un poids entre unités métriques et impériales. Au sens strict, il s'agit d'unités de masse, ce qu'indiquent les balances.",
-      "La livre est définie comme valant exactement 0,45359237 kg : toutes les conversions sont donc exactes avant l'arrondi à l'affichage.",
+      "Convertissez un poids entre unités métriques et impériales. Au sens strict, il s’agit d’unités de masse, ce qu’indiquent les balances.",
+      "La livre est définie comme valant exactement 0,45359237 kg : toutes les conversions sont donc exactes avant l’arrondi à l’affichage.",
     ],
     howToUse: [
       "Saisissez la valeur.",
-      "Choisissez l'unité de départ et l'unité d'arrivée.",
+      "Choisissez l’unité de départ et l’unité d’arrivée.",
       "Lisez le résultat et le tableau complet.",
     ],
     formulas: [
       {
         title: "Conversion via le kilogramme",
-        expression: "résultat = valeur × (kg par unité de départ) ÷ (kg par unité d'arrivée)",
+        expression: "résultat = valeur × (kg par unité de départ) ÷ (kg par unité d’arrivée)",
         explanation: "Chaque unité est définie comme un nombre fixe de kilogrammes.",
       },
       {
         title: "Facteurs clés",
         expression: "1 lb = 0,45359237 kg\n1 oz = 1/16 lb = 28,349523125 g\n1 st = 14 lb\n1 t = 1 000 kg",
-        explanation: "Il s'agit d'onces avoirdupois, utilisées pour les aliments et le poids corporel.",
+        explanation: "Il s’agit d’onces avoirdupois, utilisées pour les aliments et le poids corporel.",
       },
     ],
     examples: [
@@ -41,7 +41,7 @@ const fr: CalculatorTranslation<WeightConverterText> = {
     ],
     faqs: [
       { question: "Combien de livres y a-t-il dans un kilogramme ?", answer: "Environ 2,2046 livres." },
-      { question: "Combien d'onces y a-t-il dans une livre ?", answer: "Exactement 16 onces avoirdupois." },
+      { question: "Combien d’onces y a-t-il dans une livre ?", answer: "Exactement 16 onces avoirdupois." },
       { question: "Combien vaut un stone ?", answer: "14 livres, soit environ 6,35 kg." },
     ],
     sourcesUsedFor: ["Définition exacte de la livre et des unités apparentées en kilogrammes."],

@@ -5,19 +5,19 @@ const fr: CalculatorTranslation<TipText> = {
   content: {
     title: "Calculateur de pourboire",
     shortTitle: "Pourboire",
-    summary: "Calculez le pourboire, le total de l'addition et ce que chacun paie en cas de partage.",
-    metaTitle: "Calculateur de pourboire – Montant et partage de l'addition",
+    summary: "Calculez le pourboire, le total de l’addition et ce que chacun paie en cas de partage.",
+    metaTitle: "Calculateur de pourboire – Montant et partage de l’addition",
     metaDescription:
-      "Calculez le pourboire pour n'importe quelle addition et n'importe quel pourcentage, le total pourboire compris et ce que paie chaque personne si l'addition est partagée.",
-    keywords: ["calcul pourboire", "pourboire restaurant", "partager l'addition", "combien laisser de pourboire", "diviser l'addition", "frais de service"],
+      "Calculez le pourboire pour n’importe quelle addition et n’importe quel pourcentage, le total pourboire compris et ce que paie chaque personne si l’addition est partagée.",
+    keywords: ["calcul pourboire", "pourboire restaurant", "partager l’addition", "combien laisser de pourboire", "diviser l’addition", "frais de service"],
     intro: [
-      "Saisissez le montant de l'addition et un pourcentage de pourboire pour voir le pourboire et le total. Indiquez le nombre de personnes pour le partager à parts égales.",
+      "Saisissez le montant de l’addition et un pourcentage de pourboire pour voir le pourboire et le total. Indiquez le nombre de personnes pour le partager à parts égales.",
       "Les usages varient selon le pays et le service : choisissez le pourcentage qui convient.",
     ],
     howToUse: [
-      "Saisissez le montant de l'addition.",
+      "Saisissez le montant de l’addition.",
       "Saisissez le pourcentage de pourboire.",
-      "Indiquez le nombre de personnes qui partagent l'addition.",
+      "Indiquez le nombre de personnes qui partagent l’addition.",
       "Consultez le pourboire, le total et le montant par personne.",
     ],
     formulas: [
@@ -39,8 +39,8 @@ const fr: CalculatorTranslation<TipText> = {
       },
     ],
     assumptions: [
-      "L'addition est partagée à parts égales ; les montants sont arrondis au centime uniquement à l'affichage.",
-      "Le choix d'une devise ne modifie que la mise en forme.",
+      "L’addition est partagée à parts égales ; les montants sont arrondis au centime uniquement à l’affichage.",
+      "Le choix d’une devise ne modifie que la mise en forme.",
     ],
     faqs: [
       {
@@ -53,13 +53,13 @@ const fr: CalculatorTranslation<TipText> = {
       },
       {
         question: "Comment partager une addition de façon inégale ?",
-        answer: "Calculez séparément la part de l'addition de chaque personne, puis appliquez le pourcentage de pourboire à chacune.",
+        answer: "Calculez séparément la part de l’addition de chaque personne, puis appliquez le pourcentage de pourboire à chacune.",
       },
     ],
     sourcesUsedFor: [],
   },
   text: {
-    bill: "Montant de l'addition",
+    bill: "Montant de l’addition",
     percent: "Pourcentage de pourboire",
     people: "Nombre de personnes",
     tip: "Pourboire",

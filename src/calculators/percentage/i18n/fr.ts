@@ -5,11 +5,11 @@ const fr: CalculatorTranslation<PercentageText> = {
   content: {
     title: "Calculateur de pourcentage",
     shortTitle: "Pourcentage",
-    summary: "Calculez X % d'un nombre, le pourcentage qu'un nombre représente par rapport à un autre, ou le total à partir d'une partie et d'un pourcentage.",
-    metaTitle: "Calculateur de pourcentage – Pourcentage d'un nombre et plus",
+    summary: "Calculez X % d’un nombre, le pourcentage qu’un nombre représente par rapport à un autre, ou le total à partir d’une partie et d’un pourcentage.",
+    metaTitle: "Calculateur de pourcentage – Pourcentage d’un nombre et plus",
     metaDescription:
       "Calculateur de pourcentage gratuit : calculez X % de Y, trouvez quel pourcentage X représente de Y, ou retrouvez le total, avec formules et exemples.",
-    keywords: ["calcul pourcentage", "pourcentage d'un nombre", "calculer un pourcentage", "quel pourcentage", "calculateur pourcentage", "proportion"],
+    keywords: ["calcul pourcentage", "pourcentage d’un nombre", "calculer un pourcentage", "quel pourcentage", "calculateur pourcentage", "proportion"],
     intro: [
       "Ce calculateur répond aux trois questions de pourcentage les plus courantes. Choisissez une question, saisissez deux nombres, et la réponse se met à jour pendant la saisie.",
       "Un pourcentage exprime une part sur cent : 25 % signifie donc 25 sur 100.",
@@ -17,7 +17,7 @@ const fr: CalculatorTranslation<PercentageText> = {
     howToUse: [
       "Choisissez la question à laquelle vous souhaitez répondre.",
       "Saisissez les deux valeurs connues. Les nombres négatifs et décimaux sont acceptés.",
-      "Lisez le résultat et la formule utilisée pour l'obtenir.",
+      "Lisez le résultat et la formule utilisée pour l’obtenir.",
     ],
     formulas: [
       { title: "Combien font X % de Y ?", expression: "Résultat = X ÷ 100 × Y", explanation: "Convertissez le pourcentage en nombre décimal, puis multipliez." },
@@ -38,12 +38,12 @@ const fr: CalculatorTranslation<PercentageText> = {
       { title: "30 représente 12 % de quel nombre ?", steps: ["12 ÷ 100 = 0,12", "30 ÷ 0,12 = 250"] },
     ],
     assumptions: [
-      "Les résultats s'affichent avec 4 à 6 décimales au maximum. Les calculs utilisent la précision complète.",
-      "La division par zéro n'a pas de résultat : le total (ou le pourcentage) ne peut donc pas valoir 0 dans les deuxième et troisième questions.",
+      "Les résultats s’affichent avec 4 à 6 décimales au maximum. Les calculs utilisent la précision complète.",
+      "La division par zéro n’a pas de résultat : le total (ou le pourcentage) ne peut donc pas valoir 0 dans les deuxième et troisième questions.",
     ],
     faqs: [
       {
-        question: "Comment calculer le pourcentage d'un nombre ?",
+        question: "Comment calculer le pourcentage d’un nombre ?",
         answer: "Divisez le pourcentage par 100 et multipliez par le nombre. Par exemple, 15 % de 80 font 0,15 × 80 = 12.",
       },
       {
@@ -56,7 +56,7 @@ const fr: CalculatorTranslation<PercentageText> = {
       },
       {
         question: "Comment calculer une augmentation en pourcentage entre deux nombres ?",
-        answer: "Utilisez le calculateur d'augmentation en pourcentage, qui divise la variation par la valeur initiale puis multiplie par 100.",
+        answer: "Utilisez le calculateur d’augmentation en pourcentage, qui divise la variation par la valeur initiale puis multiplie par 100.",
       },
     ],
     sourcesUsedFor: [],

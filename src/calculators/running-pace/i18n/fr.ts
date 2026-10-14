@@ -3,15 +3,15 @@ import type { RunningPaceText } from "../text/en";
 
 const fr: CalculatorTranslation<RunningPaceText> = {
   content: {
-    title: "Calculateur d'allure de course",
+    title: "Calculateur d’allure de course",
     shortTitle: "Allure de course",
     summary: "Calculez votre allure de course au kilomètre et au mile, ainsi que votre vitesse moyenne, à partir de la distance et du temps final.",
-    metaTitle: "Calculateur d'allure de course – Allure au km et au mile",
+    metaTitle: "Calculateur d’allure de course – Allure au km et au mile",
     metaDescription:
       "Calculez votre allure au kilomètre et au mile et votre vitesse moyenne à partir de votre temps pour un 5 km, un 10 km, un semi-marathon, un marathon ou une distance libre.",
     keywords: ["calcul allure course", "allure au km", "min/km", "allure marathon", "allure semi-marathon", "5 km", "10 km", "course à pied"],
     intro: [
-      "L'allure est le temps nécessaire pour parcourir un kilomètre ou un mile. C'est ainsi que la plupart des coureurs préparent et comparent leurs courses.",
+      "L’allure est le temps nécessaire pour parcourir un kilomètre ou un mile. C’est ainsi que la plupart des coureurs préparent et comparent leurs courses.",
       "Choisissez une distance de course ou saisissez la vôtre, ajoutez votre temps final, et consultez votre allure et votre vitesse.",
     ],
     howToUse: [
@@ -28,14 +28,14 @@ const fr: CalculatorTranslation<RunningPaceText> = {
       { title: "Marathon en 3 h 30 min", steps: ["12 600 s ÷ 42,195 km ≈ 298,6 s", "≈ 4:59 par km"] },
     ],
     assumptions: [
-      "Suppose une allure moyenne régulière sur toute la distance ; les temps intermédiaires varient selon le terrain et l'effort.",
+      "Suppose une allure moyenne régulière sur toute la distance ; les temps intermédiaires varient selon le terrain et l’effort.",
       "Les allures sont arrondies à la seconde près.",
       "Distances de course : semi-marathon 21,0975 km, marathon 42,195 km.",
     ],
     faqs: [
       {
-        question: "Qu'est-ce qu'une bonne allure sur 5 km ?",
-        answer: "Cela dépend de l'âge, de l'expérience et du terrain. Suivez l'évolution de votre propre allure plutôt que de vous comparer aux autres.",
+        question: "Qu’est-ce qu’une bonne allure sur 5 km ?",
+        answer: "Cela dépend de l’âge, de l’expérience et du terrain. Suivez l’évolution de votre propre allure plutôt que de vous comparer aux autres.",
       },
       {
         question: "Comment convertir une allure au km en allure au mile ?",
@@ -43,7 +43,7 @@ const fr: CalculatorTranslation<RunningPaceText> = {
       },
       {
         question: "Comment déterminer un temps cible ?",
-        answer: "Choisissez une allure cible et multipliez-la par la distance, ou ajustez ici le temps jusqu'à ce que l'allure corresponde à votre objectif.",
+        answer: "Choisissez une allure cible et multipliez-la par la distance, ou ajustez ici le temps jusqu’à ce que l’allure corresponde à votre objectif.",
       },
     ],
     sourcesUsedFor: [],

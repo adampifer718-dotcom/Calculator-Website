@@ -32,8 +32,8 @@ const fr: CalculatorTranslation<SpeedDistanceTimeText> = {
       { title: "90 miles à 60 mph", steps: ["Temps = 90 ÷ 60 = 1,5 h", "= 1 h 30 min"] },
     ],
     assumptions: [
-      "Donne la vitesse moyenne sur l'ensemble du trajet ; la vitesse réelle peut varier en cours de route.",
-      "Les durées sont arrondies à la minute la plus proche à l'affichage.",
+      "Donne la vitesse moyenne sur l’ensemble du trajet ; la vitesse réelle peut varier en cours de route.",
+      "Les durées sont arrondies à la minute la plus proche à l’affichage.",
     ],
     faqs: [
       {
@@ -43,7 +43,7 @@ const fr: CalculatorTranslation<SpeedDistanceTimeText> = {
       { question: "Comment convertir des km/h en m/s ?", answer: "Divisez par 3,6. Ainsi, 72 km/h correspondent à 20 m/s." },
       {
         question: "La vitesse est-elle la même chose que la vélocité ?",
-        answer: "La vélocité (vecteur vitesse) possède aussi une direction. Pour un trajet le long d'un itinéraire, c'est généralement la vitesse moyenne qui vous intéresse.",
+        answer: "La vélocité (vecteur vitesse) possède aussi une direction. Pour un trajet le long d’un itinéraire, c’est généralement la vitesse moyenne qui vous intéresse.",
       },
     ],
     sourcesUsedFor: ["Définition de la vitesse moyenne et du vecteur vitesse."],
