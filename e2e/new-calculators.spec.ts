@@ -3,6 +3,8 @@ import { expect, test, type Page } from "@playwright/test";
 const results = (page: Page) => page.locator('section[aria-labelledby="results-heading"]');
 const primary = (page: Page) => results(page).locator("[aria-live] p").nth(1);
 const field = (page: Page, id: string) => page.locator(`[id$="-${id}"]`).first();
+/** A segmented option or other text inside the calculator's input form. */
+const option = (page: Page, label: string) => page.locator("form").getByText(label, { exact: true });
 
 async function open(page: Page, path: string) {
   await page.goto(path);
@@ -27,7 +29,7 @@ test("GPA calculator weights grades by credits", async ({ page }) => {
   await field(page, "priorGpa").fill("3.2");
   await field(page, "priorCredits").fill("45");
   await expect(primary(page)).toHaveText("3.57");
-  await expect(results(page).getByText("3.25")).toBeVisible();
+  await expect(results(page).getByText("3.25", { exact: true })).toBeVisible();
 });
 
 test("age calculator prefills today and handles 29 February", async ({ page }) => {
@@ -49,13 +51,13 @@ test("date duration calculator counts days and weekdays", async ({ page }) => {
   await field(page, "start").fill("2026-01-01");
   await field(page, "end").fill("2026-10-14");
   await expect(primary(page)).toHaveText("286");
-  await expect(results(page).getByText("204")).toBeVisible();
+  await expect(results(page).getByText("204", { exact: true })).toBeVisible();
 });
 
 test("mortgage calculator separates principal and interest from other costs", async ({ page }) => {
   await open(page, "/calculators/mortgage-calculator");
   await expect(primary(page)).toHaveText("$2,547.62");
-  await expect(results(page).getByText("$2,022.62")).toBeVisible();
+  await expect(results(page).getByText("$2,022.62", { exact: true })).toBeVisible();
   await field(page, "price").fill("300000");
   await field(page, "down").fill("15000");
   await field(page, "rate").fill("6");
@@ -63,30 +65,30 @@ test("mortgage calculator separates principal and interest from other costs", as
   await field(page, "insurance").fill("1200");
   await field(page, "hoa").fill("50");
   await expect(primary(page)).toHaveText("$2,277.47");
-  await expect(results(page).getByText("$118.75")).toBeVisible();
+  await expect(results(page).getByText("$118.75", { exact: true })).toBeVisible();
 });
 
 test("concrete calculator switches shapes and units", async ({ page }) => {
   await open(page, "/calculators/concrete-calculator");
   await expect(primary(page)).toHaveText("1.32 m³");
-  await page.getByText("Round column", { exact: true }).click();
+  await option(page, "Round column").click();
   await expect(field(page, "lengthMetric")).toHaveCount(0);
   await field(page, "diameterMetric").fill("30");
   await field(page, "heightMetric").fill("3");
   await field(page, "waste").fill("0");
   await expect(primary(page)).toHaveText("0.212 m³");
-  await page.getByText("US (ft, in)", { exact: true }).click();
+  await option(page, "US (ft, in)").click();
   await expect(field(page, "diameterImperial")).toBeVisible();
 });
 
 test("cups to grams uses each ingredient's density", async ({ page }) => {
   await open(page, "/calculators/cups-to-grams-converter");
   await expect(primary(page)).toHaveText("240 g");
-  await page.getByLabel("Ingredient").selectOption("honey");
+  await field(page, "ingredient").selectOption("honey");
   await expect(primary(page)).toHaveText("680 g");
-  await page.getByText("Grams to cups", { exact: true }).click();
+  await option(page, "Grams to cups").click();
   await field(page, "grams").fill("113.5");
-  await page.getByLabel("Ingredient").selectOption("butter");
+  await field(page, "ingredient").selectOption("butter");
   await expect(primary(page)).toHaveText("0.5 cups");
 });
 

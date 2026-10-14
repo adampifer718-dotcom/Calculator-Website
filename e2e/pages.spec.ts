@@ -97,7 +97,7 @@ test.describe("published pages", () => {
 test("every calculator page renders a valid default result in every language", async ({ page }) => {
   test.setTimeout(900_000);
   const paths = (await sitemapPaths(page)).filter((p) => /^\/([a-z]{2}\/)?calculators\/./.test(p));
-  expect(paths.length).toBeGreaterThanOrEqual(42 * 6);
+  expect(paths.length).toBeGreaterThanOrEqual(50 * 6);
   for (const path of paths) {
     await page.goto(path);
     const results = page.locator('section[aria-labelledby="results-heading"]');
