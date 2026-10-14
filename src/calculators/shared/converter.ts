@@ -1,3 +1,4 @@
+import { midSentence } from "@/lib/parse";
 import { fill, type EngineContext } from "@/calculators/framework/i18n";
 import { defineEngine } from "@/calculators/framework/types";
 import { convertUnits, findUnit, type UnitDef } from "@/lib/math/units";
@@ -39,7 +40,7 @@ export function unitConverterEngine(ctx: EngineContext<ConverterText>, units: re
       const result = convertUnits(value, fromUnit, toUnit);
       return {
         primary: {
-          label: fill(t.primary, { value: s(value), symbol: fromUnit.symbol, unit: name(toUnit).toLocaleLowerCase(ctx.locale) }),
+          label: fill(t.primary, { value: s(value), symbol: fromUnit.symbol, unit: midSentence(name(toUnit), ctx.locale) }),
           value: { kind: "text", text: `${s(result)} ${toUnit.symbol}` },
           caption: fill(t.caption, { from: fromUnit.symbol, factor: s(convertUnits(1, fromUnit, toUnit)), to: toUnit.symbol }),
         },

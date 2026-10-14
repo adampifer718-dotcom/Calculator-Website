@@ -6,17 +6,17 @@ const fr: CalculatorTranslation<SlopeText> = {
     title: "Calculateur de pente",
     shortTitle: "Pente",
     summary: "Calculez la pente entre deux points, ainsi que l'équation de la droite, l'ordonnée à l'origine, l'angle et la distance.",
-    metaTitle: "Calculateur de pente – Pente d'une droite à partir de deux points",
+    metaTitle: "Calculateur de pente – Pente entre deux points",
     metaDescription:
       "Calculez la pente d'une droite passant par deux points, avec son équation y = mx + b, l'ordonnée à l'origine, l'angle et la distance entre les points.",
     keywords: ["pente d'une droite", "coefficient directeur", "calcul pente", "équation de droite", "y = mx + b", "deux points", "ordonnée à l'origine"],
     intro: [
-      "La pente mesure l'inclinaison d'une droite : de combien y varie pour chaque unité de x. On la décrit souvent comme le rapport entre la variation verticale et la variation horizontale.",
+      "La pente mesure l'inclinaison d'une droite : de combien y varie pour chaque unité de x. On la décrit souvent comme le rapport entre la variation verticale et la variation horizontale.",
       "Saisissez deux points et le calculateur donne aussi l'équation de la droite qui les relie.",
     ],
     howToUse: [
-      "Saisissez les coordonnées du premier point (x₁, y₁).",
-      "Saisissez le second point (x₂, y₂).",
+      "Saisissez les coordonnées du premier point (x₁ ; y₁).",
+      "Saisissez le second point (x₂ ; y₂).",
       "Consultez la pente, l'équation, l'ordonnée à l'origine, l'angle et la distance.",
     ],
     formulas: [
@@ -34,11 +34,11 @@ const fr: CalculatorTranslation<SlopeText> = {
     ],
     examples: [
       {
-        title: "Points (1 ; 3) et (4 ; 9)",
+        title: "Points (1 ; 3) et (4 ; 9)",
         steps: ["m = (9 − 3) ÷ (4 − 1) = 6 ÷ 3 = 2", "b = 3 − 2 × 1 = 1, donc y = 2x + 1"],
       },
       {
-        title: "Points (−2 ; 5) et (3 ; −5)",
+        title: "Points (−2 ; 5) et (3 ; −5)",
         steps: ["m = (−5 − 5) ÷ (3 − (−2)) = −10 ÷ 5", "= −2"],
       },
     ],
@@ -47,10 +47,10 @@ const fr: CalculatorTranslation<SlopeText> = {
       "Les résultats sont affichés avec 6 décimales.",
     ],
     faqs: [
-      { question: "Que signifie une pente négative ?", answer: "La droite descend de gauche à droite." },
-      { question: "Quelle est la pente d'une droite horizontale ?", answer: "0, car y ne varie pas." },
+      { question: "Que signifie une pente négative ?", answer: "La droite descend de gauche à droite." },
+      { question: "Quelle est la pente d'une droite horizontale ?", answer: "0, car y ne varie pas." },
       {
-        question: "Quel est le lien entre la pente et l'angle ?",
+        question: "Quel est le lien entre la pente et l'angle ?",
         answer: "La pente est la tangente de l'angle que forme la droite avec l'axe des abscisses. Une pente de 1 correspond à 45°.",
       },
     ],
