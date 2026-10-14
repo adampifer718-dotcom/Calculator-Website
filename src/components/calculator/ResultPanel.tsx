@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import type { Evaluation } from "@/calculators/framework/evaluate";
-import { formatResultValue } from "@/calculators/framework/format-result";
+import { formatResultValue, resultDir } from "@/calculators/framework/format-result";
 import type { Locale } from "@/i18n/config";
 
 interface ResultPanelProps {
@@ -26,7 +26,7 @@ export function ResultPanel({ evaluation, currency, locale, formError }: ResultP
             <>
               <p className="mt-2 text-sm font-medium text-neutral-600">{evaluation.result.primary.label}</p>
               <p className="mt-1 text-4xl font-bold tracking-tight break-words text-ink-900 tabular-nums sm:text-5xl">
-                <bdi>{format(evaluation.result.primary.value)}</bdi>
+                <bdi dir={resultDir(evaluation.result.primary.value)}>{format(evaluation.result.primary.value)}</bdi>
               </p>
               {evaluation.result.primary.caption && <p className="mt-2 text-sm text-neutral-600">{evaluation.result.primary.caption}</p>}
             </>
@@ -43,7 +43,7 @@ export function ResultPanel({ evaluation, currency, locale, formError }: ResultP
                 <div key={item.label} className="rounded-lg bg-neutral-50 p-3">
                   <dt className="text-xs font-medium text-neutral-600">{item.label}</dt>
                   <dd className="mt-0.5 text-lg font-semibold break-words text-ink-900 tabular-nums">
-                    <bdi>{format(item.value)}</bdi>
+                    <bdi dir={resultDir(item.value)}>{format(item.value)}</bdi>
                   </dd>
                 </div>
               ))}
@@ -70,7 +70,7 @@ export function ResultPanel({ evaluation, currency, locale, formError }: ResultP
                       </th>
                       {row.cells.map((cell, index) => (
                         <td key={index} className="py-2 pe-2 text-end text-ink-900 tabular-nums">
-                          <bdi>{format(cell)}</bdi>
+                          <bdi dir={resultDir(cell)}>{format(cell)}</bdi>
                         </td>
                       ))}
                     </tr>

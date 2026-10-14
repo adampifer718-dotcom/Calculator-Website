@@ -1,6 +1,6 @@
 import { describeInputs } from "@/calculators/framework/describe-inputs";
 import { evaluate, rawFromValues } from "@/calculators/framework/evaluate";
-import { formatResultValue } from "@/calculators/framework/format-result";
+import { formatResultValue, resultDir } from "@/calculators/framework/format-result";
 import type { LocalizedCalculator } from "@/calculators/localize";
 import { DEFAULT_CURRENCY } from "@/lib/format";
 
@@ -38,7 +38,7 @@ export function WorkedExamples({ calculator }: { calculator: LocalizedCalculator
               <p className="mt-auto pt-4 text-sm text-neutral-600">
                 {evaluation.result.primary.label}:{" "}
                 <strong className="text-base font-semibold text-brand-800 tabular-nums">
-                  <bdi>{formatResultValue(evaluation.result.primary.value, currency, locale)}</bdi>
+                  <bdi dir={resultDir(evaluation.result.primary.value)}>{formatResultValue(evaluation.result.primary.value, currency, locale)}</bdi>
                 </strong>
               </p>
             )}

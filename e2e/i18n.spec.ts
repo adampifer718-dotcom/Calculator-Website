@@ -24,7 +24,7 @@ test("language selector is visible, lists native names and marks the active lang
     await expect(list.getByRole("link", { name: new RegExp(name) })).toBeVisible();
   }
   await expect(list.locator('[aria-current="true"]')).toHaveAttribute("hreflang", "en");
-  await expect(list.locator('a[hreflang="ar"]')).toHaveAttribute("dir", "rtl");
+  await expect(list.locator('a[hreflang="ar"] [dir="rtl"]')).toHaveText("العربية");
   // The dropdown stays inside the viewport.
   const box = await list.boundingBox();
   const width = page.viewportSize()!.width;
@@ -39,6 +39,8 @@ test("selector is keyboard accessible", async ({ page }) => {
   await page.keyboard.press("Enter");
   const list = switcher(page).locator("ul");
   await expect(list).toBeVisible();
+  await page.keyboard.press("ArrowDown");
+  await expect(list.locator("a").first()).toBeFocused();
   await page.keyboard.press("ArrowDown");
   await expect(list.locator("a").nth(1)).toBeFocused();
   await page.keyboard.press("End");

@@ -18,3 +18,14 @@ export function formatResultValue(value: ResultValue, currency: string, locale: 
       return value.text;
   }
 }
+
+/**
+ * Text direction for a displayed result. Amounts and plain numbers are kept
+ * left-to-right so symbols such as "US$" or "−" stay attached in RTL pages;
+ * values with translated words follow their own direction.
+ */
+export function resultDir(value: ResultValue): "ltr" | "auto" {
+  if (value.kind === "currency" || value.kind === "percent") return "ltr";
+  if (value.kind === "number" && !value.suffix) return "ltr";
+  return "auto";
+}

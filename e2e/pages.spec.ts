@@ -10,7 +10,7 @@ async function sitemapPaths(page: Page): Promise<string[]> {
 
 test.describe("published pages", () => {
   // These tests crawl every page in the sitemap.
-  test.describe.configure({ timeout: 240_000 });
+  test.describe.configure({ timeout: 1_800_000 }); // ~480 pages across six languages
 
   test("sitemap lists only working, indexable, uniquely described pages", async ({ page }) => {
     const paths = await sitemapPaths(page);
@@ -94,21 +94,22 @@ test.describe("published pages", () => {
   });
 });
 
-test("every calculator page renders a valid default result", async ({ page }) => {
-  test.setTimeout(120_000);
-  const paths = (await sitemapPaths(page)).filter((p) => p.startsWith("/calculators/"));
-  expect(paths.length).toBeGreaterThanOrEqual(20);
+test("every calculator page renders a valid default result in every language", async ({ page }) => {
+  test.setTimeout(900_000);
+  const paths = (await sitemapPaths(page)).filter((p) => /^\/([a-z]{2}\/)?calculators\/./.test(p));
+  expect(paths.length).toBeGreaterThanOrEqual(42 * 6);
   for (const path of paths) {
     await page.goto(path);
-    const results = page.getByRole("region", { name: "Results" });
+    const results = page.locator('section[aria-labelledby="results-heading"]');
     await expect(results, path).toBeVisible();
-    await expect(results.getByText("Check the highlighted inputs"), path).toHaveCount(0);
+    // A failed evaluation shows the amber "check your inputs" notice instead of a value.
+    await expect(results.locator(".border-amber-300"), path).toHaveCount(0);
     await expect(page.locator("[aria-invalid=true]"), path).toHaveCount(0);
   }
 });
 
 test("no horizontal scrolling on a 320px-wide phone", async ({ browser }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(900_000);
   const context = await browser.newContext({ viewport: { width: 320, height: 640 } });
   const page = await context.newPage();
   for (const path of await sitemapPaths(page)) {

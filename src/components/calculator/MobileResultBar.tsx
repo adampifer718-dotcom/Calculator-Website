@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import type { Evaluation } from "@/calculators/framework/evaluate";
-import { formatResultValue } from "@/calculators/framework/format-result";
+import { formatResultValue, resultDir } from "@/calculators/framework/format-result";
 import type { Locale } from "@/i18n/config";
 
 /**
@@ -20,7 +20,7 @@ export function MobileResultBar({ evaluation, currency, locale, hidden }: { eval
           <span className="min-w-0">
             <span className="block truncate text-xs font-medium text-neutral-600">{evaluation.result.primary.label}</span>
             <span className="block truncate text-xl font-bold text-ink-900 tabular-nums">
-              <bdi>{formatResultValue(evaluation.result.primary.value, currency, locale)}</bdi>
+              <bdi dir={resultDir(evaluation.result.primary.value)}>{formatResultValue(evaluation.result.primary.value, currency, locale)}</bdi>
             </span>
           </span>
         ) : (

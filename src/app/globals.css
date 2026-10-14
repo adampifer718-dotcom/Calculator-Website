@@ -77,3 +77,17 @@ html[dir="rtl"] body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Long compound words (German "Standardabweichungsrechner") must wrap on narrow phones. */
+h1,
+h2,
+h3,
+.card {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Let grid cards shrink below their longest word so text wraps instead of overflowing. */
+.grid > * {
+  min-width: 0;
+}

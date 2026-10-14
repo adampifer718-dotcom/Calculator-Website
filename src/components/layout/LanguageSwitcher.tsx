@@ -67,7 +67,9 @@ export function LanguageSwitcher({ locale, locales, availability, variant = "ful
   const onButtonKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === "ArrowDown" || event.key === "ArrowUp") {
       event.preventDefault();
-      openMenu(true);
+      // Already open (e.g. after Enter): move into the list; otherwise open and focus the first item.
+      if (open) itemRefs.current[event.key === "ArrowUp" ? items.length - 1 : 0]?.focus();
+      else openMenu(true);
     }
   };
 
@@ -139,14 +141,13 @@ export function LanguageSwitcher({ locale, locales, availability, variant = "ful
                   href={href}
                   hrefLang={target}
                   lang={target}
-                  dir={info.dir}
                   aria-current={active ? "true" : undefined}
                   title={exists ? undefined : t("untranslated", { language: info.nativeName })}
                   onClick={() => rememberLocale(target)}
                   className="focus-ring flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-sm text-ink-900 hover:bg-neutral-100 focus:bg-neutral-100 aria-[current=true]:bg-brand-50 aria-[current=true]:font-semibold aria-[current=true]:text-brand-800"
                 >
                   <span className="flex flex-col">
-                    <span>{info.nativeName}</span>
+                    <span dir={info.dir}>{info.nativeName}</span>
                     <span className="text-xs font-normal text-neutral-500" lang="en" dir="ltr">
                       {info.englishName}
                     </span>

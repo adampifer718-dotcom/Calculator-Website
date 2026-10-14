@@ -19,7 +19,7 @@ function tools(locale: Locale) {
 function SectionIntro({ kicker, id, title, children }: { kicker: string; id: string; title: string; children?: React.ReactNode }) {
   return (
     <>
-      <p className="text-xs font-semibold tracking-wide text-brand-700 uppercase">{kicker}</p>
+      <p id={`${id}-kicker`} className="text-xs font-semibold tracking-wide text-brand-700 uppercase">{kicker}</p>
       <h2 id={id} className="mt-2 text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl">
         {title}
       </h2>
@@ -159,7 +159,7 @@ export async function ConversionChart({ locale }: { locale: Locale }) {
         <SectionIntro kicker={t("chartKicker")} id="conversion-chart" title={t("chartTitle")}>
           {t("chartLead", { hours: num(DEFAULT_SCHEDULE.hoursPerWeek), weeks: num(DEFAULT_SCHEDULE.weeksPerYear), annualHours: num(hours) })}
         </SectionIntro>
-        <div role="region" aria-label={t("chartTitle")} tabIndex={0} className="focus-ring mt-8 overflow-x-auto rounded-xl border border-neutral-200">
+        <div role="region" aria-labelledby="conversion-chart conversion-chart-kicker" tabIndex={0} className="focus-ring mt-8 overflow-x-auto rounded-xl border border-neutral-200">
           <table className="w-full min-w-[36rem] text-end text-sm tabular-nums">
             <thead className="bg-neutral-50 text-xs text-neutral-600">
               <tr>
@@ -176,19 +176,19 @@ export async function ConversionChart({ locale }: { locale: Locale }) {
                 return (
                   <tr key={salary} className="border-t border-neutral-200">
                     <th scope="row" className="px-4 py-3 text-start font-semibold text-ink-900">
-                      <bdi>{usd(salary, 0)}</bdi>
+                      <bdi dir="ltr">{usd(salary, 0)}</bdi>
                     </th>
                     <td className="px-4 py-3 font-semibold text-brand-700">
-                      <bdi>{usd(pay.hourly)}</bdi>
+                      <bdi dir="ltr">{usd(pay.hourly)}</bdi>
                     </td>
                     <td className="px-4 py-3 text-ink-800">
-                      <bdi>{usd(pay.weekly)}</bdi>
+                      <bdi dir="ltr">{usd(pay.weekly)}</bdi>
                     </td>
                     <td className="px-4 py-3 text-ink-800">
-                      <bdi>{usd(pay.biweekly)}</bdi>
+                      <bdi dir="ltr">{usd(pay.biweekly)}</bdi>
                     </td>
                     <td className="px-4 py-3 text-ink-800">
-                      <bdi>{usd(pay.monthly)}</bdi>
+                      <bdi dir="ltr">{usd(pay.monthly)}</bdi>
                     </td>
                   </tr>
                 );
