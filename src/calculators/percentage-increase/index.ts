@@ -2,16 +2,21 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { percentageIncreaseEngine } from "./engine";
 
 export const percentageIncrease: CalculatorDefinition = {
+  id: "percentage-increase",
   slug: "percentage-increase-calculator",
+  status: "published",
   title: "Percentage Increase Calculator",
   shortTitle: "Percentage Increase",
   category: "math",
+  collections: ["business", "marketing-ecommerce", "accounting-finance", "education-research"],
   summary: "Calculate the percentage increase or decrease from an original value to a new value.",
   metaTitle: "Percentage Increase Calculator – Find Percent Change",
   metaDescription:
     "Calculate the percentage increase or decrease between two numbers. See the percent change, the absolute change and the formula, with worked examples.",
   keywords: ["percent change", "percentage increase", "percentage decrease", "growth", "difference", "raise", "price change"],
   popularRank: 4,
+  addedOn: "2026-10-14",
+  sources: [],
   intro: [
     "Enter an original value and a new value to see how much it changed in percentage terms. A positive result is an increase and a negative result is a decrease.",
     "Common uses include pay raises, price changes, sales growth and test score improvements.",

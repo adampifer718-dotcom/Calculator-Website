@@ -23,7 +23,13 @@ const nextConfig: NextConfig = {
     },
   },
   async redirects() {
-    return [{ source: "/categories", destination: "/calculators", permanent: true }];
+    return [
+      { source: "/categories", destination: "/calculators", permanent: true },
+      { source: "/collections", destination: "/calculators", permanent: true },
+      // Category slugs renamed when the taxonomy was expanded.
+      { source: "/categories/salary-and-pay", destination: "/categories/finance", permanent: true },
+      { source: "/categories/finance-and-investing", destination: "/categories/finance", permanent: true },
+    ];
   },
 };
 

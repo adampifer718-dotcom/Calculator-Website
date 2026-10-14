@@ -60,8 +60,8 @@ export function ResultPanel({ evaluation, currency, formError }: ResultPanelProp
                   </tr>
                 </thead>
                 <tbody>
-                  {table.rows.map((row) => (
-                    <tr key={row.label} className={`border-b border-neutral-100 last:border-0 ${row.highlight ? "bg-brand-50/60" : ""}`}>
+                  {table.rows.map((row, rowIndex) => (
+                    <tr key={`${rowIndex}-${row.label}`} className={`border-b border-neutral-100 last:border-0 ${row.highlight ? "bg-brand-50/60" : ""}`}>
                       <th scope="row" className={`py-2 pr-2 pl-2 font-medium ${row.highlight ? "text-brand-900" : "text-ink-800"}`}>
                         {row.label}
                       </th>

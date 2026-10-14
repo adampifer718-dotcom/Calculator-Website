@@ -51,6 +51,8 @@ export interface TextField<Id extends string = string> extends BaseField<Id> {
   defaultValue: string;
   placeholder?: string;
   optional?: boolean;
+  /** Render a multi-line text area, e.g. for lists of numbers or recipe lines. */
+  multiline?: boolean;
   /** Validates the trimmed text; return an error message or undefined. */
   check?: (text: string) => string | undefined;
 }
@@ -110,14 +112,24 @@ export function defineEngine<V extends EngineValues>(engine: CalculatorEngine<V>
 /* Content: metadata and page copy (rendered on the server).           */
 /* ------------------------------------------------------------------ */
 
-export type CategorySlug =
-  | "salary-and-pay"
-  | "finance-and-investing"
-  | "math"
-  | "statistics"
-  | "construction"
-  | "everyday-life"
-  | "health";
+export const CATEGORY_SLUGS = [
+  "biology",
+  "chemistry",
+  "construction",
+  "conversion",
+  "ecology",
+  "everyday-life",
+  "finance",
+  "food",
+  "health",
+  "math",
+  "physics",
+  "sports",
+  "statistics",
+  "other",
+] as const;
+
+export type CategorySlug = (typeof CATEGORY_SLUGS)[number];
 
 export interface Category {
   slug: CategorySlug;
@@ -125,6 +137,49 @@ export interface Category {
   description: string;
   metaTitle: string;
   metaDescription: string;
+}
+
+export const COLLECTION_SLUGS = [
+  "business",
+  "accounting-finance",
+  "hr-payroll",
+  "marketing-ecommerce",
+  "real-estate",
+  "construction-engineering",
+  "education-research",
+  "healthcare",
+  "agriculture-gardening",
+  "food-hospitality",
+  "manufacturing-operations",
+  "software-data",
+  "environment-energy",
+  "fitness-sports",
+  "personal-finance",
+] as const;
+
+/** Industry collection: a cross-cutting grouping. A calculator can belong to several. */
+export type CollectionSlug = (typeof COLLECTION_SLUGS)[number];
+
+export interface Collection {
+  slug: CollectionSlug;
+  name: string;
+  description: string;
+  metaTitle: string;
+  metaDescription: string;
+}
+
+/** Lifecycle of a calculator. Only "published" calculators appear on public pages. */
+export type PublicationStatus = "planned" | "researching" | "implementing" | "testing" | "published";
+
+/** Topics that should be checked by a qualified professional. */
+export type ReviewArea = "medical" | "financial" | "tax" | "engineering" | "safety";
+
+export interface SourceReference {
+  title: string;
+  publisher: string;
+  url?: string;
+  /** What the source was used to verify. */
+  usedFor: string;
 }
 
 export interface Formula {
@@ -148,19 +203,34 @@ export interface Faq {
 }
 
 export interface CalculatorDefinition {
+  /** Stable internal identifier; never changes even if the slug does. */
+  id: string;
+  /** URL segment: /calculators/<slug>. Each calculator has exactly one canonical page. */
   slug: string;
+  status: PublicationStatus;
   title: string;
   /** Short label for cards and navigation. */
   shortTitle: string;
+  /** Primary category: sets the breadcrumb and the category page that owns the tool. */
   category: CategorySlug;
+  /** Industry collections the calculator is also listed in (no duplicate pages). */
+  collections: readonly CollectionSlug[];
   /** One-sentence summary for cards and search. */
   summary: string;
   metaTitle: string;
   metaDescription: string;
   /** Extra search terms. */
   keywords: readonly string[];
-  /** Lower ranks appear first among popular tools. */
+  /** Lower ranks appear first among popular tools (editorial until usage analytics exist). */
   popularRank?: number;
+  /** Shown in the homepage "Featured" section. */
+  featured?: boolean;
+  /** ISO date the calculator was first published, for "Recently added". */
+  addedOn: string;
+  /** References used to verify formulas, constants or ranges. Required for review-flagged tools. */
+  sources: readonly SourceReference[];
+  /** Set when the topic needs checking by a qualified professional before relying on it. */
+  expertReview?: { area: ReviewArea; status: "pending" | "completed" };
   intro: readonly string[];
   howToUse: readonly string[];
   formulas: readonly Formula[];

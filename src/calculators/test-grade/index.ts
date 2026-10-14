@@ -2,15 +2,20 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { testGradeEngine } from "./engine";
 
 export const testGrade: CalculatorDefinition = {
+  id: "test-grade",
   slug: "test-grade-calculator",
+  status: "published",
   title: "Test Grade Calculator",
   shortTitle: "Test Grade",
   category: "everyday-life",
+  collections: ["education-research"],
   summary: "Turn correct answers or points into a percentage score and letter grade.",
   metaTitle: "Test Grade Calculator – Score Percentage and Letter",
   metaDescription: "Find a test score percentage and letter grade from the number of correct or wrong answers, or points earned out of the total possible.",
   keywords: ["grade", "test score", "exam", "quiz", "percentage grade", "letter grade", "marks"],
   popularRank: 10,
+  addedOn: "2026-10-14",
+  sources: [],
   intro: ["Enter how many questions or points a test had and how many you got right or wrong. The calculator shows the percentage score and the matching letter grade.", "It works for quizzes, exams and assignments marked in points."],
   howToUse: ["Enter the total number of questions or points.", "Choose whether you know the number correct or the number wrong.", "Enter that number and read the percentage and letter grade."],
   formulas: [

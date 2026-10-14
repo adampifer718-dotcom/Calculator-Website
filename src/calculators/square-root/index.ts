@@ -2,15 +2,20 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { squareRootEngine } from "./engine";
 
 export const squareRoot: CalculatorDefinition = {
+  id: "square-root",
   slug: "square-root-calculator",
+  status: "published",
   title: "Square Root Calculator",
   shortTitle: "Square Root",
   category: "math",
+  collections: ["education-research"],
   summary: "Find the square root or cube root of a number and check whether it is a perfect square or cube.",
   metaTitle: "Square Root Calculator – Square and Cube Roots",
   metaDescription: "Calculate the square root or cube root of any number, see whether it is a perfect square or cube, and check the answer by squaring it back.",
   keywords: ["square root", "sqrt", "cube root", "radical", "perfect square", "root"],
   popularRank: 15,
+  addedOn: "2026-10-14",
+  sources: [],
   intro: ["The square root of x is the number that gives x when multiplied by itself. √144 = 12 because 12 × 12 = 144.", "Switch to cube root to find the number that gives x when multiplied by itself three times. Cube roots of negative numbers are allowed."],
   howToUse: ["Choose square root or cube root.", "Enter the number.", "Read the root and whether the number is a perfect square or cube."],
   formulas: [

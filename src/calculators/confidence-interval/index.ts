@@ -2,15 +2,27 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { confidenceIntervalEngine } from "./engine";
 
 export const confidenceInterval: CalculatorDefinition = {
+  id: "confidence-interval",
   slug: "confidence-interval-calculator",
+  status: "published",
   title: "Confidence Interval Calculator",
   shortTitle: "Confidence Interval",
   category: "statistics",
+  collections: ["education-research", "software-data", "marketing-ecommerce"],
   summary: "Calculate a confidence interval for a mean from the sample mean, standard deviation and size.",
   metaTitle: "Confidence Interval Calculator – For a Mean",
   metaDescription: "Calculate a confidence interval for a mean from the sample mean, standard deviation, sample size and confidence level, with margin of error and z*.",
   keywords: ["confidence interval", "margin of error", "standard error", "z score", "95% confidence", "statistics", "mean"],
   popularRank: 7,
+  addedOn: "2026-10-14",
+  sources: [
+    {
+      "title": "NIST/SEMATECH e-Handbook of Statistical Methods",
+      "publisher": "National Institute of Standards and Technology",
+      "url": "https://www.itl.nist.gov/div898/handbook/",
+      "usedFor": "Confidence interval for a mean and z critical values."
+    }
+  ],
   intro: ["A confidence interval gives a range of plausible values for a population mean. A 95% interval is built so that 95% of intervals made this way would contain the true mean.", "Enter the sample mean, standard deviation, sample size and confidence level."],
   howToUse: ["Enter the sample mean.", "Enter the standard deviation and the sample size.", "Choose the confidence level, such as 95%.", "Read the interval, margin of error and critical value."],
   formulas: [

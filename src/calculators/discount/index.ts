@@ -2,15 +2,20 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { discountEngine } from "./engine";
 
 export const discount: CalculatorDefinition = {
+  id: "discount",
   slug: "discount-calculator",
+  status: "published",
   title: "Discount Calculator",
   shortTitle: "Discount",
   category: "everyday-life",
+  collections: ["marketing-ecommerce", "personal-finance", "business"],
   summary: "Find the sale price and how much you save from an original price and a percentage discount.",
   metaTitle: "Discount Calculator – Sale Price and Savings",
   metaDescription: "Calculate the sale price after a percentage discount and how much you save. Enter the original price and the discount percentage for instant results.",
   keywords: ["discount", "sale price", "percent off", "savings", "coupon", "markdown", "clearance"],
   popularRank: 21,
+  addedOn: "2026-10-14",
+  sources: [],
   intro: ["Enter the original price and the percentage off to see the sale price and your savings.", "Useful for sales, coupons and comparing offers."],
   howToUse: ["Enter the original price.", "Enter the discount percentage.", "Read the sale price and the amount saved."],
   formulas: [

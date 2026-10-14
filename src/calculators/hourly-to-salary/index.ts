@@ -2,16 +2,21 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { hourlyToSalaryEngine } from "./engine";
 
 export const hourlyToSalary: CalculatorDefinition = {
+  id: "hourly-to-salary",
   slug: "hourly-to-salary-calculator",
+  status: "published",
   title: "Hourly to Salary Calculator",
   shortTitle: "Hourly to Salary",
-  category: "salary-and-pay",
+  category: "finance",
+  collections: ["hr-payroll", "personal-finance", "business"],
   summary: "Turn an hourly wage into annual, monthly, biweekly, weekly and daily gross pay for your schedule.",
   metaTitle: "Hourly to Salary Calculator – Annual, Monthly & Weekly Pay",
   metaDescription:
     "Convert an hourly wage to an annual salary and see monthly, semi-monthly, biweekly, weekly and daily gross pay based on your hours and paid weeks.",
   keywords: ["hourly", "salary", "wage", "annual", "yearly", "monthly", "income", "pay rate", "per hour"],
   popularRank: 2,
+  addedOn: "2026-10-14",
+  sources: [],
   intro: [
     "Use this calculator to see what an hourly wage adds up to over a year and in each common pay period.",
     "It is useful for comparing an hourly job offer with a salaried one, or for checking how part-time hours or unpaid weeks change your yearly gross income.",

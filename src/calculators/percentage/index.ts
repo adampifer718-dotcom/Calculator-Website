@@ -2,16 +2,21 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { percentageEngine } from "./engine";
 
 export const percentage: CalculatorDefinition = {
+  id: "percentage",
   slug: "percentage-calculator",
+  status: "published",
   title: "Percentage Calculator",
   shortTitle: "Percentage",
   category: "math",
+  collections: ["education-research", "business", "personal-finance"],
   summary: "Find X% of a number, what percent one number is of another, or the whole from a part and a percentage.",
   metaTitle: "Percentage Calculator – Percent of a Number & More",
   metaDescription:
     "Free percentage calculator. Work out X% of Y, find what percent X is of Y, or find the whole when X is Y% of it, with formulas and worked examples.",
   keywords: ["percent", "percentage", "% of", "what percent", "fraction", "proportion", "math"],
   popularRank: 3,
+  addedOn: "2026-10-14",
+  sources: [],
   intro: [
     "This calculator answers the three most common percentage questions. Pick a question, enter two numbers, and the answer updates as you type.",
     "Percentages express a part per hundred, so 25% means 25 out of every 100.",

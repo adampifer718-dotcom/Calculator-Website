@@ -2,15 +2,20 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { slopeEngine } from "./engine";
 
 export const slope: CalculatorDefinition = {
+  id: "slope",
   slug: "slope-calculator",
+  status: "published",
   title: "Slope Calculator",
   shortTitle: "Slope",
   category: "math",
+  collections: ["education-research", "construction-engineering"],
   summary: "Find the slope between two points, plus the line equation, intercept, angle and distance.",
   metaTitle: "Slope Calculator – Slope From Two Points",
   metaDescription: "Calculate the slope of a line through two points, with the line equation y = mx + b, the y-intercept, the angle and the distance between the points.",
   keywords: ["slope", "gradient", "rise over run", "line equation", "y = mx + b", "two points", "intercept"],
   popularRank: 17,
+  addedOn: "2026-10-14",
+  sources: [],
   intro: ["Slope measures how steep a line is: how much y changes for each step in x. It is often described as rise over run.", "Enter two points and the calculator also gives the equation of the line through them."],
   howToUse: ["Enter the coordinates of the first point (x₁, y₁).", "Enter the second point (x₂, y₂).", "Read the slope, equation, intercept, angle and distance."],
   formulas: [

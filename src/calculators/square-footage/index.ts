@@ -2,15 +2,28 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { squareFootageEngine } from "./engine";
 
 export const squareFootage: CalculatorDefinition = {
+  id: "square-footage",
   slug: "square-footage-calculator",
+  status: "published",
   title: "Square Footage Calculator",
   shortTitle: "Square Footage",
   category: "construction",
+  collections: ["construction-engineering", "real-estate", "agriculture-gardening"],
   summary: "Find the area of a rectangle, circle or triangle in square feet, square meters and square yards.",
   metaTitle: "Square Footage Calculator – Area in Sq Ft and m²",
   metaDescription: "Calculate square footage for rectangles, circles and triangles from feet, inches, yards, meters or centimeters, with square meters and square yards.",
   keywords: ["square feet", "sq ft", "area", "floor area", "room size", "flooring", "square meters", "m2"],
   popularRank: 9,
+  addedOn: "2026-10-14",
+  featured: true,
+  sources: [
+    {
+      "title": "Guide for the Use of the International System of Units (SI), NIST Special Publication 811",
+      "publisher": "National Institute of Standards and Technology",
+      "url": "https://www.nist.gov/pml/special-publication-811",
+      "usedFor": "Exact length conversion factors (1 ft = 0.3048 m, 1 in = 2.54 cm)."
+    }
+  ],
   intro: ["Square footage is the area of a surface measured in square feet. It is used for flooring, paint, tiles, carpet and property listings.", "Measure each dimension, choose the shape and unit, and the calculator converts the area to square feet, square meters and square yards."],
   howToUse: ["Choose the shape: rectangle, circle or triangle.", "Pick the unit you measured in.", "Enter the dimensions and, if needed, how many identical areas there are.", "Read the area in square feet, square meters and square yards."],
   formulas: [

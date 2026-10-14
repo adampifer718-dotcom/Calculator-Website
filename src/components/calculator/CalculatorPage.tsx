@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { categoryPath, getCategory } from "@/calculators/categories";
+import { collectionPath, getCollection } from "@/calculators/collections";
 import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { calculatorPath, relatedCalculators } from "@/calculators/registry";
 import { CalculatorWidget } from "@/calculators/widgets";
@@ -15,6 +16,7 @@ const SECTIONS = [
   { id: "examples", title: "Worked examples" },
   { id: "assumptions", title: "Assumptions" },
   { id: "faq", title: "FAQ" },
+  { id: "sources", title: "Sources" },
   { id: "related", title: "Related calculators" },
 ] as const;
 
@@ -27,19 +29,28 @@ function SectionHeading({ id, children }: { id: string; children: React.ReactNod
 }
 
 const APPLICATION_CATEGORY: Record<CalculatorDefinition["category"], string> = {
-  "salary-and-pay": "FinanceApplication",
-  "finance-and-investing": "FinanceApplication",
-  math: "EducationalApplication",
-  statistics: "EducationalApplication",
+  biology: "EducationalApplication",
+  chemistry: "EducationalApplication",
   construction: "UtilitiesApplication",
+  conversion: "UtilitiesApplication",
+  ecology: "UtilitiesApplication",
   "everyday-life": "UtilitiesApplication",
+  finance: "FinanceApplication",
+  food: "LifestyleApplication",
   health: "HealthApplication",
+  math: "EducationalApplication",
+  physics: "EducationalApplication",
+  sports: "SportsApplication",
+  statistics: "EducationalApplication",
+  other: "UtilitiesApplication",
 };
 
 /** Shared layout for every calculator page. Content comes from the calculator definition. */
 export function CalculatorPage({ calculator }: { calculator: CalculatorDefinition }) {
   const category = getCategory(calculator.category);
   const related = relatedCalculators(calculator);
+  const collections = calculator.collections.map(getCollection).filter((c): c is NonNullable<typeof c> => c !== undefined);
+  const sections = SECTIONS.filter((section) => section.id !== "sources" || calculator.sources.length > 0);
   const path = calculatorPath(calculator.slug);
 
   return (
@@ -55,6 +66,20 @@ export function CalculatorPage({ calculator }: { calculator: CalculatorDefinitio
         <header className="mt-5 max-w-3xl">
           <h1 className="text-3xl font-bold tracking-tight text-balance text-ink-900 sm:text-4xl">{calculator.title}</h1>
           <p className="mt-3 text-lg text-neutral-600">{calculator.summary}</p>
+          {collections.length > 0 && (
+            <ul aria-label="Industry collections" className="mt-4 flex flex-wrap gap-2">
+              {collections.map((collection) => (
+                <li key={collection.slug}>
+                  <Link
+                    href={collectionPath(collection.slug)}
+                    className="focus-ring inline-flex rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-medium text-neutral-700 hover:border-brand-300 hover:text-brand-800"
+                  >
+                    {collection.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
         </header>
 
         <div className="mt-7">
@@ -140,6 +165,28 @@ export function CalculatorPage({ calculator }: { calculator: CalculatorDefinitio
               </div>
             </section>
 
+            {calculator.sources.length > 0 && (
+              <section aria-labelledby="sources">
+                <SectionHeading id="sources">Sources</SectionHeading>
+                <p className="mt-2 text-sm text-neutral-600">References used to check the formulas, constants and ranges on this page.</p>
+                <ol className="mt-4 max-w-3xl list-decimal space-y-3 pl-5 text-neutral-700">
+                  {calculator.sources.map((source) => (
+                    <li key={source.title}>
+                      {source.url ? (
+                        <a href={source.url} rel="noopener noreferrer" target="_blank" className="focus-ring rounded font-medium text-brand-700 hover:underline">
+                          {source.title}
+                        </a>
+                      ) : (
+                        <span className="font-medium text-ink-900">{source.title}</span>
+                      )}
+                      <span className="text-neutral-600">, {source.publisher}.</span>
+                      <span className="block text-sm text-neutral-600">Used for: {source.usedFor}</span>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            )}
+
             <section aria-labelledby="related">
               <SectionHeading id="related">Related calculators</SectionHeading>
               <ul className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -170,7 +217,7 @@ export function CalculatorPage({ calculator }: { calculator: CalculatorDefinitio
             <nav aria-label="On this page" className="sticky top-24">
               <h2 className="text-xs font-semibold tracking-wide text-neutral-500 uppercase">On this page</h2>
               <ul className="mt-3 space-y-1 border-l border-neutral-200 text-sm">
-                {SECTIONS.map((section) => (
+                {sections.map((section) => (
                   <li key={section.id}>
                     <a href={`#${section.id}`} className="focus-ring -ml-px block border-l border-transparent py-1 pl-3 text-neutral-600 hover:border-brand-500 hover:text-ink-900">
                       {section.title}

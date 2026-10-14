@@ -2,16 +2,22 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { roiEngine } from "./engine";
 
 export const roi: CalculatorDefinition = {
+  id: "roi",
   slug: "roi-calculator",
+  status: "published",
   title: "ROI Calculator",
   shortTitle: "ROI",
-  category: "finance-and-investing",
+  category: "finance",
+  collections: ["business", "accounting-finance", "marketing-ecommerce", "real-estate"],
   summary: "Measure return on investment as a percentage, with net gain or loss and an optional annualized rate.",
   metaTitle: "ROI Calculator – Return on Investment & Annualized ROI",
   metaDescription:
     "Calculate return on investment from the amount invested and the amount returned. See net gain or loss, total ROI and annualized ROI over any number of years.",
   keywords: ["return on investment", "roi", "investment return", "profit", "gain", "annualized return", "cagr"],
   popularRank: 5,
+  addedOn: "2026-10-14",
+  featured: true,
+  sources: [],
   intro: [
     "Return on investment (ROI) compares what you got back with what you put in. It is a quick way to compare investments, projects or purchases of different sizes.",
     "Add how long you held the investment to see the annualized ROI, which makes returns over different time periods comparable.",

@@ -2,15 +2,20 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { logEngine } from "./engine";
 
 export const logCalculator: CalculatorDefinition = {
+  id: "log",
   slug: "log-calculator",
+  status: "published",
   title: "Log Calculator (Logarithm)",
   shortTitle: "Logarithm",
   category: "math",
+  collections: ["education-research", "software-data"],
   summary: "Calculate logarithms in base 10, base e (natural log), base 2 or any other base.",
   metaTitle: "Log Calculator – Logarithm in Any Base",
   metaDescription: "Calculate log base 10, natural log (ln), log base 2 or a logarithm in any base, with the change-of-base formula and worked examples.",
   keywords: ["logarithm", "log", "ln", "natural log", "log base 2", "log10", "change of base"],
   popularRank: 11,
+  addedOn: "2026-10-14",
+  sources: [],
   intro: ["A logarithm answers the question: what power must the base be raised to, to get this number? log₁₀(1000) = 3 because 10³ = 1000.", "Choose a common base or enter your own. The natural, common and binary logs are shown alongside."],
   howToUse: ["Enter a positive number x.", "Choose the base, or select Other base and enter it.", "Read the logarithm and the ln, log₁₀ and log₂ values."],
   formulas: [

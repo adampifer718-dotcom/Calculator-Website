@@ -4,12 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { CategoryIcon } from "@/components/ui/CategoryIcon";
-import type { NavGroup } from "./nav-data";
+import type { NavCollection, NavGroup } from "./nav-data";
 
-const ITEMS_PER_GROUP = 6;
+const ITEMS_PER_GROUP = 3;
 
 /** Desktop "Calculators" menu listing every category and its calculators. */
-export function MegaMenu({ groups, total }: { groups: NavGroup[]; total: number }) {
+export function MegaMenu({ groups, collections, total }: { groups: NavGroup[]; collections: NavCollection[]; total: number }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const [lastPath, setLastPath] = useState(pathname);
@@ -57,8 +57,10 @@ export function MegaMenu({ groups, total }: { groups: NavGroup[]; total: number 
       </button>
       {open && (
         <div id="mega-menu" className="absolute inset-x-0 top-16 border-b border-neutral-200 bg-white shadow-lg">
-          <div className="mx-auto max-h-[calc(100vh-5rem)] max-w-6xl overflow-y-auto px-6 py-6">
-            <ul className="grid gap-x-8 gap-y-6 lg:grid-cols-4">
+          <div className="mx-auto grid max-h-[calc(100vh-5rem)] max-w-6xl gap-8 overflow-y-auto px-6 py-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,1fr)]">
+            <div>
+            <h2 className="mb-4 text-xs font-semibold tracking-wide text-neutral-500 uppercase">Categories</h2>
+            <ul className="grid gap-x-6 gap-y-5 lg:grid-cols-4">
               {groups.map((group) => (
                 <li key={group.slug}>
                   <Link href={group.href} onClick={() => setOpen(false)} className="focus-ring group flex items-center gap-2.5 rounded-md">
@@ -99,6 +101,24 @@ export function MegaMenu({ groups, total }: { groups: NavGroup[]; total: number 
                 Browse all {total} calculators →
               </Link>
             </p>
+            </div>
+            <div className="border-neutral-100 lg:border-l lg:pl-6">
+              <h2 className="mb-4 text-xs font-semibold tracking-wide text-neutral-500 uppercase">Industry collections</h2>
+              <ul className="space-y-1.5 text-sm">
+                {collections.map((collection) => (
+                  <li key={collection.href}>
+                    <Link
+                      href={collection.href}
+                      onClick={() => setOpen(false)}
+                      className="focus-ring flex justify-between gap-3 rounded text-neutral-700 hover:text-brand-700"
+                    >
+                      <span>{collection.name}</span>
+                      <span className="text-neutral-400">{collection.count}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       )}

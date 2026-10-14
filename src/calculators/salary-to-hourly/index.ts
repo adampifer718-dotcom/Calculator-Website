@@ -2,16 +2,22 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { salaryToHourlyEngine } from "./engine";
 
 export const salaryToHourly: CalculatorDefinition = {
+  id: "salary-to-hourly",
   slug: "salary-to-hourly-calculator",
+  status: "published",
   title: "Salary to Hourly Calculator",
   shortTitle: "Salary to Hourly",
-  category: "salary-and-pay",
+  category: "finance",
+  collections: ["hr-payroll", "personal-finance", "accounting-finance"],
   summary: "Convert annual, monthly, biweekly or other gross pay into an hourly rate using your own work schedule.",
   metaTitle: "Salary to Hourly Calculator – Convert Any Pay Period",
   metaDescription:
     "Convert a salary to an hourly wage. Enter annual, monthly, semi-monthly, biweekly, weekly or daily gross pay and your hours, workdays and weeks per year.",
   keywords: ["salary", "hourly", "wage", "pay", "annual to hourly", "monthly to hourly", "biweekly", "paycheck", "rate"],
   popularRank: 1,
+  addedOn: "2026-10-14",
+  featured: true,
+  sources: [],
   intro: [
     "This calculator converts gross pay from any common pay period into an hourly equivalent. It also shows what the same pay works out to per year, month, semi-month, two weeks, week and workday.",
     "Results depend on the schedule you enter. A $60,000 salary is about $28.85 an hour at 40 hours a week for 52 weeks, but about $30.77 an hour at 37.5 hours a week.",

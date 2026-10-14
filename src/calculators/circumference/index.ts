@@ -2,15 +2,20 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { circumferenceEngine } from "./engine";
 
 export const circumference: CalculatorDefinition = {
+  id: "circumference",
   slug: "circumference-calculator",
+  status: "published",
   title: "Circumference Calculator",
   shortTitle: "Circumference",
   category: "math",
+  collections: ["education-research", "construction-engineering", "manufacturing-operations"],
   summary: "Find a circle's circumference from its radius, diameter or area, plus the other measurements.",
   metaTitle: "Circumference Calculator – Circle Radius, Diameter, Area",
   metaDescription: "Calculate the circumference of a circle from its radius, diameter or area, and see the other measurements using the formula C = 2πr.",
   keywords: ["circumference", "circle", "radius", "diameter", "area of a circle", "perimeter of circle", "pi"],
   popularRank: 16,
+  addedOn: "2026-10-14",
+  sources: [],
   intro: ["The circumference is the distance around a circle. It is π times the diameter, or 2π times the radius.", "Enter whichever measurement you know and the calculator finds the rest, in the same unit."],
   howToUse: ["Choose which measurement you know.", "Enter its value.", "Read the circumference, radius, diameter and area."],
   formulas: [

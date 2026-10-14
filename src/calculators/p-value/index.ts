@@ -2,15 +2,28 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { pValueEngine } from "./engine";
 
 export const pValue: CalculatorDefinition = {
+  id: "p-value",
   slug: "p-value-calculator",
+  status: "published",
   title: "P-value Calculator",
   shortTitle: "P-value",
   category: "statistics",
+  collections: ["education-research", "software-data", "healthcare"],
   summary: "Find the p-value for a z-score or t-score in a two-tailed, left-tailed or right-tailed test.",
   metaTitle: "P-value Calculator – From Z-score or T-score",
   metaDescription: "Calculate the p-value from a z-score or t-score with degrees of freedom, for two-tailed, left-tailed or right-tailed hypothesis tests.",
   keywords: ["p value", "p-value", "z score", "t score", "hypothesis test", "significance", "statistics", "t test", "z test"],
   popularRank: 6,
+  addedOn: "2026-10-14",
+  featured: true,
+  sources: [
+    {
+      "title": "NIST/SEMATECH e-Handbook of Statistical Methods",
+      "publisher": "National Institute of Standards and Technology",
+      "url": "https://www.itl.nist.gov/div898/handbook/",
+      "usedFor": "Normal and Student's t distribution definitions and critical values used to check results."
+    }
+  ],
   intro: ["A p-value measures how surprising a test result would be if the null hypothesis were true. Small p-values suggest the data are unlikely under the null hypothesis.", "Enter the test statistic from a z-test or t-test and choose the direction of your alternative hypothesis."],
   howToUse: ["Choose a z-score or t-score.", "Enter the statistic, and the degrees of freedom for a t-score.", "Choose two-tailed, left-tailed or right-tailed.", "Compare the p-value with your significance level, such as 0.05."],
   formulas: [

@@ -2,23 +2,14 @@
 
 Free online calculators built with Next.js (App Router), React, TypeScript and Tailwind CSS. Every calculator page is statically generated, has its own URL, metadata, canonical URL and structured data, and runs its calculation in the browser.
 
-## Published calculators
+## Platform overview
 
-22 calculators in 7 categories, each at `/calculators/<slug>`:
+- **42 published calculators** across all **14 categories** (Biology, Chemistry, Construction, Conversion, Ecology, Everyday Life, Finance, Food, Health, Math, Physics, Sports, Statistics, Other) and **15 industry collections**.
+- Every calculator has one canonical page at `/calculators/<slug>`. It has one primary category (breadcrumb and category page) and can appear in several collections at `/collections/<slug>` without duplicate pages.
+- Category and collection pages, counts, navigation, homepage sections, search, related links and the sitemap are all derived from published registry records. Categories or collections with no published calculator get no page.
+- The master backlog (`src/calculators/backlog.ts`, rendered to [`docs/calculator-backlog.md`](docs/calculator-backlog.md)) holds 183 deduplicated concepts with status, priority scores and expert-review flags.
 
-| Category | Calculators |
-| --- | --- |
-| Salary & Pay | Salary to Hourly, Hourly to Salary |
-| Finance | ROI, Sales Tax, Compound Interest |
-| Math | Percentage, Percentage Increase, Log, Significant Figures, Scientific Notation, Exponent, Square Root, Circumference, Slope, Pythagorean Theorem |
-| Statistics | P-value, Confidence Interval |
-| Construction | Square Footage |
-| Everyday Life | Test Grade, Tip, Discount |
-| Health | BMI |
-
-The registry (`src/calculators/registry.ts`) is the source of truth; the navigation menu, directory, category pages, homepage tiles, counts and sitemap are generated from it.
-
-Other pages: `/` (home, with a featured pay converter), `/calculators` (searchable directory, `?q=` supported), `/categories/[slug]`, `/about`, `/sitemap.xml`, `/robots.txt`.
+Pages: `/` (search, categories, featured, popular, collections, recently added, pay converter, full directory), `/calculators` (search with category/industry filters and sorting, URL state), `/categories/<slug>`, `/collections/<slug>`, `/calculators/<slug>`, `/about`, `/sitemap.xml`, `/robots.txt`, `/search-index.json` (static autocomplete index, loaded on demand).
 
 ## Getting started
 
@@ -67,14 +58,38 @@ src/
 e2e/                         Playwright tests
 ```
 
+## Calculator registry
+
+Each calculator is a typed `CalculatorDefinition` (`src/calculators/framework/types.ts`):
+
+| Field | Purpose |
+| --- | --- |
+| `id`, `slug` | Stable ID and canonical URL segment |
+| `status` | `planned`, `researching`, `implementing`, `testing` or `published`; only published records reach public pages |
+| `category`, `collections` | Primary category and any number of industry collections |
+| `engine` | Input schema (`fields`), validation (`validate`) and the formula (`compute`) with output definitions |
+| `examples` | Worked examples with `expectedPrimary`, verified against the engine by tests |
+| `metaTitle`, `metaDescription`, `keywords` | SEO metadata and search terms (uniqueness and length are tested) |
+| `related` | Related calculators (validated to exist) |
+| `sources` | References used to verify formulas, constants and ranges |
+| `expertReview` | Flags medical, financial, tax, engineering or safety topics; flagged tools must cite sources and state they are not advice |
+| `addedOn`, `popularRank`, `featured` | Recently added, popular and featured sections |
+
 ## Adding a calculator
 
-1. Put the math in `src/lib/math/` with unit tests.
-2. Create `src/calculators/<name>/engine.ts` using `defineEngine<Values>()`: fields (number or select, with bounds and help text), optional cross-field `validate`, and `compute` returning a primary result, optional secondary results, table and notes.
-3. Create `widget.tsx` (three lines, copy an existing one) and `index.ts` with the page content. Each worked example declares `expectedPrimary`, which the registry tests check against the engine.
-4. Add the definition to `CALCULATORS` in `registry.ts` and its widget to `widgets.tsx`.
+1. Add or update its entry in `src/calculators/backlog.ts` and move it through the statuses.
+2. Put reusable math in `src/lib/math/` with unit tests, citing sources for anything beyond basic arithmetic.
+3. Create `src/calculators/<name>/engine.ts` with `defineEngine<Values>()`, `widget.tsx` (copy an existing one) and `index.ts` with content, sources and worked examples.
+4. Register it in `ALL_CALCULATORS` (`registry.ts`) and `WIDGETS` (`widgets.tsx`). Set `status: "published"` only after its tests pass.
+5. Run `npm run backlog:report` to refresh `docs/calculator-backlog.md`.
 
-The directory, category pages, counts, related links, footer, sitemap and static params all update automatically. Tests fail if slugs, titles or meta descriptions are duplicated, related links point to missing calculators, a widget is missing, or an example result is wrong. Only register a calculator once it is fully implemented.
+Tests fail if a published calculator is missing from the backlog (or vice versa), if metadata is duplicated, if an example result is wrong, if a widget is missing, or if a review-flagged tool has no sources.
+
+## Research and sources
+
+- The backlog was assembled from general knowledge of common calculator topics. Omni Calculator's public directory was meant to be the research reference, but this build environment's network policy blocked `omnicalculator.com`; re-check coverage against it when network access allows. No text, layout or code was copied from it.
+- Sources are cited as publications with URLs (NIST, OpenStax, WHO, U.S. EIA, peer-reviewed papers). The same network restriction meant links could not be fetched during development, so formulas were verified with independent calculations in tests rather than live lookups; check the links before launch.
+- BMI, BMR, loan payment and compound interest are flagged for expert review (medical or financial) and have not yet been reviewed by a professional.
 
 ## Calculation rules
 

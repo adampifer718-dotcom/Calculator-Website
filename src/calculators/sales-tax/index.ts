@@ -2,15 +2,20 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { salesTaxEngine } from "./engine";
 
 export const salesTax: CalculatorDefinition = {
+  id: "sales-tax",
   slug: "sales-tax-calculator",
+  status: "published",
   title: "Sales Tax Calculator",
   shortTitle: "Sales Tax",
-  category: "finance-and-investing",
+  category: "finance",
+  collections: ["business", "accounting-finance", "marketing-ecommerce", "personal-finance"],
   summary: "Add sales tax to a price, or work out the price before tax from a total that includes it.",
   metaTitle: "Sales Tax Calculator – Add or Remove Sales Tax",
   metaDescription: "Calculate sales tax and the total price, or remove tax from a tax-inclusive total to find the original price. Works with any tax rate and currency.",
   keywords: ["sales tax", "vat", "gst", "tax rate", "price with tax", "reverse sales tax", "tax included"],
   popularRank: 8,
+  addedOn: "2026-10-14",
+  sources: [],
   intro: ["Enter a price and a sales tax rate to see the tax and the total you will pay. Switch to removing tax to find the pre-tax price from a receipt total.", "The same math works for VAT and GST, which are also percentages added to a price."],
   howToUse: ["Choose whether to add tax to a price or remove it from a total.", "Enter the amount and the tax rate as a percentage.", "Read the tax, the total and the price before tax."],
   formulas: [

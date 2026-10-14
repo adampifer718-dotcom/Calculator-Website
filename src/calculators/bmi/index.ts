@@ -2,15 +2,35 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { bmiEngine } from "./engine";
 
 export const bmi: CalculatorDefinition = {
+  id: "bmi",
   slug: "bmi-calculator",
+  status: "published",
   title: "BMI Calculator",
   shortTitle: "BMI",
   category: "health",
+  collections: ["healthcare", "fitness-sports"],
   summary: "Calculate body mass index from height and weight in metric or imperial units.",
   metaTitle: "BMI Calculator – Body Mass Index for Adults",
   metaDescription: "Calculate your body mass index (BMI) from height and weight in kg and cm or lb, feet and inches, with the adult BMI category and healthy weight range.",
   keywords: ["bmi", "body mass index", "healthy weight", "overweight", "weight", "height", "obesity"],
   popularRank: 19,
+  addedOn: "2026-10-14",
+  featured: true,
+  sources: [
+    {
+      "title": "Obesity and overweight (fact sheet)",
+      "publisher": "World Health Organization",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight",
+      "usedFor": "Adult BMI definition and category cut-offs."
+    },
+    {
+      "title": "Guide for the Use of the International System of Units (SI), NIST Special Publication 811",
+      "publisher": "National Institute of Standards and Technology",
+      "url": "https://www.nist.gov/pml/special-publication-811",
+      "usedFor": "Exact pound and inch conversion factors."
+    }
+  ],
+  expertReview: { area: "medical", status: "pending" },
   intro: ["Body mass index (BMI) compares weight with height. It is a quick screening measure for adults, not a diagnosis.", "Enter your height and weight in metric or imperial units to see your BMI, the adult category and the weight range that corresponds to a healthy BMI for your height."],
   howToUse: ["Choose metric or imperial units.", "Enter your weight and height.", "Read your BMI, category and healthy weight range."],
   formulas: [

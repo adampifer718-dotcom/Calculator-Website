@@ -2,15 +2,20 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { pythagoreanEngine } from "./engine";
 
 export const pythagorean: CalculatorDefinition = {
+  id: "pythagorean",
   slug: "pythagorean-theorem-calculator",
+  status: "published",
   title: "Pythagorean Theorem Calculator",
   shortTitle: "Pythagorean Theorem",
   category: "math",
+  collections: ["education-research", "construction-engineering"],
   summary: "Find the missing side of a right triangle using a² + b² = c².",
   metaTitle: "Pythagorean Theorem Calculator – Find a Missing Side",
   metaDescription: "Find the hypotenuse or a missing leg of a right triangle with the Pythagorean theorem a² + b² = c², plus the triangle's area and perimeter.",
   keywords: ["pythagorean theorem", "pythagoras", "hypotenuse", "right triangle", "a2 + b2 = c2", "triangle side"],
   popularRank: 18,
+  addedOn: "2026-10-14",
+  sources: [],
   intro: ["In a right triangle, the square of the hypotenuse equals the sum of the squares of the other two sides: a² + b² = c².", "Enter two sides to find the third. The calculator also shows the triangle's area and perimeter."],
   howToUse: ["Choose whether to find the hypotenuse or a leg.", "Enter the two known sides in the same unit.", "Read the missing side, area and perimeter."],
   formulas: [

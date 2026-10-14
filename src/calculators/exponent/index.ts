@@ -2,15 +2,20 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { exponentEngine } from "./engine";
 
 export const exponent: CalculatorDefinition = {
+  id: "exponent",
   slug: "exponent-calculator",
+  status: "published",
   title: "Exponent Calculator",
   shortTitle: "Exponent",
   category: "math",
+  collections: ["education-research", "software-data"],
   summary: "Raise any number to a power, including negative and fractional exponents.",
   metaTitle: "Exponent Calculator – Powers and Negative Exponents",
   metaDescription: "Calculate a number raised to any power, including negative and fractional exponents, with very large results shown in scientific notation.",
   keywords: ["exponent", "power", "raise to the power", "squared", "cubed", "negative exponent", "fractional exponent"],
   popularRank: 14,
+  addedOn: "2026-10-14",
+  sources: [],
   intro: ["An exponent tells you how many times to multiply a base by itself. 2¹⁰ means ten 2s multiplied together, which is 1,024.", "Negative exponents give reciprocals and fractional exponents give roots."],
   howToUse: ["Enter the base a.", "Enter the exponent b. Decimals and negative values are allowed.", "Read aᵇ. Very large or small results switch to scientific notation."],
   formulas: [

@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { categoryPath } from "@/calculators/categories";
-import { CALCULATORS, activeCategories, calculatorPath, popularCalculators } from "@/calculators/registry";
+import { collectionPath } from "@/calculators/collections";
+import {
+  CALCULATORS,
+  activeCategories,
+  activeCollections,
+  calculatorPath,
+  calculatorsInCategory,
+  featuredCalculators,
+  popularCalculators,
+  recentlyAdded,
+} from "@/calculators/registry";
 import PayConverter from "@/calculators/pay-converter/widget";
 import { ConversionChart, HowToUse, PayFormulas } from "@/components/home/PayGuide";
 import { HeaderSearch } from "@/components/layout/HeaderSearch";
+import { CalculatorCard } from "@/components/ui/CalculatorCard";
 import { CategoryIcon } from "@/components/ui/CategoryIcon";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { CURRENCIES } from "@/lib/format";
@@ -38,9 +49,24 @@ function Arrow({ className = "text-neutral-400" }: { className?: string }) {
   );
 }
 
+function SectionHeader({ kicker, id, title, children }: { kicker: string; id: string; title: string; children?: React.ReactNode }) {
+  return (
+    <div>
+      <p className="text-xs font-semibold tracking-wide text-brand-700 uppercase">{kicker}</p>
+      <h2 id={id} className="mt-2 text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl">
+        {title}
+      </h2>
+      {children && <p className="mt-2 max-w-2xl text-neutral-600">{children}</p>}
+    </div>
+  );
+}
+
 export default function HomePage() {
   const popular = popularCalculators(8);
   const categories = activeCategories();
+  const collections = activeCollections();
+  const featured = featuredCalculators(6);
+  const recent = recentlyAdded(6);
 
   return (
     <>
@@ -95,6 +121,88 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section aria-labelledby="featured-heading" className="pt-14">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <SectionHeader kicker="Hand-picked" id="featured-heading" title="Featured tools" />
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {featured.map((calculator) => (
+              <li key={calculator.slug}>
+                <CalculatorCard calculator={calculator} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="popular-heading" className="pt-14">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div>
+            <div>
+              <p className="text-xs font-semibold tracking-wide text-brand-700 uppercase">Explore more tools</p>
+              <h2 id="popular-heading" className="mt-2 text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl">
+                Popular calculators
+              </h2>
+            </div>
+
+          </div>
+          <ul className="mt-8 grid overflow-hidden rounded-xl border border-neutral-200 bg-white sm:grid-cols-2 lg:grid-cols-4">
+            {popular.map((calculator) => (
+              <li key={calculator.slug} className="border-b border-neutral-200 sm:border-r">
+                <Link
+                  href={calculatorPath(calculator.slug)}
+                  className="focus-ring group flex min-h-20 items-center justify-between gap-4 p-4 font-semibold text-ink-900 hover:bg-brand-50/60"
+                >
+                  {calculator.title}
+                  <Arrow className="text-neutral-400 group-hover:text-brand-700" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-sm">
+            <Link href="/calculators" className="focus-ring rounded font-medium text-brand-700 hover:underline">
+              View all {CALCULATORS.length} calculators
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      <section aria-labelledby="collections-heading" className="pt-14">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <SectionHeader kicker="By industry" id="collections-heading" title="Industry collections">
+            The same calculators, grouped for the work you do. Each tool still has a single page.
+          </SectionHeader>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {collections.map((collection) => (
+              <li key={collection.slug}>
+                <Link
+                  href={collectionPath(collection.slug)}
+                  className="card focus-ring group flex h-full flex-col p-4 transition-colors hover:border-brand-300 hover:bg-brand-50/40"
+                >
+                  <span className="flex items-center justify-between gap-3">
+                    <span className="font-semibold text-ink-900 group-hover:text-brand-800">{collection.name}</span>
+                    <span className="shrink-0 rounded-full bg-neutral-100 px-2 py-0.5 text-xs font-medium text-neutral-600">{collection.count}</span>
+                  </span>
+                  <span className="mt-1.5 text-sm text-neutral-600">{collection.description}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="recent-heading" className="pt-14 pb-4">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <SectionHeader kicker="New" id="recent-heading" title="Recently added" />
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {recent.map((calculator) => (
+              <li key={calculator.slug}>
+                <CalculatorCard calculator={calculator} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section aria-labelledby="pay-calculator-heading" className="pt-14 pb-12">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <p className="inline-flex items-center rounded-full border border-brand-200 bg-white px-3 py-1 text-xs font-semibold text-brand-800">Featured calculator</p>
@@ -122,33 +230,32 @@ export default function HomePage() {
       <PayFormulas />
       <ConversionChart />
 
-      <section aria-labelledby="popular-heading" className="border-t border-neutral-200 py-14">
+      <section aria-labelledby="directory-heading" className="border-t border-neutral-200 bg-neutral-50 py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div>
-            <div>
-              <p className="text-xs font-semibold tracking-wide text-brand-700 uppercase">Explore more tools</p>
-              <h2 id="popular-heading" className="mt-2 text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl">
-                Popular calculators
-              </h2>
-            </div>
-
-          </div>
-          <ul className="mt-8 grid overflow-hidden rounded-xl border border-neutral-200 bg-white sm:grid-cols-2 lg:grid-cols-4">
-            {popular.map((calculator) => (
-              <li key={calculator.slug} className="border-b border-neutral-200 sm:border-r">
-                <Link
-                  href={calculatorPath(calculator.slug)}
-                  className="focus-ring group flex min-h-20 items-center justify-between gap-4 p-4 font-semibold text-ink-900 hover:bg-brand-50/60"
-                >
-                  {calculator.title}
-                  <Arrow className="text-neutral-400 group-hover:text-brand-700" />
-                </Link>
-              </li>
+          <SectionHeader kicker="Everything in one place" id="directory-heading" title="Complete calculator directory" />
+          <div className="mt-8 columns-1 gap-8 sm:columns-2 lg:columns-4">
+            {categories.map((category) => (
+              <div key={category.slug} className="mb-8 break-inside-avoid">
+                <h3 className="font-semibold text-ink-900">
+                  <Link href={categoryPath(category.slug)} className="focus-ring rounded hover:text-brand-700">
+                    {category.name}
+                  </Link>
+                </h3>
+                <ul className="mt-2 space-y-1.5 text-sm">
+                  {calculatorsInCategory(category.slug).map((calculator) => (
+                    <li key={calculator.slug}>
+                      <Link href={calculatorPath(calculator.slug)} className="focus-ring rounded text-neutral-700 hover:text-brand-700 hover:underline">
+                        {calculator.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
-          <p className="mt-4 text-sm">
-            <Link href="/calculators" className="focus-ring rounded font-medium text-brand-700 hover:underline">
-              View all {CALCULATORS.length} calculators
+          </div>
+          <p className="text-sm">
+            <Link href="/calculators" className="focus-ring rounded font-semibold text-brand-700 hover:underline">
+              Search and filter all {CALCULATORS.length} calculators →
             </Link>
           </p>
         </div>

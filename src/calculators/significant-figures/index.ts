@@ -2,15 +2,20 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { sigFigEngine } from "./engine";
 
 export const significantFigures: CalculatorDefinition = {
+  id: "significant-figures",
   slug: "significant-figures-calculator",
+  status: "published",
   title: "Significant Figures Calculator",
   shortTitle: "Sig Figs",
   category: "math",
+  collections: ["education-research"],
   summary: "Count the significant figures in a number or round a number to a chosen number of sig figs.",
   metaTitle: "Significant Figures Calculator – Count and Round Sig Figs",
   metaDescription: "Count significant figures in any number, including decimals and e-notation, or round to a set number of sig figs with the scientific notation shown.",
   keywords: ["sig figs", "significant figures", "significant digits", "rounding", "precision", "chemistry", "physics"],
   popularRank: 12,
+  addedOn: "2026-10-14",
+  sources: [],
   intro: ["Significant figures show how precisely a number is known. This calculator counts them using the standard rules, or rounds a number to the precision you choose.", "Type the number exactly as written, because trailing zeros and decimal points change the count."],
   howToUse: ["Choose whether to count or round.", "Type the number exactly as written, including any trailing zeros.", "When rounding, enter how many significant figures to keep."],
   formulas: [

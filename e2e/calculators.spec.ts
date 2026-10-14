@@ -186,8 +186,8 @@ test("homepage pay calculator, category tiles and reference chart", async ({ pag
   await expect(chart.getByRole("row", { name: /^\$60,000 / })).toContainText("$28.85");
   await expect(chart.getByRole("row", { name: /^\$100,000 / })).toContainText("$48.08");
   const tiles = page.locator("section", { has: page.getByRole("heading", { name: "Calculator categories" }) });
-  await tiles.getByRole("link", { name: /Salary & Pay/ }).click();
-  await expect(page).toHaveURL(/\/categories\/salary-and-pay$/);
+  await tiles.getByRole("link", { name: /^Finance / }).click();
+  await expect(page).toHaveURL(/\/categories\/finance$/);
 });
 
 test("mobile result bar stays hidden until the calculator inputs are on screen", async ({ page, isMobile }) => {

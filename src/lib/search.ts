@@ -2,9 +2,34 @@ export interface SearchEntry {
   slug: string;
   title: string;
   summary: string;
+  /** Category display name. */
   category: string;
+  categorySlug: string;
+  collections: string[];
   keywords: string[];
   href: string;
+  /** Lower is more popular. */
+  popularRank: number;
+  /** ISO date published. */
+  addedOn: string;
+  /** Registry position, used to break ties. */
+  order: number;
+}
+
+export type SortOrder = "category" | "popular" | "az" | "newest";
+
+export function sortEntries(entries: readonly SearchEntry[], order: SortOrder, categoryOrder: readonly string[] = []): SearchEntry[] {
+  const list = [...entries];
+  switch (order) {
+    case "az":
+      return list.sort((a, b) => a.title.localeCompare(b.title, "en"));
+    case "popular":
+      return list.sort((a, b) => a.popularRank - b.popularRank || a.title.localeCompare(b.title, "en"));
+    case "newest":
+      return list.sort((a, b) => (a.addedOn === b.addedOn ? b.order - a.order : a.addedOn < b.addedOn ? 1 : -1));
+    case "category":
+      return list.sort((a, b) => categoryOrder.indexOf(a.categorySlug) - categoryOrder.indexOf(b.categorySlug) || a.order - b.order);
+  }
 }
 
 export function normalize(text: string): string {

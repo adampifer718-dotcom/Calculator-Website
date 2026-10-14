@@ -2,15 +2,22 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { compoundInterestEngine } from "./engine";
 
 export const compoundInterest: CalculatorDefinition = {
+  id: "compound-interest",
   slug: "compound-interest-calculator",
+  status: "published",
   title: "Compound Interest Calculator",
   shortTitle: "Compound Interest",
-  category: "finance-and-investing",
+  category: "finance",
+  collections: ["personal-finance", "accounting-finance"],
   summary: "See how a deposit grows with compound interest, with a year-by-year balance table.",
   metaTitle: "Compound Interest Calculator – Future Value",
   metaDescription: "Calculate compound interest and the future value of a deposit with annual, quarterly, monthly or daily compounding, plus a year-by-year balance table.",
   keywords: ["compound interest", "future value", "savings", "interest rate", "apy", "effective annual rate", "investment growth"],
   popularRank: 22,
+  addedOn: "2026-10-14",
+  featured: true,
+  sources: [{"title": "Principles of Finance (time value of money and loan amortization chapters)", "publisher": "OpenStax, Rice University", "url": "https://openstax.org/details/books/principles-finance", "usedFor": "Compound interest and future value formulas."}],
+  expertReview: { area: "financial", status: "pending" },
   intro: ["Compound interest earns interest on previous interest as well as on the original deposit, so growth speeds up over time.", "Enter a deposit, rate, time and compounding frequency to see the future value, the interest earned and a balance for each year."],
   howToUse: ["Enter the initial deposit.", "Enter the annual interest rate and the number of years.", "Choose how often interest compounds.", "Read the future value, interest earned and effective annual rate."],
   formulas: [

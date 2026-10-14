@@ -2,15 +2,20 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { scientificNotationEngine } from "./engine";
 
 export const scientificNotation: CalculatorDefinition = {
+  id: "scientific-notation",
   slug: "scientific-notation-calculator",
+  status: "published",
   title: "Scientific Notation Calculator",
   shortTitle: "Scientific Notation",
   category: "math",
+  collections: ["education-research", "software-data"],
   summary: "Convert numbers to scientific, engineering and e-notation, or expand them back to decimals.",
   metaTitle: "Scientific Notation Calculator – Convert Numbers",
   metaDescription: "Convert any number to scientific notation, e-notation and engineering notation, or expand e-notation back into a normal decimal number.",
   keywords: ["scientific notation", "standard form", "e notation", "engineering notation", "exponent", "powers of ten"],
   popularRank: 13,
+  addedOn: "2026-10-14",
+  sources: [],
   intro: ["Scientific notation writes a number as a value between 1 and 10 multiplied by a power of ten, such as 1.234 × 10⁵. It keeps very large and very small numbers readable.", "Enter a decimal or e-notation and the calculator shows every common form."],
   howToUse: ["Type a number such as 123400 or 0.00056, or e-notation such as 6.02e23.", "Read the scientific, e-notation, engineering and decimal forms."],
   formulas: [

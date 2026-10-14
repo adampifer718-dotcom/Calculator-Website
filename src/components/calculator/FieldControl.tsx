@@ -91,6 +91,20 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
           ))}
         </select>
       ) : (
+        field.type === "text" && field.multiline ? (
+        <textarea
+          id={id}
+          value={value}
+          rows={6}
+          spellCheck={false}
+          placeholder={field.placeholder}
+          onChange={(event) => onChange(event.target.value)}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={describedBy}
+          aria-required={field.optional ? undefined : true}
+          className={`${inputBase} ${stateClass} min-h-36 px-3 py-2.5 font-mono text-sm leading-relaxed`}
+        />
+      ) : (
         <div className="relative">
           {prefix && (
             <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-neutral-500">
@@ -117,6 +131,7 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
             </span>
           )}
         </div>
+      )
       )}
       {error && (
         <p id={errorId} className="mt-1.5 text-sm font-medium text-red-700">

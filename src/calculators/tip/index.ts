@@ -2,15 +2,20 @@ import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { tipEngine } from "./engine";
 
 export const tip: CalculatorDefinition = {
+  id: "tip",
   slug: "tip-calculator",
+  status: "published",
   title: "Tip Calculator",
   shortTitle: "Tip",
   category: "everyday-life",
+  collections: ["food-hospitality", "personal-finance"],
   summary: "Work out the tip, the total bill and what each person pays when splitting.",
   metaTitle: "Tip Calculator – Tip Amount and Bill Split",
   metaDescription: "Calculate the tip for any bill and tip percentage, the total with tip, and how much each person pays when the bill is split evenly.",
   keywords: ["tip", "gratuity", "bill split", "restaurant", "split the bill", "service charge"],
   popularRank: 20,
+  addedOn: "2026-10-14",
+  sources: [],
   intro: ["Enter the bill and a tip percentage to see the tip and the total. Add the number of people to split it evenly.", "Customs vary by country and service, so choose the percentage that fits."],
   howToUse: ["Enter the bill amount.", "Enter the tip percentage.", "Enter how many people are splitting the bill.", "Read the tip, total and amount per person."],
   formulas: [

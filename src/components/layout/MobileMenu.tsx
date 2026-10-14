@@ -4,9 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { HeaderSearch } from "./HeaderSearch";
-import type { NavGroup } from "./nav-data";
+import type { NavCollection, NavGroup } from "./nav-data";
 
-export function MobileMenu({ groups }: { groups: NavGroup[] }) {
+export function MobileMenu({ groups, collections }: { groups: NavGroup[]; collections: NavCollection[] }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -62,7 +62,7 @@ export function MobileMenu({ groups }: { groups: NavGroup[] }) {
                       </svg>
                     </summary>
                     <ul className="pb-2">
-                      {group.items.map((item) => (
+                      {group.items.slice(0, 8).map((item) => (
                         <li key={item.href}>
                           <Link
                             href={item.href}
@@ -76,13 +76,32 @@ export function MobileMenu({ groups }: { groups: NavGroup[] }) {
                       ))}
                       <li>
                         <Link href={group.href} onClick={() => setOpen(false)} className="focus-ring block rounded-lg px-6 py-2 text-sm font-medium text-brand-700">
-                          View {group.name} category
+                          {group.count > 8 ? `View all ${group.count} ${group.name} calculators` : `View ${group.name} category`}
                         </Link>
                       </li>
                     </ul>
                   </details>
                 </li>
               ))}
+              <li>
+                <details className="group rounded-lg open:bg-neutral-50">
+                  <summary className="focus-ring flex cursor-pointer list-none items-center justify-between rounded-lg px-3 py-3 text-base font-medium text-ink-900 hover:bg-neutral-100 [&::-webkit-details-marker]:hidden">
+                    Industry collections
+                    <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-neutral-500 group-open:rotate-180">
+                      <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.06l3.71-3.83a.75.75 0 1 1 1.08 1.04l-4.25 4.4a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06Z" clipRule="evenodd" />
+                    </svg>
+                  </summary>
+                  <ul className="pb-2">
+                    {collections.map((collection) => (
+                      <li key={collection.href}>
+                        <Link href={collection.href} onClick={() => setOpen(false)} className="focus-ring block rounded-lg px-6 py-2 text-sm text-neutral-700 hover:text-brand-700">
+                          {collection.name} <span className="text-neutral-400">({collection.count})</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              </li>
               {[
                 { name: "All calculators", href: "/calculators" },
                 { name: "About", href: "/about" },
