@@ -90,18 +90,21 @@ function createFormatter(locale: Locale): Formatter {
     return format;
   };
   const dateCache = new Map<string, Intl.DateTimeFormat>();
+  const isolate = (text: string) => (LOCALE_INFO[locale].dir === "rtl" ? `\u2066${text}\u2069` : text);
   const code = (currency: string) => (isCurrencyCode(currency) ? currency : DEFAULT_CURRENCY);
 
   return {
     locale,
     currency(amount, currency = DEFAULT_CURRENCY, signDisplay = "negative", decimals) {
       const c = code(currency);
-      return nf(`c:${c}:${signDisplay}:${decimals ?? "auto"}`, {
+      // In Arabic and Urdu sentences an amount such as "2,022.62 US$" must stay one
+      // left-to-right unit, so it is wrapped in Unicode isolates (LRI … PDI).
+      return isolate(nf(`c:${c}:${signDisplay}:${decimals ?? "auto"}`, {
         style: "currency",
         currency: c,
         signDisplay,
         ...(decimals === undefined ? {} : { minimumFractionDigits: decimals, maximumFractionDigits: decimals }),
-      }).format(amount);
+      }).format(amount));
     },
     number(value, maxDecimals = 4, signDisplay = "negative") {
       return nf(`n:${maxDecimals}:${signDisplay}`, { maximumFractionDigits: maxDecimals, signDisplay }).format(value);

@@ -45,3 +45,12 @@ describe("currency names", () => {
     expect(getFormatter("es").currencyLabel("EUR")).toBe("Euro (EUR)");
   });
 });
+
+describe("currency inside right-to-left text", () => {
+  it("isolates amounts in Arabic and Urdu so symbols stay attached", () => {
+    expect(getFormatter("ar").currency(2022.62, "USD")).toMatch(/^⁦.*2,022\.62.*⁩$/);
+    expect(getFormatter("ur").currency(5, "USD")).toMatch(/^⁦.*⁩$/);
+    expect(getFormatter("en").currency(5, "USD")).toBe("$5.00");
+    expect(getFormatter("de").currency(5, "USD")).not.toMatch(/⁦/);
+  });
+});
