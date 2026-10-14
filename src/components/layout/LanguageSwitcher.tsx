@@ -97,7 +97,7 @@ export function LanguageSwitcher({ locale, locales, availability, variant = "ful
   };
 
   return (
-    <div ref={rootRef} className="relative">
+    <div ref={rootRef} className="relative" data-language-switcher={variant}>
       <button
         ref={buttonRef}
         type="button"

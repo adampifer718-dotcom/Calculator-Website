@@ -14,3 +14,10 @@ const LOADERS: Record<Locale, () => Promise<{ default: Messages }>> = {
 export async function loadMessages(locale: Locale): Promise<Messages> {
   return (await LOADERS[locale]()).default;
 }
+
+/**
+ * Locales whose interface messages are fully translated. Kept in sync with
+ * the message files by src/i18n/translations.test.ts; a locale is published
+ * only when it is listed here (see isLocaleReady).
+ */
+export const MESSAGE_LOCALES: readonly Locale[] = ["en", "ur", "es", "fr", "de", "ar"];

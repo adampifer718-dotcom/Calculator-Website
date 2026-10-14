@@ -33,19 +33,24 @@ npm start
 | `npm run typecheck` | Generates route types and runs `tsc --noEmit` |
 | `npm test` | Vitest unit tests (math, formatting, framework, engines, registry integrity) |
 | `npm run build` | Production build |
+| `npm run i18n:sync` | Wires every `src/calculators/<calc>/i18n/<locale>.ts` file into that calculator's `translations.ts` |
+| `npm run i18n:report` | Regenerates `docs/translation-report.md` (a test fails if it is out of date) |
 | `npm run test:e2e` | Playwright tests against `next start` (run `npm run build` first) on desktop and mobile viewports: every sitemap URL, internal links, metadata uniqueness, 404s, calculator inputs/results/validation, navigation, horizontal overflow and axe accessibility checks |
 
 ## Project structure
 
 ```
 src/
-  app/                       Routes: home, directory, categories, calculator pages, about, sitemap, robots
+  app/[locale]/              Routes for every language: home, directory, categories, collections, calculator pages, about
+  app/                       sitemap, robots, per-language search index, global 404
+  i18n/                      Locale config, routing, messages, shared calculator strings, taxonomy translations, completeness checks
   calculators/
     framework/               Typed engine/content types, input parsing, validation, evaluation, formatting
     shared/pay.ts            Fields and helpers shared by the pay calculators
     <calculator>/engine.ts   Inputs, validation and compute function (pure, browser-safe)
     <calculator>/index.ts    Page content: metadata, intro, formulas, worked examples, FAQs, related links
     <calculator>/widget.tsx  Client entry that renders the shared form for the engine
+    <calculator>/text/en.ts  Engine strings (labels, help, result labels); i18n/<locale>.ts holds translations
     registry.ts              The list of published calculators; everything else derives from it
     widgets.tsx              Code-split map of interactive forms by slug
     categories.ts            Category definitions
@@ -84,6 +89,22 @@ Each calculator is a typed `CalculatorDefinition` (`src/calculators/framework/ty
 5. Run `npm run backlog:report` to refresh `docs/calculator-backlog.md`.
 
 Tests fail if a published calculator is missing from the backlog (or vice versa), if metadata is duplicated, if an example result is wrong, if a widget is missing, or if a review-flagged tool has no sources.
+
+## Languages
+
+The site is available in English (default), Urdu (اردو), Spanish (Español), French (Français), German (Deutsch) and Arabic (العربية), using [next-intl](https://next-intl.dev) with the `[locale]` root segment.
+
+- **URLs.** English stays unprefixed (`/calculators/roi-calculator`); other languages are prefixed (`/es/calculators/roi-calculator`, `/ar/...`). `/en/...` redirects to the unprefixed URL. Existing redirects are unchanged.
+- **Language selector.** In the header on desktop and mobile. It shows native names, marks the active language (`aria-current`) and supports arrow keys, Home, End and Escape. Choosing a language keeps the visitor on the same page and query string. If that calculator is not translated yet, it links to the language's homepage instead of a missing URL.
+- **Preference.** A manual choice is stored in the `NEXT_LOCALE` cookie for a year. Only the bare homepage `/` follows it; deep links are never redirected. There is no IP-based switching. A dismissible banner may suggest the browser's language, and the visitor stays in control.
+- **Publishing rule.** A language is published only when its interface messages (`src/i18n/messages/<locale>.ts`), shared calculator strings (`src/i18n/calc/<locale>.ts`), categories and collections (`src/i18n/taxonomy/<locale>.ts`) and homepage pay converter text are all present. A calculator page exists in a language only when `src/calculators/<calc>/i18n/<locale>.ts` exists, with both page content and engine strings. Unpublished pages are not rendered, linked or listed in the sitemap.
+- **Typed translations.** Each file is typed against the English source. `src/i18n/translations.test.ts` checks every file for identical keys, array lengths and `{placeholders}`, flags English sentences left in place, and runs each localized engine on the worked examples to confirm the numbers match English exactly.
+- **Formatting.** Numbers, currencies, percentages and dates use `Intl` with the page locale. Arabic and Urdu use Latin digits (`nu-latn`) so results match what visitors type. Inputs accept the local decimal separator (`2,5` in es/fr/de), and Arabic-Indic digits are converted. Changing the language never changes a value or converts a currency.
+- **RTL.** Urdu and Arabic pages set `dir="rtl"`. Layout uses logical CSS (`ms-`, `ps-`, `start-`, `text-start`), directional icons are mirrored, and number inputs, formulas and calculation steps keep left-to-right order inside RTL text.
+- **SEO.** Each localized page has its own translated title and description, a self-referencing canonical, reciprocal `hreflang` alternates for exactly the languages it exists in, plus `x-default` (English). The sitemap lists every published page in each language with the same alternates.
+- **Adding a translation.** Create `src/calculators/<calc>/i18n/<locale>.ts` (copy an existing one, typed `CalculatorTranslation<XText>`), then run `npm run i18n:sync`, `npm test` and `npm run i18n:report`.
+
+See [`docs/translation-report.md`](docs/translation-report.md) for current coverage.
 
 ## Research and sources
 

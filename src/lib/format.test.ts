@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { currencySymbol, formatCurrency, formatNumber, formatPercent } from "./format";
+import { CURRENCY_CODES, currencySymbol, formatCurrency, formatNumber, formatPercent, getFormatter } from "./format";
 
 describe("formatting", () => {
   it("formats currencies without converting values", () => {
@@ -34,5 +34,14 @@ describe("formatting", () => {
     expect(currencySymbol("EUR")).toBe("€");
     expect(currencySymbol("INR")).toBe("₹");
     expect(formatCurrency(100, "USD", "negative", 0)).toBe("$100");
+  });
+});
+
+describe("currency names", () => {
+  it("uses a static table so server and browser match", async () => {
+    const { CURRENCY_NAMES } = await import("./currency-names");
+    const { LOCALES } = await import("@/i18n/config");
+    for (const locale of LOCALES) for (const code of CURRENCY_CODES) expect(CURRENCY_NAMES[locale][code], `${locale} ${code}`).toBeTruthy();
+    expect(getFormatter("es").currencyLabel("EUR")).toBe("Euro (EUR)");
   });
 });

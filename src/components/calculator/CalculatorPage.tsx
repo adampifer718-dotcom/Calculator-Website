@@ -12,6 +12,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { LOCALE_INFO } from "@/i18n/config";
 import { localizePath } from "@/i18n/paths";
 import { categoryText, collectionText } from "@/i18n/taxonomy";
+import { midSentence } from "@/lib/parse";
 import { calculatorJsonLd } from "@/lib/structured-data";
 import { WorkedExamples } from "./WorkedExamples";
 
@@ -112,7 +113,7 @@ export async function CalculatorPage({ calculator: localized }: { calculator: Lo
             </section>
 
             <section aria-labelledby="how-to-use">
-              <SectionHeading id="how-to-use">{t("howTo", { name: content.shortTitle.toLocaleLowerCase(LOCALE_INFO[locale].intl) })}</SectionHeading>
+              <SectionHeading id="how-to-use">{t("howTo", { name: midSentence(content.shortTitle, locale) })}</SectionHeading>
               <ol className="mt-4 max-w-3xl space-y-3">
                 {content.howToUse.map((step, index) => (
                   <li key={step} className="flex gap-3 text-neutral-700">

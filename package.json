@@ -12,7 +12,9 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "check": "npm run lint && npm run typecheck && npm run test",
-    "backlog:report": "node --experimental-strip-types --no-warnings scripts/backlog-report.mjs"
+    "backlog:report": "node --experimental-strip-types --no-warnings scripts/backlog-report.mjs",
+    "i18n:sync": "node scripts/sync-translations.mjs",
+    "i18n:report": "UPDATE_REPORT=1 vitest run src/i18n/report.test.ts"
   },
   "dependencies": {
     "next": "16.4.0",

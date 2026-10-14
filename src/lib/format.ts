@@ -4,6 +4,7 @@
  * browser-rendered output are identical. Changing the language changes how
  * numbers look, never their value or currency.
  */
+import { CURRENCY_NAMES } from "./currency-names";
 import { DEFAULT_LOCALE, LOCALE_INFO, isLocale, type Locale } from "@/i18n/config";
 
 /** USD first as the default, then alphabetical by code. Names come from Intl.DisplayNames per locale. */
@@ -80,7 +81,6 @@ function createFormatter(locale: Locale): Formatter {
     }
     return format;
   };
-  let names: Intl.DisplayNames | undefined;
   const code = (currency: string) => (isCurrencyCode(currency) ? currency : DEFAULT_CURRENCY);
 
   return {
@@ -118,10 +118,8 @@ function createFormatter(locale: Locale): Formatter {
       return part?.value ?? code(currency);
     },
     currencyLabel(currency) {
-      names ??= new Intl.DisplayNames([tag], { type: "currency" });
       const c = code(currency);
-      const name = names.of(c) ?? c;
-      return `${name.charAt(0).toLocaleUpperCase(tag) + name.slice(1)} (${c})`;
+      return `${CURRENCY_NAMES[locale][c] ?? c} (${c})`;
     },
   };
 }

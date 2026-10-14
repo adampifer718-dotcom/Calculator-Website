@@ -4,6 +4,7 @@ import type { Category, CategorySlug, Collection, CollectionSlug } from "./frame
 import { categoryText, collectionText } from "@/i18n/taxonomy";
 import { DEFAULT_LOCALE, LOCALES, type Locale } from "@/i18n/config";
 import { hasTaxonomy } from "@/i18n/taxonomy";
+import { MESSAGE_LOCALES } from "@/i18n/messages";
 import { engineContext, hasCommonText } from "./framework/i18n";
 import type { AnyEngine, CalculatorContent, CalculatorDefinition } from "./framework/types";
 import { PAY_CONVERTER_TEXT } from "./pay-converter/translations";
@@ -19,7 +20,7 @@ export interface LocalizedCalculator {
   engine: AnyEngine;
 }
 
-function englishContent(def: CalculatorDefinition): CalculatorContent {
+export function englishContent(def: CalculatorDefinition): CalculatorContent {
   return {
     title: def.title,
     shortTitle: def.shortTitle,
@@ -39,7 +40,7 @@ function englishContent(def: CalculatorDefinition): CalculatorContent {
 
 /** True when the site chrome (interface, taxonomy, shared calculator strings) exists for the locale. */
 export function isLocaleReady(locale: Locale): boolean {
-  return hasCommonText(locale) && hasTaxonomy(locale) && PAY_CONVERTER_TEXT[locale] !== undefined;
+  return MESSAGE_LOCALES.includes(locale) && hasCommonText(locale) && hasTaxonomy(locale) && PAY_CONVERTER_TEXT[locale] !== undefined;
 }
 
 /** Whether a complete translation of the calculator exists in the locale. */

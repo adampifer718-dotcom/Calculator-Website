@@ -12,10 +12,10 @@ import { HeaderSearch } from "@/components/layout/HeaderSearch";
 import { CalculatorCard } from "@/components/ui/CalculatorCard";
 import { CategoryIcon } from "@/components/ui/CategoryIcon";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { LOCALE_INFO } from "@/i18n/config";
 import { localizePath } from "@/i18n/paths";
 import { currentLocale } from "@/i18n/server";
 import { CURRENCY_CODES } from "@/lib/format";
+import { midSentence } from "@/lib/parse";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { websiteJsonLd } from "@/lib/structured-data";
@@ -74,7 +74,6 @@ export default async function HomePage() {
   const featured = featuredFor(locale, 6);
   const recent = recentFor(locale, 6);
   const highlights = [t("highlights.instant"), t("highlights.currencies", { count: CURRENCY_CODES.length }), t("highlights.noSignup")];
-  const intl = LOCALE_INFO[locale].intl;
 
   return (
     <>
@@ -94,7 +93,7 @@ export default async function HomePage() {
                 <span key={calculator.def.slug}>
                   {index > 0 && (locale === "ar" || locale === "ur" ? "، " : ", ")}
                   <Link href={href(calculatorPath(calculator.def.slug))} className="focus-ring rounded font-medium text-brand-700 hover:underline">
-                    {calculator.content.shortTitle.toLocaleLowerCase(intl)}
+                    {midSentence(calculator.content.shortTitle, locale)}
                   </Link>
                 </span>
               ))}

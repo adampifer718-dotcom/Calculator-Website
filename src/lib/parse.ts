@@ -63,3 +63,15 @@ export function exampleNumber(locale: Locale): string {
 export function directionOf(locale: Locale): "ltr" | "rtl" {
   return LOCALE_INFO[locale].dir;
 }
+
+/**
+ * Lower-cases a title for use mid-sentence ("How to use the tip calculator"),
+ * keeping acronyms such as ROI or BMI and leaving German nouns capitalized.
+ */
+export function midSentence(text: string, locale: Locale): string {
+  if (locale === "de") return text;
+  return text
+    .split(/(\s+)/)
+    .map((word) => (/^\p{Lu}[\p{Lu}\d-]+$/u.test(word) ? word : word.toLocaleLowerCase(LOCALE_INFO[locale].intl)))
+    .join("");
+}
