@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/config";
+import type { EngineContext } from "./i18n";
 /* ------------------------------------------------------------------ */
 /* Engine: inputs, validation and calculation (runs in the browser).   */
 /* ------------------------------------------------------------------ */
@@ -205,6 +206,33 @@ export interface Faq {
   answer: string;
 }
 
+/** Page content for one language. English content lives on the definition itself. */
+export interface CalculatorContent {
+  title: string;
+  shortTitle: string;
+  summary: string;
+  metaTitle: string;
+  metaDescription: string;
+  keywords: readonly string[];
+  intro: readonly string[];
+  howToUse: readonly string[];
+  formulas: readonly Formula[];
+  /** Same order and length as the definition's examples; inputs and expected results are shared. */
+  examples: readonly { title: string; steps: readonly string[] }[];
+  assumptions: readonly string[];
+  faqs: readonly Faq[];
+  /** Translation of each source's `usedFor`, in source order. */
+  sourcesUsedFor: readonly string[];
+}
+
+/** A complete translation of one calculator: page content plus engine strings. */
+export interface CalculatorTranslation<T> {
+  content: CalculatorContent;
+  text: T;
+}
+
+export type TranslationMap<T> = Partial<Record<Exclude<Locale, "en">, CalculatorTranslation<T>>>;
+
 export interface CalculatorDefinition {
   /** Stable internal identifier; never changes even if the slug does. */
   id: string;
@@ -243,6 +271,23 @@ export interface CalculatorDefinition {
   related: readonly string[];
   /** ISO date (YYYY-MM-DD) the page content was last updated. */
   updated: string;
-  /** Used on the server for worked examples; the interactive form is registered in widgets.tsx. */
+  /** English engine instance, used for tests and English pages. */
   engine: AnyEngine;
+  /** English engine strings. */
+  text: unknown;
+  /** Builds the engine for any locale from that locale's strings. */
+  makeEngine: (ctx: EngineContext<never>) => AnyEngine;
+  /** Complete translations by locale. A locale missing here has no page for this calculator. */
+  translations: TranslationMap<unknown>;
+}
+
+/** Defines a calculator with type-checked engine strings and translations. */
+export function defineCalculator<T>(
+  definition: Omit<CalculatorDefinition, "text" | "makeEngine" | "translations"> & {
+    text: T;
+    makeEngine: (ctx: EngineContext<T>) => AnyEngine;
+    translations: TranslationMap<T>;
+  },
+): CalculatorDefinition {
+  return definition as unknown as CalculatorDefinition;
 }

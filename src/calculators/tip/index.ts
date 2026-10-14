@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { tipEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { tipEngine, makeTipEngine } from "./engine";
 
-export const tip: CalculatorDefinition = {
+export const tip = defineCalculator({
   id: "tip",
   slug: "tip-calculator",
   status: "published",
@@ -45,4 +47,7 @@ export const tip: CalculatorDefinition = {
   related: ["discount-calculator", "sales-tax-calculator", "percentage-calculator"],
   updated: "2026-10-14",
   engine: tipEngine,
-};
+  text,
+  makeEngine: makeTipEngine,
+  translations,
+});

@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { doublingTimeEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { doublingTimeEngine, makeDoublingTimeEngine } from "./engine";
 
-export const doublingTime: CalculatorDefinition = {
+export const doublingTime = defineCalculator({
   id: "doubling-time",
   slug: "doubling-time-calculator",
   status: "published",
@@ -46,4 +48,7 @@ export const doublingTime: CalculatorDefinition = {
   related: ["log-calculator", "exponent-calculator", "compound-interest-calculator"],
   updated: "2026-10-14",
   engine: doublingTimeEngine,
-};
+  text,
+  makeEngine: makeDoublingTimeEngine,
+  translations,
+});

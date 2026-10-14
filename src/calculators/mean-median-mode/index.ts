@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { meanMedianModeEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { meanMedianModeEngine, makeMeanMedianModeEngine } from "./engine";
 
-export const meanMedianMode: CalculatorDefinition = {
+export const meanMedianMode = defineCalculator({
   id: "mean-median-mode",
   slug: "mean-median-mode-calculator",
   status: "published",
@@ -46,4 +48,7 @@ export const meanMedianMode: CalculatorDefinition = {
   related: ["standard-deviation-calculator", "percentage-calculator", "confidence-interval-calculator"],
   updated: "2026-10-14",
   engine: meanMedianModeEngine,
-};
+  text,
+  makeEngine: makeMeanMedianModeEngine,
+  translations,
+});

@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { lengthConverterEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { lengthConverterEngine, makeLengthConverterEngine } from "./engine";
 
-export const lengthConverter: CalculatorDefinition = {
+export const lengthConverter = defineCalculator({
   id: "length-converter",
   slug: "length-converter",
   status: "published",
@@ -45,4 +47,7 @@ export const lengthConverter: CalculatorDefinition = {
   related: ["weight-converter", "temperature-converter", "square-footage-calculator"],
   updated: "2026-10-14",
   engine: lengthConverterEngine,
-};
+  text,
+  makeEngine: makeLengthConverterEngine,
+  translations,
+});

@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { confidenceIntervalEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { confidenceIntervalEngine, makeConfidenceIntervalEngine } from "./engine";
 
-export const confidenceInterval: CalculatorDefinition = {
+export const confidenceInterval = defineCalculator({
   id: "confidence-interval",
   slug: "confidence-interval-calculator",
   status: "published",
@@ -52,4 +54,7 @@ export const confidenceInterval: CalculatorDefinition = {
   related: ["p-value-calculator", "percentage-calculator", "square-root-calculator"],
   updated: "2026-10-14",
   engine: confidenceIntervalEngine,
-};
+  text,
+  makeEngine: makeConfidenceIntervalEngine,
+  translations,
+});

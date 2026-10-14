@@ -1,12 +1,27 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import type { Locale } from "@/i18n/config";
+import { localizePath } from "@/i18n/paths";
 import { HeaderSearch } from "./HeaderSearch";
 import type { NavCollection, NavGroup } from "./nav-data";
 
-export function MobileMenu({ groups, collections }: { groups: NavGroup[]; collections: NavCollection[] }) {
+const ITEMS_PER_GROUP = 8;
+
+function Chevron() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-neutral-500 group-open:rotate-180">
+      <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.06l3.71-3.83a.75.75 0 1 1 1.08 1.04l-4.25 4.4a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06Z" clipRule="evenodd" />
+    </svg>
+  );
+}
+
+export function MobileMenu({ groups, collections, locale }: { groups: NavGroup[]; collections: NavCollection[]; locale: Locale }) {
+  const t = useTranslations("nav");
+  const tc = useTranslations("common");
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -30,8 +45,11 @@ export function MobileMenu({ groups, collections }: { groups: NavGroup[]; collec
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
+  const summaryClass =
+    "focus-ring flex cursor-pointer list-none items-center justify-between rounded-lg px-3 py-3 text-base font-medium text-ink-900 hover:bg-neutral-100 [&::-webkit-details-marker]:hidden";
+
   return (
-    <div className="ml-auto lg:hidden">
+    <div className="lg:hidden">
       <button
         ref={buttonRef}
         type="button"
@@ -40,29 +58,27 @@ export function MobileMenu({ groups, collections }: { groups: NavGroup[]; collec
         onClick={() => setOpen((v) => !v)}
         className="focus-ring inline-flex size-10 items-center justify-center rounded-lg text-ink-900 hover:bg-neutral-100"
       >
-        <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+        <span className="sr-only">{open ? t("closeMenu") : t("openMenu")}</span>
         <svg aria-hidden="true" viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
           {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
         </svg>
       </button>
       {open && (
         <div id="mobile-menu" className="absolute inset-x-0 top-16 border-b border-neutral-200 bg-white px-4 pt-4 pb-6 shadow-lg sm:px-6">
-          <HeaderSearch id="mobile-search" label="Menu search" />
-          <nav aria-label="Mobile" className="mt-4 max-h-[calc(100vh-11rem)] overflow-y-auto">
+          <HeaderSearch id="mobile-search" label={t("menuSearch")} />
+          <nav aria-label={t("mobile")} className="mt-4 max-h-[calc(100vh-11rem)] overflow-y-auto">
             <ul className="grid gap-1">
               {groups.map((group) => (
                 <li key={group.slug}>
                   <details className="group rounded-lg open:bg-neutral-50">
-                    <summary className="focus-ring flex cursor-pointer list-none items-center justify-between rounded-lg px-3 py-3 text-base font-medium text-ink-900 hover:bg-neutral-100 [&::-webkit-details-marker]:hidden">
+                    <summary className={summaryClass}>
                       <span>
                         {group.name} <span className="text-sm font-normal text-neutral-500">({group.count})</span>
                       </span>
-                      <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-neutral-500 group-open:rotate-180">
-                        <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.06l3.71-3.83a.75.75 0 1 1 1.08 1.04l-4.25 4.4a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06Z" clipRule="evenodd" />
-                      </svg>
+                      <Chevron />
                     </summary>
                     <ul className="pb-2">
-                      {group.items.slice(0, 8).map((item) => (
+                      {group.items.slice(0, ITEMS_PER_GROUP).map((item) => (
                         <li key={item.href}>
                           <Link
                             href={item.href}
@@ -76,7 +92,7 @@ export function MobileMenu({ groups, collections }: { groups: NavGroup[]; collec
                       ))}
                       <li>
                         <Link href={group.href} onClick={() => setOpen(false)} className="focus-ring block rounded-lg px-6 py-2 text-sm font-medium text-brand-700">
-                          {group.count > 8 ? `View all ${group.count} ${group.name} calculators` : `View ${group.name} category`}
+                          {group.count > ITEMS_PER_GROUP ? t("viewAllInCategory", { count: group.count, category: group.name }) : t("viewCategory", { category: group.name })}
                         </Link>
                       </li>
                     </ul>
@@ -85,11 +101,9 @@ export function MobileMenu({ groups, collections }: { groups: NavGroup[]; collec
               ))}
               <li>
                 <details className="group rounded-lg open:bg-neutral-50">
-                  <summary className="focus-ring flex cursor-pointer list-none items-center justify-between rounded-lg px-3 py-3 text-base font-medium text-ink-900 hover:bg-neutral-100 [&::-webkit-details-marker]:hidden">
-                    Industry collections
-                    <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-neutral-500 group-open:rotate-180">
-                      <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.06l3.71-3.83a.75.75 0 1 1 1.08 1.04l-4.25 4.4a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06Z" clipRule="evenodd" />
-                    </svg>
+                  <summary className={summaryClass}>
+                    {t("collections")}
+                    <Chevron />
                   </summary>
                   <ul className="pb-2">
                     {collections.map((collection) => (
@@ -103,8 +117,8 @@ export function MobileMenu({ groups, collections }: { groups: NavGroup[]; collec
                 </details>
               </li>
               {[
-                { name: "All calculators", href: "/calculators" },
-                { name: "About", href: "/about" },
+                { name: tc("allCalculators"), href: localizePath(locale, "/calculators") },
+                { name: tc("about"), href: localizePath(locale, "/about") },
               ].map((link) => (
                 <li key={link.href}>
                   <Link

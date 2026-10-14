@@ -1,8 +1,13 @@
 "use client";
 
+import { useMemo } from "react";
+import { engineContext } from "@/calculators/framework/i18n";
 import { CalculatorForm } from "@/components/calculator/CalculatorForm";
-import { exponentEngine } from "./engine";
+import type { Locale } from "@/i18n/config";
+import { makeExponentEngine } from "./engine";
+import type { ExponentText } from "./text/en";
 
-export default function Widget() {
-  return <CalculatorForm engine={exponentEngine} />;
+export default function Widget({ locale, text }: { locale: Locale; text: ExponentText }) {
+  const engine = useMemo(() => makeExponentEngine(engineContext(locale, text)), [locale, text]);
+  return <CalculatorForm engine={engine} />;
 }

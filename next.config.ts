@@ -1,4 +1,7 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 if (process.argv.includes("build") && !process.env.NEXT_PUBLIC_SITE_URL && !process.env.VERCEL_PROJECT_PRODUCTION_URL) {
   console.warn(
@@ -14,6 +17,10 @@ const nextConfig: NextConfig = {
   // and category URLs are prerendered by generateStaticParams.
   partialPrefetching: false,
   poweredByHeader: false,
+  experimental: {
+    // 404 page for URLs that match no route at all (the root layout lives under [locale]).
+    globalNotFound: true,
+  },
   turbopack: {
     rules: {
       "*.css": {
@@ -33,4 +40,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

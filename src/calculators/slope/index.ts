@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { slopeEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { slopeEngine, makeSlopeEngine } from "./engine";
 
-export const slope: CalculatorDefinition = {
+export const slope = defineCalculator({
   id: "slope",
   slug: "slope-calculator",
   status: "published",
@@ -46,4 +48,7 @@ export const slope: CalculatorDefinition = {
   related: ["pythagorean-theorem-calculator", "percentage-increase-calculator", "exponent-calculator"],
   updated: "2026-10-14",
   engine: slopeEngine,
-};
+  text,
+  makeEngine: makeSlopeEngine,
+  translations,
+});

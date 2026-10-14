@@ -1,8 +1,13 @@
 "use client";
 
+import { useMemo } from "react";
+import { engineContext } from "@/calculators/framework/i18n";
 import { CalculatorForm } from "@/components/calculator/CalculatorForm";
-import { speedDistanceTimeEngine } from "./engine";
+import type { Locale } from "@/i18n/config";
+import { makeSpeedDistanceTimeEngine } from "./engine";
+import type { SpeedDistanceTimeText } from "./text/en";
 
-export default function Widget() {
-  return <CalculatorForm engine={speedDistanceTimeEngine} />;
+export default function Widget({ locale, text }: { locale: Locale; text: SpeedDistanceTimeText }) {
+  const engine = useMemo(() => makeSpeedDistanceTimeEngine(engineContext(locale, text)), [locale, text]);
+  return <CalculatorForm engine={engine} />;
 }

@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { loanPaymentEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { loanPaymentEngine, makeLoanPaymentEngine } from "./engine";
 
-export const loanPayment: CalculatorDefinition = {
+export const loanPayment = defineCalculator({
   id: "loan-payment",
   slug: "loan-payment-calculator",
   status: "published",
@@ -48,4 +50,7 @@ export const loanPayment: CalculatorDefinition = {
   related: ["compound-interest-calculator", "roi-calculator", "percentage-calculator"],
   updated: "2026-10-14",
   engine: loanPaymentEngine,
-};
+  text,
+  makeEngine: makeLoanPaymentEngine,
+  translations,
+});

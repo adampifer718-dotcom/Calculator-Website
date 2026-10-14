@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { hourlyToSalaryEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { hourlyToSalaryEngine, makeHourlyToSalaryEngine } from "./engine";
 
-export const hourlyToSalary: CalculatorDefinition = {
+export const hourlyToSalary = defineCalculator({
   id: "hourly-to-salary",
   slug: "hourly-to-salary-calculator",
   status: "published",
@@ -93,4 +95,7 @@ export const hourlyToSalary: CalculatorDefinition = {
   related: ["salary-to-hourly-calculator", "percentage-increase-calculator", "roi-calculator"],
   updated: "2026-10-14",
   engine: hourlyToSalaryEngine,
-};
+  text,
+  makeEngine: makeHourlyToSalaryEngine,
+  translations,
+});

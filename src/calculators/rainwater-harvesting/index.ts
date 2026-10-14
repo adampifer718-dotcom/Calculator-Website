@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { rainwaterEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { rainwaterEngine, makeRainwaterEngine } from "./engine";
 
-export const rainwaterHarvesting: CalculatorDefinition = {
+export const rainwaterHarvesting = defineCalculator({
   id: "rainwater-harvesting",
   slug: "rainwater-harvesting-calculator",
   status: "published",
@@ -45,4 +47,7 @@ export const rainwaterHarvesting: CalculatorDefinition = {
   related: ["square-footage-calculator", "length-converter", "electricity-cost-calculator"],
   updated: "2026-10-14",
   engine: rainwaterEngine,
-};
+  text,
+  makeEngine: makeRainwaterEngine,
+  translations,
+});

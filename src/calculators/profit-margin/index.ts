@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { profitMarginEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { profitMarginEngine, makeProfitMarginEngine } from "./engine";
 
-export const profitMargin: CalculatorDefinition = {
+export const profitMargin = defineCalculator({
   id: "profit-margin",
   slug: "profit-margin-calculator",
   status: "published",
@@ -46,4 +48,7 @@ export const profitMargin: CalculatorDefinition = {
   related: ["break-even-calculator", "discount-calculator", "sales-tax-calculator"],
   updated: "2026-10-14",
   engine: profitMarginEngine,
-};
+  text,
+  makeEngine: makeProfitMarginEngine,
+  translations,
+});

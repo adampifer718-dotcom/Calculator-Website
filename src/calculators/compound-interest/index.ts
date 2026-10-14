@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { compoundInterestEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { compoundInterestEngine, makeCompoundInterestEngine } from "./engine";
 
-export const compoundInterest: CalculatorDefinition = {
+export const compoundInterest = defineCalculator({
   id: "compound-interest",
   slug: "compound-interest-calculator",
   status: "published",
@@ -47,4 +49,7 @@ export const compoundInterest: CalculatorDefinition = {
   related: ["roi-calculator", "percentage-increase-calculator", "sales-tax-calculator"],
   updated: "2026-10-14",
   engine: compoundInterestEngine,
-};
+  text,
+  makeEngine: makeCompoundInterestEngine,
+  translations,
+});

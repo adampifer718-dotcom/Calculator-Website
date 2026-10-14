@@ -1,8 +1,13 @@
 "use client";
 
+import { useMemo } from "react";
+import { engineContext } from "@/calculators/framework/i18n";
 import { CalculatorForm } from "@/components/calculator/CalculatorForm";
-import { loanPaymentEngine } from "./engine";
+import type { Locale } from "@/i18n/config";
+import { makeLoanPaymentEngine } from "./engine";
+import type { LoanPaymentText } from "./text/en";
 
-export default function Widget() {
-  return <CalculatorForm engine={loanPaymentEngine} />;
+export default function Widget({ locale, text }: { locale: Locale; text: LoanPaymentText }) {
+  const engine = useMemo(() => makeLoanPaymentEngine(engineContext(locale, text)), [locale, text]);
+  return <CalculatorForm engine={engine} />;
 }

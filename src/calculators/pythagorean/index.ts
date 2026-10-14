@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { pythagoreanEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { pythagoreanEngine, makePythagoreanEngine } from "./engine";
 
-export const pythagorean: CalculatorDefinition = {
+export const pythagorean = defineCalculator({
   id: "pythagorean",
   slug: "pythagorean-theorem-calculator",
   status: "published",
@@ -45,4 +47,7 @@ export const pythagorean: CalculatorDefinition = {
   related: ["square-root-calculator", "slope-calculator", "circumference-calculator"],
   updated: "2026-10-14",
   engine: pythagoreanEngine,
-};
+  text,
+  makeEngine: makePythagoreanEngine,
+  translations,
+});

@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { breakEvenEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { breakEvenEngine, makeBreakEvenEngine } from "./engine";
 
-export const breakEven: CalculatorDefinition = {
+export const breakEven = defineCalculator({
   id: "break-even",
   slug: "break-even-calculator",
   status: "published",
@@ -45,4 +47,7 @@ export const breakEven: CalculatorDefinition = {
   related: ["profit-margin-calculator", "roi-calculator", "percentage-increase-calculator"],
   updated: "2026-10-14",
   engine: breakEvenEngine,
-};
+  text,
+  makeEngine: makeBreakEvenEngine,
+  translations,
+});

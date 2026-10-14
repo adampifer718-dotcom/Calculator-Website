@@ -1,14 +1,18 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { FORM_ERROR_KEY, defaultRawValues, evaluate, isFieldVisible } from "@/calculators/framework/evaluate";
 import type { AnyEngine, Field, RawValues } from "@/calculators/framework/types";
+import { DEFAULT_LOCALE } from "@/i18n/config";
 import { DEFAULT_CURRENCY } from "@/lib/format";
 import { FieldControl } from "./FieldControl";
 import { MobileResultBar } from "./MobileResultBar";
 import { ResultPanel } from "./ResultPanel";
 
 export function CalculatorForm({ engine }: { engine: AnyEngine }) {
+  const t = useTranslations("calculator");
+  const locale = engine.locale ?? DEFAULT_LOCALE;
   const formId = useId();
   const [raw, setRaw] = useState<RawValues>(() => defaultRawValues(engine));
   const evaluation = useMemo(() => evaluate(engine, raw), [engine, raw]);
@@ -43,22 +47,17 @@ export function CalculatorForm({ engine }: { engine: AnyEngine }) {
       <section ref={inputsRef} aria-labelledby={`${formId}-inputs`} className="card p-5 sm:p-6">
         <div className="mb-4 flex items-center justify-between gap-3">
           <h2 id={`${formId}-inputs`} className="text-lg font-semibold text-ink-900">
-            Your inputs
+            {t("yourInputs")}
           </h2>
           <button
             type="button"
             onClick={() => setRaw(defaultRawValues(engine))}
             className="rounded-md px-2.5 py-1.5 text-sm font-medium text-brand-700 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
           >
-            Reset
+            {t("reset")}
           </button>
         </div>
-        <form
-          noValidate
-          onSubmit={(event) => event.preventDefault()}
-          className="grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-4"
-          aria-describedby={`${formId}-live`}
-        >
+        <form noValidate onSubmit={(event) => event.preventDefault()} className="grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-4" aria-describedby={`${formId}-live`}>
           {fields.map((field) => (
             <FieldControl
               key={field.id}
@@ -67,18 +66,19 @@ export function CalculatorForm({ engine }: { engine: AnyEngine }) {
               value={raw[field.id] ?? ""}
               error={errors[field.id]}
               currency={currency}
+              locale={locale}
               onChange={(value) => update(field.id, value)}
             />
           ))}
         </form>
         <p id={`${formId}-live`} className="sr-only">
-          Results update automatically as you type.
+          {t("liveUpdate")}
         </p>
       </section>
       <div ref={resultsRef} id="results">
-        <ResultPanel evaluation={evaluation} currency={currency} formError={errors[FORM_ERROR_KEY]} />
+        <ResultPanel evaluation={evaluation} currency={currency} locale={locale} formError={errors[FORM_ERROR_KEY]} />
       </div>
-      <MobileResultBar evaluation={evaluation} currency={currency} hidden={!inputsVisible || resultsVisible} />
+      <MobileResultBar evaluation={evaluation} currency={currency} locale={locale} hidden={!inputsVisible || resultsVisible} />
     </div>
   );
 }

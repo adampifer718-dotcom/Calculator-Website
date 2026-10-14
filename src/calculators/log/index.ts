@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { logEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { logEngine, makeLogEngine } from "./engine";
 
-export const logCalculator: CalculatorDefinition = {
+export const logCalculator = defineCalculator({
   id: "log",
   slug: "log-calculator",
   status: "published",
@@ -51,4 +53,7 @@ export const logCalculator: CalculatorDefinition = {
   related: ["exponent-calculator", "scientific-notation-calculator", "square-root-calculator"],
   updated: "2026-10-14",
   engine: logEngine,
-};
+  text,
+  makeEngine: makeLogEngine,
+  translations,
+});

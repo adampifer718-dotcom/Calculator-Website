@@ -1,8 +1,13 @@
 "use client";
 
+import { useMemo } from "react";
+import { engineContext } from "@/calculators/framework/i18n";
 import { CalculatorForm } from "@/components/calculator/CalculatorForm";
-import { slopeEngine } from "./engine";
+import type { Locale } from "@/i18n/config";
+import { makeSlopeEngine } from "./engine";
+import type { SlopeText } from "./text/en";
 
-export default function Widget() {
-  return <CalculatorForm engine={slopeEngine} />;
+export default function Widget({ locale, text }: { locale: Locale; text: SlopeText }) {
+  const engine = useMemo(() => makeSlopeEngine(engineContext(locale, text)), [locale, text]);
+  return <CalculatorForm engine={engine} />;
 }

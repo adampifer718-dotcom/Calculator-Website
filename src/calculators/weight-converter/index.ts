@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { weightConverterEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { weightConverterEngine, makeWeightConverterEngine } from "./engine";
 
-export const weightConverter: CalculatorDefinition = {
+export const weightConverter = defineCalculator({
   id: "weight-converter",
   slug: "weight-converter",
   status: "published",
@@ -45,4 +47,7 @@ export const weightConverter: CalculatorDefinition = {
   related: ["length-converter", "temperature-converter", "recipe-scaler"],
   updated: "2026-10-14",
   engine: weightConverterEngine,
-};
+  text,
+  makeEngine: makeWeightConverterEngine,
+  translations,
+});

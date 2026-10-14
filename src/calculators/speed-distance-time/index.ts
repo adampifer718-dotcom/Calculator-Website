@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { speedDistanceTimeEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { speedDistanceTimeEngine, makeSpeedDistanceTimeEngine } from "./engine";
 
-export const speedDistanceTime: CalculatorDefinition = {
+export const speedDistanceTime = defineCalculator({
   id: "speed-distance-time",
   slug: "speed-distance-time-calculator",
   status: "published",
@@ -44,4 +46,7 @@ export const speedDistanceTime: CalculatorDefinition = {
   related: ["running-pace-calculator", "fuel-cost-calculator", "kinetic-energy-calculator"],
   updated: "2026-10-14",
   engine: speedDistanceTimeEngine,
-};
+  text,
+  makeEngine: makeSpeedDistanceTimeEngine,
+  translations,
+});

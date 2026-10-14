@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { roiEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { roiEngine, makeRoiEngine } from "./engine";
 
-export const roi: CalculatorDefinition = {
+export const roi = defineCalculator({
   id: "roi",
   slug: "roi-calculator",
   status: "published",
@@ -83,4 +85,7 @@ export const roi: CalculatorDefinition = {
   related: ["percentage-increase-calculator", "percentage-calculator", "hourly-to-salary-calculator"],
   updated: "2026-10-14",
   engine: roiEngine,
-};
+  text,
+  makeEngine: makeRoiEngine,
+  translations,
+});

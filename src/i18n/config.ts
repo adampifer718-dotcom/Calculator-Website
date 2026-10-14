@@ -35,3 +35,16 @@ export function isLocale(value: unknown): value is Locale {
 
 /** Cookie that stores a visitor's manually chosen language. */
 export const LOCALE_COOKIE = "NEXT_LOCALE";
+
+/**
+ * Text for the "available in your language" suggestion, written in the
+ * suggested language itself so visitors can read it before switching.
+ */
+export const LOCALE_SUGGESTION: Record<Locale, { prompt: string; action: string; dismiss: string }> = {
+  en: { prompt: "This page is also available in English.", action: "Switch to English", dismiss: "No thanks" },
+  ur: { prompt: "یہ صفحہ اردو میں بھی دستیاب ہے۔", action: "اردو میں دیکھیں", dismiss: "نہیں، شکریہ" },
+  es: { prompt: "Esta página también está disponible en español.", action: "Ver en español", dismiss: "No, gracias" },
+  fr: { prompt: "Cette page est aussi disponible en français.", action: "Voir en français", dismiss: "Non merci" },
+  de: { prompt: "Diese Seite gibt es auch auf Deutsch.", action: "Auf Deutsch ansehen", dismiss: "Nein, danke" },
+  ar: { prompt: "هذه الصفحة متاحة أيضًا باللغة العربية.", action: "عرض بالعربية", dismiss: "لا، شكرًا" },
+};

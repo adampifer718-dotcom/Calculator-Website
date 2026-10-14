@@ -1,8 +1,13 @@
 "use client";
 
+import { useMemo } from "react";
+import { engineContext } from "@/calculators/framework/i18n";
 import { CalculatorForm } from "@/components/calculator/CalculatorForm";
-import { pValueEngine } from "./engine";
+import type { Locale } from "@/i18n/config";
+import { makePValueEngine } from "./engine";
+import type { PValueText } from "./text/en";
 
-export default function Widget() {
-  return <CalculatorForm engine={pValueEngine} />;
+export default function Widget({ locale, text }: { locale: Locale; text: PValueText }) {
+  const engine = useMemo(() => makePValueEngine(engineContext(locale, text)), [locale, text]);
+  return <CalculatorForm engine={engine} />;
 }

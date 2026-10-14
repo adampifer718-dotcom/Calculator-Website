@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { sigFigEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { sigFigEngine, makeSigFigEngine } from "./engine";
 
-export const significantFigures: CalculatorDefinition = {
+export const significantFigures = defineCalculator({
   id: "significant-figures",
   slug: "significant-figures-calculator",
   status: "published",
@@ -45,4 +47,7 @@ export const significantFigures: CalculatorDefinition = {
   related: ["scientific-notation-calculator", "log-calculator", "percentage-calculator"],
   updated: "2026-10-14",
   engine: sigFigEngine,
-};
+  text,
+  makeEngine: makeSigFigEngine,
+  translations,
+});

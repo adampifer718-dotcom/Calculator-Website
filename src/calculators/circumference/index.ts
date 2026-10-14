@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { circumferenceEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { circumferenceEngine, makeCircumferenceEngine } from "./engine";
 
-export const circumference: CalculatorDefinition = {
+export const circumference = defineCalculator({
   id: "circumference",
   slug: "circumference-calculator",
   status: "published",
@@ -45,4 +47,7 @@ export const circumference: CalculatorDefinition = {
   related: ["square-footage-calculator", "pythagorean-theorem-calculator", "square-root-calculator"],
   updated: "2026-10-14",
   engine: circumferenceEngine,
-};
+  text,
+  makeEngine: makeCircumferenceEngine,
+  translations,
+});

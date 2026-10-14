@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { scientificNotationEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { scientificNotationEngine, makeScientificNotationEngine } from "./engine";
 
-export const scientificNotation: CalculatorDefinition = {
+export const scientificNotation = defineCalculator({
   id: "scientific-notation",
   slug: "scientific-notation-calculator",
   status: "published",
@@ -45,4 +47,7 @@ export const scientificNotation: CalculatorDefinition = {
   related: ["significant-figures-calculator", "exponent-calculator", "log-calculator"],
   updated: "2026-10-14",
   engine: scientificNotationEngine,
-};
+  text,
+  makeEngine: makeScientificNotationEngine,
+  translations,
+});

@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { electricityCostEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { electricityCostEngine, makeElectricityCostEngine } from "./engine";
 
-export const electricityCost: CalculatorDefinition = {
+export const electricityCost = defineCalculator({
   id: "electricity-cost",
   slug: "electricity-cost-calculator",
   status: "published",
@@ -45,4 +47,7 @@ export const electricityCost: CalculatorDefinition = {
   related: ["ohms-law-calculator", "fuel-cost-calculator", "rainwater-harvesting-calculator"],
   updated: "2026-10-14",
   engine: electricityCostEngine,
-};
+  text,
+  makeEngine: makeElectricityCostEngine,
+  translations,
+});

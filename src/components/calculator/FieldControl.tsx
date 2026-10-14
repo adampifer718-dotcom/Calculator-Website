@@ -1,7 +1,8 @@
 "use client";
 
 import type { Field } from "@/calculators/framework/types";
-import { currencySymbol } from "@/lib/format";
+import type { Locale } from "@/i18n/config";
+import { getFormatter } from "@/lib/format";
 
 interface FieldControlProps {
   formId: string;
@@ -9,6 +10,7 @@ interface FieldControlProps {
   value: string;
   error?: string;
   currency: string;
+  locale: Locale;
   onChange: (value: string) => void;
 }
 
@@ -22,7 +24,7 @@ function fieldSpan(field: Field): string {
   return "col-span-2 sm:col-span-1";
 }
 
-export function FieldControl({ formId, field, value, error, currency, onChange }: FieldControlProps) {
+export function FieldControl({ formId, field, value, error, currency, locale, onChange }: FieldControlProps) {
   const id = `${formId}-${field.id}`;
   const helpId = field.help ? `${id}-help` : undefined;
   const errorId = error ? `${id}-error` : undefined;
@@ -67,7 +69,7 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
     );
   }
 
-  const prefix = field.type === "number" ? (field.prefix === "currency" ? currencySymbol(currency) : field.prefix) : undefined;
+  const prefix = field.type === "number" ? (field.prefix === "currency" ? getFormatter(locale).currencySymbol(currency) : field.prefix) : undefined;
   const suffix = field.type === "number" ? field.suffix : undefined;
 
   return (
@@ -82,7 +84,7 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
           onChange={(event) => onChange(event.target.value)}
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy}
-          className={`${inputBase} ${stateClass} h-11 appearance-none bg-[url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2020%2020'%20fill='%2364748b'%3E%3Cpath%20fill-rule='evenodd'%20d='M5.23%207.21a.75.75%200%20011.06.02L10%2011.06l3.71-3.83a.75.75%200%20111.08%201.04l-4.25%204.4a.75.75%200%2001-1.08%200L5.21%208.27a.75.75%200%2001.02-1.06z'/%3E%3C/svg%3E")] bg-[length:1.25rem] bg-[right_0.6rem_center] bg-no-repeat pr-9 pl-3`}
+          className={`${inputBase} ${stateClass} h-11 appearance-none bg-[url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2020%2020'%20fill='%2364748b'%3E%3Cpath%20fill-rule='evenodd'%20d='M5.23%207.21a.75.75%200%20011.06.02L10%2011.06l3.71-3.83a.75.75%200%20111.08%201.04l-4.25%204.4a.75.75%200%2001-1.08%200L5.21%208.27a.75.75%200%2001.02-1.06z'/%3E%3C/svg%3E")] bg-[length:1.25rem] bg-[right_0.6rem_center] bg-no-repeat ps-3 pe-9 rtl:bg-[left_0.6rem_center]`}
         >
           {field.options.map((option) => (
             <option key={option.value} value={option.value}>
@@ -94,6 +96,7 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
         field.type === "text" && field.multiline ? (
         <textarea
           id={id}
+          dir="auto"
           value={value}
           rows={6}
           spellCheck={false}
@@ -105,9 +108,10 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
           className={`${inputBase} ${stateClass} min-h-36 px-3 py-2.5 font-mono text-sm leading-relaxed`}
         />
       ) : (
-        <div className="relative">
+        // Numbers, currency symbols and units read left to right in every language.
+        <div className="relative" dir={field.type === "number" ? "ltr" : undefined}>
           {prefix && (
-            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-neutral-500">
+            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3 text-neutral-500">
               {prefix}
             </span>
           )}
@@ -115,6 +119,7 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
             id={id}
             type="text"
             inputMode={field.type === "text" ? "text" : "decimal"}
+            dir={field.type === "text" ? "auto" : undefined}
             autoComplete="off"
             spellCheck={false}
             value={value}
@@ -123,10 +128,10 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
             aria-invalid={error ? true : undefined}
             aria-describedby={describedBy}
             aria-required={field.optional ? undefined : true}
-            className={`${inputBase} ${stateClass} h-11 tabular-nums ${prefix ? (prefix.length > 1 ? "pl-12" : "pl-8") : "pl-3"} ${suffix ? "pr-16" : "pr-3"}`}
+            className={`${inputBase} ${stateClass} h-11 tabular-nums ${prefix ? (prefix.length > 3 ? "ps-16" : prefix.length > 1 ? "ps-12" : "ps-8") : "ps-3"} ${suffix ? (suffix.length > 6 ? "pe-24" : "pe-16") : "pe-3"}`}
           />
           {suffix && (
-            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-neutral-500">
+            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 end-0 flex items-center pe-3 text-sm text-neutral-500">
               {suffix}
             </span>
           )}

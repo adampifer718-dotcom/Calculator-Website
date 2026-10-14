@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { kineticEnergyEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { kineticEnergyEngine, makeKineticEnergyEngine } from "./engine";
 
-export const kineticEnergy: CalculatorDefinition = {
+export const kineticEnergy = defineCalculator({
   id: "kinetic-energy",
   slug: "kinetic-energy-calculator",
   status: "published",
@@ -44,4 +46,7 @@ export const kineticEnergy: CalculatorDefinition = {
   related: ["speed-distance-time-calculator", "ohms-law-calculator", "electricity-cost-calculator"],
   updated: "2026-10-14",
   engine: kineticEnergyEngine,
-};
+  text,
+  makeEngine: makeKineticEnergyEngine,
+  translations,
+});

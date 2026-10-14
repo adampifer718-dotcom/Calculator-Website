@@ -1,7 +1,13 @@
 import { categoryPath } from "@/calculators/categories";
 import { collectionPath } from "@/calculators/collections";
 import type { CategorySlug } from "@/calculators/framework/types";
-import { activeCategories, activeCollections, calculatorPath, calculatorsInCategory } from "@/calculators/registry";
+import { calculatorsForLocale } from "@/calculators/localize";
+import { calculatorPath } from "@/calculators/registry";
+import type { Locale } from "@/i18n/config";
+import { localizePath } from "@/i18n/paths";
+import { CATEGORIES } from "@/calculators/categories";
+import { COLLECTIONS } from "@/calculators/collections";
+import { categoryText, collectionText } from "@/i18n/taxonomy";
 
 export interface NavGroup {
   slug: CategorySlug;
@@ -18,20 +24,24 @@ export interface NavCollection {
   count: number;
 }
 
-/** Serializable navigation data for the header menus, derived from published registry records. */
-export function navGroups(): NavGroup[] {
-  return activeCategories().map((category) => ({
-    slug: category.slug,
-    name: category.name,
-    href: categoryPath(category.slug),
-    count: category.count,
-    items: calculatorsInCategory(category.slug)
+/** Categories with calculators available in the locale, with translated names and localized links. */
+export function navGroups(locale: Locale): NavGroup[] {
+  const available = calculatorsForLocale(locale);
+  return CATEGORIES.map((category) => {
+    const items = available
       .map((c, index) => ({ c, index }))
-      .sort((a, b) => (a.c.popularRank ?? Infinity) - (b.c.popularRank ?? Infinity) || a.index - b.index)
-      .map(({ c }) => ({ title: c.shortTitle, href: calculatorPath(c.slug) })),
-  }));
+      .filter(({ c }) => c.def.category === category.slug)
+      .sort((a, b) => (a.c.def.popularRank ?? Infinity) - (b.c.def.popularRank ?? Infinity) || a.index - b.index)
+      .map(({ c }) => ({ title: c.content.shortTitle, href: localizePath(locale, calculatorPath(c.def.slug)) }));
+    return { slug: category.slug, name: categoryText(locale, category.slug).name, href: localizePath(locale, categoryPath(category.slug)), count: items.length, items };
+  }).filter((group) => group.count > 0);
 }
 
-export function navCollections(): NavCollection[] {
-  return activeCollections().map((c) => ({ name: c.name, href: collectionPath(c.slug), count: c.count }));
+export function navCollections(locale: Locale): NavCollection[] {
+  const available = calculatorsForLocale(locale);
+  return COLLECTIONS.map((collection) => ({
+    name: collectionText(locale, collection.slug).name,
+    href: localizePath(locale, collectionPath(collection.slug)),
+    count: available.filter((c) => c.def.collections.includes(collection.slug)).length,
+  })).filter((c) => c.count > 0);
 }

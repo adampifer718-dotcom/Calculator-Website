@@ -1,7 +1,9 @@
+import type { Locale } from "@/i18n/config";
 import { absoluteUrl, SITE } from "./site";
 
 export interface Crumb {
   name: string;
+  /** Public (already localized) path. */
   href: string;
 }
 
@@ -18,17 +20,18 @@ export function breadcrumbJsonLd(crumbs: readonly Crumb[]) {
   };
 }
 
-export function websiteJsonLd() {
+export function websiteJsonLd(options: { locale: Locale; path: string; description: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: SITE.name,
-    url: absoluteUrl("/"),
-    description: SITE.description,
+    url: absoluteUrl(options.path),
+    description: options.description,
+    inLanguage: options.locale,
   };
 }
 
-export function calculatorJsonLd(options: { name: string; description: string; path: string; category: string }) {
+export function calculatorJsonLd(options: { name: string; description: string; path: string; category: string; locale: Locale }) {
   return {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -39,6 +42,7 @@ export function calculatorJsonLd(options: { name: string; description: string; p
     operatingSystem: "Any",
     browserRequirements: "Requires JavaScript",
     isAccessibleForFree: true,
+    inLanguage: options.locale,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   };
 }

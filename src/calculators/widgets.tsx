@@ -2,13 +2,18 @@
 
 import dynamic from "next/dynamic";
 import type { ComponentType } from "react";
+import type { Locale } from "@/i18n/config";
+
+// Each widget takes its own text type; the registry stores them type-erased.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type WidgetProps = { locale: Locale; text: any };
 
 /**
  * Interactive form for each calculator, code-split so a page only loads the
  * engine it renders. Forms are still server-rendered with their default
  * result. Add one entry per calculator in the registry (enforced by tests).
  */
-export const WIDGETS: Record<string, ComponentType> = {
+export const WIDGETS: Record<string, ComponentType<WidgetProps>> = {
   "salary-to-hourly-calculator": dynamic(() => import("./salary-to-hourly/widget")),
   "hourly-to-salary-calculator": dynamic(() => import("./hourly-to-salary/widget")),
   "percentage-calculator": dynamic(() => import("./percentage/widget")),
@@ -53,7 +58,7 @@ export const WIDGETS: Record<string, ComponentType> = {
   "standard-deviation-calculator": dynamic(() => import("./standard-deviation/widget")),
 };
 
-export function CalculatorWidget({ slug }: { slug: string }) {
+export function CalculatorWidget({ slug, locale, text }: { slug: string; locale: Locale; text: unknown }) {
   const Widget = WIDGETS[slug];
-  return Widget ? <Widget /> : null;
+  return Widget ? <Widget locale={locale} text={text} /> : null;
 }

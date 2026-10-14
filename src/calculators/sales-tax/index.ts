@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { salesTaxEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { salesTaxEngine, makeSalesTaxEngine } from "./engine";
 
-export const salesTax: CalculatorDefinition = {
+export const salesTax = defineCalculator({
   id: "sales-tax",
   slug: "sales-tax-calculator",
   status: "published",
@@ -45,4 +47,7 @@ export const salesTax: CalculatorDefinition = {
   related: ["discount-calculator", "tip-calculator", "percentage-calculator"],
   updated: "2026-10-14",
   engine: salesTaxEngine,
-};
+  text,
+  makeEngine: makeSalesTaxEngine,
+  translations,
+});

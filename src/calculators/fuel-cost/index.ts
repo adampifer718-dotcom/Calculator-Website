@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { fuelCostEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { fuelCostEngine, makeFuelCostEngine } from "./engine";
 
-export const fuelCost: CalculatorDefinition = {
+export const fuelCost = defineCalculator({
   id: "fuel-cost",
   slug: "fuel-cost-calculator",
   status: "published",
@@ -45,4 +47,7 @@ export const fuelCost: CalculatorDefinition = {
   related: ["speed-distance-time-calculator", "electricity-cost-calculator", "tip-calculator"],
   updated: "2026-10-14",
   engine: fuelCostEngine,
-};
+  text,
+  makeEngine: makeFuelCostEngine,
+  translations,
+});

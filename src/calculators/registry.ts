@@ -43,7 +43,6 @@ import { percentage } from "./percentage";
 import { percentageIncrease } from "./percentage-increase";
 import { roi } from "./roi";
 import { salaryToHourly } from "./salary-to-hourly";
-import type { SearchEntry } from "@/lib/search";
 
 /**
  * Every calculator definition, whatever its publication status. Add a
@@ -161,22 +160,6 @@ export function relatedCalculators(calculator: CalculatorDefinition, limit = 4):
   CALCULATORS.filter((c) => c.collections.some((slug) => calculator.collections.includes(slug))).forEach(add);
   CALCULATORS.forEach(add);
   return result.slice(0, limit);
-}
-
-export function searchEntries(): SearchEntry[] {
-  return CALCULATORS.map((c, index) => ({
-    slug: c.slug,
-    title: c.title,
-    summary: c.summary,
-    category: CATEGORIES.find((cat) => cat.slug === c.category)?.name ?? "",
-    categorySlug: c.category,
-    collections: [...c.collections],
-    keywords: [...c.keywords],
-    href: calculatorPath(c.slug),
-    popularRank: c.popularRank ?? Number.MAX_SAFE_INTEGER,
-    addedOn: c.addedOn,
-    order: index,
-  }));
 }
 
 export { categoryPath, collectionPath };

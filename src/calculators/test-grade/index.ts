@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { testGradeEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { testGradeEngine, makeTestGradeEngine } from "./engine";
 
-export const testGrade: CalculatorDefinition = {
+export const testGrade = defineCalculator({
   id: "test-grade",
   slug: "test-grade-calculator",
   status: "published",
@@ -45,4 +47,7 @@ export const testGrade: CalculatorDefinition = {
   related: ["percentage-calculator", "percentage-increase-calculator", "significant-figures-calculator"],
   updated: "2026-10-14",
   engine: testGradeEngine,
-};
+  text,
+  makeEngine: makeTestGradeEngine,
+  translations,
+});

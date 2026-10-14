@@ -1,8 +1,13 @@
 "use client";
 
+import { useMemo } from "react";
+import { engineContext } from "@/calculators/framework/i18n";
 import { CalculatorForm } from "@/components/calculator/CalculatorForm";
-import { temperatureConverterEngine } from "./engine";
+import type { Locale } from "@/i18n/config";
+import { makeTemperatureConverterEngine } from "./engine";
+import type { TemperatureConverterText } from "./text/en";
 
-export default function Widget() {
-  return <CalculatorForm engine={temperatureConverterEngine} />;
+export default function Widget({ locale, text }: { locale: Locale; text: TemperatureConverterText }) {
+  const engine = useMemo(() => makeTemperatureConverterEngine(engineContext(locale, text)), [locale, text]);
+  return <CalculatorForm engine={engine} />;
 }

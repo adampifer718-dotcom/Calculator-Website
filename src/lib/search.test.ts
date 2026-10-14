@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { searchEntries } from "@/calculators/registry";
+import { searchEntriesFor } from "@/calculators/search-data";
 import { searchCalculators } from "./search";
 
-const entries = searchEntries();
+const entries = searchEntriesFor("en");
 const slugs = (query: string) => searchCalculators(entries, query).map((e) => e.slug);
 
 describe("calculator search", () => {

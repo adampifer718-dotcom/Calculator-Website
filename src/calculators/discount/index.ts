@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { discountEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { discountEngine, makeDiscountEngine } from "./engine";
 
-export const discount: CalculatorDefinition = {
+export const discount = defineCalculator({
   id: "discount",
   slug: "discount-calculator",
   status: "published",
@@ -45,4 +47,7 @@ export const discount: CalculatorDefinition = {
   related: ["sales-tax-calculator", "percentage-calculator", "tip-calculator"],
   updated: "2026-10-14",
   engine: discountEngine,
-};
+  text,
+  makeEngine: makeDiscountEngine,
+  translations,
+});

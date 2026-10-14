@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import type { SearchEntry } from "@/lib/search";
 
 export interface DirectoryGroup {
@@ -27,6 +28,7 @@ function EntryList({ entries }: { entries: SearchEntry[] }) {
 }
 
 export function DirectoryGroups({ groups }: { groups: DirectoryGroup[] }) {
+  const t = useTranslations("directory");
   return (
     <div className="space-y-10">
       {groups.map((group) => (
@@ -36,7 +38,7 @@ export function DirectoryGroups({ groups }: { groups: DirectoryGroup[] }) {
               {group.name}
             </h2>
             <Link href={group.href} className="focus-ring shrink-0 rounded text-sm font-medium text-brand-700 hover:underline">
-              View category
+              {t("viewCategory")}
             </Link>
           </div>
           <EntryList entries={group.entries} />
@@ -46,14 +48,6 @@ export function DirectoryGroups({ groups }: { groups: DirectoryGroup[] }) {
   );
 }
 
-export function SearchResults({ entries, query }: { entries: SearchEntry[]; query: string }) {
-  if (entries.length === 0) {
-    return (
-      <div className="card p-6 text-neutral-700">
-        <p className="font-medium text-ink-900">No calculators match “{query}”.</p>
-        <p className="mt-1 text-sm">Try a shorter or different term, such as “salary”, “percent” or “investment”.</p>
-      </div>
-    );
-  }
+export function SearchResults({ entries }: { entries: SearchEntry[] }) {
   return <EntryList entries={entries} />;
 }

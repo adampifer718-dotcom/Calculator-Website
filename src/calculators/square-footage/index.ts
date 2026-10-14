@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { squareFootageEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { squareFootageEngine, makeSquareFootageEngine } from "./engine";
 
-export const squareFootage: CalculatorDefinition = {
+export const squareFootage = defineCalculator({
   id: "square-footage",
   slug: "square-footage-calculator",
   status: "published",
@@ -61,4 +63,7 @@ export const squareFootage: CalculatorDefinition = {
   related: ["circumference-calculator", "pythagorean-theorem-calculator", "percentage-calculator"],
   updated: "2026-10-14",
   engine: squareFootageEngine,
-};
+  text,
+  makeEngine: makeSquareFootageEngine,
+  translations,
+});

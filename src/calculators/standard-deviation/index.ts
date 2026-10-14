@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { standardDeviationEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { standardDeviationEngine, makeStandardDeviationEngine } from "./engine";
 
-export const standardDeviation: CalculatorDefinition = {
+export const standardDeviation = defineCalculator({
   id: "standard-deviation",
   slug: "standard-deviation-calculator",
   status: "published",
@@ -46,4 +48,7 @@ export const standardDeviation: CalculatorDefinition = {
   related: ["mean-median-mode-calculator", "confidence-interval-calculator", "p-value-calculator"],
   updated: "2026-10-14",
   engine: standardDeviationEngine,
-};
+  text,
+  makeEngine: makeStandardDeviationEngine,
+  translations,
+});

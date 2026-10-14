@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { ohmsLawEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { ohmsLawEngine, makeOhmsLawEngine } from "./engine";
 
-export const ohmsLaw: CalculatorDefinition = {
+export const ohmsLaw = defineCalculator({
   id: "ohms-law",
   slug: "ohms-law-calculator",
   status: "published",
@@ -45,4 +47,7 @@ export const ohmsLaw: CalculatorDefinition = {
   related: ["electricity-cost-calculator", "kinetic-energy-calculator", "speed-distance-time-calculator"],
   updated: "2026-10-14",
   engine: ohmsLawEngine,
-};
+  text,
+  makeEngine: makeOhmsLawEngine,
+  translations,
+});

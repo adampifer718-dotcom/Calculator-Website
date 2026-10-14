@@ -1,8 +1,13 @@
 "use client";
 
+import { useMemo } from "react";
+import { engineContext } from "@/calculators/framework/i18n";
 import { CalculatorForm } from "@/components/calculator/CalculatorForm";
-import { rainwaterEngine } from "./engine";
+import type { Locale } from "@/i18n/config";
+import { makeRainwaterEngine } from "./engine";
+import type { RainwaterText } from "./text/en";
 
-export default function Widget() {
-  return <CalculatorForm engine={rainwaterEngine} />;
+export default function Widget({ locale, text }: { locale: Locale; text: RainwaterText }) {
+  const engine = useMemo(() => makeRainwaterEngine(engineContext(locale, text)), [locale, text]);
+  return <CalculatorForm engine={engine} />;
 }

@@ -1,31 +1,38 @@
 "use client";
 
+import { useLocale, useTranslations } from "next-intl";
 import Form from "next/form";
 import { useRouter } from "next/navigation";
 import { useId, useMemo, useRef, useState } from "react";
+import type { Locale } from "@/i18n/config";
+import { localizePath } from "@/i18n/paths";
 import { searchCalculators, type SearchEntry } from "@/lib/search";
 
 type Size = "sm" | "lg" | "xl";
 
 const INPUT: Record<Size, string> = {
-  sm: "h-9 rounded-lg pr-3 pl-9 text-sm",
-  lg: "h-13 rounded-lg pr-28 pl-11 text-base shadow-sm",
-  xl: "h-16 rounded-full pr-20 pl-6 text-base shadow-md sm:text-lg",
+  sm: "h-9 rounded-lg pe-3 ps-9 text-sm",
+  lg: "h-13 rounded-lg pe-28 ps-11 text-base shadow-sm",
+  xl: "h-16 rounded-full pe-20 ps-6 text-base shadow-md sm:text-lg",
 };
 
 const MAX_SUGGESTIONS = 8;
 
-let indexPromise: Promise<SearchEntry[]> | null = null;
+const indexPromises = new Map<Locale, Promise<SearchEntry[]>>();
 
-/** Loads the prerendered search index once per page view. */
-function loadIndex(): Promise<SearchEntry[]> {
-  indexPromise ??= fetch("/search-index.json")
-    .then((response) => (response.ok ? (response.json() as Promise<SearchEntry[]>) : []))
-    .catch(() => {
-      indexPromise = null;
-      return [];
-    });
-  return indexPromise;
+/** Loads the prerendered search index for a language once per page view. */
+function loadIndex(locale: Locale): Promise<SearchEntry[]> {
+  let promise = indexPromises.get(locale);
+  if (!promise) {
+    promise = fetch(`/search-index/${locale}`)
+      .then((response) => (response.ok ? (response.json() as Promise<SearchEntry[]>) : []))
+      .catch(() => {
+        indexPromises.delete(locale);
+        return [];
+      });
+    indexPromises.set(locale, promise);
+  }
+  return promise;
 }
 
 function SearchIcon({ className }: { className: string }) {
@@ -43,6 +50,8 @@ function SearchIcon({ className }: { className: string }) {
  */
 export function HeaderSearch({ id, label, size = "sm" }: { id: string; label: string; size?: Size }) {
   const router = useRouter();
+  const locale = useLocale();
+  const t = useTranslations("search");
   const listId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const [entries, setEntries] = useState<SearchEntry[] | null>(null);
@@ -57,7 +66,7 @@ export function HeaderSearch({ id, label, size = "sm" }: { id: string; label: st
   const showList = open && query.trim().length > 0 && entries !== null;
 
   const ensureIndex = () => {
-    if (!entries) void loadIndex().then(setEntries);
+    if (!entries) void loadIndex(locale).then(setEntries);
   };
 
   const go = (entry: SearchEntry) => {
@@ -85,12 +94,12 @@ export function HeaderSearch({ id, label, size = "sm" }: { id: string; label: st
   };
 
   return (
-    <Form action="/calculators" role="search" aria-label={label} className="relative">
+    <Form action={localizePath(locale, "/calculators")} role="search" aria-label={label} className="relative">
       <label htmlFor={id} className="sr-only">
-        Search calculators
+        {t("label")}
       </label>
       {size !== "xl" && (
-        <SearchIcon className={`pointer-events-none absolute top-1/2 -translate-y-1/2 text-neutral-400 ${size === "lg" ? "left-4 size-5" : "left-3 size-4"}`} />
+        <SearchIcon className={`pointer-events-none absolute top-1/2 -translate-y-1/2 text-neutral-400 ${size === "lg" ? "start-4 size-5" : "start-3 size-4"}`} />
       )}
       <input
         ref={inputRef}
@@ -116,27 +125,27 @@ export function HeaderSearch({ id, label, size = "sm" }: { id: string; label: st
           setActive(-1);
         }}
         onKeyDown={onKeyDown}
-        placeholder={size === "lg" ? "Search calculators, e.g. salary or percent" : "Search calculators…"}
+        placeholder={size === "lg" ? t("placeholderLong") : t("placeholderShort")}
         className={`block w-full border border-neutral-300 bg-white text-ink-900 placeholder:text-neutral-500 focus:border-brand-600 focus:ring-2 focus:ring-brand-200 focus:outline-none ${INPUT[size]}`}
       />
       {size === "lg" && (
-        <button type="submit" className="focus-ring absolute top-1.5 right-1.5 bottom-1.5 rounded-md bg-brand-600 px-4 text-sm font-semibold text-white hover:bg-brand-700">
-          Search
+        <button type="submit" className="focus-ring absolute end-1.5 top-1.5 bottom-1.5 rounded-md bg-brand-600 px-4 text-sm font-semibold text-white hover:bg-brand-700">
+          {t("submit")}
         </button>
       )}
       {size === "xl" && (
         <button
           type="submit"
-          className="focus-ring absolute top-2 right-2 bottom-2 flex aspect-square items-center justify-center rounded-full bg-brand-600 text-white hover:bg-brand-700"
+          className="focus-ring absolute end-2 top-2 bottom-2 flex aspect-square items-center justify-center rounded-full bg-brand-600 text-white hover:bg-brand-700"
         >
-          <span className="sr-only">Search</span>
+          <span className="sr-only">{t("submit")}</span>
           <SearchIcon className="size-6" />
         </button>
       )}
       <div
         id={listId}
         role="listbox"
-        aria-label="Suggested calculators"
+        aria-label={t("suggestions")}
         hidden={!showList}
         className={`absolute inset-x-0 top-full z-50 mt-2 max-h-96 overflow-y-auto rounded-xl border border-neutral-200 bg-white p-1.5 shadow-lg ${size === "xl" ? "rounded-2xl" : ""}`}
       >
@@ -149,7 +158,7 @@ export function HeaderSearch({ id, label, size = "sm" }: { id: string; label: st
             onMouseDown={(event) => event.preventDefault()}
             onClick={() => go(entry)}
             onMouseEnter={() => setActive(index)}
-            className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-left aria-selected:bg-brand-50"
+            className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-start aria-selected:bg-brand-50"
           >
             <span className="min-w-0">
               <span className="block truncate text-sm font-semibold text-ink-900">{entry.title}</span>
@@ -159,11 +168,11 @@ export function HeaderSearch({ id, label, size = "sm" }: { id: string; label: st
           </div>
         ))}
         {showList && suggestions.length === 0 && (
-          <p className="px-3 py-3 text-sm text-neutral-600">No calculators match “{query.trim()}”. Press Enter to search the directory.</p>
+          <p className="px-3 py-3 text-sm text-neutral-600">{t("noMatches", { query: query.trim() })}</p>
         )}
       </div>
       <p aria-live="polite" className="sr-only">
-        {showList ? `${suggestions.length} ${suggestions.length === 1 ? "suggestion" : "suggestions"}` : ""}
+        {showList ? t("count", { count: suggestions.length }) : ""}
       </p>
     </Form>
   );

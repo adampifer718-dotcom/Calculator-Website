@@ -1,8 +1,13 @@
 "use client";
 
+import { useMemo } from "react";
+import { engineContext } from "@/calculators/framework/i18n";
 import { CalculatorForm } from "@/components/calculator/CalculatorForm";
-import { weightConverterEngine } from "./engine";
+import type { Locale } from "@/i18n/config";
+import { makeWeightConverterEngine } from "./engine";
+import type { WeightConverterText } from "./text/en";
 
-export default function Widget() {
-  return <CalculatorForm engine={weightConverterEngine} />;
+export default function Widget({ locale, text }: { locale: Locale; text: WeightConverterText }) {
+  const engine = useMemo(() => makeWeightConverterEngine(engineContext(locale, text)), [locale, text]);
+  return <CalculatorForm engine={engine} />;
 }

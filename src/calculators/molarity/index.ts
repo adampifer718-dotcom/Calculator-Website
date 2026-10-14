@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { molarityEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { molarityEngine, makeMolarityEngine } from "./engine";
 
-export const molarity: CalculatorDefinition = {
+export const molarity = defineCalculator({
   id: "molarity",
   slug: "molarity-calculator",
   status: "published",
@@ -45,4 +47,7 @@ export const molarity: CalculatorDefinition = {
   related: ["dilution-calculator", "significant-figures-calculator", "scientific-notation-calculator"],
   updated: "2026-10-14",
   engine: molarityEngine,
-};
+  text,
+  makeEngine: makeMolarityEngine,
+  translations,
+});

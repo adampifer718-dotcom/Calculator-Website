@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { pValueEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { pValueEngine, makePValueEngine } from "./engine";
 
-export const pValue: CalculatorDefinition = {
+export const pValue = defineCalculator({
   id: "p-value",
   slug: "p-value-calculator",
   status: "published",
@@ -54,4 +56,7 @@ export const pValue: CalculatorDefinition = {
   related: ["confidence-interval-calculator", "percentage-calculator", "significant-figures-calculator"],
   updated: "2026-10-14",
   engine: pValueEngine,
-};
+  text,
+  makeEngine: makePValueEngine,
+  translations,
+});

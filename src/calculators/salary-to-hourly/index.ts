@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { salaryToHourlyEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { salaryToHourlyEngine, makeSalaryToHourlyEngine } from "./engine";
 
-export const salaryToHourly: CalculatorDefinition = {
+export const salaryToHourly = defineCalculator({
   id: "salary-to-hourly",
   slug: "salary-to-hourly-calculator",
   status: "published",
@@ -115,4 +117,7 @@ export const salaryToHourly: CalculatorDefinition = {
   related: ["hourly-to-salary-calculator", "percentage-increase-calculator", "percentage-calculator"],
   updated: "2026-10-14",
   engine: salaryToHourlyEngine,
-};
+  text,
+  makeEngine: makeSalaryToHourlyEngine,
+  translations,
+});

@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { runningPaceEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { runningPaceEngine, makeRunningPaceEngine } from "./engine";
 
-export const runningPace: CalculatorDefinition = {
+export const runningPace = defineCalculator({
   id: "running-pace",
   slug: "running-pace-calculator",
   status: "published",
@@ -45,4 +47,7 @@ export const runningPace: CalculatorDefinition = {
   related: ["speed-distance-time-calculator", "bmr-calculator", "bmi-calculator"],
   updated: "2026-10-14",
   engine: runningPaceEngine,
-};
+  text,
+  makeEngine: makeRunningPaceEngine,
+  translations,
+});

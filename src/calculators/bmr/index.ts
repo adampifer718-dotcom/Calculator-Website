@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { bmrEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { bmrEngine, makeBmrEngine } from "./engine";
 
-export const bmr: CalculatorDefinition = {
+export const bmr = defineCalculator({
   id: "bmr",
   slug: "bmr-calculator",
   status: "published",
@@ -46,4 +48,7 @@ export const bmr: CalculatorDefinition = {
   related: ["bmi-calculator", "running-pace-calculator", "weight-converter"],
   updated: "2026-10-14",
   engine: bmrEngine,
-};
+  text,
+  makeEngine: makeBmrEngine,
+  translations,
+});

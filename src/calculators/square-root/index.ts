@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { squareRootEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { squareRootEngine, makeSquareRootEngine } from "./engine";
 
-export const squareRoot: CalculatorDefinition = {
+export const squareRoot = defineCalculator({
   id: "square-root",
   slug: "square-root-calculator",
   status: "published",
@@ -51,4 +53,7 @@ export const squareRoot: CalculatorDefinition = {
   related: ["exponent-calculator", "pythagorean-theorem-calculator", "log-calculator"],
   updated: "2026-10-14",
   engine: squareRootEngine,
-};
+  text,
+  makeEngine: makeSquareRootEngine,
+  translations,
+});

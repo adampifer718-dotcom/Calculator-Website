@@ -18,13 +18,13 @@ export interface SearchEntry {
 
 export type SortOrder = "category" | "popular" | "az" | "newest";
 
-export function sortEntries(entries: readonly SearchEntry[], order: SortOrder, categoryOrder: readonly string[] = []): SearchEntry[] {
+export function sortEntries(entries: readonly SearchEntry[], order: SortOrder, categoryOrder: readonly string[] = [], collation = "en"): SearchEntry[] {
   const list = [...entries];
   switch (order) {
     case "az":
-      return list.sort((a, b) => a.title.localeCompare(b.title, "en"));
+      return list.sort((a, b) => a.title.localeCompare(b.title, collation));
     case "popular":
-      return list.sort((a, b) => a.popularRank - b.popularRank || a.title.localeCompare(b.title, "en"));
+      return list.sort((a, b) => a.popularRank - b.popularRank || a.title.localeCompare(b.title, collation));
     case "newest":
       return list.sort((a, b) => (a.addedOn === b.addedOn ? b.order - a.order : a.addedOn < b.addedOn ? 1 : -1));
     case "category":
@@ -32,12 +32,17 @@ export function sortEntries(entries: readonly SearchEntry[], order: SortOrder, c
   }
 }
 
+/**
+ * Lower-cases and strips accents and diacritics (including Arabic harakat)
+ * while keeping letters from every script, so Arabic, Urdu and accented
+ * Latin text all match.
+ */
 export function normalize(text: string): string {
   return text
-    .toLowerCase()
+    .toLocaleLowerCase()
     .normalize("NFKD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/[^a-z0-9%]+/g, " ")
+    .replace(/\p{M}+/gu, "")
+    .replace(/[^\p{L}\p{N}%]+/gu, " ")
     .trim();
 }
 

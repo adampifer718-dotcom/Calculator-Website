@@ -1,7 +1,9 @@
-import type { CalculatorDefinition } from "@/calculators/framework/types";
-import { percentageEngine } from "./engine";
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { percentageEngine, makePercentageEngine } from "./engine";
 
-export const percentage: CalculatorDefinition = {
+export const percentage = defineCalculator({
   id: "percentage",
   slug: "percentage-calculator",
   status: "published",
@@ -76,4 +78,7 @@ export const percentage: CalculatorDefinition = {
   related: ["percentage-increase-calculator", "roi-calculator", "salary-to-hourly-calculator"],
   updated: "2026-10-14",
   engine: percentageEngine,
-};
+  text,
+  makeEngine: makePercentageEngine,
+  translations,
+});
