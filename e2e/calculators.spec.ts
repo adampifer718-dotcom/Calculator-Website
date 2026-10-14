@@ -7,6 +7,8 @@ const row = (page: Page, label: string) => results(page).getByRole("row", { name
 test.describe("salary to hourly", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/calculators/salary-to-hourly-calculator");
+    // Typing before hydration would be overwritten by the form's initial state.
+    await page.waitForLoadState("networkidle");
   });
 
   test("renders the default result before hydration", async ({ browser }) => {
