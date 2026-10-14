@@ -83,3 +83,12 @@ describe("calculator registry", () => {
     expect((60000 / (37.5 * 52)).toFixed(2)).toBe("30.77");
   });
 });
+
+describe("calculator widgets", () => {
+  it("registers exactly one interactive form per published calculator", async () => {
+    const { readFile } = await import("node:fs/promises");
+    const source = await readFile(new URL("./widgets.tsx", import.meta.url), "utf8");
+    const registered = [...source.matchAll(/^\s+"([a-z0-9-]+)": dynamic\(\(\) => import\("\.\/([a-z0-9-]+)\/widget"\)\)/gm)];
+    expect(registered.map((m) => m[1]).sort()).toEqual(CALCULATORS.map((c) => c.slug).sort());
+  });
+});

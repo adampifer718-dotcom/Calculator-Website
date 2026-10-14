@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CalcNest
 
-## Getting Started
+Free online calculators built with Next.js (App Router), React, TypeScript and Tailwind CSS. Every calculator page is statically generated, has its own URL, metadata, canonical URL and structured data, and runs its calculation in the browser.
 
-First, run the development server:
+## Published calculators
+
+| Calculator | URL |
+| --- | --- |
+| Salary to Hourly | `/calculators/salary-to-hourly-calculator` |
+| Hourly to Salary | `/calculators/hourly-to-salary-calculator` |
+| Percentage | `/calculators/percentage-calculator` |
+| Percentage Increase | `/calculators/percentage-increase-calculator` |
+| ROI | `/calculators/roi-calculator` |
+
+Other pages: `/` (home), `/calculators` (searchable directory, `?q=` supported), `/categories/[slug]`, `/about`, `/sitemap.xml`, `/robots.txt`.
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev            # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Set the production origin before building, otherwise canonical URLs, the sitemap and JSON-LD use `http://localhost:3000` (the build prints a warning). On Vercel the production domain is used automatically.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+NEXT_PUBLIC_SITE_URL=https://www.example.com npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts
 
-## Learn More
+| Script | What it does |
+| --- | --- |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | Generates route types and runs `tsc --noEmit` |
+| `npm test` | Vitest unit tests (math, formatting, framework, engines, registry integrity) |
+| `npm run build` | Production build |
+| `npm run test:e2e` | Playwright tests against `next start` (run `npm run build` first) on desktop and mobile viewports: every sitemap URL, internal links, metadata uniqueness, 404s, calculator inputs/results/validation, navigation, horizontal overflow and axe accessibility checks |
 
-To learn more about Next.js, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+  app/                       Routes: home, directory, categories, calculator pages, about, sitemap, robots
+  calculators/
+    framework/               Typed engine/content types, input parsing, validation, evaluation, formatting
+    shared/pay.ts            Fields and helpers shared by the pay calculators
+    <calculator>/engine.ts   Inputs, validation and compute function (pure, browser-safe)
+    <calculator>/index.ts    Page content: metadata, intro, formulas, worked examples, FAQs, related links
+    <calculator>/widget.tsx  Client entry that renders the shared form for the engine
+    registry.ts              The list of published calculators; everything else derives from it
+    widgets.tsx              Code-split map of interactive forms by slug
+    categories.ts            Category definitions
+  components/                Shared layout, calculator page, form, results and UI components
+  lib/
+    math/                    Deterministic calculation modules (pay, percentage, ROI)
+    format.ts                Display-only rounding and currency formatting
+    search.ts                Directory search
+    seo.ts, structured-data.ts, site.ts
+e2e/                         Playwright tests
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Adding a calculator
 
-## Deploy on Vercel
+1. Put the math in `src/lib/math/` with unit tests.
+2. Create `src/calculators/<name>/engine.ts` using `defineEngine<Values>()`: fields (number or select, with bounds and help text), optional cross-field `validate`, and `compute` returning a primary result, optional secondary results, table and notes.
+3. Create `widget.tsx` (three lines, copy an existing one) and `index.ts` with the page content. Each worked example declares `expectedPrimary`, which the registry tests check against the engine.
+4. Add the definition to `CALCULATORS` in `registry.ts` and its widget to `widgets.tsx`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The directory, category pages, counts, related links, footer, sitemap and static params all update automatically. Tests fail if slugs, titles or meta descriptions are duplicated, related links point to missing calculators, a widget is missing, or an example result is wrong. Only register a calculator once it is fully implemented.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Calculation rules
+
+- **Pay conversions** annualize gross pay. Annual, monthly, semi-monthly and biweekly use 1, 12, 24 and 26 periods per year. Weekly, daily and hourly use the entered weeks per year, workdays per week and hours per week. Hourly equivalent = annualized pay ÷ (hours per week × weeks per year). Results are gross pay, not take-home pay. No taxes are estimated.
+- **Currency** selection changes formatting only. There is no exchange-rate conversion.
+- **Rounding** happens only when values are displayed (`src/lib/format.ts`), never in intermediate steps.
+- **Percentage change** divides by the absolute original value. An original value of 0 is rejected.
+- **ROI** = (returned − invested) ÷ invested. Annualized ROI = (returned ÷ invested)^(1 ÷ years) − 1.
+
+## Notes
+
+- Cache Components are enabled. Partial Prefetching is disabled so unknown calculator or category slugs return a real HTTP 404 instead of a streamed 200 with `noindex`.
+- FAQ content is rendered as HTML only. `FAQPage` structured data is omitted because Google limits FAQ rich results to authoritative government and health sites. Calculator pages use `WebApplication`, plus `BreadcrumbList` and `ItemList` where relevant.

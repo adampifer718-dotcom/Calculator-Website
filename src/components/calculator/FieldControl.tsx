@@ -15,6 +15,12 @@ interface FieldControlProps {
 const inputBase =
   "block w-full rounded-lg border bg-white text-base text-navy-900 shadow-xs transition-colors placeholder:text-slate-400 focus:outline-none focus:ring-2";
 
+/** Main amounts and dropdowns take a full row on phones; short numeric inputs sit two per row. */
+function fieldSpan(field: Field): string {
+  if (field.type === "number") return field.prefix === "currency" ? "col-span-2" : "col-span-1";
+  return "col-span-2 sm:col-span-1";
+}
+
 export function FieldControl({ formId, field, value, error, currency, onChange }: FieldControlProps) {
   const id = `${formId}-${field.id}`;
   const helpId = field.help ? `${id}-help` : undefined;
@@ -26,7 +32,7 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
 
   if (field.type === "select" && field.display === "segmented") {
     return (
-      <fieldset className="sm:col-span-2">
+      <fieldset className="col-span-2">
         <legend className="mb-1.5 text-sm font-medium text-navy-800">{field.label}</legend>
         <div className="grid gap-2 sm:grid-cols-3">
           {field.options.map((option) => {
@@ -64,7 +70,7 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
   const suffix = field.type === "number" ? field.suffix : undefined;
 
   return (
-    <div className={field.type === "number" && field.prefix === "currency" ? "sm:col-span-2" : undefined}>
+    <div className={fieldSpan(field)}>
       <label htmlFor={id} className="mb-1.5 block text-sm font-medium text-navy-800">
         {field.label}
       </label>

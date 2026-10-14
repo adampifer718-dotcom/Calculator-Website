@@ -30,7 +30,7 @@ export function MobileMenu({ links }: { links: { name: string; href: string }[] 
   }, [open]);
 
   return (
-    <div className="ml-auto lg:hidden md:ml-0">
+    <div className="ml-auto lg:hidden">
       <button
         ref={buttonRef}
         type="button"
@@ -46,7 +46,7 @@ export function MobileMenu({ links }: { links: { name: string; href: string }[] 
       </button>
       {open && (
         <div id="mobile-menu" className="absolute inset-x-0 top-16 border-b border-slate-200 bg-white px-4 pt-4 pb-6 shadow-lg sm:px-6">
-          <HeaderSearch id="mobile-search" />
+          <HeaderSearch id="mobile-search" label="Menu search" />
           <nav aria-label="Mobile" className="mt-4">
             <ul className="grid gap-1">
               {links.map((link) => (

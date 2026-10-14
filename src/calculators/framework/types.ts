@@ -1,5 +1,3 @@
-import type { ComponentType } from "react";
-
 /* ------------------------------------------------------------------ */
 /* Engine: inputs, validation and calculation (runs in the browser).   */
 /* ------------------------------------------------------------------ */
@@ -155,7 +153,6 @@ export interface CalculatorDefinition {
   related: readonly string[];
   /** ISO date (YYYY-MM-DD) the page content was last updated. */
   updated: string;
+  /** Used on the server for worked examples; the interactive form is registered in widgets.tsx. */
   engine: AnyEngine;
-  /** Client component that renders the interactive form for this engine. */
-  Widget: ComponentType;
 }

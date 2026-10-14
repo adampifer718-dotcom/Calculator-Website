@@ -2,6 +2,7 @@ import Link from "next/link";
 import { categoryPath, getCategory } from "@/calculators/categories";
 import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { calculatorPath, relatedCalculators } from "@/calculators/registry";
+import { CalculatorWidget } from "@/calculators/widgets";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CalculatorCard } from "@/components/ui/CalculatorCard";
 import { JsonLd } from "@/components/ui/JsonLd";
@@ -35,7 +36,6 @@ const APPLICATION_CATEGORY: Record<CalculatorDefinition["category"], string> = {
 export function CalculatorPage({ calculator }: { calculator: CalculatorDefinition }) {
   const category = getCategory(calculator.category);
   const related = relatedCalculators(calculator);
-  const { Widget } = calculator;
   const path = calculatorPath(calculator.slug);
 
   return (
@@ -54,7 +54,7 @@ export function CalculatorPage({ calculator }: { calculator: CalculatorDefinitio
         </header>
 
         <div className="mt-7">
-          <Widget />
+          <CalculatorWidget slug={calculator.slug} />
         </div>
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_15rem]">

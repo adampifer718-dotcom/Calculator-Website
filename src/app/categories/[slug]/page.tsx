@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CalculatorCard } from "@/components/ui/CalculatorCard";
 import { CategoryIcon } from "@/components/ui/CategoryIcon";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { pageMetadata } from "@/lib/seo";
 import { itemListJsonLd } from "@/lib/structured-data";
 
 /** Only categories with at least one published calculator get a page. */
@@ -21,11 +22,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/categories/[slug]">): Promise<Metadata> {
   const category = findCategory((await params).slug);
   if (!category) return {};
-  return {
-    title: category.metaTitle,
-    description: category.metaDescription,
-    alternates: { canonical: categoryPath(category.slug) },
-  };
+  return pageMetadata({ title: category.metaTitle, description: category.metaDescription, path: categoryPath(category.slug) });
 }
 
 export default async function CategoryPage({ params }: PageProps<"/categories/[slug]">) {

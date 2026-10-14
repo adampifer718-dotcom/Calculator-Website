@@ -1,10 +1,10 @@
 import Form from "next/form";
 
 /** Submits to the directory, which filters by the `q` parameter. */
-export function HeaderSearch({ id, size = "sm", defaultValue }: { id: string; size?: "sm" | "lg"; defaultValue?: string }) {
+export function HeaderSearch({ id, label, size = "sm" }: { id: string; label: string; size?: "sm" | "lg" }) {
   const large = size === "lg";
   return (
-    <Form action="/calculators" role="search" className="relative">
+    <Form action="/calculators" role="search" aria-label={label} className="relative">
       <label htmlFor={id} className="sr-only">
         Search calculators
       </label>
@@ -21,7 +21,6 @@ export function HeaderSearch({ id, size = "sm", defaultValue }: { id: string; si
         name="q"
         type="search"
         autoComplete="off"
-        defaultValue={defaultValue}
         placeholder={large ? "Search calculators, e.g. salary or percent" : "Search calculators"}
         className={`block w-full rounded-lg border border-slate-300 bg-white text-navy-900 placeholder:text-slate-500 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 focus:outline-none ${
           large ? "h-13 pr-28 pl-11 text-base shadow-sm" : "h-9 pr-3 pl-9 text-sm"

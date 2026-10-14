@@ -6,13 +6,14 @@ import { DirectoryGroups, type DirectoryGroup } from "@/components/directory/Dir
 import { DirectorySearchBox, SearchableDirectory } from "@/components/directory/SearchableDirectory";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { pageMetadata } from "@/lib/seo";
 import { itemListJsonLd } from "@/lib/structured-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "All Calculators",
   description: `Browse and search all ${CALCULATORS.length} free CalcNest calculators for salary and pay, percentages and investment returns.`,
-  alternates: { canonical: "/calculators" },
-};
+  path: "/calculators",
+});
 
 export default function CalculatorsPage() {
   const entries = searchEntries();

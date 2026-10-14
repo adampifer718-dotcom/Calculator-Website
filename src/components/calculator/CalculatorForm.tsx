@@ -1,10 +1,11 @@
 "use client";
 
-import { useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { FORM_ERROR_KEY, defaultRawValues, evaluate, isFieldVisible } from "@/calculators/framework/evaluate";
 import type { AnyEngine, Field, RawValues } from "@/calculators/framework/types";
 import { DEFAULT_CURRENCY } from "@/lib/format";
 import { FieldControl } from "./FieldControl";
+import { MobileResultBar } from "./MobileResultBar";
 import { ResultPanel } from "./ResultPanel";
 
 export function CalculatorForm({ engine }: { engine: AnyEngine }) {
@@ -14,6 +15,17 @@ export function CalculatorForm({ engine }: { engine: AnyEngine }) {
   const currency = (engine.currencyField && raw[engine.currencyField]) || DEFAULT_CURRENCY;
   const errors = evaluation.ok ? {} : evaluation.errors;
   const fields = (engine.fields as readonly Field[]).filter((field) => isFieldVisible(field, raw));
+
+  // The sticky mobile summary is hidden while the full results panel is on screen.
+  const resultsRef = useRef<HTMLDivElement>(null);
+  const [resultsVisible, setResultsVisible] = useState(true);
+  useEffect(() => {
+    const element = resultsRef.current;
+    if (!element || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(([entry]) => setResultsVisible(entry.isIntersecting || entry.boundingClientRect.top < 0));
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   const update = (id: string, value: string) => setRaw((prev) => ({ ...prev, [id]: value }));
 
@@ -35,7 +47,7 @@ export function CalculatorForm({ engine }: { engine: AnyEngine }) {
         <form
           noValidate
           onSubmit={(event) => event.preventDefault()}
-          className="grid gap-4 sm:grid-cols-2"
+          className="grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-4"
           aria-describedby={`${formId}-live`}
         >
           {fields.map((field) => (
@@ -54,11 +66,10 @@ export function CalculatorForm({ engine }: { engine: AnyEngine }) {
           Results update automatically as you type.
         </p>
       </section>
-      <ResultPanel
-        evaluation={evaluation}
-        currency={currency}
-        formError={errors[FORM_ERROR_KEY]}
-      />
+      <div ref={resultsRef} id="results">
+        <ResultPanel evaluation={evaluation} currency={currency} formError={errors[FORM_ERROR_KEY]} />
+      </div>
+      <MobileResultBar evaluation={evaluation} currency={currency} hidden={resultsVisible} />
     </div>
   );
 }

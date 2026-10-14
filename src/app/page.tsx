@@ -6,14 +6,16 @@ import { HeaderSearch } from "@/components/layout/HeaderSearch";
 import { CalculatorCard } from "@/components/ui/CalculatorCard";
 import { CategoryIcon } from "@/components/ui/CategoryIcon";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { websiteJsonLd } from "@/lib/structured-data";
 
-export const metadata: Metadata = {
-  title: { absolute: `${SITE.name} – Free Salary, Percentage & ROI Calculators` },
+export const metadata: Metadata = pageMetadata({
+  title: `${SITE.name} – Free Salary, Percentage & ROI Calculators`,
+  absoluteTitle: true,
   description: SITE.description,
-  alternates: { canonical: "/" },
-};
+  path: "/",
+});
 
 const PRINCIPLES = [
   {
@@ -50,7 +52,7 @@ export default function HomePage() {
             Convert salaries and hourly wages, work out percentages and measure investment returns. Clear inputs, instant results and the formula behind every answer.
           </p>
           <div className="mt-8 max-w-xl">
-            <HeaderSearch id="hero-search" size="lg" />
+            <HeaderSearch id="hero-search" label="Find a calculator" size="lg" />
           </div>
           {salary && (
             <p className="mt-4 text-sm text-slate-600">

@@ -1,6 +1,5 @@
 import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { roiEngine } from "./engine";
-import Widget from "./widget";
 
 export const roi: CalculatorDefinition = {
   slug: "roi-calculator",
@@ -78,5 +77,4 @@ export const roi: CalculatorDefinition = {
   related: ["percentage-increase-calculator", "percentage-calculator", "hourly-to-salary-calculator"],
   updated: "2026-10-14",
   engine: roiEngine,
-  Widget,
 };

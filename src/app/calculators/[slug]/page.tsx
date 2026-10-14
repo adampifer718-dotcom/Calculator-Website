@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CALCULATORS, calculatorPath, getCalculator } from "@/calculators/registry";
 import { CalculatorPage } from "@/components/calculator/CalculatorPage";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return CALCULATORS.map((calculator) => ({ slug: calculator.slug }));
@@ -12,12 +13,7 @@ export async function generateMetadata({ params }: PageProps<"/calculators/[slug
   const calculator = getCalculator(slug);
   if (!calculator) return {};
   const path = calculatorPath(calculator.slug);
-  return {
-    title: calculator.metaTitle,
-    description: calculator.metaDescription,
-    alternates: { canonical: path },
-    openGraph: { title: calculator.metaTitle, description: calculator.metaDescription, url: path, type: "website" },
-  };
+  return pageMetadata({ title: calculator.metaTitle, description: calculator.metaDescription, path });
 }
 
 export default async function Page({ params }: PageProps<"/calculators/[slug]">) {

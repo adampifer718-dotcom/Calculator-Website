@@ -1,6 +1,5 @@
 import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { hourlyToSalaryEngine } from "./engine";
-import Widget from "./widget";
 
 export const hourlyToSalary: CalculatorDefinition = {
   slug: "hourly-to-salary-calculator",
@@ -89,5 +88,4 @@ export const hourlyToSalary: CalculatorDefinition = {
   related: ["salary-to-hourly-calculator", "percentage-increase-calculator", "roi-calculator"],
   updated: "2026-10-14",
   engine: hourlyToSalaryEngine,
-  Widget,
 };

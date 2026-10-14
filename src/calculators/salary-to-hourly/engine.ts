@@ -51,7 +51,7 @@ export const salaryToHourlyEngine = defineEngine<SalaryToHourlyValues>({
       primary: {
         label: "Hourly equivalent",
         value: { kind: "currency", amount: breakdown.hourly },
-        caption: `Gross pay per hour, based on ${PAY_PERIOD_LABELS[period].toLowerCase()} pay of the amount entered.`,
+        caption: `Gross pay per hour, converted from ${PAY_PERIOD_LABELS[period].toLowerCase()} pay.`,
       },
       secondary: [
         { label: "Annual gross pay", value: { kind: "currency", amount: breakdown.annual } },

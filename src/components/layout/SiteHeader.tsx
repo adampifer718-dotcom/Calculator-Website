@@ -15,8 +15,8 @@ export function SiteHeader() {
           <LogoMark />
           <span className="text-lg tracking-tight">{SITE.name}</span>
         </Link>
-        <nav aria-label="Main" className="hidden md:block">
-          <ul className="flex items-center gap-1 text-sm font-medium text-slate-700">
+        <nav aria-label="Main" className="hidden lg:block">
+          <ul className="flex items-center gap-1 text-sm font-medium whitespace-nowrap text-slate-700">
             <li>
               <Link href="/calculators" className="focus-ring rounded-md px-3 py-2 hover:bg-slate-100 hover:text-navy-900">
                 All calculators
@@ -32,7 +32,7 @@ export function SiteHeader() {
           </ul>
         </nav>
         <div className="ml-auto hidden w-56 lg:block">
-          <HeaderSearch id="header-search" />
+          <HeaderSearch id="header-search" label="Site search" />
         </div>
         <MobileMenu links={[{ name: "All calculators", href: "/calculators" }, ...categories, { name: "About", href: "/about" }]} />
       </div>

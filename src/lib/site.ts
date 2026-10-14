@@ -1,9 +1,18 @@
 /**
- * Set NEXT_PUBLIC_SITE_URL to the production origin (for example
- * https://www.example.com). It is used for canonical URLs, the sitemap,
- * robots.txt and structured data.
+ * Production origin used for canonical URLs, the sitemap, robots.txt and
+ * structured data. Set NEXT_PUBLIC_SITE_URL (for example
+ * https://www.example.com) before building for production. On Vercel the
+ * production domain is used automatically when the variable is unset.
  */
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/+$/, "");
+function resolveSiteUrl(): string {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL;
+  if (explicit) return explicit;
+  const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  if (vercel) return `https://${vercel}`;
+  return "http://localhost:3000";
+}
+
+export const SITE_URL = resolveSiteUrl().replace(/\/+$/, "");
 
 export const SITE = {
   name: "CalcNest",

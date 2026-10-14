@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CALCULATORS } from "@/calculators/registry";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About & Methodology",
   description: `How ${SITE.name} calculators work: browser-based calculations, visible formulas, stated assumptions and rounding only for display.`,
-  alternates: { canonical: "/about" },
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

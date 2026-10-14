@@ -1,6 +1,5 @@
 import type { CalculatorDefinition } from "@/calculators/framework/types";
 import { percentageIncreaseEngine } from "./engine";
-import Widget from "./widget";
 
 export const percentageIncrease: CalculatorDefinition = {
   slug: "percentage-increase-calculator",
@@ -81,5 +80,4 @@ export const percentageIncrease: CalculatorDefinition = {
   related: ["percentage-calculator", "roi-calculator", "hourly-to-salary-calculator"],
   updated: "2026-10-14",
   engine: percentageIncreaseEngine,
-  Widget,
 };
