@@ -4,7 +4,7 @@ Free online calculators built with Next.js (App Router), React, TypeScript and T
 
 ## Platform overview
 
-- **42 published calculators** across all **14 categories** (Biology, Chemistry, Construction, Conversion, Ecology, Everyday Life, Finance, Food, Health, Math, Physics, Sports, Statistics, Other) and **15 industry collections**.
+- **50 published calculators** across all **14 categories** (Biology, Chemistry, Construction, Conversion, Ecology, Everyday Life, Finance, Food, Health, Math, Physics, Sports, Statistics, Other) and **15 industry collections**.
 - Every calculator has one canonical page at `/calculators/<slug>`. It has one primary category (breadcrumb and category page) and can appear in several collections at `/collections/<slug>` without duplicate pages.
 - Category and collection pages, counts, navigation, homepage sections, search, related links and the sitemap are all derived from published registry records. Categories or collections with no published calculator get no page.
 - The master backlog (`src/calculators/backlog.ts`, rendered to [`docs/calculator-backlog.md`](docs/calculator-backlog.md)) holds 183 deduplicated concepts with status, priority scores and expert-review flags.
@@ -99,7 +99,9 @@ The site is available in English (default), Urdu (اردو), Spanish (Español),
 - **Preference.** A manual choice is stored in the `NEXT_LOCALE` cookie for a year. Only the bare homepage `/` follows it; deep links are never redirected. There is no IP-based switching. A dismissible banner may suggest the browser's language, and the visitor stays in control.
 - **Publishing rule.** A language is published only when its interface messages (`src/i18n/messages/<locale>.ts`), shared calculator strings (`src/i18n/calc/<locale>.ts`), categories and collections (`src/i18n/taxonomy/<locale>.ts`) and homepage pay converter text are all present. A calculator page exists in a language only when `src/calculators/<calc>/i18n/<locale>.ts` exists, with both page content and engine strings. Unpublished pages are not rendered, linked or listed in the sitemap.
 - **Typed translations.** Each file is typed against the English source. `src/i18n/translations.test.ts` checks every file for identical keys, array lengths and `{placeholders}`, flags English sentences left in place, and runs each localized engine on the worked examples to confirm the numbers match English exactly.
-- **Formatting.** Numbers, currencies, percentages and dates use `Intl` with the page locale. Arabic and Urdu use Latin digits (`nu-latn`) so results match what visitors type. Inputs accept the local decimal separator (`2,5` in es/fr/de), and Arabic-Indic digits are converted. Changing the language never changes a value or converts a currency.
+- **Formatting.** Numbers, currencies, percentages and dates use `Intl` with the page locale. Arabic and Urdu use Latin digits (`nu-latn`) so results match what visitors type. Number inputs and text inputs that contain numbers (significant figures, scientific notation, data lists, fractions, recipe lines, GPA course lists) accept the local decimal separator (`2,5` in es/fr/de; list values are then separated by `;`, spaces or new lines), and Arabic-Indic digits are converted. Results such as `123.000` keep significant zeros. Changing the language never changes a value or converts a currency.
+- **Dates.** Date fields store ISO dates (`YYYY-MM-DD`) and use the browser's date picker, so typing order and time zones never change a result. Calendar arithmetic (`src/lib/math/dates.ts`) works on whole day numbers and handles leap years, month ends and 29 February birthdays. Fields marked "today" render a fixed date on the server and switch to the visitor's local date after loading.
+- **404 pages.** Unknown URLs are answered by the proxy with HTTP 404 and the prerendered not-found page of the visitor's language (`/<locale>/page-not-found`), so the page is complete even without JavaScript.
 - **RTL.** Urdu and Arabic pages set `dir="rtl"`. Layout uses logical CSS (`ms-`, `ps-`, `start-`, `text-start`), directional icons are mirrored, and number inputs, formulas and calculation steps keep left-to-right order inside RTL text.
 - **SEO.** Each localized page has its own translated title and description, a self-referencing canonical, reciprocal `hreflang` alternates for exactly the languages it exists in, plus `x-default` (English). The sitemap lists every published page in each language with the same alternates.
 - **Adding a translation.** Create `src/calculators/<calc>/i18n/<locale>.ts` (copy an existing one, typed `CalculatorTranslation<XText>`), then run `npm run i18n:sync`, `npm test` and `npm run i18n:report`.
@@ -110,7 +112,7 @@ See [`docs/translation-report.md`](docs/translation-report.md) for current cover
 
 - The backlog was assembled from general knowledge of common calculator topics. Omni Calculator's public directory was meant to be the research reference, but this build environment's network policy blocked `omnicalculator.com`; re-check coverage against it when network access allows. No text, layout or code was copied from it.
 - Sources are cited as publications with URLs (NIST, OpenStax, WHO, U.S. EIA, peer-reviewed papers). The same network restriction meant links could not be fetched during development, so formulas were verified with independent calculations in tests rather than live lookups; check the links before launch.
-- BMI, BMR, loan payment and compound interest are flagged for expert review (medical or financial) and have not yet been reviewed by a professional.
+- BMI, BMR, loan payment, compound interest, mortgage (financial) and concrete (engineering) are flagged for expert review and have not yet been reviewed by a professional. The ingredient densities in the cups-to-grams converter are typical published values that should be spot-checked against the cited sources before launch.
 
 ## Calculation rules
 
@@ -119,6 +121,12 @@ See [`docs/translation-report.md`](docs/translation-report.md) for current cover
 - **Rounding** happens only when values are displayed (`src/lib/format.ts`), never in intermediate steps.
 - **Percentage change** divides by the absolute original value. An original value of 0 is rejected.
 - **ROI** = (returned − invested) ÷ invested. Annualized ROI = (returned ÷ invested)^(1 ÷ years) − 1.
+
+- **Fractions** use exact BigInt numerators and denominators and are reduced by the greatest common divisor; decimals such as 0.75 are converted exactly (3/4).
+- **GPA** = Σ(grade points × credits) ÷ Σ credits on the common US 4.0 scale (A+ = 4.3 on the 4.3 scale). Cumulative GPA weights the previous GPA by its credits.
+- **Mortgage** principal and interest use the loan payment formula; taxes and insurance are spread over 12 months; PMI applies above 80% loan-to-value and stops when the scheduled balance reaches 78% of the price (US conventional loans).
+- **Concrete** volume is length × width × thickness, π r² h or π (R² − r²) h, times the number of pieces and (1 + waste %). 1 yd³ = 0.764554857984 m³ exactly.
+- **Cups to grams** = cups × cup volume (mL) × ingredient density. Densities come from the King Arthur Baking ingredient weight chart and USDA FoodData Central; the US cup is 236.588 mL, the metric cup 250 mL.
 
 ## Theme
 
