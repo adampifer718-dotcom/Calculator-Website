@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --color-navy-50: #f2f5fb;
+  --color-navy-100: #e3e9f5;
+  --color-navy-600: #34497a;
+  --color-navy-700: #263866;
+  --color-navy-800: #1a2a52;
+  --color-navy-900: #0f1d3d;
+  --color-navy-950: #0a142c;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: #f8fafd;
+  color: var(--color-navy-900);
+}
+
+@utility card {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-slate-200);
+  background: white;
+  box-shadow: 0 1px 2px rgb(15 29 61 / 0.04), 0 4px 16px -8px rgb(15 29 61 / 0.08);
+}
+
+@utility focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--color-blue-600);
+    outline-offset: 2px;
+  }
+}
+
+/* Long-form content on calculator pages. */
+@utility prose-calc {
+  color: var(--color-slate-700);
+  line-height: 1.7;
+  & p + p {
+    margin-top: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
