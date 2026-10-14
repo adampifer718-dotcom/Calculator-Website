@@ -89,17 +89,20 @@ export function diffYearsMonthsDays(start: CalendarDate, end: CalendarDate, leap
   return { years: Math.floor(months / 12), months: months % 12, days: dayNumber(end) - dayNumber(anchor) };
 }
 
-/** Number of Monday–Friday days in the range [from, to] (inclusive, from ≤ to). */
-export function countWeekdays(from: CalendarDate, to: CalendarDate): number {
+/** Weekend days as weekday numbers (0 = Sunday). */
+export const WEEKENDS = { satSun: [6, 0], friSat: [5, 6] } as const;
+export type Weekend = keyof typeof WEEKENDS;
+
+/** Number of working days (not in `weekend`, Saturday and Sunday by default) in the range [from, to] (inclusive, from ≤ to). */
+export function countWeekdays(from: CalendarDate, to: CalendarDate, weekend: readonly number[] = WEEKENDS.satSun): number {
   const first = dayNumber(from);
   const total = dayNumber(to) - first + 1;
   if (total <= 0) return 0;
   const fullWeeks = Math.floor(total / 7);
-  let count = fullWeeks * 5;
+  let count = fullWeeks * (7 - weekend.length);
   const startDay = weekday(from);
   for (let i = 0; i < total % 7; i++) {
-    const d = (startDay + i) % 7;
-    if (d !== 0 && d !== 6) count++;
+    if (!weekend.includes((startDay + i) % 7)) count++;
   }
   return count;
 }

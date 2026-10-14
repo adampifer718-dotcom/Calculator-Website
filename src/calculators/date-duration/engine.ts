@@ -1,9 +1,9 @@
 import { englishContext, fill, plural, type EngineContext } from "@/calculators/framework/i18n";
 import { defineEngine } from "@/calculators/framework/types";
-import { addDays, compareDates, countWeekdays, dayNumber, diffYearsMonthsDays, parseIsoDate, toIso } from "@/lib/math/dates";
+import { WEEKENDS, addDays, compareDates, countWeekdays, dayNumber, diffYearsMonthsDays, parseIsoDate, toIso } from "@/lib/math/dates";
 import en, { type DateDurationText } from "./text/en";
 
-export type DateDurationValues = { start: string; end: string; includeEnd: string };
+export type DateDurationValues = { start: string; end: string; includeEnd: string; weekend: string };
 
 const DATE_MIN = "1000-01-01";
 const DATE_MAX = "9999-12-31";
@@ -25,8 +25,16 @@ export function makeDateDurationEngine(ctx: EngineContext<DateDurationText>) {
         options: (["no", "yes"] as const).map((v) => ({ value: v, label: t.includeEndOptions[v] })),
         defaultValue: "no",
       },
+      {
+        id: "weekend",
+        type: "select",
+        label: t.weekend,
+        help: t.weekendHelp,
+        options: (["satSun", "friSat"] as const).map((v) => ({ value: v, label: t.weekendOptions[v] })),
+        defaultValue: "satSun",
+      },
     ],
-    compute: ({ start, end, includeEnd }) => {
+    compute: ({ start, end, includeEnd, weekend }) => {
       let from = parseIsoDate(start)!;
       let to = parseIsoDate(end)!;
       const reversed = compareDates(to, from) < 0;
@@ -35,7 +43,8 @@ export function makeDateDurationEngine(ctx: EngineContext<DateDurationText>) {
       const until = includeEnd === "yes" ? addDays(to, 1) : to;
       const total = dayNumber(until) - dayNumber(from);
       const calendar = diffYearsMonthsDays(from, until);
-      const weekdays = total > 0 ? countWeekdays(from, addDays(until, -1)) : 0;
+      const weekendDays = WEEKENDS[weekend === "friSat" ? "friSat" : "satSun"];
+      const weekdays = total > 0 ? countWeekdays(from, addDays(until, -1), weekendDays) : 0;
       const notes = [t.weekdaysNote, t.hoursNote];
       if (reversed) notes.unshift(t.reversed);
       return {

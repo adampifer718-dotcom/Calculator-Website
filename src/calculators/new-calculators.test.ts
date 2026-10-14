@@ -86,7 +86,12 @@ describe("date duration calculator", () => {
   it("counts days, weekdays and optional end dates", () => {
     const r = ok("date-duration-calculator", { start: "2026-10-12", end: "2026-10-18", includeEnd: "yes" });
     expect(num(r.primary.value)).toBe(7);
-    expect(num(item(r, "Weekdays (Monday to Friday)"))).toBe(5);
+    expect(num(item(r, "Working days"))).toBe(5);
+    const gulf = ok("date-duration-calculator", { start: "2026-10-12", end: "2026-10-18", includeEnd: "yes", weekend: "friSat" });
+    expect(num(item(gulf, "Working days"))).toBe(5);
+    // Monday 12 to Friday 16 October: 5 days, of which Friday is a weekend day in the Friday–Saturday week.
+    const week = ok("date-duration-calculator", { start: "2026-10-12", end: "2026-10-16", includeEnd: "yes", weekend: "friSat" });
+    expect(num(item(week, "Working days"))).toBe(4);
     expect(num(item(r, "Weekend days"))).toBe(2);
     expect(text(item(r, "In weeks and days"))).toBe("1 week and 0 days");
     expect(num(ok("date-duration-calculator", { start: "2026-10-14", end: "2026-10-14", includeEnd: "no" }).primary.value)).toBe(0);

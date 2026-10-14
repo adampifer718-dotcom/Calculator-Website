@@ -28,7 +28,7 @@ const es: CalculatorTranslation<DateDurationText> = {
     formulas: [
       { title: "Días entre fechas", expression: "Días = fecha final − fecha de inicio (+ 1 si se cuenta la fecha final)", explanation: "Días naturales, incluido el 29 de febrero de los años bisiestos." },
       { title: "Años, meses y días", expression: "Meses completos del calendario desde la fecha de inicio, más los días restantes", explanation: "Los meses se cuentan en el calendario, así que se tiene en cuenta su duración (de 28 a 31 días)." },
-      { title: "Días laborables", expression: "Días laborables = días que caen de lunes a viernes", explanation: "No se descuentan los festivos; réstalos tú para obtener los días hábiles." },
+      { title: "Días laborables", expression: "Días laborables = días que no son de fin de semana", explanation: "Elige un fin de semana de sábado y domingo o de viernes y sábado. No se descuentan los festivos; réstalos tú para obtener los días hábiles." },
     ],
     examples: [
       {
@@ -50,7 +50,7 @@ const es: CalculatorTranslation<DateDurationText> = {
     ],
     assumptions: [
       "Las fechas son días naturales del calendario gregoriano; no se usan horas del día ni zonas horarias.",
-      "Los días laborables son de lunes a viernes; no se excluyen los festivos.",
+      "Los días laborables excluyen el fin de semana elegido (sábado y domingo, o viernes y sábado); no se excluyen los festivos.",
       "Las horas son días × 24 y no tienen en cuenta los cambios de horario de verano.",
     ],
     faqs: [
@@ -77,11 +77,14 @@ const es: CalculatorTranslation<DateDurationText> = {
     caption: "Del {start} al {end}.",
     calendar: "En años, meses y días",
     inWeeks: "En semanas y días",
-    weekdays: "Días laborables (de lunes a viernes)",
+    weekdays: "Días laborables",
+    weekend: "Fin de semana",
+    weekendOptions: { satSun: "Sábado y domingo", friSat: "Viernes y sábado" },
+    weekendHelp: "Elige los días que tu país o tu lugar de trabajo considera fin de semana.",
     weekendDays: "Días de fin de semana",
     hours: "Horas",
     reversed: "La fecha final es anterior a la de inicio, así que se han intercambiado las fechas.",
-    weekdaysNote: "Los días laborables excluyen sábados y domingos, pero no los festivos.",
+    weekdaysNote: "Los días laborables excluyen los días de fin de semana elegidos, pero no los festivos.",
     hoursNote: "Las horas suponen días de 24 horas; no se incluyen los cambios de horario de verano.",
   },
 };

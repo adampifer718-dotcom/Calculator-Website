@@ -24,6 +24,8 @@ export function compareShape(english: unknown, translated: unknown, path = "", o
     if (translated.trim() === "") return [`${here}: empty string`];
     const a = placeholders(english).join(",");
     const b = placeholders(translated).join(",");
+    // Plural forms for exactly 0, 1 or 2 may spell the number out ("سنتان", "un an").
+    if (a === "n" && b === "" && /\.(zero|one|two)$/.test(path)) return [];
     return a === b ? [] : [`${here}: placeholders {${a}} expected, found {${b}}`];
   }
   if (typeof english === "number" || typeof english === "boolean") {

@@ -1,10 +1,10 @@
 import type { CalculatorTranslation } from "@/calculators/framework/types";
 import type { DateDurationText } from "../text/en";
 
-const years = { zero: "{n} سنة", one: "{n} سنة", two: "{n} سنة", few: "{n} سنوات", many: "{n} سنة", other: "{n} سنة" };
-const months = { zero: "{n} شهر", one: "{n} شهر", two: "{n} شهر", few: "{n} أشهر", many: "{n} شهرًا", other: "{n} شهر" };
-const weeks = { zero: "{n} أسبوع", one: "{n} أسبوع", two: "{n} أسبوع", few: "{n} أسابيع", many: "{n} أسبوعًا", other: "{n} أسبوع" };
-const days = { zero: "{n} يوم", one: "{n} يوم", two: "{n} يوم", few: "{n} أيام", many: "{n} يومًا", other: "{n} يوم" };
+const years = { zero: "{n} سنة", one: "سنة واحدة", two: "سنتان", few: "{n} سنوات", many: "{n} سنة", other: "{n} سنة" };
+const months = { zero: "{n} شهر", one: "شهر واحد", two: "شهران", few: "{n} أشهر", many: "{n} شهرًا", other: "{n} شهر" };
+const weeks = { zero: "{n} أسبوع", one: "أسبوع واحد", two: "أسبوعان", few: "{n} أسابيع", many: "{n} أسبوعًا", other: "{n} أسبوع" };
+const days = { zero: "{n} يوم", one: "يوم واحد", two: "يومان", few: "{n} أيام", many: "{n} يومًا", other: "{n} يوم" };
 
 const ar: CalculatorTranslation<DateDurationText> = {
   content: {
@@ -38,8 +38,8 @@ const ar: CalculatorTranslation<DateDurationText> = {
       },
       {
         title: "أيام العمل",
-        expression: "أيام العمل = الأيام الواقعة من الإثنين إلى الجمعة",
-        explanation: "لا تُستبعد العطلات الرسمية؛ اطرحها بنفسك لتحصل على أيام العمل الفعلية.",
+        expression: "أيام العمل = الأيام التي ليست من أيام عطلة نهاية الأسبوع",
+        explanation: "اختر عطلة السبت والأحد أو الجمعة والسبت. لا تُستبعد العطلات الرسمية؛ اطرحها بنفسك لتحصل على أيام العمل الفعلية.",
       },
     ],
     examples: [
@@ -62,7 +62,7 @@ const ar: CalculatorTranslation<DateDurationText> = {
     ],
     assumptions: [
       "التواريخ أيام تقويمية وفق التقويم الميلادي (الغريغوري)؛ ولا تُستخدم أوقات اليوم أو المناطق الزمنية.",
-      "أيام العمل هي من الإثنين إلى الجمعة؛ ولا تُستبعد العطلات الرسمية.",
+      "تستبعد أيام العمل عطلة نهاية الأسبوع المختارة (السبت والأحد أو الجمعة والسبت)؛ ولا تُستبعد العطلات الرسمية.",
       "الساعات = الأيام × 24، دون مراعاة تغييرات التوقيت الصيفي.",
     ],
     faqs: [
@@ -95,11 +95,14 @@ const ar: CalculatorTranslation<DateDurationText> = {
     caption: "من {start} إلى {end}.",
     calendar: "بالسنوات والأشهر والأيام",
     inWeeks: "بالأسابيع والأيام",
-    weekdays: "أيام العمل (من الإثنين إلى الجمعة)",
+    weekdays: "أيام العمل",
+    weekend: "عطلة نهاية الأسبوع",
+    weekendOptions: { satSun: "السبت والأحد", friSat: "الجمعة والسبت" },
+    weekendHelp: "اختر الأيام التي تُعدّ عطلة نهاية الأسبوع في بلدك أو جهة عملك.",
     weekendDays: "أيام عطلة نهاية الأسبوع",
     hours: "الساعات",
     reversed: "تاريخ النهاية يسبق تاريخ البداية، لذا جرى تبديل التاريخين.",
-    weekdaysNote: "تستبعد أيام العمل يومي السبت والأحد، لكنها لا تستبعد العطلات الرسمية.",
+    weekdaysNote: "تستبعد أيام العمل أيام عطلة نهاية الأسبوع المختارة، لكنها لا تستبعد العطلات الرسمية.",
     hoursNote: "تفترض الساعات أن اليوم 24 ساعة؛ ولا تُحتسب تغييرات التوقيت الصيفي.",
   },
 };

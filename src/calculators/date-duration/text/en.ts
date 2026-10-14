@@ -17,11 +17,14 @@ const text = {
   caption: "From {start} to {end}.",
   calendar: "In years, months and days",
   inWeeks: "In weeks and days",
-  weekdays: "Weekdays (Monday to Friday)",
+  weekdays: "Working days",
+  weekend: "Weekend",
+  weekendOptions: { satSun: "Saturday and Sunday", friSat: "Friday and Saturday" },
+  weekendHelp: "Choose the days your country or workplace treats as the weekend.",
   weekendDays: "Weekend days",
   hours: "Hours",
   reversed: "The end date is before the start date, so the dates were swapped.",
-  weekdaysNote: "Weekdays exclude Saturdays and Sundays but not public holidays.",
+  weekdaysNote: "Working days exclude the chosen weekend days but not public holidays.",
   hoursNote: "Hours assume 24-hour days; daylight-saving changes are not included.",
 };
 export type DateDurationText = typeof text;

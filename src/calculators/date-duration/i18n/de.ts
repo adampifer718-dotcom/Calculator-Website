@@ -28,7 +28,7 @@ const de: CalculatorTranslation<DateDurationText> = {
     formulas: [
       { title: "Tage zwischen zwei Daten", expression: "Tage = Enddatum − Startdatum (+ 1, wenn das Enddatum mitgezählt wird)", explanation: "Kalendertage, einschließlich des 29. Februar in Schaltjahren." },
       { title: "Jahre, Monate und Tage", expression: "Volle Kalendermonate ab dem Startdatum, danach die verbleibenden Tage", explanation: "Monate werden im Kalender gezählt, ihre Länge (28 bis 31 Tage) wird also berücksichtigt." },
-      { title: "Werktage", expression: "Werktage = Tage von Montag bis Freitag", explanation: "Feiertage werden nicht abgezogen; ziehen Sie sie für Arbeitstage selbst ab." },
+      { title: "Arbeitstage", expression: "Arbeitstage = Tage, die keine Wochenendtage sind", explanation: "Wählen Sie ein Wochenende von Samstag bis Sonntag oder von Freitag bis Samstag. Feiertage werden nicht abgezogen; ziehen Sie sie selbst ab." },
     ],
     examples: [
       {
@@ -50,7 +50,7 @@ const de: CalculatorTranslation<DateDurationText> = {
     ],
     assumptions: [
       "Die Daten sind Kalendertage im gregorianischen Kalender; Uhrzeiten und Zeitzonen werden nicht berücksichtigt.",
-      "Werktage sind Montag bis Freitag; Feiertage werden nicht ausgenommen.",
+      "Arbeitstage schließen das gewählte Wochenende (Samstag–Sonntag oder Freitag–Samstag) aus; Feiertage werden nicht ausgenommen.",
       "Stunden werden als Tage × 24 berechnet; Zeitumstellungen bleiben unberücksichtigt.",
     ],
     faqs: [
@@ -74,11 +74,14 @@ const de: CalculatorTranslation<DateDurationText> = {
     caption: "Vom {start} bis zum {end}.",
     calendar: "In Jahren, Monaten und Tagen",
     inWeeks: "In Wochen und Tagen",
-    weekdays: "Werktage (Montag bis Freitag)",
+    weekdays: "Arbeitstage",
+    weekend: "Wochenende",
+    weekendOptions: { satSun: "Samstag und Sonntag", friSat: "Freitag und Samstag" },
+    weekendHelp: "Wählen Sie die Tage, die in Ihrem Land oder Betrieb als Wochenende gelten.",
     weekendDays: "Wochenendtage",
     hours: "Stunden",
     reversed: "Das Enddatum liegt vor dem Startdatum, daher wurden die Daten vertauscht.",
-    weekdaysNote: "Bei den Werktagen sind Samstage und Sonntage ausgenommen, Feiertage jedoch nicht.",
+    weekdaysNote: "Arbeitstage schließen die gewählten Wochenendtage aus, Feiertage jedoch nicht.",
     hoursNote: "Die Stunden gehen von 24-Stunden-Tagen aus; Zeitumstellungen sind nicht berücksichtigt.",
   },
 };

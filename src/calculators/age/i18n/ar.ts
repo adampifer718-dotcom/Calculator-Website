@@ -1,10 +1,10 @@
 import type { CalculatorTranslation } from "@/calculators/framework/types";
 import type { AgeText } from "../text/en";
 
-const years = { zero: "{n} سنة", one: "{n} سنة", two: "{n} سنة", few: "{n} سنوات", many: "{n} سنة", other: "{n} سنة" };
-const months = { zero: "{n} شهر", one: "{n} شهر", two: "{n} شهر", few: "{n} أشهر", many: "{n} شهرًا", other: "{n} شهر" };
-const weeks = { zero: "{n} أسبوع", one: "{n} أسبوع", two: "{n} أسبوع", few: "{n} أسابيع", many: "{n} أسبوعًا", other: "{n} أسبوع" };
-const days = { zero: "{n} يوم", one: "{n} يوم", two: "{n} يوم", few: "{n} أيام", many: "{n} يومًا", other: "{n} يوم" };
+const years = { zero: "{n} سنة", one: "سنة واحدة", two: "سنتان", few: "{n} سنوات", many: "{n} سنة", other: "{n} سنة" };
+const months = { zero: "{n} شهر", one: "شهر واحد", two: "شهران", few: "{n} أشهر", many: "{n} شهرًا", other: "{n} شهر" };
+const weeks = { zero: "{n} أسبوع", one: "أسبوع واحد", two: "أسبوعان", few: "{n} أسابيع", many: "{n} أسبوعًا", other: "{n} أسبوع" };
+const days = { zero: "{n} يوم", one: "يوم واحد", two: "يومان", few: "{n} أيام", many: "{n} يومًا", other: "{n} يوم" };
 
 const ar: CalculatorTranslation<AgeText> = {
   content: {

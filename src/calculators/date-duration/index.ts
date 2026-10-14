@@ -26,7 +26,7 @@ export const dateDuration = defineCalculator({
   formulas: [
     { title: "Days between dates", expression: "Days = end date − start date (+ 1 if the end date is counted)", explanation: "Calendar days, including 29 February in leap years." },
     { title: "Years, months and days", expression: "Whole calendar months from the start date, then the remaining days", explanation: "Months are counted on the calendar, so their length (28 to 31 days) is taken into account." },
-    { title: "Weekdays", expression: "Weekdays = days that fall Monday to Friday", explanation: "Public holidays are not removed; subtract them yourself for business days." },
+    { title: "Working days", expression: "Working days = days that are not weekend days", explanation: "Choose a Saturday–Sunday or Friday–Saturday weekend. Public holidays are not removed; subtract them yourself for business days." },
   ],
   examples: [
     {
@@ -44,7 +44,7 @@ export const dateDuration = defineCalculator({
   ],
   assumptions: [
     "Dates are calendar days in the Gregorian calendar; times of day and time zones are not used.",
-    "Weekdays are Monday to Friday; public holidays are not excluded.",
+    "Working days exclude the chosen weekend (Saturday–Sunday or Friday–Saturday); public holidays are not excluded.",
     "Hours are days × 24 and ignore daylight-saving changes.",
   ],
   faqs: [

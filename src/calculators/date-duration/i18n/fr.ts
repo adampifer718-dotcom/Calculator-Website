@@ -28,7 +28,7 @@ const fr: CalculatorTranslation<DateDurationText> = {
     formulas: [
       { title: "Jours entre deux dates", expression: "Jours = date de fin − date de début (+ 1 si la date de fin est comptée)", explanation: "Jours calendaires, y compris le 29 février des années bissextiles." },
       { title: "Années, mois et jours", expression: "Mois calendaires entiers depuis la date de début, puis les jours restants", explanation: "Les mois sont comptés sur le calendrier : leur longueur (28 à 31 jours) est donc prise en compte." },
-      { title: "Jours de semaine", expression: "Jours de semaine = jours tombant du lundi au vendredi", explanation: "Les jours fériés ne sont pas retirés ; soustrayez-les vous-même pour obtenir les jours ouvrés." },
+      { title: "Jours ouvrés", expression: "Jours ouvrés = jours qui ne sont pas des jours de week-end", explanation: "Choisissez un week-end samedi-dimanche ou vendredi-samedi. Les jours fériés ne sont pas retirés ; soustrayez-les vous-même." },
     ],
     examples: [
       {
@@ -50,7 +50,7 @@ const fr: CalculatorTranslation<DateDurationText> = {
     ],
     assumptions: [
       "Les dates sont des jours calendaires du calendrier grégorien ; les heures et les fuseaux horaires ne sont pas pris en compte.",
-      "Les jours de semaine vont du lundi au vendredi ; les jours fériés ne sont pas exclus.",
+      "Les jours ouvrés excluent le week-end choisi (samedi-dimanche ou vendredi-samedi) ; les jours fériés ne sont pas exclus.",
       "Les heures correspondent aux jours × 24 et ignorent les changements d’heure.",
     ],
     faqs: [
@@ -74,11 +74,14 @@ const fr: CalculatorTranslation<DateDurationText> = {
     caption: "Du {start} au {end}.",
     calendar: "En années, mois et jours",
     inWeeks: "En semaines et jours",
-    weekdays: "Jours de semaine (du lundi au vendredi)",
+    weekdays: "Jours ouvrés",
+    weekend: "Week-end",
+    weekendOptions: { satSun: "Samedi et dimanche", friSat: "Vendredi et samedi" },
+    weekendHelp: "Choisissez les jours que votre pays ou votre employeur considère comme le week-end.",
     weekendDays: "Jours de week-end",
     hours: "Heures",
     reversed: "La date de fin est antérieure à la date de début : les dates ont donc été inversées.",
-    weekdaysNote: "Les jours de semaine excluent les samedis et dimanches, mais pas les jours fériés.",
+    weekdaysNote: "Les jours ouvrés excluent les jours de week-end choisis, mais pas les jours fériés.",
     hoursNote: "Les heures supposent des journées de 24 heures ; les changements d’heure ne sont pas pris en compte.",
   },
 };
