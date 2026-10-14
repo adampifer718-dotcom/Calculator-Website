@@ -166,9 +166,35 @@ test("mobile result bar tracks the result while inputs are on screen", async ({ 
   test.skip(!isMobile, "mobile only");
   await page.goto("/calculators/salary-to-hourly-calculator");
   const bar = page.locator("a[href='#results']");
+  await page.getByLabel("Gross pay amount").scrollIntoViewIfNeeded();
   await expect(bar).toContainText("$28.85");
   await page.getByLabel("Gross pay amount").fill("52000");
   await expect(bar).toContainText("$25.00");
   await page.getByRole("region", { name: "Results" }).scrollIntoViewIfNeeded();
   await expect(bar).toHaveCount(0);
+});
+
+test("homepage pay calculator, category tiles and reference chart", async ({ page }) => {
+  await page.goto("/");
+  await expect(primary(page)).toHaveText("$41,600.00");
+  await page.getByLabel("Pay period").selectOption("annual");
+  await page.getByLabel("Your pay").fill("60000");
+  await expect(results(page).getByText("$28.85").first()).toBeVisible();
+  await page.getByLabel("Currency").selectOption("PKR");
+  await expect(primary(page)).toContainText("60,000.00");
+  const chart = page.locator("section", { has: page.getByRole("heading", { name: "Salary to hourly rate conversion chart" }) });
+  await expect(chart.getByRole("row", { name: /^\$60,000 / })).toContainText("$28.85");
+  await expect(chart.getByRole("row", { name: /^\$100,000 / })).toContainText("$48.08");
+  const tiles = page.locator("section", { has: page.getByRole("heading", { name: "Calculator categories" }) });
+  await tiles.getByRole("link", { name: /Salary & Pay/ }).click();
+  await expect(page).toHaveURL(/\/categories\/salary-and-pay$/);
+});
+
+test("mobile result bar stays hidden until the calculator inputs are on screen", async ({ page, isMobile }) => {
+  test.skip(!isMobile, "mobile only");
+  await page.goto("/");
+  const bar = page.locator("a[href='#results']");
+  await expect(bar).toHaveCount(0);
+  await page.getByLabel("Your pay").scrollIntoViewIfNeeded();
+  await expect(bar).toContainText("$41,600.00");
 });

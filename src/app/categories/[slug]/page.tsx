@@ -37,9 +37,9 @@ export default async function CategoryPage({ params }: PageProps<"/categories/[s
       <header className="mt-5 flex max-w-3xl items-start gap-4">
         <CategoryIcon category={category.slug} size="lg" />
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">{category.name} calculators</h1>
-          <p className="mt-3 text-lg text-slate-600">{category.description}</p>
-          <p className="mt-2 text-sm text-slate-500">
+          <h1 className="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">{category.name} calculators</h1>
+          <p className="mt-3 text-lg text-neutral-600">{category.description}</p>
+          <p className="mt-2 text-sm text-neutral-500">
             {calculators.length} {calculators.length === 1 ? "calculator" : "calculators"}
           </p>
         </div>
@@ -53,7 +53,7 @@ export default async function CategoryPage({ params }: PageProps<"/categories/[s
       </ul>
       {others.length > 0 && (
         <section aria-labelledby="other-categories" className="mt-14">
-          <h2 id="other-categories" className="text-lg font-semibold text-navy-900">
+          <h2 id="other-categories" className="text-lg font-semibold text-ink-900">
             Other categories
           </h2>
           <ul className="mt-3 flex flex-wrap gap-2">
@@ -61,10 +61,10 @@ export default async function CategoryPage({ params }: PageProps<"/categories/[s
               <li key={other.slug}>
                 <Link
                   href={categoryPath(other.slug)}
-                  className="focus-ring inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-navy-800 hover:border-blue-400 hover:text-blue-800"
+                  className="focus-ring inline-flex items-center gap-2 rounded-full border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-ink-800 hover:border-brand-400 hover:text-brand-800"
                 >
                   {other.name}
-                  <span className="text-slate-500">{other.count}</span>
+                  <span className="text-neutral-500">{other.count}</span>
                 </Link>
               </li>
             ))}

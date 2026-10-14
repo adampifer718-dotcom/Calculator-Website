@@ -126,7 +126,7 @@ function resultIsFinite(result: CalculationResult): boolean {
   const values = [
     result.primary.value,
     ...(result.secondary ?? []).map((item) => item.value),
-    ...(result.table?.rows ?? []).flatMap((row) => row.cells),
+    ...(result.tables ?? []).flatMap((table) => table.rows.flatMap((row) => row.cells)),
   ];
   return values.every(valueIsFinite);
 }

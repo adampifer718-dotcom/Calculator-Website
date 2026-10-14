@@ -26,7 +26,7 @@ const numeric = (value: ResultValue) => {
 };
 
 const tableAmounts = (result: ReturnType<typeof run>) =>
-  Object.fromEntries(result.table!.rows.map((row) => [row.label, numeric(row.cells[1])]));
+  Object.fromEntries(result.tables![0].rows.map((row) => [row.label, numeric(row.cells[1])]));
 
 const fullTime = { hoursPerWeek: 40, daysPerWeek: 5, weeksPerYear: 52, currency: "USD" };
 
@@ -60,7 +60,7 @@ describe("salary to hourly", () => {
     expect(amounts.Weekly).toBeCloseTo(1153.8461538, 6);
     expect(amounts.Daily).toBeCloseTo(230.7692308, 6);
     expect(amounts.Hourly).toBeCloseTo(28.8461538, 6);
-    expect(result.table!.rows.filter((r) => r.highlight).map((r) => r.label)).toEqual(["Annual", "Hourly"]);
+    expect(result.tables![0].rows.filter((r) => r.highlight).map((r) => r.label)).toEqual(["Annual", "Hourly"]);
   });
 
   it("uses hours, workdays and weeks per year", () => {

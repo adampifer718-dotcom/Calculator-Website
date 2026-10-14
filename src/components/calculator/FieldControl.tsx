@@ -13,7 +13,7 @@ interface FieldControlProps {
 }
 
 const inputBase =
-  "block w-full rounded-lg border bg-white text-base text-navy-900 shadow-xs transition-colors placeholder:text-slate-400 focus:outline-none focus:ring-2";
+  "block w-full rounded-lg border bg-white text-base text-ink-900 shadow-xs transition-colors placeholder:text-neutral-400 focus:outline-none focus:ring-2";
 
 /** Main amounts and dropdowns take a full row on phones; short numeric inputs sit two per row. */
 function fieldSpan(field: Field): string {
@@ -28,12 +28,12 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
   const describedBy = [errorId, helpId].filter(Boolean).join(" ") || undefined;
   const stateClass = error
     ? "border-red-500 focus:border-red-600 focus:ring-red-200"
-    : "border-slate-300 focus:border-blue-600 focus:ring-blue-200";
+    : "border-neutral-300 focus:border-brand-600 focus:ring-brand-200";
 
   if (field.type === "select" && field.display === "segmented") {
     return (
       <fieldset className="col-span-2">
-        <legend className="mb-1.5 text-sm font-medium text-navy-800">{field.label}</legend>
+        <legend className="mb-1.5 text-sm font-medium text-ink-800">{field.label}</legend>
         <div className="grid gap-2 sm:grid-cols-3">
           {field.options.map((option) => {
             const optionId = `${id}-${option.value}`;
@@ -41,7 +41,7 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
               <label
                 key={option.value}
                 htmlFor={optionId}
-                className="flex min-h-11 cursor-pointer items-center justify-center rounded-lg border border-slate-300 bg-white px-3 py-2 text-center text-sm font-medium text-navy-800 transition-colors hover:border-blue-400 has-checked:border-blue-600 has-checked:bg-blue-50 has-checked:text-blue-800 has-focus-visible:ring-2 has-focus-visible:ring-blue-300"
+                className="flex min-h-11 cursor-pointer items-center justify-center rounded-lg border border-neutral-300 bg-white px-3 py-2 text-center text-sm font-medium text-ink-800 transition-colors hover:border-brand-400 has-checked:border-brand-600 has-checked:bg-brand-50 has-checked:text-brand-800 has-focus-visible:ring-2 has-focus-visible:ring-brand-300"
               >
                 <input
                   id={optionId}
@@ -58,7 +58,7 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
           })}
         </div>
         {field.help && (
-          <p id={helpId} className="mt-1.5 text-xs text-slate-600">
+          <p id={helpId} className="mt-1.5 text-xs text-neutral-600">
             {field.help}
           </p>
         )}
@@ -71,7 +71,7 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
 
   return (
     <div className={fieldSpan(field)}>
-      <label htmlFor={id} className="mb-1.5 block text-sm font-medium text-navy-800">
+      <label htmlFor={id} className="mb-1.5 block text-sm font-medium text-ink-800">
         {field.label}
       </label>
       {field.type === "select" ? (
@@ -92,7 +92,7 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
       ) : (
         <div className="relative">
           {prefix && (
-            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-500">
+            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-neutral-500">
               {prefix}
             </span>
           )}
@@ -111,7 +111,7 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
             className={`${inputBase} ${stateClass} h-11 tabular-nums ${prefix ? (prefix.length > 1 ? "pl-12" : "pl-8") : "pl-3"} ${suffix ? "pr-16" : "pr-3"}`}
           />
           {suffix && (
-            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-slate-500">
+            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-neutral-500">
               {suffix}
             </span>
           )}
@@ -123,7 +123,7 @@ export function FieldControl({ formId, field, value, error, currency, onChange }
         </p>
       )}
       {field.help && (
-        <p id={helpId} className="mt-1.5 text-xs text-slate-600">
+        <p id={helpId} className="mt-1.5 text-xs text-neutral-600">
           {field.help}
         </p>
       )}

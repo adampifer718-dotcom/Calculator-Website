@@ -13,7 +13,7 @@ interface Props {
 export function DirectorySearchBox({ value, onChange, count }: { value: string; onChange?: (value: string) => void; count: string }) {
   return (
     <div role="search" className="relative max-w-xl">
-      <label htmlFor="directory-search" className="mb-1.5 block text-sm font-medium text-navy-800">
+      <label htmlFor="directory-search" className="mb-1.5 block text-sm font-medium text-ink-800">
         Search calculators
       </label>
       <input
@@ -25,9 +25,9 @@ export function DirectorySearchBox({ value, onChange, count }: { value: string; 
         onChange={(event) => onChange?.(event.target.value)}
         placeholder="e.g. salary, percent, return"
         aria-describedby="directory-count"
-        className="block h-12 w-full rounded-lg border border-slate-300 bg-white px-4 text-base text-navy-900 shadow-sm placeholder:text-slate-500 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+        className="block h-12 w-full rounded-lg border border-neutral-300 bg-white px-4 text-base text-ink-900 shadow-sm placeholder:text-neutral-500 focus:border-brand-600 focus:ring-2 focus:ring-brand-200 focus:outline-none"
       />
-      <p id="directory-count" aria-live="polite" className="mt-2 text-sm text-slate-600">
+      <p id="directory-count" aria-live="polite" className="mt-2 text-sm text-neutral-600">
         {count}
       </p>
     </div>

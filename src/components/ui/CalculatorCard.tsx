@@ -8,12 +8,12 @@ export function CalculatorCard({ calculator, headingLevel = "h3" }: { calculator
   return (
     <Link
       href={calculatorPath(calculator.slug)}
-      className="card focus-ring group flex h-full items-start gap-3 p-4 transition-colors hover:border-blue-300 hover:bg-blue-50/30"
+      className="card focus-ring group flex h-full items-start gap-3 p-4 transition-colors hover:border-brand-300 hover:bg-brand-50/30"
     >
       <CategoryIcon category={calculator.category} />
       <span className="min-w-0">
-        <Heading className="font-semibold text-navy-900 group-hover:text-blue-800">{calculator.title}</Heading>
-        <span className="mt-1 block text-sm text-slate-600">{calculator.summary}</span>
+        <Heading className="font-semibold text-ink-900 group-hover:text-brand-800">{calculator.title}</Heading>
+        <span className="mt-1 block text-sm text-neutral-600">{calculator.summary}</span>
       </span>
     </Link>
   );

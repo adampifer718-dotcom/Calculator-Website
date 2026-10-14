@@ -15,7 +15,7 @@ export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 pt-6 sm:px-6">
       <Breadcrumbs crumbs={[{ name: "Home", href: "/" }, { name: "About & methodology", href: "/about" }]} />
-      <h1 className="mt-5 text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">About & methodology</h1>
+      <h1 className="mt-5 text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">About & methodology</h1>
       <div className="prose-calc mt-6 space-y-8">
         <section>
           <p>
@@ -24,7 +24,7 @@ export default function AboutPage() {
           </p>
         </section>
         <section aria-labelledby="principles">
-          <h2 id="principles" className="mb-3 text-xl font-semibold text-navy-900">
+          <h2 id="principles" className="mb-3 text-xl font-semibold text-ink-900">
             Principles
           </h2>
           <ul className="list-disc space-y-2 pl-5">
@@ -36,7 +36,7 @@ export default function AboutPage() {
           </ul>
         </section>
         <section aria-labelledby="limits">
-          <h2 id="limits" className="mb-3 text-xl font-semibold text-navy-900">
+          <h2 id="limits" className="mb-3 text-xl font-semibold text-ink-900">
             Limitations
           </h2>
           <p>
@@ -45,7 +45,7 @@ export default function AboutPage() {
           </p>
         </section>
         <p>
-          <Link href="/calculators" className="focus-ring rounded font-medium text-blue-700 hover:underline">
+          <Link href="/calculators" className="focus-ring rounded font-medium text-brand-700 hover:underline">
             Browse all calculators
           </Link>
         </p>

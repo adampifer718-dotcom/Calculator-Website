@@ -5,18 +5,29 @@
 
 export const DISPLAY_LOCALE = "en-US";
 
+/** USD first as the default, then alphabetical by name. */
 export const CURRENCIES = [
   { code: "USD", label: "US dollar (USD)" },
-  { code: "EUR", label: "Euro (EUR)" },
+  { code: "AUD", label: "Australian dollar (AUD)" },
+  { code: "BRL", label: "Brazilian real (BRL)" },
   { code: "GBP", label: "British pound (GBP)" },
   { code: "CAD", label: "Canadian dollar (CAD)" },
-  { code: "AUD", label: "Australian dollar (AUD)" },
-  { code: "NZD", label: "New Zealand dollar (NZD)" },
+  { code: "CNY", label: "Chinese yuan (CNY)" },
+  { code: "EUR", label: "Euro (EUR)" },
+  { code: "HKD", label: "Hong Kong dollar (HKD)" },
   { code: "INR", label: "Indian rupee (INR)" },
   { code: "JPY", label: "Japanese yen (JPY)" },
-  { code: "CHF", label: "Swiss franc (CHF)" },
+  { code: "MXN", label: "Mexican peso (MXN)" },
+  { code: "TWD", label: "New Taiwan dollar (TWD)" },
+  { code: "NZD", label: "New Zealand dollar (NZD)" },
+  { code: "NOK", label: "Norwegian krone (NOK)" },
+  { code: "PKR", label: "Pakistani rupee (PKR)" },
+  { code: "PLN", label: "Polish złoty (PLN)" },
   { code: "SGD", label: "Singapore dollar (SGD)" },
   { code: "ZAR", label: "South African rand (ZAR)" },
+  { code: "KRW", label: "South Korean won (KRW)" },
+  { code: "SEK", label: "Swedish krona (SEK)" },
+  { code: "CHF", label: "Swiss franc (CHF)" },
 ] as const;
 
 export type CurrencyCode = (typeof CURRENCIES)[number]["code"];
@@ -40,12 +51,19 @@ function getFormatter(key: string, options: Intl.NumberFormatOptions): Intl.Numb
 
 type SignDisplay = "negative" | "exceptZero";
 
-export function formatCurrency(amount: number, currency: string = DEFAULT_CURRENCY, signDisplay: SignDisplay = "negative"): string {
+export function formatCurrency(
+  amount: number,
+  currency: string = DEFAULT_CURRENCY,
+  signDisplay: SignDisplay = "negative",
+  /** Override the currency's usual decimals, e.g. 0 for whole amounts. */
+  decimals?: number,
+): string {
   const code = isCurrencyCode(currency) ? currency : DEFAULT_CURRENCY;
-  return getFormatter(`c:${code}:${signDisplay}`, {
+  return getFormatter(`c:${code}:${signDisplay}:${decimals ?? "auto"}`, {
     style: "currency",
     currency: code,
     signDisplay,
+    ...(decimals === undefined ? {} : { minimumFractionDigits: decimals, maximumFractionDigits: decimals }),
   }).format(amount);
 }
 

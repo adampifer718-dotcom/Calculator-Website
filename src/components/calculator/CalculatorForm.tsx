@@ -16,14 +16,23 @@ export function CalculatorForm({ engine }: { engine: AnyEngine }) {
   const errors = evaluation.ok ? {} : evaluation.errors;
   const fields = (engine.fields as readonly Field[]).filter((field) => isFieldVisible(field, raw));
 
-  // The sticky mobile summary is hidden while the full results panel is on screen.
+  // The sticky mobile summary shows only while the inputs are on screen and the full results panel is not.
+  const inputsRef = useRef<HTMLElement>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
+  const [inputsVisible, setInputsVisible] = useState(false);
   const [resultsVisible, setResultsVisible] = useState(true);
   useEffect(() => {
-    const element = resultsRef.current;
-    if (!element || typeof IntersectionObserver === "undefined") return;
-    const observer = new IntersectionObserver(([entry]) => setResultsVisible(entry.isIntersecting || entry.boundingClientRect.top < 0));
-    observer.observe(element);
+    const inputs = inputsRef.current;
+    const results = resultsRef.current;
+    if (!inputs || !results || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.target === inputs) setInputsVisible(entry.isIntersecting);
+        else setResultsVisible(entry.isIntersecting);
+      }
+    });
+    observer.observe(inputs);
+    observer.observe(results);
     return () => observer.disconnect();
   }, []);
 
@@ -31,15 +40,15 @@ export function CalculatorForm({ engine }: { engine: AnyEngine }) {
 
   return (
     <div className="grid gap-5 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:items-start">
-      <section aria-labelledby={`${formId}-inputs`} className="card p-5 sm:p-6">
+      <section ref={inputsRef} aria-labelledby={`${formId}-inputs`} className="card p-5 sm:p-6">
         <div className="mb-4 flex items-center justify-between gap-3">
-          <h2 id={`${formId}-inputs`} className="text-lg font-semibold text-navy-900">
+          <h2 id={`${formId}-inputs`} className="text-lg font-semibold text-ink-900">
             Your inputs
           </h2>
           <button
             type="button"
             onClick={() => setRaw(defaultRawValues(engine))}
-            className="rounded-md px-2.5 py-1.5 text-sm font-medium text-blue-700 hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            className="rounded-md px-2.5 py-1.5 text-sm font-medium text-brand-700 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
           >
             Reset
           </button>
@@ -69,7 +78,7 @@ export function CalculatorForm({ engine }: { engine: AnyEngine }) {
       <div ref={resultsRef} id="results">
         <ResultPanel evaluation={evaluation} currency={currency} formError={errors[FORM_ERROR_KEY]} />
       </div>
-      <MobileResultBar evaluation={evaluation} currency={currency} hidden={resultsVisible} />
+      <MobileResultBar evaluation={evaluation} currency={currency} hidden={!inputsVisible || resultsVisible} />
     </div>
   );
 }

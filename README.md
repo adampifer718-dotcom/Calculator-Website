@@ -78,6 +78,14 @@ The directory, category pages, counts, related links, footer, sitemap and static
 - **Percentage change** divides by the absolute original value. An original value of 0 is rejected.
 - **ROI** = (returned − invested) ÷ invested. Annualized ROI = (returned ÷ invested)^(1 ÷ years) − 1.
 
+## Theme
+
+Colors are defined once in `src/app/globals.css`: `brand-*` (maroon accent), `ink-*` (near-black text and dark surfaces) and Tailwind's `neutral-*` grays. Components only use these tokens, so the palette can be changed in one place.
+
+## Homepage
+
+The homepage has a search bar, category tiles with live counts, a featured pay calculator (`src/calculators/pay-converter`, which uses the same pay math as the salary calculators), how-to steps, formulas, a salary-to-hourly reference chart, and popular calculators. Every number in the formulas and chart is computed from `src/lib/math/pay.ts`.
+
 ## Notes
 
 - Cache Components are enabled. Partial Prefetching is disabled so unknown calculator or category slugs return a real HTTP 404 instead of a streamed 200 with `noindex`.

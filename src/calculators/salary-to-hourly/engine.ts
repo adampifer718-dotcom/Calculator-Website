@@ -57,7 +57,7 @@ export const salaryToHourlyEngine = defineEngine<SalaryToHourlyValues>({
         { label: "Annual gross pay", value: { kind: "currency", amount: breakdown.annual } },
         { label: "Paid hours per year", value: { kind: "number", value: annualHours(schedule), decimals: 2 } },
       ],
-      table: breakdownTable(breakdown, schedule, [period, "hourly"]),
+      tables: [breakdownTable(breakdown, schedule, [period, "hourly"])],
       notes: scheduleNotes(schedule),
     };
   },

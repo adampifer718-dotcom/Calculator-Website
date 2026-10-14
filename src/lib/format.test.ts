@@ -33,5 +33,6 @@ describe("formatting", () => {
     expect(currencySymbol("USD")).toBe("$");
     expect(currencySymbol("EUR")).toBe("€");
     expect(currencySymbol("INR")).toBe("₹");
+    expect(formatCurrency(100, "USD", "negative", 0)).toBe("$100");
   });
 });

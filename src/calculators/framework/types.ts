@@ -72,7 +72,7 @@ export interface ResultTable {
 export interface CalculationResult {
   primary: ResultItem & { caption?: string };
   secondary?: ResultItem[];
-  table?: ResultTable;
+  tables?: ResultTable[];
   /** Short, input-dependent explanations (e.g. the hours assumed). */
   notes?: string[];
 }

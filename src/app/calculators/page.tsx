@@ -27,8 +27,8 @@ export default function CalculatorsPage() {
     <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-6">
       <Breadcrumbs crumbs={[{ name: "Home", href: "/" }, { name: "All calculators", href: "/calculators" }]} />
       <header className="mt-5 mb-8 max-w-3xl">
-        <h1 className="text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">All calculators</h1>
-        <p className="mt-3 text-lg text-slate-600">
+        <h1 className="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">All calculators</h1>
+        <p className="mt-3 text-lg text-neutral-600">
           {CALCULATORS.length} calculators across {groups.length} categories. Each one shows its formula, assumptions and worked examples.
         </p>
       </header>

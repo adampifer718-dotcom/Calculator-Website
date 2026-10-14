@@ -37,7 +37,7 @@ export function MobileMenu({ links }: { links: { name: string; href: string }[] 
         aria-expanded={open}
         aria-controls="mobile-menu"
         onClick={() => setOpen((v) => !v)}
-        className="focus-ring inline-flex size-10 items-center justify-center rounded-lg text-navy-900 hover:bg-slate-100"
+        className="focus-ring inline-flex size-10 items-center justify-center rounded-lg text-ink-900 hover:bg-neutral-100"
       >
         <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
         <svg aria-hidden="true" viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -45,7 +45,7 @@ export function MobileMenu({ links }: { links: { name: string; href: string }[] 
         </svg>
       </button>
       {open && (
-        <div id="mobile-menu" className="absolute inset-x-0 top-16 border-b border-slate-200 bg-white px-4 pt-4 pb-6 shadow-lg sm:px-6">
+        <div id="mobile-menu" className="absolute inset-x-0 top-16 border-b border-neutral-200 bg-white px-4 pt-4 pb-6 shadow-lg sm:px-6">
           <HeaderSearch id="mobile-search" label="Menu search" />
           <nav aria-label="Mobile" className="mt-4">
             <ul className="grid gap-1">
@@ -55,7 +55,7 @@ export function MobileMenu({ links }: { links: { name: string; href: string }[] 
                     href={link.href}
                     onClick={() => setOpen(false)}
                     aria-current={pathname === link.href ? "page" : undefined}
-                    className="focus-ring block rounded-lg px-3 py-3 text-base font-medium text-navy-900 hover:bg-slate-100 aria-[current=page]:bg-blue-50 aria-[current=page]:text-blue-800"
+                    className="focus-ring block rounded-lg px-3 py-3 text-base font-medium text-ink-900 hover:bg-neutral-100 aria-[current=page]:bg-brand-50 aria-[current=page]:text-brand-800"
                   >
                     {link.name}
                   </Link>

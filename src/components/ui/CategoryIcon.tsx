@@ -10,7 +10,7 @@ export function CategoryIcon({ category, size = "md" }: { category: CategorySlug
   return (
     <span
       aria-hidden="true"
-      className={`inline-flex shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-50 to-blue-100 text-blue-700 ring-1 ring-blue-200/70 ${
+      className={`inline-flex shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-brand-50 to-brand-100 text-brand-700 ring-1 ring-brand-200/70 ${
         size === "lg" ? "size-12" : "size-10"
       }`}
     >
