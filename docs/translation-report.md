@@ -8,12 +8,12 @@ A calculator page exists in a language only when its full content and engine str
 
 | Language | Interface | Calculator strings | Categories & collections | Pay converter | Published | Calculators |
 | --- | --- | --- | --- | --- | --- | --- |
-| English (English, `en`) | ✅ | ✅ | ✅ | ✅ | ✅ | 42 / 42 |
-| Urdu (اردو, `ur`) | ✅ | ✅ | ✅ | ✅ | ✅ | 42 / 42 |
-| Spanish (Español, `es`) | ✅ | ✅ | ✅ | ✅ | ✅ | 42 / 42 |
-| French (Français, `fr`) | ✅ | ✅ | ✅ | ✅ | ✅ | 42 / 42 |
-| German (Deutsch, `de`) | ✅ | ✅ | ✅ | ✅ | ✅ | 42 / 42 |
-| Arabic (العربية, `ar`) | ✅ | ✅ | ✅ | ✅ | ✅ | 42 / 42 |
+| English (English, `en`) | ✅ | ✅ | ✅ | ✅ | ✅ | 50 / 50 |
+| Urdu (اردو, `ur`) | ✅ | ✅ | ✅ | ✅ | ✅ | 42 / 50 |
+| Spanish (Español, `es`) | ✅ | ✅ | ✅ | ✅ | ✅ | 42 / 50 |
+| French (Français, `fr`) | ✅ | ✅ | ✅ | ✅ | ✅ | 42 / 50 |
+| German (Deutsch, `de`) | ✅ | ✅ | ✅ | ✅ | ✅ | 42 / 50 |
+| Arabic (العربية, `ar`) | ✅ | ✅ | ✅ | ✅ | ✅ | 42 / 50 |
 
 Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`.
 
@@ -21,18 +21,24 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`.
 
 | Calculator | `ur` | `es` | `fr` | `de` | `ar` |
 | --- | --- | --- | --- | --- | --- |
+| Age Calculator | — | — | — | — | — |
 | BMI Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | BMR Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Break-Even Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Circumference Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Compound Interest Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Concrete Calculator | — | — | — | — | — |
 | Confidence Interval Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Cups to Grams Converter | — | — | — | — | — |
+| Date Duration Calculator | — | — | — | — | — |
 | Dilution Calculator (C₁V₁ = C₂V₂) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Discount Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Doubling Time Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Electricity Cost Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Exponent Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Fraction Calculator | — | — | — | — | — |
 | Fuel Cost Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| GPA Calculator | — | — | — | — | — |
 | Hourly to Salary Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Kinetic Energy Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Length Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -40,6 +46,7 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`.
 | Log Calculator (Logarithm) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Mean, Median and Mode Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Molarity Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Mortgage Calculator | — | — | — | — | — |
 | Ohm's Law Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | P-value Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Percentage Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -62,10 +69,50 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`.
 | Temperature Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Test Grade Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Tip Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Volume Converter | — | — | — | — | — |
 | Weight Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ## Untranslated pages
 
-None. Every published calculator is available in every language.
+- `ur`: Fraction Calculator
+- `ur`: GPA Calculator
+- `ur`: Age Calculator
+- `ur`: Date Duration Calculator
+- `ur`: Mortgage Calculator
+- `ur`: Concrete Calculator
+- `ur`: Cups to Grams Converter
+- `ur`: Volume Converter
+- `es`: Fraction Calculator
+- `es`: GPA Calculator
+- `es`: Age Calculator
+- `es`: Date Duration Calculator
+- `es`: Mortgage Calculator
+- `es`: Concrete Calculator
+- `es`: Cups to Grams Converter
+- `es`: Volume Converter
+- `fr`: Fraction Calculator
+- `fr`: GPA Calculator
+- `fr`: Age Calculator
+- `fr`: Date Duration Calculator
+- `fr`: Mortgage Calculator
+- `fr`: Concrete Calculator
+- `fr`: Cups to Grams Converter
+- `fr`: Volume Converter
+- `de`: Fraction Calculator
+- `de`: GPA Calculator
+- `de`: Age Calculator
+- `de`: Date Duration Calculator
+- `de`: Mortgage Calculator
+- `de`: Concrete Calculator
+- `de`: Cups to Grams Converter
+- `de`: Volume Converter
+- `ar`: Fraction Calculator
+- `ar`: GPA Calculator
+- `ar`: Age Calculator
+- `ar`: Date Duration Calculator
+- `ar`: Mortgage Calculator
+- `ar`: Concrete Calculator
+- `ar`: Cups to Grams Converter
+- `ar`: Volume Converter
 
 Calculators in the backlog (`docs/calculator-backlog.md`) are not published in any language yet, so they have no translated pages.

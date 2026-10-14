@@ -5,6 +5,7 @@ import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { FORM_ERROR_KEY, defaultRawValues, evaluate, isFieldVisible } from "@/calculators/framework/evaluate";
 import type { AnyEngine, Field, RawValues } from "@/calculators/framework/types";
 import { DEFAULT_LOCALE } from "@/i18n/config";
+import { localToday } from "@/lib/math/dates";
 import { DEFAULT_CURRENCY } from "@/lib/format";
 import { FieldControl } from "./FieldControl";
 import { MobileResultBar } from "./MobileResultBar";
@@ -40,6 +41,25 @@ export function CalculatorForm({ engine }: { engine: AnyEngine }) {
     return () => observer.disconnect();
   }, []);
 
+  // Date fields marked "today" start from a fixed date so the server and the
+  // browser render the same HTML, then switch to the visitor's local date.
+  const withToday = (values: RawValues): RawValues => {
+    const next = { ...values };
+    for (const field of engine.fields as readonly Field[]) if (field.type === "date" && field.defaultToday) next[field.id] = localToday();
+    return next;
+  };
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- the local date is only known in the browser, after hydration
+    setRaw((prev) => {
+      const defaults = defaultRawValues(engine);
+      const next = { ...prev };
+      for (const field of engine.fields as readonly Field[]) {
+        if (field.type === "date" && field.defaultToday && prev[field.id] === defaults[field.id]) next[field.id] = localToday();
+      }
+      return next;
+    });
+  }, [engine]);
+
   const update = (id: string, value: string) => setRaw((prev) => ({ ...prev, [id]: value }));
 
   return (
@@ -51,7 +71,7 @@ export function CalculatorForm({ engine }: { engine: AnyEngine }) {
           </h2>
           <button
             type="button"
-            onClick={() => setRaw(defaultRawValues(engine))}
+            onClick={() => setRaw(withToday(defaultRawValues(engine)))}
             className="rounded-md px-2.5 py-1.5 text-sm font-medium text-brand-700 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
           >
             {t("reset")}

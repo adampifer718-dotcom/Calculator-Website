@@ -18,6 +18,14 @@ import { bmi } from "./bmi";
 import { tip } from "./tip";
 import { discount } from "./discount";
 import { compoundInterest } from "./compound-interest";
+import { fraction } from "./fraction";
+import { gpa } from "./gpa";
+import { age } from "./age";
+import { dateDuration } from "./date-duration";
+import { mortgage } from "./mortgage";
+import { concrete } from "./concrete";
+import { cupsToGrams } from "./cups-to-grams";
+import { volumeConverter } from "./volume-converter";
 import { lengthConverter } from "./length-converter";
 import { weightConverter } from "./weight-converter";
 import { temperatureConverter } from "./temperature-converter";
@@ -92,6 +100,14 @@ export const ALL_CALCULATORS: readonly CalculatorDefinition[] = [] = [
   fuelCost,
   meanMedianMode,
   standardDeviation,
+  fraction,
+  gpa,
+  age,
+  dateDuration,
+  mortgage,
+  concrete,
+  cupsToGrams,
+  volumeConverter,
 ];
 
 /**

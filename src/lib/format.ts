@@ -62,6 +62,8 @@ export interface Formatter {
    * trailing zeros survive: "123.000" and "1,20 × 10³" in German.
    */
   numberText(text: string): string;
+  /** An ISO calendar date in the locale, e.g. "14 October 2026" ("long") or with the weekday ("full"). */
+  date(iso: string, style?: "long" | "full"): string;
 }
 
 const formatterCache = new Map<string, Formatter>();
@@ -87,6 +89,7 @@ function createFormatter(locale: Locale): Formatter {
     }
     return format;
   };
+  const dateCache = new Map<string, Intl.DateTimeFormat>();
   const code = (currency: string) => (isCurrencyCode(currency) ? currency : DEFAULT_CURRENCY);
 
   return {
@@ -122,6 +125,17 @@ function createFormatter(locale: Locale): Formatter {
         .formatToParts(0)
         .find((p) => p.type === "currency");
       return part?.value ?? code(currency);
+    },
+    date(iso, style = "long") {
+      const [year, month, day] = iso.split("-").map(Number);
+      const date = new Date(0);
+      date.setUTCFullYear(year, month - 1, day);
+      let format = dateCache.get(style);
+      if (!format) {
+        format = new Intl.DateTimeFormat(tag, { dateStyle: style, timeZone: "UTC" });
+        dateCache.set(style, format);
+      }
+      return format.format(date);
     },
     numberText(text) {
       const parts = nf("n:4:negative", { maximumFractionDigits: 4 }).formatToParts(1234567.5);

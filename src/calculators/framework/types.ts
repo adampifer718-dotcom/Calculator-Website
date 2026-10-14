@@ -10,12 +10,17 @@ export type EngineValues = Record<string, FieldValue>;
 /** Raw text as typed by the user, keyed by field id. */
 export type RawValues = Record<string, string>;
 
+export interface VisibleWhen {
+  field: string;
+  oneOf: readonly string[];
+}
+
 interface BaseField<Id extends string> {
   id: Id;
   label: string;
   help?: string;
-  /** Show the field only when another (select) field has one of these values. */
-  visibleWhen?: { field: string; oneOf: readonly string[] };
+  /** Show the field only when other (select) fields have one of these values; several conditions must all hold. */
+  visibleWhen?: VisibleWhen | readonly VisibleWhen[];
 }
 
 export interface NumberField<Id extends string = string> extends BaseField<Id> {
@@ -59,18 +64,37 @@ export interface TextField<Id extends string = string> extends BaseField<Id> {
   check?: (text: string) => string | undefined;
 }
 
-export type Field<Id extends string = string> = NumberField<Id> | SelectField<Id> | TextField<Id>;
+/**
+ * A calendar date. Values are ISO "YYYY-MM-DD" strings in every language
+ * (the browser's date picker displays them in the visitor's format), so
+ * results never depend on how a date is typed or on the time zone.
+ */
+export interface DateField<Id extends string = string> extends BaseField<Id> {
+  type: "date";
+  /** Deterministic default used for server rendering, examples and tests. */
+  defaultValue: string;
+  /** Replace the default with the visitor's local date after the page loads. */
+  defaultToday?: boolean;
+  optional?: boolean;
+  /** Earliest and latest accepted dates (ISO). */
+  min?: string;
+  max?: string;
+}
+
+export type Field<Id extends string = string> = NumberField<Id> | SelectField<Id> | TextField<Id> | DateField<Id>;
 
 /** Field definition matched to the value type it produces. */
 export type FieldFor<V extends EngineValues> = {
-  [K in keyof V & string]: V[K] extends string ? SelectField<K> | TextField<K> : NumberField<K>;
+  [K in keyof V & string]: V[K] extends string ? SelectField<K> | TextField<K> | DateField<K> : NumberField<K>;
 }[keyof V & string];
 
 export type ResultValue =
   | { kind: "currency"; amount: number; signed?: boolean }
   | { kind: "percent"; value: number; decimals?: number; signed?: boolean }
   | { kind: "number"; value: number; decimals?: number; suffix?: string; signed?: boolean }
-  | { kind: "text"; text: string };
+  | { kind: "text"; text: string }
+  /** A calendar date (ISO), shown in the visitor's language with the weekday. */
+  | { kind: "date"; iso: string };
 
 export interface ResultItem {
   label: string;

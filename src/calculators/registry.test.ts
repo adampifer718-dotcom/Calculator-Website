@@ -56,7 +56,7 @@ describe("calculator registry", () => {
         expect(formatResultValue(value, String(example.inputs.currency ?? "USD"))).toBe(example.expectedPrimary);
         return;
       }
-      const actual = value.kind === "currency" ? value.amount : value.kind === "text" ? Number.NaN : value.value;
+      const actual = value.kind === "currency" ? value.amount : value.kind === "text" || value.kind === "date" ? Number.NaN : value.value;
       expect(actual).toBeCloseTo(example.expectedPrimary, 9);
     },
   );

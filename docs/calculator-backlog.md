@@ -8,11 +8,11 @@ Priority = 2 × usefulness + 2 × demand − difficulty (each scored 1–5). Sco
 
 | Status | Count |
 | --- | --- |
-| published | 42 |
+| published | 50 |
 | testing | 0 |
 | implementing | 0 |
-| researching | 12 |
-| planned | 129 |
+| researching | 11 |
+| planned | 122 |
 | **total** | **183** |
 
 ## Coverage by category
@@ -21,14 +21,14 @@ Priority = 2 × usefulness + 2 × demand − difficulty (each scored 1–5). Sco
 | --- | --- | --- |
 | Biology | 1 | 8 |
 | Chemistry | 2 | 9 |
-| Construction | 1 | 10 |
-| Conversion | 3 | 9 |
+| Construction | 2 | 9 |
+| Conversion | 4 | 7 |
 | Ecology | 1 | 9 |
-| Everyday Life | 4 | 7 |
-| Finance | 8 | 25 |
-| Food | 1 | 6 |
+| Everyday Life | 6 | 4 |
+| Finance | 9 | 24 |
+| Food | 2 | 6 |
 | Health | 2 | 7 |
-| Math | 10 | 13 |
+| Math | 12 | 12 |
 | Physics | 3 | 10 |
 | Sports | 1 | 7 |
 | Statistics | 4 | 12 |
@@ -38,21 +38,21 @@ Priority = 2 × usefulness + 2 × demand − difficulty (each scored 1–5). Sco
 
 | Collection | Published | In backlog |
 | --- | --- | --- |
-| Business & Entrepreneurship | 7 | 16 |
+| Business & Entrepreneurship | 8 | 15 |
 | Accounting & Finance | 4 | 5 |
-| HR, Payroll & Employment | 2 | 7 |
+| HR, Payroll & Employment | 3 | 6 |
 | Digital Marketing & Ecommerce | 3 | 9 |
-| Real Estate & Property | 2 | 8 |
-| Construction & Civil Engineering | 3 | 14 |
-| Education & Academic Research | 23 | 58 |
-| Healthcare & Medical Professionals | 5 | 18 |
+| Real Estate & Property | 3 | 7 |
+| Construction & Civil Engineering | 4 | 13 |
+| Education & Academic Research | 26 | 55 |
+| Healthcare & Medical Professionals | 6 | 17 |
 | Agriculture & Gardening | 1 | 8 |
-| Food Service & Hospitality | 4 | 10 |
+| Food Service & Hospitality | 6 | 8 |
 | Manufacturing & Operations | 1 | 11 |
 | Software, IT & Data | 3 | 12 |
 | Environment & Energy | 3 | 9 |
 | Fitness & Sports | 4 | 10 |
-| Personal Finance & Household | 10 | 15 |
+| Personal Finance & Household | 12 | 13 |
 
 ## Needs expert review
 
@@ -62,11 +62,11 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | --- | --- | --- |
 | BMI Calculator | medical | published |
 | Compound Interest Calculator | financial | published |
-| Concrete Calculator | engineering | planned |
+| Concrete Calculator | engineering | published |
 | Pregnancy Due Date Calculator | medical | planned |
 | TDEE Calculator | medical | researching |
 | Loan Payment Calculator | financial | published |
-| Mortgage Calculator (with taxes and insurance) | financial | planned |
+| Mortgage Calculator (with taxes and insurance) | financial | published |
 | BMR Calculator | medical | published |
 | Calories Burned Calculator | medical | researching |
 | Credit Card Payoff Calculator | financial | planned |
@@ -91,7 +91,7 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | Password Strength (Entropy) Calculator | safety | planned |
 | Relative Risk and Odds Ratio Calculator | medical | planned |
 
-## Published (42)
+## Published (50)
 
 | Priority | Concept | Category | Collections | Difficulty | Review | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -99,19 +99,27 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | 19 | Percentage Calculator | Math | Education & Academic Research, Business & Entrepreneurship, Personal Finance & Household | 1 |  |  |
 | 19 | Profit Margin Calculator | Finance | Business & Entrepreneurship, Digital Marketing & Ecommerce | 1 |  |  |
 | 19 | Temperature Converter | Conversion | Food Service & Hospitality, Education & Academic Research | 1 |  |  |
+| 19 | Volume Converter | Conversion | Food Service & Hospitality, Education & Academic Research | 1 |  |  |
 | 19 | Weight Converter | Conversion | Food Service & Hospitality, Education & Academic Research | 1 |  |  |
+| 18 | Age Calculator | Everyday Life | Personal Finance & Household, Healthcare & Medical Professionals | 2 |  | Uses the calendar date field; handles leap days and month ends. |
 | 18 | BMI Calculator | Health | Healthcare & Medical Professionals, Fitness & Sports | 2 | medical |  |
 | 18 | Compound Interest Calculator | Finance | Personal Finance & Household, Accounting & Finance | 2 | financial | Add regular contributions. |
+| 18 | Concrete Calculator | Construction | Construction & Civil Engineering | 2 | engineering | Volume only; structural design needs an engineer. |
+| 18 | Date Duration Calculator | Everyday Life | Business & Entrepreneurship, HR, Payroll & Employment | 2 |  | Uses the calendar date field; handles leap days and month ends. |
 | 18 | Hourly to Salary Calculator | Finance | HR, Payroll & Employment, Personal Finance & Household, Business & Entrepreneurship | 2 |  |  |
 | 18 | Salary to Hourly Calculator | Finance | HR, Payroll & Employment, Personal Finance & Household, Accounting & Finance | 2 |  |  |
 | 18 | Square Footage Calculator | Construction | Construction & Civil Engineering, Real Estate & Property | 2 |  |  |
 | 18 | Standard Deviation Calculator | Statistics | Education & Academic Research, Software, IT & Data | 2 |  |  |
 | 17 | Discount Calculator | Everyday Life | Digital Marketing & Ecommerce, Personal Finance & Household | 1 |  |  |
+| 17 | Fraction Calculator | Math | Education & Academic Research | 3 |  |  |
+| 17 | GPA Calculator | Math | Education & Academic Research | 3 |  | Grade scales vary by school; make the scale configurable. |
 | 17 | Loan Payment Calculator | Finance | Personal Finance & Household, Real Estate & Property | 3 | financial |  |
+| 17 | Mortgage Calculator (with taxes and insurance) | Finance | Real Estate & Property, Personal Finance & Household | 3 | financial | Extends the loan payment engine. |
 | 17 | Percentage Increase Calculator | Math | Business & Entrepreneurship, Digital Marketing & Ecommerce | 1 |  |  |
 | 17 | Sales Tax Calculator | Finance | Business & Entrepreneurship, Personal Finance & Household | 1 |  | User supplies the rate; no jurisdiction tax rules. |
 | 17 | Tip Calculator | Everyday Life | Food Service & Hospitality, Personal Finance & Household | 1 |  |  |
 | 16 | BMR Calculator | Health | Healthcare & Medical Professionals, Fitness & Sports | 2 | medical |  |
+| 16 | Cups to Grams Converter | Food | Food Service & Hospitality | 4 |  | Densities from the King Arthur Baking chart and USDA FoodData Central. |
 | 16 | Mean, Median and Mode Calculator | Statistics | Education & Academic Research, Software, IT & Data | 2 |  |  |
 | 16 | ROI Calculator | Finance | Business & Entrepreneurship, Accounting & Finance | 2 |  |  |
 | 15 | Confidence Interval Calculator | Statistics | Education & Academic Research | 3 |  | Add a t-interval for small samples. |
@@ -138,12 +146,11 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | 10 | Doubling Time Calculator | Biology | Education & Academic Research, Healthcare & Medical Professionals | 2 |  |  |
 | 10 | Rainwater Harvesting Calculator | Ecology | Environment & Energy, Agriculture & Gardening | 2 |  |  |
 
-## Researching (12)
+## Researching (11)
 
 | Priority | Concept | Category | Collections | Difficulty | Review | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
 | 18 | TDEE Calculator | Health | Healthcare & Medical Professionals, Fitness & Sports | 2 | medical | Needs sourced physical activity level multipliers. |
-| 16 | Cups to Grams Converter | Conversion | Food Service & Hospitality | 4 |  | Needs a sourced ingredient density table. |
 | 15 | Calories Burned Calculator | Sports | Fitness & Sports, Healthcare & Medical Professionals | 3 | medical | Needs the published MET compendium values. |
 | 15 | Take-Home Pay Calculator | Finance | HR, Payroll & Employment, Personal Finance & Household | 5 | tax | Requires jurisdiction tax tables and annual updates. |
 | 13 | Blood Alcohol Content Calculator | Health | Healthcare & Medical Professionals | 3 | safety | Widmark estimate only; must never suggest it is safe to drive. |
@@ -155,18 +162,11 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | 7 | Tree Carbon Sequestration Calculator | Ecology | Environment & Energy, Agriculture & Gardening | 5 |  | Species-specific allometric data needed. |
 | 6 | Irrigation Water Requirement Calculator | Ecology | Agriculture & Gardening, Environment & Energy | 4 |  | Needs evapotranspiration data sources. |
 
-## Planned (129)
+## Planned (122)
 
 | Priority | Concept | Category | Collections | Difficulty | Review | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| 19 | Volume Converter | Conversion | Food Service & Hospitality, Education & Academic Research | 1 |  |  |
-| 18 | Age Calculator | Everyday Life | Personal Finance & Household, Healthcare & Medical Professionals | 2 |  | Needs a date input field type. |
-| 18 | Concrete Calculator | Construction | Construction & Civil Engineering | 2 | engineering | Volume only; structural design needs an engineer. |
-| 18 | Days Between Dates Calculator | Everyday Life | Business & Entrepreneurship, HR, Payroll & Employment | 2 |  | Needs a date input field type. |
-| 18 | Pregnancy Due Date Calculator | Health | Healthcare & Medical Professionals | 2 | medical | Needs a date input field type. |
-| 17 | Fraction Calculator | Math | Education & Academic Research | 3 |  |  |
-| 17 | GPA Calculator | Everyday Life | Education & Academic Research | 3 |  | Grade scales vary by school; make the scale configurable. |
-| 17 | Mortgage Calculator (with taxes and insurance) | Finance | Real Estate & Property, Personal Finance & Household | 3 | financial | Extends the loan payment engine. |
+| 18 | Pregnancy Due Date Calculator | Health | Healthcare & Medical Professionals | 2 | medical | The date field now exists; needs medical review before building. |
 | 16 | Molar Mass Calculator | Chemistry | Education & Academic Research | 4 |  | Needs a chemical formula parser and IUPAC atomic weights. |
 | 16 | Paint Calculator | Construction | Construction & Civil Engineering, Real Estate & Property | 2 |  |  |
 | 15 | Area Converter | Conversion | Real Estate & Property, Construction & Civil Engineering | 1 |  |  |

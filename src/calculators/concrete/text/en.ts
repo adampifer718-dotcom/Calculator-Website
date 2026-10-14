@@ -1,0 +1,30 @@
+const text = {
+  shape: "Shape",
+  shapes: { slab: "Slab or footing", column: "Round column", tube: "Hollow tube" },
+  units: "Units",
+  unitSystems: { metric: "Metric (m, cm)", imperial: "US (ft, in)" },
+  length: "Length",
+  width: "Width",
+  thickness: "Thickness",
+  diameter: "Diameter",
+  outerDiameter: "Outer diameter",
+  innerDiameter: "Inner diameter",
+  height: "Height",
+  quantity: "Number of identical pieces",
+  waste: "Extra for waste",
+  wasteHelp: "Allowance for spillage, uneven ground and over-excavation. 5–10% is common; use 0 for the exact volume.",
+  errors: { inner: "The inner diameter must be smaller than the outer diameter." },
+  volume: "Concrete to order",
+  caption: "{exact} without the {waste} waste allowance.",
+  exact: "Exact volume (no waste)",
+  inCubicMetres: "In cubic meters",
+  inCubicYards: "In cubic yards",
+  inCubicFeet: "In cubic feet",
+  inLitres: "In liters",
+  notes: {
+    order: "Ready-mix concrete is sold by the cubic meter or cubic yard; round up to the supplier's minimum increment.",
+    structural: "This estimates volume only. Slab thickness, reinforcement, mix strength and footing sizes must follow your local building code or an engineer's design.",
+  },
+};
+export type ConcreteText = typeof text;
+export default text;

@@ -34,3 +34,29 @@ export function engineContext<T>(locale: Locale, text: T): EngineContext<T> {
 export function englishContext<T>(text: T): EngineContext<T> {
   return engineContext(DEFAULT_LOCALE, text);
 }
+
+/**
+ * Plural forms for a counted word, one per CLDR category. Every language
+ * fills all six (most repeat "other"), so translations keep the same shape.
+ */
+export interface PluralForms {
+  zero: string;
+  one: string;
+  two: string;
+  few: string;
+  many: string;
+  other: string;
+}
+
+const pluralRules = new Map<string, Intl.PluralRules>();
+
+/** "{n} years" with the right plural form for the locale; `n` is formatted for the locale. */
+export function plural(ctx: Pick<EngineContext<unknown>, "locale" | "fmt">, n: number, forms: PluralForms): string {
+  let rules = pluralRules.get(ctx.locale);
+  if (!rules) {
+    rules = new Intl.PluralRules(ctx.locale);
+    pluralRules.set(ctx.locale, rules);
+  }
+  const category = rules.select(n) as keyof PluralForms;
+  return fill(forms[category] ?? forms.other, { n: ctx.fmt.number(n, 0) });
+}

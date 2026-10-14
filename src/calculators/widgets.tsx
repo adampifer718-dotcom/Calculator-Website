@@ -56,6 +56,14 @@ export const WIDGETS: Record<string, ComponentType<WidgetProps>> = {
   "fuel-cost-calculator": dynamic(() => import("./fuel-cost/widget")),
   "mean-median-mode-calculator": dynamic(() => import("./mean-median-mode/widget")),
   "standard-deviation-calculator": dynamic(() => import("./standard-deviation/widget")),
+  "fraction-calculator": dynamic(() => import("./fraction/widget")),
+  "gpa-calculator": dynamic(() => import("./gpa/widget")),
+  "age-calculator": dynamic(() => import("./age/widget")),
+  "date-duration-calculator": dynamic(() => import("./date-duration/widget")),
+  "mortgage-calculator": dynamic(() => import("./mortgage/widget")),
+  "concrete-calculator": dynamic(() => import("./concrete/widget")),
+  "cups-to-grams-converter": dynamic(() => import("./cups-to-grams/widget")),
+  "volume-converter": dynamic(() => import("./volume-converter/widget")),
 };
 
 export function CalculatorWidget({ slug, locale, text }: { slug: string; locale: Locale; text: unknown }) {

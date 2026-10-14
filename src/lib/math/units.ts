@@ -35,6 +35,33 @@ export const MASS: readonly UnitDef[] = [
   { value: "st", label: "Stones", symbol: "st", factor: POUND_KG * 14 },
 ];
 
+/**
+ * Volume units in litres. US customary units derive from the US gallon of
+ * 231 cubic inches (3.785411784 L, exact); imperial units from the imperial
+ * gallon of 4.54609 L (exact). See NIST Handbook 44, Appendix C.
+ */
+/** US liquid gallon: exactly 231 cubic inches = 3.785411784 liters. */
+export const US_GALLON_L = 3.785411784;
+const IMPERIAL_GALLON_L = 4.54609;
+
+export const VOLUME: readonly UnitDef[] = [
+  { value: "ml", label: "Millilitres", symbol: "mL", factor: 0.001 },
+  { value: "l", label: "Litres", symbol: "L", factor: 1 },
+  { value: "m3", label: "Cubic metres", symbol: "m³", factor: 1000 },
+  { value: "tsp", label: "US teaspoons", symbol: "tsp", factor: US_GALLON_L / 768 },
+  { value: "tbsp", label: "US tablespoons", symbol: "tbsp", factor: US_GALLON_L / 256 },
+  { value: "floz", label: "US fluid ounces", symbol: "fl oz", factor: US_GALLON_L / 128 },
+  { value: "cup", label: "US cups", symbol: "cup", factor: US_GALLON_L / 16 },
+  { value: "pt", label: "US pints", symbol: "pt", factor: US_GALLON_L / 8 },
+  { value: "qt", label: "US quarts", symbol: "qt", factor: US_GALLON_L / 4 },
+  { value: "gal", label: "US gallons", symbol: "gal", factor: US_GALLON_L },
+  { value: "impfloz", label: "Imperial fluid ounces", symbol: "imp fl oz", factor: IMPERIAL_GALLON_L / 160 },
+  { value: "imppt", label: "Imperial pints", symbol: "imp pt", factor: IMPERIAL_GALLON_L / 8 },
+  { value: "impgal", label: "Imperial gallons", symbol: "imp gal", factor: IMPERIAL_GALLON_L },
+  { value: "in3", label: "Cubic inches", symbol: "in³", factor: 0.016387064 },
+  { value: "ft3", label: "Cubic feet", symbol: "ft³", factor: 28.316846592 },
+];
+
 export function findUnit(units: readonly UnitDef[], value: string): UnitDef {
   return units.find((u) => u.value === value) ?? units[0];
 }
@@ -74,5 +101,3 @@ export function convertTemperature(value: number, from: TemperatureUnit, to: Tem
   return fromKelvin(toKelvin(value, from), to);
 }
 
-/** US liquid gallon: exactly 231 cubic inches = 3.785411784 liters. */
-export const US_GALLON_L = 3.785411784;

@@ -1,0 +1,30 @@
+const text = {
+  scale: "Grade scale",
+  scales: { "4.0": "4.0 scale (A+ = 4.0)", "4.3": "4.3 scale (A+ = 4.3)" },
+  courses: "Courses",
+  coursesHelp: "One course per line: an optional name, then the grade (a letter such as B+ or grade points such as 3.3), then the credits.",
+  defaultCourses: "Calculus A 4\nChemistry B+ 4\nHistory A- 3\nArt C 2",
+  priorGpa: "Current cumulative GPA",
+  priorGpaHelp: "Optional. Leave both boxes empty to see this term only.",
+  priorCredits: "Credits already completed",
+  errors: {
+    empty: "Enter at least one course.",
+    tooMany: "Enter at most {max} courses.",
+    line: "Line {line}: write a grade and the credits, for example “Biology B+ 3”.",
+    grade: "Line {line}: “{grade}” is not a grade on this scale.",
+    credits: "Line {line}: credits must be greater than 0.",
+    priorBoth: "Enter both your current GPA and the credits behind it, or neither.",
+    priorRange: "Enter a GPA between 0 and {max} on this scale.",
+  },
+  gpa: "Term GPA",
+  caption: "{credits} credits and {points} quality points.",
+  cumulative: "New cumulative GPA",
+  totalCredits: "Credits this term",
+  qualityPoints: "Quality points",
+  tableCaption: "Courses",
+  columns: { course: "Course", points: "Grade points", credits: "Credits", quality: "Quality points" },
+  unnamed: "Course {line}",
+  note: "Letter grades use the common US 4-point scale (A− = 3.7, B+ = 3.3 … D− = 0.7, F = 0). Check your school's scale; some weight honors or AP courses differently.",
+};
+export type GpaText = typeof text;
+export default text;

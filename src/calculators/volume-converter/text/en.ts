@@ -1,0 +1,30 @@
+const text = {
+  value: "Value",
+  from: "From",
+  to: "To",
+  unitNames: {
+    ml: "Milliliters",
+    l: "Liters",
+    m3: "Cubic meters",
+    tsp: "US teaspoons",
+    tbsp: "US tablespoons",
+    floz: "US fluid ounces",
+    cup: "US cups",
+    pt: "US pints",
+    qt: "US quarts",
+    gal: "US gallons",
+    impfloz: "Imperial fluid ounces",
+    imppt: "Imperial pints",
+    impgal: "Imperial gallons",
+    in3: "Cubic inches",
+    ft3: "Cubic feet",
+  },
+  primary: "{value} {symbol} in {unit}",
+  caption: "1 {from} = {factor} {to}",
+  tableCaption: "{value} {symbol} in every volume unit",
+  tableUnit: "Unit",
+  tableValue: "Value",
+  note: "US and imperial units differ: a US gallon is 3.785 L, an imperial gallon 4.546 L. Results are shown to 10 significant digits.",
+};
+export type VolumeConverterText = typeof text;
+export default text;

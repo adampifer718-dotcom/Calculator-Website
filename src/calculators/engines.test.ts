@@ -21,7 +21,7 @@ function errorsFor(engine: AnyEngine, raw: Record<string, string>) {
 
 const numeric = (value: ResultValue) => {
   if (value.kind === "currency") return value.amount;
-  if (value.kind === "text") throw new Error("text value");
+  if (value.kind === "text" || value.kind === "date") throw new Error(`${value.kind} value`);
   return value.value;
 };
 

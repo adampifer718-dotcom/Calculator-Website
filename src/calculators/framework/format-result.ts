@@ -16,6 +16,8 @@ export function formatResultValue(value: ResultValue, currency: string, locale: 
     }
     case "text":
       return value.text;
+    case "date":
+      return fmt.date(value.iso, "full");
   }
 }
 
@@ -27,5 +29,7 @@ export function formatResultValue(value: ResultValue, currency: string, locale: 
 export function resultDir(value: ResultValue): "ltr" | "auto" {
   if (value.kind === "currency" || value.kind === "percent") return "ltr";
   if (value.kind === "number" && !value.suffix) return "ltr";
+  // Fractions, scientific notation and other symbol-only text ("-1/12", "1.2 × 10³").
+  if (value.kind === "text" && !/\p{L}/u.test(value.text)) return "ltr";
   return "auto";
 }

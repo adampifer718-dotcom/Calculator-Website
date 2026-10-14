@@ -2,6 +2,7 @@
 
 import type { Field } from "@/calculators/framework/types";
 import type { Locale } from "@/i18n/config";
+import { commonText } from "@/calculators/framework/i18n";
 import { getFormatter } from "@/lib/format";
 
 interface FieldControlProps {
@@ -92,6 +93,22 @@ export function FieldControl({ formId, field, value, error, currency, locale, on
             </option>
           ))}
         </select>
+      ) : field.type === "date" ? (
+        // The picker shows the date in the visitor's format; the value is always ISO (YYYY-MM-DD).
+        <div dir="ltr">
+          <input
+            id={id}
+            type="date"
+            value={value}
+            min={field.min}
+            max={field.max}
+            onChange={(event) => onChange(event.target.value)}
+            aria-invalid={error ? true : undefined}
+            aria-describedby={describedBy}
+            aria-required={field.optional ? undefined : true}
+            className={`${inputBase} ${stateClass} h-11 px-3 tabular-nums`}
+          />
+        </div>
       ) : (
         field.type === "text" && field.multiline ? (
         <textarea
@@ -123,7 +140,7 @@ export function FieldControl({ formId, field, value, error, currency, locale, on
             autoComplete="off"
             spellCheck={false}
             value={value}
-            placeholder={field.type === "number" || field.type === "text" ? (field.placeholder ?? (field.optional ? "Optional" : undefined)) : undefined}
+            placeholder={field.type === "number" || field.type === "text" ? (field.placeholder ?? (field.optional ? commonText(locale).optional : undefined)) : undefined}
             onChange={(event) => onChange(event.target.value)}
             aria-invalid={error ? true : undefined}
             aria-describedby={describedBy}

@@ -9,6 +9,7 @@ import type {
 } from "./types";
 import { DEFAULT_LOCALE, type Locale } from "@/i18n/config";
 import { getFormatter } from "@/lib/format";
+import { compareDates, parseIsoDate } from "@/lib/math/dates";
 import { exampleNumber, formatInputValue, parseLocaleNumber } from "@/lib/parse";
 import { commonText, fill } from "./i18n";
 
@@ -27,7 +28,8 @@ export function parseNumberInput(raw: string, locale: Locale = DEFAULT_LOCALE): 
 
 export function isFieldVisible(field: Field, raw: RawValues): boolean {
   if (!field.visibleWhen) return true;
-  return field.visibleWhen.oneOf.includes(raw[field.visibleWhen.field] ?? "");
+  const conditions = Array.isArray(field.visibleWhen) ? field.visibleWhen : [field.visibleWhen as { field: string; oneOf: readonly string[] }];
+  return conditions.every((c) => c.oneOf.includes(raw[c.field] ?? ""));
 }
 
 function labelVars(field: Field, locale: Locale) {
@@ -94,6 +96,22 @@ export function evaluate(engine: AnyEngine, raw: RawValues): Evaluation {
       values[field.id] = null;
       continue;
     }
+    if (field.type === "date") {
+      const trimmed = text.trim();
+      const date = parseIsoDate(trimmed);
+      const fmt = getFormatter(locale);
+      if (trimmed === "") {
+        if (!field.optional) errors[field.id] = fill(m.required, labelVars(field, locale));
+      } else if (!date) {
+        errors[field.id] = m.invalidDate;
+      } else if (field.min && compareDates(date, parseIsoDate(field.min)!) < 0) {
+        errors[field.id] = fill(m.dateAtLeast, { bound: fmt.date(field.min) });
+      } else if (field.max && compareDates(date, parseIsoDate(field.max)!) > 0) {
+        errors[field.id] = fill(m.dateAtMost, { bound: fmt.date(field.max) });
+      }
+      values[field.id] = trimmed;
+      continue;
+    }
     if (field.type === "text") {
       const trimmed = text.trim();
       if (trimmed === "") {
@@ -136,6 +154,7 @@ function valueIsFinite(value: CalculationResult["primary"]["value"]): boolean {
     case "number":
       return Number.isFinite(value.value);
     case "text":
+    case "date":
       return true;
   }
 }

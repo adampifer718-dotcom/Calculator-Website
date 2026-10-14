@@ -17,6 +17,7 @@ export function describeInputs(engine: AnyEngine, values: EngineValues): { label
         return [{ label: field.label, value: field.options.find((o) => o.value === value)?.label ?? String(value) }];
       }
       if (field.type === "text") return typeof value === "string" ? [{ label: field.label, value }] : [];
+      if (field.type === "date") return typeof value === "string" && value ? [{ label: field.label, value: fmt.date(value) }] : [];
       if (typeof value !== "number") return [];
       let text = field.prefix === "currency" ? fmt.currency(value, currency) : fmt.number(value, 6);
       if (field.suffix) text = field.suffix === "%" ? fmt.percent(value, 6) : `${text} ${field.suffix}`;
