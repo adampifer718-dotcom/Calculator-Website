@@ -15,7 +15,7 @@ const de: CalculatorTranslation<ScientificNotationText> = {
       "Geben Sie eine Dezimalzahl oder E-Notation ein, und der Rechner zeigt alle gängigen Schreibweisen.",
     ],
     howToUse: [
-      "Geben Sie eine Zahl wie 123400 oder 0.00056 oder eine E-Notation wie 6.02e23 ein (mit Punkt als Dezimaltrennzeichen).",
+      "Geben Sie eine Zahl wie 123400 oder 0,00056 oder eine E-Notation wie 6,02e23 ein. Dezimalkomma und Dezimalpunkt sind beide möglich.",
       "Lesen Sie die wissenschaftliche, die E-, die technische und die Dezimalschreibweise ab.",
     ],
     formulas: [
@@ -44,7 +44,7 @@ const de: CalculatorTranslation<ScientificNotationText> = {
         answer: "Verschieben Sie das Komma so, dass links davon genau eine von null verschiedene Ziffer steht, und multiplizieren Sie mit 10 hoch der Anzahl der verschobenen Stellen. Aus 4.500 wird 4,5 × 10³.",
       },
       {
-        question: "Was bedeutet 6.02e23?",
+        question: "Was bedeutet 6,02e23?",
         answer: "Das ist die E-Notation für 6,02 × 10²³. Das e steht für „mal zehn hoch“.",
       },
       {
@@ -56,8 +56,8 @@ const de: CalculatorTranslation<ScientificNotationText> = {
   },
   text: {
     number: "Zahl",
-    numberHelp: "Eine Dezimalzahl wie 0.00056 oder eine E-Notation wie 6.02e23. Verwenden Sie einen Punkt als Dezimaltrennzeichen.",
-    invalid: "Geben Sie eine Zahl wie 123400, 0.00056 oder 6.02e23 ein.",
+    numberHelp: "Eine Dezimalzahl wie 0,00056 oder eine E-Notation wie 6,02e23. Ein Dezimalpunkt (0.00056) wird ebenfalls akzeptiert.",
+    invalid: "Geben Sie eine Zahl wie 123400, 0,00056 oder 6,02e23 ein.",
     tooLarge: "Geben Sie eine Zahl unter 1,8 × 10³⁰⁸ ein.",
     scientific: "Wissenschaftliche Notation",
     eNotation: "E-Notation",

@@ -47,11 +47,11 @@ const fr: CalculatorTranslation<StandardDeviationText> = {
   },
   text: {
     data: "Série de données",
-    dataHelp: "Séparez les nombres par des virgules, des espaces ou des retours à la ligne. Utilisez le point comme séparateur décimal.",
+    dataHelp: "Séparez les valeurs par des points-virgules, des espaces ou des retours à la ligne (par exemple 1,5 ; 2,25 ; 3). Utilisez la virgule décimale ; une virgule suivie d’une espace sépare aussi les valeurs.",
     errors: {
       empty: "Saisissez au moins un nombre.",
       tooMany: "Saisissez au maximum {max} nombres.",
-      notNumber: "« {token} » n’est pas un nombre. Séparez les valeurs par des virgules, des espaces ou des retours à la ligne.",
+      notNumber: "« {token} » n’est pas un nombre. Utilisez la virgule décimale et séparez les valeurs par des points-virgules, des espaces ou des retours à la ligne.",
       tooLarge: "« {token} » est trop grand.",
     },
     kind: "Type de données",

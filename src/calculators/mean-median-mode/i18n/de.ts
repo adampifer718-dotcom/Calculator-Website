@@ -44,11 +44,11 @@ const de: CalculatorTranslation<MeanMedianModeText> = {
   },
   text: {
     data: "Datensatz",
-    dataHelp: "Trennen Sie die Zahlen durch Kommas, Leerzeichen oder Zeilenumbrüche. Verwenden Sie einen Punkt als Dezimaltrennzeichen.",
+    dataHelp: "Trennen Sie die Werte durch Semikolons, Leerzeichen oder Zeilenumbrüche (zum Beispiel 1,5; 2,25; 3). Verwenden Sie das Dezimalkomma; ein Komma mit folgendem Leerzeichen trennt ebenfalls Werte.",
     errors: {
       empty: "Geben Sie mindestens eine Zahl ein.",
       tooMany: "Geben Sie höchstens {max} Zahlen ein.",
-      notNumber: "„{token}“ ist keine Zahl. Trennen Sie die Werte durch Kommas, Leerzeichen oder Zeilenumbrüche.",
+      notNumber: "„{token}“ ist keine Zahl. Verwenden Sie das Dezimalkomma und trennen Sie die Werte durch Semikolons, Leerzeichen oder Zeilenumbrüche.",
       tooLarge: "„{token}“ ist zu groß.",
     },
     mean: "Mittelwert (Durchschnitt)",

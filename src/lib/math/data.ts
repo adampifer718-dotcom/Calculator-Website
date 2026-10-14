@@ -1,5 +1,8 @@
 /** Descriptive statistics for lists of numbers. */
 
+import { DEFAULT_LOCALE, type Locale } from "@/i18n/config";
+import { splitNumberList } from "@/lib/parse";
+
 export const MAX_DATA_POINTS = 10000;
 
 export type ListIssue = { code: "empty" } | { code: "tooMany" } | { code: "notNumber"; token: string } | { code: "tooLarge"; token: string };
@@ -18,9 +21,13 @@ export function listError(
   return messages[issue.code].replace(/\{(\w+)\}/g, (m, k: string) => vars[k] ?? m);
 }
 
-/** Parses numbers separated by commas, semicolons, spaces or new lines. */
-export function parseNumberList(text: string): ParsedList {
-  const tokens = text.split(/[\s,;]+/).filter(Boolean);
+/**
+ * Parses a list of numbers typed in a locale (see splitNumberList): commas,
+ * semicolons, spaces or new lines in English, Urdu and Arabic; semicolons,
+ * spaces, new lines or ", " with decimal commas in Spanish, French and German.
+ */
+export function parseNumberList(text: string, locale: Locale = DEFAULT_LOCALE): ParsedList {
+  const tokens = splitNumberList(text, locale);
   if (tokens.length === 0) return { ok: false, error: "Enter at least one number.", issue: { code: "empty" } };
   if (tokens.length > MAX_DATA_POINTS) return { ok: false, error: `Enter at most ${MAX_DATA_POINTS.toLocaleString("en-US")} numbers.`, issue: { code: "tooMany" } };
   const values: number[] = [];

@@ -55,11 +55,11 @@ const es: CalculatorTranslation<StandardDeviationText> = {
   },
   text: {
     data: "Conjunto de datos",
-    dataHelp: "Separa los números con comas, espacios o saltos de línea. Usa el punto como separador decimal.",
+    dataHelp: "Separa los valores con punto y coma, espacios o saltos de línea (por ejemplo, 1,5; 2,25; 3). Usa la coma como separador decimal; una coma seguida de un espacio también separa valores.",
     errors: {
       empty: "Introduce al menos un número.",
       tooMany: "Introduce como máximo {max} números.",
-      notNumber: "«{token}» no es un número. Separa los valores con comas, espacios o saltos de línea.",
+      notNumber: "«{token}» no es un número. Usa la coma decimal y separa los valores con punto y coma, espacios o saltos de línea.",
       tooLarge: "«{token}» es demasiado grande.",
     },
     kind: "Los datos son",

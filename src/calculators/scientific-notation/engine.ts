@@ -20,22 +20,22 @@ export function makeScientificNotationEngine(ctx: EngineContext<ScientificNotati
         help: t.numberHelp,
         defaultValue: "123400",
         check: (text) => {
-          if (!isNumberText(text)) return t.invalid;
-          if (!Number.isFinite(Number(cleanNumberText(text)))) return t.tooLarge;
+          if (!isNumberText(text, ctx.locale)) return t.invalid;
+          if (!Number.isFinite(Number(cleanNumberText(text, ctx.locale)))) return t.tooLarge;
           return undefined;
         },
       },
     ],
     compute: ({ number }) => {
-      const value = Number(cleanNumberText(number));
+      const value = Number(cleanNumberText(number, ctx.locale));
       const forms = notations(value);
       const exponent = value === 0 ? 0 : Math.floor(Math.log10(Math.abs(value)));
       return {
-        primary: { label: t.scientific, value: { kind: "text", text: forms.scientific } },
+        primary: { label: t.scientific, value: { kind: "text", text: ctx.fmt.numberText(forms.scientific) } },
         secondary: [
           { label: t.eNotation, value: { kind: "text", text: forms.eNotation } },
-          { label: t.engineering, value: { kind: "text", text: forms.engineering } },
-          { label: t.decimal, value: { kind: "text", text: Math.abs(exponent) > MAX_DECIMAL_EXPONENT ? t.tooLong : forms.decimal } },
+          { label: t.engineering, value: { kind: "text", text: ctx.fmt.numberText(forms.engineering) } },
+          { label: t.decimal, value: { kind: "text", text: Math.abs(exponent) > MAX_DECIMAL_EXPONENT ? t.tooLong : ctx.fmt.numberText(forms.decimal) } },
         ],
       };
     },

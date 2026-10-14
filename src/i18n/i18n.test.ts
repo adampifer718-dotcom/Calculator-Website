@@ -191,3 +191,11 @@ describe("titles inside sentences", () => {
     expect(midSentence("Trinkgeld", "de")).toBe("Trinkgeld");
   });
 });
+
+describe("published paths used by the proxy", () => {
+  it("match the sitemap exactly, so real pages are never answered with 404", async () => {
+    const { publishedPaths } = await import("./published-paths");
+    const fromSitemap = new Set(sitemap().map((e) => new URL(e.url).pathname.replace(/(.)\/$/, "$1")));
+    expect(publishedPaths()).toEqual(fromSitemap);
+  });
+});

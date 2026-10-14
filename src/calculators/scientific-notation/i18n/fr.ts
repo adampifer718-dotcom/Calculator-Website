@@ -14,7 +14,7 @@ const fr: CalculatorTranslation<ScientificNotationText> = {
       "Saisissez un nombre décimal ou en notation e : le calculateur affiche toutes les formes courantes.",
     ],
     howToUse: [
-      "Saisissez un nombre comme 123400 ou 0.00056, ou une notation e comme 6.02e23.",
+      "Saisissez un nombre comme 123400 ou 0,00056, ou une notation e comme 6,02e23. La virgule et le point décimaux sont acceptés.",
       "Consultez les formes scientifique, en notation e, ingénieur et décimale.",
     ],
     formulas: [
@@ -37,15 +37,15 @@ const fr: CalculatorTranslation<ScientificNotationText> = {
     ],
     faqs: [
       { question: "Comment écrire un nombre en notation scientifique ?", answer: "Déplacez la virgule pour qu’il reste un seul chiffre non nul à sa gauche, puis multipliez par 10 puissance le nombre de rangs déplacés. 4 500 devient 4,5 × 10³." },
-      { question: "Que signifie 6.02e23 ?", answer: "C’est la notation e de 6,02 × 10²³. Le e signifie « fois dix puissance »." },
+      { question: "Que signifie 6,02e23 ?", answer: "C’est la notation e de 6,02 × 10²³. Le e signifie « fois dix puissance »." },
       { question: "Qu’est-ce que la notation ingénieur ?", answer: "Elle ressemble à la notation scientifique, mais l’exposant est toujours un multiple de 3, ce qui correspond aux préfixes kilo, méga et milli." },
     ],
     sourcesUsedFor: [],
   },
   text: {
     number: "Nombre",
-    numberHelp: "Un nombre décimal comme 0.00056 ou une notation e comme 6.02e23. Utilisez le point comme séparateur décimal.",
-    invalid: "Saisissez un nombre comme 123400, 0.00056 ou 6.02e23.",
+    numberHelp: "Un nombre décimal comme 0,00056 ou une notation E comme 6,02e23. Le point décimal (0.00056) est aussi accepté.",
+    invalid: "Saisissez un nombre comme 123400, 0,00056 ou 6,02e23.",
     tooLarge: "Saisissez un nombre inférieur à 1,8 × 10³⁰⁸.",
     scientific: "Notation scientifique",
     eNotation: "Notation e",

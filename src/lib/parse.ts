@@ -75,3 +75,43 @@ export function midSentence(text: string, locale: Locale): string {
     .map((word) => (/^\p{Lu}[\p{Lu}\d-]+$/u.test(word) ? word : word.toLocaleLowerCase(LOCALE_INFO[locale].intl)))
     .join("");
 }
+
+const GROUPING_SPACES = /[\s  _'’]/g;
+
+/**
+ * Normalizes number text typed in a locale into universal notation (dot
+ * decimal, no grouping) while keeping everything that matters for
+ * significant figures: trailing zeros, a trailing decimal point and
+ * e-notation. Returns the text unchanged (and therefore invalid) when it
+ * cannot be read unambiguously.
+ *
+ * - en, ur, ar: "1,234.50" → "1234.50"; Arabic-Indic digits are accepted.
+ * - es, fr, de: "1.234,50" → "1234.50", "0,004050" → "0.004050",
+ *   "1200," → "1200.". A dot is a decimal point unless it clearly groups
+ *   thousands ("60.000"), as in parseLocaleNumber.
+ */
+export function normalizeNumberText(raw: string, locale: Locale = DEFAULT_LOCALE): string {
+  const text = asciiDigits(raw.trim()).replace(GROUPING_SPACES, "");
+  const [mantissa, ...exponent] = text.split(/(?=[eE])/);
+  const tail = exponent.join("");
+  if (!COMMA_DECIMAL.has(locale)) return mantissa.replace(/,/g, "") + tail;
+  const commas = (mantissa.match(/,/g) ?? []).length;
+  if (commas > 1) return text;
+  if (commas === 1) return mantissa.replace(/\./g, "").replace(",", ".") + tail;
+  return (DOT_GROUPS.test(mantissa) ? mantissa.replace(/\./g, "") : mantissa) + tail;
+}
+
+/**
+ * Splits a typed list of numbers into tokens. Semicolons, whitespace and new
+ * lines always separate values. In en, ur and ar a comma also separates; in
+ * es, fr and de a comma between digits is a decimal mark ("1,5; 2,5" or
+ * "1,5 2,5"), while ", " (comma then space) still separates values.
+ */
+export function splitNumberList(text: string, locale: Locale = DEFAULT_LOCALE): string[] {
+  const separators = COMMA_DECIMAL.has(locale) ? /[;\s]+|,(?=\s|$)/ : /[,;\s]+/;
+  return asciiDigits(text)
+    .split(separators)
+    .map((token) => token.trim())
+    .filter(Boolean)
+    .map((token) => normalizeNumberText(token, locale));
+}

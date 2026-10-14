@@ -1,15 +1,22 @@
 /** Number notation helpers: significant figures and scientific notation. */
 
+import { DEFAULT_LOCALE, type Locale } from "@/i18n/config";
+import { normalizeNumberText } from "@/lib/parse";
+
 const DECIMAL_TEXT = /^[+-]?(\d+\.?\d*|\.\d+)(e[+-]?\d+)?$/i;
 
-/** Removes thousands separators and spaces. */
-export function cleanNumberText(text: string): string {
-  return text.trim().replace(/[,\s_]/g, "");
+/**
+ * Converts number text typed in a locale to universal notation: removes
+ * thousands separators and uses a dot decimal ("1,200" in English or
+ * "0,0045" in German), keeping trailing zeros and e-notation.
+ */
+export function cleanNumberText(text: string, locale: Locale = DEFAULT_LOCALE): string {
+  return normalizeNumberText(text, locale);
 }
 
-/** True for decimal or e-notation text such as "1,200", "0.0045" or "6.02e23". */
-export function isNumberText(text: string): boolean {
-  return DECIMAL_TEXT.test(cleanNumberText(text));
+/** True for decimal or e-notation text such as "1,200", "0.0045" or "6.02e23" (or "0,0045" in es/fr/de). */
+export function isNumberText(text: string, locale: Locale = DEFAULT_LOCALE): boolean {
+  return DECIMAL_TEXT.test(cleanNumberText(text, locale));
 }
 
 /**
@@ -18,8 +25,8 @@ export function isNumberText(text: string): boolean {
  * only when the number has a decimal point. Returns null for invalid text
  * and 0 for zero.
  */
-export function countSigFigs(text: string): number | null {
-  const cleaned = cleanNumberText(text).replace(/^[+-]/, "");
+export function countSigFigs(text: string, locale: Locale = DEFAULT_LOCALE): number | null {
+  const cleaned = cleanNumberText(text, locale).replace(/^[+-]/, "");
   const match = /^(\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?$/i.exec(cleaned);
   if (!match) return null;
   const mantissa = match[1];

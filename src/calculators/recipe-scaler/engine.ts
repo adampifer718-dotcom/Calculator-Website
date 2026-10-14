@@ -33,8 +33,8 @@ export function makeRecipeScalerEngine(ctx: EngineContext<RecipeScalerText>) {
                   caption: t.tableCaption,
                   columns: [t.original_, t.scaled],
                   rows: lines.map((line) => {
-                    const { quantity, rest } = parseRecipeLine(line);
-                    return { label: line, cells: [{ kind: "text" as const, text: quantity === null ? line : `${formatKitchenQuantity(quantity * factor)} ${rest}`.trim() }] };
+                    const { quantity, rest } = parseRecipeLine(line, ctx.locale);
+                    return { label: line, cells: [{ kind: "text" as const, text: quantity === null ? line : `${formatKitchenQuantity(quantity * factor, ctx.locale)} ${rest}`.trim() }] };
                   }),
                 },
               ]

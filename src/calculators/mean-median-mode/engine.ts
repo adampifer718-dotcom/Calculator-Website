@@ -5,12 +5,12 @@ import en, { type MeanMedianModeText } from "./text/en";
 
 export type CentralValues = { data: string };
 
-const numbers = (text: string) => {
-  const parsed = parseNumberList(text);
+const numbers = (text: string, locale: EngineContext<unknown>["locale"]) => {
+  const parsed = parseNumberList(text, locale);
   return parsed.ok ? parsed.values : [];
 };
 
-/** Data lists use dot decimals in every language so commas can separate values. */
+/** Data lists are read in the visitor's notation: decimal commas with ";" or spaces as separators in es, fr and de. */
 export function makeMeanMedianModeEngine(ctx: EngineContext<MeanMedianModeText>) {
   const t = ctx.text;
   const f = (x: number) => ctx.fmt.significant(x, 10);
@@ -24,11 +24,11 @@ export function makeMeanMedianModeEngine(ctx: EngineContext<MeanMedianModeText>)
         label: t.data,
         help: t.dataHelp,
         defaultValue: "2, 4, 4, 5, 7, 9",
-        check: (text) => listError(parseNumberList(text), t.errors, ctx.fmt.number(MAX_DATA_POINTS, 0)),
+        check: (text) => listError(parseNumberList(text, ctx.locale), t.errors, ctx.fmt.number(MAX_DATA_POINTS, 0)),
       },
     ],
     compute: ({ data }) => {
-      const values = numbers(data);
+      const values = numbers(data, ctx.locale);
       const m = modes(values);
       return {
         primary: { label: t.mean, value: { kind: "text", text: f(mean(values)) }, caption: fill(t.caption, { count: ctx.fmt.number(values.length, 0) }) },

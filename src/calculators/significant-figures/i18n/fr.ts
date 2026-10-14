@@ -66,8 +66,8 @@ const fr: CalculatorTranslation<SigFigText> = {
     task: "Opération",
     tasks: { count: "Compter les chiffres significatifs", round: "Arrondir à n chiffres significatifs" },
     number: "Nombre",
-    numberHelp: "Saisissez-le exactement tel qu'il est écrit, zéros finaux compris. Utilisez un point pour les décimales. La notation E, comme 6.02e23, est acceptée.",
-    invalid: "Saisissez un nombre comme 1200, 0.0045 ou 6.02e23.",
+    numberHelp: "Saisissez-le exactement tel qu'il est écrit, zéros finaux compris. La virgule décimale (0,004050) et le point (0.004050) sont acceptés ; les espaces entre milliers sont ignorés. La notation E, comme 6,02e23, est acceptée.",
+    invalid: "Saisissez un nombre comme 1200, 0,0045 ou 6,02e23.",
     zero: "Saisissez un nombre non nul.",
     tooLarge: "Saisissez un nombre plus petit.",
     digits: "Chiffres significatifs à conserver",
@@ -79,7 +79,7 @@ const fr: CalculatorTranslation<SigFigText> = {
     countCaption: "{number} a {count} chiffres significatifs.",
     countCaptionOne: "{number} a 1 chiffre significatif.",
     inScientific: "En notation scientifique",
-    countNote: "Les zéros finaux d'un nombre entier sans point décimal (comme 1200) sont considérés comme non significatifs. Saisissez « 1200. » pour les rendre significatifs.",
+    countNote: "Les zéros finaux d'un nombre entier sans virgule décimale (comme 1200) sont considérés comme non significatifs. Saisissez « 1200, » ou « 1200. » pour les rendre significatifs.",
   },
 };
 

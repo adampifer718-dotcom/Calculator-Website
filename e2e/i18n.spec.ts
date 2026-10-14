@@ -157,3 +157,40 @@ test("navigation and related links stay in the visitor's language", async ({ pag
   expect(hrefs.length).toBeGreaterThan(5);
   for (const href of hrefs) expect(href, href).toMatch(/^\/de(\/|$)/);
 });
+
+test.describe("unknown URLs without JavaScript", () => {
+  test.use({ javaScriptEnabled: false });
+
+  for (const [path, lang, heading] of [
+    ["/calculators/not-a-real-calculator", "en", "Page not found"],
+    ["/de/calculators/not-a-real-calculator", "de", "Seite nicht gefunden"],
+    ["/ar/categories/not-a-category", "ar", "الصفحة غير موجودة"],
+    ["/fr/something/else", "fr", "Page introuvable"],
+  ] as const) {
+    test(`${path} is a server-rendered 404 in ${lang}`, async ({ page }) => {
+      const response = await page.goto(path);
+      expect(response?.status()).toBe(404);
+      await expect(page.locator("html")).toHaveAttribute("lang", lang);
+      await expect(page.locator("h1")).toHaveText(heading);
+      await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+      // Useful links back into the site, in the same language.
+      const links = await page.locator("main a[href]").evaluateAll((as) => as.map((a) => a.getAttribute("href")!));
+      expect(links.length).toBeGreaterThan(3);
+      if (lang !== "en") for (const href of links) expect(href).toMatch(new RegExp(`^/${lang}(/|$)`));
+    });
+  }
+});
+
+test("German significant figures accept a decimal comma", async ({ page }) => {
+  await page.goto("/de/calculators/significant-figures-calculator");
+  await page.waitForLoadState("networkidle");
+  await page.locator('input[id$="-number"]').fill("0,004050");
+  await expect(page.locator("#results-heading ~ div p").nth(1)).toHaveText("4");
+});
+
+test("French data lists accept decimal commas", async ({ page }) => {
+  await page.goto("/fr/calculators/mean-median-mode-calculator");
+  await page.waitForLoadState("networkidle");
+  await page.locator('textarea[id$="-data"]').fill("1,5; 2,5; 3,5");
+  await expect(page.locator("#results-heading ~ div p").nth(1)).toHaveText("2,5");
+});

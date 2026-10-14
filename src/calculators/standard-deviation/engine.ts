@@ -5,8 +5,8 @@ import en, { type StandardDeviationText } from "./text/en";
 
 export type DeviationValues = { data: string; kind: string };
 
-const numbers = (text: string) => {
-  const parsed = parseNumberList(text);
+const numbers = (text: string, locale: EngineContext<unknown>["locale"]) => {
+  const parsed = parseNumberList(text, locale);
   return parsed.ok ? parsed.values : [];
 };
 
@@ -23,13 +23,13 @@ export function makeStandardDeviationEngine(ctx: EngineContext<StandardDeviation
         label: t.data,
         help: t.dataHelp,
         defaultValue: "2, 4, 4, 4, 5, 5, 7, 9",
-        check: (text) => listError(parseNumberList(text), t.errors, ctx.fmt.number(MAX_DATA_POINTS, 0)),
+        check: (text) => listError(parseNumberList(text, ctx.locale), t.errors, ctx.fmt.number(MAX_DATA_POINTS, 0)),
       },
       { id: "kind", type: "select", label: t.kind, options: (["sample", "population"] as const).map((value) => ({ value, label: t.kinds[value] })), defaultValue: "sample" },
     ],
-    validate: ({ data, kind }): FieldErrors => (kind === "sample" && numbers(data).length < 2 ? { data: t.needTwo } : {}),
+    validate: ({ data, kind }): FieldErrors => (kind === "sample" && numbers(data, ctx.locale).length < 2 ? { data: t.needTwo } : {}),
     compute: ({ data, kind }) => {
-      const values = numbers(data);
+      const values = numbers(data, ctx.locale);
       const sample = kind !== "population";
       const v = variance(values, sample);
       const sd = Math.sqrt(v);

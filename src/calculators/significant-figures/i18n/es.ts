@@ -64,8 +64,8 @@ const es: CalculatorTranslation<SigFigText> = {
     task: "Tarea",
     tasks: { count: "Contar cifras significativas", round: "Redondear a cifras significativas" },
     number: "Número",
-    numberHelp: "Escríbelo tal como aparece, incluidos los ceros finales. Usa el punto como separador decimal. Se admite notación e, como 6.02e23.",
-    invalid: "Introduce un número como 1200, 0.0045 o 6.02e23.",
+    numberHelp: "Escríbelo tal como aparece, incluidos los ceros finales. Puedes usar la coma decimal (0,004050) o el punto (0.004050); los puntos de miles como 1.200 se leen como 1200. Se admite notación e, como 6,02e23.",
+    invalid: "Introduce un número como 1200, 0,0045 o 6,02e23.",
     zero: "Introduce un número distinto de cero.",
     tooLarge: "Introduce un número más pequeño.",
     digits: "Cifras significativas que conservar",
@@ -77,7 +77,7 @@ const es: CalculatorTranslation<SigFigText> = {
     countCaption: "{number} tiene {count} cifras significativas.",
     countCaptionOne: "{number} tiene 1 cifra significativa.",
     inScientific: "En notación científica",
-    countNote: "Los ceros finales de un número entero sin punto decimal (como 1200) se consideran no significativos. Escribe 1200. para que sean significativos.",
+    countNote: "Los ceros finales de un número entero sin coma decimal (como 1200) se consideran no significativos. Escribe 1200, (con coma) o 1200. para que sean significativos.",
   },
 };
 

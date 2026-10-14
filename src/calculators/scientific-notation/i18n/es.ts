@@ -15,7 +15,7 @@ const es: CalculatorTranslation<ScientificNotationText> = {
       "Introduce un número decimal o en notación e y la calculadora mostrará todas las formas habituales.",
     ],
     howToUse: [
-      "Escribe un número como 123400 o 0.00056, o en notación e como 6.02e23 (con punto decimal).",
+      "Escribe un número como 123400 o 0,00056, o en notación e como 6,02e23. Se admite la coma o el punto decimal.",
       "Consulta las formas científica, en notación e, de ingeniería y decimal.",
     ],
     formulas: [
@@ -51,7 +51,7 @@ const es: CalculatorTranslation<ScientificNotationText> = {
           "Desplaza la coma decimal hasta que quede una sola cifra distinta de cero a su izquierda y multiplica por 10 elevado al número de posiciones desplazadas. 4500 se convierte en 4,5 × 10³.",
       },
       {
-        question: "¿Qué significa 6.02e23?",
+        question: "¿Qué significa 6,02e23?",
         answer: "Es la notación e de 6,02 × 10²³. La «e» significa «por diez elevado a».",
       },
       {
@@ -63,8 +63,8 @@ const es: CalculatorTranslation<ScientificNotationText> = {
   },
   text: {
     number: "Número",
-    numberHelp: "Un decimal como 0.00056 o un número en notación e como 6.02e23. Usa el punto como separador decimal.",
-    invalid: "Introduce un número como 123400, 0.00056 o 6.02e23.",
+    numberHelp: "Un decimal como 0,00056 o un número en notación e como 6,02e23. También se acepta el punto decimal (0.00056).",
+    invalid: "Introduce un número como 123400, 0,00056 o 6,02e23.",
     tooLarge: "Introduce un número inferior a 1,8 × 10³⁰⁸.",
     scientific: "Notación científica",
     eNotation: "Notación e",

@@ -56,6 +56,12 @@ export interface Formatter {
   currencySymbol(currency: string): string;
   /** Localized currency name with its code, e.g. "Euro (EUR)". */
   currencyLabel(currency: string): string;
+  /**
+   * Rewrites number text built in universal notation ("123,000", "1.20 × 10³",
+   * "250.") with the locale's separators, keeping every digit, so significant
+   * trailing zeros survive: "123.000" and "1,20 × 10³" in German.
+   */
+  numberText(text: string): string;
 }
 
 const formatterCache = new Map<string, Formatter>();
@@ -116,6 +122,13 @@ function createFormatter(locale: Locale): Formatter {
         .formatToParts(0)
         .find((p) => p.type === "currency");
       return part?.value ?? code(currency);
+    },
+    numberText(text) {
+      const parts = nf("n:4:negative", { maximumFractionDigits: 4 }).formatToParts(1234567.5);
+      const group = parts.find((p) => p.type === "group")?.value ?? ",";
+      const decimal = parts.find((p) => p.type === "decimal")?.value ?? ".";
+      if (group === "," && decimal === ".") return text;
+      return text.replace(/[.,]/g, (ch) => (ch === "," ? group : decimal));
     },
     currencyLabel(currency) {
       const c = code(currency);
