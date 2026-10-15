@@ -43,7 +43,7 @@ const fr: CalculatorTranslation<GpaText> = {
     faqs: [
       { question: "Quelle est la différence entre les échelles de 4,0 et de 4,3 ?", answer: "Seul le A+ change : certains établissements lui attribuent 4,0, d’autres 4,3. Toutes les autres notes ont les mêmes points." },
       { question: "Puis-je saisir des pourcentages ou des notes chiffrées ?", answer: "Saisissez directement les points de la note (par exemple 3,5) au lieu d’une lettre. La conversion des pourcentages en points dépend de la politique de votre établissement." },
-      { question: "Pourquoi un cours avec plus de crédits influence-t-il davantage mon GPA ?", answer: "Le GPA est pondéré par les crédits : chaque heure de crédit compte autant. Un A dans un cours de 4 crédits relève votre GPA deux fois plus qu’un A dans un cours de 2 crédits." },
+      { question: "Pourquoi un cours avec plus de crédits influence-t-il davantage mon GPA ?", answer: "Le GPA est pondéré par les crédits : chaque heure de crédit compte autant. Un A dans un cours de 4 crédits rapporte deux fois plus de points de qualité qu’un A dans un cours de 2 crédits : il rapproche davantage votre GPA de 4,0, sans que l’effet soit exactement doublé." },
     ],
     sourcesUsedFor: [],
   },

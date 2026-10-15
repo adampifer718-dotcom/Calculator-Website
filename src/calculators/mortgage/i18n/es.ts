@@ -32,7 +32,7 @@ const es: CalculatorTranslation<MortgageText> = {
         expression: "Cuota = M + impuesto sobre la propiedad ÷ 12 + seguro ÷ 12 + comunidad + PMI",
         explanation: "Los impuestos y el seguro se reparten a partes iguales en 12 meses, como en una cuenta de depósito en garantía (escrow) habitual.",
       },
-      { title: "Seguro hipotecario", expression: "PMI = L × tipo del PMI ÷ 12, mientras L ÷ precio > 80 %", explanation: "Se deja de pagar cuando el saldo previsto llega al 78 % del precio de la vivienda." },
+      { title: "Seguro hipotecario", expression: "PMI = L × tipo del PMI ÷ 12, mientras L ÷ precio > 80 %", explanation: "Se deja de pagar cuando el saldo previsto llega al 78 % del precio de la vivienda. Según la ley de EE. UU., también termina como muy tarde a la mitad del plazo del préstamo." },
     ],
     examples: [
       {
@@ -106,7 +106,7 @@ const es: CalculatorTranslation<MortgageText> = {
     tableColumns: { year: "Año", principal: "Capital amortizado", interest: "Intereses pagados", balance: "Saldo pendiente" },
     notes: {
       fixed: "En un préstamo a tipo fijo, el capital y los intereses se mantienen iguales durante todo el plazo; los impuestos, el seguro y la comunidad son estimaciones tuyas y suelen cambiar con el tiempo.",
-      pmi: "Se supone que el PMI se aplica mientras el préstamo supera el 80 % del precio de la vivienda y que se deja de pagar cuando el saldo previsto llega al 78 %, como en la mayoría de los préstamos convencionales de EE. UU. Los préstamos FHA y otros tienen reglas distintas.",
+      pmi: "Se supone que el PMI se aplica mientras el préstamo supera el 80 % del precio de la vivienda y que se deja de pagar cuando el saldo previsto llega al 78 %, como en la mayoría de los préstamos convencionales de EE. UU. Los préstamos FHA y otros tienen reglas distintas. Según la ley de EE. UU., también termina como muy tarde a la mitad del plazo del préstamo.",
       noPmi: "No se incluye seguro hipotecario porque el préstamo es igual o inferior al 80 % del precio de la vivienda.",
       excluded: "No se incluyen gastos de cierre, puntos, suministros, mantenimiento ni posibles cambios de tipo.",
     },

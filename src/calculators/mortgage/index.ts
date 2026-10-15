@@ -47,7 +47,7 @@ export const mortgage = defineCalculator({
   formulas: [
     { title: "Principal and interest", expression: "M = L × r ÷ (1 − (1 + r)^(−n))", explanation: "L is the loan amount (price − down payment), r the monthly rate (annual rate ÷ 12) and n the number of monthly payments." },
     { title: "Monthly payment", expression: "Payment = M + property tax ÷ 12 + insurance ÷ 12 + HOA + PMI", explanation: "Taxes and insurance are spread evenly over 12 months, as with a typical escrow account." },
-    { title: "Mortgage insurance", expression: "PMI = L × PMI rate ÷ 12, while L ÷ price > 80%", explanation: "It stops once the scheduled balance reaches 78% of the home price." },
+    { title: "Mortgage insurance", expression: "PMI = L × PMI rate ÷ 12, while L ÷ price > 80%", explanation: "It stops once the scheduled balance reaches 78% of the home price. Under US law it also ends at the halfway point of the loan term at the latest." },
   ],
   examples: [
     {

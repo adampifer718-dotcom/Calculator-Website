@@ -54,8 +54,9 @@ export function LocaleSuggestion({
     setSuggested(null);
   };
 
+  // Fixed to the bottom of the viewport: it appears after hydration, so it must not push the page down (layout shift).
   return (
-    <div role="region" aria-label={text.prompt} lang={suggested} dir={LOCALE_INFO[suggested].dir} className="border-b border-brand-100 bg-brand-50">
+    <div role="region" aria-label={text.prompt} lang={suggested} dir={LOCALE_INFO[suggested].dir} className="fixed inset-x-0 bottom-0 z-40 border-t border-brand-200 bg-brand-50 shadow-[0_-4px_16px_-8px_rgb(17_17_17/0.2)]">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2.5 text-sm sm:px-6">
         <p className="text-ink-800">{text.prompt}</p>
         <div className="flex items-center gap-2">

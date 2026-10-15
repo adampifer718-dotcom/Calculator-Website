@@ -34,7 +34,8 @@ export function makePValueEngine(ctx: EngineContext<PValueText>) {
       const cdf = distribution === "t" ? (x: number) => tCdf(x, df ?? 1) : normalCdf;
       const p = pValue(statistic, (["two", "left", "right"].includes(tail) ? tail : "two") as Tail, cdf);
       return {
-        primary: { label: t.pValue, value: { kind: "text", text: ctx.fmt.significant(p, 6) } },
+        // A p-value is never exactly 0; below the smallest double it is reported as a bound.
+        primary: { label: t.pValue, value: { kind: "text", text: p > 0 ? ctx.fmt.significant(p, 6) : `< ${ctx.fmt.significant(1e-300, 1)}` } },
         secondary: [
           { label: t.sig05, value: { kind: "text", text: p < 0.05 ? t.yes05 : t.no05 } },
           { label: t.sig01, value: { kind: "text", text: p < 0.01 ? t.yes01 : t.no01 } },

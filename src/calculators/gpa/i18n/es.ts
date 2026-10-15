@@ -56,7 +56,7 @@ const es: CalculatorTranslation<GpaText> = {
       },
       {
         question: "¿Por qué una asignatura con más créditos cambia más mi GPA?",
-        answer: "El GPA se pondera por créditos, así que cada crédito cuenta lo mismo. Una A en una asignatura de 4 créditos sube tu GPA el doble que una A en una de 2 créditos.",
+        answer: "El GPA se pondera por créditos, así que cada crédito cuenta lo mismo. Una A en una asignatura de 4 créditos aporta el doble de puntos de calidad que una A en una de 2 créditos, así que acerca más tu GPA a 4,0, aunque no exactamente el doble.",
       },
     ],
     sourcesUsedFor: [],

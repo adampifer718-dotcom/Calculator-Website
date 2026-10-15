@@ -20,11 +20,17 @@ export type MortgageValues = {
 export const PMI_START_LTV = 0.8;
 export const PMI_END_LTV = 0.78;
 
-/** Number of payments carrying PMI: until the scheduled balance falls to 78% of the price. */
+/**
+ * Number of payments carrying PMI under the US Homeowners Protection Act:
+ * until the scheduled balance falls to 78% of the price (automatic
+ * termination), and never beyond the midpoint of the term (final
+ * termination: the 180th payment of a 30-year loan).
+ */
 export function pmiPayments(loan: number, price: number, rate: number, payment: number, n: number): number {
   if (loan <= PMI_START_LTV * price) return 0;
-  for (let k = 1; k <= n; k++) if (balanceAfter(loan, rate, payment, k) <= PMI_END_LTV * price) return k;
-  return n;
+  const midpoint = Math.ceil(n / 2);
+  for (let k = 1; k <= midpoint; k++) if (balanceAfter(loan, rate, payment, k) <= PMI_END_LTV * price) return k;
+  return midpoint;
 }
 
 /**
@@ -65,7 +71,10 @@ export function makeMortgageEngine(ctx: EngineContext<MortgageText>) {
       const totalInterest = pi * n - loan;
       const totalCost = pi * n + (tax + ins + hoa) * n + pmi * months;
       const yearsInTable = Math.ceil(n / 12);
-      const notes = [t.notes.fixed, months > 0 ? t.notes.pmi : t.notes.noPmi, t.notes.excluded];
+      // Explain PMI only when it applies or when the loan is small enough not to need it;
+      // a zero PMI rate on a high loan-to-value loan is the user's own choice.
+      const pmiNote = months > 0 ? [t.notes.pmi] : loan <= PMI_START_LTV * price ? [t.notes.noPmi] : [];
+      const notes = [t.notes.fixed, ...pmiNote, t.notes.excluded];
       return {
         primary: {
           label: t.monthly,

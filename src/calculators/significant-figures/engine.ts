@@ -1,6 +1,6 @@
 import { englishContext, fill, type EngineContext } from "@/calculators/framework/i18n";
 import { defineEngine } from "@/calculators/framework/types";
-import { cleanNumberText, countSigFigs, isNumberText, roundToSigFigs } from "@/lib/math/numbers";
+import { cleanNumberText, countSigFigs, isNumberText, roundDecimalText } from "@/lib/math/numbers";
 import en, { type SigFigText } from "./text/en";
 
 export type SigFigValues = { mode: string; number: string; digits: number | null };
@@ -42,9 +42,8 @@ export function makeSigFigEngine(ctx: EngineContext<SigFigText>) {
     ],
     compute: ({ mode, number, digits }) => {
       const count = countSigFigs(number, ctx.locale) ?? 0;
-      const value = Number(cleanNumberText(number, ctx.locale));
       if (mode === "round") {
-        const rounded = roundToSigFigs(value, digits ?? 1);
+        const rounded = roundDecimalText(cleanNumberText(number, ctx.locale), digits ?? 1);
         return {
           primary: { label: fill(t.rounded, { digits: ctx.fmt.number(digits ?? 1, 0) }), value: { kind: "text", text: ctx.fmt.numberText(rounded.plain) } },
           secondary: [
@@ -60,7 +59,7 @@ export function makeSigFigEngine(ctx: EngineContext<SigFigText>) {
           value: { kind: "number", value: count },
           caption: fill(count === 1 ? t.countCaptionOne : t.countCaption, { number, count: ctx.fmt.number(count, 0) }),
         },
-        secondary: [{ label: t.inScientific, value: { kind: "text", text: ctx.fmt.numberText(roundToSigFigs(value, count).scientific) } }],
+        secondary: [{ label: t.inScientific, value: { kind: "text", text: ctx.fmt.numberText(roundDecimalText(cleanNumberText(number, ctx.locale), count).scientific) } }],
         notes: [t.countNote],
       };
     },

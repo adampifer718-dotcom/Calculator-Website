@@ -97,11 +97,60 @@ export function notations(value: number): { scientific: string; eNotation: strin
   if (value === 0) return { scientific: "0 × 10⁰", eNotation: "0e0", engineering: "0 × 10⁰", decimal: "0" };
   const parts = splitExponential(value.toExponential());
   const engineeringExponent = Math.floor(parts.exponent / 3) * 3;
-  const engineeringMantissa = Number((Number(parts.mantissa) * 10 ** (parts.exponent - engineeringExponent)).toPrecision(15));
+  let engineeringMantissa = Number((Number(parts.mantissa) * 10 ** (parts.exponent - engineeringExponent)).toPrecision(15));
+  let engineeringExponentFinal = engineeringExponent;
+  // Rounding can push the mantissa to 1000 (999.9999999999999 → 1000 × 10⁰); keep it below 1000.
+  if (Math.abs(engineeringMantissa) >= 1000) {
+    engineeringMantissa = Number((engineeringMantissa / 1000).toPrecision(15));
+    engineeringExponentFinal += 3;
+  }
   return {
     scientific: formatScientific(parts),
     eNotation: `${parts.mantissa}e${parts.exponent}`,
-    engineering: formatScientific({ mantissa: String(engineeringMantissa), exponent: engineeringExponent }),
+    engineering: formatScientific({ mantissa: String(engineeringMantissa), exponent: engineeringExponentFinal }),
     decimal: groupThousands(expandExponential(value.toExponential())),
   };
+}
+
+/**
+ * Rounds number text (universal notation, e.g. "2.675" or "6.02e23") to `n`
+ * significant figures in decimal, rounding halves up (away from zero) as
+ * taught in science classes. Works on the typed digits, so "2.675" becomes
+ * 2.68 (binary floating point would give 2.67) and long inputs never lose
+ * or invent digits. A significant trailing zero in the units place keeps a
+ * decimal point ("100." for 99.96 to 3 significant figures).
+ */
+export function roundDecimalText(text: string, n: number): { plain: string; scientific: string } {
+  const match = /^([+-]?)(\d*)(?:\.(\d*))?(?:e([+-]?\d+))?$/i.exec(text.trim());
+  if (!match) throw new Error(`Not a number: ${text}`);
+  const [, sign, int = "", frac = ""] = match;
+  const negative = sign === "-";
+  let exponent = Number(match[4] ?? 0) - frac.length;
+  let digits = (int + frac).replace(/^0+/, "");
+  if (digits === "") return { plain: "0", scientific: "0 × 10⁰" };
+  if (digits.length <= n) {
+    exponent -= n - digits.length;
+    digits = digits.padEnd(n, "0");
+  } else {
+    const roundUp = digits.charCodeAt(n) >= "5".charCodeAt(0);
+    exponent += digits.length - n;
+    digits = digits.slice(0, n);
+    if (roundUp) {
+      const incremented = (BigInt(digits) + 1n).toString();
+      if (incremented.length > n) {
+        digits = incremented.slice(0, n);
+        exponent += 1;
+      } else {
+        digits = incremented;
+      }
+    }
+  }
+  const prefix = negative ? "-" : "";
+  const point = digits.length + exponent; // digits before the decimal point
+  let plain: string;
+  if (exponent >= 0) plain = groupThousands(digits + "0".repeat(exponent)) + (exponent === 0 && digits.endsWith("0") ? "." : "");
+  else if (point > 0) plain = groupThousands(`${digits.slice(0, point)}.${digits.slice(point)}`);
+  else plain = `0.${"0".repeat(-point)}${digits}`;
+  const mantissa = digits.length > 1 ? `${digits[0]}.${digits.slice(1)}` : digits;
+  return { plain: prefix + plain, scientific: prefix + formatScientific({ mantissa, exponent: point - 1 }) };
 }

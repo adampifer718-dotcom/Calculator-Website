@@ -55,7 +55,7 @@ export const gpa = defineCalculator({
   faqs: [
     { question: "What is the difference between the 4.0 and 4.3 scales?", answer: "Only A+: some schools give it 4.0, others 4.3. All other grades have the same points." },
     { question: "Can I enter percentages or numeric grades?", answer: "Enter grade points directly (for example 3.5) instead of a letter. Converting percentages to grade points depends on your school's policy." },
-    { question: "Why does a course with more credits change my GPA more?", answer: "GPA is weighted by credits, so each credit hour counts equally. A 4-credit A raises your GPA twice as much as a 2-credit A." },
+    { question: "Why does a course with more credits change my GPA more?", answer: "GPA is weighted by credits, so each credit hour counts equally. A 4-credit A adds twice the quality points of a 2-credit A, so it pulls your GPA further toward 4.0, although not exactly twice as far." },
   ],
   related: ["test-grade-calculator", "mean-median-mode-calculator", "percentage-calculator"],
   updated: "2026-10-14",

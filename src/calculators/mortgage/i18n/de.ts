@@ -24,7 +24,7 @@ const de: CalculatorTranslation<MortgageText> = {
     formulas: [
       { title: "Zins und Tilgung", expression: "M = L × r ÷ (1 − (1 + r)^(−n))", explanation: "L ist der Darlehensbetrag (Kaufpreis − Eigenkapital), r der Monatszins (Jahreszins ÷ 12) und n die Anzahl der Monatsraten." },
       { title: "Monatsrate", expression: "Rate = M + Grundsteuer ÷ 12 + Versicherung ÷ 12 + HOA + PMI", explanation: "Steuern und Versicherung werden wie bei einem üblichen Treuhandkonto (Escrow) gleichmäßig auf 12 Monate verteilt." },
-      { title: "Hypothekenversicherung", expression: "PMI = L × PMI-Satz ÷ 12, solange L ÷ Kaufpreis > 80 %", explanation: "Sie entfällt, sobald die planmäßige Restschuld 78 % des Kaufpreises erreicht." },
+      { title: "Hypothekenversicherung", expression: "PMI = L × PMI-Satz ÷ 12, solange L ÷ Kaufpreis > 80 %", explanation: "Sie entfällt, sobald die planmäßige Restschuld 78 % des Kaufpreises erreicht. Nach US-Recht endet sie außerdem spätestens zur Hälfte der Kreditlaufzeit." },
     ],
     examples: [
       {
@@ -89,7 +89,7 @@ const de: CalculatorTranslation<MortgageText> = {
     tableColumns: { year: "Jahr", principal: "Getilgt", interest: "Gezahlte Zinsen", balance: "Restschuld" },
     notes: {
       fixed: "Bei einem Festzinsdarlehen bleiben Zins und Tilgung über die gesamte Laufzeit gleich; Steuern, Versicherung und HOA-Gebühren sind Ihre Schätzwerte und ändern sich in der Regel mit der Zeit.",
-      pmi: "Es wird angenommen, dass PMI anfällt, solange das Darlehen über 80 % des Kaufpreises liegt, und endet, sobald die planmäßige Restschuld 78 % erreicht – wie bei den meisten konventionellen US-Darlehen. Für FHA- und andere Darlehen gelten andere Regeln.",
+      pmi: "Es wird angenommen, dass PMI anfällt, solange das Darlehen über 80 % des Kaufpreises liegt, und endet, sobald die planmäßige Restschuld 78 % erreicht – wie bei den meisten konventionellen US-Darlehen. Für FHA- und andere Darlehen gelten andere Regeln. Nach US-Recht endet sie außerdem spätestens zur Hälfte der Kreditlaufzeit.",
       noPmi: "Es ist keine Hypothekenversicherung enthalten, da das Darlehen höchstens 80 % des Kaufpreises beträgt.",
       excluded: "Abschlusskosten, Disagio (Points), Versorgerkosten, Instandhaltung und Zinsänderungen sind nicht berücksichtigt.",
     },

@@ -24,7 +24,7 @@ const fr: CalculatorTranslation<MortgageText> = {
     formulas: [
       { title: "Capital et intérêts", expression: "M = L × r ÷ (1 − (1 + r)^(−n))", explanation: "L est le montant du prêt (prix − apport), r le taux mensuel (taux annuel ÷ 12) et n le nombre de mensualités." },
       { title: "Mensualité", expression: "Mensualité = M + taxe foncière ÷ 12 + assurance ÷ 12 + HOA + PMI", explanation: "Les impôts et l’assurance sont répartis uniformément sur 12 mois, comme avec un compte séquestre (escrow) classique." },
-      { title: "Assurance hypothécaire", expression: "PMI = L × taux de PMI ÷ 12, tant que L ÷ prix > 80 %", explanation: "Elle s’arrête dès que le capital restant dû prévu atteint 78 % du prix du logement." },
+      { title: "Assurance hypothécaire", expression: "PMI = L × taux de PMI ÷ 12, tant que L ÷ prix > 80 %", explanation: "Elle s’arrête dès que le capital restant dû prévu atteint 78 % du prix du logement. Selon la loi américaine, elle prend aussi fin au plus tard à la moitié de la durée du prêt." },
     ],
     examples: [
       {
@@ -89,7 +89,7 @@ const fr: CalculatorTranslation<MortgageText> = {
     tableColumns: { year: "Année", principal: "Capital remboursé", interest: "Intérêts payés", balance: "Capital restant dû" },
     notes: {
       fixed: "Avec un prêt à taux fixe, le capital et les intérêts restent identiques pendant toute la durée ; les impôts, l’assurance et les charges de copropriété sont vos estimations et évoluent généralement avec le temps.",
-      pmi: "La PMI est supposée s’appliquer tant que le prêt dépasse 80 % du prix du logement et s’arrêter dès que le capital restant dû prévu atteint 78 % de ce prix, comme pour la plupart des prêts conventionnels américains. Les prêts FHA et les autres prêts obéissent à des règles différentes.",
+      pmi: "La PMI est supposée s’appliquer tant que le prêt dépasse 80 % du prix du logement et s’arrêter dès que le capital restant dû prévu atteint 78 % de ce prix, comme pour la plupart des prêts conventionnels américains. Les prêts FHA et les autres prêts obéissent à des règles différentes. Selon la loi américaine, elle prend aussi fin au plus tard à la moitié de la durée du prêt.",
       noPmi: "Aucune assurance hypothécaire n’est incluse, car le prêt représente au plus 80 % du prix du logement.",
       excluded: "Les frais de notaire et de dossier, les points, les factures d’énergie, l’entretien et les éventuelles variations de taux ne sont pas inclus.",
     },

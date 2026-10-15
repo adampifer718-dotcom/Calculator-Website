@@ -174,3 +174,62 @@ describe("volume converter", () => {
     expect(text(ok("volume-converter", { value: 1, from: "ft3", to: "gal" }).primary.value)).toBe("7.480519481 gal");
   });
 });
+
+describe("launch audit fixes", () => {
+  it("ends PMI at the midpoint of the term at the latest (US Homeowners Protection Act)", () => {
+    const loan = 291000;
+    const r = 0.1 / 12;
+    const payment = (loan * r) / (1 - (1 + r) ** -360);
+    // Without the cap the 78% rule alone would charge 187 payments at 10%.
+    expect(pmiPayments(loan, 300000, 10, payment, 360)).toBe(180);
+    expect(pmiPayments(285000, 300000, 6, 1708.7189966853573, 360)).toBe(129);
+  });
+
+  it("does not claim the loan is under 80% when the PMI rate is simply 0", () => {
+    const r = ok("mortgage-calculator", { price: 300000, down: 15000, rate: 6, years: 30, propertyTax: 0, insurance: 0, hoa: 0, pmiRate: 0, currency: "USD" });
+    expect(r.notes?.join(" ")).not.toMatch(/80% of the home price or less/);
+    const small = ok("mortgage-calculator", { price: 300000, down: 60000, rate: 6, years: 30, propertyTax: 0, insurance: 0, hoa: 0, pmiRate: 0.5, currency: "USD" });
+    expect(small.notes?.join(" ")).toMatch(/80% of the home price or less/);
+  });
+
+  it("keeps BMR inputs in a range where the equation stays positive", () => {
+    expect(errors("bmr-calculator", { units: "metric", sex: "female", age: 100, weightKg: 1, heightCm: 1 }).weightKg).toMatch(/at least 20/);
+    const smallest = ok("bmr-calculator", { units: "metric", sex: "female", age: 100, weightKg: 20, heightCm: 100 });
+    expect(num(smallest.primary.value)).toBeGreaterThan(0);
+  });
+});
+
+describe("launch audit fixes (existing calculators)", () => {
+  it("classifies BMI as displayed, so 25.0 is never 'Healthy weight'", () => {
+    const r = ok("bmi-calculator", { units: "metric", weightKg: 76.45, heightCm: 175 });
+    expect(text(r.primary.value)).toBe("25");
+    expect(text(item(r, "Category"))).toBe("Overweight");
+    expect(text(item(ok("bmi-calculator", { units: "metric", weightKg: 56.6, heightCm: 175 }), "Category"))).toBe("Healthy weight");
+  });
+
+  it("grades the percentage as displayed", () => {
+    const r = ok("test-grade-calculator", { mode: "correct", correct: 89.996, total: 100 });
+    expect(text(item(r, "Letter grade (A–F scale)"))).toBe("A");
+  });
+
+  it("never reports a p-value of exactly 0", () => {
+    const r = ok("p-value-calculator", { distribution: "z", statistic: 40, tail: "two" });
+    expect(text(r.primary.value)).toMatch(/^< /);
+  });
+
+  it("reports exponent underflow as a bound, not 0", () => {
+    expect(text(ok("exponent-calculator", { base: 10, exponent: -400 }).primary.value)).toMatch(/^0 < \|aᵇ\| < /);
+  });
+
+  it("rounds significant figures in decimal", () => {
+    const r = ok("significant-figures-calculator", { mode: "round", number: "2.675", digits: 3 });
+    expect(text(r.primary.value)).toBe("2.68");
+    const long = ok("significant-figures-calculator", { mode: "count", number: `1.${"0".repeat(120)}` });
+    expect(num(long.primary.value)).toBe(121);
+  });
+
+  it("keeps the engineering mantissa below 1000", async () => {
+    const { notations } = await import("@/lib/math/numbers");
+    expect(notations(999.9999999999999).engineering).toBe("1 × 10³");
+  });
+});

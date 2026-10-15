@@ -61,7 +61,8 @@ export function makeBmiEngine(ctx: EngineContext<BmiText>) {
       const m = imperialUnits ? ((v.heightFt ?? 0) * 12 + (v.heightIn ?? 0)) * M_PER_IN : (v.heightCm ?? 0) / 100;
       const bmi = kg / (m * m);
       const [low, high] = [18.5 * m * m, 24.9 * m * m].map((w) => (imperialUnits ? w / KG_PER_LB : w));
-      const category = t.categories[bmiCategoryKey(bmi)];
+      // Classify the value as displayed (one decimal), so "25.0" is never labelled healthy weight.
+      const category = t.categories[bmiCategoryKey(Math.round(bmi * 10) / 10)];
       return {
         primary: { label: t.primary, value: { kind: "number", value: bmi, decimals: 1 }, caption: fill(t.caption, { category }) },
         secondary: [

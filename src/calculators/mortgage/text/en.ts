@@ -26,7 +26,7 @@ const text = {
   tableColumns: { year: "Year", principal: "Principal paid", interest: "Interest paid", balance: "Balance" },
   notes: {
     fixed: "Principal and interest stay the same for the whole term on a fixed-rate loan; taxes, insurance and HOA dues are your estimates and usually change over time.",
-    pmi: "PMI is assumed to apply while the loan is over 80% of the home price and to stop once the scheduled balance reaches 78% of it, as for most US conventional loans. FHA and other loans have different rules.",
+    pmi: "PMI is assumed to apply while the loan is over 80% of the home price and to stop once the scheduled balance reaches 78% of it, as for most US conventional loans. FHA and other loans have different rules. Under US law it also ends at the halfway point of the loan term at the latest.",
     noPmi: "No mortgage insurance is included because the loan is 80% of the home price or less.",
     excluded: "Closing costs, points, utilities, maintenance and any rate changes are not included.",
   },

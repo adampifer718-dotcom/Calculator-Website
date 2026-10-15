@@ -43,7 +43,7 @@ const de: CalculatorTranslation<GpaText> = {
     faqs: [
       { question: "Was ist der Unterschied zwischen der 4,0- und der 4,3-Skala?", answer: "Nur die Note A+: Manche Hochschulen bewerten sie mit 4,0, andere mit 4,3. Alle anderen Noten haben dieselben Punkte." },
       { question: "Kann ich Prozentwerte oder Zahlennoten eingeben?", answer: "Geben Sie statt eines Buchstabens direkt die Notenpunkte ein (zum Beispiel 3,5). Wie Prozentwerte in Notenpunkte umgerechnet werden, legt Ihre Hochschule fest." },
-      { question: "Warum verändert ein Kurs mit mehr Credits meinen GPA stärker?", answer: "Der GPA wird nach Credits gewichtet, jede Credit-Stunde zählt also gleich viel. Ein A in einem Kurs mit 4 Credits hebt Ihren GPA doppelt so stark wie ein A in einem Kurs mit 2 Credits." },
+      { question: "Warum verändert ein Kurs mit mehr Credits meinen GPA stärker?", answer: "Der GPA wird nach Credits gewichtet, jede Credit-Stunde zählt also gleich viel. Ein A in einem Kurs mit 4 Credits bringt doppelt so viele Qualitätspunkte wie ein A in einem Kurs mit 2 Credits und zieht Ihren GPA daher stärker in Richtung 4,0 – allerdings nicht genau doppelt so stark." },
     ],
     sourcesUsedFor: [],
   },

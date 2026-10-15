@@ -43,7 +43,7 @@ export function makeTestGradeEngine(ctx: EngineContext<TestGradeText>) {
       return {
         primary: { label: t.grade, value: { kind: "percent", value: percent, decimals: 2 }, caption: fill(t.caption, { earned: ctx.fmt.number(earned), total: ctx.fmt.number(total) }) },
         secondary: [
-          { label: t.letter, value: { kind: "text", text: letterGrade(percent) } },
+          { label: t.letter, value: { kind: "text", text: letterGrade(Math.round(percent * 100) / 100) } }, // grade the percentage as displayed
           { label: t.lost, value: { kind: "number", value: total - earned } },
         ],
         notes: [t.note],
