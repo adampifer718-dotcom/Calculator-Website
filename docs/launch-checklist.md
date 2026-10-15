@@ -254,13 +254,13 @@ Measured on `next start` (gzip enabled), in Chromium.
 
 ## 9. Final test and build results
 
-Results from the final run on this branch (filled in below from the actual command output).
+All results below are from the final run on commit `472e459` (15 October 2026), in this order, with no code changes in between.
 
 | Check | Command | Result |
 | --- | --- | --- |
-| Lint | `npm run lint` | RESULT_LINT |
-| TypeScript | `npx tsc --noEmit` | RESULT_TSC |
-| Unit tests | `npm test` | RESULT_UNIT |
-| Production build | `NEXT_PUBLIC_SITE_URL=https://calcnest.example npm run build` | RESULT_BUILD |
-| Playwright (desktop and mobile) | `npm run test:e2e` | RESULT_E2E |
-| SEO crawl | `node scripts/seo-audit.mjs http://localhost:3100 https://calcnest.example` | RESULT_SEO |
+| Lint | `npm run lint` | Pass (0 errors, 0 warnings) |
+| TypeScript | `npx tsc --noEmit` | Pass (0 errors) |
+| Unit tests | `npm test` | **899 passed**, 0 failed (24 files) |
+| Production build | `NEXT_PUBLIC_SITE_URL=https://calcnest.example npm run build` | Pass; 534 static pages; no missing-domain warning |
+| Playwright (desktop and mobile) | `npm run test:e2e` | **117 passed, 0 failed, 7 skipped** (the skips are tests that apply only to desktop or only to mobile); 24.4 min |
+| SEO crawl | `node scripts/seo-audit.mjs http://localhost:3100 https://calcnest.example` | 492 sitemap URLs and 492 internal links checked; no problems found |

@@ -34,6 +34,7 @@ npm start
 | `npm test` | Vitest unit tests (math, formatting, framework, engines, registry integrity) |
 | `npm run build` | Production build |
 | `npm run i18n:sync` | Wires every `src/calculators/<calc>/i18n/<locale>.ts` file into that calculator's `translations.ts` |
+| `node scripts/seo-audit.mjs <server> <origin>` | Crawls a running build: canonicals, hreflang, sitemap, metadata, breadcrumbs, internal links and 404s |
 | `npm run i18n:report` | Regenerates `docs/translation-report.md` (a test fails if it is out of date) |
 | `npm run test:e2e` | Playwright tests against `next start` (run `npm run build` first) on desktop and mobile viewports: every sitemap URL, internal links, metadata uniqueness, 404s, calculator inputs/results/validation, navigation, horizontal overflow and axe accessibility checks |
 
@@ -106,7 +107,7 @@ The site is available in English (default), Urdu (اردو), Spanish (Español),
 - **SEO.** Each localized page has its own translated title and description, a self-referencing canonical, reciprocal `hreflang` alternates for exactly the languages it exists in, plus `x-default` (English). The sitemap lists every published page in each language with the same alternates.
 - **Adding a translation.** Create `src/calculators/<calc>/i18n/<locale>.ts` (copy an existing one, typed `CalculatorTranslation<XText>`), then run `npm run i18n:sync`, `npm test` and `npm run i18n:report`.
 
-See [`docs/translation-report.md`](docs/translation-report.md) for current coverage.
+See [`docs/translation-report.md`](docs/translation-report.md) for current coverage and [`docs/launch-checklist.md`](docs/launch-checklist.md) for launch status, unverified sources and pending reviews.
 
 ## Research and sources
 
