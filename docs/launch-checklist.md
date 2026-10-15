@@ -363,3 +363,18 @@ Run on 15 October 2026, after the domain configuration change (the commit that f
 | Live domain | `curl -I https://hourlytosalarycalculator.net` and the `www` host | **Not verifiable from the build environment.** Its outbound proxy answered 403 to the CONNECT request for both hosts, and DNS is resolved only through that proxy. This says nothing about whether the domain works. |
 
 Playwright was not re-run for this change. Only origin configuration, robots and redirects changed, and these are covered by the checks above. The last full Playwright run is in the table above (commit `472e459`).
+
+### 9.2 Batch 5 run (90 calculators)
+
+Run on 15 October 2026 after adding the 20 batch-5 calculators and their translations.
+
+| Check | Command | Result |
+| --- | --- | --- |
+| Baseline Playwright on `65b69e0` (before batch 5) | `npx playwright test` | 116 passed, 1 failed, 7 skipped. The failure was the desktop German decimal-comma test typing before hydration; fixed by waiting for network idle, then that spec passed 3 repeated runs (105 passed, 3 skipped) |
+| Lint | `npm run lint` | Pass |
+| TypeScript | `npx tsc --noEmit` | Pass |
+| Unit tests | `npx vitest run` | **1,664 passed**, 0 failed (33 files) |
+| Production build | `NEXT_PUBLIC_SITE_URL=https://hourlytosalarycalculator.net npx next build` | Pass; 774 static pages; no site-URL warning |
+| Sitemap | `curl localhost:3100/sitemap.xml` | 732 URLs (122 pages × 6 languages) |
+| SEO crawl | `node scripts/seo-audit.mjs http://localhost:3100 https://hourlytosalarycalculator.net` | 732 sitemap URLs and 732 internal links checked; no problems found |
+| Playwright (desktop and mobile), full suite | `npx playwright test` | **117 passed, 0 failed, 7 skipped** (desktop-only or mobile-only tests); 41.1 min |
