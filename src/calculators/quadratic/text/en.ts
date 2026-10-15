@@ -1,0 +1,31 @@
+const text = {
+  a: "Coefficient a",
+  aHelp: "The number in front of x². It cannot be 0.",
+  b: "Coefficient b",
+  bHelp: "The number in front of x. Use 0 if there is no x term.",
+  c: "Constant c",
+  cHelp: "The number without x. Use 0 if there is none.",
+  aZero: "Coefficient a cannot be 0. With a = 0 the equation is linear, not quadratic.",
+  roots: "Roots",
+  twoRoots: "x₁ = {x1}, x₂ = {x2}",
+  oneRoot: "x = {x} (double root)",
+  complexRoots: "x = {re} ± {im}i",
+  imaginaryRoots: "x = ±{im}i",
+  discriminant: "Discriminant (b² − 4ac)",
+  meaning: "What the discriminant means",
+  meanings: {
+    positive: "Positive: two different real roots",
+    zero: "Zero: one repeated real root",
+    negative: "Negative: no real roots, two complex conjugate roots",
+  },
+  vertex: "Vertex (h, k)",
+  vertexValue: "({h}, {k})",
+  axis: "Axis of symmetry",
+  axisValue: "x = {h}",
+  sum: "Sum of the roots (−b/a)",
+  product: "Product of the roots (c/a)",
+  opensUp: "The parabola opens upward, so the vertex is its lowest point.",
+  opensDown: "The parabola opens downward, so the vertex is its highest point.",
+};
+export type QuadraticText = typeof text;
+export default text;

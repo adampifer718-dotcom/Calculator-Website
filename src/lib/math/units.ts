@@ -101,3 +101,44 @@ export function convertTemperature(value: number, from: TemperatureUnit, to: Tem
   return fromKelvin(toKelvin(value, from), to);
 }
 
+
+/**
+ * Area units in square metres. Imperial units use the international foot
+ * (0.3048 m, exact): 1 acre = 43,560 ft² = 4,046.8564224 m² and
+ * 1 mi² = 640 acres = 2,589,988.110336 m², both exact. See NIST SP 811, Appendix B.
+ */
+export const AREA: readonly UnitDef[] = [
+  { value: "mm2", label: "Square millimeters", symbol: "mm²", factor: 1e-6 },
+  { value: "cm2", label: "Square centimeters", symbol: "cm²", factor: 1e-4 },
+  { value: "m2", label: "Square meters", symbol: "m²", factor: 1 },
+  { value: "ha", label: "Hectares", symbol: "ha", factor: 10000 },
+  { value: "km2", label: "Square kilometers", symbol: "km²", factor: 1e6 },
+  { value: "in2", label: "Square inches", symbol: "in²", factor: 0.00064516 },
+  { value: "ft2", label: "Square feet", symbol: "ft²", factor: 0.09290304 },
+  { value: "yd2", label: "Square yards", symbol: "yd²", factor: 0.83612736 },
+  { value: "acre", label: "Acres", symbol: "ac", factor: 4046.8564224 },
+  { value: "mi2", label: "Square miles", symbol: "mi²", factor: 2589988.110336 },
+];
+
+/**
+ * Data storage units in bytes. Decimal (SI) prefixes are powers of 1,000
+ * (1 kB = 1,000 B); binary (IEC) prefixes are powers of 1,024 (1 KiB = 1,024 B).
+ * A byte is 8 bits. See NIST, "Prefixes for binary multiples".
+ */
+export const DATA_STORAGE: readonly UnitDef[] = [
+  { value: "bit", label: "Bits", symbol: "bit", factor: 0.125 },
+  { value: "B", label: "Bytes", symbol: "B", factor: 1 },
+  { value: "kB", label: "Kilobytes", symbol: "kB", factor: 1e3 },
+  { value: "MB", label: "Megabytes", symbol: "MB", factor: 1e6 },
+  { value: "GB", label: "Gigabytes", symbol: "GB", factor: 1e9 },
+  { value: "TB", label: "Terabytes", symbol: "TB", factor: 1e12 },
+  { value: "PB", label: "Petabytes", symbol: "PB", factor: 1e15 },
+  { value: "KiB", label: "Kibibytes", symbol: "KiB", factor: 2 ** 10 },
+  { value: "MiB", label: "Mebibytes", symbol: "MiB", factor: 2 ** 20 },
+  { value: "GiB", label: "Gibibytes", symbol: "GiB", factor: 2 ** 30 },
+  { value: "TiB", label: "Tebibytes", symbol: "TiB", factor: 2 ** 40 },
+  { value: "PiB", label: "Pebibytes", symbol: "PiB", factor: 2 ** 50 },
+  { value: "kbit", label: "Kilobits", symbol: "kbit", factor: 125 },
+  { value: "Mbit", label: "Megabits", symbol: "Mbit", factor: 125e3 },
+  { value: "Gbit", label: "Gigabits", symbol: "Gbit", factor: 125e6 },
+];

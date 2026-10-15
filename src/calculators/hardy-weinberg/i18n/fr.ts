@@ -1,0 +1,82 @@
+import type { CalculatorTranslation } from "@/calculators/framework/types";
+import type { HardyWeinbergText } from "../text/en";
+
+const fr: CalculatorTranslation<HardyWeinbergText> = {
+  content: {
+    title: "Calculateur d’équilibre de Hardy-Weinberg",
+    shortTitle: "Hardy-Weinberg",
+    summary: "Calculez les fréquences alléliques et génotypiques à partir de la fréquence d’un caractère récessif, ou testez des effectifs génotypiques par rapport à l’équilibre.",
+    metaTitle: "Calculateur de Hardy-Weinberg – Fréquences alléliques et test χ²",
+    metaDescription: "Obtenez p, q, p², 2pq et q² à partir de la part d’individus présentant un caractère récessif, ou testez des effectifs AA, Aa et aa par un test du khi-deux.",
+    keywords: ["hardy-weinberg", "équilibre de hardy-weinberg", "fréquence allélique", "fréquence génotypique", "p2 2pq q2", "fréquence des porteurs", "génétique des populations", "khi-deux"],
+    intro: [
+      "Le principe de Hardy-Weinberg affirme qu’en l’absence de forces évolutives, les fréquences alléliques et génotypiques restent constantes d’une génération à l’autre. Pour un gène à deux allèles, A de fréquence p et a de fréquence q, les génotypes apparaissent alors dans les proportions p², 2pq et q².",
+      "Utilisez le premier mode lorsque vous savez à quel point un caractère récessif est fréquent, par exemple pour estimer le nombre de porteurs. Utilisez le second pour vérifier si les effectifs génotypiques d’un échantillon correspondent aux proportions prévues par le principe.",
+    ],
+    howToUse: [
+      "Choisissez un point de départ : la fréquence du phénotype récessif ou les effectifs génotypiques.",
+      "En mode phénotype, saisissez en pourcentage la part des individus présentant le caractère récessif.",
+      "En mode effectifs, saisissez le nombre d’individus AA, Aa et aa observés.",
+      "Lisez les fréquences alléliques, le tableau des génotypes et, pour les effectifs, le résultat du test du khi-deux.",
+    ],
+    formulas: [
+      { title: "Proportions à l’équilibre", expression: "p + q = 1;  p² + 2pq + q² = 1", explanation: "p² est la part des AA, 2pq celle des Aa et q² celle des aa." },
+      { title: "À partir du phénotype récessif", expression: "q = √q²;  p = 1 − q", explanation: "Seuls les individus aa expriment un caractère récessif : leur part est donc égale à q²." },
+      { title: "À partir des effectifs génotypiques", expression: "p = (2·AA + Aa) ÷ (2N)", explanation: "Chaque individu porte deux allèles ; N est le nombre total d’individus." },
+      { title: "Test du khi-deux", expression: "χ² = Σ (O − E)² ÷ E;  valeur p = erfc(√(χ² ÷ 2))", explanation: "E = p²N, 2pqN et q²N. Avec 1 degré de liberté, la valeur p a cette forme explicite." },
+    ],
+    examples: [
+      { title: "Une maladie récessive touchant 1 personne sur 2 500", steps: ["q² = 0,0004, donc q = 0,02 et p = 0,98", "2pq = 2 × 0,98 × 0,02 = 0,0392", "Environ 3,92 % des personnes, soit à peu près 1 sur 25,5, sont porteuses"] },
+      { title: "Un caractère récessif observé chez 9 % d’une population", steps: ["q = √0,09 = 0,3 et p = 0,7", "p² = 49 %, 2pq = 42 %, q² = 9 %"] },
+      { title: "Test de 298 AA, 489 Aa et 213 aa", steps: ["N = 1 000 et p = (2 × 298 + 489) ÷ 2 000 = 0,5425", "Effectifs attendus ≈ 294,31, 496,39 et 209,31", "χ² ≈ 0,2215, valeur p ≈ 0,638 : compatible avec l’équilibre"] },
+    ],
+    assumptions: [
+      "Le modèle suppose une grande population à reproduction aléatoire (panmixie), sans mutation, migration ni sélection agissant sur le gène.",
+      "Le mode phénotype suppose un gène à deux allèles, une dominance complète et une population déjà à l’équilibre.",
+      "La fréquence du phénotype se saisit en pourcentage (0–100), et non en fraction comprise entre 0 et 1.",
+      "Le test du khi-deux est une approximation, plus fiable lorsque chaque effectif attendu vaut au moins 5.",
+    ],
+    faqs: [
+      { question: "Pourquoi ne pas simplement compter le phénotype dominant ?", answer: "Les individus AA et Aa se ressemblent : le phénotype dominant mélange donc deux génotypes. Le phénotype récessif correspond uniquement à aa, c’est pourquoi q² sert de point de départ." },
+      { question: "Que signifie une petite valeur p ?", answer: "En dessous de 0,05, les effectifs génotypiques observés s’écartent plus que ce que le hasard seul expliquerait habituellement. Causes possibles : consanguinité, sélection, migration, structure de la population ou erreurs de génotypage." },
+      { question: "Pourquoi le test n’a-t-il qu’un seul degré de liberté ?", answer: "Il y a trois classes de génotypes. On perd un degré parce que les effectifs doivent totaliser N, et un autre parce que la fréquence allélique p est estimée à partir des mêmes données." },
+    ],
+    sourcesUsedFor: ["Le principe de Hardy-Weinberg, p² + 2pq + q² = 1 et ses hypothèses."],
+  },
+  text: {
+    mode: "Point de départ",
+    modeOptions: { phenotype: "Fréquence du phénotype récessif", counts: "Effectifs génotypiques" },
+    q2: "Part présentant le caractère récessif (q²)",
+    q2Help: "Saisissez un pourcentage : 1 personne sur 2 500 correspond à 0,04 %.",
+    countAA: "Individus AA (homozygotes dominants)",
+    countAa: "Individus Aa (hétérozygotes)",
+    countaa: "Individus aa (homozygotes récessifs)",
+    noIndividuals: "Saisissez au moins un individu.",
+    carrier: "Fréquence des porteurs (2pq)",
+    carrierRatio: "Porteurs",
+    oneIn: "Environ 1 sur {n}",
+    none: "Aucun",
+    alleleA: "Fréquence de l’allèle A (p)",
+    allelea: "Fréquence de l’allèle a (q)",
+    total: "Nombre total d’individus (N)",
+    chiSquare: "Khi-deux (χ², 1 degré de liberté)",
+    pValue: "Valeur p",
+    verdict: "Résultat du test au seuil de 5 %",
+    consistent: "Pas d’écart significatif par rapport à l’équilibre",
+    departure: "Écart significatif par rapport à l’équilibre",
+    genotypes: { AA: "AA (homozygote dominant)", Aa: "Aa (hétérozygote)", aa: "aa (homozygote récessif)" },
+    frequencyCaption: "Fréquences génotypiques attendues",
+    countsCaption: "Effectifs observés et attendus",
+    colGenotype: "Génotype",
+    colFrequency: "Fréquence",
+    colPercent: "Pourcentage",
+    colObserved: "Observé",
+    colExpected: "Attendu",
+    phenotypeNote: "Suppose que la population est à l’équilibre de Hardy-Weinberg, donc q = √q².",
+    monomorphic: "Un seul allèle est présent : chaque génotype correspond à son effectif attendu et le test du khi-deux ne s’applique pas.",
+    smallExpected: "Au moins un effectif attendu est inférieur à 5 : la valeur p du khi-deux n’est qu’une indication approximative. Un test exact est plus fiable pour les petits échantillons.",
+    countsNote: "Les effectifs attendus sont p²N, 2pqN et q²N. Le test a 1 degré de liberté : 3 classes de génotypes moins 1, moins 1 pour la fréquence allélique estimée.",
+  },
+};
+
+export default fr;

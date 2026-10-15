@@ -21,6 +21,10 @@ export function renderBacklogMarkdown(): string {
     "Priority = 2 × usefulness + 2 × demand − difficulty (each scored 1–5). Scores are editorial estimates; demand is not yet backed by search-volume data.",
     "",
   );
+  out.push(
+    "**Topic research.** Concepts marked with a reference were found in web-search listings of Omni Calculator category pages (15 October 2026). Those pages could not be opened from the build environment, and Omni lists about 3,800 calculators, so its directory has **not** been reviewed in full. References are used for topic discovery only. Formulas are implemented independently, and all page text is original.",
+    "",
+  );
 
   out.push("## Summary", "", "| Status | Count |", "| --- | --- |");
   for (const status of STATUS_ORDER) out.push(`| ${status} | ${BACKLOG.filter((i) => i.status === status).length} |`);
@@ -58,5 +62,14 @@ export function renderBacklogMarkdown(): string {
     }
     out.push("");
   }
+  const detailed = sortByPriority(BACKLOG.filter((i) => i.status !== "published" && (i.formula || i.reference)));
+  out.push(`## Planning details for unpublished concepts (${detailed.length})`, "");
+  out.push("| Priority | Concept | Likely formula | Dependencies | Verification | Topic reference |", "| --- | --- | --- | --- | --- | --- |");
+  for (const item of detailed) {
+    out.push(
+      `| ${priorityScore(item)} | ${cell(item.name)} | ${cell(item.formula ?? "")} | ${cell(item.dependencies ?? "")} | ${cell(item.verification ?? "")} | ${item.reference ? `<${item.reference}>` : ""} |`,
+    );
+  }
+  out.push("");
   return out.join("\n");
 }

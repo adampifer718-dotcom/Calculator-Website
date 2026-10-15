@@ -1,0 +1,40 @@
+const text = {
+  direction: "Convert",
+  directions: { aprToApy: "APR to APY", apyToApr: "APY to APR" },
+  rate: "Rate",
+  rateHelp: "Enter the APR (nominal yearly rate) to get the APY, or the APY (effective yearly rate) to get the APR.",
+  compounding: "Compounding",
+  frequencies: {
+    "1": "Annually",
+    "2": "Semiannually",
+    "4": "Quarterly",
+    "12": "Monthly",
+    "52": "Weekly",
+    "365": "Daily",
+    continuous: "Continuously",
+  },
+  inSentence: {
+    "1": "annually",
+    "2": "semiannually",
+    "4": "quarterly",
+    "12": "monthly",
+    "52": "weekly",
+    "365": "daily",
+    continuous: "continuously",
+  },
+  apy: "Annual percentage yield (APY)",
+  apr: "Annual percentage rate (APR)",
+  captionToApy: "{rate} APR compounded {frequency} gives this effective yearly rate.",
+  captionToApr: "The nominal rate that, compounded {frequency}, yields {rate} APY.",
+  periodRate: "Rate per compounding period",
+  periodsPerYear: "Compounding periods per year",
+  difference: "Difference between APY and APR",
+  tableCaption: "The same rate with other compounding frequencies",
+  tableColumns: { frequency: "Compounding", apy: "APY", apr: "APR" },
+  notes: {
+    continuous: "Continuous compounding is the limit of compounding more and more often; it has no separate periods.",
+    regZ: "On US loans, the disclosed APR under Regulation Z can include some fees as well as interest. This tool converts nominal interest rates only, so it does not reproduce a lender's fee-inclusive APR.",
+  },
+};
+export type AprApyText = typeof text;
+export default text;

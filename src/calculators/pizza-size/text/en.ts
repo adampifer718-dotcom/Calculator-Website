@@ -1,0 +1,27 @@
+const text = {
+  unit: "Diameter unit",
+  units: { in: "Inches (in)", cm: "Centimeters (cm)" },
+  diameterA: "Pizza A diameter",
+  priceA: "Pizza A price",
+  diameterB: "Pizza B diameter",
+  priceB: "Pizza B price",
+  diameterHelp: "Measured across the middle, edge to edge.",
+  result: "Better value",
+  aBetter: "Pizza A is the better value",
+  bBetter: "Pizza B is the better value",
+  same: "Both pizzas are the same value",
+  caption: "Pizza A costs {a} and pizza B costs {b}.",
+  perArea: "{price} per {unit}",
+  areaA: "Area of pizza A",
+  areaB: "Area of pizza B",
+  pricePerAreaA: "Pizza A price per {unit}",
+  pricePerAreaB: "Pizza B price per {unit}",
+  aPerB: "Number of pizza A that match one pizza B by area",
+  moreA: "Extra pizza in A compared with B",
+  moreB: "Extra pizza in B compared with A",
+  sameSize: "Both pizzas have the same area",
+  sameSizeValue: "Same size",
+  note: "Compares the whole round area, crust included. Thickness and toppings are assumed to be the same.",
+};
+export type PizzaSizeText = typeof text;
+export default text;

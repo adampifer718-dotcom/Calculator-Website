@@ -1,0 +1,33 @@
+const text = {
+  units: "Units",
+  unitSystems: { imperial: "US (ft, gal)", metric: "Metric (m, L)" },
+  length: "Total wall length",
+  lengthHelp: "Add up the widths of all the walls you are painting. For a whole room this is the perimeter.",
+  height: "Wall height",
+  doors: "Number of doors",
+  doorArea: "Area of one door",
+  windows: "Number of windows",
+  windowArea: "Area of one window",
+  openingHelp: "A typical value is filled in; measure your own for a closer estimate.",
+  coats: "Number of coats",
+  coverage: "Coverage",
+  coverageHelp: "The area one unit of paint covers in one coat. Check the label or data sheet of your paint: textured, porous or unpainted surfaces need more paint.",
+  errors: { openings: "The doors and windows add up to at least the whole wall area. Check the counts, the opening sizes and the wall dimensions." },
+  paintNeeded: "Paint needed",
+  caption: "{area} painted with {coats} at {coverage}.",
+  coatsCount: { zero: "{n} coats", one: "{n} coat", two: "{n} coats", few: "{n} coats", many: "{n} coats", other: "{n} coats" },
+  wallArea: "Total wall area",
+  openingArea: "Doors and windows",
+  paintableArea: "Paintable area (one coat)",
+  totalCoverage: "Area to cover, all coats",
+  wholeGallons: "Whole gallons to buy",
+  wholeLiters: "Whole liters to buy",
+  inLiters: "In liters",
+  inGallons: "In US gallons",
+  notes: {
+    cans: "Paint is sold in fixed can sizes; round up and keep a little extra for touch-ups.",
+    surfaces: "Ceilings, trim and primer are not included. Add them separately if you are painting them.",
+  },
+};
+export type PaintText = typeof text;
+export default text;

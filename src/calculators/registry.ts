@@ -51,6 +51,26 @@ import { percentage } from "./percentage";
 import { percentageIncrease } from "./percentage-increase";
 import { roi } from "./roi";
 import { salaryToHourly } from "./salary-to-hourly";
+import { density } from "./density";
+import { idealGasLaw } from "./ideal-gas-law";
+import { halfLife } from "./half-life";
+import { hardyWeinberg } from "./hardy-weinberg";
+import { roofPitch } from "./roof-pitch";
+import { quadratic } from "./quadratic";
+import { gcfLcm } from "./gcf-lcm";
+import { percentError } from "./percent-error";
+import { zScore } from "./z-score";
+import { weightedAverage } from "./weighted-average";
+import { simpleInterest } from "./simple-interest";
+import { aprApy } from "./apr-apy";
+import { unitPrice } from "./unit-price";
+import { pizzaSize } from "./pizza-size";
+import { downloadTime } from "./download-time";
+import { paint } from "./paint";
+import { areaConverter } from "./area-converter";
+import { dataStorageConverter } from "./data-storage-converter";
+import { oneRepMax } from "./one-rep-max";
+import { plantSpacing } from "./plant-spacing";
 
 /**
  * Every calculator definition, whatever its publication status. Add a
@@ -108,6 +128,26 @@ export const ALL_CALCULATORS: readonly CalculatorDefinition[] = [] = [
   concrete,
   cupsToGrams,
   volumeConverter,
+  quadratic,
+  gcfLcm,
+  percentError,
+  zScore,
+  weightedAverage,
+  simpleInterest,
+  aprApy,
+  unitPrice,
+  pizzaSize,
+  downloadTime,
+  paint,
+  areaConverter,
+  dataStorageConverter,
+  oneRepMax,
+  plantSpacing,
+  density,
+  idealGasLaw,
+  halfLife,
+  hardyWeinberg,
+  roofPitch,
 ];
 
 /**

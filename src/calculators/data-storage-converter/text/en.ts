@@ -1,0 +1,30 @@
+const text = {
+  value: "Value",
+  from: "From",
+  to: "To",
+  unitNames: {
+    bit: "Bits",
+    B: "Bytes",
+    kB: "Kilobytes",
+    MB: "Megabytes",
+    GB: "Gigabytes",
+    TB: "Terabytes",
+    PB: "Petabytes",
+    KiB: "Kibibytes",
+    MiB: "Mebibytes",
+    GiB: "Gibibytes",
+    TiB: "Tebibytes",
+    PiB: "Pebibytes",
+    kbit: "Kilobits",
+    Mbit: "Megabits",
+    Gbit: "Gigabits",
+  },
+  primary: "{value} {symbol} in {unit}",
+  caption: "1 {from} = {factor} {to}",
+  tableCaption: "{value} {symbol} in every data unit",
+  tableUnit: "Unit",
+  tableValue: "Value",
+  note: "Results are shown to 10 significant digits. kB, MB, GB… are powers of 1,000; KiB, MiB, GiB… are powers of 1,024.",
+};
+export type DataStorageConverterText = typeof text;
+export default text;

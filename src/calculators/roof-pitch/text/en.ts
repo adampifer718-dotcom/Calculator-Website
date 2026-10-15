@@ -1,0 +1,25 @@
+const text = {
+  mode: "Start from",
+  modeOptions: { riseRun: "Rise and run", angle: "Angle" },
+  unit: "Length unit",
+  units: { in: "Inches (in)", ft: "Feet (ft)", cm: "Centimeters (cm)", m: "Meters (m)" },
+  rise: "Rise",
+  riseHelp: "Vertical height gained over the run.",
+  run: "Run",
+  runHelp: "Horizontal distance, in the same unit as the rise.",
+  angle: "Roof angle",
+  angleTooSteep: "The angle must be less than 90°.",
+  roofRun: "Roof run (optional)",
+  roofRunHelp: "Half the building span, from the outside of the wall to below the ridge. Used for the rafter length.",
+  pitch: "Roof pitch",
+  pitchText: "{rise} in 12",
+  pitchCaption: "Inches of rise per 12 inches of run (any unit works, as long as both match).",
+  angleOut: "Angle",
+  slopePercent: "Slope",
+  multiplier: "Rafter length multiplier",
+  rafter: "Rafter length (no overhang)",
+  roofRise: "Rise over the roof run",
+  note: "The rafter length is measured along the slope from the wall line to the ridge, without overhang, ridge board or cut allowances.",
+};
+export type RoofPitchText = typeof text;
+export default text;

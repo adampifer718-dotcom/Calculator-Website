@@ -8,12 +8,12 @@ A calculator page exists in a language only when its full content and engine str
 
 | Language | Interface | Calculator strings | Categories & collections | Pay converter | Published | Calculators |
 | --- | --- | --- | --- | --- | --- | --- |
-| English (English, `en`) | ✅ | ✅ | ✅ | ✅ | ✅ | 50 / 50 |
-| Urdu (اردو, `ur`) | ✅ | ✅ | ✅ | ✅ | ✅ | 50 / 50 |
-| Spanish (Español, `es`) | ✅ | ✅ | ✅ | ✅ | ✅ | 50 / 50 |
-| French (Français, `fr`) | ✅ | ✅ | ✅ | ✅ | ✅ | 50 / 50 |
-| German (Deutsch, `de`) | ✅ | ✅ | ✅ | ✅ | ✅ | 50 / 50 |
-| Arabic (العربية, `ar`) | ✅ | ✅ | ✅ | ✅ | ✅ | 50 / 50 |
+| English (English, `en`) | ✅ | ✅ | ✅ | ✅ | ✅ | 70 / 70 |
+| Urdu (اردو, `ur`) | ✅ | ✅ | ✅ | ✅ | ✅ | 70 / 70 |
+| Spanish (Español, `es`) | ✅ | ✅ | ✅ | ✅ | ✅ | 70 / 70 |
+| French (Français, `fr`) | ✅ | ✅ | ✅ | ✅ | ✅ | 70 / 70 |
+| German (Deutsch, `de`) | ✅ | ✅ | ✅ | ✅ | ✅ | 70 / 70 |
+| Arabic (العربية, `ar`) | ✅ | ✅ | ✅ | ✅ | ✅ | 70 / 70 |
 
 Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`.
 
@@ -22,6 +22,8 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`.
 | Calculator | `ur` | `es` | `fr` | `de` | `ar` |
 | --- | --- | --- | --- | --- | --- |
 | Age Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| APR to APY Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Area Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
 | BMI Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | BMR Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Break-Even Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -30,16 +32,23 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`.
 | Concrete Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Confidence Interval Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Cups to Grams Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Data Storage Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Date Duration Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Density Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Dilution Calculator (C₁V₁ = C₂V₂) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Discount Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Doubling Time Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Download Time Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Electricity Cost Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Exponent Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Fraction Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Fuel Cost Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| GCF and LCM Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | GPA Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Half-Life Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Hardy–Weinberg Equilibrium Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Hourly to Salary Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Ideal Gas Law Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Kinetic Energy Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Length Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Loan Payment Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -48,19 +57,27 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`.
 | Molarity Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Mortgage Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Ohm's Law Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| One-Rep Max Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | P-value Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Paint Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Percent Error Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Percentage Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Percentage Increase Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Pizza Size Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Plant Spacing Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Profit Margin Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Pythagorean Theorem Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Quadratic Equation Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Rainwater Harvesting Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Recipe Scaler | ✅ | ✅ | ✅ | ✅ | ✅ |
 | ROI Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Roof Pitch Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Running Pace Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Salary to Hourly Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Sales Tax Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Scientific Notation Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Significant Figures Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Simple Interest Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Slope Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Speed, Distance and Time Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Square Footage Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -69,8 +86,11 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`.
 | Temperature Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Test Grade Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Tip Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Unit Price Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Volume Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Weight Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Weighted Average Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Z-Score Calculator | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ## Untranslated pages
 

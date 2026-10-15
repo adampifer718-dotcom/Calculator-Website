@@ -4,55 +4,57 @@ Generated from `src/calculators/backlog.ts` by `npm run backlog:report`. Do not 
 
 Priority = 2 × usefulness + 2 × demand − difficulty (each scored 1–5). Scores are editorial estimates; demand is not yet backed by search-volume data.
 
+**Topic research.** Concepts marked with a reference were found in web-search listings of Omni Calculator category pages (15 October 2026). Those pages could not be opened from the build environment, and Omni lists about 3,800 calculators, so its directory has **not** been reviewed in full. References are used for topic discovery only. Formulas are implemented independently, and all page text is original.
+
 ## Summary
 
 | Status | Count |
 | --- | --- |
-| published | 50 |
+| published | 70 |
 | testing | 0 |
 | implementing | 0 |
-| researching | 11 |
-| planned | 122 |
-| **total** | **183** |
+| researching | 22 |
+| planned | 168 |
+| **total** | **260** |
 
 ## Coverage by category
 
 | Category | Published | In backlog |
 | --- | --- | --- |
-| Biology | 1 | 8 |
-| Chemistry | 2 | 9 |
-| Construction | 2 | 9 |
-| Conversion | 4 | 7 |
-| Ecology | 1 | 9 |
-| Everyday Life | 6 | 4 |
-| Finance | 9 | 24 |
-| Food | 2 | 6 |
-| Health | 2 | 7 |
-| Math | 12 | 12 |
-| Physics | 3 | 10 |
-| Sports | 1 | 7 |
-| Statistics | 4 | 12 |
-| Other | 1 | 9 |
+| Biology | 2 | 12 |
+| Chemistry | 4 | 13 |
+| Construction | 4 | 12 |
+| Conversion | 6 | 9 |
+| Ecology | 2 | 12 |
+| Everyday Life | 7 | 8 |
+| Finance | 11 | 31 |
+| Food | 3 | 9 |
+| Health | 2 | 13 |
+| Math | 15 | 14 |
+| Physics | 4 | 17 |
+| Sports | 2 | 11 |
+| Statistics | 6 | 15 |
+| Other | 2 | 14 |
 
 ## Coverage by industry collection
 
 | Collection | Published | In backlog |
 | --- | --- | --- |
-| Business & Entrepreneurship | 8 | 15 |
-| Accounting & Finance | 4 | 5 |
-| HR, Payroll & Employment | 3 | 6 |
-| Digital Marketing & Ecommerce | 3 | 9 |
-| Real Estate & Property | 3 | 7 |
-| Construction & Civil Engineering | 4 | 13 |
-| Education & Academic Research | 26 | 55 |
-| Healthcare & Medical Professionals | 6 | 17 |
-| Agriculture & Gardening | 1 | 8 |
-| Food Service & Hospitality | 6 | 8 |
-| Manufacturing & Operations | 1 | 11 |
-| Software, IT & Data | 3 | 12 |
-| Environment & Energy | 3 | 9 |
-| Fitness & Sports | 4 | 10 |
-| Personal Finance & Household | 12 | 13 |
+| Business & Entrepreneurship | 9 | 20 |
+| Accounting & Finance | 6 | 8 |
+| HR, Payroll & Employment | 3 | 10 |
+| Digital Marketing & Ecommerce | 3 | 11 |
+| Real Estate & Property | 5 | 7 |
+| Construction & Civil Engineering | 7 | 18 |
+| Education & Academic Research | 35 | 76 |
+| Healthcare & Medical Professionals | 7 | 25 |
+| Agriculture & Gardening | 2 | 11 |
+| Food Service & Hospitality | 8 | 10 |
+| Manufacturing & Operations | 2 | 14 |
+| Software, IT & Data | 6 | 18 |
+| Environment & Energy | 3 | 15 |
+| Fitness & Sports | 5 | 18 |
+| Personal Finance & Household | 16 | 14 |
 
 ## Needs expert review
 
@@ -71,27 +73,44 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | Calories Burned Calculator | medical | researching |
 | Credit Card Payoff Calculator | financial | planned |
 | Debt-to-Income Ratio Calculator | financial | planned |
+| Macronutrient Calculator | medical | researching |
 | Take-Home Pay Calculator | tax | researching |
 | Body Fat Calculator (US Navy method) | medical | planned |
+| Debt Avalanche and Snowball Calculator | financial | planned |
 | Heart Rate Zone Calculator | medical | planned |
 | Ideal Weight Calculator | medical | planned |
 | Overtime Pay Calculator | tax | planned |
 | Savings Goal Calculator | financial | planned |
+| Water Intake Calculator | medical | researching |
 | Blood Alcohol Content Calculator | safety | researching |
+| Calorie Deficit Calculator | medical | researching |
 | Cap Rate Calculator | financial | planned |
+| LED Resistor Calculator | safety | planned |
 | Stair Calculator | safety | planned |
 | Straight-Line Depreciation Calculator | tax | planned |
+| Payback Period Calculator | financial | planned |
 | Solar Payback Period Calculator | financial | planned |
 | Turkey Cooking Time Calculator | safety | researching |
+| Wall Framing (Stud) Calculator | engineering | planned |
+| Bond Current Yield Calculator | financial | planned |
 | Cash-on-Cash Return Calculator | financial | planned |
+| Cholesterol Ratio Calculator | medical | planned |
+| Credit Utilization Calculator | financial | planned |
 | Net Present Value (NPV) Calculator | financial | planned |
 | Waist-to-Height Ratio Calculator | medical | planned |
+| Waist-to-Hip Ratio Calculator | medical | planned |
+| Baluster Spacing Calculator | safety | planned |
 | Body Surface Area Calculator | medical | planned |
 | Internal Rate of Return (IRR) Calculator | financial | planned |
 | Password Strength (Entropy) Calculator | safety | planned |
+| Pet Pregnancy Due Date Calculator | medical | researching |
+| Creatinine Clearance (Cockcroft–Gault) Calculator | medical | researching |
+| Steak Doneness and Cook Time Calculator | safety | researching |
+| Bond Yield to Maturity Calculator | financial | planned |
+| Egg Boiling Time Calculator | safety | researching |
 | Relative Risk and Odds Ratio Calculator | medical | planned |
 
-## Published (50)
+## Published (70)
 
 | Priority | Concept | Category | Collections | Difficulty | Review | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -121,17 +140,31 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | 16 | BMR Calculator | Health | Healthcare & Medical Professionals, Fitness & Sports | 2 | medical |  |
 | 16 | Cups to Grams Converter | Food | Food Service & Hospitality | 4 |  | Densities from the King Arthur Baking chart and USDA FoodData Central. |
 | 16 | Mean, Median and Mode Calculator | Statistics | Education & Academic Research, Software, IT & Data | 2 |  |  |
+| 16 | Paint Calculator | Construction | Construction & Civil Engineering, Real Estate & Property | 2 |  |  |
 | 16 | ROI Calculator | Finance | Business & Entrepreneurship, Accounting & Finance | 2 |  |  |
+| 15 | Area Converter | Conversion | Real Estate & Property, Construction & Civil Engineering | 1 |  |  |
 | 15 | Confidence Interval Calculator | Statistics | Education & Academic Research | 3 |  | Add a t-interval for small samples. |
+| 15 | Data Storage Converter | Conversion | Software, IT & Data | 1 |  | Show both decimal (kB) and binary (KiB) prefixes. |
+| 15 | Density Calculator | Physics | Education & Academic Research, Manufacturing & Operations | 1 |  |  |
 | 15 | Electricity Cost Calculator | Other | Environment & Energy, Personal Finance & Household | 1 |  |  |
 | 15 | Fuel Cost Calculator | Everyday Life | Personal Finance & Household, Environment & Energy | 1 |  |  |
+| 15 | GCF and LCM Calculator | Math | Education & Academic Research | 1 |  |  |
 | 15 | Ohm's Law Calculator | Physics | Education & Academic Research, Manufacturing & Operations | 1 |  |  |
 | 15 | Pythagorean Theorem Calculator | Math | Education & Academic Research, Construction & Civil Engineering | 1 |  |  |
+| 15 | Simple Interest Calculator | Finance | Personal Finance & Household, Accounting & Finance | 1 |  |  |
 | 15 | Test Grade Calculator | Everyday Life | Education & Academic Research | 1 |  |  |
+| 15 | Unit Price Comparison Calculator | Everyday Life | Personal Finance & Household, Food Service & Hospitality | 1 |  |  |
+| 15 | Weighted Average Calculator | Statistics | Education & Academic Research, Business & Entrepreneurship | 1 |  |  |
+| 15 | Z-Score Calculator | Statistics | Education & Academic Research, Software, IT & Data | 1 |  |  |
 | 14 | Break-Even Calculator | Finance | Business & Entrepreneurship, Accounting & Finance | 2 |  |  |
 | 14 | Dilution Calculator | Chemistry | Education & Academic Research, Healthcare & Medical Professionals | 2 |  |  |
+| 14 | Half-Life Calculator | Chemistry | Education & Academic Research, Healthcare & Medical Professionals | 2 |  |  |
+| 14 | Ideal Gas Law Calculator | Chemistry | Education & Academic Research | 2 |  |  |
 | 14 | Molarity Calculator | Chemistry | Education & Academic Research, Healthcare & Medical Professionals | 2 |  |  |
+| 14 | One-Rep Max Calculator | Sports | Fitness & Sports | 2 |  | Show several estimation formulas. |
 | 14 | P-value Calculator | Statistics | Education & Academic Research, Software, IT & Data | 4 |  |  |
+| 14 | Quadratic Equation Solver | Math | Education & Academic Research | 2 |  | Show complex roots. |
+| 14 | Roof Pitch Calculator | Construction | Construction & Civil Engineering | 2 |  |  |
 | 14 | Running Pace Calculator | Sports | Fitness & Sports | 2 |  |  |
 | 14 | Scientific Notation Calculator | Math | Education & Academic Research | 2 |  |  |
 | 14 | Slope Calculator | Math | Education & Academic Research | 2 |  |  |
@@ -139,76 +172,92 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | 13 | Circumference Calculator | Math | Education & Academic Research | 1 |  |  |
 | 13 | Exponent Calculator | Math | Education & Academic Research | 1 |  |  |
 | 13 | Log Calculator | Math | Education & Academic Research | 1 |  |  |
+| 13 | Percent Error Calculator | Math | Education & Academic Research | 1 |  |  |
+| 13 | Pizza Size and Value Calculator | Food | Food Service & Hospitality, Personal Finance & Household | 1 |  |  |
 | 13 | Recipe Scaler | Food | Food Service & Hospitality | 3 |  |  |
 | 13 | Significant Figures Calculator | Math | Education & Academic Research | 3 |  |  |
 | 13 | Square Root Calculator | Math | Education & Academic Research | 1 |  |  |
+| 11 | APR to APY Calculator | Finance | Personal Finance & Household, Accounting & Finance | 1 |  |  |
+| 11 | Download Time Calculator | Other | Software, IT & Data | 1 |  |  |
 | 11 | Kinetic Energy Calculator | Physics | Education & Academic Research | 1 |  |  |
+| 11 | Plant Spacing Calculator | Ecology | Agriculture & Gardening | 1 |  |  |
 | 10 | Doubling Time Calculator | Biology | Education & Academic Research, Healthcare & Medical Professionals | 2 |  |  |
+| 10 | Hardy–Weinberg Equilibrium Calculator | Biology | Education & Academic Research | 2 |  |  |
 | 10 | Rainwater Harvesting Calculator | Ecology | Environment & Energy, Agriculture & Gardening | 2 |  |  |
 
-## Researching (11)
+## Researching (22)
 
 | Priority | Concept | Category | Collections | Difficulty | Review | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
 | 18 | TDEE Calculator | Health | Healthcare & Medical Professionals, Fitness & Sports | 2 | medical | Needs sourced physical activity level multipliers. |
 | 15 | Calories Burned Calculator | Sports | Fitness & Sports, Healthcare & Medical Professionals | 3 | medical | Needs the published MET compendium values. |
+| 15 | Macronutrient Calculator | Health | Healthcare & Medical Professionals, Fitness & Sports | 3 | medical |  |
 | 15 | Take-Home Pay Calculator | Finance | HR, Payroll & Employment, Personal Finance & Household | 5 | tax | Requires jurisdiction tax tables and annual updates. |
+| 14 | Water Intake Calculator | Health | Healthcare & Medical Professionals, Fitness & Sports | 2 | medical |  |
 | 13 | Blood Alcohol Content Calculator | Health | Healthcare & Medical Professionals | 3 | safety | Widmark estimate only; must never suggest it is safe to drive. |
+| 13 | Calorie Deficit Calculator | Health | Healthcare & Medical Professionals, Fitness & Sports | 3 | medical |  |
 | 13 | Car CO₂ Emissions Calculator | Ecology | Environment & Energy | 3 |  | Needs sourced fuel emission factors. |
 | 13 | Inflation Calculator | Finance | Personal Finance & Household | 3 |  | Needs an official CPI dataset and update process. |
+| 12 | Flight CO₂ Emissions Calculator | Ecology | Environment & Energy | 4 |  |  |
+| 12 | Rice to Water Ratio Calculator | Food | Food Service & Hospitality | 2 |  |  |
 | 12 | Solar Panel Output Calculator | Ecology | Environment & Energy, Real Estate & Property | 4 |  | Needs irradiance data source. |
 | 12 | Turkey Cooking Time Calculator | Food | Food Service & Hospitality | 2 | safety | Cite official food-safety temperatures. |
 | 11 | Dog Age Calculator | Everyday Life | Healthcare & Medical Professionals | 3 |  | Several published conversions disagree; cite one. |
+| 10 | Pet Pregnancy Due Date Calculator | Biology | Healthcare & Medical Professionals | 2 | medical | Ranges, not single dates. |
+| 9 | Creatinine Clearance (Cockcroft–Gault) Calculator | Health | Healthcare & Medical Professionals | 3 | medical | Clinical tool: requires expert review before publishing. |
+| 9 | Steak Doneness and Cook Time Calculator | Food | Food Service & Hospitality | 3 | safety |  |
+| 8 | Egg Boiling Time Calculator | Food | Food Service & Hospitality | 4 | safety |  |
+| 8 | Running Training Pace Calculator | Sports | Fitness & Sports | 4 |  |  |
+| 7 | Livestock Stocking Rate Calculator | Biology | Agriculture & Gardening | 3 |  |  |
 | 7 | Tree Carbon Sequestration Calculator | Ecology | Environment & Energy, Agriculture & Gardening | 5 |  | Species-specific allometric data needed. |
 | 6 | Irrigation Water Requirement Calculator | Ecology | Agriculture & Gardening, Environment & Energy | 4 |  | Needs evapotranspiration data sources. |
 
-## Planned (122)
+## Planned (168)
 
 | Priority | Concept | Category | Collections | Difficulty | Review | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
 | 18 | Pregnancy Due Date Calculator | Health | Healthcare & Medical Professionals | 2 | medical | The date field now exists; needs medical review before building. |
 | 16 | Molar Mass Calculator | Chemistry | Education & Academic Research | 4 |  | Needs a chemical formula parser and IUPAC atomic weights. |
-| 16 | Paint Calculator | Construction | Construction & Civil Engineering, Real Estate & Property | 2 |  |  |
-| 15 | Area Converter | Conversion | Real Estate & Property, Construction & Civil Engineering | 1 |  |  |
+| 15 | Acceleration Calculator | Physics | Education & Academic Research | 1 |  |  |
+| 15 | Budget Rule Calculator (50/30/20, 70/20/10) | Finance | Personal Finance & Household | 1 |  |  |
 | 15 | Credit Card Payoff Calculator | Finance | Personal Finance & Household | 3 | financial |  |
-| 15 | Data Storage Converter | Conversion | Software, IT & Data | 1 |  | Show both decimal (kB) and binary (KiB) prefixes. |
 | 15 | Debt-to-Income Ratio Calculator | Finance | Personal Finance & Household, Real Estate & Property | 1 | financial |  |
-| 15 | Density Calculator | Physics | Education & Academic Research, Manufacturing & Operations | 1 |  |  |
+| 15 | Distance Between Two Points Calculator | Math | Education & Academic Research | 1 |  |  |
 | 15 | Final Grade Needed Calculator | Everyday Life | Education & Academic Research | 1 |  |  |
-| 15 | GCF and LCM Calculator | Math | Education & Academic Research | 1 |  |  |
+| 15 | Markup Calculator | Finance | Business & Entrepreneurship, Digital Marketing & Ecommerce | 1 |  | May be folded into the profit margin calculator. |
+| 15 | Probability of Two Events Calculator | Statistics | Education & Academic Research | 1 |  |  |
 | 15 | Sample Size Calculator | Statistics | Education & Academic Research, Digital Marketing & Ecommerce, Healthcare & Medical Professionals | 3 |  |  |
-| 15 | Simple Interest Calculator | Finance | Personal Finance & Household, Accounting & Finance | 1 |  |  |
 | 15 | Speed Converter | Conversion | Education & Academic Research | 1 |  |  |
-| 15 | Unit Price Comparison Calculator | Everyday Life | Personal Finance & Household, Food Service & Hospitality | 1 |  |  |
-| 15 | Weighted Average Calculator | Statistics | Education & Academic Research, Business & Entrepreneurship | 1 |  |  |
-| 15 | Z-Score Calculator | Statistics | Education & Academic Research, Software, IT & Data | 1 |  |  |
+| 14 | Add or Subtract Days From a Date Calculator | Everyday Life | Business & Entrepreneurship, HR, Payroll & Employment | 2 |  |  |
 | 14 | Area Calculator (shapes) | Math | Education & Academic Research, Construction & Civil Engineering | 2 |  |  |
 | 14 | Body Fat Calculator (US Navy method) | Health | Healthcare & Medical Professionals, Fitness & Sports | 2 | medical |  |
+| 14 | Debt Avalanche and Snowball Calculator | Finance | Personal Finance & Household | 4 | financial | Combine both strategies in one tool. |
 | 14 | Drywall Calculator | Construction | Construction & Civil Engineering | 2 |  |  |
 | 14 | Flooring Calculator (with waste) | Construction | Construction & Civil Engineering, Real Estate & Property | 2 |  |  |
 | 14 | Gravel and Mulch Calculator | Construction | Construction & Civil Engineering, Agriculture & Gardening | 2 |  | Bulk density varies by material. |
-| 14 | Half-Life Calculator | Chemistry | Education & Academic Research, Healthcare & Medical Professionals | 2 |  |  |
 | 14 | Heart Rate Zone Calculator | Sports | Fitness & Sports, Healthcare & Medical Professionals | 2 | medical |  |
-| 14 | Ideal Gas Law Calculator | Chemistry | Education & Academic Research | 2 |  |  |
 | 14 | Ideal Weight Calculator | Health | Healthcare & Medical Professionals | 2 | medical | Present several published formulas side by side. |
 | 14 | Margin of Error Calculator | Statistics | Education & Academic Research, Digital Marketing & Ecommerce | 2 |  |  |
 | 14 | Number Base Converter | Math | Software, IT & Data, Education & Academic Research | 2 |  |  |
-| 14 | One-Rep Max Calculator | Sports | Fitness & Sports | 2 |  | Show several estimation formulas. |
 | 14 | Overtime Pay Calculator | Finance | HR, Payroll & Employment | 2 | tax | Overtime rules vary by jurisdiction; keep multiplier user-set. |
 | 14 | Permutations and Combinations Calculator | Math | Education & Academic Research | 2 |  | Use BigInt for large factorials. |
-| 14 | Quadratic Equation Solver | Math | Education & Academic Research | 2 |  | Show complex roots. |
 | 14 | Ratio Calculator | Math | Education & Academic Research, Food Service & Hospitality | 2 |  |  |
-| 14 | Roof Pitch Calculator | Construction | Construction & Civil Engineering | 2 |  |  |
+| 14 | Roofing Area and Shingle Calculator | Construction | Construction & Civil Engineering, Real Estate & Property | 2 |  |  |
 | 14 | Savings Goal Calculator | Finance | Personal Finance & Household | 2 | financial |  |
+| 14 | Series and Parallel Resistor Calculator | Physics | Education & Academic Research, Manufacturing & Operations | 2 |  |  |
+| 14 | Surface Area Calculator (solids) | Math | Education & Academic Research, Construction & Civil Engineering | 2 |  | Build together with the volume calculator. |
 | 14 | Tile Calculator | Construction | Construction & Civil Engineering | 2 |  |  |
+| 14 | Time Addition and Subtraction Calculator | Everyday Life | HR, Payroll & Employment, Business & Entrepreneurship | 2 |  |  |
+| 14 | Time Duration Between Clock Times Calculator | Everyday Life | HR, Payroll & Employment | 2 |  | Overlaps the time card calculator; build one of the two first. |
 | 14 | Volume Calculator (shapes) | Math | Education & Academic Research, Construction & Civil Engineering | 2 |  |  |
+| 13 | Business Days Calculator | Everyday Life | Business & Entrepreneurship, HR, Payroll & Employment | 3 |  |  |
 | 13 | Cap Rate Calculator | Finance | Real Estate & Property, Business & Entrepreneurship | 1 | financial |  |
 | 13 | Coffee to Water Ratio Calculator | Food | Food Service & Hospitality | 1 |  |  |
+| 13 | Contribution Margin Calculator | Finance | Business & Entrepreneurship, Accounting & Finance | 1 |  |  |
 | 13 | Conversion Rate Calculator | Statistics | Digital Marketing & Ecommerce | 1 |  |  |
 | 13 | Food Cost Percentage Calculator | Food | Food Service & Hospitality, Business & Entrepreneurship | 1 |  |  |
-| 13 | Percent Error Calculator | Math | Education & Academic Research | 1 |  |  |
+| 13 | LED Resistor Calculator | Physics | Manufacturing & Operations, Education & Academic Research | 1 | safety |  |
 | 13 | pH Calculator | Chemistry | Education & Academic Research, Agriculture & Gardening | 3 |  | Strong acids/bases first; weak acids need Ka. |
-| 13 | Pizza Size and Value Calculator | Food | Food Service & Hospitality, Personal Finance & Household | 1 |  |  |
 | 13 | Projectile Motion Calculator | Physics | Education & Academic Research | 3 |  |  |
 | 13 | ROAS Calculator | Finance | Digital Marketing & Ecommerce | 1 |  |  |
 | 13 | Rounding Calculator | Math | Education & Academic Research | 1 |  |  |
@@ -219,73 +268,202 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | 12 | Correlation Coefficient Calculator | Statistics | Education & Academic Research, Software, IT & Data | 2 |  | Needs paired list input. |
 | 12 | Customer Lifetime Value Calculator | Finance | Digital Marketing & Ecommerce, Business & Entrepreneurship | 2 |  |  |
 | 12 | Normal Distribution Calculator | Statistics | Education & Academic Research | 2 |  | Reuses the existing normal CDF. |
+| 12 | Payback Period Calculator | Finance | Business & Entrepreneurship, Accounting & Finance | 2 | financial |  |
+| 12 | Quartile, IQR and Outlier Fence Calculator | Statistics | Education & Academic Research, Software, IT & Data | 2 |  |  |
 | 12 | Resistor Color Code Calculator | Physics | Education & Academic Research, Manufacturing & Operations | 2 |  |  |
 | 12 | Solar Payback Period Calculator | Ecology | Environment & Energy, Personal Finance & Household | 2 | financial |  |
+| 12 | Wall Framing (Stud) Calculator | Construction | Construction & Civil Engineering | 2 | engineering |  |
 | 11 | A/B Test Significance Calculator | Statistics | Digital Marketing & Ecommerce, Software, IT & Data | 3 |  | Two-proportion z-test. |
-| 11 | APR to APY Calculator | Finance | Personal Finance & Household, Accounting & Finance | 1 |  |  |
+| 11 | Angle Converter | Conversion | Education & Academic Research, Construction & Civil Engineering | 1 |  |  |
 | 11 | Aspect Ratio Calculator | Other | Software, IT & Data | 1 |  |  |
 | 11 | Battery Life Calculator | Other | Manufacturing & Operations, Environment & Energy | 1 |  |  |
 | 11 | Board Foot Calculator | Construction | Construction & Civil Engineering, Manufacturing & Operations | 1 |  |  |
+| 11 | Bond Current Yield Calculator | Finance | Accounting & Finance | 1 | financial |  |
 | 11 | Cash-on-Cash Return Calculator | Finance | Real Estate & Property | 1 | financial |  |
+| 11 | Cholesterol Ratio Calculator | Health | Healthcare & Medical Professionals | 1 | medical |  |
 | 11 | Churn Rate Calculator | Finance | Digital Marketing & Ecommerce, Software, IT & Data, Business & Entrepreneurship | 1 |  |  |
 | 11 | Commission Calculator | Finance | HR, Payroll & Employment, Business & Entrepreneurship | 1 |  |  |
 | 11 | CPM Calculator | Finance | Digital Marketing & Ecommerce | 1 |  |  |
+| 11 | Credit Utilization Calculator | Finance | Personal Finance & Household | 1 | financial |  |
 | 11 | Customer Acquisition Cost Calculator | Finance | Digital Marketing & Ecommerce, Business & Entrepreneurship | 1 |  |  |
-| 11 | Download Time Calculator | Other | Software, IT & Data | 1 |  |  |
 | 11 | Energy Converter | Conversion | Environment & Energy, Education & Academic Research | 1 |  |  |
 | 11 | Force Calculator (F = ma) | Physics | Education & Academic Research | 1 |  |  |
 | 11 | Fuel Economy Converter (MPG and L/100 km) | Conversion | Personal Finance & Household, Environment & Energy | 1 |  |  |
+| 11 | Hooke's Law (Spring Force) Calculator | Physics | Education & Academic Research | 1 |  |  |
 | 11 | Inventory Turnover Calculator | Finance | Manufacturing & Operations, Business & Entrepreneurship | 1 |  |  |
 | 11 | IP Subnet (CIDR) Calculator | Other | Software, IT & Data | 3 |  |  |
+| 11 | Leaky Faucet Water Waste Calculator | Ecology | Environment & Energy, Personal Finance & Household | 1 |  |  |
 | 11 | Linear Regression Calculator | Statistics | Education & Academic Research, Software, IT & Data | 3 |  |  |
 | 11 | Mass Percent Calculator | Chemistry | Education & Academic Research | 1 |  |  |
 | 11 | Midpoint Calculator | Math | Education & Academic Research | 1 |  |  |
 | 11 | Momentum Calculator | Physics | Education & Academic Research | 1 |  |  |
 | 11 | Net Present Value (NPV) Calculator | Finance | Business & Entrepreneurship, Accounting & Finance | 3 | financial | Needs a cash-flow list input. |
 | 11 | Percent Yield Calculator | Chemistry | Education & Academic Research | 1 |  |  |
-| 11 | Plant Spacing Calculator | Ecology | Agriculture & Gardening | 1 |  |  |
 | 11 | Potential Energy Calculator | Physics | Education & Academic Research | 1 |  |  |
+| 11 | Power Converter | Conversion | Environment & Energy, Manufacturing & Operations | 1 |  |  |
 | 11 | Pressure Converter | Conversion | Manufacturing & Operations, Education & Academic Research | 1 |  |  |
 | 11 | PTO Accrual Calculator | Finance | HR, Payroll & Employment | 1 |  |  |
 | 11 | Punnett Square Calculator | Biology | Education & Academic Research | 3 |  | Needs a grid UI for genotype combinations. |
 | 11 | Roman Numeral Converter | Other | Education & Academic Research | 1 |  |  |
 | 11 | Rule of 72 Calculator | Finance | Personal Finance & Household | 1 |  |  |
 | 11 | Shower Water Use Calculator | Ecology | Environment & Energy, Personal Finance & Household | 1 |  |  |
+| 11 | Stride Length Calculator | Sports | Fitness & Sports | 1 |  |  |
+| 11 | SUVAT (Constant Acceleration) Calculator | Physics | Education & Academic Research | 3 |  |  |
 | 11 | Time Unit Converter | Conversion | Education & Academic Research | 1 |  |  |
 | 11 | Torque Calculator | Physics | Education & Academic Research, Manufacturing & Operations | 1 |  |  |
 | 11 | Voltage Divider Calculator | Physics | Education & Academic Research, Manufacturing & Operations | 1 |  |  |
 | 11 | Waist-to-Height Ratio Calculator | Health | Healthcare & Medical Professionals, Fitness & Sports | 1 | medical |  |
+| 11 | Waist-to-Hip Ratio Calculator | Health | Healthcare & Medical Professionals, Fitness & Sports | 1 | medical |  |
 | 11 | Wavelength and Frequency Calculator | Physics | Education & Academic Research | 1 |  |  |
 | 10 | Alcohol by Volume (ABV) Calculator | Food | Food Service & Hospitality | 2 |  | Gravity-based formula; document which one. |
 | 10 | Baker's Percentage Calculator | Food | Food Service & Hospitality | 2 |  |  |
+| 10 | Baluster Spacing Calculator | Construction | Construction & Civil Engineering | 2 | safety |  |
+| 10 | Bayes' Theorem Calculator | Statistics | Education & Academic Research, Healthcare & Medical Professionals | 2 |  |  |
 | 10 | Body Surface Area Calculator | Health | Healthcare & Medical Professionals | 2 | medical | Clinical use; expert review before publishing. |
 | 10 | Brick Calculator | Construction | Construction & Civil Engineering | 2 |  |  |
 | 10 | Buffer pH (Henderson–Hasselbalch) Calculator | Chemistry | Education & Academic Research, Healthcare & Medical Professionals | 2 |  |  |
+| 10 | Circular Motion Calculator | Physics | Education & Academic Research | 2 |  |  |
+| 10 | Color Code Converter (HEX, RGB, HSL) | Conversion | Software, IT & Data, Digital Marketing & Ecommerce | 2 |  |  |
+| 10 | Commute Cost Calculator | Everyday Life | Personal Finance & Household, Environment & Energy | 2 |  |  |
+| 10 | Confusion Matrix Calculator | Statistics | Software, IT & Data, Healthcare & Medical Professionals | 2 |  |  |
+| 10 | Deck Boards and Stain Calculator | Construction | Construction & Civil Engineering, Real Estate & Property | 2 |  |  |
 | 10 | DNA Concentration Calculator (A260) | Biology | Education & Academic Research, Healthcare & Medical Professionals | 2 |  | Use standard extinction conversion factors; cite a lab reference. |
+| 10 | DNA to mRNA Transcription Tool | Biology | Education & Academic Research | 2 |  |  |
+| 10 | Fence Materials Calculator | Construction | Construction & Civil Engineering, Agriculture & Gardening | 2 |  |  |
 | 10 | Fertilizer (N-P-K) Rate Calculator | Ecology | Agriculture & Gardening | 2 |  |  |
 | 10 | Free Fall Calculator | Physics | Education & Academic Research | 2 |  |  |
-| 10 | Hardy–Weinberg Equilibrium Calculator | Biology | Education & Academic Research | 2 |  |  |
 | 10 | Internal Rate of Return (IRR) Calculator | Finance | Business & Entrepreneurship, Accounting & Finance | 4 | financial | Root finding; handle multiple/no IRR. |
 | 10 | Limiting Reagent Calculator | Chemistry | Education & Academic Research | 4 |  | Depends on the molar mass parser. |
+| 10 | Party Food Quantity Calculator | Food | Food Service & Hospitality | 2 |  |  |
 | 10 | Password Strength (Entropy) Calculator | Other | Software, IT & Data | 2 | safety | Entropy estimates only; not a security guarantee. |
 | 10 | Percentile Calculator | Statistics | Education & Academic Research | 2 |  | Document the percentile definition used. |
 | 10 | Prime Factorization Calculator | Math | Education & Academic Research | 2 |  |  |
 | 10 | Race Time Predictor | Sports | Fitness & Sports | 2 |  | Riegel formula; state its limits. |
+| 10 | RAID Capacity Calculator | Other | Software, IT & Data | 2 |  |  |
+| 10 | Regular Polygon Calculator | Math | Education & Academic Research, Construction & Civil Engineering | 2 |  |  |
+| 10 | t-Statistic Calculator | Statistics | Education & Academic Research | 2 |  |  |
+| 10 | Text to Binary and ASCII Converter | Other | Software, IT & Data, Education & Academic Research | 2 |  |  |
+| 10 | Titration Calculator | Chemistry | Education & Academic Research | 2 |  |  |
+| 10 | Unix Timestamp Converter | Conversion | Software, IT & Data | 2 |  |  |
+| 10 | Vector Cross and Dot Product Calculator | Math | Education & Academic Research | 2 |  |  |
+| 10 | Wind Turbine Power Calculator | Ecology | Environment & Energy | 2 |  |  |
+| 9 | 3D Printing Cost Calculator | Other | Manufacturing & Operations | 1 |  |  |
+| 9 | Baseball ERA Calculator | Sports | Fitness & Sports | 1 |  | Pairs with the batting average calculator. |
 | 9 | Batting Average Calculator | Sports | Fitness & Sports | 1 |  |  |
 | 9 | Binomial Distribution Calculator | Statistics | Education & Academic Research | 3 |  |  |
 | 9 | Crop Yield per Acre Calculator | Ecology | Agriculture & Gardening, Business & Entrepreneurship | 1 |  |  |
+| 9 | Feed Conversion Ratio Calculator | Biology | Agriculture & Gardening | 1 |  |  |
 | 9 | FTE Calculator | Finance | HR, Payroll & Employment, Business & Entrepreneurship | 1 |  |  |
+| 9 | Gibbs Free Energy Calculator | Chemistry | Education & Academic Research | 1 |  |  |
 | 9 | Molality Calculator | Chemistry | Education & Academic Research | 1 |  |  |
+| 9 | Morse Code Translator | Other | Education & Academic Research | 1 |  |  |
 | 9 | OEE Calculator | Other | Manufacturing & Operations | 1 |  |  |
+| 9 | Percent Composition Calculator | Chemistry | Education & Academic Research | 3 |  | Depends on the molar mass parser. |
 | 9 | Swim Pace Calculator | Sports | Fitness & Sports | 1 |  |  |
 | 9 | Takt Time Calculator | Other | Manufacturing & Operations | 1 |  |  |
 | 9 | Uptime and SLA Calculator | Other | Software, IT & Data, Business & Entrepreneurship | 1 |  |  |
+| 8 | Bond Yield to Maturity Calculator | Finance | Accounting & Finance | 4 | financial | Day-count conventions vary by market. |
 | 8 | Cell Count (Hemocytometer) Calculator | Biology | Education & Academic Research, Healthcare & Medical Professionals | 2 |  |  |
 | 8 | Cycling Speed and Cadence Calculator | Sports | Fitness & Sports | 2 |  |  |
 | 8 | Economic Order Quantity Calculator | Finance | Manufacturing & Operations | 2 |  |  |
+| 8 | Empirical Formula Calculator | Chemistry | Education & Academic Research | 4 |  | Depends on the molar mass work. |
 | 8 | Ligation Insert:Vector Ratio Calculator | Biology | Education & Academic Research | 2 |  |  |
+| 8 | NFL Passer Rating Calculator | Sports | Fitness & Sports | 2 |  |  |
 | 8 | Primer Melting Temperature Calculator | Biology | Education & Academic Research | 4 |  | Several Tm models exist; document which one. |
 | 8 | Protein Concentration Calculator (A280) | Biology | Education & Academic Research, Healthcare & Medical Professionals | 2 |  | Beer–Lambert law with user-supplied extinction coefficient. |
 | 8 | Relative Risk and Odds Ratio Calculator | Statistics | Healthcare & Medical Professionals, Education & Academic Research | 2 | medical |  |
+| 8 | Shannon Diversity Index Calculator | Ecology | Education & Academic Research, Agriculture & Gardening | 2 |  |  |
+| 7 | Air Density Calculator | Physics | Education & Academic Research, Environment & Energy | 3 |  |  |
+| 7 | Amdahl's Law Calculator | Other | Software, IT & Data | 1 |  |  |
+| 7 | Basketball True Shooting Percentage Calculator | Sports | Fitness & Sports | 1 |  |  |
+| 7 | Bond Coupon Payment Calculator | Finance | Accounting & Finance | 1 |  |  |
 | 7 | Logistic Population Growth Calculator | Biology | Education & Academic Research, Agriculture & Gardening | 3 |  |  |
+| 7 | Mutation Frequency Calculator | Biology | Education & Academic Research | 1 |  |  |
+| 7 | Normality Calculator | Chemistry | Education & Academic Research | 1 |  |  |
+| 7 | Point Rotation Calculator | Math | Education & Academic Research, Software, IT & Data | 1 |  |  |
+| 7 | Wien's Displacement Law Calculator | Physics | Education & Academic Research | 1 |  |  |
+| 6 | Nernst Equation Calculator | Chemistry | Education & Academic Research | 2 |  |  |
+| 5 | IEEE 754 Floating-Point Converter | Other | Software, IT & Data, Education & Academic Research | 3 |  |  |
+
+## Planning details for unpublished concepts (77)
+
+| Priority | Concept | Likely formula | Dependencies | Verification | Topic reference |
+| --- | --- | --- | --- | --- | --- |
+| 15 | Acceleration Calculator | a = Δv ÷ Δt; a = 2(d − v₀t) ÷ t²; a = F ÷ m |  | Reference values | <https://www.omnicalculator.com/physics/acceleration> |
+| 15 | Budget Rule Calculator (50/30/20, 70/20/10) | Split net income by fixed percentages; user-editable split |  | Name the rule's origin without endorsing it | <https://www.omnicalculator.com/finance/70-20-10-rule-money> |
+| 15 | Distance Between Two Points Calculator | d = √((x₂ − x₁)² + (y₂ − y₁)²), 3D optional |  | Reference values | <https://www.omnicalculator.com/math/distance> |
+| 15 | Macronutrient Calculator | grams = calories × share ÷ (4 kcal/g protein and carbs, 9 kcal/g fat) | TDEE calculator | Atwater factors; DRI ranges (AMDR) | <https://www.omnicalculator.com/health/iifym> |
+| 15 | Markup Calculator | markup = (price − cost) ÷ cost; margin = (price − cost) ÷ price |  | Check overlap with the profit margin calculator before building |  |
+| 15 | Probability of Two Events Calculator | P(A∩B) = P(A)P(B) for independent events; P(A∪B) = P(A) + P(B) − P(A∩B) |  | Reference values | <https://www.omnicalculator.com/statistics/probability> |
+| 14 | Add or Subtract Days From a Date Calculator | date ± days, weeks, months, years with month-end clamping | Date math (exists) | Leap-year and month-end cases | <https://www.omnicalculator.com/everyday-life/date> |
+| 14 | Debt Avalanche and Snowball Calculator | Month-by-month simulation; extra payment goes to highest rate (avalanche) or smallest balance (snowball) | Multi-row debt list input | Cross-check simulation against an amortization schedule | <https://www.omnicalculator.com/finance/debt-avalanche> |
+| 14 | Roofing Area and Shingle Calculator | roof area = footprint × pitch factor; bundles = squares × 3 | Roof pitch engine | Bundle coverage from manufacturers |  |
+| 14 | Series and Parallel Resistor Calculator | series ΣR; parallel 1/Σ(1/R) | List input |  |  |
+| 14 | Surface Area Calculator (solids) | Cylinder 2πr² + 2πrh; cone πr² + πr√(r² + h²); sphere 4πr²; box 2(lw + lh + wh) | Shape selector shared with the volume calculator | Reference values | <https://www.omnicalculator.com/math/surface-area> |
+| 14 | Time Addition and Subtraction Calculator | Add or subtract h:m:s durations; multiply and divide |  | Reference values | <https://www.omnicalculator.com/everyday-life/time> |
+| 14 | Time Duration Between Clock Times Calculator | end − start, adding 24 h when the shift crosses midnight |  | 12/24-hour input | <https://www.omnicalculator.com/everyday-life/time-duration> |
+| 14 | Water Intake Calculator | Show the National Academies adequate intake (total water) by sex and age | DRI tables | Cite the DRI report; adjustments for activity are not standardized | <https://www.omnicalculator.com/health/water-intake> |
+| 13 | Business Days Calculator | Count Monday–Friday between two dates; holidays optional | Holiday calendars by country | Weekend definitions differ by country | <https://www.omnicalculator.com/everyday-life/time-between-dates> |
+| 13 | Calorie Deficit Calculator | Days ≈ weight change × energy per kg ÷ daily deficit (state the rule-of-thumb limits) | TDEE calculator | The 7,700 kcal/kg rule is an approximation; cite dynamic models | <https://www.omnicalculator.com/health/calorie-deficit> |
+| 13 | Contribution Margin Calculator | CM = price − variable cost per unit; CM ratio = CM ÷ price |  | Consistency with the break-even engine | <https://www.omnicalculator.com/finance/contribution-margin> |
+| 13 | LED Resistor Calculator | series R = (V − n·Vf) ÷ I; parallel strings need one resistor each |  | Datasheet forward voltages; power rating of the resistor | <https://www.omnicalculator.com/physics/led> |
+| 12 | Flight CO₂ Emissions Calculator | distance × emission factor per passenger-km (× optional non-CO₂ multiplier) | Sourced emission factors (e.g. DEFRA/ICAO) | Factors change yearly | <https://www.omnicalculator.com/ecology/flight-emissions> |
+| 12 | Payback Period Calculator | PP = investment ÷ annual cash inflow; discounted version uses PV of each inflow | Cash-flow list input | Reference cases; uneven cash flows | <https://www.omnicalculator.com/finance/payback-period> |
+| 12 | Quartile, IQR and Outlier Fence Calculator | Q1, Q3 by a stated method; IQR = Q3 − Q1; fences Q1 − 1.5·IQR and Q3 + 1.5·IQR | List input | Document the quartile method; compare with a statistics package | <https://www.omnicalculator.com/statistics/iqr> |
+| 12 | Rice to Water Ratio Calculator | water = rice × ratio by variety and method | Sourced ratios per rice type | Packaging and extension references | <https://www.omnicalculator.com/food/rice-water-ratio> |
+| 12 | Wall Framing (Stud) Calculator | studs = ⌈length ÷ on-centre spacing⌉ + 1, plus plates and openings |  | Typical 16/24 in on-centre; local code note | <https://www.omnicalculator.com/construction/framing> |
+| 11 | Angle Converter | degrees, radians, gradians, arcminutes, arcseconds, turns |  | Exact factors |  |
+| 11 | Bond Current Yield Calculator | current yield = annual coupon ÷ market price |  | Investment textbook definition | <https://www.omnicalculator.com/finance/bond-current-yield> |
+| 11 | Cholesterol Ratio Calculator | total cholesterol ÷ HDL; mmol/L ↔ mg/dL | Unit converter | Cite a cardiology or public-health reference |  |
+| 11 | Credit Utilization Calculator | utilization = total balances ÷ total limits × 100 |  | State that scoring models differ | <https://www.omnicalculator.com/finance/credit-utilization> |
+| 11 | Hooke's Law (Spring Force) Calculator | F = k·x; elastic energy ½kx² |  | Reference values |  |
+| 11 | Leaky Faucet Water Waste Calculator | drips per minute × volume per drip × time | Drip volume assumption | Cite the drip volume used | <https://www.omnicalculator.com/ecology/drip-faucet> |
+| 11 | Power Converter | W, kW, mechanical hp (745.69987158227022 W), metric hp, BTU/h |  | NIST SP 811 factors |  |
+| 11 | Stride Length Calculator | stride = distance ÷ steps; step-to-distance conversions |  | Height-based estimates are approximate | <https://www.omnicalculator.com/sports/stride-length> |
+| 11 | SUVAT (Constant Acceleration) Calculator | v = u + at; s = ut + ½at²; v² = u² + 2as; s = (u + v)t/2 | Solver for any three of five variables | Textbook problems | <https://www.omnicalculator.com/physics/suvat> |
+| 11 | Waist-to-Hip Ratio Calculator | WHR = waist ÷ hip |  | WHO cut-offs by sex |  |
+| 10 | Baluster Spacing Calculator | gap = (run − n·width) ÷ (n + 1); maximum gap from the user's code (often 4 in) |  | Cite the code limit as user-adjustable | <https://www.omnicalculator.com/construction/baluster> |
+| 10 | Bayes' Theorem Calculator | P(A\|B) = P(B\|A)·P(A) ÷ P(B) |  | Diagnostic-test example from a stats text |  |
+| 10 | Circular Motion Calculator | a = v²/r; ω = v/r; T = 2πr/v; F = mv²/r |  | Reference values | <https://www.omnicalculator.com/physics/circular-motion> |
+| 10 | Color Code Converter (HEX, RGB, HSL) | HEX ↔ RGB ↔ HSL per the CSS Color specification |  | W3C CSS Color references |  |
+| 10 | Commute Cost Calculator | (distance × 2 ÷ efficiency × fuel price + parking) × days, vs transit fare | Fuel cost engine |  |  |
+| 10 | Confusion Matrix Calculator | accuracy, precision, recall, F1, specificity from TP, FP, FN, TN |  | Reference values |  |
+| 10 | Deck Boards and Stain Calculator | boards = deck width ÷ (board width + gap); stain = area ÷ coverage |  | Manufacturer coverage | <https://www.omnicalculator.com/construction/deck-stain> |
+| 10 | DNA to mRNA Transcription Tool | Complement and transcribe; translate codons with the standard genetic code | Codon table | NCBI standard code table |  |
+| 10 | Fence Materials Calculator | posts = ⌈length ÷ spacing⌉ + 1; rails per section; pickets |  | Reference projects |  |
+| 10 | Party Food Quantity Calculator | guests × per-person portion by item | Portion guidelines | Catering references |  |
+| 10 | Pet Pregnancy Due Date Calculator | mating date + typical gestation length per species | Gestation ranges per species | Veterinary references |  |
+| 10 | RAID Capacity Calculator | usable capacity by level: RAID 0, 1, 5 (n − 1), 6 (n − 2), 10 (n/2) |  | Vendor documentation |  |
+| 10 | Regular Polygon Calculator | area = n·s²/(4·tan(π/n)); interior angle (n − 2)·180/n |  | Reference values for hexagon and octagon | <https://www.omnicalculator.com/math/octagon> |
+| 10 | t-Statistic Calculator | t = (x̄ − μ₀) ÷ (s/√n) | t CDF (exists) | Reference values | <https://www.omnicalculator.com/statistics/t-statistic> |
+| 10 | Text to Binary and ASCII Converter | UTF-8 bytes to binary, hex and decimal |  | Unicode/UTF-8 reference |  |
+| 10 | Titration Calculator | n_a·M_a·V_a = n_b·M_b·V_b at the equivalence point |  | Textbook examples | <https://www.omnicalculator.com/chemistry/titration> |
+| 10 | Unix Timestamp Converter | seconds since 1970-01-01T00:00:00Z ↔ UTC date and time | Date field; time zones | Leap seconds are not counted in Unix time |  |
+| 10 | Vector Cross and Dot Product Calculator | a × b = (a₂b₃ − a₃b₂, a₃b₁ − a₁b₃, a₁b₂ − a₂b₁) |  | Reference values |  |
+| 10 | Wind Turbine Power Calculator | P = ½·ρ·A·v³·Cp, with Cp ≤ 16/27 (Betz limit) | Air density | Reference turbine data | <https://www.omnicalculator.com/ecology/wind-turbine> |
+| 9 | 3D Printing Cost Calculator | filament mass × price per kg + print time × power × electricity price |  |  |  |
+| 9 | Baseball ERA Calculator | ERA = 9 × earned runs ÷ innings pitched (outs as thirds) |  | MLB definitions |  |
+| 9 | Creatinine Clearance (Cockcroft–Gault) Calculator | CrCl = (140 − age) × weight ÷ (72 × serum creatinine), × 0.85 for females | Unit conversion µmol/L ↔ mg/dL | Clinical reference; for professionals only |  |
+| 9 | Feed Conversion Ratio Calculator | FCR = feed consumed ÷ weight gained |  | Agricultural extension source | <https://www.omnicalculator.com/biology/fcr> |
+| 9 | Gibbs Free Energy Calculator | ΔG = ΔH − TΔS |  | Unit handling kJ vs J |  |
+| 9 | Morse Code Translator | Letter and digit table from ITU-R M.1677 |  | ITU table |  |
+| 9 | Percent Composition Calculator | element mass in formula ÷ molar mass × 100 | Chemical formula parser and atomic weights | IUPAC standard atomic weights | <https://www.omnicalculator.com/chemistry/percent-composition> |
+| 9 | Steak Doneness and Cook Time Calculator | Target internal temperatures by doneness; time by thickness | USDA safe minimum temperatures | Food-safety review | <https://www.omnicalculator.com/food/steak-cook-time> |
+| 8 | Bond Yield to Maturity Calculator | Solve price = Σ C/(1+y)^t + F/(1+y)^n for y | Root finder shared with IRR | Reference bond prices from a finance text |  |
+| 8 | Egg Boiling Time Calculator | Heat-conduction model by egg size, start temperature and altitude | Physical model and food-safety notes | Published model; food safety | <https://www.omnicalculator.com/food/egg-boiling> |
+| 8 | Empirical Formula Calculator | mass % → moles → divide by smallest → round to whole ratio | Atomic weight table | Textbook examples; rounding tolerance | <https://www.omnicalculator.com/how-to-find-empirical-formula> |
+| 8 | NFL Passer Rating Calculator | Four capped components (completion %, yards, TD %, INT %), each clamped 0–2.375 |  | NFL published formula | <https://www.omnicalculator.com/sports/passer-rating> |
+| 8 | Running Training Pace Calculator | Pace zones from a recent race time | Published training tables | Cite the pace model used | <https://www.omnicalculator.com/sports/training-pace> |
+| 8 | Shannon Diversity Index Calculator | H′ = −Σ pᵢ ln pᵢ; evenness H′ ÷ ln S | List input | Ecology textbook example | <https://www.omnicalculator.com/ecology/shannon-index> |
+| 7 | Air Density Calculator | ρ = p_d/(R_d T) + p_v/(R_v T) with a saturation vapour pressure formula | Ideal gas engine | Compare to standard-atmosphere tables | <https://www.omnicalculator.com/physics/air-density> |
+| 7 | Amdahl's Law Calculator | speedup = 1 ÷ ((1 − p) + p/n) |  | Reference values |  |
+| 7 | Basketball True Shooting Percentage Calculator | TS% = points ÷ (2 × (FGA + 0.44 × FTA)) |  | Basketball-Reference definition |  |
+| 7 | Bond Coupon Payment Calculator | payment = face value × coupon rate ÷ payments per year |  | Reference values | <https://www.omnicalculator.com/finance/coupon-payment> |
+| 7 | Livestock Stocking Rate Calculator | animal units × grazing days ÷ forage available | Forage yield and AUM data | Extension service references |  |
+| 7 | Mutation Frequency Calculator | mutants ÷ total population |  | Distinguish frequency from mutation rate | <https://www.omnicalculator.com/biology/mutation-frequency> |
+| 7 | Normality Calculator | N = M × equivalents per mole |  | Reference values | <https://www.omnicalculator.com/chemistry/normality> |
+| 7 | Point Rotation Calculator | x′ = x cos θ − y sin θ; y′ = x sin θ + y cos θ |  | Reference values | <https://www.omnicalculator.com/math/rotation> |
+| 7 | Wien's Displacement Law Calculator | λmax = b ÷ T, b = 2.897771955×10⁻³ m·K |  | CODATA value of b | <https://www.omnicalculator.com/physics/wiens-law> |
+| 6 | Nernst Equation Calculator | E = E° − (RT/nF) ln Q | CODATA R and F | Reference values |  |
+| 5 | IEEE 754 Floating-Point Converter | Sign, exponent and mantissa bits for 32- and 64-bit floats | DataView bit access | Known bit patterns |  |
 
