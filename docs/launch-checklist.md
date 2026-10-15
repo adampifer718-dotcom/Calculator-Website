@@ -65,6 +65,15 @@ This build environment blocks outbound connections to these sites (proxy HTTP 40
 | WHO fact sheet "Obesity and overweight" | BMI categories | Unverified | Not searched |
 | Mifflin et al., Am J Clin Nutr 1990;51:241–247 (doi:10.1093/ajcn/51.2.241) | BMR | Unverified | Not searched; coefficients match the standard published form |
 | U.S. EIA, "Measuring electricity" | Electricity cost | Unverified | Not searched |
+| OpenStax (Elementary Algebra §10.3, Prealgebra §2.5 and 2e §6.4, Introductory Statistics §6.1, Chemistry 2e §21.3, Chemistry ch. 9, Biology 2e §19.1, College Physics §11.3 via LibreTexts) | Quadratic, GCF and LCM, simple interest, z-score, half-life, ideal gas law, Hardy–Weinberg, density | Unverified | URLs taken from web search results (15 Oct 2026); pages not opened |
+| NIST: Euclid's algorithm (DADS), binary prefixes, SP 811 App. B.8/B.9, Handbook 44 App. C, Handbook 130 §IV.C, CODATA 2018 wall chart | GCF and LCM, data storage, download time, area, density, unit price, ideal gas law | Unverified | URLs from search results; unit factors checked arithmetically |
+| Federal Reserve Regulation DD guide; CFPB Regulation Z §1026.22 | APR to APY | Unverified | URLs from search results |
+| FCC Broadband Speed Guide | Download time | Unverified | URL from search results |
+| LibreTexts Chemistry (Percent Error); Eurostat glossary (Weighted average) | Percent error, weighted average | Unverified | URLs from search results |
+| Sherwin-Williams paint calculator page | Paint (350 ft²/gal default) | Unverified | Search snippet gave 350–400 ft²/gal; the 10 m²/L metric default is a typical label value, not sourced |
+| InterNACHI, Measuring Roof Slope and Pitch | Roof pitch | Unverified | URL from search results |
+| Brzycki (Princeton scholar page); 2024 Int. J. Strength & Conditioning study (DOAJ) | One-rep max | Unverified | URLs from search results |
+| Colorado State University Extension, CMG GardenNotes #713 | Plant spacing | Unverified | URL from search results |
 
 **Before launch:** open every link above, confirm it still resolves and supports the stated "used for" text, and update this table.
 
@@ -149,11 +158,18 @@ AI agents produced every translation, and automated tests checked them for compl
 
 | Language | Scope | Proofread |
 | --- | --- | --- |
-| Urdu (اردو) | Interface, categories, collections, 50 calculators | **No** |
-| Arabic (العربية) | Interface, categories, collections, 50 calculators | **No** |
-| Spanish (Español) | Interface, categories, collections, 50 calculators | **No** |
-| French (Français) | Interface, categories, collections, 50 calculators | **No** |
-| German (Deutsch) | Interface, categories, collections, 50 calculators | **No** |
+| Urdu (اردو) | Interface, categories, collections, 70 calculators | **No** |
+| Arabic (العربية) | Interface, categories, collections, 70 calculators | **No** |
+| Spanish (Español) | Interface, categories, collections, 70 calculators | **No** |
+| French (Français) | Interface, categories, collections, 70 calculators | **No** |
+| German (Deutsch) | Interface, categories, collections, 70 calculators | **No** |
+
+**Terms flagged by the translators of the 20 calculators added on 15 October 2026** (check these first):
+- APR/APY are kept as US acronyms in es/fr/de/ur/ar (Spanish TAE, French TAEG and German effektiver Jahreszins include fees, so they are not equivalents).
+- Roof pitch "X in 12" is unusual outside North America; FAQs keep the English words "pitch" and "slope" in quotes.
+- Binary prefixes (KiB, MiB…) are transliterated in ur/ar; French prose uses Go/Gio while results show GB/GiB.
+- Arabic plural forms for one and two (e.g. "{n} طبقة") keep the number rather than "طبقة واحدة/طبقتان".
+- Spanish "vida media" (half-life) vs "vida promedio" (mean lifetime); French "masse volumique" for density.
 
 **For every language:**
 - [ ] Natural phrasing and consistent terminology: one word for "calculator", and consistent pay periods and statistics terms.
