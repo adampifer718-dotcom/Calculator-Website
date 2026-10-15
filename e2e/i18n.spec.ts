@@ -108,6 +108,8 @@ test("number inputs stay left-to-right in RTL pages and results match English", 
 
 test("German accepts a decimal comma and formats results the German way", async ({ page }) => {
   await page.goto("/de/calculators/tip-calculator");
+  // Typing before hydration would be overwritten by the form's initial state.
+  await page.waitForLoadState("networkidle");
   await page.locator('input[id$="-bill"]').fill("80,50");
   await expect(page.locator("#results-heading ~ div p").nth(1)).toHaveText(/14,49\s\$/);
 });
