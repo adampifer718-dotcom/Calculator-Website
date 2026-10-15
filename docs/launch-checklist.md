@@ -74,6 +74,12 @@ This build environment blocks outbound connections to these sites (proxy HTTP 40
 | InterNACHI, Measuring Roof Slope and Pitch | Roof pitch | Unverified | URL from search results |
 | Brzycki (Princeton scholar page); 2024 Int. J. Strength & Conditioning study (DOAJ) | One-rep max | Unverified | URLs from search results |
 | Colorado State University Extension, CMG GardenNotes #713 | Plant spacing | Unverified | URL from search results |
+| OpenStax (Introductory Statistics §3.2 and §8.3, Introductory Business Statistics 2e §7.4, College Algebra §9.5, University Physics Vol. 1 §3.3 and Vol. 2 §10.2, Physics ch. 4, Prealgebra App. C); Lumen Learning; LibreTexts (Prealgebra §9.10, finite-math annuities) | Sample size, margin of error, probability, combinations, resistors, acceleration, volume, surface area, tile, savings goal | Unverified | URLs from search results (15 Oct 2026); pages not opened |
+| CFPB pages: "What is APR?", credit card payoff box, "What is a budget?", "What is a debt-to-income ratio?" | Credit card payoff, budget, debt-to-income | Unverified | URLs from search results |
+| InCharge Debt Solutions, 50/30/20 rule | Budget | Unverified | Nonprofit credit counselor, not a government source |
+| WHO, "Waist circumference and waist–hip ratio: report of a WHO expert consultation" (2008) | Waist-to-hip ratio | Unverified | Cut-offs ≥ 0.90 (men) and ≥ 0.85 (women) seen in a search snippet of the report |
+| Tanaka, Monahan & Seals 2001 (PubMed 11153730); AHA heart.org target heart rate PDF | Heart rate zones | Unverified | Formula and 50–70% / 70–85% ranges seen in search results |
+| AMS Glossary (standard gravity, nautical mile); NOAA international foot; USNO leap years; NIST SP 811 ch. 5; Minnesota State University Moorhead (weighted averages) | Acceleration, speed, flooring, date add, time, final grade | Unverified | URLs from search results; 10% tile/flooring waste is a labelled rule of thumb with no authoritative source |
 
 **Before launch:** open every link above, confirm it still resolves and supports the stated "used for" text, and update this table.
 
@@ -124,6 +130,11 @@ These 24 rely on arithmetic or definitions only. Adding a reference would help r
 | Mortgage | Financial | Yes | **No (pending)** |
 | Compound interest | Financial | Yes | **No (pending)** |
 | Concrete | Engineering | Yes | **No (pending)** |
+| Credit card payoff | Financial | Yes | **No (pending)** |
+| Debt-to-income ratio | Financial | Yes | **No (pending)** |
+| Savings goal | Financial | Yes | **No (pending)** |
+| Waist-to-hip ratio | Medical | Yes | **No (pending)** |
+| Heart rate zones | Medical | Yes | **No (pending)** |
 
 All other calculators are mathematically tested and not flagged for review. Salary, sales tax, ROI, electricity, fuel cost and rainwater give general estimates; a general content review is still advisable.
 
@@ -132,6 +143,16 @@ All other calculators are mathematically tested and not flagged for review. Sala
 - [ ] Healthy-weight range shown for a height (18.5–24.9 × height²).
 - [ ] BMR: whether Mifflin–St Jeor and the "BMR" label are appropriate; the plausible input range (now ≥ 20 kg, ≥ 100 cm, 18–100 years); and the wording for clinical use.
 - [ ] Disclaimers in all six languages state that results are not medical advice.
+
+**Medical reviewer, batch 5** (waist-to-hip ratio, heart rate zones):
+- [ ] WHO 2008 cut-offs (≥ 0.90 men, ≥ 0.85 women; confirmed only through search snippets of the WHO report) and the choice to compare the ratio rounded to 2 decimals.
+- [ ] Heart rate: Fox (220 − age) and Tanaka (208 − 0.7 × age) formulas, the five 10% zones (a common convention, not from one source), Karvonen method, and the AHA 50–70% / 70–85% ranges (confirmed through heart.org search results).
+- [ ] Safety wording on medications (beta blockers) and seeing a doctor before vigorous exercise.
+
+**Financial reviewer, batch 5** (credit card payoff, debt-to-income, savings goal):
+- [ ] Credit card payoff uses APR ÷ 12 monthly compounding; most issuers use a daily periodic rate, so statements differ slightly.
+- [ ] Debt-to-income: which debts count, the neutral mention of 43% as a historical US reference point (the CFPB replaced the 43% qualified-mortgage cap with a price-based test in 2021 according to a St. Louis Fed piece found by search; not verified), and that no result is labelled "good" or "approved".
+- [ ] Savings goal: end-of-month deposits, constant return, no tax, fees or inflation.
 
 **Financial reviewer** (e.g. mortgage professional or CFP), for loan, mortgage and compound interest:
 - [ ] Loan payment: the rate is labelled APR but used as the nominal rate. Check whether this wording is acceptable.
@@ -158,17 +179,18 @@ AI agents produced every translation, and automated tests checked them for compl
 
 | Language | Scope | Proofread |
 | --- | --- | --- |
-| Urdu (اردو) | Interface, categories, collections, 70 calculators | **No** |
-| Arabic (العربية) | Interface, categories, collections, 70 calculators | **No** |
-| Spanish (Español) | Interface, categories, collections, 70 calculators | **No** |
-| French (Français) | Interface, categories, collections, 70 calculators | **No** |
-| German (Deutsch) | Interface, categories, collections, 70 calculators | **No** |
+| Urdu (اردو) | Interface, categories, collections, 90 calculators | **No** |
+| Arabic (العربية) | Interface, categories, collections, 90 calculators | **No** |
+| Spanish (Español) | Interface, categories, collections, 90 calculators | **No** |
+| French (Français) | Interface, categories, collections, 90 calculators | **No** |
+| German (Deutsch) | Interface, categories, collections, 90 calculators | **No** |
 
 **Terms flagged by the translators of the 20 calculators added on 15 October 2026** (check these first):
 - APR/APY are kept as US acronyms in es/fr/de/ur/ar (Spanish TAE, French TAEG and German effektiver Jahreszins include fees, so they are not equivalents).
 - Roof pitch "X in 12" is unusual outside North America; FAQs keep the English words "pitch" and "slope" in quotes.
 - Binary prefixes (KiB, MiB…) are transliterated in ur/ar; French prose uses Go/Gio while results show GB/GiB.
 - Arabic plural forms for one and two (e.g. "{n} طبقة") keep the number rather than "طبقة واحدة/طبقتان".
+- Batch 5: French "taux d’endettement" and Spanish "ratio de endeudamiento" for DTI with English "front-end/back-end" kept; French "permutations" where textbooks say "arrangements" and Spanish where they may say "variaciones"; German "unvereinbar" and French "incompatibles" for mutually exclusive; slant height ("apothème"/"génératrice", "Mantelhöhe"); Arabic "و" joining duration parts.
 - Spanish "vida media" (half-life) vs "vida promedio" (mean lifetime); French "masse volumique" for density.
 
 **For every language:**
@@ -298,7 +320,7 @@ Measured on `next start` (gzip enabled), in Chromium.
    - Still to do: the hosting environment variable, the domain and `www` redirect in the hosting dashboard, the DNS records at the registrar, TLS, and a production redeploy (section 6).
    - Live DNS, HTTPS and redirects could not be checked from the build environment, because its outbound proxy refused connections to the domain.
 2. **Source links unverified** (section 3.1), including the ingredient densities in section 3.2.
-3. **Professional review pending** for BMI, BMR, loan payment, mortgage, compound interest and concrete (section 4). The pages already say they are estimates, not advice. Either complete the reviews or accept the risk explicitly and keep the disclaimers.
+3. **Professional review pending** for BMI, BMR, waist-to-hip ratio, heart rate zones (medical); loan payment, mortgage, compound interest, credit card payoff, debt-to-income, savings goal (financial); and concrete (engineering) (section 4). The pages already say they are estimates, not advice. Either complete the reviews or accept the risk explicitly and keep the disclaimers.
 4. **Native-speaker proofreading pending** for Urdu, Arabic, Spanish, French and German (section 5). Alternatively, launch English first and publish other languages as reviews complete; the site only publishes a language when its files exist.
 5. **No `main` branch / CI never run on GitHub.** Create the default branch, merge, and confirm CI passes.
 
