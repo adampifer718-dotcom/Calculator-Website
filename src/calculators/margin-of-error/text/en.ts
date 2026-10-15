@@ -1,0 +1,25 @@
+const text = {
+  n: "Sample size (n)",
+  nHelp: "Number of completed responses.",
+  proportion: "Observed proportion",
+  proportionHelp: "Share of the sample that gave the answer you are reporting. Use 50% for the widest, most conservative margin.",
+  level: "Confidence level",
+  levelOptions: { "80": "80%", "90": "90%", "95": "95%", "98": "98%", "99": "99%" },
+  population: "Population size (optional)",
+  populationHelp: "Total size of the group the sample was drawn from. Leave empty for a very large or unknown population.",
+  populationTooSmall: "The population cannot be smaller than the sample ({n}).",
+  margin: "Margin of error (± percentage points)",
+  caption: "{p} ± {moe} at {level} confidence.",
+  interval: "Confidence interval",
+  intervalText: "{lower} to {upper}",
+  standardError: "Standard error",
+  critical: "Critical value (z*)",
+  correction: "Finite population correction factor",
+  correctionNone: "Not applied",
+  weakApproximation: "Fewer than 10 responses fall on one side (n × p = {yes}, n × (1 − p) = {no}). The normal approximation is weak here, so treat this margin as rough; an exact or Wilson interval is more reliable.",
+  census: "The sample covers the whole population, so there is no sampling error.",
+  clipped: "The interval was cut off at {bound} because a proportion cannot go beyond it.",
+  meansNote: "This margin is for a percentage (proportion). For the average of a measurement, use the Confidence Interval Calculator.",
+};
+export type MarginOfErrorText = typeof text;
+export default text;

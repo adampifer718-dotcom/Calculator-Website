@@ -56,6 +56,26 @@ import { idealGasLaw } from "./ideal-gas-law";
 import { halfLife } from "./half-life";
 import { hardyWeinberg } from "./hardy-weinberg";
 import { roofPitch } from "./roof-pitch";
+import { volumeShapes } from "./volume-shapes";
+import { surfaceArea } from "./surface-area";
+import { acceleration } from "./acceleration";
+import { speedConverter } from "./speed-converter";
+import { tile } from "./tile";
+import { creditCardPayoff } from "./credit-card-payoff";
+import { budgetRule } from "./budget-rule";
+import { debtToIncome } from "./debt-to-income";
+import { savingsGoal } from "./savings-goal";
+import { finalGrade } from "./final-grade";
+import { timeCalculator } from "./time-calculator";
+import { dateAdd } from "./date-add";
+import { flooring } from "./flooring";
+import { waistToHip } from "./waist-to-hip";
+import { heartRateZones } from "./heart-rate-zones";
+import { sampleSize } from "./sample-size";
+import { marginOfError } from "./margin-of-error";
+import { probabilityEvents } from "./probability-events";
+import { combinations } from "./combinations";
+import { seriesParallelResistors } from "./series-parallel-resistors";
 import { quadratic } from "./quadratic";
 import { gcfLcm } from "./gcf-lcm";
 import { percentError } from "./percent-error";
@@ -148,6 +168,26 @@ export const ALL_CALCULATORS: readonly CalculatorDefinition[] = [] = [
   halfLife,
   hardyWeinberg,
   roofPitch,
+  volumeShapes,
+  surfaceArea,
+  acceleration,
+  speedConverter,
+  tile,
+  creditCardPayoff,
+  budgetRule,
+  debtToIncome,
+  savingsGoal,
+  finalGrade,
+  timeCalculator,
+  dateAdd,
+  flooring,
+  waistToHip,
+  heartRateZones,
+  sampleSize,
+  marginOfError,
+  probabilityEvents,
+  combinations,
+  seriesParallelResistors,
 ];
 
 /**

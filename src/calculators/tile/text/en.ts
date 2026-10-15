@@ -1,0 +1,32 @@
+const text = {
+  units: "Units",
+  unitSystems: { imperial: "US (ft, in)", metric: "Metric (m, mm)" },
+  areaLength: "Area length",
+  areaWidth: "Area width",
+  areaHelp: "The floor or wall area to tile, measured as a rectangle.",
+  tileLength: "Tile length",
+  tileWidth: "Tile width",
+  grout: "Grout joint width",
+  groutHelpImperial: "The gap between tiles. 1/8 in is 0.125 in; enter 0 for no joint.",
+  groutHelpMetric: "The gap between tiles. Enter 0 for no joint.",
+  waste: "Waste allowance",
+  wasteHelp: "Extra tiles for cuts, breakage and spares. About 10% is typical for a straight layout; diagonal and patterned layouts need more.",
+  perBox: "Tiles per box (optional)",
+  perBoxHelp: "Leave empty if you buy tiles individually.",
+  tilesNeeded: "Tiles needed",
+  caption: "{area} at {perTile} per tile including the joint, plus {waste} waste.",
+  tilesBeforeWaste: "Tiles before waste",
+  area: "Area to tile",
+  tileFootprint: "Area per tile with joint",
+  boxes: "Boxes to buy",
+  boxesCaption: "{boxes} ({tiles})",
+  boxesCount: { zero: "{n} boxes", one: "{n} box", two: "{n} boxes", few: "{n} boxes", many: "{n} boxes", other: "{n} boxes" },
+  tilesCount: { zero: "{n} tiles", one: "{n} tile", two: "{n} tiles", few: "{n} tiles", many: "{n} tiles", other: "{n} tiles" },
+  spare: "Spare tiles in the boxes",
+  notes: {
+    layout: "Assumes a simple rectangular area. Real layouts with many cuts, borders or patterns can need more tiles.",
+    batch: "Buy all tiles from the same batch (lot) if you can, because color can vary between batches.",
+  },
+};
+export type TileText = typeof text;
+export default text;

@@ -1,0 +1,32 @@
+const text = {
+  mode: "Calculate from",
+  modes: { velocity: "Change in velocity", distance: "Distance and time", force: "Force and mass" },
+  speedUnit: "Velocity unit",
+  speedUnits: { ms: "Meters per second (m/s)", kmh: "Kilometers per hour (km/h)", mph: "Miles per hour (mph)", fts: "Feet per second (ft/s)" },
+  initialVelocity: "Initial velocity (v₀)",
+  initialHelp: "Use a negative value for motion in the opposite direction.",
+  finalVelocity: "Final velocity (v)",
+  time: "Time (t)",
+  distanceUnit: "Distance unit",
+  distanceUnits: { m: "Meters (m)", km: "Kilometers (km)", ft: "Feet (ft)", mi: "Miles (mi)" },
+  distance: "Distance traveled (d)",
+  distanceHelp: "The displacement along a straight line during the time t.",
+  force: "Net force (F)",
+  forceHelp: "The total of all forces acting on the object, in newtons.",
+  mass: "Mass (m)",
+  acceleration: "Acceleration",
+  formula: { velocity: "a = (v − v₀) ÷ t", distance: "a = 2(d − v₀t) ÷ t²", force: "a = F ÷ m" },
+  inFeet: "In feet per second squared",
+  inG: "In standard gravities (g)",
+  distanceCovered: "Distance covered",
+  finalVelocityResult: "Final velocity",
+  notes: {
+    negative: "The acceleration is negative, so the object is slowing down (decelerating) if it moves in the positive direction.",
+    zero: "Zero acceleration: the velocity does not change.",
+    constant: "Assumes the acceleration is constant during the whole time interval.",
+    average: "This is the average acceleration over the time interval; the acceleration at any one moment may be higher or lower.",
+    g: "1 g is the standard acceleration of gravity, 9.80665 m/s², exact by definition.",
+  },
+};
+export type AccelerationText = typeof text;
+export default text;

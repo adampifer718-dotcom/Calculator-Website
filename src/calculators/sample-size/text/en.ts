@@ -1,0 +1,25 @@
+const text = {
+  level: "Confidence level",
+  levelHelp: "How sure you want to be that the true proportion falls within the margin of error.",
+  levelOptions: { "80": "80%", "90": "90%", "95": "95%", "98": "98%", "99": "99%" },
+  margin: "Margin of error",
+  marginHelp: "The ± distance you can accept, in percentage points. For example, 5 means ±5 points.",
+  proportion: "Expected proportion",
+  proportionHelp: "Your best guess of the share that will answer “yes”. Use 50% if you have no idea: it gives the largest, safest sample.",
+  proportionMax: "Must be less than 100%.",
+  population: "Population size (optional)",
+  populationHelp: "Total number of people or items you could sample. Leave empty for a very large or unknown population.",
+  sampleSize: "Required sample size",
+  caption: "Completed responses needed at {level} confidence and ±{margin}.",
+  infinite: "Sample size before correction (n₀)",
+  infiniteRounded: "n₀ rounded up",
+  critical: "Critical value (z*)",
+  correction: "Finite population correction",
+  correctionApplied: "Applied (population of {population})",
+  correctionNotApplied: "Not applied (no population size given)",
+  share: "Share of the population sampled",
+  responseNote: "This is the number of completed responses. If you expect only some people to respond, divide by the expected response rate to find how many to invite.",
+  wholePopulation: "The sample is the whole population or nearly all of it, so surveying everyone may be simpler.",
+};
+export type SampleSizeText = typeof text;
+export default text;

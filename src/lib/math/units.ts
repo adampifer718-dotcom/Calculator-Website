@@ -142,3 +142,18 @@ export const DATA_STORAGE: readonly UnitDef[] = [
   { value: "Mbit", label: "Megabits", symbol: "Mbit", factor: 125e3 },
   { value: "Gbit", label: "Gigabits", symbol: "Gbit", factor: 125e6 },
 ];
+
+/**
+ * Speed units in meters per second. Every factor is exact: 1 km/h = 1/3.6 m/s,
+ * 1 mph = 1,609.344 m / 3,600 s = 0.44704 m/s, 1 ft/s = 0.3048 m/s and
+ * 1 knot = 1 nautical mile (1,852 m) per hour. Pace (minutes per km) is the
+ * reciprocal of speed, not a linear multiple, so it is not included.
+ */
+export const SPEED: readonly UnitDef[] = [
+  { value: "ms", label: "Meters per second", symbol: "m/s", factor: 1 },
+  { value: "kmh", label: "Kilometers per hour", symbol: "km/h", factor: 1 / 3.6 },
+  { value: "mph", label: "Miles per hour", symbol: "mph", factor: 0.44704 },
+  { value: "fts", label: "Feet per second", symbol: "ft/s", factor: 0.3048 },
+  { value: "kn", label: "Knots", symbol: "kn", factor: 1852 / 3600 },
+  { value: "cms", label: "Centimeters per second", symbol: "cm/s", factor: 0.01 },
+];
