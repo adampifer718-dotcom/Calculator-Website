@@ -38,12 +38,12 @@ const de: CalculatorTranslation<ZScoreText> = {
     assumptions: [
       "Der z-Wert selbst gilt für jede Verteilung, Perzentil und Wahrscheinlichkeiten setzen jedoch normalverteilte Daten voraus.",
       "Mittelwert und Standardabweichung, die Sie eingeben, werden als wahre Werte der Grundgesamtheit behandelt. Bei einer kleinen Stichprobe und geschätztem σ kann eine t-Verteilung besser geeignet sein.",
-      "Die Normalverteilungswahrscheinlichkeiten werden mit einer numerischen Näherung berechnet, die auf etwa sieben signifikante Stellen genau ist.",
+      "Die Wahrscheinlichkeiten der Normalverteilung werden mit einer numerischen Näherung berechnet, die auf etwa sieben signifikante Stellen genau ist.",
     ],
     faqs: [
       { question: "Was ist ein guter z-Wert?", answer: "Das hängt davon ab, was gemessen wird. Bei Testergebnissen ist ein höherer z-Wert besser, bei etwas wie der Reaktionszeit ein niedrigerer. In einer Normalverteilung liegen etwa 68 % der Werte zwischen z = −1 und z = 1 und etwa 95 % zwischen −2 und 2." },
       { question: "Kann ein z-Wert negativ sein?", answer: "Ja. Ein negativer z-Wert bedeutet, dass der Wert unter dem Mittelwert liegt. Zum Beispiel liegt z = −2 zwei Standardabweichungen unter dem Durchschnitt." },
-      { question: "Wie wandle ich einen z-Wert in ein Perzentil um?", answer: "Bestimmen Sie die Fläche unter der Standardnormalverteilungskurve links von z. Dieser Rechner erledigt das für Sie: z = 1,6 ergibt etwa 94,52 %, der Wert ist also höher als rund 94,5 % der Verteilung." },
+      { question: "Wie wandle ich einen z-Wert in ein Perzentil um?", answer: "Bestimmen Sie die Fläche unter der Kurve der Standardnormalverteilung links von z. Dieser Rechner erledigt das für Sie: z = 1,6 ergibt etwa 94,52 %, der Wert ist also höher als rund 94,5 % der Verteilung." },
     ],
     sourcesUsedFor: ["Definition des z-Werts, z = (x − μ)/σ, und der Standardnormalverteilung."],
   },
