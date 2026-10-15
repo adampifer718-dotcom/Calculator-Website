@@ -59,6 +59,7 @@ const fr: CalculatorTranslation<MortgageText> = {
     sourcesUsedFor: [
       "Formule du prêt à mensualités constantes et formule du capital restant dû.",
       "Moment où la PMI prend fin automatiquement (78 % de la valeur initiale du logement) pour les prêts conventionnels américains.",
+      "Fin définitive de la PMI à la moitié de la période d’amortissement selon le Homeowners Protection Act.",
     ],
   },
   text: {

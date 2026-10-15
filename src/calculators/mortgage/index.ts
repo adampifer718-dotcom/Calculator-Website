@@ -32,6 +32,12 @@ export const mortgage = defineCalculator({
       url: "https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/",
       usedFor: "When PMI ends automatically (78% of the original home value) on US conventional loans.",
     },
+    {
+      title: "Compliance bulletin: Private mortgage insurance cancellation and termination (August 2015)",
+      publisher: "Consumer Financial Protection Bureau",
+      url: "https://files-prod.consumerfinance.gov/f/documents/201508_cfpb_compliance-bulletin_private-mortgage-insurance-cancellation-and-te_jpbfQUl.pdf",
+      usedFor: "Final termination of PMI at the midpoint of the amortization period under the Homeowners Protection Act.",
+    },
   ],
   intro: [
     "A mortgage payment is more than the loan repayment. Lenders often collect property tax and home insurance with each payment, and some buyers also pay HOA dues or mortgage insurance.",

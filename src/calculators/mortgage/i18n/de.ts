@@ -59,6 +59,7 @@ const de: CalculatorTranslation<MortgageText> = {
     sourcesUsedFor: [
       "Die Formel für Darlehen mit gleich hohen Raten und die Formel für die Restschuld.",
       "Wann die PMI bei konventionellen US-Darlehen automatisch endet (bei 78 % des ursprünglichen Immobilienwerts).",
+      "Endgültiges Ende der PMI zur Hälfte der Tilgungsdauer nach dem Homeowners Protection Act.",
     ],
   },
   text: {

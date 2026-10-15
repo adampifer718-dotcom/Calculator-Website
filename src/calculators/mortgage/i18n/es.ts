@@ -76,6 +76,7 @@ const es: CalculatorTranslation<MortgageText> = {
     sourcesUsedFor: [
       "La fórmula del préstamo de cuota constante y la del saldo pendiente.",
       "Cuándo termina automáticamente el PMI (al 78 % del valor original de la vivienda) en los préstamos convencionales de EE. UU.",
+      "Fin definitivo del PMI a la mitad del periodo de amortización según la Homeowners Protection Act.",
     ],
   },
   text: {
