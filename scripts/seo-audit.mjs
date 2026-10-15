@@ -6,10 +6,10 @@
  * valid JSON-LD with breadcrumbs, and every internal link answering 200.
  * Unknown URLs must return 404.
  *
- * Usage: node scripts/seo-audit.mjs http://localhost:3100 https://www.example.com
+ * Usage: node scripts/seo-audit.mjs http://localhost:3100 https://hourlytosalarycalculator.net
  *        (server to crawl, then the production origin the build was made with)
  */
-const [server = "http://localhost:3100", origin = "http://localhost:3000"] = process.argv.slice(2);
+const [server = "http://localhost:3100", origin = "https://hourlytosalarycalculator.net"] = process.argv.slice(2);
 const problems = [];
 const fail = (msg) => problems.push(msg);
 const local = (url) => url.replace(origin, server);

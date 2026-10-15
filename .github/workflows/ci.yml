@@ -21,6 +21,6 @@ jobs:
       - run: npm test
       - run: npm run build
         env:
-          NEXT_PUBLIC_SITE_URL: https://calcnest.example
+          NEXT_PUBLIC_SITE_URL: https://hourlytosalarycalculator.net
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e

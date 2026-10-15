@@ -1,13 +1,17 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import { PRODUCTION_ORIGIN, SITE_URL, originProblem } from "./src/lib/site";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
-if (process.argv.includes("build") && !process.env.NEXT_PUBLIC_SITE_URL && !process.env.VERCEL_PROJECT_PRODUCTION_URL) {
-  console.warn(
-    "\n⚠ NEXT_PUBLIC_SITE_URL is not set. Canonical URLs, the sitemap and structured data will use http://localhost:3000.\n" +
-      "  Set it to the production origin, e.g. NEXT_PUBLIC_SITE_URL=https://www.example.com npm run build\n",
-  );
+// Canonical URLs, hreflang, Open Graph, the sitemap and robots.txt all use SITE_URL.
+// A Vercel production deployment must use the intended domain; elsewhere a mismatch only warns.
+if (process.argv.includes("build")) {
+  const problem = originProblem(SITE_URL);
+  if (problem && process.env.VERCEL_ENV === "production") {
+    throw new Error(`Refusing to build production with site URL ${SITE_URL}: ${problem}. Set NEXT_PUBLIC_SITE_URL=${PRODUCTION_ORIGIN} for Production.`);
+  }
+  if (problem) console.warn(`\n⚠ Site URL is ${SITE_URL}: ${problem}. Canonical URLs and the sitemap will use it.\n`);
 }
 
 const nextConfig: NextConfig = {
@@ -31,6 +35,13 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // The non-www host is canonical: www.hourlytosalarycalculator.net/<path> → hourlytosalarycalculator.net/<path>.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: `www.${new URL(PRODUCTION_ORIGIN).host}` }],
+        destination: `${PRODUCTION_ORIGIN}/:path*`,
+        permanent: true,
+      },
       { source: "/categories", destination: "/calculators", permanent: true },
       { source: "/collections", destination: "/calculators", permanent: true },
       // Category slugs renamed when the taxonomy was expanded.

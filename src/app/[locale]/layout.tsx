@@ -9,7 +9,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { LOCALE_INFO, type Locale } from "@/i18n/config";
 import { layoutLocale } from "@/i18n/server";
-import { SITE, SITE_URL } from "@/lib/site";
+import { SITE, SITE_INDEXABLE, SITE_URL } from "@/lib/site";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -43,6 +43,8 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: { type: "website", siteName: SITE.name, locale: LOCALE_INFO[locale].og },
     twitter: { card: "summary" },
     formatDetection: { telephone: false },
+    // Vercel preview deployments must never be indexed (their canonicals point to production).
+    ...(SITE_INDEXABLE ? {} : { robots: { index: false, follow: false } }),
   };
 }
 

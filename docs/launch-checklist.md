@@ -3,7 +3,7 @@
 Status as of 15 October 2026, branch `claude/magical-planck-oou76v`.
 
 **Recommendation: NO-GO for a public production launch until the blockers in section 8 are closed.**
-The code, routing, SEO and automated tests are in launch condition (section 9), so a soft launch to a staging or preview domain is reasonable now. A public launch should wait for the production domain, the unverified sources and the professional and native-speaker reviews listed below.
+The code, routing, SEO and automated tests are in launch condition (section 9), so a soft launch to a staging or preview domain is reasonable now. A public launch should wait for the production domain to be connected and verified live, the unverified sources and the professional and native-speaker reviews listed below.
 
 Nothing on this site has been reviewed by a qualified medical, financial or engineering professional, and no translation has been proofread by a native speaker. The calculators are **mathematically tested**, not **professionally reviewed**. The two are tracked separately below.
 
@@ -185,40 +185,77 @@ AI agents produced every translation, and automated tests checked them for compl
 
 ## 6. Production configuration
 
-**Domain.** The production origin comes from `src/lib/site.ts`:
+**Domain.** The production origin is `https://hourlytosalarycalculator.net` (non-www). It is set in `src/lib/site.ts` (`PRODUCTION_ORIGIN`) and resolved as follows:
 
-1. `NEXT_PUBLIC_SITE_URL`, if set (e.g. `https://www.example.com`, without a trailing slash);
-2. otherwise, on Vercel, `https://${VERCEL_PROJECT_PRODUCTION_URL}`, which Vercel sets automatically;
-3. otherwise `http://localhost:3000`.
+1. If `NEXT_PUBLIC_SITE_URL` is set, it is used, normalized to a bare origin. A trailing slash, duplicate slashes, a path or an upper-case host are removed.
+2. Otherwise every production build uses `https://hourlytosalarycalculator.net`. This includes Vercel preview builds and builds outside Vercel.
+3. `http://localhost:3000` is used only by `next dev` and the unit tests.
 
 The origin is inlined at build time into:
 - canonical URLs and `og:url`;
-- hreflang alternates;
+- hreflang alternates, including `x-default`, which points to English;
 - `sitemap.xml` and the `Sitemap:` line in `robots.txt`;
 - JSON-LD URLs.
 
-A build without either variable prints a warning and produces **localhost canonicals**, which must never be deployed. The production domain is not recorded anywhere in the repository and has not been chosen in this audit. CI builds with the placeholder `https://calcnest.example`.
+English stays unprefixed (`/calculators/<slug>`); the other languages use `/ur/`, `/es/`, `/fr/`, `/de/` and `/ar/`.
+
+**Safeguards** (in `next.config.ts` and `src/lib/site.ts`):
+- A build with `VERCEL_ENV=production` **fails** if the origin is anything other than `https://hourlytosalarycalculator.net`. This includes localhost, a placeholder such as `calcnest.example`, a `*.vercel.app` URL, the `www` host or `http://`. Other builds only print a warning.
+- On Vercel preview and development deployments (`VERCEL_ENV=preview` or `development`):
+  - `robots.txt` is `Disallow: /`;
+  - every page carries `<meta name="robots" content="noindex, nofollow">`;
+  - canonicals still point to production, so a preview URL can never be indexed or advertised as canonical.
+- Requests for host `www.hourlytosalarycalculator.net` get a **308** redirect to the same path and query on `https://hourlytosalarycalculator.net`. This is done in the app, in `next.config.ts` redirects, so it works on any host. On Vercel, also configure it at the edge (below).
 
 **Environment variables**
 
-| Variable | Required | Purpose |
+| Variable | Where | Value |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Yes, unless deploying on Vercel with a production domain | Production origin for canonicals, hreflang, sitemap, robots and JSON-LD |
-| `VERCEL_PROJECT_PRODUCTION_URL` | Set automatically by Vercel | Fallback origin |
+| `NEXT_PUBLIC_SITE_URL` | Hosting dashboard, **Production** environment only | `https://hourlytosalarycalculator.net` |
+| `VERCEL_ENV` | Set automatically by Vercel | Used for the build guard and preview noindex |
+
+`NEXT_PUBLIC_SITE_URL` is optional, because production builds already default to this domain. Setting it explicitly makes the intent visible. Preview and development environments need **no** value.
+
+Setting the variable in a local shell or `.env` file does **not** change the hosted environment. It must be set in the hosting dashboard, and then the site must be **rebuilt**, because `NEXT_PUBLIC_*` values are inlined at build time.
 
 No secrets, API keys or databases are used. Calculations run in the browser.
 
-**Deployment steps**
+**Vercel setup** (if the project is hosted on Vercel; the repository has no `vercel.json` or `.vercel/` directory, so this could not be confirmed from the code):
 
-1. Decide the production domain. If it uses `www`, redirect the other host to it at the DNS or CDN level.
-2. Set `NEXT_PUBLIC_SITE_URL=https://<domain>` in the hosting environment (production scope).
-3. `npm ci`, `npm run lint`, `npm run typecheck`, `npm test`, then `npm run build`. Confirm the build log has **no** "NEXT_PUBLIC_SITE_URL is not set" warning.
-4. Run `npm run start` (Node 22, as in CI) or deploy to a Node-compatible host. The proxy (`src/proxy.ts`) needs the Node.js runtime because it serves the localized 404 pages.
-5. Smoke-test the deployed site:
-   - `node scripts/seo-audit.mjs https://<domain> https://<domain>` must report "No problems found".
-   - `curl -I https://<domain>/calculators/x` must return 404.
-6. Run `npm run test:e2e` against the build (Playwright starts `next start` on port 3100).
-7. Submit `https://<domain>/sitemap.xml` to search consoles.
+1. Go to Project → **Settings → Environment Variables**:
+   - add `NEXT_PUBLIC_SITE_URL` = `https://hourlytosalarycalculator.net`;
+   - tick **Production** only, and save.
+2. Go to Project → **Settings → Domains**:
+   - add `hourlytosalarycalculator.net`;
+   - add `www.hourlytosalarycalculator.net` and set it to **redirect to `hourlytosalarycalculator.net`** with a 308 (permanent) redirect;
+   - keep the apex as the primary domain.
+3. At the domain registrar or DNS provider, create the records that the Vercel Domains page shows for each host:
+   - normally an `A` record for the apex;
+   - normally a `CNAME` for `www`;
+   - or switch to Vercel nameservers.
+
+   Use the exact values Vercel displays rather than values copied from documentation, and remove conflicting old `A` or `CNAME` records.
+4. Redeploy production (Deployments → latest production deployment → Redeploy) so that the build picks up the variable.
+5. After DNS propagates, Vercel issues the TLS certificates automatically. Check that both hosts show "Valid Configuration".
+
+**Other hosts.**
+- Run `NEXT_PUBLIC_SITE_URL=https://hourlytosalarycalculator.net npm run build && npm start` on Node 22.
+- Point both apex and `www` DNS at the server.
+- Terminate TLS for both hosts.
+- The app itself redirects `www` to the apex.
+- The proxy (`src/proxy.ts`) needs the Node.js runtime, because it serves the localized 404 pages.
+
+**Deployment checks**
+
+1. Run `npm ci`, `npm run lint`, `npm run typecheck`, `npm test`, then `npm run build`. The build log must **not** contain "⚠ Site URL".
+2. Smoke-test the deployed site:
+   - `node scripts/seo-audit.mjs https://hourlytosalarycalculator.net https://hourlytosalarycalculator.net` must report "No problems found".
+   - `curl -I https://hourlytosalarycalculator.net/calculators/x` must return 404.
+   - `curl -I https://www.hourlytosalarycalculator.net/es` must return 308 with `location: https://hourlytosalarycalculator.net/es`.
+   - `curl -I http://hourlytosalarycalculator.net/` must redirect to `https://`.
+   - `curl https://hourlytosalarycalculator.net/robots.txt` must show `Allow: /` and the sitemap line.
+3. Run `npm run test:e2e` against the build (Playwright starts `next start` on port 3100).
+4. Submit `https://hourlytosalarycalculator.net/sitemap.xml` to Google Search Console and Bing Webmaster Tools. Use a Domain property, verified by a DNS TXT record.
 
 CI (`.github/workflows/ci.yml`) runs lint, typecheck, unit tests, build and Playwright on pushes to `main` and on pull requests. **This repository has no `main` branch yet**, so CI has not run on GitHub for this branch.
 
@@ -240,7 +277,10 @@ Measured on `next start` (gzip enabled), in Chromium.
 
 ## 8. Remaining launch blockers
 
-1. **Production domain not decided or configured.** Set `NEXT_PUBLIC_SITE_URL` and rebuild (section 6).
+1. **Production domain configured in code but not verified live.**
+   - The code uses `https://hourlytosalarycalculator.net`.
+   - Still to do: the hosting environment variable, the domain and `www` redirect in the hosting dashboard, the DNS records at the registrar, TLS, and a production redeploy (section 6).
+   - Live DNS, HTTPS and redirects could not be checked from the build environment, because its outbound proxy refused connections to the domain.
 2. **Source links unverified** (section 3.1), including the ingredient densities in section 3.2.
 3. **Professional review pending** for BMI, BMR, loan payment, mortgage, compound interest and concrete (section 4). The pages already say they are estimates, not advice. Either complete the reviews or accept the risk explicitly and keep the disclaimers.
 4. **Native-speaker proofreading pending** for Urdu, Arabic, Spanish, French and German (section 5). Alternatively, launch English first and publish other languages as reviews complete; the site only publishes a language when its files exist.
@@ -264,3 +304,24 @@ All results below are from the final run on commit `472e459` (15 October 2026), 
 | Production build | `NEXT_PUBLIC_SITE_URL=https://calcnest.example npm run build` | Pass; 534 static pages; no missing-domain warning |
 | Playwright (desktop and mobile) | `npm run test:e2e` | **117 passed, 0 failed, 7 skipped** (the skips are tests that apply only to desktop or only to mobile); 24.4 min |
 | SEO crawl | `node scripts/seo-audit.mjs http://localhost:3100 https://calcnest.example` | 492 sitemap URLs and 492 internal links checked; no problems found |
+
+### 9.1 Production-domain run
+
+Run on 15 October 2026, after the domain configuration change (the commit that follows `472e459`).
+
+| Check | Command | Result |
+| --- | --- | --- |
+| Lint | `npm run lint` | Pass |
+| TypeScript | `npx tsc --noEmit` | Pass |
+| Unit tests | `npx vitest run` | **904 passed**, 0 failed. This includes 5 new origin tests in `src/lib/site.test.ts`. |
+| Production build | `NEXT_PUBLIC_SITE_URL=https://hourlytosalarycalculator.net npx next build` | Pass; no "⚠ Site URL" warning |
+| Sitemap | `curl localhost:3100/sitemap.xml` | 492 URLs (82 for each of en, ur, es, fr, de and ar). All `<loc>` and hreflang URLs are on `https://hourlytosalarycalculator.net`, with 0 duplicate slashes. The hreflang set is en, ur, es, fr, de, ar and x-default. |
+| robots.txt | `curl localhost:3100/robots.txt` | `Allow: /`, `Sitemap: https://hourlytosalarycalculator.net/sitemap.xml` |
+| SEO crawl | `node scripts/seo-audit.mjs http://localhost:3100 https://hourlytosalarycalculator.net` | 492 sitemap URLs and 492 internal links checked; no problems found |
+| www redirect | `curl -I -H "Host: www.hourlytosalarycalculator.net" localhost:3100/es/calculators?x=1` | `308`, `location: https://hourlytosalarycalculator.net/es/calculators?x=1` |
+| Stray origins | grep of the prerendered HTML/RSC output for `localhost:3000`, `calcnest.example` and `vercel.app` | 0 files. The only hit in server JS is the development fallback inside `resolveSiteUrl`. |
+| Build guard | `VERCEL_ENV=production NEXT_PUBLIC_SITE_URL=https://calcnest.example npx next build` (and the same with a `*.vercel.app` URL) | Build fails with "Refusing to build production with site URL …", as intended |
+| Preview | `VERCEL_ENV=preview npx next build`, without `NEXT_PUBLIC_SITE_URL` | `robots.txt` is `Disallow: /`, and pages have `noindex, nofollow`. The canonical is still `https://hourlytosalarycalculator.net/es`, which also shows that the no-variable default works. |
+| Live domain | `curl -I https://hourlytosalarycalculator.net` and the `www` host | **Not verifiable from the build environment.** Its outbound proxy answered 403 to the CONNECT request for both hosts, and DNS is resolved only through that proxy. This says nothing about whether the domain works. |
+
+Playwright was not re-run for this change. Only origin configuration, robots and redirects changed, and these are covered by the checks above. The last full Playwright run is in the table above (commit `472e459`).

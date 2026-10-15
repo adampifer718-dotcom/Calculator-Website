@@ -18,12 +18,14 @@ npm install
 npm run dev            # http://localhost:3000
 ```
 
-Set the production origin before building, otherwise canonical URLs, the sitemap and JSON-LD use `http://localhost:3000` (the build prints a warning). On Vercel the production domain is used automatically.
+The production origin is `https://hourlytosalarycalculator.net` (non-www; `www` redirects to it with a 308). Every production build uses it for canonical URLs, hreflang, the sitemap, robots.txt and JSON-LD. `NEXT_PUBLIC_SITE_URL` overrides it and is normalized to a bare origin. A Vercel production build fails if the origin is anything else, and Vercel preview deployments are served as noindex. `http://localhost:3000` is used only by `next dev` and tests.
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://www.example.com npm run build
+NEXT_PUBLIC_SITE_URL=https://hourlytosalarycalculator.net npm run build
 npm start
 ```
+
+On the hosting platform, set `NEXT_PUBLIC_SITE_URL` for the **Production** environment in the dashboard and redeploy. A local variable does not change the hosted build. See [`docs/launch-checklist.md`](docs/launch-checklist.md) section 6 for the hosting, domain and DNS steps.
 
 ## Scripts
 
