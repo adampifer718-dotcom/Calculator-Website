@@ -12,6 +12,12 @@ interface Props {
   availability: Record<string, readonly Locale[]>;
   /** "full" shows the language name; "compact" shows only the code (mobile header). */
   variant?: "full" | "compact";
+  /** "dark" for the coloured header and footer. */
+  tone?: "light" | "dark";
+  /** Open the list above the button (footer). */
+  placement?: "bottom" | "top";
+  /** Adds the `data-language-switcher` hook used by tests; only the header switcher sets it. */
+  marker?: boolean;
 }
 
 function GlobeIcon() {
@@ -29,7 +35,7 @@ function GlobeIcon() {
  * ArrowDown opens, arrow keys and Home/End move, Escape closes and returns
  * focus to the button.
  */
-export function LanguageSwitcher({ locale, locales, availability, variant = "full" }: Props) {
+export function LanguageSwitcher({ locale, locales, availability, variant = "full", tone = "light", placement = "bottom", marker = true }: Props) {
   const t = useTranslations("language");
   const pathname = usePathname();
   const listId = useId();
@@ -99,7 +105,7 @@ export function LanguageSwitcher({ locale, locales, availability, variant = "ful
   };
 
   return (
-    <div ref={rootRef} className="relative" data-language-switcher={variant}>
+    <div ref={rootRef} className="relative" data-language-switcher={marker ? variant : undefined}>
       <button
         ref={buttonRef}
         type="button"
@@ -108,7 +114,11 @@ export function LanguageSwitcher({ locale, locales, availability, variant = "ful
         aria-label={t("change", { language: current.nativeName })}
         onClick={() => (open ? setOpen(false) : openMenu(false))}
         onKeyDown={onButtonKeyDown}
-        className="focus-ring inline-flex h-10 items-center gap-1.5 rounded-lg border border-neutral-200 bg-white px-2.5 text-sm font-medium text-ink-800 hover:border-brand-300 hover:text-brand-800 aria-expanded:border-brand-300 aria-expanded:bg-brand-50"
+        className={`${tone === "dark" ? "focus-ring-light" : "focus-ring"} inline-flex h-10 items-center gap-1.5 rounded-full border px-3 text-sm font-semibold transition-colors ${
+          tone === "dark"
+            ? "border-white/25 bg-white/10 text-white hover:bg-white/20 aria-expanded:bg-white aria-expanded:text-brand-800"
+            : "border-neutral-300 bg-white text-ink-800 hover:border-brand-300 hover:text-brand-800 aria-expanded:border-brand-300 aria-expanded:bg-brand-50"
+        }`}
       >
         <GlobeIcon />
         {variant === "full" ? (
@@ -118,7 +128,7 @@ export function LanguageSwitcher({ locale, locales, availability, variant = "ful
             {locale}
           </span>
         )}
-        <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className={`size-4 text-neutral-500 transition-transform ${open ? "rotate-180" : ""}`}>
+        <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className={`size-4 transition-transform ${tone === "dark" ? "opacity-80" : "text-neutral-500"} ${open ? "rotate-180" : ""}`}>
           <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.06l3.71-3.83a.75.75 0 1 1 1.08 1.04l-4.25 4.4a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06Z" clipRule="evenodd" />
         </svg>
       </button>
@@ -127,7 +137,7 @@ export function LanguageSwitcher({ locale, locales, availability, variant = "ful
           id={listId}
           aria-label={t("label")}
           onKeyDown={onListKeyDown}
-          className="absolute end-0 top-full z-50 mt-2 w-60 overflow-hidden rounded-xl border border-neutral-200 bg-white p-1.5 shadow-lg"
+          className={`absolute end-0 z-50 w-60 overflow-hidden rounded-2xl border border-neutral-200 bg-white p-1.5 shadow-lift ${placement === "top" ? "bottom-full mb-2" : "top-full mt-2"}`}
         >
           {items.map(({ target, href, exists }, index) => {
             const info = LOCALE_INFO[target];

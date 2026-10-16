@@ -63,42 +63,51 @@ export function CalculatorForm({ engine }: { engine: AnyEngine }) {
   const update = (id: string, value: string) => setRaw((prev) => ({ ...prev, [id]: value }));
 
   return (
-    <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:items-start">
-      <section ref={inputsRef} aria-labelledby={`${formId}-inputs`} className="card p-5 sm:p-6">
-        <div className="mb-4 flex items-center justify-between gap-3">
-          <h2 id={`${formId}-inputs`} className="text-lg font-semibold text-ink-900">
-            {t("yourInputs")}
-          </h2>
-          <button
-            type="button"
-            onClick={() => setRaw(withToday(defaultRawValues(engine)))}
-            className="rounded-md px-2.5 py-1.5 text-sm font-medium text-brand-700 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
-          >
-            {t("reset")}
-          </button>
+    <div className="@container">
+      <div className="grid grid-cols-1 gap-5 @4xl:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] @4xl:items-start">
+        <section ref={inputsRef} aria-labelledby={`${formId}-inputs`} className="card p-5 sm:p-7">
+          <div className="mb-5 flex items-center justify-between gap-3">
+            <h2 id={`${formId}-inputs`} className="flex items-center gap-3 text-lg font-extrabold text-ink-900">
+              <span aria-hidden="true" className="flex size-10 items-center justify-center rounded-xl bg-cream text-brand-700 ring-1 ring-line">
+                <svg viewBox="0 0 20 20" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+                  <path d="M4 6h7M15 6h1M4 14h1M9 14h7" />
+                  <circle cx="13" cy="6" r="2" />
+                  <circle cx="7" cy="14" r="2" />
+                </svg>
+              </span>
+              {t("yourInputs")}
+            </h2>
+            <button
+              type="button"
+              onClick={() => setRaw(withToday(defaultRawValues(engine)))}
+              className="rounded-full px-3.5 py-1.5 text-sm font-bold text-brand-700 ring-1 ring-brand-200 transition-colors hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
+            >
+              {t("reset")}
+            </button>
+          </div>
+          <form noValidate onSubmit={(event) => event.preventDefault()} className="grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-4" aria-describedby={`${formId}-live`}>
+            {fields.map((field) => (
+              <FieldControl
+                key={field.id}
+                formId={formId}
+                field={field}
+                value={raw[field.id] ?? ""}
+                error={errors[field.id]}
+                currency={currency}
+                locale={locale}
+                onChange={(value) => update(field.id, value)}
+              />
+            ))}
+          </form>
+          <p id={`${formId}-live`} className="sr-only">
+            {t("liveUpdate")}
+          </p>
+        </section>
+        <div ref={resultsRef} id="results">
+          <ResultPanel evaluation={evaluation} currency={currency} locale={locale} formError={errors[FORM_ERROR_KEY]} />
         </div>
-        <form noValidate onSubmit={(event) => event.preventDefault()} className="grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-4" aria-describedby={`${formId}-live`}>
-          {fields.map((field) => (
-            <FieldControl
-              key={field.id}
-              formId={formId}
-              field={field}
-              value={raw[field.id] ?? ""}
-              error={errors[field.id]}
-              currency={currency}
-              locale={locale}
-              onChange={(value) => update(field.id, value)}
-            />
-          ))}
-        </form>
-        <p id={`${formId}-live`} className="sr-only">
-          {t("liveUpdate")}
-        </p>
-      </section>
-      <div ref={resultsRef} id="results">
-        <ResultPanel evaluation={evaluation} currency={currency} locale={locale} formError={errors[FORM_ERROR_KEY]} />
+        <MobileResultBar evaluation={evaluation} currency={currency} locale={locale} hidden={!inputsVisible || resultsVisible} />
       </div>
-      <MobileResultBar evaluation={evaluation} currency={currency} locale={locale} hidden={!inputsVisible || resultsVisible} />
     </div>
   );
 }

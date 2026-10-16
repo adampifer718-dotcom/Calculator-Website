@@ -3,15 +3,14 @@ import { getTranslations } from "next-intl/server";
 import { calculatorsForLocale, readyLocales } from "@/calculators/localize";
 import type { Locale } from "@/i18n/config";
 import { localizePath } from "@/i18n/paths";
-import { SITE } from "@/lib/site";
 import { HeaderSearch } from "./HeaderSearch";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { LogoMark } from "./Logo";
+import { Wordmark } from "./Logo";
 import { MegaMenu } from "./MegaMenu";
 import { MobileMenu } from "./MobileMenu";
 import { navCollections, navGroups } from "./nav-data";
 
-const LINK = "focus-ring rounded-md px-3 py-2 hover:bg-neutral-100 hover:text-ink-900";
+const LINK = "focus-ring-light rounded-full px-4 py-2 transition-colors hover:bg-white/10 hover:text-white";
 
 export async function SiteHeader({ locale, availability }: { locale: Locale; availability: Record<string, Locale[]> }) {
   const t = await getTranslations("nav");
@@ -21,16 +20,13 @@ export async function SiteHeader({ locale, availability }: { locale: Locale; ava
   const total = calculatorsForLocale(locale).length;
   const locales = readyLocales();
   return (
-    <header className="sticky top-0 z-40 border-b border-neutral-200/80 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
-      <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:px-6 lg:gap-4">
-        <Link href={localizePath(locale, "/")} className="focus-ring flex shrink-0 items-center gap-2 rounded-md font-semibold text-ink-900">
-          <LogoMark />
-          <span className="text-lg tracking-tight" dir="ltr">
-            {SITE.name}
-          </span>
+    <header className="sticky top-0 z-40 bg-brand-800 text-white shadow-[0_1px_0_rgb(255_255_255/0.08),0_8px_24px_-16px_rgb(23_40_67/0.6)]">
+      <div className="mx-auto flex h-16 max-w-7xl items-center gap-2 px-4 sm:gap-3 sm:px-6 lg:gap-4">
+        <Link href={localizePath(locale, "/")} className="focus-ring-light -ms-1 flex shrink-0 items-center rounded-lg p-1">
+          <Wordmark tone="light" />
         </Link>
         <nav aria-label={t("main")} className="hidden lg:block">
-          <ul className="flex items-center gap-1 text-sm font-medium whitespace-nowrap text-neutral-700">
+          <ul className="flex items-center gap-0.5 text-sm font-semibold whitespace-nowrap text-white/90">
             <li>
               <MegaMenu groups={groups} collections={collections} total={total} allHref={localizePath(locale, "/calculators")} />
             </li>
@@ -46,15 +42,15 @@ export async function SiteHeader({ locale, availability }: { locale: Locale; ava
             </li>
           </ul>
         </nav>
-        <div className="ms-auto hidden w-56 lg:block xl:w-64">
+        <div className="ms-auto hidden w-64 xl:block 2xl:w-72">
           <HeaderSearch id="header-search" label={t("siteSearch")} />
         </div>
-        <div className="ms-auto lg:ms-0">
+        <div className="ms-auto xl:ms-0">
           <span className="hidden sm:inline lg:inline">
-            <LanguageSwitcher locale={locale} locales={locales} availability={availability} variant="full" />
+            <LanguageSwitcher locale={locale} locales={locales} availability={availability} variant="full" tone="dark" />
           </span>
           <span className="sm:hidden">
-            <LanguageSwitcher locale={locale} locales={locales} availability={availability} variant="compact" />
+            <LanguageSwitcher locale={locale} locales={locales} availability={availability} variant="compact" tone="dark" />
           </span>
         </div>
         <MobileMenu groups={groups} collections={collections} locale={locale} />

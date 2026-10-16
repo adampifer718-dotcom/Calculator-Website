@@ -21,8 +21,7 @@ interface Props {
 
 const SORTS: readonly SortOrder[] = ["category", "popular", "az", "newest"];
 
-const selectClass =
-  "block h-11 w-full rounded-lg border border-neutral-300 bg-white px-3 text-sm text-ink-900 focus:border-brand-600 focus:ring-2 focus:ring-brand-200 focus:outline-none";
+const selectClass = `block h-12 w-full appearance-none rounded-[0.875rem] border border-neutral-300 bg-white bg-[url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2020%2020'%20fill='%23626a7c'%3E%3Cpath%20fill-rule='evenodd'%20d='M5.23%207.21a.75.75%200%20011.06.02L10%2011.06l3.71-3.83a.75.75%200%20111.08%201.04l-4.25%204.4a.75.75%200%2001-1.08%200L5.21%208.27a.75.75%200%2001.02-1.06z'/%3E%3C/svg%3E")] bg-[length:1.25rem] bg-[right_0.75rem_center] bg-no-repeat ps-3.5 pe-10 text-sm font-medium text-ink-900 transition-[border-color,box-shadow] hover:border-neutral-400 focus:border-brand-600 focus:ring-4 focus:ring-brand-200/70 focus:outline-none rtl:bg-[left_0.75rem_center]`;
 
 function isSort(value: string | null): value is SortOrder {
   return SORTS.some((s) => s === value);
@@ -89,9 +88,9 @@ export function SearchableDirectory({ entries, categories, collections }: Props)
 
   return (
     <>
-      <div className="card grid gap-4 p-4 sm:p-5 md:grid-cols-[minmax(0,2fr)_repeat(3,minmax(0,1fr))] md:items-end">
+      <div className="card grid gap-4 p-5 sm:p-6 md:grid-cols-[minmax(0,2fr)_repeat(3,minmax(0,1fr))] md:items-end">
         <div role="search">
-          <label htmlFor="directory-search" className="mb-1.5 block text-sm font-medium text-ink-800">
+          <label htmlFor="directory-search" className="mb-1.5 block text-sm font-semibold text-ink-800">
             {t("search")}
           </label>
           <input
@@ -102,11 +101,11 @@ export function SearchableDirectory({ entries, categories, collections }: Props)
             onChange={(event) => set("q", event.target.value)}
             placeholder={t("searchPlaceholder")}
             aria-describedby="directory-count"
-            className="block h-11 w-full rounded-lg border border-neutral-300 bg-white px-3 text-base text-ink-900 placeholder:text-neutral-500 focus:border-brand-600 focus:ring-2 focus:ring-brand-200 focus:outline-none"
+            className="block h-12 w-full rounded-[0.875rem] border border-neutral-300 bg-white px-3.5 text-base font-medium text-ink-900 placeholder:font-normal placeholder:text-neutral-500 transition-[border-color,box-shadow] hover:border-neutral-400 focus:border-brand-600 focus:ring-4 focus:ring-brand-200/70 focus:outline-none"
           />
         </div>
         <div>
-          <label htmlFor="directory-category" className="mb-1.5 block text-sm font-medium text-ink-800">
+          <label htmlFor="directory-category" className="mb-1.5 block text-sm font-semibold text-ink-800">
             {t("category")}
           </label>
           <select id="directory-category" value={category} onChange={(event) => set("category", event.target.value)} className={selectClass}>
@@ -119,7 +118,7 @@ export function SearchableDirectory({ entries, categories, collections }: Props)
           </select>
         </div>
         <div>
-          <label htmlFor="directory-collection" className="mb-1.5 block text-sm font-medium text-ink-800">
+          <label htmlFor="directory-collection" className="mb-1.5 block text-sm font-semibold text-ink-800">
             {t("industry")}
           </label>
           <select id="directory-collection" value={collection} onChange={(event) => set("collection", event.target.value)} className={selectClass}>
@@ -132,7 +131,7 @@ export function SearchableDirectory({ entries, categories, collections }: Props)
           </select>
         </div>
         <div>
-          <label htmlFor="directory-sort" className="mb-1.5 block text-sm font-medium text-ink-800">
+          <label htmlFor="directory-sort" className="mb-1.5 block text-sm font-semibold text-ink-800">
             {t("sort")}
           </label>
           <select id="directory-sort" value={sort} onChange={(event) => set("sort", event.target.value)} className={selectClass}>
@@ -149,7 +148,7 @@ export function SearchableDirectory({ entries, categories, collections }: Props)
           {countText}
         </p>
         {filtersActive && (
-          <button type="button" onClick={clear} className="focus-ring rounded-md px-2 py-1 text-sm font-medium text-brand-700 hover:bg-brand-50">
+          <button type="button" onClick={clear} className="focus-ring rounded-full px-3 py-1 text-sm font-bold text-brand-700 ring-1 ring-brand-200 hover:bg-brand-50">
             {t("clear")}
           </button>
         )}
@@ -159,7 +158,7 @@ export function SearchableDirectory({ entries, categories, collections }: Props)
           <div className="card p-6 text-neutral-700">
             <p className="font-medium text-ink-900">{trimmed ? t("noQueryMatch", { query: trimmed }) : t("noFilterMatch")}</p>
             <p className="mt-1 text-sm">{t("emptyHelp")}</p>
-            <button type="button" onClick={clear} className="focus-ring mt-4 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700">
+            <button type="button" onClick={clear} className="focus-ring btn-primary mt-4 h-11 px-5 text-sm">
               {t("clear")}
             </button>
           </div>

@@ -82,7 +82,7 @@ const es: Messages = {
     payTitle: "Calculadora de sueldo por hora a salario",
     payLead:
       "Convierte cualquier tarifa en ingresos por hora, día, semana, cada dos semanas, mes y año. Ajusta tu jornada para obtener un resultado acorde con tu año laboral real.",
-    highlights: { instant: "Resultados al instante", currencies: "{count} monedas", noSignup: "Sin registro" },
+    highlights: { free: "100 % gratis", instant: "Resultados al instante", currencies: "{count} monedas", noSignup: "Sin registro" },
     directoryKicker: "Todo en un solo lugar",
     directory: "Directorio completo de calculadoras",
     directoryLink: "Busca y filtra las {count} calculadoras",

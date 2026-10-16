@@ -16,7 +16,7 @@ interface FieldControlProps {
 }
 
 const inputBase =
-  "block w-full rounded-lg border bg-white text-base text-ink-900 shadow-xs transition-colors placeholder:text-neutral-400 focus:outline-none focus:ring-2";
+  "block w-full rounded-[0.875rem] border bg-white text-base font-medium text-ink-900 shadow-[0_1px_2px_rgb(30_36_51/0.05)] transition-[border-color,box-shadow] placeholder:font-normal placeholder:text-neutral-400 hover:border-neutral-400 focus:outline-none focus:ring-4";
 
 /** Main amounts and dropdowns take a full row on phones; short numeric inputs sit two per row. */
 function fieldSpan(field: Field): string {
@@ -31,21 +31,21 @@ export function FieldControl({ formId, field, value, error, currency, locale, on
   const errorId = error ? `${id}-error` : undefined;
   const describedBy = [errorId, helpId].filter(Boolean).join(" ") || undefined;
   const stateClass = error
-    ? "border-red-500 focus:border-red-600 focus:ring-red-200"
-    : "border-neutral-300 focus:border-brand-600 focus:ring-brand-200";
+    ? "border-danger bg-danger-tint/40 focus:border-danger focus:ring-danger/15"
+    : "border-neutral-300 focus:border-brand-600 focus:ring-brand-200/70";
 
   if (field.type === "select" && field.display === "segmented") {
     return (
       <fieldset className="col-span-2">
-        <legend className="mb-1.5 text-sm font-medium text-ink-800">{field.label}</legend>
-        <div className="grid gap-2 sm:grid-cols-3">
+        <legend className="mb-2 text-sm font-semibold text-ink-800">{field.label}</legend>
+        <div className="grid gap-1.5 rounded-2xl bg-brand-50 p-1.5 ring-1 ring-brand-100 sm:grid-cols-3">
           {field.options.map((option) => {
             const optionId = `${id}-${option.value}`;
             return (
               <label
                 key={option.value}
                 htmlFor={optionId}
-                className="flex min-h-11 cursor-pointer items-center justify-center rounded-lg border border-neutral-300 bg-white px-3 py-2 text-center text-sm font-medium text-ink-800 transition-colors hover:border-brand-400 has-checked:border-brand-600 has-checked:bg-brand-50 has-checked:text-brand-800 has-focus-visible:ring-2 has-focus-visible:ring-brand-300"
+                className="flex min-h-11 cursor-pointer items-center justify-center rounded-xl px-3 py-2 text-center text-sm font-semibold text-brand-800 transition-colors hover:bg-white/80 has-checked:bg-brand-600 has-checked:text-white has-checked:shadow-[0_6px_14px_-8px_rgb(63_100_150/0.9)] has-focus-visible:ring-2 has-focus-visible:ring-brand-600 has-focus-visible:ring-offset-2"
               >
                 <input
                   id={optionId}
@@ -75,7 +75,7 @@ export function FieldControl({ formId, field, value, error, currency, locale, on
 
   return (
     <div className={fieldSpan(field)}>
-      <label htmlFor={id} className="mb-1.5 block text-sm font-medium text-ink-800">
+      <label htmlFor={id} className="mb-1.5 block text-sm font-semibold text-ink-800">
         {field.label}
       </label>
       {field.type === "select" ? (
@@ -85,7 +85,7 @@ export function FieldControl({ formId, field, value, error, currency, locale, on
           onChange={(event) => onChange(event.target.value)}
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy}
-          className={`${inputBase} ${stateClass} h-11 appearance-none bg-[url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2020%2020'%20fill='%2364748b'%3E%3Cpath%20fill-rule='evenodd'%20d='M5.23%207.21a.75.75%200%20011.06.02L10%2011.06l3.71-3.83a.75.75%200%20111.08%201.04l-4.25%204.4a.75.75%200%2001-1.08%200L5.21%208.27a.75.75%200%2001.02-1.06z'/%3E%3C/svg%3E")] bg-[length:1.25rem] bg-[right_0.6rem_center] bg-no-repeat ps-3 pe-9 rtl:bg-[left_0.6rem_center]`}
+          className={`${inputBase} ${stateClass} h-12 appearance-none bg-[url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2020%2020'%20fill='%2364748b'%3E%3Cpath%20fill-rule='evenodd'%20d='M5.23%207.21a.75.75%200%20011.06.02L10%2011.06l3.71-3.83a.75.75%200%20111.08%201.04l-4.25%204.4a.75.75%200%2001-1.08%200L5.21%208.27a.75.75%200%2001.02-1.06z'/%3E%3C/svg%3E")] bg-[length:1.25rem] bg-[right_0.6rem_center] bg-no-repeat ps-3 pe-9 rtl:bg-[left_0.6rem_center]`}
         >
           {field.options.map((option) => (
             <option key={option.value} value={option.value}>
@@ -106,7 +106,7 @@ export function FieldControl({ formId, field, value, error, currency, locale, on
             aria-invalid={error ? true : undefined}
             aria-describedby={describedBy}
             aria-required={field.optional ? undefined : true}
-            className={`${inputBase} ${stateClass} h-11 px-3 tabular-nums`}
+            className={`${inputBase} ${stateClass} h-12 px-3 tabular-nums`}
           />
         </div>
       ) : (
@@ -128,7 +128,7 @@ export function FieldControl({ formId, field, value, error, currency, locale, on
         // Numbers, currency symbols and units read left to right in every language.
         <div className="relative" dir={field.type === "number" ? "ltr" : undefined}>
           {prefix && (
-            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3 text-neutral-500">
+            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3 font-semibold text-neutral-500">
               {prefix}
             </span>
           )}
@@ -145,7 +145,7 @@ export function FieldControl({ formId, field, value, error, currency, locale, on
             aria-invalid={error ? true : undefined}
             aria-describedby={describedBy}
             aria-required={field.optional ? undefined : true}
-            className={`${inputBase} ${stateClass} h-11 tabular-nums ${prefix ? (prefix.length > 3 ? "ps-16" : prefix.length > 1 ? "ps-12" : "ps-8") : "ps-3"} ${suffix ? (suffix.length > 6 ? "pe-24" : "pe-16") : "pe-3"}`}
+            className={`${inputBase} ${stateClass} h-12 tabular-nums ${prefix ? (prefix.length > 3 ? "ps-16" : prefix.length > 1 ? "ps-12" : "ps-8") : "ps-3"} ${suffix ? (suffix.length > 6 ? "pe-24" : "pe-16") : "pe-3"}`}
           />
           {suffix && (
             <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 end-0 flex items-center pe-3 text-sm text-neutral-500">
@@ -156,8 +156,11 @@ export function FieldControl({ formId, field, value, error, currency, locale, on
       )
       )}
       {error && (
-        <p id={errorId} className="mt-1.5 text-sm font-medium text-red-700">
-          {error}
+        <p id={errorId} className="mt-1.5 flex items-start gap-1.5 text-sm font-semibold text-danger">
+          <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="mt-0.5 size-4 shrink-0">
+            <path fillRule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-8-4.75a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-1.5 0V6a.75.75 0 0 1 .75-.75ZM10 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clipRule="evenodd" />
+          </svg>
+          <span>{error}</span>
         </p>
       )}
       {field.help && (

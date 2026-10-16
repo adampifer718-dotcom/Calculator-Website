@@ -82,7 +82,7 @@ const fr: Messages = {
     payTitle: "Calculateur de taux horaire et de salaire",
     payLead:
       "Convertissez n’importe quelle rémunération en paie horaire, journalière, hebdomadaire, toutes les deux semaines, mensuelle et annuelle. Ajustez votre emploi du temps pour obtenir un résultat adapté à votre année de travail réelle.",
-    highlights: { instant: "Résultats instantanés", currencies: "{count} devises", noSignup: "Sans inscription" },
+    highlights: { free: "100 % gratuit", instant: "Résultats instantanés", currencies: "{count} devises", noSignup: "Sans inscription" },
     directoryKicker: "Tout au même endroit",
     directory: "Annuaire complet des calculateurs",
     directoryLink: "Rechercher et filtrer les {count} calculateurs",

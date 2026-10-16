@@ -2,29 +2,30 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { categoryPath } from "@/calculators/categories";
 import { collectionPath } from "@/calculators/collections";
-import { calculatorsForLocale, categoriesFor, collectionsFor } from "@/calculators/localize";
+import { calculatorsForLocale, categoriesFor, collectionsFor, readyLocales } from "@/calculators/localize";
 import type { Locale } from "@/i18n/config";
 import { localizePath } from "@/i18n/paths";
-import { SITE } from "@/lib/site";
-import { LogoMark } from "./Logo";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { Wordmark } from "./Logo";
 
-const LINK = "focus-ring rounded text-neutral-700 hover:text-brand-700";
+const LINK = "focus-ring-light rounded text-brand-100 transition-colors hover:text-white hover:underline";
+const HEADING = "eyebrow text-accent-300";
 
-export async function SiteFooter({ locale }: { locale: Locale }) {
+export async function SiteFooter({ locale, availability }: { locale: Locale; availability: Record<string, Locale[]> }) {
   const t = await getTranslations("footer");
   const tc = await getTranslations("common");
+  const tl = await getTranslations("language");
   const categories = categoriesFor(locale);
   const collections = collectionsFor(locale);
   return (
-    <footer className="mt-16 border-t border-neutral-200 bg-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-[1.2fr_1fr_1.4fr]">
+    <footer className="mt-20 bg-brand-900 text-white">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 pt-14 pb-10 sm:grid-cols-2 sm:px-6 lg:grid-cols-[1.25fr_1fr_1.5fr]">
         <div>
-          <Link href={localizePath(locale, "/")} className="focus-ring inline-flex items-center gap-2 rounded-md font-semibold text-ink-900">
-            <LogoMark className="size-7" />
-            <span dir="ltr">{SITE.name}</span>
+          <Link href={localizePath(locale, "/")} className="focus-ring-light inline-flex rounded-lg p-1">
+            <Wordmark tone="light" />
           </Link>
-          <p className="mt-3 max-w-xs text-sm text-neutral-600">{t("blurb", { count: calculatorsForLocale(locale).length })}</p>
-          <ul className="mt-4 space-y-2 text-sm">
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-brand-100">{t("blurb", { count: calculatorsForLocale(locale).length })}</p>
+          <ul className="mt-5 space-y-2.5 text-sm font-semibold">
             <li>
               <Link href={localizePath(locale, "/calculators")} className={LINK}>
                 {tc("allCalculators")}
@@ -36,10 +37,16 @@ export async function SiteFooter({ locale }: { locale: Locale }) {
               </Link>
             </li>
           </ul>
+          <div className="mt-6">
+            <p className={HEADING}>{tl("label")}</p>
+            <div className="mt-3">
+              <LanguageSwitcher locale={locale} locales={readyLocales()} availability={availability} tone="dark" placement="top" marker={false} />
+            </div>
+          </div>
         </div>
         <nav aria-label={t("categories")}>
-          <h2 className="text-sm font-semibold text-ink-900">{t("categories")}</h2>
-          <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+          <h2 className={HEADING}>{t("categories")}</h2>
+          <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm">
             {categories.map((category) => (
               <li key={category.slug}>
                 <Link href={localizePath(locale, categoryPath(category.slug))} className={LINK}>
@@ -50,8 +57,8 @@ export async function SiteFooter({ locale }: { locale: Locale }) {
           </ul>
         </nav>
         <nav aria-label={t("collections")}>
-          <h2 className="text-sm font-semibold text-ink-900">{t("collections")}</h2>
-          <ul className="mt-3 grid gap-x-4 gap-y-2 text-sm sm:grid-cols-2">
+          <h2 className={HEADING}>{t("collections")}</h2>
+          <ul className="mt-4 grid gap-x-4 gap-y-2.5 text-sm sm:grid-cols-2">
             {collections.map((collection) => (
               <li key={collection.slug}>
                 <Link href={localizePath(locale, collectionPath(collection.slug))} className={LINK}>
@@ -62,8 +69,8 @@ export async function SiteFooter({ locale }: { locale: Locale }) {
           </ul>
         </nav>
       </div>
-      <div className="border-t border-neutral-100">
-        <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-neutral-500 sm:px-6">{t("disclaimer")}</p>
+      <div className="border-t border-white/10">
+        <p className="mx-auto max-w-7xl px-4 py-6 text-xs leading-relaxed text-brand-200 sm:px-6">{t("disclaimer")}</p>
       </div>
     </footer>
   );

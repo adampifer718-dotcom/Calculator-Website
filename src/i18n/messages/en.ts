@@ -84,7 +84,7 @@ const en = {
     payTitle: "Hourly to salary pay calculator",
     payLead:
       "Convert any pay rate into hourly, daily, weekly, biweekly, monthly and annual earnings. Adjust your working schedule for a result that fits your real work year.",
-    highlights: { instant: "Instant results", currencies: "{count} currencies", noSignup: "No sign-up" },
+    highlights: { free: "100% free", instant: "Instant results", currencies: "{count} currencies", noSignup: "No sign-up" },
     directoryKicker: "Everything in one place",
     directory: "Complete calculator directory",
     directoryLink: "Search and filter all {count} calculators",

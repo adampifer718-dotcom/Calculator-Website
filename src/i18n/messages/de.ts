@@ -84,7 +84,7 @@ const de: Messages = {
     payTitle: "Rechner: Stundenlohn in Gehalt umrechnen",
     payLead:
       "Rechnen Sie jeden Lohnsatz in Stunden-, Tages-, Wochen-, Zweiwochen-, Monats- und Jahresverdienst um. Passen Sie Ihre Arbeitszeiten an, damit das Ergebnis zu Ihrem tatsächlichen Arbeitsjahr passt.",
-    highlights: { instant: "Sofortige Ergebnisse", currencies: "{count} Währungen", noSignup: "Ohne Anmeldung" },
+    highlights: { free: "100 % kostenlos", instant: "Sofortige Ergebnisse", currencies: "{count} Währungen", noSignup: "Ohne Anmeldung" },
     directoryKicker: "Alles an einem Ort",
     directory: "Vollständiges Rechnerverzeichnis",
     directoryLink: "Alle {count} Rechner durchsuchen und filtern",

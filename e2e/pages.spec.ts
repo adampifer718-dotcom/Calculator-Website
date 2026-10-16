@@ -32,7 +32,7 @@ test.describe("published pages", () => {
       expect(new URL(canonical!).pathname.replace(/\/$/, "") || "/", path).toBe(path.replace(/\/$/, "") || "/");
       expect(await page.locator('meta[property="og:url"]').getAttribute("content"), path).toBe(canonical);
       expect(await page.locator('meta[property="og:title"]').getAttribute("content"), path).toBeTruthy();
-      expect(await page.locator('meta[property="og:site_name"]').getAttribute("content"), path).toBe("CalcNest");
+      expect(await page.locator('meta[property="og:site_name"]').getAttribute("content"), path).toBe("HourlyToSalaryCalculator.net");
       await expect(page.locator("h1"), path).toHaveCount(1);
       expect(await page.locator('meta[name="robots"][content*="noindex"]').count(), path).toBe(0);
       for (const json of await page.locator('script[type="application/ld+json"]').allTextContents()) {

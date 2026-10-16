@@ -1,29 +1,78 @@
 @import "tailwindcss";
 
+/*
+ * HourlyToSalaryCalculator.net design tokens (see docs/design-system.md).
+ * Palette derived from the pastel reference: powder blue, peach, blush, sky,
+ * butter and cream. Text and controls use deepened shades for crisp contrast.
+ */
 @theme {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
 
-  /* Brand accent: maroon. 600-700 are used for buttons and links on white. */
-  --color-brand-50: #fbf4f5;
-  --color-brand-100: #f6e5e8;
-  --color-brand-200: #ebc5cc;
-  --color-brand-300: #da98a3;
-  --color-brand-400: #c2606f;
-  --color-brand-500: #a63a4b;
-  --color-brand-600: #8c1f32;
-  --color-brand-700: #75182a;
-  --color-brand-800: #5f1423;
-  --color-brand-900: #4a101c;
-  --color-brand-950: #2b0810;
+  /* Primary: deepened powder blue. 600 = buttons (6.0:1 on white), 700 = links, 800/900 = header and bands. */
+  --color-brand-50: #f3f6fb;
+  --color-brand-100: #e5edf7;
+  --color-brand-200: #ccdaec;
+  --color-brand-300: #a9bfd8;
+  --color-brand-400: #7e9bc4;
+  --color-brand-500: #5679ae;
+  --color-brand-600: #3f6496;
+  --color-brand-700: #35588a;
+  --color-brand-800: #2c4a75;
+  --color-brand-900: #22395c;
+  --color-brand-950: #172843;
 
-  /* Ink: near-black text and dark surfaces. */
-  --color-ink-50: #f5f5f5;
-  --color-ink-100: #e9e9e9;
-  --color-ink-600: #3d3d3d;
-  --color-ink-700: #2b2b2b;
-  --color-ink-800: #1c1c1c;
-  --color-ink-900: #111111;
-  --color-ink-950: #080808;
+  /* Secondary accent: peach to coral. 400 = peach fills, 600 = coral, 700 = accent text (5.7:1). */
+  --color-accent-50: #fdf5f1;
+  --color-accent-100: #fbe8e0;
+  --color-accent-200: #f6d2c4;
+  --color-accent-300: #eeb49f;
+  --color-accent-400: #e8a48e;
+  --color-accent-500: #dc8467;
+  --color-accent-600: #c2654c;
+  --color-accent-700: #a84a33;
+  --color-accent-800: #8a3b28;
+
+  /* Pastel tints from the reference. */
+  --color-cream: #faf7f3;
+  --color-blush: #f7e6e4;
+  --color-sky: #cde8f1;
+  --color-butter: #f4d58a;
+  --color-mint: #d9efe4;
+  --color-line: #ece5dc;
+
+  /* Ink: navy charcoal text and dark surfaces. */
+  --color-ink-50: #f5f6f8;
+  --color-ink-100: #e8eaef;
+  --color-ink-600: #3a4152;
+  --color-ink-700: #2a3040;
+  --color-ink-800: #232938;
+  --color-ink-900: #1e2433;
+  --color-ink-950: #141824;
+
+  /* Cool neutrals tuned to the ink colour (overrides Tailwind's neutral scale). */
+  --color-neutral-50: #f7f8fa;
+  --color-neutral-100: #eef0f4;
+  --color-neutral-200: #e3e6ec;
+  --color-neutral-300: #cdd2db;
+  --color-neutral-400: #9aa1af;
+  --color-neutral-500: #626a7c;
+  --color-neutral-600: #545c6d;
+  --color-neutral-700: #3e4556;
+  --color-neutral-800: #2a3040;
+  --color-neutral-900: #1e2433;
+
+  /* Status colours (text on white or on their tint). */
+  --color-success: #2e7d5b;
+  --color-success-tint: #e3f3ea;
+  --color-warning: #9a5b00;
+  --color-warning-tint: #fdf1da;
+  --color-danger: #c2353f;
+  --color-danger-tint: #fce8e9;
+
+  --radius-card: 1.25rem;
+  --radius-panel: 1.75rem;
+  --shadow-soft: 0 1px 2px rgb(30 36 51 / 0.04), 0 12px 32px -16px rgb(30 36 51 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(30 36 51 / 0.05), 0 18px 40px -18px rgb(44 74 117 / 0.32);
 }
 
 :root {
@@ -36,27 +85,74 @@ html {
 }
 
 body {
-  background: #ffffff;
+  background: var(--color-cream);
   color: var(--color-ink-900);
+  font-feature-settings: "ss01", "cv11";
 }
 
 /* Urdu and Arabic: Arabic-script font first, Latin fallback for numbers, units and code. */
 html[dir="rtl"] body {
-  font-family: var(--font-arabic), var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-arabic), var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   line-height: 1.75;
 }
 
 @utility card {
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-line);
   background: white;
-  box-shadow: 0 1px 2px rgb(17 17 17 / 0.04), 0 4px 16px -8px rgb(17 17 17 / 0.1);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Interactive card: lifts slightly and tints its border on hover. */
+@utility card-link {
+  transition:
+    transform 150ms ease-out,
+    box-shadow 150ms ease-out,
+    border-color 150ms ease-out;
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-brand-200);
+    box-shadow: var(--shadow-lift);
+  }
 }
 
 @utility focus-ring {
   &:focus-visible {
     outline: 2px solid var(--color-brand-600);
     outline-offset: 2px;
+  }
+}
+
+/* Focus ring for controls on the dark header, footer and bands. */
+@utility focus-ring-light {
+  &:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+}
+
+/* Small uppercase label above section titles. */
+@utility eyebrow {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Primary pill button. */
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-brand-600);
+  color: white;
+  font-weight: 700;
+  transition: background-color 150ms ease-out;
+  &:hover {
+    background: var(--color-brand-700);
   }
 }
 
@@ -74,8 +170,17 @@ html[dir="rtl"] body {
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Arabic script is cursive: letter-spacing breaks the joins, and tight leading clips diacritics. */
+html[dir="rtl"] :is(h1, h2, h3, .eyebrow, [class*="tracking-"]) {
+  letter-spacing: 0;
+}
+html[dir="rtl"] h1 {
+  line-height: 1.35;
 }
 
 /* Long compound words (German "Standardabweichungsrechner") must wrap on narrow phones. */

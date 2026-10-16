@@ -16,7 +16,7 @@ export function WorkedExamples({ calculator }: { calculator: LocalizedCalculator
         const currency = (engine.currencyField && raw[engine.currencyField]) || DEFAULT_CURRENCY;
         return (
           <article key={example.title} className="card flex flex-col p-5">
-            <h3 className="font-semibold text-ink-900">{localized.title}</h3>
+            <h3 className="font-bold text-ink-900">{localized.title}</h3>
             <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-sm">
               {describeInputs(engine, example.inputs).map((input) => (
                 <div key={input.label} className="contents">
@@ -27,7 +27,7 @@ export function WorkedExamples({ calculator }: { calculator: LocalizedCalculator
                 </div>
               ))}
             </dl>
-            <ol className="mt-4 space-y-1 border-s-2 border-brand-200 ps-3 font-mono text-[0.8125rem] text-neutral-700">
+            <ol className="mt-4 space-y-1 rounded-2xl bg-cream px-4 py-3 font-mono text-[0.8125rem] text-neutral-700 ring-1 ring-line">
               {localized.steps.map((step) => (
                 <li key={step} dir="auto">
                   {step}
@@ -37,7 +37,7 @@ export function WorkedExamples({ calculator }: { calculator: LocalizedCalculator
             {evaluation.ok && (
               <p className="mt-auto pt-4 text-sm text-neutral-600">
                 {evaluation.result.primary.label}:{" "}
-                <strong className="text-base font-semibold text-brand-800 tabular-nums">
+                <strong className="text-lg font-extrabold text-brand-800 tabular-nums">
                   <bdi dir={resultDir(evaluation.result.primary.value)}>{formatResultValue(evaluation.result.primary.value, currency, locale)}</bdi>
                 </strong>
               </p>

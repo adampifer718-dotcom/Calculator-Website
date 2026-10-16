@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
-import { Geist, Noto_Naskh_Arabic } from "next/font/google";
+import { Noto_Naskh_Arabic, Plus_Jakarta_Sans } from "next/font/google";
 import { calculatorLocales, readyLocales } from "@/calculators/localize";
 import { CALCULATORS } from "@/calculators/registry";
 import { LocaleSuggestion } from "@/components/layout/LocaleSuggestion";
@@ -12,8 +12,8 @@ import { layoutLocale } from "@/i18n/server";
 import { SITE, SITE_INDEXABLE, SITE_URL } from "@/lib/site";
 import "../globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
   display: "swap",
 });
@@ -37,7 +37,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("meta");
   return {
     metadataBase: new URL(SITE_URL),
-    title: { default: `${SITE.name} – ${t("tagline")}`, template: `%s | ${SITE.name}` },
+    // No brand suffix: the site name is long and search engines show it from the WebSite structured data.
+    title: { default: `${SITE.name} – ${t("tagline")}`, template: "%s" },
     description: t("siteDescription"),
     applicationName: SITE.name,
     openGraph: { type: "website", siteName: SITE.name, locale: LOCALE_INFO[locale].og },
@@ -49,7 +50,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#2c4a75",
   width: "device-width",
   initialScale: 1,
 };
@@ -63,8 +64,8 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
   const availability = Object.fromEntries(CALCULATORS.map((c) => [c.slug, calculatorLocales(c)])) as Record<string, Locale[]>;
 
   return (
-    <html lang={locale} dir={dir} className={`${geistSans.variable} ${dir === "rtl" ? notoArabic.variable : ""} antialiased`}>
-      <body className="flex min-h-screen flex-col font-sans">
+    <html lang={locale} dir={dir} className={`${jakarta.variable} ${dir === "rtl" ? notoArabic.variable : ""} antialiased`}>
+      <body className="flex min-h-screen flex-col bg-cream font-sans">
         <NextIntlClientProvider locale={locale} messages={messages} timeZone="UTC">
           <a
             href="#main"
@@ -77,7 +78,7 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
           <main id="main" className="flex-1">
             {children}
           </main>
-          <SiteFooter locale={locale} />
+          <SiteFooter locale={locale} availability={availability} />
         </NextIntlClientProvider>
       </body>
     </html>

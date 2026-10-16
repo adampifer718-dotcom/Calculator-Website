@@ -42,7 +42,7 @@ export default async function CalculatorsPage() {
   }));
 
   return (
-    <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-6">
+    <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6">
       <Breadcrumbs
         crumbs={[
           { name: tc("home"), href: href("/") },
@@ -50,7 +50,7 @@ export default async function CalculatorsPage() {
         ]}
       />
       <header className="mt-5 mb-8 max-w-3xl">
-        <h1 className="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">{t("title")}</h1>
+        <h1 className="text-3xl font-extrabold tracking-[-0.025em] text-ink-900 sm:text-4xl">{t("title")}</h1>
         <p className="mt-3 text-lg text-neutral-600">{t("lead", { count: entries.length, categories: categories.length, collections: collections.length })}</p>
       </header>
       <Suspense fallback={<DirectoryGroups groups={groups} />}>

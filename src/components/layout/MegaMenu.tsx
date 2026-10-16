@@ -51,7 +51,7 @@ export function MegaMenu({ groups, collections, total, allHref }: { groups: NavG
         aria-expanded={open}
         aria-controls="mega-menu"
         onClick={() => setOpen((v) => !v)}
-        className="focus-ring inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 hover:text-ink-900 aria-expanded:bg-brand-50 aria-expanded:text-brand-800"
+        className="focus-ring-light inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold text-white/90 transition-colors hover:bg-white/10 hover:text-white aria-expanded:bg-white aria-expanded:text-brand-800"
       >
         {t("calculators")}
         <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className={`size-4 transition-transform ${open ? "rotate-180" : ""}`}>
@@ -59,10 +59,10 @@ export function MegaMenu({ groups, collections, total, allHref }: { groups: NavG
         </svg>
       </button>
       {open && (
-        <div id="mega-menu" className="absolute inset-x-0 top-16 border-b border-neutral-200 bg-white shadow-lg">
-          <div className="mx-auto grid max-h-[calc(100vh-5rem)] max-w-6xl gap-8 overflow-y-auto px-6 py-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,1fr)]">
+        <div id="mega-menu" className="absolute inset-x-0 top-16 border-b border-line bg-white shadow-lift">
+          <div className="mx-auto grid max-h-[calc(100vh-5rem)] max-w-7xl gap-8 overflow-y-auto px-6 py-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,1fr)]">
             <div>
-              <h2 className="mb-4 text-xs font-semibold tracking-wide text-neutral-500 uppercase">{t("categories")}</h2>
+              <h2 className="mb-4 eyebrow text-accent-700">{t("categories")}</h2>
               <ul className="grid gap-x-6 gap-y-5 lg:grid-cols-4">
                 {groups.map((group) => (
                   <li key={group.slug}>
@@ -104,7 +104,7 @@ export function MegaMenu({ groups, collections, total, allHref }: { groups: NavG
               </p>
             </div>
             <div className="border-neutral-100 lg:border-s lg:ps-6">
-              <h2 className="mb-4 text-xs font-semibold tracking-wide text-neutral-500 uppercase">{t("collections")}</h2>
+              <h2 className="mb-4 eyebrow text-accent-700">{t("collections")}</h2>
               <ul className="space-y-1.5 text-sm">
                 {collections.map((collection) => (
                   <li key={collection.href}>

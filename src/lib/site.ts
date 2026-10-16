@@ -67,7 +67,7 @@ export const SITE_URL = resolveSiteUrl(ENV);
 export const SITE_INDEXABLE = isIndexable(ENV);
 
 export const SITE = {
-  name: "CalcNest",
+  name: "HourlyToSalaryCalculator.net",
   tagline: "Clear, accurate calculators with the formulas shown",
   description:
     "Free online calculators for salary, pay, percentages and investment returns. Every result runs in your browser and shows the formula and assumptions behind it.",

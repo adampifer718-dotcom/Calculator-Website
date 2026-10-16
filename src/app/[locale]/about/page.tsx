@@ -30,13 +30,13 @@ export default async function AboutPage() {
           { name: tc("aboutMethodology"), href: href("/about") },
         ]}
       />
-      <h1 className="mt-5 text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">{t("title")}</h1>
-      <div className="prose-calc mt-6 space-y-8">
+      <h1 className="mt-5 text-3xl font-extrabold tracking-[-0.025em] text-ink-900 sm:text-4xl">{t("title")}</h1>
+      <div className="prose-calc card mt-6 space-y-8 p-6 sm:p-8">
         <section>
           <p>{t("intro", { site: SITE.name, count: calculatorsForLocale(locale).length })}</p>
         </section>
         <section aria-labelledby="principles">
-          <h2 id="principles" className="mb-3 text-xl font-semibold text-ink-900">
+          <h2 id="principles" className="mb-3 text-xl font-extrabold tracking-tight text-ink-900">
             {t("principles")}
           </h2>
           <ul className="list-disc space-y-2 ps-5">
@@ -46,13 +46,13 @@ export default async function AboutPage() {
           </ul>
         </section>
         <section aria-labelledby="limits">
-          <h2 id="limits" className="mb-3 text-xl font-semibold text-ink-900">
+          <h2 id="limits" className="mb-3 text-xl font-extrabold tracking-tight text-ink-900">
             {t("limitations")}
           </h2>
           <p>{t("limitationsBody")}</p>
         </section>
         <section aria-labelledby="translations">
-          <h2 id="translations" className="mb-3 text-xl font-semibold text-ink-900">
+          <h2 id="translations" className="mb-3 text-xl font-extrabold tracking-tight text-ink-900">
             {t("translations")}
           </h2>
           <p>{t("translationsBody")}</p>

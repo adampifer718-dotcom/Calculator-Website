@@ -20,11 +20,11 @@ export async function Breadcrumbs({ crumbs }: { crumbs: readonly Crumb[] }) {
                   </svg>
                 )}
                 {last ? (
-                  <span aria-current="page" className="font-medium text-ink-900">
+                  <span aria-current="page" className="font-semibold text-ink-900">
                     {crumb.name}
                   </span>
                 ) : (
-                  <Link href={crumb.href} className="focus-ring rounded hover:text-brand-700 hover:underline">
+                  <Link href={crumb.href} className="focus-ring rounded font-medium hover:text-brand-700 hover:underline">
                     {crumb.name}
                   </Link>
                 )}

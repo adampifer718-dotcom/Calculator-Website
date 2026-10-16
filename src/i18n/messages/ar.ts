@@ -81,7 +81,7 @@ const ar: Messages = {
     payTitle: "حاسبة تحويل الأجر بالساعة إلى راتب",
     payLead:
       "حوّل أي معدل أجر إلى دخل بالساعة واليوم والأسبوع وكل أسبوعين والشهر والسنة. واضبط جدول عملك لتحصل على نتيجة تناسب سنة عملك الفعلية.",
-    highlights: { instant: "نتائج فورية", currencies: "{count} عملة", noSignup: "دون تسجيل" },
+    highlights: { free: "مجاني 100%", instant: "نتائج فورية", currencies: "{count} عملة", noSignup: "دون تسجيل" },
     directoryKicker: "كل شيء في مكان واحد",
     directory: "دليل الحاسبات الكامل",
     directoryLink: "ابحث في جميع الحاسبات ({count}) وصنّفها",

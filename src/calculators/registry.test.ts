@@ -18,8 +18,8 @@ describe("calculator registry", () => {
 
   it.each(CALCULATORS.map((c) => [c.slug, c] as const))("%s has valid SEO fields", (slug, calculator) => {
     expect(slug).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/);
-    // Title template adds " | CalcNest" (11 characters).
-    expect(calculator.metaTitle.length + 11).toBeLessThanOrEqual(70);
+    // Titles are used as is (no brand suffix) and should fit a search result.
+    expect(calculator.metaTitle.length).toBeLessThanOrEqual(60);
     expect(calculator.metaDescription.length).toBeGreaterThanOrEqual(70);
     expect(calculator.metaDescription.length).toBeLessThanOrEqual(160);
     expect(calculator.updated).toMatch(/^\d{4}-\d{2}-\d{2}$/);

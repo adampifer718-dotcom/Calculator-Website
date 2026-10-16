@@ -56,7 +56,7 @@ export function MobileMenu({ groups, collections, locale }: { groups: NavGroup[]
         aria-expanded={open}
         aria-controls="mobile-menu"
         onClick={() => setOpen((v) => !v)}
-        className="focus-ring inline-flex size-10 items-center justify-center rounded-lg text-ink-900 hover:bg-neutral-100"
+        className="focus-ring-light inline-flex size-10 items-center justify-center rounded-full text-white hover:bg-white/15 aria-expanded:bg-white aria-expanded:text-brand-800"
       >
         <span className="sr-only">{open ? t("closeMenu") : t("openMenu")}</span>
         <svg aria-hidden="true" viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -64,7 +64,7 @@ export function MobileMenu({ groups, collections, locale }: { groups: NavGroup[]
         </svg>
       </button>
       {open && (
-        <div id="mobile-menu" className="absolute inset-x-0 top-16 border-b border-neutral-200 bg-white px-4 pt-4 pb-6 shadow-lg sm:px-6">
+        <div id="mobile-menu" className="absolute inset-x-0 top-16 border-b border-line bg-white px-4 pt-4 pb-6 shadow-lift sm:px-6">
           <HeaderSearch id="mobile-search" label={t("menuSearch")} />
           <nav aria-label={t("mobile")} className="mt-4 max-h-[calc(100vh-11rem)] overflow-y-auto">
             <ul className="grid gap-1">
