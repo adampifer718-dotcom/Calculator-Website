@@ -117,3 +117,85 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`.
 None. Every published calculator is available in every language.
 
 Calculators in the backlog (`docs/calculator-backlog.md`) are not published in any language yet, so they have no translated pages.
+
+## Unit converters
+
+72 converter pages under `/unit-converters/` plus 7 converters served by existing calculator pages (listed above).
+A converter page exists in a language only when its full content, including a name for every unit, is translated.
+
+| Converter | `ur` | `es` | `fr` | `de` | `ar` |
+| --- | --- | --- | --- | --- | --- |
+| Pressure Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Energy Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Dry Volume Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Power Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Force Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Time Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Angle Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Fuel Consumption Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Currency Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Case Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Number Base Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Angular Velocity Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Acceleration Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Angular Acceleration Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Density Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Specific Volume Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Moment of Inertia Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Moment of Force Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Torque Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Fuel Efficiency (Mass) Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Fuel Efficiency (Volume) Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Temperature Interval Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Thermal Expansion Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Thermal Resistance Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Thermal Conductivity Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Specific Heat Capacity Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Heat Density Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Heat Flux Density Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Heat Transfer Coefficient Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Flow Rate Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Mass Flow Rate Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Molar Flow Rate Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Mass Flux Density Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Molar Concentration Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Solution Concentration Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Dynamic Viscosity Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Kinematic Viscosity Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Surface Tension Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Permeability Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Luminance Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Luminous Intensity Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Illuminance Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Image Resolution Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Frequency Wavelength Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Charge Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Linear Charge Density Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Surface Charge Density Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Volume Charge Density Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Electric Current Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Linear Current Density Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Current Density Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Electric Field Strength Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Voltage Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Electric Resistance Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Electric Resistivity Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Electric Conductance Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Electric Conductivity Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Capacitance Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Inductance Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Magnetomotive Force Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Magnetic Field Strength Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Magnetic Flux Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Magnetic Flux Density Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Radiation Dose Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Radioactivity Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Radiation Exposure Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Absorbed Dose Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Metric Prefix Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Data Transfer Rate Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Sound Level Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Typography Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Lumber Volume Converter | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+Every converter page is available in every language.

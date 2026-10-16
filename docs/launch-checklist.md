@@ -120,6 +120,24 @@ These 24 rely on arithmetic or definitions only. Adding a reference would help r
 - **p-value:** shown to 6 significant figures, but the normal CDF is accurate to about 1 × 10⁻⁷ relative, so the 6th digit can differ in far tails.
 - **Date duration:** working days exclude the chosen weekend (Saturday–Sunday or Friday–Saturday), not public holidays.
 
+### 3.5 Unit converters (72 new pages, see `docs/unit-converters.md`)
+
+- **Source links:** all are unverified. They are URLs returned by web searches and were not opened from the build environment. Most converters cite NIST SP 811 Appendix B.8. Some also cite the BIPM SI Brochure, the BIPM SI prefixes page, the NIST constants and binary-prefix pages, the IUPAC Gold Book and one lighting glossary.
+- **Conventional or approximate values to confirm (marked "standard", not "exact"):**
+  - **Energy:** US therm = 1.054804 × 10⁸ J.
+  - **Luminous intensity:** international candle ≈ 1.019 cd; Hefner candle ≈ 0.903 international candle. The only source for these is a secondary glossary.
+  - **Lumber volume:** Hoppus foot = 1/0.7854 ft³.
+  - **Thermal resistance:** clo = 0.155 m²·K/W; tog = 0.1 m²·K/W.
+  - **Permeability:** darcy = 9.869233 × 10⁻¹³ m², the NIST value. The value computed from the definition is 9.8692327 × 10⁻¹³ m².
+- **Other assumptions:**
+  - The sound-in-air preset for wavelength is 343 m/s (20 °C, approximate).
+  - The neper uses the field-quantity convention: 1 Np = 20/ln 10 dB.
+  - % IACS uses 100 % = 58 MS/m.
+  - CGS magnetic factors use 4π from the pre-2019 definition of μ₀.
+- **Currency:** manual-rate mode only. No exchange-rate provider is configured, and no rate is shown as current.
+- **Translations:** converter content in Urdu, Spanish, French, German and Arabic was machine-drafted to the same rules as the calculators. It has **not** been reviewed by native speakers or subject specialists. Some unit names are transliterations; the Arabic agent also used singular unit names, as the existing Arabic calculators do.
+- **Medical disclaimer:** the radiology converters carry a "not medical or radiation-safety advice" assumption.
+
 ## 4. Professional review checklist
 
 | Calculator | Area | Mathematically tested | Professionally reviewed |

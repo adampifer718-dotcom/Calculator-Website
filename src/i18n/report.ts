@@ -1,6 +1,8 @@
 import { calculatorLocales, isLocaleReady, readyLocales } from "@/calculators/localize";
 import { PAY_CONVERTER_TEXT } from "@/calculators/pay-converter/translations";
 import { CALCULATORS } from "@/calculators/registry";
+import { converterLocales, localizeConverter } from "@/converters/catalog";
+import { ALL_CONVERTERS } from "@/converters/specs";
 import { CALC_COMMON } from "./calc";
 import { MESSAGE_LOCALES } from "./messages";
 import { LOCALES, LOCALE_INFO } from "./config";
@@ -52,6 +54,22 @@ export function translationReport(): string {
     "Calculators in the backlog (`docs/calculator-backlog.md`) are not published in any language yet, so they have no translated pages.",
     "",
   );
+
+  const own = ALL_CONVERTERS.filter((c) => !c.calculatorSlug);
+  lines.push("## Unit converters", "");
+  lines.push(
+    `${own.length} converter pages under \`/unit-converters/\` plus ${ALL_CONVERTERS.length - own.length} converters served by existing calculator pages (listed above).`,
+    "A converter page exists in a language only when its full content, including a name for every unit, is translated.",
+    "",
+  );
+  lines.push(`| Converter | ${others.map((l) => `\`${l}\``).join(" | ")} |`);
+  lines.push(`| --- | ${others.map(() => "---").join(" | ")} |`);
+  for (const spec of own) {
+    const locales = converterLocales(spec);
+    lines.push(`| ${localizeConverter(spec, "en")?.content.title ?? spec.id} | ${others.map((l) => mark(locales.includes(l))).join(" | ")} |`);
+  }
+  const missingConverters = others.flatMap((locale) => own.filter((c) => !converterLocales(c).includes(locale)).map((c) => `- \`${locale}\`: ${c.id}`));
+  lines.push("", missingConverters.length === 0 ? "Every converter page is available in every language." : missingConverters.join("\n"), "");
   return lines.join("\n");
 }
 
