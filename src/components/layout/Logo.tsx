@@ -25,8 +25,8 @@ export function Wordmark({ tone = "dark", className = "" }: { tone?: "dark" | "l
   const soft = tone === "light" ? "text-brand-100" : "text-neutral-600";
   const tld = tone === "light" ? "text-accent-300" : "text-accent-700";
   return (
-    <span dir="ltr" lang="en" className={`flex items-center gap-2.5 ${className}`}>
-      <LogoMark />
+    <span dir="ltr" lang="en" className={`flex items-center gap-2 sm:gap-2.5 ${className}`}>
+      <LogoMark className="size-8 sm:size-9" />
       <span className="sr-only">{SITE.name}</span>
       <span aria-hidden="true" className="flex flex-col leading-none tracking-tight sm:flex-row sm:items-baseline">
         <span className={`text-[15px] font-extrabold sm:text-lg ${strong}`}>HourlyToSalary</span>

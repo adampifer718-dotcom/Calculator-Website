@@ -180,7 +180,7 @@ export default async function HomePage() {
             <h2 id="pay-calculator-heading" className="text-xl font-extrabold tracking-tight sm:text-2xl">
               {t("payTitle")}
             </h2>
-            <span className="rounded-full bg-white/12 px-3 py-1 text-xs font-bold text-accent-300 ring-1 ring-white/20 sm:ms-auto">{t("payBadge")}</span>
+            <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white ring-1 ring-white/25 sm:ms-auto">{t("payBadge")}</span>
           </div>
           <div className="p-3 sm:p-7">
             <p className="max-w-3xl px-1 pt-1 text-neutral-600 sm:px-0 sm:pt-0">{t("payLead")}</p>
@@ -345,7 +345,7 @@ export default async function HomePage() {
       </section>
 
       {/* Trust band above the footer. */}
-      <section aria-label={t("trustHeading", { site: SITE.name })} className="mx-auto -mb-10 max-w-7xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid items-center gap-6 rounded-[1.75rem] bg-brand-800 px-6 py-7 text-white sm:grid-cols-2 lg:grid-cols-[repeat(3,minmax(0,1fr))_minmax(0,1.2fr)] lg:px-8">
           {[
             { label: t("privateTitle"), icon: "M10 2l7 3v5c0 4.4-3 7.4-7 8-4-.6-7-3.6-7-8V5l7-3zM7 10l2 2 4-4" },
@@ -372,7 +372,7 @@ export default async function HomePage() {
             <ArrowIcon />
           </Link>
         </div>
-      </section>
+      </div>
       <JsonLd data={websiteJsonLd({ locale, path: href("/"), description: tm("siteDescription") })} />
     </>
   );

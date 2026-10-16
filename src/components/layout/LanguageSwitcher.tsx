@@ -20,12 +20,31 @@ interface Props {
   marker?: boolean;
 }
 
-function GlobeIcon() {
+/** Country flag shown beside each language (decorative; the language name is the accessible label). */
+const FLAGS: Record<Locale, string> = {
+  ar: "🇸🇦",
+  en: "🇺🇸",
+  ur: "🇵🇰",
+  es: "🇪🇸",
+  fr: "🇫🇷",
+  de: "🇩🇪",
+};
+
+/**
+ * Native emoji flag in a fixed-size frame, so rows stay aligned whether the
+ * system draws a flag or (on Windows) the two regional letters instead.
+ */
+function Flag({ locale, size = "md" }: { locale: Locale; size?: "sm" | "md" }) {
   return (
-    <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" className="size-[18px] shrink-0">
-      <circle cx="10" cy="10" r="7.5" />
-      <path d="M2.5 10h15M10 2.5c2.2 2.3 2.2 12.7 0 15M10 2.5c-2.2 2.3-2.2 12.7 0 15" />
-    </svg>
+    <span
+      aria-hidden="true"
+      className={`inline-flex shrink-0 items-center justify-center overflow-hidden rounded-md bg-neutral-100 leading-none ring-1 ring-black/5 ${
+        size === "sm" ? "h-[18px] w-6 text-[15px]" : "h-6 w-8 text-[20px]"
+      }`}
+      style={{ fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla", sans-serif' }}
+    >
+      {FLAGS[locale]}
+    </span>
   );
 }
 
@@ -114,13 +133,13 @@ export function LanguageSwitcher({ locale, locales, availability, variant = "ful
         aria-label={t("change", { language: current.nativeName })}
         onClick={() => (open ? setOpen(false) : openMenu(false))}
         onKeyDown={onButtonKeyDown}
-        className={`${tone === "dark" ? "focus-ring-light" : "focus-ring"} inline-flex h-10 items-center gap-1.5 rounded-full border px-3 text-sm font-semibold transition-colors ${
+        className={`${tone === "dark" ? "focus-ring-light" : "focus-ring"} inline-flex h-10 items-center gap-1 rounded-full border px-2.5 text-sm sm:gap-1.5 sm:px-3 font-semibold transition-colors ${
           tone === "dark"
             ? "border-white/25 bg-white/10 text-white hover:bg-white/20 aria-expanded:bg-white aria-expanded:text-brand-800"
             : "border-neutral-300 bg-white text-ink-800 hover:border-brand-300 hover:text-brand-800 aria-expanded:border-brand-300 aria-expanded:bg-brand-50"
         }`}
       >
-        <GlobeIcon />
+        <Flag locale={locale} size="sm" />
         {variant === "full" ? (
           <span lang={locale}>{current.nativeName}</span>
         ) : (
@@ -137,7 +156,7 @@ export function LanguageSwitcher({ locale, locales, availability, variant = "ful
           id={listId}
           aria-label={t("label")}
           onKeyDown={onListKeyDown}
-          className={`absolute end-0 z-50 w-60 overflow-hidden rounded-2xl border border-neutral-200 bg-white p-1.5 shadow-lift ${placement === "top" ? "bottom-full mb-2" : "top-full mt-2"}`}
+          className={`absolute end-0 z-50 w-64 max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-neutral-200 bg-white p-1.5 shadow-lift ${placement === "top" ? "bottom-full mb-2" : "top-full mt-2"}`}
         >
           {items.map(({ target, href, exists }, index) => {
             const info = LOCALE_INFO[target];
@@ -154,16 +173,22 @@ export function LanguageSwitcher({ locale, locales, availability, variant = "ful
                   aria-current={active ? "true" : undefined}
                   title={exists ? undefined : t("untranslated", { language: info.nativeName })}
                   onClick={() => rememberLocale(target)}
-                  className="focus-ring flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-sm text-ink-900 hover:bg-neutral-100 focus:bg-neutral-100 aria-[current=true]:bg-brand-50 aria-[current=true]:font-semibold aria-[current=true]:text-brand-800"
+                  className="focus-ring flex items-center gap-3 rounded-xl px-2.5 py-2 text-sm text-ink-900 transition-colors hover:bg-neutral-100 focus:bg-neutral-100 aria-[current=true]:bg-brand-50 aria-[current=true]:text-brand-800"
                 >
-                  <span className="flex flex-col">
-                    <span dir={info.dir}>{info.nativeName}</span>
-                    <span className="text-xs font-normal text-neutral-500" lang="en" dir="ltr">
-                      {info.englishName}
+                  <Flag locale={target} />
+                  <span className="flex min-w-0 flex-1 flex-col">
+                    {/* Inline isolates keep each name's own direction while the row aligns to the page direction. */}
+                    <span className={`text-start font-semibold ${active ? "text-brand-800" : "text-ink-900"}`}>
+                      <bdi dir={info.dir}>{info.nativeName}</bdi>
+                    </span>
+                    <span className="text-start text-xs font-normal text-neutral-500">
+                      <bdi lang="en" dir="ltr">
+                        {info.englishName}
+                      </bdi>
                     </span>
                   </span>
                   {active && (
-                    <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="size-4 text-brand-700">
+                    <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="size-4 shrink-0 text-brand-700">
                       <path fillRule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.29a1 1 0 0 1 1.4 0Z" clipRule="evenodd" />
                     </svg>
                   )}
