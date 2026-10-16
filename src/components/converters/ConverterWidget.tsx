@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useId, useMemo, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { compatibleUnits, convert, findUnitSpec, type ConversionError } from "@/converters/engine";
 import { parseAmount } from "@/converters/input";
 import { BASES, CASE_MODES, DIGITS, convertCase, formatInBase, parseInBase, type CaseMode } from "@/converters/special";
@@ -9,6 +9,7 @@ import { getSpec } from "@/converters/specs";
 import type { LinearSpec, Params, UnitSystem } from "@/converters/types";
 import type { Locale } from "@/i18n/config";
 import { CURRENCY_CODES, getFormatter } from "@/lib/format";
+import { CURRENCY_NAMES } from "@/lib/currency-names";
 import { formatInputValue } from "@/lib/parse";
 
 /** Localized strings for one converter, passed from the server page. */
@@ -319,7 +320,6 @@ function CurrencyConverter() {
   const [from, setFrom] = useState("USD");
   const [to, setTo] = useState("EUR");
   const [rate, setRate] = useState("");
-  const display = useMemo(() => new Intl.DisplayNames([locale], { type: "currency" }), [locale]);
   const parsedAmount = parseAmount(amount, locale);
   const parsedRate = parseAmount(rate, locale);
   const valid = parsedAmount !== null && !Number.isNaN(parsedAmount) && parsedAmount >= 0 && parsedRate !== null && parsedRate > 0;
@@ -327,7 +327,7 @@ function CurrencyConverter() {
   const resultText = result === null ? "" : fmt.currency(result, to);
   const options = CURRENCY_CODES.map((code) => (
     <option key={code} value={code}>
-      {display.of(code) ?? code} ({code})
+      {CURRENCY_NAMES[locale]?.[code] ?? code} ({code})
     </option>
   ));
   return (
@@ -534,20 +534,20 @@ function NumberBaseConverter({ labels }: { labels: ConverterLabels }) {
       </div>
       <div className="border-t border-brand-100 bg-brand-50 px-5 py-6 sm:px-7" aria-live="polite">
         <h2 className="eyebrow text-brand-800">{t("base.results")}</h2>
-        <dl className="mt-3 grid gap-3">
+        <ul className="mt-3 grid gap-3">
           {targets.map((b) => {
             const text = parsed && parsed.ok ? formatInBase(parsed.value, b) : "";
             return (
-              <div key={b} className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2 rounded-2xl bg-white p-4 ring-1 ring-line">
-                <dt className="w-full text-xs font-semibold text-neutral-600 sm:w-44">{baseName(b)}</dt>
-                <dd className="min-w-0 flex-1 font-mono text-lg font-bold break-all text-ink-900" dir="ltr">
+              <li key={b} className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2 rounded-2xl bg-white p-4 ring-1 ring-line">
+                <span className="w-full text-xs font-semibold text-neutral-600 sm:w-44">{baseName(b)}</span>
+                <span className="min-w-0 flex-1 font-mono text-lg font-bold break-all text-ink-900" dir="ltr" data-base-value>
                   {text || "—"}
-                </dd>
+                </span>
                 <CopyButton text={text} label={t("copy")} copiedLabel={t("copied")} disabled={!text} />
-              </div>
+              </li>
             );
           })}
-        </dl>
+        </ul>
       </div>
     </div>
   );

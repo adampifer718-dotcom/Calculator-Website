@@ -128,7 +128,7 @@ test.describe("converter pages", () => {
     await expect(page.getByLabel("Converted text")).toHaveValue("HELLO WORLD");
     await open(page, "/unit-converters/number-base-converter");
     await page.getByLabel("Number", { exact: true }).fill("255");
-    await expect(page.locator("dd").first()).toHaveText("11111111");
+    await expect(page.locator("[data-base-value]").first()).toHaveText("11111111");
   });
 
   test("converter page is accessible and has no horizontal scroll", async ({ page }) => {
