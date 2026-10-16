@@ -1,0 +1,163 @@
+import type { ConverterContent } from "../../types";
+
+const NOT_ADVICE = "Ce convertisseur ne fait que changer d’unités. Il ne constitue pas un avis médical ni un conseil de radioprotection ; pour les limites de dose, l’évaluation d’une exposition ou les questions de traitement, suivez les indications de votre personne compétente en radioprotection, de votre médecin ou de l’autorité de réglementation.";
+
+/** Radiology converters in this language, keyed by converter id. */
+export const radiologyContent: Record<string, ConverterContent> = {
+  radiation: {
+    title: "Convertisseur de dose de rayonnement",
+    shortTitle: "Équivalent de dose",
+    summary: "Convertissez un équivalent de dose entre sieverts, millisieverts, microsieverts, rems et millirems.",
+    metaTitle: "Convertisseur de dose de rayonnement – Sv, mSv, µSv, rem",
+    metaDescription: "Convertissez un équivalent de dose ou une dose efficace entre sieverts, millisieverts, microsieverts, rems et millirems, sachant que 1 rem = 0,01 Sv exactement.",
+    keywords: ["sievert", "rem", "msv en mrem", "mrem en msv", "microsievert", "équivalent de dose", "dose efficace", "dose de rayonnement"],
+    intro: [
+      "L’équivalent de dose et la dose efficace décrivent l’effet biologique des rayonnements ionisants sur le corps. Les dosimètres, les comptes rendus d’imagerie médicale et les cartes de radioactivité naturelle les indiquent en millisieverts ou en microsieverts, tandis que certaines réglementations américaines utilisent encore le rem et le millirem.",
+      "Le sievert est l’unité SI et le rem son ancien équivalent : 1 rem vaut exactement 0,01 Sv, donc 1 mSv vaut 100 mrem.",
+    ],
+    formula: {
+      expression: "Sv = rem × 0,01    mSv = mrem ÷ 100",
+      explanation: "Le rem a été défini comme un centième de sievert : chaque conversion est donc un rapport exact en puissance de dix.",
+    },
+    assumptions: [
+      NOT_ADVICE,
+      "Les sieverts et les grays sont des grandeurs différentes : les sieverts intègrent des facteurs de pondération selon le type de rayonnement et le tissu, pas les grays. Utilisez le convertisseur de dose absorbée pour les grays et les rads.",
+      "Les débits de dose (par exemple en µSv/h) se convertissent de la même façon, à condition que les deux côtés utilisent la même unité de temps.",
+    ],
+    faqs: [
+      { question: "Combien de millirems fait 1 millisievert ?", answer: "1 mSv vaut exactement 100 mrem, et 1 mrem vaut 0,01 mSv (10 µSv)." },
+      { question: "Combien de rems y a-t-il dans un sievert ?", answer: "1 Sv vaut exactement 100 rem." },
+      { question: "Peut-on convertir des sieverts en grays ?", answer: "Pas avec un facteur fixe. Les sieverts pondèrent la dose absorbée en grays selon le type de rayonnement et le tissu exposé : la relation dépend donc de la situation." },
+    ],
+    units: {
+      sv: "Sieverts",
+      csv: "Centisieverts",
+      msv: "Millisieverts",
+      usv: "Microsieverts",
+      nsv: "Nanosieverts",
+      rem: "Rems",
+      mrem: "Millirems",
+      urem: "Microrems",
+    },
+    sourcesUsedFor: ["Facteur de conversion du rem en sievert.", "Définition du sievert."],
+  },
+  "radiation-activity": {
+    title: "Convertisseur de radioactivité",
+    shortTitle: "Radioactivité",
+    summary: "Convertissez l’activité d’une source radioactive entre becquerels, curies, rutherfords et désintégrations par seconde ou par minute.",
+    metaTitle: "Convertisseur de radioactivité – Bq, MBq, GBq, Ci, mCi, µCi",
+    metaDescription: "Convertissez une activité entre becquerels, kilo-, méga- et gigabecquerels, curies, millicuries, microcuries, picocuries et désintégrations par minute.",
+    keywords: ["becquerel", "curie", "mci en mbq", "mbq en mci", "picocurie", "radioactivité", "activité", "désintégrations par minute"],
+    intro: [
+      "L’activité est le nombre d’atomes d’un échantillon radioactif qui se désintègrent chaque seconde. En médecine nucléaire, les doses sont prescrites en mégabecquerels ou en millicuries, le radon dans les habitations est mesuré en becquerels ou en picocuries par litre, et les compteurs de laboratoire affichent souvent des désintégrations par minute.",
+      "Un becquerel correspond à une désintégration par seconde. Le curie, fondé sur l’activité d’un gramme de radium, est fixé à exactement 37 milliards de becquerels.",
+    ],
+    formula: {
+      expression: "Bq = Ci × 3,7 × 10¹⁰    1 mCi = 37 MBq",
+      explanation: "Le curie est défini comme exactement 3,7 × 10¹⁰ Bq, et 1 dpm correspond à une désintégration par minute, soit 1/60 Bq.",
+    },
+    assumptions: [
+      NOT_ADVICE,
+      "L’activité mesure des désintégrations, pas une dose : une même activité peut donner des doses très différentes selon le radionucléide, la distance, le blindage et la durée.",
+      "Les concentrations comme le Bq/m³ ou le pCi/L se convertissent de la même façon, à condition que les deux côtés utilisent la même unité de volume.",
+    ],
+    faqs: [
+      { question: "Combien de mégabecquerels y a-t-il dans un millicurie ?", answer: "1 mCi vaut exactement 37 MBq ; 1 MBq vaut environ 0,027 mCi (27,03 µCi)." },
+      { question: "Comment convertir des pCi/L en Bq/m³ ?", answer: "1 pCi vaut 0,037 Bq et 1 m³ vaut 1 000 L, donc 1 pCi/L vaut 37 Bq/m³. Le seuil d’action américain pour le radon, 4 pCi/L, correspond à 148 Bq/m³." },
+      { question: "Quelle différence entre dps et dpm ?", answer: "Les désintégrations par seconde sont égales aux becquerels ; les désintégrations par minute sont 60 fois plus petites, donc 1 Bq = 60 dpm." },
+    ],
+    units: {
+      bq: "Becquerels",
+      kbq: "Kilobecquerels",
+      mbq: "Mégabecquerels",
+      gbq: "Gigabecquerels",
+      tbq: "Térabecquerels",
+      pbq: "Pétabecquerels",
+      kci: "Kilocuries",
+      ci: "Curies",
+      mci: "Millicuries",
+      uci: "Microcuries",
+      nci: "Nanocuries",
+      pci: "Picocuries",
+      rd: "Rutherfords",
+      dps: "Désintégrations par seconde",
+      dpm: "Désintégrations par minute",
+    },
+    sourcesUsedFor: ["Facteur de conversion du curie en becquerel.", "Définition du becquerel."],
+  },
+  "radiation-exposure": {
+    title: "Convertisseur d’exposition aux rayonnements",
+    shortTitle: "Exposition aux rayonnements",
+    summary: "Convertissez une exposition aux rayons X et gamma entre röntgens, milliröntgens et coulombs par kilogramme.",
+    metaTitle: "Convertisseur d’exposition aux rayonnements – R, mR, C/kg",
+    metaDescription: "Convertissez une exposition aux rayonnements entre röntgens, milliröntgens, microröntgens et coulombs par kilogramme, sachant que 1 R = 2,58 × 10⁻⁴ C/kg.",
+    keywords: ["röntgen", "milliröntgen", "coulomb par kilogramme", "r en c/kg", "exposition aux rayonnements", "radiamètre", "mr/h"],
+    intro: [
+      "L’exposition mesure la capacité des rayons X ou gamma à ioniser l’air : la charge électrique qu’ils libèrent dans chaque kilogramme d’air. Les anciens radiamètres et les instruments de protection civile affichent des röntgens ou des milliröntgens par heure.",
+      "Le SI exprime l’exposition en coulombs par kilogramme. Le röntgen est fixé à exactement 2,58 × 10⁻⁴ C/kg.",
+    ],
+    formula: {
+      expression: "C/kg = R × 2,58 × 10⁻⁴",
+      explanation: "Un röntgen est l’exposition qui libère 2,58 × 10⁻⁴ coulomb de charge par kilogramme d’air sec.",
+    },
+    assumptions: [
+      NOT_ADVICE,
+      "L’exposition n’est définie que pour les rayons X et gamma dans l’air. Ce n’est ni une dose absorbée ni un équivalent de dose, et sa conversion en grays ou en sieverts dépend de l’énergie du rayonnement et du matériau.",
+      "Les débits d’exposition (par exemple en mR/h) se convertissent de la même façon, à condition que les deux côtés utilisent la même unité de temps.",
+    ],
+    faqs: [
+      { question: "Combien de coulombs par kilogramme fait un röntgen ?", answer: "Exactement 2,58 × 10⁻⁴ C/kg, soit 258 µC/kg. Un milliröntgen vaut 0,258 µC/kg." },
+      { question: "Combien de röntgens y a-t-il dans 1 C/kg ?", answer: "Environ 3 876 R, car 1 ÷ 0,000258 ≈ 3 875,97." },
+      { question: "Un röntgen est-il égal à un rem ou à un rad ?", answer: "Non. Ils mesurent des choses différentes. Pour des rayons gamma dans les tissus mous, 1 R donne environ 0,0087 à 0,0096 Gy, c’est pourquoi certaines règles approximatives les traitent comme similaires, mais il n’existe pas de conversion fixe." },
+    ],
+    units: {
+      c_kg: "Coulombs par kilogramme",
+      mc_kg: "Millicoulombs par kilogramme",
+      uc_kg: "Microcoulombs par kilogramme",
+      nc_kg: "Nanocoulombs par kilogramme",
+      kr: "Kiloröntgens",
+      r: "Röntgens",
+      mr: "Milliröntgens",
+      ur: "Microröntgens",
+    },
+    sourcesUsedFor: ["Facteur de conversion du röntgen en coulombs par kilogramme."],
+  },
+  "radiation-absorbed-dose": {
+    title: "Convertisseur de dose absorbée",
+    shortTitle: "Dose absorbée",
+    summary: "Convertissez une dose de rayonnement absorbée entre grays, centigrays, milligrays, rads et joules par kilogramme.",
+    metaTitle: "Convertisseur de dose absorbée – Gy, cGy, mGy, rad",
+    metaDescription: "Convertissez une dose absorbée entre grays, kilograys, centigrays, milligrays, rads, kilorads, ergs par gramme et joules par kilogramme.",
+    keywords: ["gray", "rad", "gy en rad", "rad en gy", "centigray", "milligray", "dose absorbée", "kilogray"],
+    intro: [
+      "La dose absorbée est l’énergie que les rayonnements ionisants déposent dans chaque kilogramme de matière. Les plans de radiothérapie utilisent les grays et les centigrays, les indices de dose en scanographie les milligrays, et la stérilisation des aliments et des dispositifs médicaux les kilograys.",
+      "Un gray vaut un joule par kilogramme. L’ancien rad vaut exactement un centième de gray, donc 1 cGy est égal à 1 rad.",
+    ],
+    formula: {
+      expression: "Gy = rad × 0,01    1 Gy = 1 J/kg",
+      explanation: "Le rad a été défini comme 100 ergs par gramme, soit exactement 0,01 J/kg.",
+    },
+    assumptions: [
+      NOT_ADVICE,
+      "Les grays ne mesurent que l’énergie déposée. Ce ne sont pas des sieverts, qui ajoutent une pondération selon le type de rayonnement et le tissu ; utilisez le convertisseur de dose de rayonnement pour les sieverts et les rems.",
+    ],
+    faqs: [
+      { question: "Combien de rads y a-t-il dans un gray ?", answer: "1 Gy vaut exactement 100 rad, et 1 rad vaut 0,01 Gy (1 cGy)." },
+      { question: "Pourquoi les comptes rendus de radiothérapie utilisent-ils les centigrays ?", answer: "Comme 1 cGy est égal à 1 rad, les centigrays permettent aux services de garder des nombres familiers : une fraction de 2 Gy fait 200 cGy, soit 200 rad." },
+      { question: "Un gray est-il égal à un sievert ?", answer: "Tous deux sont des joules par kilogramme, mais ce sont des grandeurs différentes. Un gray de rayonnement alpha a un effet biologique bien plus grand qu’un gray de rayons X, ce dont le sievert tient compte." },
+    ],
+    units: {
+      gy: "Grays",
+      kgy: "Kilograys",
+      cgy: "Centigrays",
+      mgy: "Milligrays",
+      ugy: "Micrograys",
+      j_kg: "Joules par kilogramme",
+      krad: "Kilorads",
+      rad: "Rads",
+      mrad: "Millirads",
+      erg_g: "Ergs par gramme",
+    },
+    sourcesUsedFor: ["Facteurs de conversion du rad et de l’erg par gramme en gray.", "Définition du gray."],
+  },
+};

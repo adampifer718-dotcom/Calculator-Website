@@ -15,6 +15,7 @@ const LINK = "focus-ring-light rounded-full px-4 py-2 transition-colors hover:bg
 export async function SiteHeader({ locale, availability }: { locale: Locale; availability: Record<string, Locale[]> }) {
   const t = await getTranslations("nav");
   const tc = await getTranslations("common");
+  const tu = await getTranslations("converters");
   const groups = navGroups(locale);
   const collections = navCollections(locale);
   const total = calculatorsForLocale(locale).length;
@@ -33,6 +34,11 @@ export async function SiteHeader({ locale, availability }: { locale: Locale; ava
             <li>
               <Link href={localizePath(locale, "/calculators")} className={LINK}>
                 {tc("allCalculators")}
+              </Link>
+            </li>
+            <li>
+              <Link href={localizePath(locale, "/unit-converters")} className={LINK}>
+                {tu("nav")}
               </Link>
             </li>
             <li>

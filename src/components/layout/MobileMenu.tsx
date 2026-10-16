@@ -22,6 +22,7 @@ function Chevron() {
 export function MobileMenu({ groups, collections, locale }: { groups: NavGroup[]; collections: NavCollection[]; locale: Locale }) {
   const t = useTranslations("nav");
   const tc = useTranslations("common");
+  const tu = useTranslations("converters");
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -118,6 +119,7 @@ export function MobileMenu({ groups, collections, locale }: { groups: NavGroup[]
               </li>
               {[
                 { name: tc("allCalculators"), href: localizePath(locale, "/calculators") },
+                { name: tu("nav"), href: localizePath(locale, "/unit-converters") },
                 { name: tc("about"), href: localizePath(locale, "/about") },
               ].map((link) => (
                 <li key={link.href}>

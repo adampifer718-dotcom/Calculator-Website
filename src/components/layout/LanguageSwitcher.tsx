@@ -120,7 +120,7 @@ export function LanguageSwitcher({ locale, locales, availability, variant = "ful
             {locale}
           </span>
         )}
-        <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className={`size-4 transition-transform ${tone === "dark" ? "opacity-80" : "text-neutral-500"} ${open ? "rotate-180" : ""}`}>
+        <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className={`size-4 transition-transform ${variant === "compact" ? "hidden min-[360px]:block" : ""} ${tone === "dark" ? "opacity-80" : "text-neutral-500"} ${open ? "rotate-180" : ""}`}>
           <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.06l3.71-3.83a.75.75 0 1 1 1.08 1.04l-4.25 4.4a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06Z" clipRule="evenodd" />
         </svg>
       </button>

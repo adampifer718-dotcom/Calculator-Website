@@ -1,7 +1,10 @@
 import { notFound } from "next/navigation";
 import { readyLocales } from "@/calculators/localize";
 import { searchEntriesFor } from "@/calculators/search-data";
+import { getTranslations } from "next-intl/server";
+import { converterPagesForLocale } from "@/converters/catalog";
 import { isLocale } from "@/i18n/config";
+import type { SearchEntry } from "@/lib/search";
 
 /** One static search index per language, loaded on demand by the search boxes. */
 export function generateStaticParams() {
@@ -11,5 +14,21 @@ export function generateStaticParams() {
 export async function GET(_request: Request, { params }: RouteContext<"/search-index/[locale]">) {
   const { locale } = await params;
   if (!isLocale(locale) || !readyLocales().includes(locale)) notFound();
-  return Response.json(searchEntriesFor(locale));
+  const t = await getTranslations({ locale, namespace: "converters" });
+  const calculators = searchEntriesFor(locale);
+  // Converter pages (converters served by existing calculators are already listed).
+  const converters: SearchEntry[] = converterPagesForLocale(locale).map((c, index) => ({
+    slug: c.spec.slug,
+    title: c.content.title,
+    summary: c.content.summary,
+    category: t("nav"),
+    categorySlug: "unit-converters",
+    collections: [],
+    keywords: [...c.content.keywords, ...Object.values(c.content.units)],
+    href: c.href,
+    popularRank: Number.MAX_SAFE_INTEGER,
+    addedOn: c.meta?.updated ?? "",
+    order: calculators.length + index,
+  }));
+  return Response.json([...calculators, ...converters]);
 }

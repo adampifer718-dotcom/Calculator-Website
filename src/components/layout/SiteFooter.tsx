@@ -15,6 +15,7 @@ export async function SiteFooter({ locale, availability }: { locale: Locale; ava
   const t = await getTranslations("footer");
   const tc = await getTranslations("common");
   const tl = await getTranslations("language");
+  const tu = await getTranslations("converters");
   const categories = categoriesFor(locale);
   const collections = collectionsFor(locale);
   return (
@@ -29,6 +30,11 @@ export async function SiteFooter({ locale, availability }: { locale: Locale; ava
             <li>
               <Link href={localizePath(locale, "/calculators")} className={LINK}>
                 {tc("allCalculators")}
+              </Link>
+            </li>
+            <li>
+              <Link href={localizePath(locale, "/unit-converters")} className={LINK}>
+                {tu("nav")}
               </Link>
             </li>
             <li>

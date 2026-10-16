@@ -1,0 +1,162 @@
+import type { ConverterContent } from "../../types";
+
+const CGS_NOTE = "Les unités CGS (gilbert, œrsted, maxwell, gauss) sont converties au moyen de leurs correspondances de définition avec les unités SI, qui font intervenir 4π lorsque le système CGS est non rationalisé.";
+
+/** Magnetism converters in this language, keyed by converter id. */
+export const magnetismContent: Record<string, ConverterContent> = {
+  "magnetomotive-force": {
+    title: "Convertisseur de force magnétomotrice",
+    shortTitle: "Force magnétomotrice",
+    summary: "Convertissez une force magnétomotrice entre ampères-tours, ampères, gilberts et abampères-tours.",
+    metaTitle: "Convertisseur de force magnétomotrice – At, A, Gb",
+    metaDescription: "Convertissez une force magnétomotrice entre ampères-tours, ampères, kiloampères-tours, gilberts et abampères-tours, pour bobines et circuits magnétiques.",
+    keywords: ["force magnétomotrice", "ampère-tour", "gilbert", "fmm", "gilbert en ampère-tour", "circuit magnétique", "bobine"],
+    intro: [
+      "La force magnétomotrice (fmm) est ce qui fait circuler le flux magnétique dans un circuit magnétique, comme une tension fait circuler un courant. Pour une bobine, c’est simplement le courant multiplié par le nombre de spires : une bobine de 200 spires parcourue par 2 A fournit 400 ampères-tours.",
+      "Les textes anciens et certaines données d’aimants utilisent l’unité CGS gilbert. Un gilbert vaut 10/(4π) ampères-tours, soit environ 0,796.",
+    ],
+    formula: {
+      expression: "F = N × I\n1 Gb = 10 ÷ (4π) At ≈ 0,795775 At",
+      explanation: "N est le nombre de spires et I le courant ; les spires n’ont pas d’unité, donc l’unité SI de la fmm est l’ampère.",
+    },
+    assumptions: [
+      "L’ampère-tour et l’ampère sont la même unité SI ; le nom ampère-tour rappelle simplement que les spires ont été comptées.",
+      CGS_NOTE,
+    ],
+    faqs: [
+      { question: "Combien d’ampères-tours vaut un gilbert ?", answer: "Environ 0,795775 At. Dans l’autre sens, 1 At vaut environ 1,256637 Gb (4π/10)." },
+      { question: "Quelle est la fmm d’une bobine ?", answer: "Multipliez le courant par le nombre de spires. 500 spires parcourues par 0,3 A donnent 150 ampères-tours." },
+      { question: "Quel lien entre force magnétomotrice et champ magnétique ?", answer: "Le champ magnétique H est la fmm par unité de longueur du circuit magnétique : 150 At répartis sur 0,1 m de noyau donnent 1 500 A/m." },
+    ],
+    units: {
+      a: "Ampères",
+      ma: "Milliampères",
+      ka: "Kiloampères",
+      at: "Ampères-tours",
+      mat: "Milliampères-tours",
+      kat: "Kiloampères-tours",
+      gilbert: "Gilberts",
+      abat: "Abampères-tours",
+    },
+    sourcesUsedFor: ["Facteurs de conversion du gilbert et de l’abampère.", "L’ampère comme unité SI de force magnétomotrice."],
+  },
+  "magnetic-field-strength": {
+    title: "Convertisseur d’intensité du champ magnétique",
+    shortTitle: "Champ magnétique H",
+    summary: "Convertissez l’intensité du champ magnétique (H) entre ampères par mètre, ampères-tours par pouce ou par centimètre, et œrsteds.",
+    metaTitle: "Champ magnétique H – A/m, Oe, kOe",
+    metaDescription: "Convertissez le champ magnétique H entre A/m, kA/m, A/cm, ampères-tours par pouce, œrsteds et kilo-œrsteds. Gauss et tesla : voir l’induction.",
+    keywords: ["champ magnétique", "excitation magnétique", "œrsted en a/m", "a/m en œrsted", "koe en ka/m", "champ h", "coercivité", "ampères-tours par pouce"],
+    intro: [
+      "L’intensité du champ magnétique, notée H (aussi appelée excitation magnétique), décrit l’effet magnétisant des courants. C’est ce que produit une bobine par mètre de longueur, et c’est l’unité dans laquelle les fabricants d’aimants indiquent la coercivité, par exemple environ 950 kA/m (environ 12 kOe) pour un aimant néodyme.",
+      "L’unité SI est l’ampère par mètre. L’unité CGS est l’œrsted, et 1 Oe vaut 1000/(4π) A/m, soit environ 79,58 A/m.",
+    ],
+    formula: {
+      expression: "H = N × I ÷ l\n1 Oe = 1000 ÷ (4π) A/m ≈ 79,5775 A/m",
+      explanation: "N × I est le nombre d’ampères-tours de la bobine et l la longueur du circuit magnétique en mètres.",
+    },
+    assumptions: [
+      "H (champ magnétique) et B (induction magnétique) sont des grandeurs différentes : le gauss et le tesla ne sont donc pas proposés ici. Dans le vide, et seulement là, 1 Oe de H correspond à 1 G de B en unités CGS, d’où la confusion fréquente entre les deux ; dans le fer ou un aimant, le rapport B/H dépend du matériau.",
+      CGS_NOTE,
+    ],
+    faqs: [
+      { question: "Combien d’A/m vaut un œrsted ?", answer: "Environ 79,5775 A/m. Dans l’autre sens, 1 kA/m vaut environ 12,566 Oe (4π)." },
+      { question: "Un œrsted est-il égal à un gauss ?", answer: "Non. L’œrsted mesure le champ magnétique H et le gauss l’induction magnétique B. Ce n’est que dans le vide (et, à peu de chose près, dans l’air) qu’un champ de 1 Oe produit une induction de 1 G en unités CGS. Utilisez le convertisseur d’induction magnétique pour le gauss et le tesla." },
+      { question: "Comment convertir des kOe en kA/m pour la coercivité d’un aimant ?", answer: "Multipliez par environ 79,58. Une coercivité de 12 kOe correspond à environ 955 kA/m." },
+    ],
+    units: {
+      a_m: "Ampères par mètre",
+      ma_m: "Milliampères par mètre",
+      ka_m: "Kiloampères par mètre",
+      a_cm: "Ampères par centimètre",
+      a_mm: "Ampères par millimètre",
+      at_m: "Ampères-tours par mètre",
+      at_cm: "Ampères-tours par centimètre",
+      at_in: "Ampères-tours par pouce",
+      oe: "Œrsteds",
+      koe: "Kilo-œrsteds",
+      moe: "Milli-œrsteds",
+      gb_cm: "Gilberts par centimètre",
+    },
+    sourcesUsedFor: ["Facteur de conversion de l’œrsted.", "L’ampère par mètre comme unité SI d’intensité du champ magnétique."],
+  },
+  "magnetic-flux": {
+    title: "Convertisseur de flux magnétique",
+    shortTitle: "Flux magnétique",
+    summary: "Convertissez un flux magnétique entre webers, milliwebers, microwebers, volts-secondes, maxwells et lignes.",
+    metaTitle: "Convertisseur de flux magnétique – Wb, mWb, µWb, Mx",
+    metaDescription: "Convertissez un flux magnétique entre webers, milliwebers, microwebers, nanowebers, volts-secondes, teslas-mètres carrés, maxwells, kilomaxwells et lignes.",
+    keywords: ["flux magnétique", "weber", "maxwell", "weber en maxwell", "volt-seconde", "flux totalisé", "fluxmètre"],
+    intro: [
+      "Le flux magnétique est la quantité totale de champ magnétique qui traverse une surface : l’induction multipliée par la surface. C’est ce que mesurent un fluxmètre et une bobine exploratrice, et ce qui varie lorsqu’un transformateur ou un générateur induit une tension.",
+      "L’unité SI est le weber, égal à un volt-seconde. L’unité CGS est le maxwell, aussi appelé ligne, et 1 Wb vaut exactement 100 000 000 Mx.",
+    ],
+    formula: {
+      expression: "Φ = B × A\n1 Wb = 1 V·s = 1 T·m² = 10⁸ Mx",
+      explanation: "B est l’induction en teslas et A la surface en mètres carrés, pour un champ perpendiculaire à la surface.",
+    },
+    assumptions: [
+      "Les valeurs sont des flux à travers une surface, pas des inductions ; pour convertir des teslas ou des gauss, utilisez le convertisseur d’induction magnétique.",
+      "1 maxwell = 10⁻⁸ Wb exactement d’après les définitions des unités CGS et SI ; une ligne équivaut à un maxwell.",
+    ],
+    faqs: [
+      { question: "Combien de maxwells y a-t-il dans un weber ?", answer: "Exactement 100 000 000 (10⁸). Un maxwell vaut 10 nWb." },
+      { question: "Pourquoi un weber est-il égal à un volt-seconde ?", answer: "D’après la loi de Faraday, un flux qui varie de 1 Wb chaque seconde à travers une seule spire induit 1 V." },
+      { question: "Comment obtenir le flux à partir de l’induction ?", answer: "Multipliez par la surface. Un champ de 0,5 T à travers 20 cm² (0,002 m²) donne 1 mWb, soit 100 000 Mx." },
+    ],
+    units: {
+      wb: "Webers",
+      mwb: "Milliwebers",
+      uwb: "Microwebers",
+      nwb: "Nanowebers",
+      v_s: "Volts-secondes",
+      t_m2: "Teslas-mètres carrés",
+      mx: "Maxwells",
+      kmx: "Kilomaxwells",
+      g_cm2: "Gauss-centimètres carrés",
+      line: "Lignes",
+    },
+    sourcesUsedFor: ["Facteur de conversion du maxwell.", "Le weber comme unité SI de flux magnétique."],
+  },
+  "magnetic-flux-density": {
+    title: "Convertisseur d’induction magnétique",
+    shortTitle: "Induction magnétique",
+    summary: "Convertissez une induction magnétique (B) entre teslas, milliteslas, microteslas, gauss, milligauss, gammas et lignes par pouce carré.",
+    metaTitle: "Convertisseur d’induction magnétique – T, mT, G, mG",
+    metaDescription: "Convertissez l’induction magnétique B entre teslas, mT, µT, nT, gauss, kilogauss, milligauss, gammas et lignes par pouce carré. Les œrsteds sont à part.",
+    keywords: ["induction magnétique", "densité de flux magnétique", "tesla en gauss", "gauss en tesla", "milligauss", "microtesla", "champ magnétique", "gamma nt"],
+    intro: [
+      "L’induction magnétique, notée B (ou densité de flux magnétique), est ce que l’on entend généralement par l’intensité d’un champ magnétique. Les gaussmètres et les magnétomètres de téléphone la mesurent, les appareils d’IRM sont caractérisés par elle (1,5 T ou 3 T), et les détecteurs de champs électromagnétiques l’affichent en milligauss ou en microteslas.",
+      "L’unité SI est le tesla et l’unité CGS le gauss : 1 T vaut exactement 10 000 G. Le champ terrestre à la surface est d’environ 25–65 µT, soit 0,25–0,65 G.",
+    ],
+    formula: {
+      expression: "1 T = 1 Wb/m² = 10 000 G\n1 G = 1 Mx/cm² = 100 µT",
+      explanation: "L’induction est le flux magnétique par unité de surface perpendiculaire au champ.",
+    },
+    assumptions: [
+      "B (induction magnétique) et H (champ magnétique) sont des grandeurs différentes : les œrsteds et les A/m ne sont donc pas proposés ici. Ce n’est que dans le vide, en unités CGS, que 1 G de B correspond à 1 Oe de H ; dans les matériaux magnétiques, le rapport dépend de la perméabilité du matériau.",
+      "Le gamma (γ) utilisé en géophysique vaut exactement 1 nT.",
+      CGS_NOTE,
+    ],
+    faqs: [
+      { question: "Combien de gauss y a-t-il dans un tesla ?", answer: "Exactement 10 000. Un gauss vaut 100 µT, et un milligauss 0,1 µT (100 nT)." },
+      { question: "Quelle est l’intensité du champ magnétique terrestre ?", answer: "Environ 25 à 65 µT à la surface selon le lieu, soit 0,25 à 0,65 G." },
+      { question: "Peut-on convertir des gauss en œrsteds ?", answer: "Pas en général, car ils mesurent des grandeurs différentes. Dans le vide ou dans l’air, en unités CGS, un champ de 1 Oe donne une induction de 1 G ; dans le fer ou un aimant, les valeurs diffèrent. Utilisez le convertisseur d’intensité du champ magnétique pour les œrsteds." },
+    ],
+    units: {
+      t: "Teslas",
+      mt: "Milliteslas",
+      ut: "Microteslas",
+      nt: "Nanoteslas",
+      wb_m2: "Webers par mètre carré",
+      gauss: "Gauss",
+      kgauss: "Kilogauss",
+      mgauss: "Milligauss",
+      gamma: "Gammas",
+      mx_cm2: "Maxwells par centimètre carré",
+      line_in2: "Lignes par pouce carré",
+      kline_in2: "Kilolignes par pouce carré",
+    },
+    sourcesUsedFor: ["Facteurs de conversion du gauss, du gamma et du maxwell.", "Le tesla comme unité SI d’induction magnétique."],
+  },
+};

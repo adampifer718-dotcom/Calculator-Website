@@ -13,6 +13,7 @@ import {
   readyLocales,
 } from "@/calculators/localize";
 import { CALCULATORS, calculatorPath } from "@/calculators/registry";
+import { CONVERTERS_PATH, converterLocales, converterPagesForLocale, converterPath } from "@/converters/catalog";
 import type { Locale } from "@/i18n/config";
 import { languageAlternates, localizePath } from "@/i18n/paths";
 import { absoluteUrl } from "@/lib/site";
@@ -52,6 +53,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ),
     ),
     ...calculatorsForLocale(locale).map(({ def }) => entry(locale, calculatorPath(def.slug), calculatorLocales(def), def.updated, "monthly", 0.8)),
+    entry(locale, CONVERTERS_PATH, locales, latest(converterPagesForLocale(locale).map((c) => c.meta?.updated ?? allUpdated)), "weekly", 0.9),
+    ...converterPagesForLocale(locale).map((c) => entry(locale, converterPath(c.spec.slug), converterLocales(c.spec), c.meta?.updated ?? allUpdated, "monthly", 0.7)),
     entry(locale, "/about", locales, allUpdated, "yearly", 0.3),
   ]);
 }
