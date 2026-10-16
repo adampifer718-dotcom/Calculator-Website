@@ -1,4 +1,4 @@
-# CalcNest
+# HourlyToSalaryCalculator.net
 
 Free online calculators built with Next.js (App Router), React, TypeScript and Tailwind CSS. Every calculator page is statically generated, has its own URL, metadata, canonical URL and structured data, and runs its calculation in the browser.
 
@@ -10,6 +10,10 @@ Free online calculators built with Next.js (App Router), React, TypeScript and T
 - The master backlog (`src/calculators/backlog.ts`, rendered to [`docs/calculator-backlog.md`](docs/calculator-backlog.md)) holds 183 deduplicated concepts with status, priority scores and expert-review flags.
 
 Pages: `/` (search, categories, featured, popular, collections, recently added, pay converter, full directory), `/calculators` (search with category/industry filters and sorting, URL state), `/categories/<slug>`, `/collections/<slug>`, `/calculators/<slug>`, `/about`, `/sitemap.xml`, `/robots.txt`, `/search-index.json` (static autocomplete index, loaded on demand).
+
+## Design
+
+The visual system (colour tokens, typography, components and page layouts) is documented in [`docs/design-system.md`](docs/design-system.md). Tokens live in `src/app/globals.css`.
 
 ## Getting started
 

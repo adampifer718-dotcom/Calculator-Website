@@ -1,4 +1,4 @@
-# CalcNest launch checklist
+# HourlyToSalaryCalculator.net launch checklist
 
 Status as of 15 October 2026, branch `claude/magical-planck-oou76v`.
 
