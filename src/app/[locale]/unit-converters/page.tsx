@@ -121,7 +121,7 @@ export default async function UnitConvertersPage() {
                   <ConverterIcon group={p.group} size="sm" />
                   <span className="min-w-0">
                     <span className="block text-xs font-semibold text-neutral-600">{p.title}</span>
-                    <span className="block font-bold text-ink-900">
+                    <span className="block font-bold break-words hyphens-auto text-ink-900">
                       {p.from} <span aria-hidden="true">→</span>
                       <span className="sr-only">,</span> {p.to}
                     </span>
@@ -142,7 +142,7 @@ export default async function UnitConvertersPage() {
                 <a href={`#${g.id}-converters`} className="card-link flex h-full items-start gap-4 p-5">
                   <ConverterIcon group={g.id} size="lg" />
                   <span className="min-w-0">
-                    <span className="block text-lg font-extrabold text-ink-900">{g.name}</span>
+                    <span className="block text-lg font-extrabold break-words hyphens-auto text-ink-900">{g.name}</span>
                     <span className="mt-0.5 block text-xs font-semibold text-brand-700">{t("groupCount", { count: g.count })}</span>
                     <span className="mt-1.5 block text-sm text-neutral-600">{g.description}</span>
                   </span>

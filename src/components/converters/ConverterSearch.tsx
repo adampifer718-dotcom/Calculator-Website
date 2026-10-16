@@ -55,7 +55,7 @@ export function EntryLink({ entry }: { entry: ConverterEntry }) {
     <Link href={entry.href} className="card-link flex h-full items-start gap-3 p-4">
       <ConverterIcon group={entry.group} size="sm" />
       <span className="min-w-0">
-        <span className="block font-bold text-ink-900">{entry.title}</span>
+        <span className="block font-bold break-words hyphens-auto text-ink-900">{entry.title}</span>
         <span className="mt-0.5 line-clamp-2 block text-sm text-neutral-600">{entry.summary}</span>
       </span>
     </Link>

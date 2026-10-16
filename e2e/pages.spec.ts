@@ -10,7 +10,7 @@ async function sitemapPaths(page: Page): Promise<string[]> {
 
 test.describe("published pages", () => {
   // These tests crawl every page in the sitemap.
-  test.describe.configure({ timeout: 1_800_000 }); // ~480 pages across six languages
+  test.describe.configure({ timeout: 3_600_000 }); // ~1,200 pages across six languages
 
   test("sitemap lists only working, indexable, uniquely described pages", async ({ page }) => {
     const paths = await sitemapPaths(page);
@@ -61,7 +61,8 @@ test.describe("published pages", () => {
           if (id) await expect(page.locator(`[id="${id}"]`), `${href} on ${path}`).toHaveCount(1);
           continue;
         }
-        const target = url.pathname + url.search;
+        // Converter shortcuts only preselect units (?from=&to=); the page itself is what must resolve.
+        const target = url.pathname.startsWith("/unit-converters/") || /^\/[a-z]{2}\/unit-converters\//.test(url.pathname) ? url.pathname : url.pathname + url.search;
         if (!checked.has(target)) checked.set(target, (await page.request.get(target)).status());
         expect(checked.get(target), `${target} linked from ${path}`).toBe(200);
       }

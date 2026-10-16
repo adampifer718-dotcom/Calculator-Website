@@ -73,7 +73,7 @@ export async function ConverterPage({ converter }: { converter: LocalizedConvert
               <ConverterIcon group={spec.group} size="lg" />
             </span>
             <div className="min-w-0">
-              <h1 className="text-3xl leading-tight font-extrabold tracking-[-0.025em] text-balance text-ink-900 sm:text-[2.6rem]">{content.title}</h1>
+              <h1 className="text-3xl leading-tight font-extrabold tracking-[-0.025em] text-balance break-words hyphens-auto text-ink-900 sm:text-[2.6rem]">{content.title}</h1>
               <p className="mt-3 text-lg leading-relaxed text-neutral-600">{content.summary}</p>
             </div>
           </header>
@@ -149,7 +149,7 @@ export async function ConverterPage({ converter }: { converter: LocalizedConvert
               <section aria-labelledby="units">
                 <SectionHeading id="units">{t("page.units")}</SectionHeading>
                 {base && <p className="mt-2 text-sm text-neutral-600">{t("page.unitsLead", { base: `${name(base.id)} (${base.symbol})` })}</p>}
-                <div role="region" aria-labelledby="units" tabIndex={0} className="focus-ring card mt-4 overflow-x-auto">
+                <div tabIndex={0} className="focus-ring card mt-4 overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead className="bg-neutral-50 text-xs text-neutral-600">
                       <tr>
@@ -255,7 +255,7 @@ export async function ConverterPage({ converter }: { converter: LocalizedConvert
                       <Link href={r.href} className="card-link flex items-start gap-3 p-4">
                         <ConverterIcon group={r.spec.group} size="sm" />
                         <span className="min-w-0">
-                          <span className="block font-bold text-ink-900">{r.content.title}</span>
+                          <span className="block font-bold break-words hyphens-auto text-ink-900">{r.content.title}</span>
                           <span className="mt-0.5 line-clamp-2 block text-sm text-neutral-600">{r.content.summary}</span>
                         </span>
                       </Link>

@@ -272,7 +272,7 @@ function LinearConverter({ spec, labels, syncUrl }: { spec: LinearSpec; labels: 
 
       {table.length > 2 && parsed !== null && (
         <div className="border-t border-line px-5 py-5 sm:px-7">
-          <h3 className="text-sm font-bold text-ink-900">{t("allUnits")}</h3>
+          <h2 className="text-sm font-bold text-ink-900">{t("allUnits")}</h2>
           <div role="region" aria-label={t("allUnits")} tabIndex={0} className="focus-ring mt-3 max-h-80 overflow-auto rounded-2xl ring-1 ring-line">
             <table className="w-full text-sm">
               <thead className="sticky top-0 bg-neutral-50 text-xs text-neutral-600">
@@ -533,7 +533,7 @@ function NumberBaseConverter({ labels }: { labels: ConverterLabels }) {
         </div>
       </div>
       <div className="border-t border-brand-100 bg-brand-50 px-5 py-6 sm:px-7" aria-live="polite">
-        <h3 className="eyebrow text-brand-800">{t("base.results")}</h3>
+        <h2 className="eyebrow text-brand-800">{t("base.results")}</h2>
         <dl className="mt-3 grid gap-3">
           {targets.map((b) => {
             const text = parsed && parsed.ok ? formatInBase(parsed.value, b) : "";
