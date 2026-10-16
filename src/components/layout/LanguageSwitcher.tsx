@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { LOCALE_INFO, type Locale } from "@/i18n/config";
 import { equivalentPath, rememberLocale } from "@/i18n/switch";
+import { Flag } from "./Flag";
 
 interface Props {
   locale: Locale;
@@ -18,34 +19,6 @@ interface Props {
   placement?: "bottom" | "top";
   /** Adds the `data-language-switcher` hook used by tests; only the header switcher sets it. */
   marker?: boolean;
-}
-
-/** Country flag shown beside each language (decorative; the language name is the accessible label). */
-const FLAGS: Record<Locale, string> = {
-  ar: "🇸🇦",
-  en: "🇺🇸",
-  ur: "🇵🇰",
-  es: "🇪🇸",
-  fr: "🇫🇷",
-  de: "🇩🇪",
-};
-
-/**
- * Native emoji flag in a fixed-size frame, so rows stay aligned whether the
- * system draws a flag or (on Windows) the two regional letters instead.
- */
-function Flag({ locale, size = "md" }: { locale: Locale; size?: "sm" | "md" }) {
-  return (
-    <span
-      aria-hidden="true"
-      className={`inline-flex shrink-0 items-center justify-center overflow-hidden rounded-md bg-neutral-100 leading-none ring-1 ring-black/5 ${
-        size === "sm" ? "h-[18px] w-6 text-[15px]" : "h-6 w-8 text-[20px]"
-      }`}
-      style={{ fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla", sans-serif' }}
-    >
-      {FLAGS[locale]}
-    </span>
-  );
 }
 
 /**
