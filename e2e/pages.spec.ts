@@ -1,6 +1,9 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 
+const LANGS = ["en", "ur", "es", "fr", "de", "ar"] as const;
+const langOf = (path: string) => (/^\/(ur|es|fr|de|ar)(\/|$)/.exec(path)?.[1] ?? "en") as (typeof LANGS)[number];
+
 async function sitemapPaths(page: Page): Promise<string[]> {
   const response = await page.request.get("/sitemap.xml");
   expect(response.ok()).toBe(true);
@@ -10,7 +13,7 @@ async function sitemapPaths(page: Page): Promise<string[]> {
 
 test.describe("published pages", () => {
   // These tests crawl every page in the sitemap.
-  test.describe.configure({ timeout: 3_600_000 }); // ~1,200 pages across six languages
+  test.describe.configure({ timeout: 3_600_000 }); // ~1,200 pages across six languages; crawls run per language
 
   test("sitemap lists only working, indexable, uniquely described pages", async ({ page }) => {
     const paths = await sitemapPaths(page);
@@ -47,8 +50,8 @@ test.describe("published pages", () => {
     expect(text).toMatch(/Sitemap: .*\/sitemap\.xml/);
   });
 
-  test("every internal link on every page resolves", async ({ page }) => {
-    const paths = await sitemapPaths(page);
+  for (const lang of LANGS) test(`every internal link on every ${lang} page resolves`, async ({ page }) => {
+    const paths = (await sitemapPaths(page)).filter((p) => langOf(p) === lang);
     const checked = new Map<string, number>();
     for (const path of paths) {
       await page.goto(path);
@@ -75,8 +78,8 @@ test.describe("published pages", () => {
     await expect(page.getByRole("heading", { name: "Page not found" })).toBeVisible();
   });
 
-  test("pages have no horizontal overflow, console errors or axe violations", async ({ page }) => {
-    const paths = await sitemapPaths(page);
+  for (const lang of LANGS) test(`${lang} pages have no horizontal overflow, console errors or axe violations`, async ({ page }) => {
+    const paths = (await sitemapPaths(page)).filter((p) => langOf(p) === lang);
     const errors: string[] = [];
     page.on("console", (msg) => msg.type() === "error" && errors.push(`${page.url()}: ${msg.text()}`));
     page.on("pageerror", (error) => errors.push(`${page.url()}: ${error.message}`));
@@ -109,11 +112,11 @@ test("every calculator page renders a valid default result in every language", a
   }
 });
 
-test("no horizontal scrolling on a 320px-wide phone", async ({ browser }) => {
+for (const lang of LANGS) test(`no horizontal scrolling on a 320px-wide phone (${lang})`, async ({ browser }) => {
   test.setTimeout(900_000);
   const context = await browser.newContext({ viewport: { width: 320, height: 640 } });
   const page = await context.newPage();
-  for (const path of await sitemapPaths(page)) {
+  for (const path of (await sitemapPaths(page)).filter((p) => langOf(p) === lang)) {
     await page.goto(path);
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     expect(overflow, path).toBeLessThanOrEqual(0);
