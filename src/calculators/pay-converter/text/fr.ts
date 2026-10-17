@@ -14,8 +14,6 @@ const fr: PayConverterText = {
   timeToEarn: "Temps nécessaire pour gagner {target}",
   unreachable: "Impossible à atteindre avec une rémunération nulle",
   hoursMinutes: "{h} h {m} min",
-  higherCaption: "Rémunération à des taux horaires plus élevés",
-  higherColumns: { rate: "Taux horaire", weekly: "Hebdomadaire", monthly: "Mensuel", annual: "Annuel" },
 };
 
 export default fr;

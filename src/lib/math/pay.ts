@@ -159,9 +159,3 @@ export function formatHoursMinutes(hours: number): string {
   const totalMinutes = Math.round(hours * 60);
   return `${Math.floor(totalMinutes / 60).toLocaleString("en-US")}h ${totalMinutes % 60}m`;
 }
-
-/** The next `count` whole-number hourly rates strictly above `hourlyRate`. */
-export function higherHourlyRates(hourlyRate: number, count = 5): number[] {
-  const start = Math.floor(hourlyRate) + 1;
-  return Array.from({ length: count }, (_, index) => start + index);
-}

@@ -85,6 +85,9 @@ const ar: Messages = {
     directoryKicker: "كل شيء في مكان واحد",
     directory: "دليل الحاسبات الكامل",
     directoryLink: "ابحث في جميع الحاسبات ({count}) وصنّفها",
+    payDirections: "تحتاج إلى اتجاه واحد فقط؟ افتح حاسبة مخصّصة:",
+    directoryToggle: "تصفّح جميع الحاسبات",
+    directoryLead: "{count} حاسبة في {categories} فئة. ابحث بالاسم أو صفِّ القائمة حسب الفئة.",
     trustHeading: "كيف يعمل {site}",
     transparentTitle: "حساب شفاف",
     transparentBody:

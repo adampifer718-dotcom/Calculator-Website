@@ -88,6 +88,9 @@ const en = {
     directoryKicker: "Everything in one place",
     directory: "Complete calculator directory",
     directoryLink: "Search and filter all {count} calculators",
+    payDirections: "Prefer a single direction? Open a dedicated calculator:",
+    directoryToggle: "Browse all calculators",
+    directoryLead: "{count} calculators in {categories} categories. Search by name or narrow the list by category.",
     trustHeading: "How {site} works",
     transparentTitle: "Transparent calculation",
     transparentBody:

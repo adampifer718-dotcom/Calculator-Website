@@ -10,7 +10,7 @@ import {
   validateScheduleValues,
   type ScheduleValues,
 } from "@/calculators/shared/pay";
-import { convertPay, higherHourlyRates, hoursToEarn, isPayPeriod } from "@/lib/math/pay";
+import { convertPay, hoursToEarn, isPayPeriod } from "@/lib/math/pay";
 import en, { type PayConverterText } from "./text/en";
 
 export type PayConverterValues = ScheduleValues & {
@@ -72,24 +72,7 @@ export function makePayConverterEngine(ctx: EngineContext<PayConverterText>) {
             },
           },
         ],
-        tables: [
-          breakdownTable(ctx, breakdown, schedule, [period, "annual"]),
-          {
-            caption: t.higherCaption,
-            columns: [t.higherColumns.rate, t.higherColumns.weekly, t.higherColumns.monthly, t.higherColumns.annual],
-            rows: higherHourlyRates(breakdown.hourly).map((rate) => {
-              const annual = rate * schedule.hoursPerWeek * schedule.weeksPerYear;
-              return {
-                label: ctx.fmt.currency(rate, values.currency, "negative", 0),
-                cells: [
-                  { kind: "currency", amount: annual / schedule.weeksPerYear },
-                  { kind: "currency", amount: annual / 12 },
-                  { kind: "currency", amount: annual },
-                ],
-              };
-            }),
-          },
-        ],
+        tables: [breakdownTable(ctx, breakdown, schedule, [period, "annual"])],
         notes: scheduleNotes(ctx, schedule),
       };
     },

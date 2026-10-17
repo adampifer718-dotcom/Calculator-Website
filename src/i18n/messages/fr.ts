@@ -86,6 +86,9 @@ const fr: Messages = {
     directoryKicker: "Tout au même endroit",
     directory: "Annuaire complet des calculateurs",
     directoryLink: "Rechercher et filtrer les {count} calculateurs",
+    payDirections: "Vous préférez un seul sens ? Ouvrez un calculateur dédié :",
+    directoryToggle: "Parcourir tous les calculateurs",
+    directoryLead: "{count} calculateurs dans {categories} catégories. Cherchez par nom ou filtrez la liste par catégorie.",
     trustHeading: "Comment fonctionne {site}",
     transparentTitle: "Un calcul transparent",
     transparentBody:

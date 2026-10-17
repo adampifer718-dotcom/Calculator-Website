@@ -49,29 +49,31 @@ function Calc({ children }: { children: React.ReactNode }) {
   );
 }
 
+/** Compact step list shown beside the homepage pay calculator. */
 export async function HowToUse({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "payGuide" });
   return (
-    <section aria-labelledby="how-to-use" className="py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <SectionIntro kicker={t("stepsKicker")} id="how-to-use" title={t("stepsTitle")}>
-          {t("stepsLead")}
-        </SectionIntro>
-        <ol className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-          {STEPS.map((step, index) => (
-            <li key={step} className="card flex gap-3 p-5">
-              <span aria-hidden="true" className="flex size-9 shrink-0 items-center justify-center rounded-full bg-accent-400 text-sm font-extrabold text-ink-900">
-                {index + 1}
-              </span>
-              <div>
-                <h3 className="font-bold text-ink-900">{t(`steps.${step}.title`)}</h3>
-                <p className="mt-1.5 text-sm text-neutral-600">{t(`steps.${step}.body`)}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-        <p className="mt-5 rounded-2xl bg-sky/50 px-5 py-4 text-sm font-medium text-ink-800 ring-1 ring-sky">{t("stepsLive")}</p>
-      </div>
+    <section aria-labelledby="how-to-use" className="card p-5 sm:p-6">
+      <p id="how-to-use-kicker" className="eyebrow text-accent-700">
+        {t("stepsKicker")}
+      </p>
+      <h2 id="how-to-use" className="mt-1.5 text-lg font-extrabold tracking-tight text-ink-900">
+        {t("stepsTitle")}
+      </h2>
+      <ol className="mt-4 space-y-3.5">
+        {STEPS.map((step, index) => (
+          <li key={step} className="flex gap-3">
+            <span aria-hidden="true" className="flex size-7 shrink-0 items-center justify-center rounded-full bg-accent-400 text-xs font-extrabold text-ink-900">
+              {index + 1}
+            </span>
+            <div className="min-w-0">
+              <h3 className="text-sm font-bold text-ink-900">{t(`steps.${step}.title`)}</h3>
+              <p className="mt-0.5 text-sm leading-relaxed text-neutral-600">{t(`steps.${step}.body`)}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <p className="mt-5 rounded-2xl bg-sky/50 px-4 py-3 text-sm font-medium text-ink-800 ring-1 ring-sky">{t("stepsLive")}</p>
     </section>
   );
 }
@@ -84,12 +86,12 @@ export async function PayFormulas({ locale }: { locale: Locale }) {
   const rate = 30;
   const reverse = convertPay(rate, "hourly", DEFAULT_SCHEDULE);
   return (
-    <section aria-labelledby="how-to-calculate" className="border-y border-line bg-white py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+    <section aria-labelledby="how-to-calculate" className="min-w-0">
+      <div>
         <SectionIntro kicker={t("formulasKicker")} id="how-to-calculate" title={t("formulasTitle")}>
           {t("formulasLead")}
         </SectionIntro>
-        <div className="mt-8 grid gap-4 lg:grid-cols-2">
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-1">
           <article className="card p-5 sm:p-6">
             <h3 className="font-bold text-ink-900">{t("annualTitle")}</h3>
             <FormulaBox>{t("annualFormula")}</FormulaBox>
@@ -154,17 +156,17 @@ export async function ConversionChart({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "payGuide" });
   const { usd, num } = tools(locale);
   return (
-    <section aria-labelledby="conversion-chart" className="py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+    <section aria-labelledby="conversion-chart" className="min-w-0">
+      <div className="xl:sticky xl:top-24">
         <SectionIntro kicker={t("chartKicker")} id="conversion-chart" title={t("chartTitle")}>
           {t("chartLead", { hours: num(DEFAULT_SCHEDULE.hoursPerWeek), weeks: num(DEFAULT_SCHEDULE.weeksPerYear), annualHours: num(hours) })}
         </SectionIntro>
-        <div role="region" aria-labelledby="conversion-chart conversion-chart-kicker" tabIndex={0} className="focus-ring card mt-8 overflow-x-auto">
-          <table className="w-full min-w-[36rem] text-end text-sm tabular-nums">
+        <div role="region" aria-labelledby="conversion-chart conversion-chart-kicker" tabIndex={0} className="focus-ring card mt-6 overflow-x-auto">
+          <table className="w-full min-w-[32rem] text-end text-sm tabular-nums">
             <thead className="bg-neutral-50 text-xs text-neutral-600">
               <tr>
                 {CHART_COLUMNS.map((column, index) => (
-                  <th key={column} scope="col" className={`px-4 py-3 font-semibold ${index === 0 ? "text-start" : ""}`}>
+                  <th key={column} scope="col" className={`px-3 py-3 font-semibold sm:px-4 ${index === 0 ? "sticky start-0 bg-neutral-50 text-start" : ""}`}>
                     {t(`chartColumns.${column}`)}
                   </th>
                 ))}
@@ -174,20 +176,20 @@ export async function ConversionChart({ locale }: { locale: Locale }) {
               {CHART_SALARIES.map((salary) => {
                 const pay = convertPay(salary, "annual", DEFAULT_SCHEDULE);
                 return (
-                  <tr key={salary} className="border-t border-neutral-100 even:bg-neutral-50/60">
-                    <th scope="row" className="px-4 py-3 text-start font-semibold text-ink-900">
+                  <tr key={salary} className="border-t border-neutral-100">
+                    <th scope="row" className="sticky start-0 bg-white px-3 py-3 text-start font-semibold text-ink-900 shadow-[1px_0_0_var(--color-line)] sm:px-4 rtl:shadow-[-1px_0_0_var(--color-line)]">
                       <bdi dir="ltr">{usd(salary, 0)}</bdi>
                     </th>
-                    <td className="px-4 py-3 font-semibold text-brand-700">
+                    <td className="px-3 py-3 sm:px-4 font-semibold text-brand-700">
                       <bdi dir="ltr">{usd(pay.hourly)}</bdi>
                     </td>
-                    <td className="px-4 py-3 text-ink-800">
+                    <td className="px-3 py-3 sm:px-4 text-ink-800">
                       <bdi dir="ltr">{usd(pay.weekly)}</bdi>
                     </td>
-                    <td className="px-4 py-3 text-ink-800">
+                    <td className="px-3 py-3 sm:px-4 text-ink-800">
                       <bdi dir="ltr">{usd(pay.biweekly)}</bdi>
                     </td>
-                    <td className="px-4 py-3 text-ink-800">
+                    <td className="px-3 py-3 sm:px-4 text-ink-800">
                       <bdi dir="ltr">{usd(pay.monthly)}</bdi>
                     </td>
                   </tr>

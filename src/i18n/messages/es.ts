@@ -86,6 +86,9 @@ const es: Messages = {
     directoryKicker: "Todo en un solo lugar",
     directory: "Directorio completo de calculadoras",
     directoryLink: "Busca y filtra las {count} calculadoras",
+    payDirections: "¿Prefieres una sola dirección? Abre una calculadora específica:",
+    directoryToggle: "Ver todas las calculadoras",
+    directoryLead: "{count} calculadoras en {categories} categorías. Busca por nombre o filtra la lista por categoría.",
     trustHeading: "Cómo funciona {site}",
     transparentTitle: "Cálculo transparente",
     transparentBody:

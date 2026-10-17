@@ -3,15 +3,16 @@ import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { categoryPath } from "@/calculators/categories";
 import { collectionPath } from "@/calculators/collections";
-import { calculatorsForLocale, categoriesFor, collectionsFor, featuredFor, inCategory, popularFor, readyLocales, recentFor } from "@/calculators/localize";
+import { calculatorsForLocale, categoriesFor, collectionsFor, featuredFor, getLocalizedCalculator, inCategory, popularFor, readyLocales } from "@/calculators/localize";
 import { PAY_CONVERTER_TEXT } from "@/calculators/pay-converter/translations";
 import PayConverter from "@/calculators/pay-converter/widget";
 import { calculatorPath } from "@/calculators/registry";
+import { HomeDirectory, type DirectoryCategory } from "@/components/home/HomeDirectory";
 import { ConversionChart, HowToUse, PayFormulas } from "@/components/home/PayGuide";
 import { HeaderSearch } from "@/components/layout/HeaderSearch";
 import { CalculatorCard } from "@/components/ui/CalculatorCard";
 import { CategoryIcon } from "@/components/ui/CategoryIcon";
-import { ArrowIcon, CheckCircleIcon, StarIcon } from "@/components/ui/Icons";
+import { ArrowIcon, CheckCircleIcon } from "@/components/ui/Icons";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { localizePath } from "@/i18n/paths";
 import { currentLocale } from "@/i18n/server";
@@ -70,7 +71,14 @@ export default async function HomePage() {
   const categories = categoriesFor(locale);
   const collections = collectionsFor(locale);
   const featured = featuredFor(locale, 6);
-  const recent = recentFor(locale, 6);
+  const directions = ["hourly-to-salary-calculator", "salary-to-hourly-calculator"].flatMap((slug) => getLocalizedCalculator(slug, locale) ?? []);
+  const directory: DirectoryCategory[] = categories.map((category) => ({
+    slug: category.slug,
+    name: category.name,
+    href: href(categoryPath(category.slug)),
+    count: category.count,
+    calculators: inCategory(locale, category.slug).map((c) => ({ slug: c.def.slug, title: c.content.title, href: href(calculatorPath(c.def.slug)) })),
+  }));
   const checklist = [
     t("highlights.free"),
     t("highlights.instant"),
@@ -82,94 +90,45 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero: split layout, text and search on one side, popular tools panel on the other. */}
+      {/* Compact hero: heading and search, so the pay calculator sits near the top of the page. */}
       <section aria-labelledby="hero-heading" className="relative overflow-hidden border-b border-line bg-gradient-to-b from-white to-cream">
         <HeroShapes />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pt-10 pb-16 sm:px-6 sm:pt-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14 lg:pb-20">
+        <div className="relative mx-auto grid max-w-7xl items-end gap-8 px-4 pt-8 pb-24 sm:px-6 sm:pt-12 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:gap-12">
           <div>
-            <p className="text-base font-bold text-ink-900 sm:text-lg">{tm("tagline")}</p>
-            <span aria-hidden="true" className="mt-4 block h-1 w-14 rounded-full bg-accent-500" />
-            <h1 id="hero-heading" className="mt-6 text-4xl leading-[1.04] font-extrabold tracking-[-0.03em] text-balance text-ink-900 sm:text-5xl xl:text-6xl">
-              <span className="block">{t("heroLead")}</span>
-              <span className="block text-brand-700">{t("heroCount", { count: all.length })}</span>
-              <span className="block text-brand-700">{t("heroTail")}</span>
+            <p className="text-sm font-bold text-ink-900 sm:text-base">{tm("tagline")}</p>
+            <h1 id="hero-heading" className="mt-3 text-3xl leading-[1.08] font-extrabold tracking-[-0.03em] text-balance text-ink-900 sm:text-4xl xl:text-5xl">
+              {t("heroLead")} <span className="text-brand-700">{t("heroCount", { count: all.length })}</span> {t("heroTail")}
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-neutral-600">{tm("siteDescription")}</p>
-            <div className="mt-7 max-w-xl">
-              <HeaderSearch id="hero-search" label={t("findCalculator")} size="xl" />
-              <p className="mt-3 text-sm text-neutral-600">
-                {t("try")}{" "}
-                {popular.slice(0, 3).map((calculator, index) => (
-                  <span key={calculator.def.slug}>
-                    {index > 0 && separator}
-                    <Link href={href(calculatorPath(calculator.def.slug))} className="focus-ring rounded font-semibold text-brand-700 underline-offset-2 hover:underline">
-                      {midSentence(calculator.content.shortTitle, locale)}
-                    </Link>
-                  </span>
-                ))}
-              </p>
-            </div>
-            <ul className="mt-7 grid max-w-xl gap-x-6 gap-y-3 sm:grid-cols-2">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-600 sm:text-lg">{tm("siteDescription")}</p>
+          </div>
+          <div>
+            <HeaderSearch id="hero-search" label={t("findCalculator")} size="xl" />
+            <p className="mt-3 text-sm text-neutral-600">
+              {t("try")}{" "}
+              {popular.slice(0, 3).map((calculator, index) => (
+                <span key={calculator.def.slug}>
+                  {index > 0 && separator}
+                  <Link href={href(calculatorPath(calculator.def.slug))} className="focus-ring rounded font-semibold text-brand-700 underline-offset-2 hover:underline">
+                    {midSentence(calculator.content.shortTitle, locale)}
+                  </Link>
+                </span>
+              ))}
+            </p>
+            <ul className="mt-4 flex flex-wrap gap-2">
               {checklist.map((item) => (
-                <li key={item} className="flex items-center gap-3 font-semibold text-ink-800">
-                  <CheckCircleIcon className="size-6 text-success" />
+                <li key={item} className="flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-1.5 text-xs font-bold text-ink-800 ring-1 ring-line">
+                  <CheckCircleIcon className="size-4 text-success" />
                   {item}
                 </li>
               ))}
             </ul>
-            <Link
-              href={href("/calculators")}
-              className="focus-ring btn-primary mt-8 h-14 ps-6 pe-2 text-base shadow-[0_10px_24px_-12px_rgb(63_100_150/0.8)]"
-            >
-              {t("viewAll", { count: all.length })}
-              <span className="flex size-10 items-center justify-center rounded-full bg-accent-400 text-ink-900">
-                <ArrowIcon className="size-5" />
-              </span>
-            </Link>
-          </div>
-
-          <div className="relative">
-            <div
-              aria-hidden="true"
-              className="absolute -top-10 -start-8 z-10 hidden size-36 rotate-[-8deg] flex-col items-center justify-center rounded-full bg-brand-800 p-3 text-center text-white shadow-lift ring-8 ring-white lg:flex"
-            >
-              <span className="absolute inset-2 rounded-full border-2 border-dashed border-white/35" />
-              <StarIcon className="size-6 text-butter" />
-              <span className="mt-1 text-lg leading-tight font-extrabold">{t("highlights.free")}</span>
-              <span className="mt-0.5 text-xs leading-tight font-semibold text-accent-300">{t("highlights.noSignup")}</span>
-            </div>
-            <div className="overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-lift">
-              <div className="flex flex-wrap items-end justify-between gap-x-4 gap-y-1 bg-brand-800 px-6 py-5 text-white lg:ps-32">
-                <h2 id="popular-heading" className="text-xl font-extrabold tracking-tight">
-                  {t("popular")}
-                </h2>
-                <Link href={href("/calculators")} className="focus-ring-light rounded text-sm font-semibold text-accent-300 hover:text-white hover:underline">
-                  {t("viewAll", { count: all.length })}
-                </Link>
-              </div>
-              <ul className="grid grid-cols-2 gap-3 p-4 sm:grid-cols-4 sm:p-5">
-                {popular.map((calculator, index) => (
-                  <li key={calculator.def.slug}>
-                    <Link
-                      href={href(calculatorPath(calculator.def.slug))}
-                      className={`focus-ring group flex h-full flex-col items-center justify-center gap-3 rounded-2xl border px-2 py-5 text-center transition-all duration-150 hover:-translate-y-0.5 hover:border-brand-300 hover:bg-brand-50 hover:shadow-soft ${
-                        index === 0 ? "border-brand-300 bg-brand-50" : "border-line bg-white"
-                      }`}
-                    >
-                      <CategoryIcon category={calculator.def.category} slug={calculator.def.slug} size="lg" />
-                      <span className="text-sm leading-snug font-bold text-ink-900 group-hover:text-brand-800">{calculator.content.shortTitle}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* The site's namesake tool, directly below the hero. */}
-      <section aria-labelledby="pay-calculator-heading" className="mx-auto max-w-7xl px-4 pt-12 sm:px-6">
-        <div className="overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-soft">
+      {/* The site's namesake tool: calculator in the wide column, a short how-to beside it (below it on phones). */}
+      <div className="relative mx-auto -mt-16 grid max-w-7xl items-start gap-6 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_20rem] xl:grid-cols-[minmax(0,1fr)_22rem]">
+        <section aria-labelledby="pay-calculator-heading" className="min-w-0 overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-lift">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 bg-brand-800 px-5 py-4 text-white sm:px-7">
             <span aria-hidden="true" className="flex size-10 items-center justify-center rounded-xl bg-accent-400 text-ink-900">
               <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -182,17 +141,66 @@ export default async function HomePage() {
             </h2>
             <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white ring-1 ring-white/25 sm:ms-auto">{t("payBadge")}</span>
           </div>
-          <div className="p-3 sm:p-7">
+          <div className="p-3 sm:p-6">
             <p className="max-w-3xl px-1 pt-1 text-neutral-600 sm:px-0 sm:pt-0">{t("payLead")}</p>
-            <div className="mt-6">
+            <div className="mt-5">
               <PayConverter locale={locale} text={PAY_CONVERTER_TEXT[locale]!} />
             </div>
+            {directions.length > 0 && (
+              <p className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-line px-1 pt-4 text-sm text-neutral-600 sm:px-0">
+                {t("payDirections")}
+                {directions.map((calculator) => (
+                  <Link
+                    key={calculator.def.slug}
+                    href={href(calculatorPath(calculator.def.slug))}
+                    className="focus-ring inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1.5 font-bold text-brand-800 ring-1 ring-brand-100 hover:bg-brand-100"
+                  >
+                    {calculator.content.shortTitle}
+                    <ArrowIcon className="size-4" />
+                  </Link>
+                ))}
+              </p>
+            )}
           </div>
+        </section>
+        <aside className="lg:sticky lg:top-24">
+          <HowToUse locale={locale} />
+        </aside>
+      </div>
+
+      {/* Formula guide and quick-reference chart, side by side on wide screens. */}
+      <div className="mt-14 border-y border-line bg-white py-14">
+        <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 xl:grid-cols-2 xl:gap-12">
+          <PayFormulas locale={locale} />
+          <ConversionChart locale={locale} />
         </div>
+      </div>
+
+      <section aria-labelledby="popular-heading" className="mx-auto max-w-7xl px-4 pt-14 sm:px-6">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <SectionHeader kicker={t("popularKicker")} id="popular-heading" title={t("popular")} />
+          <Link href={href("/calculators")} className="focus-ring inline-flex items-center gap-2 rounded-full font-bold text-brand-700 hover:text-brand-800">
+            {t("viewAll", { count: all.length })}
+            <ArrowIcon />
+          </Link>
+        </div>
+        <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+          {popular.map((calculator) => (
+            <li key={calculator.def.slug}>
+              <Link
+                href={href(calculatorPath(calculator.def.slug))}
+                className="focus-ring group flex h-full flex-col items-center justify-center gap-2.5 rounded-2xl border border-line bg-white px-2 py-4 text-center transition-all duration-150 hover:-translate-y-0.5 hover:border-brand-300 hover:bg-brand-50 hover:shadow-soft"
+              >
+                <CategoryIcon category={calculator.def.category} slug={calculator.def.slug} size="lg" />
+                <span className="text-sm leading-snug font-bold text-ink-900 group-hover:text-brand-800">{calculator.content.shortTitle}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* Categories row with dividers. */}
-      <section aria-labelledby="categories-heading" className="mx-auto max-w-7xl px-4 pt-16 sm:px-6">
+      <section aria-labelledby="categories-heading" className="mx-auto max-w-7xl px-4 pt-14 sm:px-6">
         <div className="flex items-center gap-4">
           <span aria-hidden="true" className="h-px flex-1 bg-line" />
           <h2 id="categories-heading" className="text-center text-xl font-extrabold tracking-tight text-brand-800 sm:text-2xl">
@@ -216,10 +224,10 @@ export default async function HomePage() {
         </ul>
       </section>
 
-      <section aria-labelledby="featured-heading" className="pt-16">
+      <section aria-labelledby="featured-heading" className="pt-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeader kicker={t("featuredKicker")} id="featured-heading" title={t("featured")} />
-          <ul className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((calculator) => (
               <li key={calculator.def.slug}>
                 <CalculatorCard calculator={calculator} />
@@ -229,12 +237,12 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="collections-heading" className="pt-16">
+      <section aria-labelledby="collections-heading" className="pt-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeader kicker={t("collectionsKicker")} id="collections-heading" title={t("collections")}>
             {t("collectionsLead")}
           </SectionHeader>
-          <ul className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {collections.map((collection, index) => (
               <li key={collection.slug}>
                 <Link
@@ -254,63 +262,15 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="recent-heading" className="pt-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <SectionHeader kicker={t("recentKicker")} id="recent-heading" title={t("recent")} />
-            <Link href={href("/calculators")} className="focus-ring inline-flex items-center gap-2 rounded-full font-bold text-brand-700 hover:text-brand-800">
-              {t("viewAll", { count: all.length })}
-              <ArrowIcon />
-            </Link>
-          </div>
-          <ul className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {recent.map((calculator) => (
-              <li key={calculator.def.slug}>
-                <CalculatorCard calculator={calculator} />
-              </li>
-            ))}
-          </ul>
+      {/* Complete directory, collapsed by default so the pay calculator stays the focus. */}
+      <section aria-labelledby="directory-heading" className="mx-auto max-w-7xl px-4 pt-14 sm:px-6">
+        <SectionHeader kicker={t("directoryKicker")} id="directory-heading" title={t("directory")} />
+        <div className="mt-6">
+          <HomeDirectory categories={directory} total={all.length} allHref={href("/calculators")} allLabel={t("directoryLink", { count: all.length })} />
         </div>
       </section>
 
-      <div className="pt-6">
-        <HowToUse locale={locale} />
-        <PayFormulas locale={locale} />
-        <ConversionChart locale={locale} />
-      </div>
-
-      <section aria-labelledby="directory-heading" className="mt-14 border-y border-line bg-white py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <SectionHeader kicker={t("directoryKicker")} id="directory-heading" title={t("directory")} />
-          <div className="mt-9 columns-1 gap-10 sm:columns-2 lg:columns-4">
-            {categories.map((category) => (
-              <div key={category.slug} className="mb-9 break-inside-avoid">
-                <h3>
-                  <Link href={href(categoryPath(category.slug))} className="focus-ring group flex items-center gap-2.5 rounded-lg font-bold text-ink-900 hover:text-brand-700">
-                    <CategoryIcon category={category.slug} size="sm" />
-                    {category.name}
-                  </Link>
-                </h3>
-                <ul className="mt-3 space-y-2 border-s-2 border-line ps-4 text-sm">
-                  {inCategory(locale, category.slug).map((calculator) => (
-                    <li key={calculator.def.slug}>
-                      <Link href={href(calculatorPath(calculator.def.slug))} className="focus-ring rounded text-neutral-700 hover:text-brand-700 hover:underline">
-                        {calculator.content.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <Link href={href("/calculators")} className="focus-ring btn-primary h-12 px-6 text-sm">
-            {t("directoryLink", { count: all.length })}
-            <ArrowIcon />
-          </Link>
-        </div>
-      </section>
-
-      <section aria-labelledby="trust-heading" className="py-16">
+      <section aria-labelledby="trust-heading" className="py-14">
         <h2 id="trust-heading" className="sr-only">
           {t("trustHeading", { site: SITE.name })}
         </h2>
@@ -324,6 +284,10 @@ export default async function HomePage() {
             <p dir="auto" className="mt-5 rounded-2xl bg-brand-50 p-4 font-mono text-sm font-semibold text-brand-900 ring-1 ring-brand-100">
               {t("transparentFormula")}
             </p>
+            <Link href={href("/about")} className="focus-ring mt-5 inline-flex items-center gap-2 rounded-full font-bold text-brand-700 hover:text-brand-800">
+              {t("methodology")}
+              <ArrowIcon />
+            </Link>
           </div>
           <div className="card p-6 sm:p-8">
             <span aria-hidden="true" className="flex size-12 items-center justify-center rounded-2xl bg-blush text-accent-700">
@@ -344,35 +308,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Trust band above the footer. */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="grid items-center gap-6 rounded-[1.75rem] bg-brand-800 px-6 py-7 text-white sm:grid-cols-2 lg:grid-cols-[repeat(3,minmax(0,1fr))_minmax(0,1.2fr)] lg:px-8">
-          {[
-            { label: t("privateTitle"), icon: "M10 2l7 3v5c0 4.4-3 7.4-7 8-4-.6-7-3.6-7-8V5l7-3zM7 10l2 2 4-4" },
-            { label: t("highlights.instant"), icon: "M10 3a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM10 6v4l2.5 1.5" },
-            { label: t("transparentTitle"), icon: "M4 4h12v12H4zM7 8h6M7 12h4" },
-          ].map((item) => (
-            <p key={item.label} className="flex items-center gap-3 font-bold">
-              <span aria-hidden="true" className="flex size-11 shrink-0 items-center justify-center rounded-full ring-2 ring-white/25">
-                <svg viewBox="0 0 20 20" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d={item.icon} />
-                </svg>
-              </span>
-              {item.label}
-            </p>
-          ))}
-          <Link
-            href={href("/about")}
-            className="focus-ring-light flex items-center justify-between gap-3 rounded-2xl border-2 border-butter/80 px-5 py-4 font-bold text-butter transition-colors hover:bg-white/5"
-          >
-            <span className="flex items-center gap-3">
-              <StarIcon className="size-6" />
-              {t("methodology")}
-            </span>
-            <ArrowIcon />
-          </Link>
-        </div>
-      </div>
       <JsonLd data={websiteJsonLd({ locale, path: href("/"), description: tm("siteDescription") })} />
     </>
   );

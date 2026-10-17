@@ -86,6 +86,9 @@ const ur: Messages = {
     directoryKicker: "سب کچھ ایک جگہ",
     directory: "کیلکولیٹرز کی مکمل فہرست",
     directoryLink: "تمام {count} کیلکولیٹرز تلاش اور فلٹر کریں",
+    payDirections: "صرف ایک سمت میں تبدیلی چاہیے؟ مخصوص کیلکولیٹر کھولیں:",
+    directoryToggle: "تمام کیلکولیٹرز دیکھیں",
+    directoryLead: "{categories} زمروں میں {count} کیلکولیٹرز۔ نام سے تلاش کریں یا زمرے کے ذریعے فہرست محدود کریں۔",
     trustHeading: "{site} کیسے کام کرتا ہے",
     transparentTitle: "شفاف حساب",
     transparentBody:

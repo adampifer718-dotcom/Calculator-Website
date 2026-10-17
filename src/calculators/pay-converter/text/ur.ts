@@ -14,8 +14,6 @@ const ur: PayConverterText = {
   timeToEarn: "{target} کمانے میں لگنے والا وقت",
   unreachable: "صفر تنخواہ پر ممکن نہیں",
   hoursMinutes: "{h} گھنٹے {m} منٹ",
-  higherCaption: "زیادہ فی گھنٹہ شرحوں پر آمدنی",
-  higherColumns: { rate: "فی گھنٹہ شرح", weekly: "ہفتہ وار", monthly: "ماہانہ", annual: "سالانہ" },
 };
 
 export default ur;

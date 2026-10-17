@@ -11,8 +11,6 @@ const text = {
   timeToEarn: "Time to earn {target}",
   unreachable: "Not reachable at zero pay",
   hoursMinutes: "{h}h {m}m",
-  higherCaption: "Earnings at higher hourly rates",
-  higherColumns: { rate: "Hourly rate", weekly: "Weekly", monthly: "Monthly", annual: "Annual" },
 };
 export type PayConverterText = typeof text;
 export default text;

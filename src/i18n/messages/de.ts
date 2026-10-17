@@ -88,6 +88,9 @@ const de: Messages = {
     directoryKicker: "Alles an einem Ort",
     directory: "Vollständiges Rechnerverzeichnis",
     directoryLink: "Alle {count} Rechner durchsuchen und filtern",
+    payDirections: "Nur eine Richtung? Öffnen Sie einen eigenen Rechner:",
+    directoryToggle: "Alle Rechner durchsuchen",
+    directoryLead: "{count} Rechner in {categories} Kategorien. Suchen Sie nach Namen oder grenzen Sie die Liste nach Kategorie ein.",
     trustHeading: "So funktioniert {site}",
     transparentTitle: "Nachvollziehbare Berechnung",
     transparentBody:

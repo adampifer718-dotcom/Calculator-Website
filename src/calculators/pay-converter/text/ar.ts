@@ -13,8 +13,6 @@ const ar: PayConverterText = {
   timeToEarn: "الوقت اللازم لكسب {target}",
   unreachable: "لا يمكن بلوغه بأجر صفري",
   hoursMinutes: "{h} س {m} د",
-  higherCaption: "الدخل عند معدلات أجر أعلى بالساعة",
-  higherColumns: { rate: "الأجر بالساعة", weekly: "أسبوعيًا", monthly: "شهريًا", annual: "سنويًا" },
 };
 
 export default ar;

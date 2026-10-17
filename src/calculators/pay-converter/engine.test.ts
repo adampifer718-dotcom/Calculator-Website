@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { evaluate, rawFromValues } from "@/calculators/framework/evaluate";
 import { formatResultValue } from "@/calculators/framework/format-result";
 import type { EngineValues } from "@/calculators/framework/types";
-import { formatHoursMinutes, higherHourlyRates, hoursToEarn } from "@/lib/math/pay";
+import { formatHoursMinutes, hoursToEarn } from "@/lib/math/pay";
 import { payConverterEngine } from "./engine";
 
 const fullTime = { hoursPerWeek: 40, daysPerWeek: 5, weeksPerYear: 52, currency: "USD" };
@@ -20,7 +20,6 @@ const text = (values: EngineValues) => {
     primary: formatResultValue(result.primary.value, currency),
     secondary: Object.fromEntries(result.secondary!.map((item) => [item.label, formatResultValue(item.value, currency)])),
     breakdown: Object.fromEntries(result.tables![0].rows.map((row) => [row.label, formatResultValue(row.cells[1], currency)])),
-    higher: result.tables![1].rows.map((row) => [row.label, ...row.cells.map((cell) => formatResultValue(cell, currency))]),
   };
 };
 
@@ -48,10 +47,8 @@ describe("pay converter", () => {
     expect(out.breakdown.Hourly).toBe("$30.00");
   });
 
-  it("lists the next five whole hourly rates with their earnings", () => {
-    const out = text({ ...fullTime, amount: 20.5, period: "hourly" });
-    expect(out.higher.map((row) => row[0])).toEqual(["$21", "$22", "$23", "$24", "$25"]);
-    expect(out.higher[0]).toEqual(["$21", "$840.00", "$3,640.00", "$43,680.00"]);
+  it("shows only the pay breakdown table (no table of higher hourly rates)", () => {
+    expect(run({ ...fullTime, amount: 20.5, period: "hourly" }).tables).toHaveLength(1);
   });
 
   it("handles zero pay without dividing by zero", () => {
@@ -75,11 +72,5 @@ describe("pay helpers", () => {
     expect(formatHoursMinutes(1.25)).toBe("1h 15m");
     expect(formatHoursMinutes(0.9999)).toBe("1h 0m");
     expect(formatHoursMinutes(1234.5)).toBe("1,234h 30m");
-  });
-
-  it("returns whole rates strictly above the current rate", () => {
-    expect(higherHourlyRates(20)).toEqual([21, 22, 23, 24, 25]);
-    expect(higherHourlyRates(20.01, 2)).toEqual([21, 22]);
-    expect(higherHourlyRates(0, 1)).toEqual([1]);
   });
 });
