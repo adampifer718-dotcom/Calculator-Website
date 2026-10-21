@@ -1,4 +1,162 @@
 import type { ConverterContent } from "../../types";
 
+const CGS_NOTE = "CGS-eenheden (gilbert, oersted, maxwell, gauss) worden omgerekend met hun definiërende verbanden met SI-eenheden, waarin 4π voorkomt omdat het CGS-stelsel niet gerationaliseerd is.";
+
 /** Magnetism converters in this language, keyed by converter id. */
-export const magnetismContent: Record<string, ConverterContent> = {};
+export const magnetismContent: Record<string, ConverterContent> = {
+  "magnetomotive-force": {
+    title: "Magnetomotorische kracht omrekenen",
+    shortTitle: "Magnetomotorische kracht",
+    summary: "Reken magnetomotorische kracht om tussen ampèrewindingen, ampère, gilbert en abampèrewindingen.",
+    metaTitle: "Magnetomotorische kracht omrekenen – At, A, Gb",
+    metaDescription: "Reken magnetomotorische kracht om tussen ampèrewindingen, ampère, kiloampèrewindingen, gilbert en abampèrewindingen voor spoelen en magnetische circuits.",
+    keywords: ["magnetomotorische kracht", "ampèrewinding", "gilbert", "mmk", "gilbert naar ampèrewinding", "magnetisch circuit", "spoel"],
+    intro: [
+      "Magnetomotorische kracht (mmk) is wat de magnetische flux door een magnetisch circuit drijft, zoals spanning een stroom drijft. Voor een spoel is het gewoon de stroom maal het aantal windingen, dus een spoel van 200 windingen met 2 A levert 400 ampèrewindingen.",
+      "Oudere teksten en sommige magneetgegevens gebruiken de CGS-eenheid gilbert. Eén gilbert is 10/(4π), ongeveer 0,796 ampèrewinding.",
+    ],
+    formula: {
+      expression: "F = N × I\n1 Gb = 10 ÷ (4π) At ≈ 0,795775 At",
+      explanation: "N is het aantal windingen en I de stroom; windingen hebben geen eenheid, dus de SI-eenheid van mmk is de ampère.",
+    },
+    assumptions: [
+      "Ampèrewindingen en ampère zijn dezelfde SI-eenheid; de naam ampèrewinding herinnert je er alleen aan dat de windingen zijn meegeteld.",
+      CGS_NOTE,
+    ],
+    faqs: [
+      { question: "Hoeveel ampèrewindingen is één gilbert?", answer: "Ongeveer 0,795775 At. Andersom is 1 At ongeveer 1,256637 Gb (4π/10)." },
+      { question: "Wat is de mmk van een spoel?", answer: "Vermenigvuldig de stroom met het aantal windingen. 500 windingen met 0,3 A geven 150 ampèrewindingen." },
+      { question: "Hoe hangt magnetomotorische kracht samen met de veldsterkte?", answer: "De veldsterkte H is de mmk per lengte-eenheid van het magnetische pad, dus 150 At verdeeld over 0,1 m kern is 1.500 A/m." },
+    ],
+    units: {
+      a: "Ampère",
+      ma: "Milliampère",
+      ka: "Kiloampère",
+      at: "Ampèrewindingen",
+      mat: "Milliampèrewindingen",
+      kat: "Kiloampèrewindingen",
+      gilbert: "Gilbert",
+      abat: "Abampèrewindingen",
+    },
+    sourcesUsedFor: ["Omrekenfactoren voor de gilbert en de abampère.", "De ampère als SI-eenheid van magnetomotorische kracht."],
+  },
+  "magnetic-field-strength": {
+    title: "Magnetische veldsterkte omrekenen",
+    shortTitle: "Magnetische veldsterkte",
+    summary: "Reken magnetische veldsterkte (H) om tussen ampère per meter, ampèrewindingen per inch of centimeter, en oersted.",
+    metaTitle: "Magnetische veldsterkte omrekenen – A/m, Oe, kOe",
+    metaDescription: "Reken magnetische veldsterkte H om tussen A/m, kA/m, A/cm, ampèrewindingen per inch, oersted en kilo-oersted. Gauss en tesla staan bij fluxdichtheid.",
+    keywords: ["magnetische veldsterkte", "oersted naar a/m", "a/m naar oersted", "koe naar ka/m", "h-veld", "coërcitiefkracht", "ampèrewindingen per inch"],
+    intro: [
+      "De magnetische veldsterkte, geschreven als H, beschrijft het magnetiserende effect van stromen. Het is wat een spoel per meter van haar lengte opwekt, en magneetfabrikanten geven er de coërcitiefkracht mee op, bijvoorbeeld een neodymiummagneet met ongeveer 950 kA/m (ongeveer 12 kOe).",
+      "De SI-eenheid is de ampère per meter. De CGS-eenheid is de oersted, en 1 Oe is 1000/(4π), ongeveer 79,58 A/m.",
+    ],
+    formula: {
+      expression: "H = N × I ÷ l\n1 Oe = 1000 ÷ (4π) A/m ≈ 79,5775 A/m",
+      explanation: "N × I is het aantal ampèrewindingen van de spoel en l is de lengte van het magnetische pad in meter.",
+    },
+    assumptions: [
+      "H (veldsterkte) en B (fluxdichtheid) zijn verschillende grootheden, dus gauss en tesla worden hier niet aangeboden. Alleen in vacuüm hoort in CGS-eenheden 1 Oe aan H bij 1 G aan B, en daarom worden ze vaak verward; in ijzer of een magneet hangt de verhouding B/H af van het materiaal.",
+      CGS_NOTE,
+    ],
+    faqs: [
+      { question: "Hoeveel A/m is één oersted?", answer: "Ongeveer 79,5775 A/m. Andersom is 1 kA/m ongeveer 12,566 Oe (4π)." },
+      { question: "Is een oersted hetzelfde als een gauss?", answer: "Nee. De oersted meet de veldsterkte H en de gauss de fluxdichtheid B. Alleen in vacuüm (en, bij benadering, in lucht) wekt een veld van 1 Oe in CGS-eenheden een fluxdichtheid van 1 G op. Gebruik de omrekentool voor magnetische fluxdichtheid voor gauss en tesla." },
+      { question: "Hoe reken ik kOe om naar kA/m voor de coërcitiefkracht van een magneet?", answer: "Vermenigvuldig met ongeveer 79,58. Een coërcitiefkracht van 12 kOe is ongeveer 955 kA/m." },
+    ],
+    units: {
+      a_m: "Ampère per meter",
+      ma_m: "Milliampère per meter",
+      ka_m: "Kiloampère per meter",
+      a_cm: "Ampère per centimeter",
+      a_mm: "Ampère per millimeter",
+      at_m: "Ampèrewindingen per meter",
+      at_cm: "Ampèrewindingen per centimeter",
+      at_in: "Ampèrewindingen per inch",
+      oe: "Oersted",
+      koe: "Kilo-oersted",
+      moe: "Milli-oersted",
+      gb_cm: "Gilbert per centimeter",
+    },
+    sourcesUsedFor: ["Omrekenfactor voor de oersted.", "De ampère per meter als SI-eenheid van magnetische veldsterkte."],
+  },
+  "magnetic-flux": {
+    title: "Magnetische flux omrekenen",
+    shortTitle: "Magnetische flux",
+    summary: "Reken magnetische flux om tussen weber, milliweber, microweber, voltseconde, maxwell en lines.",
+    metaTitle: "Magnetische flux omrekenen – Wb, mWb, µWb, Mx",
+    metaDescription: "Reken magnetische flux om tussen weber, milliweber, microweber, nanoweber, voltseconde, tesla vierkante meter, maxwell, kilomaxwell en lines.",
+    keywords: ["magnetische flux", "weber", "maxwell", "weber naar maxwell", "voltseconde", "fluxkoppeling", "fluxmeter"],
+    intro: [
+      "Magnetische flux is de totale hoeveelheid magnetisch veld die door een oppervlak gaat: fluxdichtheid maal oppervlak. Het is wat een fluxmeter en een meetspoel meten, en wat verandert wanneer een transformator of generator een spanning induceert.",
+      "De SI-eenheid is de weber, die gelijk is aan één voltseconde. De CGS-eenheid is de maxwell, ook line genoemd, en 1 Wb is precies 100.000.000 Mx.",
+    ],
+    formula: {
+      expression: "Φ = B × A\n1 Wb = 1 V·s = 1 T·m² = 10⁸ Mx",
+      explanation: "B is de fluxdichtheid in tesla en A het oppervlak in vierkante meter, voor een veld loodrecht op het oppervlak.",
+    },
+    assumptions: [
+      "De waarden zijn flux door een oppervlak, geen fluxdichtheid; om tesla of gauss om te rekenen, gebruik je de omrekentool voor magnetische fluxdichtheid.",
+      "1 maxwell = 10⁻⁸ Wb, exact volgens de definities van de CGS- en SI-eenheden; een line is hetzelfde als een maxwell.",
+    ],
+    faqs: [
+      { question: "Hoeveel maxwell gaan er in een weber?", answer: "Precies 100.000.000 (10⁸). Eén maxwell is 10 nWb." },
+      { question: "Waarom is een weber gelijk aan een voltseconde?", answer: "Volgens de inductiewet van Faraday induceert een flux die elke seconde 1 Wb verandert door één winding een spanning van 1 V." },
+      { question: "Hoe krijg ik de flux uit de fluxdichtheid?", answer: "Vermenigvuldig met het oppervlak. Een veld van 0,5 T door 20 cm² (0,002 m²) is 1 mWb, of 100.000 Mx." },
+    ],
+    units: {
+      wb: "Weber",
+      mwb: "Milliweber",
+      uwb: "Microweber",
+      nwb: "Nanoweber",
+      v_s: "Voltseconde",
+      t_m2: "Tesla vierkante meter",
+      mx: "Maxwell",
+      kmx: "Kilomaxwell",
+      g_cm2: "Gauss vierkante centimeter",
+      line: "Lines (krachtlijnen)",
+    },
+    sourcesUsedFor: ["Omrekenfactor voor de maxwell.", "De weber als SI-eenheid van magnetische flux."],
+  },
+  "magnetic-flux-density": {
+    title: "Magnetische fluxdichtheid omrekenen",
+    shortTitle: "Magnetische fluxdichtheid",
+    summary: "Reken magnetische fluxdichtheid (B) om tussen tesla, millitesla, microtesla, gauss, milligauss, gamma en lines per vierkante inch.",
+    metaTitle: "Magnetische fluxdichtheid omrekenen – T, mT, G, mG",
+    metaDescription: "Reken magnetische fluxdichtheid B om tussen tesla, mT, µT, nT, gauss, kilogauss, milligauss, gamma en lines per vierkante inch. Oersted staat apart.",
+    keywords: ["magnetische fluxdichtheid", "tesla naar gauss", "gauss naar tesla", "milligauss", "microtesla", "magnetisch veld", "gamma nT"],
+    intro: [
+      "Magnetische fluxdichtheid, geschreven als B, is wat mensen meestal bedoelen met de sterkte van een magnetisch veld. Gaussmeters en magnetometers in telefoons meten haar, MRI-scanners worden erop beoordeeld (1,5 T of 3 T), en EMV-meters tonen haar in milligauss of microtesla.",
+      "De SI-eenheid is de tesla en de CGS-eenheid de gauss: 1 T is precies 10.000 G. Het aardmagnetisch veld aan het oppervlak is ongeveer 25–65 µT, of 0,25–0,65 G.",
+    ],
+    formula: {
+      expression: "1 T = 1 Wb/m² = 10.000 G\n1 G = 1 Mx/cm² = 100 µT",
+      explanation: "Fluxdichtheid is magnetische flux per oppervlakte-eenheid loodrecht op het veld.",
+    },
+    assumptions: [
+      "B (fluxdichtheid) en H (veldsterkte) zijn verschillende grootheden, dus oersted en A/m worden hier niet aangeboden. Alleen in vacuüm, in CGS-eenheden, komt 1 G aan B overeen met 1 Oe aan H; in magnetische materialen hangt de verhouding af van de permeabiliteit van het materiaal.",
+      "De gamma (γ) uit de geofysica is precies 1 nT.",
+      CGS_NOTE,
+    ],
+    faqs: [
+      { question: "Hoeveel gauss gaan er in een tesla?", answer: "Precies 10.000. Eén gauss is 100 µT, en één milligauss is 0,1 µT (100 nT)." },
+      { question: "Hoe sterk is het aardmagnetisch veld?", answer: "Ongeveer 25 tot 65 µT aan het oppervlak, afhankelijk van de plaats, wat 0,25 tot 0,65 G is." },
+      { question: "Kan ik gauss omrekenen naar oersted?", answer: "In het algemeen niet, omdat ze verschillende dingen meten. In vacuüm of lucht, in CGS-eenheden, geeft een veld van 1 Oe een fluxdichtheid van 1 G; in ijzer of een magneet verschillen de waarden. Gebruik de omrekentool voor magnetische veldsterkte voor oersted." },
+    ],
+    units: {
+      t: "Tesla",
+      mt: "Millitesla",
+      ut: "Microtesla",
+      nt: "Nanotesla",
+      wb_m2: "Weber per vierkante meter",
+      gauss: "Gauss",
+      kgauss: "Kilogauss",
+      mgauss: "Milligauss",
+      gamma: "Gamma",
+      mx_cm2: "Maxwell per vierkante centimeter",
+      line_in2: "Lines per vierkante inch",
+      kline_in2: "Kilolines per vierkante inch",
+    },
+    sourcesUsedFor: ["Omrekenfactoren voor de gauss, de gamma en de maxwell.", "De tesla als SI-eenheid van magnetische fluxdichtheid."],
+  },
+};
