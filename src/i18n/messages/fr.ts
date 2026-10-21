@@ -100,7 +100,7 @@ const fr: Messages = {
     pills: { account: "Aucun compte requis", stored: "Aucune donnée de paie enregistrée", assumptions: "Hypothèses explicites" },
     methodology: "Découvrir notre méthodologie",
     badge: { free: "100 % gratuit", noSignup: "Sans inscription" },
-    benefits: { label: "Avantages du site", free: "100 % gratuit", instant: "Résultats instantanés", mobile: "Adapté aux mobiles", languages: "Disponible en six langues" },
+    benefits: { label: "Avantages du site", free: "100 % gratuit", instant: "Résultats instantanés", mobile: "Adapté aux mobiles", languages: "Disponible en neuf langues" },
   },
   payGuide: {
     stepsKicker: "Étape par étape",
@@ -219,7 +219,7 @@ const fr: Messages = {
       "Les résultats sont fournis à titre informatif et ne constituent pas un conseil financier, fiscal ou juridique. Les montants réels peuvent différer en raison des impôts, des frais, des règles relatives aux heures supplémentaires, des conventions d’arrondi des employeurs ou des établissements, et des autres facteurs indiqués sur chaque page de calculateur.",
     translations: "Traductions",
     translationsBody:
-      "Les pages en ourdou, espagnol, français, allemand et arabe sont traduites à partir des originaux en anglais. Les formules et les résultats sont identiques dans toutes les langues. Si une page n’a pas encore été traduite, le sélecteur de langue vous dirige vers la page d’accueil de la langue choisie.",
+      "Les pages en ourdou, espagnol, français, allemand, arabe, italien, portugais et néerlandais sont traduites à partir des originaux en anglais. Les formules et les résultats sont identiques dans toutes les langues. Si une page n’a pas encore été traduite, le sélecteur de langue vous dirige vers la page d’accueil de la langue choisie.",
   },
   converters: {
     nav: "Convertisseurs d’unités",

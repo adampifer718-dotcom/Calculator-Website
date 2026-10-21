@@ -137,7 +137,7 @@ test.describe("homepage badges", () => {
     // The badge sits above the search box and never covers it.
     expect(box!.y + box!.height).toBeLessThanOrEqual(search!.y);
     const row = page.getByRole("region", { name: "Site benefits" });
-    for (const label of ["100% free to use", "Instant results", "Mobile friendly", "Six languages supported"]) {
+    for (const label of ["100% free to use", "Instant results", "Mobile friendly", "Nine languages supported"]) {
       await expect(row.getByText(label)).toBeVisible();
     }
     if (!isMobile) {

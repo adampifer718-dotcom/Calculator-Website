@@ -102,7 +102,7 @@ const en = {
     pills: { account: "No account needed", stored: "No pay data stored", assumptions: "Clear assumptions" },
     methodology: "Read about our methodology",
     badge: { free: "100% Free", noSignup: "No sign-up required" },
-    benefits: { label: "Site benefits", free: "100% free to use", instant: "Instant results", mobile: "Mobile friendly", languages: "Six languages supported" },
+    benefits: { label: "Site benefits", free: "100% free to use", instant: "Instant results", mobile: "Mobile friendly", languages: "Nine languages supported" },
   },
   payGuide: {
     stepsKicker: "Step by step",
@@ -221,7 +221,7 @@ const en = {
       "Results are for general information and are not financial, tax or legal advice. Real-world figures can differ because of taxes, fees, overtime rules, rounding conventions used by employers or institutions, and other factors listed on each calculator page.",
     translations: "Translations",
     translationsBody:
-      "Pages in Urdu, Spanish, French, German and Arabic are translated from the English originals. Formulas and results are identical in every language. If a page has not been translated yet, the language selector takes you to that language's homepage instead.",
+      "Pages in Urdu, Spanish, French, German, Arabic, Italian, Portuguese and Dutch are translated from the English originals. Formulas and results are identical in every language. If a page has not been translated yet, the language selector takes you to that language's homepage instead.",
   },
   converters: {
     nav: "Unit converters",

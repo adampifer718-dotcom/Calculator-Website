@@ -324,7 +324,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Benefits row: verified site features only (free, instant, responsive, six languages). */}
+      {/* Benefits row: verified site features only (free, instant, responsive, nine languages). */}
       <section aria-label={t("benefits.label")} className="mx-auto max-w-7xl px-4 pb-4 sm:px-6">
         <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-[1.25rem] border border-line bg-line shadow-soft min-[420px]:grid-cols-2 lg:grid-cols-4">
           {[

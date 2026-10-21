@@ -13,7 +13,7 @@ async function sitemapPaths(page: Page): Promise<string[]> {
 
 test.describe("published pages", () => {
   // These tests crawl every page in the sitemap.
-  test.describe.configure({ timeout: 3_600_000 }); // ~1,200 pages across six languages; crawls run per language
+  test.describe.configure({ timeout: 3_600_000 }); // all published pages in nine languages; crawls run per language
 
   test("sitemap lists only working, indexable, uniquely described pages", async ({ page }) => {
     const paths = await sitemapPaths(page);

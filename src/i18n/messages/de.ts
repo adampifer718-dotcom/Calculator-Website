@@ -102,7 +102,7 @@ const de: Messages = {
     pills: { account: "Kein Konto nötig", stored: "Keine Lohndaten gespeichert", assumptions: "Klare Annahmen" },
     methodology: "Mehr über unsere Methodik",
     badge: { free: "100 % kostenlos", noSignup: "Ohne Anmeldung" },
-    benefits: { label: "Vorteile der Website", free: "100 % kostenlos", instant: "Sofortige Ergebnisse", mobile: "Für Mobilgeräte optimiert", languages: "In sechs Sprachen verfügbar" },
+    benefits: { label: "Vorteile der Website", free: "100 % kostenlos", instant: "Sofortige Ergebnisse", mobile: "Für Mobilgeräte optimiert", languages: "In neun Sprachen verfügbar" },
   },
   payGuide: {
     stepsKicker: "Schritt für Schritt",
@@ -249,7 +249,7 @@ const de: Messages = {
       "Die Ergebnisse dienen der allgemeinen Information und sind keine Finanz-, Steuer- oder Rechtsberatung. Reale Werte können abweichen – etwa durch Steuern, Gebühren, Überstundenregelungen, Rundungsregeln von Arbeitgebern oder Institutionen und weitere Faktoren, die auf der jeweiligen Rechnerseite genannt werden.",
     translations: "Übersetzungen",
     translationsBody:
-      "Die Seiten auf Urdu, Spanisch, Französisch, Deutsch und Arabisch sind aus den englischen Originalen übersetzt. Formeln und Ergebnisse sind in jeder Sprache identisch. Ist eine Seite noch nicht übersetzt, führt die Sprachauswahl stattdessen zur Startseite in dieser Sprache.",
+      "Die Seiten auf Urdu, Spanisch, Französisch, Deutsch, Arabisch, Italienisch, Portugiesisch und Niederländisch sind aus den englischen Originalen übersetzt. Formeln und Ergebnisse sind in jeder Sprache identisch. Ist eine Seite noch nicht übersetzt, führt die Sprachauswahl stattdessen zur Startseite in dieser Sprache.",
   },
   converters: {
     nav: "Einheitenumrechner",

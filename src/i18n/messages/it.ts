@@ -100,7 +100,7 @@ const it: Messages = {
     pills: { account: "Nessun account necessario", stored: "Nessun dato retributivo salvato", assumptions: "Ipotesi chiare" },
     methodology: "Scopri la nostra metodologia",
     badge: { free: "100% gratis", noSignup: "Nessuna registrazione richiesta" },
-    benefits: { label: "Vantaggi del sito", free: "Uso gratuito al 100%", instant: "Risultati immediati", mobile: "Ottimizzato per smartphone", languages: "Disponibile in sei lingue" },
+    benefits: { label: "Vantaggi del sito", free: "Uso gratuito al 100%", instant: "Risultati immediati", mobile: "Ottimizzato per smartphone", languages: "Disponibile in nove lingue" },
   },
   payGuide: {
     stepsKicker: "Passo dopo passo",
@@ -219,7 +219,7 @@ const it: Messages = {
       "I risultati hanno scopo informativo e non costituiscono consulenza finanziaria, fiscale o legale. I valori reali possono differire a causa di imposte, commissioni, regole sugli straordinari, criteri di arrotondamento usati da datori di lavoro o istituzioni e altri fattori indicati nella pagina di ciascun calcolatore.",
     translations: "Traduzioni",
     translationsBody:
-      "Le pagine in urdu, spagnolo, francese, tedesco e arabo sono tradotte dagli originali in inglese. Formule e risultati sono identici in tutte le lingue. Se una pagina non è ancora stata tradotta, il selettore della lingua ti porta alla home page di quella lingua.",
+      "Le pagine in urdu, spagnolo, francese, tedesco, arabo, italiano, portoghese e olandese sono tradotte dagli originali in inglese. Formule e risultati sono identici in tutte le lingue. Se una pagina non è ancora stata tradotta, il selettore della lingua ti porta alla home page di quella lingua.",
   },
   converters: {
     nav: "Convertitori di unità",
