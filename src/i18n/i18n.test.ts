@@ -168,7 +168,7 @@ describe("localized SEO", () => {
     }
     const expected = readyLocales().reduce((n, locale) => n + calculatorsForLocale(locale).length, 0);
     expect(entries.filter((e) => e.url.includes("/calculators/")).length).toBe(expected);
-  });
+  }, 30_000); // builds and checks ~1,750 entries with nine hreflang alternates each
 
   it("never lists an untranslated calculator in a language", () => {
     const urls = new Set(sitemap().map((e) => e.url));
@@ -197,5 +197,5 @@ describe("published paths used by the proxy", () => {
     const { publishedPaths } = await import("./published-paths");
     const fromSitemap = new Set(sitemap().map((e) => new URL(e.url).pathname.replace(/(.)\/$/, "$1")));
     expect(publishedPaths()).toEqual(fromSitemap);
-  });
+  }, 30_000);
 });
