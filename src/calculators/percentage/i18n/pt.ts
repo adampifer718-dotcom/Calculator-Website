@@ -8,7 +8,7 @@ const pt: CalculatorTranslation<PercentageText> = {
     summary: "Calcule X% de um número, que percentagem um número representa de outro, ou o total a partir de uma parte e de uma percentagem.",
     metaTitle: "Calculadora de percentagens – Percentagem de um número",
     metaDescription:
-      "Calculadora de percentagens gratuita. Calcule X% de Y, descubra que percentagem X representa de Y ou encontre o total quando X é Y% dele, com fórmulas e exemplos.",
+      "Calculadora de percentagens gratuita. Calcule X% de Y, veja que percentagem X é de Y ou encontre o total quando X é Y% dele, com fórmulas e exemplos.",
     keywords: ["percentagem", "calcular percentagem", "% de um número", "que percentagem", "fração", "proporção", "matemática"],
     intro: [
       "Esta calculadora responde às três perguntas mais comuns sobre percentagens. Escolha uma pergunta, introduza dois números e a resposta é atualizada à medida que escreve.",

@@ -8,7 +8,7 @@ const pt: CalculatorTranslation<RecipeScalerText> = {
     summary: "Aumente ou reduza as quantidades dos ingredientes de uma receita para qualquer número de doses.",
     metaTitle: "Calculadora de doses de receitas – Ajustar ingredientes",
     metaDescription:
-      "Ajuste qualquer receita a um novo número de doses. Cole a lista de ingredientes e obtenha as quantidades ajustadas, apresentadas em frações práticas para a cozinha.",
+      "Ajuste qualquer receita a um novo número de doses. Cole a lista de ingredientes e obtenha as quantidades ajustadas, em frações práticas para a cozinha.",
     keywords: ["receita", "ajustar receita", "doses", "ingredientes", "cozinha", "pastelaria", "duplicar receita", "meia receita"],
     intro: [
       "Ajustar uma receita significa multiplicar todas as quantidades pelo mesmo fator: o novo número de doses dividido pelo número de doses original.",

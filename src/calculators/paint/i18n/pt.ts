@@ -9,7 +9,7 @@ const pt: CalculatorTranslation<PaintText> = {
       "Estime quantos galões ou litros de tinta para paredes precisa a partir da dimensão das paredes, das portas, das janelas, do número de demãos e do rendimento.",
     metaTitle: "Calculadora de tinta – Litros ou galões para as paredes",
     metaDescription:
-      "Calcule quanta tinta para paredes comprar, em litros ou galões, a partir do comprimento e da altura das paredes, sem portas e janelas, para qualquer número de demãos.",
+      "Calcule quanta tinta comprar, em litros ou galões, a partir do comprimento e da altura das paredes, sem portas e janelas, para qualquer número de demãos.",
     keywords: ["calculadora de tinta", "quanta tinta preciso", "litros de tinta", "rendimento da tinta", "galões de tinta", "pintar paredes", "demãos de tinta"],
     intro: [
       "Comprar tinta é mais fácil quando sabe qual é a área a pintar. Some as larguras das paredes, multiplique pela altura, retire as portas e janelas e divida pela área que um galão ou um litro da sua tinta cobre.",

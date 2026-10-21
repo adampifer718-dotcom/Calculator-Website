@@ -6,7 +6,7 @@ const it: CalculatorTranslation<PercentageText> = {
     title: "Calcolatore di percentuali",
     shortTitle: "Percentuali",
     summary: "Calcola l'X % di un numero, che percentuale è un numero rispetto a un altro o il totale a partire da una parte e da una percentuale.",
-    metaTitle: "Calcolatore di percentuali – Percentuale di un numero e altro",
+    metaTitle: "Calcolatore di percentuali – Percentuale di un numero",
     metaDescription:
       "Calcolatore di percentuali gratuito. Trova l'X % di Y, che percentuale è X di Y o il totale quando X ne è l'Y %, con formule ed esempi svolti.",
     keywords: ["calcolo percentuale", "percentuale di un numero", "che percentuale è", "calcolare la percentuale", "proporzione percentuale", "calcolatrice %"],

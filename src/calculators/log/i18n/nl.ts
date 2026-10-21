@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<LogText> = {
     summary: "Bereken logaritmen met grondtal 10, grondtal e (natuurlijke logaritme), grondtal 2 of elk ander grondtal.",
     metaTitle: "Logaritmecalculator – logaritme met elk grondtal",
     metaDescription:
-      "Bereken de logaritme met grondtal 10, de natuurlijke logaritme (ln), de logaritme met grondtal 2 of met elk ander grondtal, met de formule voor grondtalwisseling.",
+      "Bereken de logaritme met grondtal 10, de natuurlijke logaritme (ln), de logaritme met grondtal 2 of met elk ander grondtal, met de formule voor grondtalwissel.",
     keywords: ["logaritme", "log", "ln", "natuurlijke logaritme", "logaritme grondtal 2", "log10", "grondtal wisselen"],
     intro: [
       "Een logaritme beantwoordt de vraag: tot welke macht moet je het grondtal verheffen om dit getal te krijgen? log₁₀(1000) = 3 omdat 10³ = 1000.",

@@ -24,7 +24,7 @@ const es: CalculatorTranslation<GcfLcmText> = {
       "El MCD sirve para simplificar fracciones y el mcm para hallar un común denominador o saber cuándo coinciden ciclos que se repiten. Introduce tus números para obtener ambos, junto con los factores primos de cada número.",
     ],
     howToUse: [
-      "Escribe entre 2 y 20 números enteros positivos, separados por comas, espacios o saltos de línea.",
+      "Escribe entre 2 y 20 números enteros positivos, separados por punto y coma, espacios o saltos de línea.",
       "Cada número puede llegar a un billón (10¹²).",
       "Consulta el MCD y el mcm. El mcm se calcula de forma exacta, aunque tenga muchas cifras.",
       "Revisa la tabla de factores primos para ver de dónde salen ambos resultados.",
@@ -95,11 +95,11 @@ const es: CalculatorTranslation<GcfLcmText> = {
   },
   text: {
     numbers: "Números enteros",
-    numbersHelp: "Introduce de 2 a 20 números enteros positivos, separados por comas, espacios o saltos de línea.",
+    numbersHelp: "Introduce de 2 a 20 números enteros positivos, separados por punto y coma, espacios o saltos de línea.",
     errors: {
       empty: "Introduce al menos dos números.",
       tooMany: "Introduce como máximo {max} números.",
-      notNumber: "«{token}» no es un número. Separa los valores con comas, espacios o saltos de línea.",
+      notNumber: "«{token}» no es un número. Separa los valores con punto y coma, espacios o saltos de línea.",
       tooLarge: "«{token}» es demasiado grande.",
     },
     needTwo: "Introduce al menos dos números.",

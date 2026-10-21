@@ -14,7 +14,7 @@ const de: CalculatorTranslation<GcfLcmText> = {
       "Den ggT brauchen Sie zum Kürzen von Brüchen, das kgV zum Finden eines gemeinsamen Nenners oder um zu bestimmen, wann sich wiederholende Zyklen zusammentreffen. Geben Sie Ihre Zahlen ein, um beide Werte samt den Primfaktoren jeder Zahl zu erhalten.",
     ],
     howToUse: [
-      "Geben Sie 2 bis 20 positive ganze Zahlen ein, getrennt durch Kommas, Leerzeichen oder Zeilenumbrüche.",
+      "Geben Sie 2 bis 20 positive ganze Zahlen ein, getrennt durch Semikolons, Leerzeichen oder Zeilenumbrüche.",
       "Jede Zahl darf bis zu einer Billion (10¹²) groß sein.",
       "Lesen Sie ggT und kgV ab. Das kgV wird exakt berechnet, auch wenn es sehr viele Stellen hat.",
       "Sehen Sie in der Tabelle der Primfaktorzerlegung nach, wie beide Ergebnisse zustande kommen.",
@@ -53,11 +53,11 @@ const de: CalculatorTranslation<GcfLcmText> = {
   },
   text: {
     numbers: "Natürliche Zahlen",
-    numbersHelp: "Geben Sie 2 bis 20 positive ganze Zahlen ein, getrennt durch Kommas, Leerzeichen oder Zeilenumbrüche.",
+    numbersHelp: "Geben Sie 2 bis 20 positive ganze Zahlen ein, getrennt durch Semikolons, Leerzeichen oder Zeilenumbrüche.",
     errors: {
       empty: "Geben Sie mindestens zwei Zahlen ein.",
       tooMany: "Geben Sie höchstens {max} Zahlen ein.",
-      notNumber: "„{token}“ ist keine Zahl. Trennen Sie Werte durch Kommas, Leerzeichen oder Zeilenumbrüche.",
+      notNumber: "„{token}“ ist keine Zahl. Trennen Sie Werte durch Semikolons, Leerzeichen oder Zeilenumbrüche.",
       tooLarge: "„{token}“ ist zu groß.",
     },
     needTwo: "Geben Sie mindestens zwei Zahlen ein.",

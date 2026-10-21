@@ -6,7 +6,7 @@ const it: CalculatorTranslation<PercentageIncreaseText> = {
     title: "Calcolatore dell'aumento percentuale",
     shortTitle: "Aumento percentuale",
     summary: "Calcola l'aumento o la diminuzione percentuale tra un valore iniziale e un nuovo valore.",
-    metaTitle: "Calcolatore aumento percentuale – Variazione in percentuale",
+    metaTitle: "Calcolatore aumento percentuale – Variazione in %",
     metaDescription:
       "Calcola l'aumento o la diminuzione percentuale tra due numeri. Vedi la variazione percentuale, la variazione assoluta e la formula, con esempi svolti.",
     keywords: ["variazione percentuale", "aumento percentuale", "diminuzione percentuale", "calcolo aumento in percentuale", "percentuale di crescita", "differenza percentuale"],

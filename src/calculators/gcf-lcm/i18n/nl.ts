@@ -15,7 +15,7 @@ const nl: CalculatorTranslation<GcfLcmText> = {
       "Je hebt de GGD nodig om breuken te vereenvoudigen en het KGV om een gemeenschappelijke noemer te vinden of om te bepalen wanneer terugkerende cycli samenvallen. Vul je getallen in en je krijgt beide, samen met de priemfactoren van elk getal.",
     ],
     howToUse: [
-      "Typ 2 tot 20 positieve gehele getallen, gescheiden door komma's, spaties of nieuwe regels.",
+      "Typ 2 tot 20 positieve gehele getallen, gescheiden door puntkomma's, spaties of nieuwe regels.",
       "Elk getal mag hoogstens één biljoen (10¹²) zijn.",
       "Lees de GGD en het KGV af. Het KGV wordt exact berekend, ook als het veel cijfers heeft.",
       "Bekijk de tabel met priemfactoren om te zien waar beide uitkomsten vandaan komen.",
@@ -85,11 +85,11 @@ const nl: CalculatorTranslation<GcfLcmText> = {
   },
   text: {
     numbers: "Gehele getallen",
-    numbersHelp: "Vul 2 tot 20 positieve gehele getallen in, gescheiden door komma's, spaties of nieuwe regels.",
+    numbersHelp: "Vul 2 tot 20 positieve gehele getallen in, gescheiden door puntkomma's, spaties of nieuwe regels.",
     errors: {
       empty: "Vul minstens twee getallen in.",
       tooMany: "Vul hoogstens {max} getallen in.",
-      notNumber: "“{token}” is geen getal. Scheid waarden met komma's, spaties of nieuwe regels.",
+      notNumber: "“{token}” is geen getal. Scheid waarden met puntkomma's, spaties of nieuwe regels.",
       tooLarge: "“{token}” is te groot.",
     },
     needTwo: "Vul minstens twee getallen in.",

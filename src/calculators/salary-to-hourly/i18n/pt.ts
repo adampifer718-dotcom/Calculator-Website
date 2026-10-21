@@ -9,7 +9,7 @@ const pt: CalculatorTranslation<SalaryToHourlyText> = {
       "Converta um salário bruto anual, mensal, quinzenal ou de outra periodicidade num valor por hora, com base no seu próprio horário de trabalho.",
     metaTitle: "Salário para valor por hora – Qualquer periodicidade",
     metaDescription:
-      "Converta um salário num valor por hora. Introduza o salário bruto anual, mensal, quinzenal, semanal ou diário e as suas horas, dias e semanas de trabalho por ano.",
+      "Converta um salário num valor por hora. Introduza o salário bruto anual, mensal, quinzenal, semanal ou diário e as horas, dias e semanas de trabalho por ano.",
     keywords: ["salário", "valor por hora", "salário por hora", "remuneração", "anual para hora", "mensal para hora", "recibo de vencimento", "taxa horária"],
     intro: [
       "Esta calculadora converte o salário bruto de qualquer periodicidade habitual num valor por hora equivalente. Mostra também quanto corresponde a mesma remuneração por ano, mês, quinzena, duas semanas, semana e dia de trabalho.",

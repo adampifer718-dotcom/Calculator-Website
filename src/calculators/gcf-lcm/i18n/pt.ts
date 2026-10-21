@@ -24,7 +24,7 @@ const pt: CalculatorTranslation<GcfLcmText> = {
       "O mdc serve para simplificar frações e o mmc para encontrar um denominador comum ou saber quando coincidem ciclos que se repetem. Introduza os seus números para obter ambos, juntamente com os fatores primos de cada número.",
     ],
     howToUse: [
-      "Escreva entre 2 e 20 números inteiros positivos, separados por vírgulas, espaços ou mudanças de linha.",
+      "Escreva entre 2 e 20 números inteiros positivos, separados por ponto e vírgula, espaços ou mudanças de linha.",
       "Cada número pode ir até um bilião (10¹²).",
       "Consulte o mdc e o mmc. O mmc é calculado de forma exata, mesmo que tenha muitos algarismos.",
       "Veja a tabela de fatores primos para perceber de onde vêm ambos os resultados.",
@@ -95,11 +95,11 @@ const pt: CalculatorTranslation<GcfLcmText> = {
   },
   text: {
     numbers: "Números inteiros",
-    numbersHelp: "Introduza de 2 a 20 números inteiros positivos, separados por vírgulas, espaços ou mudanças de linha.",
+    numbersHelp: "Introduza de 2 a 20 números inteiros positivos, separados por ponto e vírgula, espaços ou mudanças de linha.",
     errors: {
       empty: "Introduza pelo menos dois números.",
       tooMany: "Introduza no máximo {max} números.",
-      notNumber: "«{token}» não é um número. Separe os valores com vírgulas, espaços ou mudanças de linha.",
+      notNumber: "«{token}» não é um número. Separe os valores com ponto e vírgula, espaços ou mudanças de linha.",
       tooLarge: "«{token}» é demasiado grande.",
     },
     needTwo: "Introduza pelo menos dois números.",

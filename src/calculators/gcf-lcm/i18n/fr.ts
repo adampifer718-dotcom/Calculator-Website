@@ -15,7 +15,7 @@ const fr: CalculatorTranslation<GcfLcmText> = {
       "Le PGCD sert à simplifier des fractions, et le PPCM à trouver un dénominateur commun ou à déterminer quand des cycles qui se répètent coïncident. Saisissez vos nombres pour obtenir les deux, ainsi que les facteurs premiers de chaque nombre.",
     ],
     howToUse: [
-      "Saisissez entre 2 et 20 nombres entiers positifs, séparés par des virgules, des espaces ou des retours à la ligne.",
+      "Saisissez entre 2 et 20 nombres entiers positifs, séparés par des points-virgules, des espaces ou des retours à la ligne.",
       "Chaque nombre peut aller jusqu’à mille milliards (10¹²).",
       "Lisez le PGCD et le PPCM. Le PPCM est calculé exactement, même lorsqu’il comporte de nombreux chiffres.",
       "Consultez le tableau des décompositions en facteurs premiers pour voir d’où viennent les deux résultats.",
@@ -83,11 +83,11 @@ const fr: CalculatorTranslation<GcfLcmText> = {
   },
   text: {
     numbers: "Nombres entiers",
-    numbersHelp: "Saisissez de 2 à 20 nombres entiers positifs, séparés par des virgules, des espaces ou des retours à la ligne.",
+    numbersHelp: "Saisissez de 2 à 20 nombres entiers positifs, séparés par des points-virgules, des espaces ou des retours à la ligne.",
     errors: {
       empty: "Saisissez au moins deux nombres.",
       tooMany: "Saisissez au plus {max} nombres.",
-      notNumber: "« {token} » n’est pas un nombre. Séparez les valeurs par des virgules, des espaces ou des retours à la ligne.",
+      notNumber: "« {token} » n’est pas un nombre. Séparez les valeurs par des points-virgules, des espaces ou des retours à la ligne.",
       tooLarge: "« {token} » est trop grand.",
     },
     needTwo: "Saisissez au moins deux nombres.",

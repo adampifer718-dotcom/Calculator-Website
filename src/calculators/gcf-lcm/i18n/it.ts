@@ -15,7 +15,7 @@ const it: CalculatorTranslation<GcfLcmText> = {
       "L'MCD serve a semplificare le frazioni e l'mcm a trovare un denominatore comune o a capire quando dei cicli ripetuti tornano a coincidere. Inserisci i tuoi numeri per ottenerli entrambi, insieme ai fattori primi di ciascun numero.",
     ],
     howToUse: [
-      "Scrivi da 2 a 20 numeri interi positivi, separati da virgole, spazi o a capo.",
+      "Scrivi da 2 a 20 numeri interi positivi, separati da punti e virgola, spazi o a capo.",
       "Ogni numero può arrivare fino a mille miliardi (10¹²).",
       "Leggi l'MCD e l'mcm. L'mcm viene calcolato in modo esatto, anche quando ha molte cifre.",
       "Consulta la tabella delle scomposizioni in fattori primi per vedere da dove derivano entrambi i risultati.",
@@ -54,11 +54,11 @@ const it: CalculatorTranslation<GcfLcmText> = {
   },
   text: {
     numbers: "Numeri interi",
-    numbersHelp: "Inserisci da 2 a 20 numeri interi positivi, separati da virgole, spazi o a capo.",
+    numbersHelp: "Inserisci da 2 a 20 numeri interi positivi, separati da punti e virgola, spazi o a capo.",
     errors: {
       empty: "Inserisci almeno due numeri.",
       tooMany: "Inserisci al massimo {max} numeri.",
-      notNumber: "«{token}» non è un numero. Separa i valori con virgole, spazi o a capo.",
+      notNumber: "«{token}» non è un numero. Separa i valori con punti e virgola, spazi o a capo.",
       tooLarge: "«{token}» è troppo grande.",
     },
     needTwo: "Inserisci almeno due numeri.",
