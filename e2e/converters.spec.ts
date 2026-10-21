@@ -8,6 +8,9 @@ const LOCALES = [
   { prefix: "/fr", dir: "ltr" },
   { prefix: "/de", dir: "ltr" },
   { prefix: "/ar", dir: "rtl" },
+  { prefix: "/it", dir: "ltr" },
+  { prefix: "/pt", dir: "ltr" },
+  { prefix: "/nl", dir: "ltr" },
 ] as const;
 
 /** Navigate and wait until the page is hydrated, so typed input is not reset. */
@@ -151,7 +154,7 @@ test.describe("converters in every language", () => {
       await open(page, `${prefix}/unit-converters/pressure-converter`);
       await expect(page.locator("html")).toHaveAttribute("dir", dir);
       const hreflangs = await page.locator('link[rel="alternate"][hreflang]').evaluateAll((links) => links.map((l) => l.getAttribute("hreflang")));
-      expect(hreflangs).toEqual(expect.arrayContaining(["en", "ur", "es", "fr", "de", "ar", "x-default"]));
+      expect(hreflangs).toEqual(expect.arrayContaining(["en", "ur", "es", "fr", "de", "ar", "it", "pt-PT", "nl", "x-default"]));
       await page.getByRole("textbox").first().fill("1");
       // 1 bar = 14.503774 psi in every language (locale separators differ).
       await expect(result(page)).toContainText(/14[.,٫]503774/);

@@ -7,7 +7,10 @@ import { CALCULATORS } from "@/calculators/registry";
 import { LocaleSuggestion } from "@/components/layout/LocaleSuggestion";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { converterLocales } from "@/converters/catalog";
+import { ALL_CONVERTERS } from "@/converters/specs";
 import { LOCALE_INFO, type Locale } from "@/i18n/config";
+import { converterKey } from "@/i18n/switch";
 import { layoutLocale } from "@/i18n/server";
 import { SITE, SITE_INDEXABLE, SITE_URL } from "@/lib/site";
 import "../globals.css";
@@ -60,11 +63,14 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
   const { dir } = LOCALE_INFO[locale];
   const messages = await getMessages();
   const t = await getTranslations("common");
-  // Which locales each calculator exists in, so the language selector never links to a missing page.
-  const availability = Object.fromEntries(CALCULATORS.map((c) => [c.slug, calculatorLocales(c)])) as Record<string, Locale[]>;
+  // Which locales each calculator and converter page exists in, so the language selector never links to a missing page.
+  const availability = Object.fromEntries([
+    ...CALCULATORS.map((c) => [c.slug, calculatorLocales(c)]),
+    ...ALL_CONVERTERS.filter((c) => !c.calculatorSlug).map((c) => [converterKey(c.slug), converterLocales(c)]),
+  ]) as Record<string, Locale[]>;
 
   return (
-    <html lang={locale} dir={dir} className={`${jakarta.variable} ${dir === "rtl" ? notoArabic.variable : ""} antialiased`}>
+    <html lang={LOCALE_INFO[locale].lang} dir={dir} className={`${jakarta.variable} ${dir === "rtl" ? notoArabic.variable : ""} antialiased`}>
       <body className="flex min-h-screen flex-col bg-cream font-sans">
         <NextIntlClientProvider locale={locale} messages={messages} timeZone="UTC">
           <a

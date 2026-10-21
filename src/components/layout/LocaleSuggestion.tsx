@@ -56,11 +56,11 @@ export function LocaleSuggestion({
 
   // Fixed to the bottom of the viewport: it appears after hydration, so it must not push the page down (layout shift).
   return (
-    <div role="region" aria-label={text.prompt} lang={suggested} dir={LOCALE_INFO[suggested].dir} className="fixed inset-x-0 bottom-0 z-40 bg-brand-900 text-white shadow-[0_-8px_24px_-12px_rgb(23_40_67/0.5)]">
+    <div role="region" aria-label={text.prompt} lang={LOCALE_INFO[suggested].lang} dir={LOCALE_INFO[suggested].dir} className="fixed inset-x-0 bottom-0 z-40 bg-brand-900 text-white shadow-[0_-8px_24px_-12px_rgb(23_40_67/0.5)]">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2.5 text-sm sm:px-6">
         <p className="font-medium text-brand-50">{text.prompt}</p>
         <div className="flex items-center gap-2">
-          <a href={href} hrefLang={suggested} onClick={() => rememberLocale(suggested)} className="focus-ring-light rounded-full bg-accent-400 px-4 py-1.5 font-bold text-ink-900 hover:bg-accent-300">
+          <a href={href} hrefLang={LOCALE_INFO[suggested].lang} onClick={() => rememberLocale(suggested)} className="focus-ring-light rounded-full bg-accent-400 px-4 py-1.5 font-bold text-ink-900 hover:bg-accent-300">
             {text.action}
           </a>
           <button type="button" onClick={dismiss} className="focus-ring-light rounded-full px-4 py-1.5 font-semibold text-brand-100 hover:bg-white/10 hover:text-white">

@@ -86,6 +86,40 @@ function SaudiArabia() {
   );
 }
 
+function Italy() {
+  return (
+    <>
+      <rect width="10" height="20" fill="#009246" />
+      <rect x="10" width="10" height="20" fill="#fff" />
+      <rect x="20" width="10" height="20" fill="#CE2B37" />
+    </>
+  );
+}
+
+/** Portugal: green and red field (2:3) with a simplified armillary sphere and shield on the boundary. */
+function Portugal() {
+  return (
+    <>
+      <rect width="12" height="20" fill="#046A38" />
+      <rect x="12" width="18" height="20" fill="#DA291C" />
+      <circle cx="12" cy="10" r="4.6" fill="none" stroke="#FFE000" strokeWidth="1.2" />
+      <path d="M7.6 10h8.8M12 5.6v8.8" stroke="#FFE000" strokeWidth="0.7" />
+      <path d="M9.9 7.6h4.2v3.4a2.1 2.1 0 0 1-4.2 0z" fill="#fff" stroke="#DA291C" strokeWidth="0.6" />
+      <path d="M11.3 8.6h1.4v1.9h-1.4z" fill="#003399" />
+    </>
+  );
+}
+
+function Netherlands() {
+  return (
+    <>
+      <rect width="30" height="6.67" fill="#AE1C28" />
+      <rect y="6.67" width="30" height="6.67" fill="#fff" />
+      <rect y="13.33" width="30" height="6.67" fill="#21468B" />
+    </>
+  );
+}
+
 const FLAGS: Record<Locale, () => React.ReactElement> = {
   en: UnitedStates,
   ur: Pakistan,
@@ -93,6 +127,9 @@ const FLAGS: Record<Locale, () => React.ReactElement> = {
   fr: France,
   de: Germany,
   ar: SaudiArabia,
+  it: Italy,
+  pt: Portugal,
+  nl: Netherlands,
 };
 
 export function Flag({ locale, size = "md" }: { locale: Locale; size?: "sm" | "md" }) {

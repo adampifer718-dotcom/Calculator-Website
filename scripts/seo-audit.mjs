@@ -47,7 +47,8 @@ for (const url of urls) {
   const lang = /<html[^>]* lang="([^"]+)"/.exec(html)?.[1];
   const dir = /<html[^>]* dir="([^"]+)"/.exec(html)?.[1];
   const segment = new URL(url).pathname.split("/")[1];
-  const expectedLang = ["ur", "es", "fr", "de", "ar"].includes(segment) ? segment : "en";
+  const LANG_TAGS = { ur: "ur", es: "es", fr: "fr", de: "de", ar: "ar", it: "it", pt: "pt-PT", nl: "nl" };
+  const expectedLang = LANG_TAGS[segment] ?? "en";
   if (lang !== expectedLang) fail(`${url}: html lang ${lang}`);
   if (dir !== (["ur", "ar"].includes(expectedLang) ? "rtl" : "ltr")) fail(`${url}: dir ${dir}`);
   const title = /<title>([^<]*)<\/title>/.exec(html)?.[1];

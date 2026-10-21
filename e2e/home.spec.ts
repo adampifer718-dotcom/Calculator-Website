@@ -107,7 +107,7 @@ test.describe("homepage calculator directory", () => {
 });
 
 test.describe("homepage in every language", () => {
-  for (const [prefix, dir] of [["", "ltr"], ["/ur", "rtl"], ["/es", "ltr"], ["/fr", "ltr"], ["/de", "ltr"], ["/ar", "rtl"]] as const) {
+  for (const [prefix, dir] of [["", "ltr"], ["/ur", "rtl"], ["/es", "ltr"], ["/fr", "ltr"], ["/de", "ltr"], ["/ar", "rtl"], ["/it", "ltr"], ["/pt", "ltr"], ["/nl", "ltr"]] as const) {
     test(`layout, calculator and directory work in ${prefix || "/en"}`, async ({ page }) => {
       await open(page, prefix || "/");
       await expect(page.locator("html")).toHaveAttribute("dir", dir);
@@ -150,7 +150,7 @@ test.describe("homepage badges", () => {
   test("badges fit a 320px phone in every language", async ({ browser }) => {
     const context = await browser.newContext({ viewport: { width: 320, height: 700 } });
     const page = await context.newPage();
-    for (const prefix of ["", "/ur", "/es", "/fr", "/de", "/ar"]) {
+    for (const prefix of ["", "/ur", "/es", "/fr", "/de", "/ar", "/it", "/pt", "/nl"]) {
       await open(page, prefix || "/");
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
       expect(overflow, prefix || "/").toBeLessThanOrEqual(0);

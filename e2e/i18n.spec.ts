@@ -20,7 +20,7 @@ test("language selector is visible, lists native names and marks the active lang
   await expect(button).toHaveAttribute("aria-expanded", "false");
   const list = await openSwitcher(page);
   await expect(button).toHaveAttribute("aria-expanded", "true");
-  for (const name of ["English", "اردو", "Español", "Français", "Deutsch", "العربية"]) {
+  for (const name of ["English", "اردو", "Español", "Français", "Deutsch", "العربية", "Italiano", "Português", "Nederlands"]) {
     await expect(list.getByRole("link", { name: new RegExp(name) })).toBeVisible();
   }
   await expect(list.locator('[aria-current="true"]')).toHaveAttribute("hreflang", "en");
@@ -122,7 +122,7 @@ test("localized pages have translated metadata, canonical and reciprocal hreflan
   const alternates = await page.locator('link[rel="alternate"][hreflang]').evaluateAll((links) =>
     Object.fromEntries(links.map((l) => [l.getAttribute("hreflang"), l.getAttribute("href")])),
   );
-  expect(Object.keys(alternates).sort()).toEqual(["ar", "de", "en", "es", "fr", "ur", "x-default"]);
+  expect(Object.keys(alternates).sort()).toEqual(["ar", "de", "en", "es", "fr", "it", "nl", "pt-PT", "ur", "x-default"]);
   await page.goto("/calculators/tip-calculator");
   const english = await page.locator('link[rel="alternate"][hreflang]').evaluateAll((links) =>
     Object.fromEntries(links.map((l) => [l.getAttribute("hreflang"), l.getAttribute("href")])),
@@ -196,3 +196,32 @@ test("French data lists accept decimal commas", async ({ page }) => {
   await page.locator('textarea[id$="-data"]').fill("1,5; 2,5; 3,5");
   await expect(page.locator("#results-heading ~ div p").nth(1)).toHaveText("2,5");
 });
+
+for (const { locale, lang, h1, bill, tip } of [
+  { locale: "it", lang: "it", h1: /mance/i, bill: "80,50", tip: /14,49\sUSD/ },
+  { locale: "pt", lang: "pt-PT", h1: /gorjeta/i, bill: "80,50", tip: /14,49\sUS\$/ },
+  { locale: "nl", lang: "nl", h1: /fooi/i, bill: "80,50", tip: /US\$\s14,49/ },
+] as const) {
+  test(`${locale}: translated calculator accepts a decimal comma and matches the English result`, async ({ page }) => {
+    await page.goto(`/${locale}/calculators/tip-calculator`);
+    await page.waitForLoadState("networkidle");
+    await expect(page.locator("html")).toHaveAttribute("lang", lang);
+    await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
+    await expect(page.locator("h1")).toHaveText(h1);
+    await page.locator('input[id$="-bill"]').fill(bill);
+    await expect(page.locator("#results-heading ~ div p").nth(1)).toHaveText(tip);
+    const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
+    expect(canonical).toMatch(new RegExp(`/${locale}/calculators/tip-calculator$`));
+  });
+
+  test(`${locale}: switching from English keeps the page, filters and the remembered choice`, async ({ page, context }) => {
+    await page.goto("/calculators?q=loan&sort=az");
+    const list = await openSwitcher(page);
+    const link = list.locator(`a[hreflang="${lang}"]`);
+    await expect(link).toHaveAttribute("href", `/${locale}/calculators?q=loan&sort=az`);
+    await link.click();
+    await expect(page).toHaveURL(new RegExp(`/${locale}/calculators\\?q=loan&sort=az$`));
+    await expect(page.locator("#directory-search")).toHaveValue("loan");
+    expect((await context.cookies()).find((c) => c.name === "NEXT_LOCALE")?.value).toBe(locale);
+  });
+}

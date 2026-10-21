@@ -5,6 +5,9 @@ import { content as de } from "./content/de";
 import { englishContent } from "./content/en";
 import { content as es } from "./content/es";
 import { content as fr } from "./content/fr";
+import { content as itContent } from "./content/it";
+import { content as nl } from "./content/nl";
+import { content as pt } from "./content/pt";
 import { content as ur } from "./content/ur";
 import { compatible, compatibleUnits, convert, findUnitSpec, paramsWithDefaults } from "./engine";
 import { ALL_CONVERTERS, getSpec, isLinear } from "./specs";
@@ -142,7 +145,7 @@ describe("unique titles and metadata", () => {
   });
 });
 
-const TRANSLATED: Record<string, Record<string, ConverterContent>> = { ur, es, fr, de, ar };
+const TRANSLATED: Record<string, Record<string, ConverterContent>> = { ur, es, fr, de, ar, it: itContent, pt, nl };
 const english = (id: string): ConverterContent => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { sources, verification, updated, ...rest } = englishContent[id];

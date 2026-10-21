@@ -1,8 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 
-const LANGS = ["en", "ur", "es", "fr", "de", "ar"] as const;
-const langOf = (path: string) => (/^\/(ur|es|fr|de|ar)(\/|$)/.exec(path)?.[1] ?? "en") as (typeof LANGS)[number];
+const LANGS = ["en", "ur", "es", "fr", "de", "ar", "it", "pt", "nl"] as const;
+const langOf = (path: string) => (/^\/(ur|es|fr|de|ar|it|pt|nl)(\/|$)/.exec(path)?.[1] ?? "en") as (typeof LANGS)[number];
 
 async function sitemapPaths(page: Page): Promise<string[]> {
   const response = await page.request.get("/sitemap.xml");

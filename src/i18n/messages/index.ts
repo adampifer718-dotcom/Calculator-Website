@@ -1,8 +1,11 @@
 import type { Locale } from "../config";
 import type { Messages } from "./en";
 
-/** Interface messages per locale, loaded on demand on the server. */
-const LOADERS: Record<Locale, () => Promise<{ default: Messages }>> = {
+/**
+ * Interface messages per locale, loaded on demand on the server. A locale
+ * without a file here falls back to English and stays unpublished.
+ */
+const LOADERS: Partial<Record<Locale, () => Promise<{ default: Messages }>>> = {
   en: () => import("./en"),
   ur: () => import("./ur"),
   es: () => import("./es"),
@@ -12,7 +15,7 @@ const LOADERS: Record<Locale, () => Promise<{ default: Messages }>> = {
 };
 
 export async function loadMessages(locale: Locale): Promise<Messages> {
-  return (await LOADERS[locale]()).default;
+  return (await (LOADERS[locale] ?? LOADERS.en!)()).default;
 }
 
 /**

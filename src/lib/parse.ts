@@ -1,7 +1,7 @@
 import { DEFAULT_LOCALE, LOCALE_INFO, type Locale } from "@/i18n/config";
 
 /** Locales whose number format uses a comma as the decimal separator. */
-const COMMA_DECIMAL = new Set<Locale>(["es", "fr", "de"]);
+const COMMA_DECIMAL = new Set<Locale>(["es", "fr", "de", "it", "pt", "nl"]);
 
 export function usesCommaDecimal(locale: Locale): boolean {
   return COMMA_DECIMAL.has(locale);
@@ -26,7 +26,7 @@ const DOT_GROUPS = /^[-+]?\d{1,3}(\.\d{3})+$/;
  *
  * - English, Urdu and Arabic: "." is the decimal separator and "," groups
  *   thousands ("52,000.50"). Arabic-Indic digits are accepted.
- * - Spanish, French and German: "," is the decimal separator; "." and
+ * - Spanish, French, German, Italian, Portuguese and Dutch: "," is the decimal separator; "." and
  *   spaces group thousands ("52.000,50"). A lone "." is treated as a
  *   decimal point unless it clearly groups thousands ("60.000").
  */

@@ -7,7 +7,7 @@
 import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
-const ORDER = ["ur", "es", "fr", "de", "ar"];
+const ORDER = ["ur", "es", "fr", "de", "ar", "it", "pt", "nl"];
 const root = path.join(import.meta.dirname, "..", "src", "calculators");
 
 for (const name of readdirSync(root)) {

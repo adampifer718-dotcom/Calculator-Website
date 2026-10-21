@@ -114,7 +114,7 @@ export function LanguageSwitcher({ locale, locales, availability, variant = "ful
       >
         <Flag locale={locale} size="sm" />
         {variant === "full" ? (
-          <span lang={locale}>{current.nativeName}</span>
+          <span lang={current.lang}>{current.nativeName}</span>
         ) : (
           <span className="uppercase" aria-hidden="true">
             {locale}
@@ -141,8 +141,8 @@ export function LanguageSwitcher({ locale, locales, availability, variant = "ful
                     itemRefs.current[index] = el;
                   }}
                   href={href}
-                  hrefLang={target}
-                  lang={target}
+                  hrefLang={info.lang}
+                  lang={info.lang}
                   aria-current={active ? "true" : undefined}
                   title={exists ? undefined : t("untranslated", { language: info.nativeName })}
                   onClick={() => rememberLocale(target)}

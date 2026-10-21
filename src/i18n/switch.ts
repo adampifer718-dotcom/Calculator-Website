@@ -2,6 +2,10 @@ import { DEFAULT_LOCALE, LOCALE_COOKIE, type Locale } from "./config";
 import { localizePath, stripLocale } from "./paths";
 
 const CALCULATOR_PATH = /^\/calculators\/([^/]+)$/;
+const CONVERTER_PATH = /^\/unit-converters\/([^/]+)$/;
+
+/** Availability key for a unit converter page (calculators use their bare slug). */
+export const converterKey = (slug: string) => `unit-converters/${slug}`;
 
 /**
  * Where a language link should go from the current page: the same page in
@@ -15,9 +19,11 @@ export function equivalentPath(
   search = "",
 ): { href: string; exists: boolean } {
   const { path } = stripLocale(currentPublicPath || "/");
-  const match = CALCULATOR_PATH.exec(path);
-  if (match) {
-    const locales = availability[match[1]];
+  const calculator = CALCULATOR_PATH.exec(path);
+  const converter = CONVERTER_PATH.exec(path);
+  const key = calculator ? calculator[1] : converter ? converterKey(converter[1]) : undefined;
+  if (key !== undefined) {
+    const locales = availability[key];
     if (!locales || !locales.includes(target)) return { href: localizePath(target, "/"), exists: false };
   }
   return { href: localizePath(target, path) + search, exists: true };

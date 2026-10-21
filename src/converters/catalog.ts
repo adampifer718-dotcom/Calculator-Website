@@ -7,12 +7,15 @@ import { content as de } from "./content/de";
 import { englishContent } from "./content/en";
 import { content as es } from "./content/es";
 import { content as fr } from "./content/fr";
+import { content as it } from "./content/it";
+import { content as nl } from "./content/nl";
+import { content as pt } from "./content/pt";
 import { content as ur } from "./content/ur";
 import { ALL_CONVERTERS, getSpec, isLinear } from "./specs";
 import type { ConverterContent, ConverterGroup, ConverterMeta, ConverterSpec } from "./types";
 
 /** Translated converter content by locale (English lives with the source metadata). */
-const TRANSLATIONS: Partial<Record<Locale, Record<string, ConverterContent>>> = { ur, es, fr, de, ar };
+const TRANSLATIONS: Partial<Record<Locale, Record<string, ConverterContent>>> = { ur, es, fr, de, ar, it, pt, nl };
 
 export interface LocalizedConverter {
   spec: ConverterSpec;
