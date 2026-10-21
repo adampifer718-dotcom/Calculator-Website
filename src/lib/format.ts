@@ -78,13 +78,22 @@ export function getFormatter(locale: Locale | string = DEFAULT_LOCALE): Formatte
   return formatter;
 }
 
+/**
+ * Thousands grouping fixed per locale where ICU versions disagree. Node's
+ * newer CLDR data leaves four-digit Italian numbers ungrouped ("1234") while
+ * browsers group them ("1.234"); the server-rendered text must match the
+ * browser's exactly, so Italian always groups.
+ */
+const EXPLICIT_GROUPING: Partial<Record<Locale, "always">> = { it: "always" };
+
 function createFormatter(locale: Locale): Formatter {
   const tag = LOCALE_INFO[locale].intl;
+  const grouping = EXPLICIT_GROUPING[locale];
   const cache = new Map<string, Intl.NumberFormat>();
   const nf = (key: string, options: Intl.NumberFormatOptions) => {
     let format = cache.get(key);
     if (!format) {
-      format = new Intl.NumberFormat(tag, options);
+      format = new Intl.NumberFormat(tag, grouping ? ({ ...options, useGrouping: grouping } as Intl.NumberFormatOptions) : options);
       cache.set(key, format);
     }
     return format;

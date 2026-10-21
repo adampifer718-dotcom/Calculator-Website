@@ -60,5 +60,8 @@ describe("Italian, European Portuguese and Dutch locales", () => {
     expect(getFormatter("pt").number(1234567.891, 3).replace(/\s/g, " ")).toBe("1 234 567,891");
     expect(getFormatter("it").significant(0.00405, 4)).toBe("0,00405");
     for (const l of NEW) expect(getFormatter(l).currency(14.49, "USD")).toMatch(/14,49/);
+    // Italian groups four-digit numbers on the server exactly as browsers do (no hydration mismatch).
+    expect(getFormatter("it").number(1234)).toBe("1.234");
+    expect(getFormatter("it").currency(1234.5, "USD")).toMatch(/^1\.234,50\sUSD$/);
   });
 });
