@@ -15,7 +15,7 @@ const it: CalculatorTranslation<WeightedAverageText> = {
       "Inserisci i valori e un elenco corrispondente di pesi. Il calcolatore fornisce la media ponderata e, per confronto, la media ordinaria che tratta tutti i valori allo stesso modo.",
     ],
     howToUse: [
-      "Digita i valori nella prima casella, separati da virgole, spazi o a capo.",
+      "Digita i valori nella prima casella, separati da punti e virgola, spazi o a capo.",
       "Digita i pesi nella seconda casella nello stesso ordine, uno per ogni valore.",
       "I pesi possono essere percentuali, crediti, quantità o qualsiasi altro numero non negativo. Non devono per forza sommare a 100 o a 1.",
       "Leggi la media ponderata. Se si discosta molto dalla media non ponderata, i valori con peso maggiore la stanno attirando verso di sé.",
@@ -79,13 +79,13 @@ const it: CalculatorTranslation<WeightedAverageText> = {
   },
   text: {
     values: "Valori",
-    valuesHelp: "Un valore per elemento, separati da virgole, spazi o a capo.",
+    valuesHelp: "Un valore per elemento, separati da punti e virgola, spazi o a capo.",
     weights: "Pesi",
     weightsHelp: "Un peso per ogni valore, nello stesso ordine. Vanno bene percentuali, crediti o quantità; non devono per forza sommare a 100.",
     errors: {
       empty: "Inserisci almeno un numero.",
       tooMany: "Inserisci al massimo {max} numeri.",
-      notNumber: "«{token}» non è un numero. Separa i valori con virgole, spazi o a capo.",
+      notNumber: "«{token}» non è un numero. Separa i valori con punti e virgola, spazi o a capo.",
       tooLarge: "«{token}» è troppo grande.",
     },
     maxCount: "Inserisci al massimo {max} numeri.",

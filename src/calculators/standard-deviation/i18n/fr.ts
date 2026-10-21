@@ -14,7 +14,7 @@ const fr: CalculatorTranslation<StandardDeviationText> = {
       "Choisissez « échantillon » lorsque vos données sont un sous-ensemble d’un groupe plus large, ce qui est le cas le plus courant.",
     ],
     howToUse: [
-      "Saisissez vos nombres, séparés par des virgules, des espaces ou des retours à la ligne.",
+      "Saisissez vos nombres, séparés par des points-virgules, des espaces ou des retours à la ligne.",
       "Choisissez échantillon ou population.",
       "Consultez l’écart type, la variance, la moyenne et l’erreur type.",
     ],

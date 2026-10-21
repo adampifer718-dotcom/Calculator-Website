@@ -28,7 +28,7 @@ const es: CalculatorTranslation<ResistorsText> = {
     howToUse: [
       "Elige si has escrito los valores en ohmios, kiloohmios o megaohmios.",
       "Elige serie o paralelo para decidir qué total es el resultado principal.",
-      "Introduce de 1 a 50 resistencias, separadas por comas, espacios o saltos de línea.",
+      "Introduce de 1 a 50 resistencias, separadas por punto y coma, espacios o saltos de línea.",
       "Consulta la resistencia total, el total de la otra conexión y la conductancia en paralelo en siemens.",
     ],
     formulas: [
@@ -104,11 +104,11 @@ const es: CalculatorTranslation<ResistorsText> = {
     connectionHelp: "Elige qué total mostrar como resultado principal. El otro aparece debajo.",
     connectionOptions: { series: "Serie", parallel: "Paralelo" },
     values: "Resistencias",
-    valuesHelp: "De 1 a 50 valores, separados por comas, espacios o saltos de línea. Cada uno debe ser mayor que 0.",
+    valuesHelp: "De 1 a 50 valores, separados por punto y coma, espacios o saltos de línea. Cada uno debe ser mayor que 0.",
     errors: {
       empty: "Introduce al menos una resistencia.",
       tooMany: "Introduce como máximo {max} resistencias.",
-      notNumber: "«{token}» no es un número. Separa los valores con comas, espacios o saltos de línea.",
+      notNumber: "«{token}» no es un número. Separa los valores con punto y coma, espacios o saltos de línea.",
       tooLarge: "«{token}» es demasiado grande.",
     },
     maxCount: "Introduce como máximo {max} resistencias.",

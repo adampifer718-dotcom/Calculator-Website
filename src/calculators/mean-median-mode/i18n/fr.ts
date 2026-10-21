@@ -7,14 +7,14 @@ const fr: CalculatorTranslation<MeanMedianModeText> = {
     shortTitle: "Moyenne, médiane, mode",
     summary: "Trouvez la moyenne, la médiane, le mode, l’étendue et la somme d’une liste de nombres.",
     metaTitle: "Calculateur de moyenne, médiane et mode – Tendance centrale",
-    metaDescription: "Calculez la moyenne, la médiane, le mode, l’étendue et la somme d’une série de données. Collez des nombres séparés par des virgules, des espaces ou des retours à la ligne.",
+    metaDescription: "Calculez la moyenne, la médiane, le mode, l’étendue et la somme d’une série de données. Collez des nombres séparés par des points-virgules, des espaces ou des retours à la ligne.",
     keywords: ["calcul moyenne", "médiane", "mode statistique", "moyenne médiane mode", "étendue", "série statistique", "tendance centrale"],
     intro: [
       "La moyenne, la médiane et le mode sont trois façons de décrire le centre d’une série de données. Ils peuvent différer fortement lorsque les données sont asymétriques ou comportent des valeurs aberrantes.",
       "Collez ou saisissez vos nombres pour obtenir les trois, ainsi que l’étendue et la somme.",
     ],
     howToUse: [
-      "Saisissez vos nombres, séparés par des virgules, des espaces ou des retours à la ligne.",
+      "Saisissez vos nombres, séparés par des points-virgules, des espaces ou des retours à la ligne.",
       "Consultez la moyenne, la médiane, le mode, l’étendue et la somme.",
     ],
     formulas: [

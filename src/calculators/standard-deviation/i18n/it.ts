@@ -23,7 +23,7 @@ const it: CalculatorTranslation<StandardDeviationText> = {
       "Scegli campione quando i tuoi dati sono un sottoinsieme di un gruppo più ampio, che è il caso più comune.",
     ],
     howToUse: [
-      "Inserisci i numeri separati da virgole, spazi o a capo.",
+      "Inserisci i numeri separati da punti e virgola, spazi o a capo.",
       "Scegli campione o popolazione.",
       "Leggi la deviazione standard, la varianza, la media e l'errore standard.",
     ],
@@ -57,11 +57,11 @@ const it: CalculatorTranslation<StandardDeviationText> = {
   },
   text: {
     data: "Insieme di dati",
-    dataHelp: "Separa i numeri con virgole, spazi o a capo. Usa il punto per i decimali.",
+    dataHelp: "Separa i numeri con punti e virgola, spazi o a capo. Usa il punto per i decimali.",
     errors: {
       empty: "Inserisci almeno un numero.",
       tooMany: "Inserisci al massimo {max} numeri.",
-      notNumber: "«{token}» non è un numero. Separa i valori con virgole, spazi o a capo.",
+      notNumber: "«{token}» non è un numero. Separa i valori con punti e virgola, spazi o a capo.",
       tooLarge: "«{token}» è troppo grande.",
     },
     kind: "I dati sono",

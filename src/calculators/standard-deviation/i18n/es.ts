@@ -15,7 +15,7 @@ const es: CalculatorTranslation<StandardDeviationText> = {
       "Elige «muestra» cuando tus datos sean un subconjunto de un grupo mayor, que es lo más habitual.",
     ],
     howToUse: [
-      "Introduce tus números separados por comas, espacios o saltos de línea.",
+      "Introduce tus números separados por punto y coma, espacios o saltos de línea.",
       "Elige muestra o población.",
       "Consulta la desviación estándar, la varianza, la media y el error estándar.",
     ],

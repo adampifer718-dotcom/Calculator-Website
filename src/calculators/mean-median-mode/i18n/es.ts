@@ -8,14 +8,14 @@ const es: CalculatorTranslation<MeanMedianModeText> = {
     summary: "Calcula la media, la mediana, la moda, el rango y la suma de una lista de números.",
     metaTitle: "Calculadora de media, mediana y moda – Promedios",
     metaDescription:
-      "Calcula la media (promedio), la mediana, la moda, el rango y la suma de un conjunto de datos. Pega números separados por comas, espacios o saltos de línea.",
+      "Calcula la media (promedio), la mediana, la moda, el rango y la suma de un conjunto de datos. Pega números separados por punto y coma, espacios o saltos de línea.",
     keywords: ["media mediana y moda", "calcular la media", "calcular promedio", "mediana", "moda estadística", "medidas de tendencia central", "estadística"],
     intro: [
       "La media, la mediana y la moda son tres formas de describir el centro de un conjunto de datos. Pueden ser muy distintas cuando los datos son asimétricos o tienen valores atípicos.",
       "Pega o escribe tus números para ver las tres, además del rango y la suma.",
     ],
     howToUse: [
-      "Introduce tus números separados por comas, espacios o saltos de línea.",
+      "Introduce tus números separados por punto y coma, espacios o saltos de línea.",
       "Consulta la media, la mediana, la moda, el rango y la suma.",
     ],
     formulas: [

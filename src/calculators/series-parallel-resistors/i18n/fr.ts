@@ -17,7 +17,7 @@ const fr: CalculatorTranslation<ResistorsText> = {
     howToUse: [
       "Indiquez si vous avez saisi les valeurs en ohms, en kilohms ou en mégohms.",
       "Choisissez série ou parallèle pour définir le total affiché comme résultat principal.",
-      "Saisissez de 1 à 50 résistances, séparées par des virgules, des espaces ou des retours à la ligne.",
+      "Saisissez de 1 à 50 résistances, séparées par des points-virgules, des espaces ou des retours à la ligne.",
       "Lisez la résistance totale, le total de l’autre montage et la conductance en parallèle en siemens.",
     ],
     formulas: [
@@ -70,11 +70,11 @@ const fr: CalculatorTranslation<ResistorsText> = {
     connectionHelp: "Choisissez le total à afficher comme résultat principal. L’autre est affiché en dessous.",
     connectionOptions: { series: "Série", parallel: "Parallèle" },
     values: "Résistances",
-    valuesHelp: "De 1 à 50 valeurs, séparées par des virgules, des espaces ou des retours à la ligne. Chacune doit être supérieure à 0.",
+    valuesHelp: "De 1 à 50 valeurs, séparées par des points-virgules, des espaces ou des retours à la ligne. Chacune doit être supérieure à 0.",
     errors: {
       empty: "Saisissez au moins une résistance.",
       tooMany: "Saisissez au plus {max} résistances.",
-      notNumber: "« {token} » n’est pas un nombre. Séparez les valeurs par des virgules, des espaces ou des retours à la ligne.",
+      notNumber: "« {token} » n’est pas un nombre. Séparez les valeurs par des points-virgules, des espaces ou des retours à la ligne.",
       tooLarge: "« {token} » est trop grand.",
     },
     maxCount: "Saisissez au plus {max} résistances.",

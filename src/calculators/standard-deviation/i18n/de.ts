@@ -15,7 +15,7 @@ const de: CalculatorTranslation<StandardDeviationText> = {
       "Wählen Sie „Stichprobe“, wenn Ihre Daten nur ein Teil einer größeren Gruppe sind – das ist der Normalfall.",
     ],
     howToUse: [
-      "Geben Sie Ihre Zahlen ein, getrennt durch Kommas, Leerzeichen oder Zeilenumbrüche.",
+      "Geben Sie Ihre Zahlen ein, getrennt durch Semikolons, Leerzeichen oder Zeilenumbrüche.",
       "Wählen Sie Stichprobe oder Grundgesamtheit.",
       "Lesen Sie Standardabweichung, Varianz, Mittelwert und Standardfehler ab.",
     ],

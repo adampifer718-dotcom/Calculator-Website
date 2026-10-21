@@ -15,7 +15,7 @@ const fr: CalculatorTranslation<WeightedAverageText> = {
       "Saisissez les valeurs et la liste de coefficients correspondante. Le calculateur donne la moyenne pondérée et, pour comparaison, la moyenne ordinaire, qui traite toutes les valeurs de la même façon.",
     ],
     howToUse: [
-      "Saisissez les valeurs dans le premier champ, séparées par des virgules, des espaces ou des retours à la ligne.",
+      "Saisissez les valeurs dans le premier champ, séparées par des points-virgules, des espaces ou des retours à la ligne.",
       "Saisissez les coefficients dans le second champ, dans le même ordre, un pour chaque valeur.",
       "Les coefficients peuvent être des pourcentages, des crédits, des quantités ou tout autre nombre positif ou nul. Leur somme n’a pas besoin de faire 100 ni 1.",
       "Lisez la moyenne pondérée. Si elle s’écarte beaucoup de la moyenne non pondérée, c’est que les valeurs à fort coefficient l’attirent vers elles.",
@@ -69,13 +69,13 @@ const fr: CalculatorTranslation<WeightedAverageText> = {
   },
   text: {
     values: "Valeurs",
-    valuesHelp: "Une valeur par élément, séparées par des virgules, des espaces ou des retours à la ligne.",
+    valuesHelp: "Une valeur par élément, séparées par des points-virgules, des espaces ou des retours à la ligne.",
     weights: "Coefficients",
     weightsHelp: "Un coefficient par valeur, dans le même ordre. Pourcentages, crédits ou quantités conviennent tous ; leur somme n’a pas besoin de faire 100.",
     errors: {
       empty: "Saisissez au moins un nombre.",
       tooMany: "Saisissez au plus {max} nombres.",
-      notNumber: "« {token} » n’est pas un nombre. Séparez les valeurs par des virgules, des espaces ou des retours à la ligne.",
+      notNumber: "« {token} » n’est pas un nombre. Séparez les valeurs par des points-virgules, des espaces ou des retours à la ligne.",
       tooLarge: "« {token} » est trop grand.",
     },
     maxCount: "Saisissez au plus {max} nombres.",

@@ -18,7 +18,7 @@ const de: CalculatorTranslation<ResistorsText> = {
     howToUse: [
       "Wählen Sie, ob Sie die Werte in Ohm, Kiloohm oder Megaohm eingegeben haben.",
       "Wählen Sie Reihe oder parallel, um festzulegen, welcher Gesamtwert das Hauptergebnis ist.",
-      "Geben Sie 1 bis 50 Widerstandswerte ein, getrennt durch Kommas, Leerzeichen oder Zeilenumbrüche.",
+      "Geben Sie 1 bis 50 Widerstandswerte ein, getrennt durch Semikolons, Leerzeichen oder Zeilenumbrüche.",
       "Lesen Sie den Gesamtwiderstand, den Gesamtwert der anderen Schaltung und den Leitwert der Parallelschaltung in Siemens ab.",
     ],
     formulas: [
@@ -60,11 +60,11 @@ const de: CalculatorTranslation<ResistorsText> = {
     connectionHelp: "Wählen Sie, welcher Gesamtwert als Hauptergebnis erscheint. Der andere wird darunter angezeigt.",
     connectionOptions: { series: "Reihe", parallel: "Parallel" },
     values: "Widerstandswerte",
-    valuesHelp: "1 bis 50 Werte, getrennt durch Kommas, Leerzeichen oder Zeilenumbrüche. Jeder muss größer als 0 sein.",
+    valuesHelp: "1 bis 50 Werte, getrennt durch Semikolons, Leerzeichen oder Zeilenumbrüche. Jeder muss größer als 0 sein.",
     errors: {
       empty: "Geben Sie mindestens einen Widerstandswert ein.",
       tooMany: "Geben Sie höchstens {max} Widerstandswerte ein.",
-      notNumber: "„{token}“ ist keine Zahl. Trennen Sie die Werte durch Kommas, Leerzeichen oder Zeilenumbrüche.",
+      notNumber: "„{token}“ ist keine Zahl. Trennen Sie die Werte durch Semikolons, Leerzeichen oder Zeilenumbrüche.",
       tooLarge: "„{token}“ ist zu groß.",
     },
     maxCount: "Geben Sie höchstens {max} Widerstandswerte ein.",

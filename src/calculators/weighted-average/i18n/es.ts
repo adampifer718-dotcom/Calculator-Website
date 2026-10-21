@@ -23,7 +23,7 @@ const es: CalculatorTranslation<WeightedAverageText> = {
       "Introduce los valores y una lista equivalente de pesos. La calculadora da la media ponderada y, para comparar, la media normal, que trata todos los valores por igual.",
     ],
     howToUse: [
-      "Escribe los valores en el primer cuadro, separados por comas, espacios o saltos de línea.",
+      "Escribe los valores en el primer cuadro, separados por punto y coma, espacios o saltos de línea.",
       "Escribe los pesos en el segundo cuadro en el mismo orden, uno por cada valor.",
       "Los pesos pueden ser porcentajes, créditos, cantidades o cualquier otro número no negativo. No hace falta que sumen 100 ni 1.",
       "Consulta la media ponderada. Si difiere mucho de la media sin ponderar, los valores con más peso la están atrayendo hacia ellos.",
@@ -86,13 +86,13 @@ const es: CalculatorTranslation<WeightedAverageText> = {
   },
   text: {
     values: "Valores",
-    valuesHelp: "Un valor por elemento, separados por comas, espacios o saltos de línea.",
+    valuesHelp: "Un valor por elemento, separados por punto y coma, espacios o saltos de línea.",
     weights: "Pesos",
     weightsHelp: "Un peso por valor, en el mismo orden. Sirven porcentajes, créditos o cantidades; no hace falta que sumen 100.",
     errors: {
       empty: "Introduce al menos un número.",
       tooMany: "Introduce como máximo {max} números.",
-      notNumber: "«{token}» no es un número. Separa los valores con comas, espacios o saltos de línea.",
+      notNumber: "«{token}» no es un número. Separa los valores con punto y coma, espacios o saltos de línea.",
       tooLarge: "«{token}» es demasiado grande.",
     },
     maxCount: "Introduce como máximo {max} números.",

@@ -14,7 +14,7 @@ const de: CalculatorTranslation<WeightedAverageText> = {
       "Geben Sie die Werte und eine passende Liste von Gewichten ein. Der Rechner liefert den gewichteten Durchschnitt und zum Vergleich den gewöhnlichen Mittelwert, der jeden Wert gleich behandelt.",
     ],
     howToUse: [
-      "Geben Sie die Werte in das erste Feld ein, getrennt durch Kommas, Leerzeichen oder Zeilenumbrüche.",
+      "Geben Sie die Werte in das erste Feld ein, getrennt durch Semikolons, Leerzeichen oder Zeilenumbrüche.",
       "Geben Sie die Gewichte in derselben Reihenfolge in das zweite Feld ein, eines pro Wert.",
       "Gewichte können Prozentsätze, Leistungspunkte, Mengen oder andere nicht negative Zahlen sein. Sie müssen sich nicht zu 100 oder zu 1 addieren.",
       "Lesen Sie den gewichteten Durchschnitt ab. Weicht er stark vom ungewichteten Mittelwert ab, ziehen die stark gewichteten Werte ihn zu sich hin.",
@@ -51,13 +51,13 @@ const de: CalculatorTranslation<WeightedAverageText> = {
   },
   text: {
     values: "Werte",
-    valuesHelp: "Ein Wert pro Position, getrennt durch Kommas, Leerzeichen oder Zeilenumbrüche.",
+    valuesHelp: "Ein Wert pro Position, getrennt durch Semikolons, Leerzeichen oder Zeilenumbrüche.",
     weights: "Gewichte",
     weightsHelp: "Ein Gewicht pro Wert, in derselben Reihenfolge. Prozentsätze, Leistungspunkte oder Anzahlen funktionieren alle; sie müssen sich nicht zu 100 addieren.",
     errors: {
       empty: "Geben Sie mindestens eine Zahl ein.",
       tooMany: "Geben Sie höchstens {max} Zahlen ein.",
-      notNumber: "„{token}“ ist keine Zahl. Trennen Sie Werte durch Kommas, Leerzeichen oder Zeilenumbrüche.",
+      notNumber: "„{token}“ ist keine Zahl. Trennen Sie Werte durch Semikolons, Leerzeichen oder Zeilenumbrüche.",
       tooLarge: "„{token}“ ist zu groß.",
     },
     maxCount: "Geben Sie höchstens {max} Zahlen ein.",
