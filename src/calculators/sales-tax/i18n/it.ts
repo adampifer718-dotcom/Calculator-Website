@@ -8,7 +8,7 @@ const it: CalculatorTranslation<SalesTaxText> = {
     summary: "Aggiungi l'imposta sulle vendite a un prezzo o ricava il prezzo senza imposta da un totale che la comprende.",
     metaTitle: "Calcolatore imposta sulle vendite – Aggiungi o scorpora",
     metaDescription:
-      "Calcola l'imposta sulle vendite e il prezzo totale, oppure scorpora l'imposta da un totale comprensivo per ottenere il prezzo originale. Vale per ogni aliquota e valuta.",
+      "Calcola l'imposta sulle vendite e il prezzo totale, oppure scorpora l'imposta da un totale per ricavare il prezzo originale. Vale per ogni aliquota e valuta.",
     keywords: ["calcolo iva", "scorporo iva", "imposta sulle vendite", "prezzo ivato", "prezzo senza iva", "sales tax"],
     intro: [
       "Inserisci un prezzo e un'aliquota per vedere l'imposta e il totale da pagare. Passa allo scorporo per ricavare il prezzo prima delle imposte dal totale di uno scontrino.",

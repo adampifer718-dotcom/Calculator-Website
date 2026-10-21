@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<SigFigText> = {
     summary: "Tel de significante cijfers in een getal of rond een getal af op een gekozen aantal significante cijfers.",
     metaTitle: "Significante cijfers tellen en afronden",
     metaDescription:
-      "Tel de significante cijfers in elk getal, ook bij decimalen en E-notatie, of rond af op een gekozen aantal significante cijfers met de wetenschappelijke notatie erbij.",
+      "Tel de significante cijfers in elk getal, ook bij decimalen en E-notatie, of rond af op een gekozen aantal significante cijfers, met wetenschappelijke notatie.",
     keywords: ["significante cijfers", "significante cijfers tellen", "afronden", "nauwkeurigheid", "scheikunde", "natuurkunde", "meetwaarden"],
     intro: [
       "Significante cijfers laten zien hoe nauwkeurig een getal bekend is. Deze calculator telt ze volgens de standaardregels, of rondt een getal af op de nauwkeurigheid die je kiest.",

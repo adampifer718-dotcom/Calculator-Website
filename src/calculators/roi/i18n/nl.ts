@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<RoiText> = {
     summary: "Meet het rendement op een investering als percentage, met de nettowinst of het nettoverlies en een optioneel rendement op jaarbasis.",
     metaTitle: "ROI-calculator – Rendement op investering en op jaarbasis",
     metaDescription:
-      "Bereken het rendement op een investering uit het geïnvesteerde en het teruggekregen bedrag. Zie de nettowinst of het verlies, de totale ROI en de ROI op jaarbasis.",
+      "Bereken het rendement op een investering uit het ingelegde en het teruggekregen bedrag. Zie de nettowinst of het verlies, de totale ROI en de ROI per jaar.",
     keywords: ["rendement op investering", "roi berekenen", "rendement berekenen", "roi op jaarbasis", "investeringsrendement", "gemiddeld jaarlijks groeipercentage"],
     intro: [
       "Het rendement op investering (ROI) vergelijkt wat je terugkrijgt met wat je erin stopt. Het is een snelle manier om investeringen, projecten of aankopen van verschillende omvang te vergelijken.",

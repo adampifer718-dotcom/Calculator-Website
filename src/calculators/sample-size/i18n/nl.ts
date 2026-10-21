@@ -9,7 +9,7 @@ const nl: CalculatorTranslation<SampleSizeText> = {
       "Bereken hoeveel enquêtereacties je nodig hebt voor een bepaald betrouwbaarheidsniveau en een bepaalde foutmarge, met een optionele populatiegrootte.",
     metaTitle: "Steekproefgroottecalculator – Benodigde respons",
     metaDescription:
-      "Bereken hoeveel volledige reacties je nodig hebt op basis van betrouwbaarheidsniveau, foutmarge en verwachte proportie, met correctie voor een eindige populatie.",
+      "Bereken hoeveel volledige reacties je nodig hebt op basis van betrouwbaarheid, foutmarge en verwachte proportie, met correctie voor een eindige populatie.",
     keywords: [
       "steekproefgrootte",
       "steekproefgrootte berekenen",

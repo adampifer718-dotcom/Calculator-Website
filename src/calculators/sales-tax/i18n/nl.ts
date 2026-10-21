@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<SalesTaxText> = {
     summary: "Tel omzetbelasting op bij een prijs of bereken de prijs zonder belasting uit een totaal waarin de belasting al zit.",
     metaTitle: "Btw- en omzetbelastingcalculator – Belasting erbij of eraf",
     metaDescription:
-      "Bereken de omzetbelasting en de totaalprijs, of haal de belasting uit een totaal inclusief belasting om de oorspronkelijke prijs te vinden. Voor elk tarief en elke valuta.",
+      "Bereken de omzetbelasting en de totaalprijs, of haal de belasting uit een totaalbedrag om de oorspronkelijke prijs te vinden. Voor elk tarief en elke valuta.",
     keywords: ["btw berekenen", "btw eraf halen", "omzetbelasting", "prijs inclusief btw", "prijs exclusief btw", "sales tax"],
     intro: [
       "Vul een prijs en een belastingtarief in om de belasting en het totaal dat je betaalt te zien. Schakel over naar belasting eraf halen om de prijs vóór belasting te vinden uit het totaal op een kassabon.",

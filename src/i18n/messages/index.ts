@@ -12,6 +12,9 @@ const LOADERS: Partial<Record<Locale, () => Promise<{ default: Messages }>>> = {
   fr: () => import("./fr"),
   de: () => import("./de"),
   ar: () => import("./ar"),
+  it: () => import("./it"),
+  pt: () => import("./pt"),
+  nl: () => import("./nl"),
 };
 
 export async function loadMessages(locale: Locale): Promise<Messages> {
@@ -23,4 +26,4 @@ export async function loadMessages(locale: Locale): Promise<Messages> {
  * the message files by src/i18n/translations.test.ts; a locale is published
  * only when it is listed here (see isLocaleReady).
  */
-export const MESSAGE_LOCALES: readonly Locale[] = ["en", "ur", "es", "fr", "de", "ar"];
+export const MESSAGE_LOCALES: readonly Locale[] = ["en", "ur", "es", "fr", "de", "ar", "it", "pt", "nl"];

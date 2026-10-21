@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<SquareFootageText> = {
     summary: "Bereken de oppervlakte van een rechthoek, cirkel of driehoek in vierkante voet, vierkante meter en vierkante yard.",
     metaTitle: "Oppervlakte berekenen in vierkante voet en m²",
     metaDescription:
-      "Bereken de oppervlakte van rechthoeken, cirkels en driehoeken vanuit voet, inch, yard, meter of centimeter, in vierkante voet, vierkante meter en vierkante yard.",
+      "Bereken de oppervlakte van rechthoeken, cirkels en driehoeken vanuit voet, inch, yard, meter of centimeter, in vierkante voet, vierkante meter en yard.",
     keywords: ["vierkante voet", "oppervlakte berekenen", "vloeroppervlak", "kamergrootte", "vierkante meter", "m2", "sq ft naar m2"],
     intro: [
       "Het aantal vierkante voet (square footage) is de oppervlakte van een vlak gemeten in vierkante voet. Het wordt gebruikt voor vloeren, verf, tegels, tapijt en woningadvertenties, vooral in de Verenigde Staten.",

@@ -6,7 +6,7 @@ const it: CalculatorTranslation<SlopeText> = {
     title: "Calcolatore della pendenza di una retta",
     shortTitle: "Pendenza",
     summary: "Trova la pendenza tra due punti, oltre all'equazione della retta, all'intercetta, all'angolo e alla distanza.",
-    metaTitle: "Calcolatore della pendenza – Coefficiente angolare da due punti",
+    metaTitle: "Calcolatore della pendenza – Coefficiente angolare e retta",
     metaDescription:
       "Calcola la pendenza della retta passante per due punti, con l'equazione y = mx + b, l'intercetta con l'asse y, l'angolo e la distanza tra i punti.",
     keywords: ["pendenza", "coefficiente angolare", "retta per due punti", "equazione della retta", "y = mx + b", "intercetta"],

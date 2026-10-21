@@ -8,6 +8,9 @@ import es from "./es";
 import fr from "./fr";
 import de from "./de";
 import ar from "./ar";
+import it from "./it";
+import nl from "./nl";
+import pt from "./pt";
 
 const pick = ({ name, description, metaTitle, metaDescription }: TaxonomyEntry): TaxonomyEntry => ({ name, description, metaTitle, metaDescription });
 
@@ -17,7 +20,7 @@ const en: TaxonomyText = {
 };
 
 /** Translated taxonomy per locale. English comes from the category and collection definitions. */
-export const TAXONOMY: Partial<Record<Locale, TaxonomyText>> = { en, ur, es, fr, de, ar };
+export const TAXONOMY: Partial<Record<Locale, TaxonomyText>> = { en, ur, es, fr, de, ar, it, pt, nl };
 
 export function hasTaxonomy(locale: Locale): boolean {
   return TAXONOMY[locale] !== undefined;

@@ -7,9 +7,9 @@ const nl: CalculatorTranslation<ProbabilityEventsText> = {
     shortTitle: "Kansberekening",
     summary:
       "Combineer de kansen van twee onafhankelijke of elkaar uitsluitende gebeurtenissen: beide, minstens één, precies één of geen van beide.",
-    metaTitle: "Kanscalculator – Twee gebeurtenissen: en, of, geen",
+    metaTitle: "Kanscalculator voor twee gebeurtenissen – en, of, geen",
     metaDescription:
-      "Bereken P(A en B), P(A of B), precies één en geen van beide voor twee onafhankelijke of elkaar uitsluitende gebeurtenissen, plus het complement van elke gebeurtenis.",
+      "Bereken P(A en B), P(A of B), precies één en geen van beide voor twee onafhankelijke of elkaar uitsluitende gebeurtenissen, plus het complement van elk.",
     keywords: [
       "kansberekening",
       "kans berekenen",

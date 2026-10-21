@@ -6,7 +6,7 @@ const it: CalculatorTranslation<HalfLifeText> = {
     title: "Calcolatore del tempo di dimezzamento",
     shortTitle: "Tempo di dimezzamento",
     summary: "Risolvi il decadimento esponenziale per la quantità residua, la quantità iniziale, il tempo di dimezzamento o il tempo trascorso.",
-    metaTitle: "Calcolatore emivita – Quantità residua e decadimento",
+    metaTitle: "Calcolatore del tempo di dimezzamento – Emivita",
     metaDescription:
       "Risolvi N = N₀(1/2)^(t/T) per quantità residua, quantità iniziale, tempo di dimezzamento o tempo trascorso, con costante di decadimento e vita media.",
     keywords: ["tempo di dimezzamento", "emivita", "decadimento radioattivo", "decadimento esponenziale", "costante di decadimento", "vita media", "datazione al carbonio"],

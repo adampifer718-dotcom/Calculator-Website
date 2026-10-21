@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<SavingsGoalText> = {
     summary: "Bereken de maandelijkse inleg die nodig is om een spaardoel op een gekozen moment te halen, rekening houdend met wat je al hebt gespaard en het rendement daarop.",
     metaTitle: "Spaardoelcalculator – Benodigde maandelijkse inleg",
     metaDescription:
-      "Bereken hoeveel je per maand moet sparen om een doel binnen een bepaalde tijd te halen, met je huidige spaargeld, een verwacht jaarrendement en maandelijkse rente-op-rente.",
+      "Bereken hoeveel je per maand moet sparen om je doel op tijd te halen, met je huidige spaargeld, een verwacht jaarrendement en maandelijkse rente-op-rente.",
     keywords: ["spaardoel", "hoeveel per maand sparen", "maandelijks sparen", "spaardoel berekenen", "sparen voor een doel", "toekomstige waarde", "spaarplan"],
     intro: [
       "Sparen voor een aanbetaling, een auto of een noodfonds is makkelijker met een maandbedrag als doel. Deze calculator berekent de periodieke inleg die je van wat je nu hebt naar je doel brengt binnen de termijn die je kiest.",

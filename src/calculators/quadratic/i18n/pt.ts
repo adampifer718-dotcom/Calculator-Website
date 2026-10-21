@@ -7,7 +7,7 @@ const pt: CalculatorTranslation<QuadraticText> = {
     shortTitle: "Equação do 2.º grau",
     summary:
       "Resolva ax² + bx + c = 0 e obtenha as raízes reais ou complexas, com o discriminante, o vértice e o eixo de simetria.",
-    metaTitle: "Equações do 2.º grau – Raízes, vértice e discriminante",
+    metaTitle: "Calculadora de equações do segundo grau – Raízes",
     metaDescription:
       "Resolva qualquer equação do 2.º grau ax² + bx + c = 0. Obtenha raízes reais ou complexas, o discriminante e o seu significado, o vértice e o eixo de simetria.",
     keywords: ["equação do segundo grau", "fórmula resolvente", "raízes", "discriminante", "vértice da parábola", "parábola", "raízes complexas", "álgebra"],

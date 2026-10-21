@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<OneRepMaxText> = {
     summary: "Schat je one-rep max (1RM) op basis van een set van 1 tot 12 herhalingen met de formules van Epley, Brzycki en Lombardi, inclusief een tabel met trainingsgewichten.",
     metaTitle: "One-rep-maxcalculator (1RM) – Epley, Brzycki, Lombardi",
     metaDescription:
-      "Schat je one-rep max (1RM) uit het gewicht en de herhalingen van een zware set met drie gepubliceerde formules, en zie trainingsgewichten van 60% tot 95% van je 1RM.",
+      "Schat je one-rep max (1RM) uit het gewicht en de herhalingen van een zware set met drie bekende formules, en zie trainingsgewichten van 60% tot 95% van je 1RM.",
     keywords: [
       "one rep max",
       "1RM berekenen",

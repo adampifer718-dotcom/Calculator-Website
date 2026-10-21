@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<PlantSpacingText> = {
     summary: "Bereken hoeveel planten er in een rechthoekig bed passen bij een bepaalde plantafstand, in rechte rijen of in driehoeksverband.",
     metaTitle: "Plantafstandcalculator – Aantal planten per bed",
     metaDescription:
-      "Bereken hoeveel planten er in een moestuinbed passen op basis van de afstand in en tussen de rijen, in een raster of in driehoeksverband, plus planten per m² of ft².",
+      "Bereken hoeveel planten in een moestuinbed passen op basis van de afstand in en tussen de rijen, in raster- of driehoeksverband, plus planten per m² of ft².",
     keywords: [
       "plantafstand",
       "afstand tussen planten",

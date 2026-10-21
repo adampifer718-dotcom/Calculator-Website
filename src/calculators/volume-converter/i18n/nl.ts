@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<VolumeConverterText> = {
     summary: "Reken om tussen liter, milliliter, kubieke meter, Amerikaanse en imperiale gallons, quarts, pints, cups, fluid ounces, lepels en kubieke voet.",
     metaTitle: "Volume omrekenen – liter, gallon, cups en meer",
     metaDescription:
-      "Reken volume om tussen liter, milliliter, kubieke meter, Amerikaanse en imperiale gallons, quarts, pints, cups, fluid ounces, theelepels, eetlepels en kubieke voet.",
+      "Reken volume om tussen liter, milliliter, kubieke meter, Amerikaanse en Britse gallons, quarts, pints, cups, fluid ounces, theelepels, eetlepels en kubieke voet.",
     keywords: ["volume omrekenen", "liter naar gallon", "gallon naar liter", "ml naar cups", "fluid ounce", "kubieke voet", "imperiale gallon", "inhoud omrekenen"],
     intro: [
       "Reken elk volume om tussen 15 metrische, Amerikaanse en imperiale eenheden. De tabel toont de waarde in alle eenheden tegelijk.",

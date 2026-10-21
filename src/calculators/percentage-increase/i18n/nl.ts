@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<PercentageIncreaseText> = {
     summary: "Bereken de procentuele stijging of daling tussen een oorspronkelijke en een nieuwe waarde.",
     metaTitle: "Procentuele stijging berekenen – Verandering in procenten",
     metaDescription:
-      "Bereken de procentuele stijging of daling tussen twee getallen. Zie de procentuele verandering, de absolute verandering en de formule, met uitgewerkte voorbeelden.",
+      "Bereken de procentuele stijging of daling tussen twee getallen. Zie de procentuele en absolute verandering en de formule, met uitgewerkte voorbeelden.",
     keywords: ["procentuele verandering", "procentuele stijging", "procentuele daling", "stijging in procenten berekenen", "groeipercentage", "procentueel verschil"],
     intro: [
       "Vul een oorspronkelijke en een nieuwe waarde in om te zien hoeveel die in procenten is veranderd. Een positief resultaat is een stijging, een negatief resultaat een daling.",

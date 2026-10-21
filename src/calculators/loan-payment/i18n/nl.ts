@@ -6,7 +6,7 @@ const nl: CalculatorTranslation<LoanPaymentText> = {
     title: "Leningcalculator voor maandlasten",
     shortTitle: "Maandlasten lening",
     summary: "Bereken het maandbedrag, de totale rente en het aflossingsschema van een lening of hypotheek met vaste rente.",
-    metaTitle: "Leningcalculator – maandbedrag en totale rente",
+    metaTitle: "Leningcalculator voor maandlasten – totale rente",
     metaDescription:
       "Bereken het maandbedrag van een lening of hypotheek met vaste rente, de totale rente en een aflossingsschema per jaar uit bedrag, jaarrente en looptijd.",
     keywords: ["lening", "hypotheek", "maandbedrag", "maandlasten", "aflossing", "rente", "jkp", "autolening", "persoonlijke lening"],

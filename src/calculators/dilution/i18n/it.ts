@@ -8,7 +8,7 @@ const it: CalculatorTranslation<DilutionText> = {
     summary: "Risolvi C₁V₁ = C₂V₂ per trovare il volume di soluzione madre, la concentrazione finale, il volume finale o la concentrazione della soluzione madre.",
     metaTitle: "Calcolatore di diluizioni – C1V1 = C2V2",
     metaDescription:
-      "Risolvi l'equazione di diluizione C1V1 = C2V2 per qualsiasi valore: volume di soluzione madre necessario, concentrazione finale, volume finale o concentrazione iniziale.",
+      "Risolvi l'equazione di diluizione C1V1 = C2V2 per qualsiasi valore: volume di soluzione madre, concentrazione finale, volume finale o concentrazione iniziale.",
     keywords: ["calcolatore diluizioni", "c1v1=c2v2", "formula della diluizione", "soluzione madre", "concentrazione", "preparare soluzioni", "chimica"],
     intro: [
       "Quando diluisci una soluzione, la quantità di soluto non cambia, quindi C₁V₁ = C₂V₂.",

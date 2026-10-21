@@ -22,6 +22,7 @@ export function translationReport(): string {
     "Generated from the code by `npm run i18n:report` and checked by `src/i18n/report.test.ts`, so it cannot drift from what the site publishes.",
     "A language is published only when its interface, shared calculator strings, category and collection names and homepage pay converter are all translated.",
     "A calculator page exists in a language only when its full content and engine strings are translated; otherwise the language selector sends visitors to that language's homepage and the page is not in the sitemap.",
+    "Translations were drafted with AI assistance and checked automatically (structure, placeholders, untranslated text, identical calculator results). No human linguistic review has taken place; terms flagged for native-speaker proofreading are listed in `docs/translation-proofreading.md`.",
     "",
   );
   lines.push("## Languages", "");

@@ -8,7 +8,7 @@ const it: CalculatorTranslation<ProfitMarginText> = {
     summary: "Calcola profitto, margine di profitto e ricarico a partire dal costo e dal prezzo di vendita.",
     metaTitle: "Calcolatore margine di profitto – Margine e ricarico",
     metaDescription:
-      "Calcola il profitto lordo, il margine di profitto e la percentuale di ricarico (markup) a partire dal costo e dal prezzo di vendita, e capisci in cosa differiscono.",
+      "Calcola il profitto lordo, il margine di profitto e la percentuale di ricarico (markup) da costo e prezzo di vendita, e scopri in cosa differiscono.",
     keywords: ["margine di profitto", "calcolo margine", "ricarico", "markup", "margine lordo", "prezzo di vendita"],
     intro: [
       "Margine e ricarico descrivono entrambi il profitto, ma rispetto a basi diverse. Il margine confronta il profitto con il prezzo di vendita; il ricarico lo confronta con il costo.",

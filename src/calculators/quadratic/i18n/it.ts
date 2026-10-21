@@ -6,9 +6,9 @@ const it: CalculatorTranslation<QuadraticText> = {
     title: "Calcolatore di equazioni di secondo grado",
     shortTitle: "Equazione di secondo grado",
     summary: "Risolvi ax² + bx + c = 0 con radici reali o complesse, insieme a discriminante, vertice e asse di simmetria.",
-    metaTitle: "Calcolatore equazioni di secondo grado – Radici e vertice",
+    metaTitle: "Calcolatore di equazioni di secondo grado – Radici",
     metaDescription:
-      "Risolvi qualsiasi equazione di secondo grado ax² + bx + c = 0: radici reali o complesse, il discriminante e il suo significato, il vertice e l'asse di simmetria.",
+      "Risolvi qualsiasi equazione di secondo grado ax² + bx + c = 0: radici reali o complesse, discriminante e il suo significato, vertice e asse di simmetria.",
     keywords: [
       "equazione di secondo grado",
       "equazione quadratica",

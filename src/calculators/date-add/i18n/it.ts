@@ -8,9 +8,9 @@ const it: CalculatorTranslation<DateAddText> = {
     title: "Calcolatore per aggiungere o sottrarre giorni",
     shortTitle: "Aggiungi o sottrai giorni",
     summary: "Calcola la data che cade un certo numero di anni, mesi, settimane e giorni prima o dopo una data di partenza, con il giorno della settimana e i giorni di calendario che le separano.",
-    metaTitle: "Aggiungere o sottrarre giorni a una data – Calcolatore",
+    metaTitle: "Calcolatore per aggiungere o sottrarre giorni – Date",
     metaDescription:
-      "Aggiungi o sottrai anni, mesi, settimane e giorni a qualsiasi data. Vedi la data risultante, il suo giorno della settimana e quanti giorni di calendario separano le due date.",
+      "Aggiungi o sottrai anni, mesi, settimane e giorni a qualsiasi data. Ottieni la data risultante, il giorno della settimana e i giorni di calendario tra le due date.",
     keywords: ["aggiungere giorni a una data", "sottrarre giorni da una data", "calcolatore di date", "giorni da oggi", "data più giorni", "aggiungere mesi a una data", "calcolo scadenze"],
     intro: [
       "Scadenze, preavvisi, garanzie e date di scadenza sono spesso espressi come «90 giorni da» o «6 mesi dopo» una certa data. Questo calcolatore trova quella data per te, in avanti o all'indietro.",

@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<SquareRootText> = {
     summary: "Bereken de vierkantswortel of derdemachtswortel van een getal en controleer of het een kwadraat of derde macht is.",
     metaTitle: "Wortel berekenen – vierkantswortel en derdemachtswortel",
     metaDescription:
-      "Bereken de vierkantswortel of derdemachtswortel van elk getal, zie of het een volkomen kwadraat of derde macht is en controleer de uitkomst door terug te rekenen.",
+      "Bereken de vierkantswortel of derdemachtswortel van elk getal, zie of het een volkomen kwadraat of derde macht is en controleer de uitkomst door terugrekenen.",
     keywords: ["wortel", "vierkantswortel", "wortel berekenen", "derdemachtswortel", "kwadraat", "sqrt", "wortelteken"],
     intro: [
       "De vierkantswortel van x is het getal dat x oplevert als je het met zichzelf vermenigvuldigt. √144 = 12, omdat 12 × 12 = 144.",

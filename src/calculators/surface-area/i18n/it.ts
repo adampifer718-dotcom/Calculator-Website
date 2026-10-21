@@ -6,7 +6,7 @@ const it: CalculatorTranslation<SurfaceAreaText> = {
     title: "Calcolatore della superficie dei solidi",
     shortTitle: "Superficie dei solidi",
     summary: "Trova la superficie totale, laterale e di base di cubo, parallelepipedo, cilindro, sfera, semisfera, cono o piramide quadrata.",
-    metaTitle: "Superficie dei solidi – Parallelepipedo, cilindro, cono, sfera",
+    metaTitle: "Superficie dei solidi – Cubo, cilindro, cono, sfera e altri",
     metaDescription:
       "Calcola la superficie totale di sette solidi, con superficie laterale, area di base e apotema, in mm, cm, m, in o ft, e i totali in m² e ft².",
     keywords: [

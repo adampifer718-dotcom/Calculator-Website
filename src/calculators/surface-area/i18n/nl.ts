@@ -6,7 +6,7 @@ const nl: CalculatorTranslation<SurfaceAreaText> = {
     title: "Oppervlaktecalculator voor ruimtefiguren",
     shortTitle: "Buitenoppervlak",
     summary: "Bereken de totale oppervlakte, de manteloppervlakte en de grondvlakoppervlakte van een kubus, balk, cilinder, bol, halve bol, kegel of vierkante piramide.",
-    metaTitle: "Oppervlakte berekenen – balk, cilinder, kegel, bol",
+    metaTitle: "Oppervlaktecalculator voor ruimtefiguren – balk, bol",
     metaDescription:
       "Bereken de totale oppervlakte van zeven ruimtefiguren, plus mantel, grondvlak en schuine hoogte, in mm, cm, m, inch of voet, met totalen in m² en ft².",
     keywords: [

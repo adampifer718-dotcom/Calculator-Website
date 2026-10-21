@@ -8,7 +8,7 @@ const it: CalculatorTranslation<ConfidenceIntervalText> = {
     summary: "Calcola un intervallo di confidenza per una media a partire da media campionaria, deviazione standard e dimensione del campione.",
     metaTitle: "Calcolatore dell'intervallo di confidenza – Per una media",
     metaDescription:
-      "Calcola un intervallo di confidenza per una media da media campionaria, deviazione standard, dimensione del campione e livello di confidenza, con margine d'errore e z*.",
+      "Calcola l'intervallo di confidenza per una media da media campionaria, deviazione standard, ampiezza del campione e livello di confidenza, con margine d'errore.",
     keywords: ["intervallo di confidenza", "margine di errore", "errore standard", "livello di confidenza 95%", "statistica", "intervallo di confidenza media"],
     intro: [
       "Un intervallo di confidenza fornisce un insieme di valori plausibili per la media di una popolazione. Un intervallo al 95% è costruito in modo che il 95% degli intervalli ottenuti con questo metodo contenga la media reale.",
