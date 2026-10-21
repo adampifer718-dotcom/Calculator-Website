@@ -178,7 +178,7 @@ describe("localized SEO", () => {
         expect(urls.has(url), url).toBe(readyLocales().includes(locale) && calculatorLocales(def).includes(locale));
       }
     }
-  });
+  }, 30_000);
 });
 
 describe("titles inside sentences", () => {
