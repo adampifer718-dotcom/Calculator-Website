@@ -197,11 +197,19 @@ AI agents produced every translation, and automated tests checked them for compl
 
 | Language | Scope | Proofread |
 | --- | --- | --- |
-| Urdu (اردو) | Interface, categories, collections, 90 calculators | **No** |
-| Arabic (العربية) | Interface, categories, collections, 90 calculators | **No** |
-| Spanish (Español) | Interface, categories, collections, 90 calculators | **No** |
-| French (Français) | Interface, categories, collections, 90 calculators | **No** |
-| German (Deutsch) | Interface, categories, collections, 90 calculators | **No** |
+| Urdu (اردو) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
+| Arabic (العربية) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
+| Spanish (Español) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
+| French (Français) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
+| German (Deutsch) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
+| Italian (Italiano) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
+| European Portuguese (Português) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
+| Dutch (Nederlands) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
+
+**Italian, European Portuguese and Dutch (added 21 October 2026):**
+- The translators flagged 180 terms for proofreading; they are listed in `docs/translation-proofreading.md`. Check these first.
+- European Portuguese must read as pt-PT, not Brazilian Portuguese. The language selector and `hreflang` use `pt-PT`, and the URL prefix is `/pt`.
+- Metadata (titles and descriptions) in all nine languages was rewritten on 21 October 2026 to fit search snippets (about 60 and 70–160 characters). The new wording also needs proofreading.
 
 **Terms flagged by the translators of the 20 calculators added on 15 October 2026** (check these first):
 - APR/APY are kept as US acronyms in es/fr/de/ur/ar (Spanish TAE, French TAEG and German effektiver Jahreszins include fees, so they are not equivalents).
@@ -215,7 +223,7 @@ AI agents produced every translation, and automated tests checked them for compl
 - [ ] Natural phrasing and consistent terminology: one word for "calculator", and consistent pay periods and statistics terms.
 - [ ] Number formats in prose and worked examples. Arabic and Urdu use Latin digits by design; es/fr/de use decimal commas.
 - [ ] Currency display: amounts stay in the original currency (e.g. "US$") and are never converted.
-- [ ] Titles, meta titles (≤ 65 characters) and meta descriptions read well in search results.
+- [ ] Titles, meta titles (about 60 characters) and meta descriptions read well in search results.
 - [ ] Validation messages read correctly with any field label inserted.
 - [ ] Plural forms in the age and date duration results, especially Arabic (zero, one, two, few, many and other).
 - [ ] US-specific concepts are explained, not silently localized: GPA, letter grades, PMI, HOA, US cups and gallons, sales tax.
@@ -339,7 +347,7 @@ Measured on `next start` (gzip enabled), in Chromium.
    - Live DNS, HTTPS and redirects could not be checked from the build environment, because its outbound proxy refused connections to the domain.
 2. **Source links unverified** (section 3.1), including the ingredient densities in section 3.2.
 3. **Professional review pending** for BMI, BMR, waist-to-hip ratio, heart rate zones (medical); loan payment, mortgage, compound interest, credit card payoff, debt-to-income, savings goal (financial); and concrete (engineering) (section 4). The pages already say they are estimates, not advice. Either complete the reviews or accept the risk explicitly and keep the disclaimers.
-4. **Native-speaker proofreading pending** for Urdu, Arabic, Spanish, French and German (section 5). Alternatively, launch English first and publish other languages as reviews complete; the site only publishes a language when its files exist.
+4. **Native-speaker proofreading pending** for Urdu, Arabic, Spanish, French, German, Italian, European Portuguese and Dutch (section 5, plus the 180 flagged terms in `docs/translation-proofreading.md`). Alternatively, launch English first and publish other languages as reviews complete; the site only publishes a language when its files exist.
 5. **No `main` branch / CI never run on GitHub.** Create the default branch, merge, and confirm CI passes.
 
 **Not blockers, but recommended:**
