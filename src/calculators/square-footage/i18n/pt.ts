@@ -8,7 +8,7 @@ const pt: CalculatorTranslation<SquareFootageText> = {
     summary: "Calcule a área de um retângulo, círculo ou triângulo em pés quadrados, metros quadrados e jardas quadradas.",
     metaTitle: "Calculadora de pés quadrados – Área em ft² e m²",
     metaDescription:
-      "Calcule a área em pés quadrados de retângulos, círculos e triângulos a partir de pés, polegadas, jardas, metros ou centímetros, com metros e jardas quadradas.",
+      "Calcule a área em pés quadrados de retângulos, círculos e triângulos medidos em pés, polegadas, jardas, metros ou centímetros, com m² e jardas quadradas.",
     keywords: ["pés quadrados", "ft²", "área", "área de pavimento", "área de uma divisão", "pavimentos", "metros quadrados", "m2"],
     intro: [
       "A área em pés quadrados é a área de uma superfície medida em pés quadrados. É usada para pavimentos, tinta, azulejos, alcatifas e anúncios de imóveis.",

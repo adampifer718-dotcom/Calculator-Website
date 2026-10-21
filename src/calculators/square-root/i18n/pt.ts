@@ -6,7 +6,7 @@ const pt: CalculatorTranslation<SquareRootText> = {
     title: "Calculadora de raiz quadrada",
     shortTitle: "Raiz quadrada",
     summary: "Calcule a raiz quadrada ou a raiz cúbica de um número e verifique se é um quadrado ou um cubo perfeito.",
-    metaTitle: "Calculadora de raiz quadrada – Raízes quadradas e cúbicas",
+    metaTitle: "Calculadora de raiz quadrada – Raiz quadrada e cúbica",
     metaDescription:
       "Calcule a raiz quadrada ou a raiz cúbica de qualquer número, veja se é um quadrado ou um cubo perfeito e confirme o resultado elevando-o de volta.",
     keywords: ["raiz quadrada", "sqrt", "raiz cúbica", "radical", "quadrado perfeito", "raiz", "cubo perfeito"],

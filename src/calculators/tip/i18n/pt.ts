@@ -6,7 +6,7 @@ const pt: CalculatorTranslation<TipText> = {
     title: "Calculadora de gorjeta",
     shortTitle: "Gorjeta",
     summary: "Calcule a gorjeta, o total da conta e quanto paga cada pessoa quando a conta é dividida.",
-    metaTitle: "Calculadora de gorjeta – Valor da gorjeta e divisão da conta",
+    metaTitle: "Calculadora de gorjeta – Gorjeta e divisão da conta",
     metaDescription:
       "Calcule a gorjeta para qualquer conta e percentagem, o total com gorjeta e quanto paga cada pessoa quando a conta é dividida em partes iguais.",
     keywords: ["gorjeta", "calcular gorjeta", "dividir a conta", "restaurante", "conta do restaurante", "taxa de serviço"],

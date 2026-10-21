@@ -7,7 +7,7 @@ const pt: CalculatorTranslation<WaistToHipText> = {
     shortTitle: "Relação cintura-anca",
     summary:
       "Divida o perímetro da cintura pelo perímetro da anca para obter a relação cintura-anca e compare-a com o limiar da OMS para mulheres ou homens.",
-    metaTitle: "Calculadora da relação cintura-anca – RCA e limiar da OMS",
+    metaTitle: "Relação cintura-anca – RCA e limiar da OMS",
     metaDescription:
       "Calcule a sua relação cintura-anca a partir das medidas da cintura e da anca em cm ou polegadas e compare-a com o limiar da OMS para mulheres e homens.",
     keywords: ["relação cintura-anca", "calculadora RCA", "índice cintura-anca", "perímetro da cintura", "gordura abdominal", "forma do corpo", "relação cintura-anca OMS"],

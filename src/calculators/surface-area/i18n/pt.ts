@@ -6,7 +6,7 @@ const pt: CalculatorTranslation<SurfaceAreaText> = {
     title: "Calculadora de área de superfície",
     shortTitle: "Área de superfície",
     summary: "Calcule a área total, lateral e da base de um cubo, paralelepípedo, cilindro, esfera, hemisfério, cone ou pirâmide quadrangular.",
-    metaTitle: "Área de superfície – Paralelepípedo, cilindro, cone, esfera",
+    metaTitle: "Área de superfície – Caixa, cilindro, cone, esfera",
     metaDescription:
       "Calcule a área total de sete sólidos, com a área lateral, a área da base e a geratriz ou apótema, em mm, cm, m, in ou ft, com totais em m² e ft².",
     keywords: ["calculadora de área de superfície", "área do cilindro", "área do cone", "área da esfera", "área lateral", "geratriz", "área da pirâmide", "área total"],

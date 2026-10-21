@@ -6,9 +6,9 @@ const pt: CalculatorTranslation<SigFigText> = {
     title: "Calculadora de algarismos significativos",
     shortTitle: "Algarismos significativos",
     summary: "Conte os algarismos significativos de um número ou arredonde um número ao número de algarismos significativos que escolher.",
-    metaTitle: "Calculadora de algarismos significativos – Contar e arredondar",
+    metaTitle: "Algarismos significativos – Contar e arredondar",
     metaDescription:
-      "Conte os algarismos significativos de qualquer número, incluindo decimais e notação e, ou arredonde a um número definido de algarismos com a notação científica.",
+      "Conte os algarismos significativos de qualquer número, incluindo decimais e notação e, ou arredonde-o a n algarismos, com a notação científica.",
     keywords: ["algarismos significativos", "contar algarismos significativos", "arredondamento", "precisão", "química", "física", "notação científica"],
     intro: [
       "Os algarismos significativos mostram com que precisão se conhece um número. Esta calculadora conta-os segundo as regras habituais ou arredonda um número à precisão que escolher.",

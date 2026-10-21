@@ -6,7 +6,7 @@ const pt: CalculatorTranslation<WeightedAverageText> = {
     title: "Calculadora de média ponderada",
     shortTitle: "Média ponderada",
     summary: "Calcule a média de uma lista de valores em que alguns contam mais do que outros e compare-a com a média simples.",
-    metaTitle: "Calculadora de média ponderada – Média ponderada de uma lista",
+    metaTitle: "Calculadora de média ponderada – Média de uma lista",
     metaDescription:
       "Calcule a média ponderada de até 100 valores e respetivos pesos, com a soma dos pesos e a média simples não ponderada para comparação.",
     keywords: ["média ponderada", "calcular média ponderada", "nota ponderada", "média com pesos", "nota da disciplina", "preço médio", "somarproduto"],

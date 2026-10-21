@@ -6,7 +6,7 @@ const pt: CalculatorTranslation<UnitPriceText> = {
     title: "Calculadora de preço unitário",
     shortTitle: "Preço unitário",
     summary: "Compare duas embalagens pelo preço por quilograma, por litro ou por unidade para ver qual compensa mais.",
-    metaTitle: "Calculadora de preço unitário – Compare o preço por unidade",
+    metaTitle: "Calculadora de preço unitário – Compare preços",
     metaDescription:
       "Compare dois produtos pelo preço unitário por kg, por litro ou por unidade, mesmo em onças ou galões, e veja quanto poupa com o mais barato.",
     keywords: ["preço unitário", "preço por unidade", "preço por kg", "preço por litro", "comparar preços", "melhor compra", "comparar embalagens"],
