@@ -198,7 +198,7 @@ test("French data lists accept decimal commas", async ({ page }) => {
 });
 
 for (const { locale, lang, h1, bill, tip } of [
-  { locale: "it", lang: "it", h1: /mance/i, bill: "80,50", tip: /14,49\sUSD/ },
+  { locale: "it", lang: "it", h1: /mancia/i, bill: "80,50", tip: /14,49\sUSD/ },
   { locale: "pt", lang: "pt-PT", h1: /gorjeta/i, bill: "80,50", tip: /14,49\sUS\$/ },
   { locale: "nl", lang: "nl", h1: /fooi/i, bill: "80,50", tip: /US\$\s14,49/ },
 ] as const) {
