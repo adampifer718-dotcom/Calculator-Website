@@ -10,7 +10,7 @@ const nl: CalculatorTranslation<TimeCalculatorText> = {
     summary: "Tel twee tijdsduren in dagen, uren, minuten en seconden bij elkaar op of trek ze af, en zie het genormaliseerde resultaat plus totalen in uren, minuten en seconden.",
     metaTitle: "Tijdsduurcalculator – uren en minuten optellen",
     metaDescription:
-      "Tel tijdsduren in dagen, uren, minuten en seconden op of trek ze af. Je krijgt een netjes omgerekend resultaat en het totaal in decimale uren, minuten en seconden.",
+      "Tel tijdsduren in dagen, uren, minuten en seconden op of trek ze af. Je krijgt een overzichtelijk resultaat en het totaal in decimale uren, minuten en seconden.",
     keywords: ["tijd berekenen", "uren en minuten optellen", "tijd aftrekken", "tijdsduur berekenen", "uren minuten seconden", "totaal aantal uren", "tijd optellen"],
     intro: [
       "Tijd met de hand optellen is lastig, omdat het niet per tien gaat: 60 seconden vormen een minuut, 60 minuten een uur en 24 uur een dag. Deze calculator doet het doorschuiven voor je.",

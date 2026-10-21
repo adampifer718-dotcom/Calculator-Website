@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<PythagoreanText> = {
     summary: "Bereken de ontbrekende zijde van een rechthoekige driehoek met a² + b² = c².",
     metaTitle: "Stelling van Pythagoras – Bereken de ontbrekende zijde",
     metaDescription:
-      "Bereken de schuine zijde of een ontbrekende rechthoekszijde van een rechthoekige driehoek met de stelling van Pythagoras (a² + b² = c²), plus oppervlakte.",
+      "Bereken de schuine zijde of een ontbrekende rechthoekszijde van een rechthoekige driehoek met Pythagoras (a² + b² = c²), plus oppervlakte en omtrek.",
     keywords: ["stelling van Pythagoras", "schuine zijde berekenen", "rechthoekszijde berekenen", "rechthoekige driehoek", "a2 + b2 = c2", "Pythagoras"],
     intro: [
       "In een rechthoekige driehoek is het kwadraat van de schuine zijde gelijk aan de som van de kwadraten van de andere twee zijden: a² + b² = c².",

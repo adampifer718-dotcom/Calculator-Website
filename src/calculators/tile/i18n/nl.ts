@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<TileText> = {
     summary: "Schat hoeveel tegels en dozen je nodig hebt voor een vloer of wand, op basis van oppervlakte, tegelmaat, voegbreedte en een marge voor snijverlies.",
     metaTitle: "Tegelcalculator – hoeveel tegels en dozen kopen",
     metaDescription:
-      "Bereken hoeveel tegels je nodig hebt voor een vloer of wand uit de oppervlakte, tegelmaat en voegbreedte, met een marge voor snijverlies, afgerond op hele dozen.",
+      "Bereken hoeveel tegels je nodig hebt voor een vloer of wand uit de oppervlakte, tegelmaat en voegbreedte, met een marge voor verlies, afgerond op hele dozen.",
     keywords: ["tegelcalculator", "hoeveel tegels nodig", "vloertegels", "wandtegels", "voegbreedte", "tegels berekenen", "snijverlies", "spatwand"],
     intro: [
       "Voordat je tegels koopt, heb je een aantal nodig en niet alleen een oppervlakte. Deze calculator deelt de oppervlakte die je betegelt door de ruimte die elke tegel inneemt, inclusief de voeg eromheen, en telt daar een marge bij op voor snijverlies en breuk.",

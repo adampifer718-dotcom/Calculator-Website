@@ -8,7 +8,7 @@ const it: CalculatorTranslation<SavingsGoalText> = {
     summary: "Calcola il versamento mensile necessario per raggiungere un obiettivo di risparmio entro una data scelta, tenendo conto di ciò che hai già risparmiato e del suo rendimento.",
     metaTitle: "Calcolatore obiettivo di risparmio – Versamento mensile",
     metaDescription:
-      "Calcola quanto risparmiare al mese per raggiungere un obiettivo entro una data, tenendo conto dei risparmi attuali, del rendimento annuo atteso e della capitalizzazione mensile.",
+      "Calcola quanto risparmiare al mese per raggiungere un obiettivo nei tempi, con i risparmi attuali, un rendimento annuo atteso e capitalizzazione mensile.",
     keywords: ["obiettivo di risparmio", "quanto risparmiare al mese", "risparmio mensile", "piano di accumulo", "risparmiare per un obiettivo", "valore futuro", "piano di risparmio"],
     intro: [
       "Risparmiare per un anticipo, un'auto o un fondo di emergenza è più facile con una cifra mensile come obiettivo. Questo calcolatore trova il versamento periodico che ti porta da ciò che hai ora al tuo obiettivo nel tempo che scegli.",

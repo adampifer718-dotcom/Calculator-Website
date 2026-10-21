@@ -8,7 +8,7 @@ const it: CalculatorTranslation<SalaryToHourlyText> = {
     summary: "Converti una retribuzione lorda annuale, mensile, bimensile o di qualsiasi altro periodo in una paga oraria in base al tuo orario.",
     metaTitle: "Calcolatore da stipendio a paga oraria – Ogni periodo",
     metaDescription:
-      "Converti lo stipendio in paga oraria. Inserisci la retribuzione lorda annuale, mensile, bimensile, settimanale o giornaliera e le ore, i giorni e le settimane lavorati.",
+      "Converti lo stipendio in paga oraria: inserisci la retribuzione lorda annua, mensile, bimensile, settimanale o giornaliera e ore, giorni e settimane di lavoro.",
     keywords: ["paga oraria", "stipendio orario", "calcolo paga oraria", "da stipendio annuo a orario", "stipendio mensile all'ora", "retribuzione lorda oraria"],
     intro: [
       "Questo calcolatore converte la retribuzione lorda di qualsiasi periodo di pagamento comune nel suo equivalente orario. Mostra anche a quanto corrisponde la stessa retribuzione per anno, mese, mezzo mese, due settimane, settimana e giorno lavorativo.",

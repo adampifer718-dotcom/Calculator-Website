@@ -11,7 +11,7 @@ const it: CalculatorTranslation<CreditCardPayoffText> = {
     summary: "Scopri quanti mesi servono a una rata fissa per estinguere il debito di una carta di credito, o quale rata ti serve per estinguerlo entro un certo periodo.",
     metaTitle: "Calcolatore estinzione carta di credito – Mesi e interessi",
     metaDescription:
-      "Stima in quanto tempo una rata mensile fissa estingue la carta di credito, gli interessi totali o la rata necessaria per azzerare il debito entro un certo numero di mesi.",
+      "Stima in quanto tempo una rata mensile fissa estingue la carta di credito, gli interessi totali o la rata per azzerare il debito entro un dato numero di mesi.",
     keywords: ["estinguere carta di credito", "debito carta di credito", "interessi carta di credito", "carta revolving", "mesi per estinguere il debito", "rata mensile carta", "APR"],
     intro: [
       "Gli interessi della carta di credito si applicano a tutto il saldo che porti avanti, quindi una piccola rata mensile può tenerti indebitato per anni. Questo calcolatore mostra l'effetto di pagare un importo fisso ogni mese.",
