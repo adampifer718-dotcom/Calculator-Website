@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<FlooringText> = {
     summary: "Calculez combien de boîtes de stratifié, de lames vinyle ou de parquet acheter à partir des dimensions de la pièce, d’une marge de perte et de la surface couverte par boîte, avec un coût facultatif.",
     metaTitle: "Calculateur de revêtement de sol – Stratifié ou vinyle",
     metaDescription:
-      "Estimez les boîtes de revêtement de sol à acheter pour une pièce rectangulaire ou en L, avec une marge de perte, la surface par boîte et un prix au m² facultatif.",
+      "Estimez les boîtes de revêtement de sol à acheter pour une pièce rectangulaire ou en L, avec marge de perte, surface par boîte et prix au m² facultatif.",
     keywords: ["calcul revêtement de sol", "quantité de parquet", "calcul stratifié", "lames vinyle", "boîtes de parquet", "perte parquet", "estimation parquet massif"],
     intro: [
       "Les revêtements de sol se vendent à la boîte, et chaque boîte couvre une surface fixe. Pour savoir combien en acheter, il faut la surface au sol, une marge pour les morceaux perdus lors des coupes et la surface couverte indiquée sur la boîte.",

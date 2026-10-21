@@ -6,9 +6,9 @@ const fr: CalculatorTranslation<RoiText> = {
     title: "Calculateur de ROI",
     shortTitle: "ROI",
     summary: "Mesurez le retour sur investissement en pourcentage, avec le gain ou la perte nette et, en option, le taux annualisé.",
-    metaTitle: "Calculateur de ROI – Retour sur investissement et ROI annualisé",
+    metaTitle: "Calculateur de ROI – Rendement total et annualisé",
     metaDescription:
-      "Calculez le retour sur investissement à partir du montant investi et du montant récupéré : gain ou perte nette, ROI total et ROI annualisé sur la durée de votre choix.",
+      "Calculez le retour sur investissement à partir des montants investi et récupéré : gain ou perte nette, ROI total et ROI annualisé sur la durée choisie.",
     keywords: ["retour sur investissement", "calcul ROI", "rentabilité investissement", "ROI annualisé", "taux de rendement", "plus-value", "TCAC"],
     intro: [
       "Le retour sur investissement (ROI) compare ce que vous avez récupéré à ce que vous avez investi. C’est un moyen rapide de comparer des placements, des projets ou des achats de tailles différentes.",

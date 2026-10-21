@@ -6,7 +6,7 @@ const de: CalculatorTranslation<FractionText> = {
     title: "Bruchrechner",
     shortTitle: "Brüche",
     summary: "Addieren, subtrahieren, multiplizieren oder dividieren Sie Brüche und gemischte Zahlen – mit gekürztem Ergebnis und als Dezimalzahl.",
-    metaTitle: "Bruchrechner – Brüche addieren, subtrahieren, multiplizieren, teilen",
+    metaTitle: "Bruchrechner – mit Brüchen und gemischten Zahlen rechnen",
     metaDescription:
       "Rechnen Sie mit Brüchen, gemischten Zahlen und Dezimalzahlen: Addition, Subtraktion, Multiplikation und Division mit exaktem, vollständig gekürztem Ergebnis.",
     keywords: ["Bruchrechner", "Brüche berechnen", "Brüche kürzen", "gemischte Zahlen", "Brüche addieren", "Brüche dividieren", "Bruchrechnung"],

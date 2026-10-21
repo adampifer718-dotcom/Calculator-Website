@@ -6,7 +6,7 @@ const es: CalculatorTranslation<SurfaceAreaText> = {
     title: "Calculadora de área superficial",
     shortTitle: "Área superficial",
     summary: "Calcula el área total, el área lateral y el área de la base de un cubo, un prisma rectangular, un cilindro, una esfera, una semiesfera, un cono o una pirámide cuadrada.",
-    metaTitle: "Calculadora de área superficial – Prisma, cilindro, cono, esfera",
+    metaTitle: "Calculadora de área superficial – Cilindro, cono, esfera",
     metaDescription:
       "Calcula el área total de siete cuerpos, además del área lateral, el área de la base y la generatriz o apotema, en mm, cm, m, in o ft, con totales en m² y ft².",
     keywords: ["área superficial", "área total", "área de un cilindro", "área de un cono", "área de una esfera", "área lateral", "generatriz", "área de una pirámide"],

@@ -8,7 +8,7 @@ const de: CalculatorTranslation<StandardDeviationText> = {
     summary: "Berechnen Sie die Standardabweichung einer Stichprobe oder Grundgesamtheit, die Varianz und den Standardfehler eines Datensatzes.",
     metaTitle: "Standardabweichungsrechner – Stichprobe und Grundgesamtheit",
     metaDescription:
-      "Berechnen Sie aus einer Zahlenliste die Standardabweichung der Stichprobe oder Grundgesamtheit, die Varianz, den Mittelwert und den Standardfehler des Mittelwerts.",
+      "Berechnen Sie aus einer Zahlenliste die Standardabweichung (Stichprobe oder Grundgesamtheit), Varianz, Mittelwert und Standardfehler.",
     keywords: ["Standardabweichung berechnen", "Varianz berechnen", "Stichprobenstandardabweichung", "empirische Standardabweichung", "Streuung", "Standardfehler", "Statistik Rechner"],
     intro: [
       "Die Standardabweichung misst, wie stark Werte um den Mittelwert streuen. Ein kleiner Wert bedeutet, dass die Daten eng beieinanderliegen, ein großer, dass sie weit gestreut sind.",

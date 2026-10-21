@@ -98,7 +98,7 @@ export const heatContent: Record<string, ConverterContent> = {
     title: "Conversor de intervalos de temperatura",
     shortTitle: "Intervalo de temperatura",
     summary: "Converta uma diferença ou variação de temperatura entre kelvins, graus Celsius, Fahrenheit, Rankine e outras escalas.",
-    metaTitle: "Conversor de intervalos de temperatura – ΔK, Δ°C, Δ°F, Δ°R",
+    metaTitle: "Conversor de intervalos de temperatura – ΔK, Δ°C e Δ°F",
     metaDescription: "Converta diferenças de temperatura entre kelvins, graus Celsius, Fahrenheit, Rankine, Réaumur e Rømer, sem os desvios de zero usados nas temperaturas.",
     keywords: ["diferença de temperatura", "intervalo de temperatura", "delta t", "variação de temperatura", "diferença celsius para fahrenheit", "diferença kelvin para fahrenheit", "grau rankine"],
     intro: [
@@ -253,7 +253,7 @@ export const heatContent: Record<string, ConverterContent> = {
     title: "Conversor de capacidade térmica mássica",
     shortTitle: "Calor específico",
     summary: "Converta capacidade térmica mássica (calor específico) entre J/(kg·K), kJ/(kg·K), J/(g·K), cal/(g·°C), kcal/(kg·°C) e Btu/(lb·°F).",
-    metaTitle: "Conversor de calor específico – J/(kg·K), Btu/(lb·°F)",
+    metaTitle: "Conversor de capacidade térmica mássica – J/(kg·K), Btu",
     metaDescription: "Converta capacidade térmica mássica entre J/(kg·K), kJ/(kg·K), J/(g·K), cal/(g·°C), kcal/(kg·°C) e Btu/(lb·°F), IT e termoquímicos.",
     keywords: ["calor específico", "capacidade térmica mássica", "kj/kg k para btu/lb f", "btu/lb f", "cal/g c", "j/kg k", "unidades de capacidade térmica"],
     intro: [

@@ -8,7 +8,7 @@ const de: CalculatorTranslation<MeanMedianModeText> = {
     summary: "Ermitteln Sie Mittelwert, Median, Modus, Spannweite und Summe einer Zahlenliste.",
     metaTitle: "Mittelwert-, Median- und Modusrechner – Lageparameter",
     metaDescription:
-      "Berechnen Sie Mittelwert (Durchschnitt), Median, Modus, Spannweite und Summe eines Datensatzes. Fügen Sie Zahlen getrennt durch Semikolons, Leerzeichen oder Zeilenumbrüche ein.",
+      "Berechnen Sie Mittelwert, Median, Modus, Spannweite und Summe eines Datensatzes – Zahlen durch Semikolons, Leerzeichen oder Zeilenumbrüche getrennt.",
     keywords: ["Mittelwert berechnen", "Median berechnen", "Modus berechnen", "Durchschnitt berechnen", "Spannweite", "Lageparameter", "Statistik Rechner"],
     intro: [
       "Mittelwert, Median und Modus sind drei Möglichkeiten, die Mitte eines Datensatzes zu beschreiben. Bei schiefen Verteilungen oder Ausreißern können sie stark voneinander abweichen.",

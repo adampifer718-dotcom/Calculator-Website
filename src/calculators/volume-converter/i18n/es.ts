@@ -6,7 +6,7 @@ const es: CalculatorTranslation<VolumeConverterText> = {
     title: "Calculadora de conversión de volumen",
     shortTitle: "Volumen",
     summary: "Convierte entre litros, mililitros, metros cúbicos, galones estadounidenses e imperiales, cuartos, pintas, tazas, onzas líquidas, cucharas y pies cúbicos.",
-    metaTitle: "Calculadora de conversión de volumen – Litros, galones, tazas",
+    metaTitle: "Calculadora de conversión de volumen – Litros y galones",
     metaDescription:
       "Convierte volúmenes entre litros, mililitros, m³, galones de EE. UU. e imperiales, cuartos, pintas, tazas, onzas líquidas, cucharadas y pies cúbicos.",
     keywords: ["conversor de volumen", "litros a galones", "galones a litros", "ml a tazas", "onzas líquidas a ml", "pies cúbicos a litros", "galón imperial"],

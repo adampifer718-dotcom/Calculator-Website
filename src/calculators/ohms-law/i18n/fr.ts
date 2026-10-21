@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<OhmsLawText> = {
     summary: "Calculez la tension, l’intensité, la résistance et la puissance à partir de deux des valeurs V, I et R.",
     metaTitle: "Calculateur de loi d’Ohm – Tension, intensité, résistance",
     metaDescription:
-      "Utilisez la loi d’Ohm pour trouver la tension, l’intensité ou la résistance à partir des deux autres valeurs, ainsi que la puissance dissipée, avec formules et exemples.",
+      "Trouvez la tension, l’intensité ou la résistance à partir des deux autres valeurs grâce à la loi d’Ohm, ainsi que la puissance dissipée, avec des exemples.",
     keywords: ["loi d’Ohm", "calcul loi d’Ohm", "tension", "intensité", "résistance", "puissance électrique", "U = R × I", "électronique"],
     intro: [
       "La loi d’Ohm relie la tension aux bornes d’une résistance, le courant qui la traverse et sa valeur de résistance : V = I × R.",

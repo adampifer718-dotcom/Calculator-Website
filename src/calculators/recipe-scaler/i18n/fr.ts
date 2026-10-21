@@ -6,9 +6,9 @@ const fr: CalculatorTranslation<RecipeScalerText> = {
     title: "Calculateur de proportions de recette",
     shortTitle: "Proportions de recette",
     summary: "Augmentez ou réduisez les quantités d’ingrédients d’une recette pour n’importe quel nombre de portions.",
-    metaTitle: "Calculateur de proportions de recette – Portions et quantités",
+    metaTitle: "Calculateur de proportions de recette – Portions",
     metaDescription:
-      "Adaptez n’importe quelle recette à un nouveau nombre de portions. Collez votre liste d’ingrédients et obtenez les quantités ajustées sous forme de fractions pratiques.",
+      "Adaptez n’importe quelle recette à un nouveau nombre de portions : collez la liste d’ingrédients et obtenez les quantités ajustées en fractions pratiques.",
     keywords: ["adapter une recette", "convertir recette nombre de personnes", "proportions recette", "portions", "ingrédients", "doubler une recette", "diviser une recette par deux"],
     intro: [
       "Adapter une recette consiste à multiplier chaque quantité par le même coefficient : le nombre de portions souhaité divisé par le nombre de portions d’origine.",

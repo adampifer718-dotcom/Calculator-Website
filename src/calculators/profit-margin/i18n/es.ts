@@ -8,7 +8,7 @@ const es: CalculatorTranslation<ProfitMarginText> = {
     summary: "Calcula el beneficio, el margen de beneficio y el margen sobre el coste a partir del coste y el precio de venta.",
     metaTitle: "Calculadora de margen de beneficio – Margen y markup",
     metaDescription:
-      "Calcula el beneficio bruto, el margen de beneficio y el porcentaje de margen sobre el coste (markup) a partir del coste y el precio de venta, y entiende en qué se diferencian.",
+      "Calcula el beneficio bruto, el margen de beneficio y el margen sobre el coste (markup) a partir del coste y el precio de venta, y ve en qué se diferencian.",
     keywords: ["margen de beneficio", "calcular margen", "markup", "margen bruto", "margen sobre coste", "precio de venta"],
     intro: [
       "El margen y el markup describen el beneficio, pero respecto a bases distintas. El margen compara el beneficio con el precio de venta; el markup, con el coste.",

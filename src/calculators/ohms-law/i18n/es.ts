@@ -6,9 +6,9 @@ const es: CalculatorTranslation<OhmsLawText> = {
     title: "Calculadora de la ley de Ohm",
     shortTitle: "Ley de Ohm",
     summary: "Calcula la tensión, la corriente, la resistencia y la potencia a partir de dos valores cualesquiera de V, I y R.",
-    metaTitle: "Calculadora de la ley de Ohm – Tensión, corriente y resistencia",
+    metaTitle: "Calculadora de la ley de Ohm – Voltios, amperios y ohmios",
     metaDescription:
-      "Usa la ley de Ohm para calcular la tensión, la corriente o la resistencia a partir de los otros dos valores, además de la potencia disipada, con fórmulas y ejemplos.",
+      "Calcula la tensión, la corriente o la resistencia con la ley de Ohm a partir de los otros dos valores, además de la potencia disipada, con fórmulas y ejemplos.",
     keywords: ["ley de ohm", "calcular resistencia", "voltaje", "intensidad de corriente", "potencia eléctrica", "voltios amperios ohmios"],
     intro: [
       "La ley de Ohm relaciona la tensión en bornes de una resistencia, la corriente que la atraviesa y su resistencia: V = I × R.",

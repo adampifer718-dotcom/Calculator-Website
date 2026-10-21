@@ -7,7 +7,7 @@ const fr: CalculatorTranslation<PythagoreanText> = {
     shortTitle: "Théorème de Pythagore",
     summary: "Trouvez le côté manquant d’un triangle rectangle grâce à a² + b² = c².",
     metaTitle: "Calculateur du théorème de Pythagore – Côté manquant",
-    metaDescription: "Trouvez l’hypoténuse ou un côté de l’angle droit d’un triangle rectangle avec le théorème de Pythagore a² + b² = c², ainsi que l’aire et le périmètre du triangle.",
+    metaDescription: "Trouvez l’hypoténuse ou un côté de l’angle droit d’un triangle rectangle avec le théorème de Pythagore (a² + b² = c²), ainsi que son aire et son périmètre.",
     keywords: ["théorème de Pythagore", "Pythagore", "calcul hypoténuse", "triangle rectangle", "a2 + b2 = c2", "côté d’un triangle"],
     intro: [
       "Dans un triangle rectangle, le carré de l’hypoténuse est égal à la somme des carrés des deux autres côtés : a² + b² = c².",

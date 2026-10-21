@@ -6,8 +6,8 @@ const fr: CalculatorTranslation<RainwaterText> = {
     title: "Calculateur de récupération d’eau de pluie",
     shortTitle: "Récupération d’eau de pluie",
     summary: "Estimez la quantité d’eau de pluie qu’une toiture peut récupérer à partir de sa surface, des précipitations et d’un coefficient de ruissellement.",
-    metaTitle: "Calculateur de récupération d’eau de pluie – Collecte en toiture",
-    metaDescription: "Estimez l’eau de pluie récupérée sur un toit, en litres ou en gallons US, à partir de la surface de captage, de la hauteur de pluie et d’un coefficient de pertes.",
+    metaTitle: "Calculateur de récupération d’eau de pluie – Volume collecté",
+    metaDescription: "Estimez l’eau de pluie récupérée sur un toit, en litres ou en gallons US, selon la surface de captage, la hauteur de pluie et un coefficient de pertes.",
     keywords: ["récupération eau de pluie", "calcul cuve eau de pluie", "volume eau de pluie toiture", "dimensionner récupérateur", "pluviométrie toit", "coefficient de ruissellement"],
     intro: [
       "Chaque millimètre de pluie tombé sur un mètre carré de toiture représente un litre d’eau. Ce calculateur applique ce principe à votre toit et tient compte des pertes.",

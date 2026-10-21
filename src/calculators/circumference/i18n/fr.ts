@@ -6,7 +6,7 @@ const fr: CalculatorTranslation<CircumferenceText> = {
     title: "Calculateur de circonférence",
     shortTitle: "Circonférence",
     summary: "Calculez la circonférence d’un cercle à partir de son rayon, de son diamètre ou de son aire, ainsi que les autres mesures.",
-    metaTitle: "Calculateur de circonférence – Rayon, diamètre et aire du cercle",
+    metaTitle: "Calculateur de circonférence – Rayon, diamètre ou aire",
     metaDescription:
       "Calculez la circonférence d’un cercle à partir de son rayon, de son diamètre ou de son aire, et obtenez les autres mesures grâce à la formule C = 2πr.",
     keywords: ["circonférence", "périmètre d’un cercle", "calcul circonférence", "rayon", "diamètre", "aire d’un disque", "pi"],

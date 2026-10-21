@@ -98,7 +98,7 @@ export const fluidsContent: Record<string, ConverterContent> = {
     title: "Conversor de caudal molar",
     shortTitle: "Caudal molar",
     summary: "Converta caudais molares entre moles por segundo, quilomoles por hora, libras-mole por hora e outras unidades.",
-    metaTitle: "Conversor de caudal molar – mol/s, kmol/h, lb-mol/h",
+    metaTitle: "Conversor de caudal molar – mol/s, kmol/h e lb-mol/h",
     metaDescription: "Converta caudais molares entre mol/s, mmol/min, µmol/s, kmol/h e libras-mole por segundo, minuto ou hora, com a definição exata da libra-mole.",
     keywords: ["caudal molar", "kmol/h para lbmol/h", "lbmol/h", "mol/s", "kmol/h", "libra-mole", "fluxo molar"],
     intro: [

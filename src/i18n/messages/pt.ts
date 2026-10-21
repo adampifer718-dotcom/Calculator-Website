@@ -8,11 +8,11 @@ const pt: Messages = {
     tagline: "Calculadoras claras e precisas, com as fórmulas à vista",
     homeTitle: "Calculadora de salário por hora e anual – Grátis | {site}",
     homeDescription:
-      "Converta o salário por hora, dia, semana, duas semanas, mês ou ano em qualquer período de pagamento e use calculadoras gratuitas de percentagens e ROI com fórmulas.",
+      "Converta o salário por hora, dia, semana, mês ou ano em qualquer período de pagamento e use calculadoras gratuitas de percentagens e ROI com fórmulas.",
     directoryTitle: "Todas as calculadoras",
-    directoryDescription: "Explore, pesquise e filtre as {count} calculadoras gratuitas do {site} por categoria ou setor: finanças, matemática, estatística, saúde, física e mais.",
+    directoryDescription: "Pesquise e filtre as {count} calculadoras gratuitas do {site} por categoria ou setor: finanças, matemática, estatística, saúde, física e mais.",
     aboutTitle: "Sobre e metodologia",
-    aboutDescription: "Como funcionam as calculadoras do {site}: cálculos no navegador, fórmulas visíveis, pressupostos explícitos e arredondamento apenas na apresentação.",
+    aboutDescription: "Como funcionam as calculadoras do {site}: cálculos no navegador, fórmulas à vista, pressupostos explícitos e arredondamento só no ecrã.",
     notFoundTitle: "Página não encontrada",
   },
   common: {
@@ -48,6 +48,7 @@ const pt: Messages = {
   search: {
     label: "Pesquisar calculadoras",
     placeholderShort: "Pesquisar calculadoras…",
+    placeholderHeader: "Pesquisar…",
     placeholderLong: "Pesquisar calculadoras, p. ex. salário ou percentagem",
     submit: "Pesquisar",
     suggestions: "Calculadoras sugeridas",
@@ -227,7 +228,7 @@ const pt: Messages = {
     title: "Conversores de unidades",
     lead: "{count} conversores de unidades do dia a dia e técnicas, do comprimento, peso e temperatura à pressão, energia, eletricidade e luz. Os resultados são atualizados enquanto escreve.",
     metaTitle: "Conversores de unidades – Comprimento, peso, energia e mais",
-    metaDescription: "Conversores de unidades gratuitos para {count} grandezas: comprimento, peso, temperatura, pressão, energia, potência, caudal, eletricidade, luz e mais, com fatores exatos.",
+    metaDescription: "Conversores de unidades grátis para {count} grandezas: comprimento, peso, temperatura, pressão, energia, potência, caudal, eletricidade e mais, com fatores exatos.",
     searchLabel: "Pesquisar conversores e unidades",
     searchPlaceholder: "Pesquisar, p. ex. psi, joules ou kelvin",
     searchCount: "{count, plural, =0 {Nenhum conversor corresponde} one {# conversor corresponde} other {# conversores correspondem}} a «{query}».",

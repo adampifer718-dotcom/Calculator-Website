@@ -7,7 +7,7 @@ const es: TaxonomyText = {
       name: "Biología",
       description: "Tasas de crecimiento, poblaciones y cantidades de laboratorio para las ciencias de la vida.",
       metaTitle: "Calculadoras de biología",
-      metaDescription: "Calculadoras de biología gratuitas para el crecimiento de poblaciones, el tiempo de duplicación y otras magnitudes de las ciencias de la vida, con fórmula y ejemplos.",
+      metaDescription: "Calculadoras de biología gratuitas para el crecimiento de poblaciones, el tiempo de duplicación y otras magnitudes de ciencias de la vida, con ejemplos.",
     },
     chemistry: {
       name: "Química",
@@ -43,7 +43,7 @@ const es: TaxonomyText = {
       name: "Finanzas",
       description: "Sueldos, préstamos, intereses, rentabilidad, impuestos y márgenes empresariales con fórmulas transparentes.",
       metaTitle: "Calculadoras financieras",
-      metaDescription: "Calculadoras financieras gratuitas de salario y sueldo por hora, préstamos, interés compuesto, ROI, impuesto sobre ventas, margen de beneficio y punto de equilibrio.",
+      metaDescription: "Calculadoras financieras gratuitas de sueldo por hora, préstamos, interés compuesto, ROI, impuesto sobre ventas, margen de beneficio y punto de equilibrio.",
     },
     food: {
       name: "Cocina",

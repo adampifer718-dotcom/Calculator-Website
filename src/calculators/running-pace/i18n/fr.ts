@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<RunningPaceText> = {
     summary: "Calculez votre allure de course au kilomètre et au mile, ainsi que votre vitesse moyenne, à partir de la distance et du temps final.",
     metaTitle: "Calculateur d’allure de course – Allure au km et au mile",
     metaDescription:
-      "Calculez votre allure au kilomètre et au mile et votre vitesse moyenne à partir de votre temps pour un 5 km, un 10 km, un semi-marathon, un marathon ou une distance libre.",
+      "Calculez votre allure au km et au mile et votre vitesse moyenne à partir de votre temps sur 5 km, 10 km, semi-marathon, marathon ou distance libre.",
     keywords: ["calcul allure course", "allure au km", "min/km", "allure marathon", "allure semi-marathon", "5 km", "10 km", "course à pied"],
     intro: [
       "L’allure est le temps nécessaire pour parcourir un kilomètre ou un mile. C’est ainsi que la plupart des coureurs préparent et comparent leurs courses.",

@@ -10,7 +10,7 @@ const es: CalculatorTranslation<TileText> = {
     summary: "Calcula cuántas piezas y cajas necesitas para un suelo o una pared a partir de la superficie, el tamaño de la pieza, la junta y un margen de desperdicio.",
     metaTitle: "Calculadora de azulejos y baldosas – Piezas y cajas",
     metaDescription:
-      "Calcula las baldosas o azulejos para un suelo o una pared a partir de la superficie, el tamaño de la pieza y la junta, con margen de desperdicio y cajas enteras.",
+      "Calcula las baldosas o azulejos para un suelo o una pared según la superficie, el tamaño de la pieza y la junta, con margen de desperdicio y cajas enteras.",
     keywords: ["calcular azulejos", "calcular baldosas", "cuántas baldosas necesito", "azulejos para pared", "baldosas para suelo", "junta de azulejos", "cajas de azulejos", "frente de cocina"],
     intro: [
       "Antes de comprar azulejos o baldosas necesitas saber cuántas piezas, no solo la superficie. Esta calculadora divide la superficie que vas a cubrir entre el espacio que ocupa cada pieza, incluida la junta que la rodea, y añade un margen de desperdicio por cortes y roturas.",

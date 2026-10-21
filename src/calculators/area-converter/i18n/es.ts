@@ -6,7 +6,7 @@ const es: CalculatorTranslation<AreaConverterText> = {
     title: "Calculadora de conversión de superficie",
     shortTitle: "Superficie",
     summary: "Convierte entre metros cuadrados, hectáreas, kilómetros cuadrados, pies cuadrados, yardas cuadradas, acres, millas cuadradas y más.",
-    metaTitle: "Calculadora de conversión de superficie – Acres, ha, m² y ft²",
+    metaTitle: "Calculadora de conversión de superficie – Acres, ha y m²",
     metaDescription:
       "Convierte superficies entre metros cuadrados, hectáreas, km², pulgadas, pies y yardas cuadradas, acres y millas cuadradas, con factores exactos.",
     keywords: [

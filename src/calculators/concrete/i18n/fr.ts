@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<ConcreteText> = {
     summary: "Estimez la quantité de béton à commander pour des dalles, semelles, poteaux ronds et tubes creux, avec une marge de perte facultative.",
     metaTitle: "Calculateur de béton – Volume de dalle, poteau et tube",
     metaDescription:
-      "Estimez le volume de béton d’une dalle, d’une semelle, d’un poteau rond ou d’un tube en mètres cubes, yards cubes, pieds cubes et litres, avec une marge de perte.",
+      "Estimez le volume de béton d’une dalle, d’une semelle, d’un poteau rond ou d’un tube en m³, yards cubes, pieds cubes et litres, avec une marge de perte.",
     keywords: ["calcul béton", "volume de béton", "calcul dalle béton", "béton m3", "semelle de fondation", "poteau béton", "béton prêt à l’emploi", "quantité de béton"],
     intro: [
       "Le béton se commande au volume. Saisissez les dimensions d’une dalle, d’une semelle, d’un poteau rond ou d’un tube creux pour savoir combien il vous en faut, dans les unités utilisées par les fournisseurs.",

@@ -13,7 +13,7 @@ const fr: CalculatorTranslation<AgeText> = {
     summary: "Calculez un âge exact en années, mois et jours à n’importe quelle date, avec le total en jours et en semaines et le prochain anniversaire.",
     metaTitle: "Calculateur d’âge – Âge exact en années, mois et jours",
     metaDescription:
-      "Calculez l’âge exact à partir d’une date de naissance en années, mois et jours, ainsi que le total en jours et semaines, le prochain anniversaire et le jour de naissance.",
+      "Calculez l’âge exact en années, mois et jours à partir d’une date de naissance, avec le total en jours et semaines et le prochain anniversaire.",
     keywords: ["calcul âge", "quel âge ai-je", "date de naissance", "calculer son âge", "âge en jours", "âge exact", "prochain anniversaire"],
     intro: [
       "Saisissez une date de naissance pour connaître l’âge exact aujourd’hui, ou choisissez une autre date pour savoir quel âge avait ou aura une personne ce jour-là.",

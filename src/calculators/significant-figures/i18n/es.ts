@@ -8,7 +8,7 @@ const es: CalculatorTranslation<SigFigText> = {
     summary: "Cuenta las cifras significativas de un número o redondea un número a las cifras significativas que elijas.",
     metaTitle: "Calculadora de cifras significativas – Contar y redondear",
     metaDescription:
-      "Cuenta las cifras significativas de cualquier número, incluidos decimales y notación e, o redondea a un número de cifras significativas con su notación científica.",
+      "Cuenta las cifras significativas de cualquier número, incluidos decimales y notación e, o redondéalo a las cifras que elijas y obtén su notación científica.",
     keywords: ["cifras significativas", "contar cifras significativas", "redondear cifras significativas", "dígitos significativos", "notación científica", "química"],
     intro: [
       "Las cifras significativas indican con qué precisión se conoce un número. Esta calculadora las cuenta con las reglas habituales o redondea un número a la precisión que elijas.",

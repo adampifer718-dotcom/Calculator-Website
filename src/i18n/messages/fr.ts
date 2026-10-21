@@ -8,11 +8,11 @@ const fr: Messages = {
     tagline: "Des calculateurs clairs et précis, formules à l’appui",
     homeTitle: "Calculateur taux horaire et salaire – Outils gratuits | {site}",
     homeDescription:
-      "Convertissez une paie horaire, journalière, hebdomadaire, mensuelle ou annuelle dans toutes les périodes de paie, et utilisez nos calculateurs de pourcentage et de ROI.",
+      "Convertissez une paie horaire, journalière, hebdomadaire, mensuelle ou annuelle vers toute autre période, et calculez pourcentages et ROI.",
     directoryTitle: "Tous les calculateurs",
-    directoryDescription: "Parcourez, recherchez et filtrez les {count} calculateurs gratuits de {site} par catégorie ou secteur : finance, mathématiques, statistiques, santé, physique et plus encore.",
+    directoryDescription: "Parcourez et filtrez les {count} calculateurs gratuits de {site} par catégorie : finance, mathématiques, statistiques, santé, physique et plus.",
     aboutTitle: "À propos et méthodologie",
-    aboutDescription: "Comment fonctionnent les calculateurs {site} : calculs dans le navigateur, formules visibles, hypothèses explicites et arrondi uniquement à l’affichage.",
+    aboutDescription: "Comment fonctionnent les calculateurs {site} : calcul dans le navigateur, formules visibles, hypothèses explicites, arrondi à l’affichage.",
     notFoundTitle: "Page introuvable",
   },
   common: {
@@ -48,6 +48,7 @@ const fr: Messages = {
   search: {
     label: "Rechercher un calculateur",
     placeholderShort: "Rechercher un calculateur…",
+    placeholderHeader: "Rechercher…",
     placeholderLong: "Rechercher un calculateur, par ex. salaire ou pourcentage",
     submit: "Rechercher",
     suggestions: "Calculateurs suggérés",
@@ -226,8 +227,8 @@ const fr: Messages = {
     breadcrumb: "Convertisseurs d’unités",
     title: "Convertisseurs d’unités",
     lead: "{count} convertisseurs pour les unités courantes et techniques, des longueurs, poids et températures à la pression, l’énergie, l’électricité et la lumière. Les résultats se mettent à jour pendant la saisie.",
-    metaTitle: "Convertisseurs d’unités – Longueur, poids, pression, énergie et plus",
-    metaDescription: "Convertisseurs d’unités gratuits pour {count} types de grandeurs : longueur, poids, température, pression, énergie, puissance, débit, électricité, lumière et plus, avec des facteurs exacts.",
+    metaTitle: "Convertisseurs d’unités – Longueur, poids, énergie et plus",
+    metaDescription: "Convertisseurs d’unités gratuits pour {count} grandeurs : longueur, poids, température, pression, énergie, débit, électricité et plus, avec des facteurs exacts.",
     searchLabel: "Rechercher un convertisseur ou une unité",
     searchPlaceholder: "Rechercher, par ex. psi, joules ou kelvin",
     searchCount: "{count, plural, =0 {Aucun convertisseur ne correspond} one {# convertisseur correspond} other {# convertisseurs correspondent}} à « {query} ».",

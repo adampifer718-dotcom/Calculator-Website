@@ -6,7 +6,7 @@ const es: CalculatorTranslation<CupsToGramsText> = {
     title: "Calculadora de tazas a gramos",
     shortTitle: "Tazas a gramos",
     summary: "Convierte tazas a gramos y gramos a tazas para harina, azúcar, mantequilla y otros ingredientes de repostería, cada uno con su propia densidad.",
-    metaTitle: "Calculadora de tazas a gramos – Harina, azúcar, mantequilla y más",
+    metaTitle: "Calculadora de tazas a gramos – Harina, azúcar y más",
     metaDescription:
       "Convierte tazas a gramos y gramos a tazas para 18 ingredientes de repostería con la densidad de cada uno, con tazas de EE. UU., métricas e imperiales.",
     keywords: ["tazas a gramos", "gramos a tazas", "cuántos gramos tiene una taza", "taza de harina en gramos", "taza de azúcar en gramos", "equivalencias de repostería", "medidas de cocina"],

@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<SquareFootageText> = {
     summary: "Calculez la surface d’un rectangle, d’un cercle ou d’un triangle en pieds carrés, mètres carrés et yards carrés.",
     metaTitle: "Calculateur de surface – Pieds carrés (pi²) et m²",
     metaDescription:
-      "Calculez la surface en pieds carrés d’un rectangle, d’un cercle ou d’un triangle à partir de pieds, pouces, yards, mètres ou centimètres, avec m² et yards carrés.",
+      "Calculez la surface en pieds carrés d’un rectangle, d’un cercle ou d’un triangle à partir de pieds, pouces, mètres ou centimètres, avec m² et yards carrés.",
     keywords: ["pieds carrés", "calcul surface", "surface d’une pièce", "calcul m2", "convertir pieds carrés en m2", "surface au sol", "revêtement de sol"],
     intro: [
       "La surface en pieds carrés est l’aire d’une surface mesurée en pieds carrés. Elle sert pour les revêtements de sol, la peinture, le carrelage, la moquette et les annonces immobilières.",

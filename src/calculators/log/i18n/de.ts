@@ -8,7 +8,7 @@ const de: CalculatorTranslation<LogText> = {
     summary: "Berechnen Sie Logarithmen zur Basis 10, zur Basis e (natürlicher Logarithmus), zur Basis 2 oder zu jeder anderen Basis.",
     metaTitle: "Logarithmusrechner – Logarithmus zu jeder Basis",
     metaDescription:
-      "Berechnen Sie den Zehnerlogarithmus, den natürlichen Logarithmus (ln), den Zweierlogarithmus oder einen Logarithmus zu beliebiger Basis – mit Basiswechselformel und Beispielen.",
+      "Berechnen Sie den Zehner-, Zweier- oder natürlichen Logarithmus (ln) oder einen Logarithmus zu beliebiger Basis – mit Basiswechselformel.",
     keywords: ["Logarithmus berechnen", "Logarithmusrechner", "natürlicher Logarithmus", "ln berechnen", "Zehnerlogarithmus", "Logarithmus Basis 2", "Basiswechsel"],
     intro: [
       "Ein Logarithmus beantwortet die Frage: Mit welcher Potenz muss die Basis erhoben werden, um diese Zahl zu erhalten? log₁₀(1.000) = 3, weil 10³ = 1.000.",

@@ -8,7 +8,7 @@ const es: CalculatorTranslation<BreakEvenText> = {
     summary: "Averigua cuántas unidades necesitas vender para cubrir los costes fijos y cuáles son los ingresos de equilibrio.",
     metaTitle: "Calculadora del punto de equilibrio – Unidades e ingresos",
     metaDescription:
-      "Calcula tu punto de equilibrio en unidades e ingresos a partir de los costes fijos, el precio por unidad y el coste variable unitario, con el margen de contribución.",
+      "Calcula tu punto de equilibrio en unidades e ingresos con los costes fijos, el precio por unidad y el coste variable unitario, y el margen de contribución.",
     keywords: ["punto de equilibrio", "umbral de rentabilidad", "margen de contribución", "costes fijos", "costes variables", "punto muerto"],
     intro: [
       "El punto de equilibrio es el nivel en el que los ingresos totales igualan a los costes totales, de modo que no hay ni beneficios ni pérdidas.",

@@ -12,7 +12,7 @@ const pt: TaxonomyText = {
     chemistry: {
       name: "Química",
       description: "Cálculos de concentração, diluição e soluções para o laboratório e a sala de aula.",
-      metaTitle: "Calculadoras de química",
+      metaTitle: "Calculadoras de química – molaridade e diluição",
       metaDescription: "Calculadoras de química gratuitas para molaridade, diluição de soluções e concentração, com fórmulas, unidades e exemplos resolvidos.",
     },
     construction: {
@@ -66,7 +66,7 @@ const pt: TaxonomyText = {
     physics: {
       name: "Física",
       description: "Cálculos de movimento, energia e eletricidade com unidades do SI.",
-      metaTitle: "Calculadoras de física",
+      metaTitle: "Calculadoras de física – movimento, energia e eletricidade",
       metaDescription: "Calculadoras de física gratuitas de velocidade, distância e tempo, energia cinética e lei de Ohm, com fórmulas e conversão de unidades.",
     },
     sports: {

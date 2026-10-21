@@ -7,7 +7,7 @@ const fr: CalculatorTranslation<TestGradeText> = {
     shortTitle: "Note d’examen",
     summary: "Transformez un nombre de bonnes réponses ou de points en pourcentage et en note sous forme de lettre.",
     metaTitle: "Calculateur de note d’examen – Pourcentage et note en lettre",
-    metaDescription: "Obtenez le pourcentage de réussite et la note en lettre d’un examen à partir du nombre de bonnes ou de mauvaises réponses, ou des points obtenus sur le total possible.",
+    metaDescription: "Obtenez le pourcentage et la note en lettre d’un examen à partir du nombre de bonnes ou de mauvaises réponses, ou des points obtenus sur le total possible.",
     keywords: ["calcul note examen", "pourcentage de réussite", "note sur 100", "calcul note contrôle", "note en lettre", "résultat de test"],
     intro: [
       "Indiquez le nombre de questions ou de points de l’épreuve et combien vous en avez réussi ou manqué. Le calculateur affiche le pourcentage obtenu et la note en lettre correspondante.",

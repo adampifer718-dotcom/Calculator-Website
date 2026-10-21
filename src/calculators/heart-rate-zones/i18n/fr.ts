@@ -6,9 +6,9 @@ const fr: CalculatorTranslation<HeartRateZonesText> = {
     title: "Calculateur de zones de fréquence cardiaque",
     shortTitle: "Zones de fréquence cardiaque",
     summary: "Estimez votre fréquence cardiaque maximale à partir de votre âge et obtenez cinq zones d’entraînement en battements par minute, en pourcentage du maximum ou avec la méthode de Karvonen.",
-    metaTitle: "Calculateur de zones de fréquence cardiaque – FC max et zones",
+    metaTitle: "Zones de fréquence cardiaque – FC max et entraînement",
     metaDescription:
-      "Estimez la fréquence cardiaque maximale avec 220 − âge ou la formule de Tanaka et obtenez cinq zones d’entraînement en bpm, en % du maximum ou avec la méthode de Karvonen.",
+      "Estimez votre FC maximale avec 220 − âge ou la formule de Tanaka et obtenez cinq zones d’entraînement en bpm, en % du maximum ou selon Karvonen.",
     keywords: ["zones de fréquence cardiaque", "fréquence cardiaque cible", "fréquence cardiaque maximale", "FC max", "formule de Karvonen", "zones d’entraînement", "zone de combustion des graisses", "réserve de fréquence cardiaque"],
     intro: [
       "Les zones de fréquence cardiaque découpent l’intensité de l’effort en tranches établies à partir de votre fréquence cardiaque maximale. S’entraîner dans une zone donnée aide à doser les sorties faciles, les efforts réguliers ou les fractionnés intenses sans deviner.",

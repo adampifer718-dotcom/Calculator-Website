@@ -6,7 +6,7 @@ const es: CalculatorTranslation<PythagoreanText> = {
     title: "Calculadora del teorema de Pitágoras",
     shortTitle: "Teorema de Pitágoras",
     summary: "Halla el lado que falta de un triángulo rectángulo con a² + b² = c².",
-    metaTitle: "Calculadora del teorema de Pitágoras – Halla el lado que falta",
+    metaTitle: "Calculadora del teorema de Pitágoras – Hipotenusa y catetos",
     metaDescription:
       "Calcula la hipotenusa o el cateto que falta de un triángulo rectángulo con el teorema de Pitágoras a² + b² = c², además del área y el perímetro del triángulo.",
     keywords: ["teorema de Pitágoras", "calcular hipotenusa", "calcular cateto", "triángulo rectángulo", "a2 + b2 = c2", "Pitágoras"],

@@ -6,7 +6,7 @@ const de: CalculatorTranslation<PercentageIncreaseText> = {
     title: "Prozentsteigerungsrechner",
     shortTitle: "Prozentuale Steigerung",
     summary: "Berechnen Sie die prozentuale Zu- oder Abnahme von einem Ausgangswert zu einem neuen Wert.",
-    metaTitle: "Prozentsteigerungsrechner – prozentuale Veränderung ermitteln",
+    metaTitle: "Prozentsteigerungsrechner – prozentuale Veränderung",
     metaDescription:
       "Berechnen Sie die prozentuale Zu- oder Abnahme zwischen zwei Zahlen. Mit prozentualer Veränderung, absoluter Differenz, Formel und Rechenbeispielen.",
     keywords: ["prozentuale Steigerung berechnen", "prozentuale Veränderung", "Prozent Zunahme", "Prozent Abnahme", "Wachstum in Prozent", "Preiserhöhung Prozent"],

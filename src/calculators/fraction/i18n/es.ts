@@ -6,7 +6,7 @@ const es: CalculatorTranslation<FractionText> = {
     title: "Calculadora de fracciones",
     shortTitle: "Fracciones",
     summary: "Suma, resta, multiplica o divide fracciones y números mixtos, con el resultado simplificado y en forma decimal.",
-    metaTitle: "Calculadora de fracciones – Sumar, restar, multiplicar y dividir",
+    metaTitle: "Calculadora de fracciones – Suma, resta, multiplica, divide",
     metaDescription:
       "Suma, resta, multiplica y divide fracciones, números mixtos y decimales. Obtén el resultado exacto simplificado, como número mixto y en forma decimal.",
     keywords: ["calculadora de fracciones", "sumar fracciones", "simplificar fracciones", "dividir fracciones", "números mixtos", "fracción irreducible", "operaciones con fracciones"],

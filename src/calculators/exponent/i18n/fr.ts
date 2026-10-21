@@ -7,7 +7,7 @@ const fr: CalculatorTranslation<ExponentText> = {
     shortTitle: "Puissances",
     summary: "Élevez n’importe quel nombre à une puissance, y compris avec des exposants négatifs ou fractionnaires.",
     metaTitle: "Calculateur de puissances – Exposants positifs et négatifs",
-    metaDescription: "Calculez un nombre élevé à n’importe quelle puissance, y compris avec des exposants négatifs ou fractionnaires ; les très grands résultats s’affichent en notation scientifique.",
+    metaDescription: "Calculez un nombre élevé à n’importe quelle puissance, exposants négatifs ou fractionnaires compris, avec les très grands résultats en notation scientifique.",
     keywords: ["calcul puissance", "exposant", "élever à la puissance", "au carré", "au cube", "exposant négatif", "exposant fractionnaire"],
     intro: [
       "Un exposant indique combien de fois multiplier une base par elle-même. 2¹⁰ signifie dix 2 multipliés entre eux, soit 1 024.",

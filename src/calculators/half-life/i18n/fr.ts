@@ -7,7 +7,7 @@ const fr: CalculatorTranslation<HalfLifeText> = {
     shortTitle: "Demi-vie",
     summary: "Résolvez une décroissance exponentielle pour la quantité restante, la quantité initiale, la demi-vie ou le temps écoulé.",
     metaTitle: "Calculateur de demi-vie – Quantité restante et durée",
-    metaDescription: "Résolvez N = N₀(1/2)^(t/T) pour la quantité restante, la quantité initiale, la demi-vie ou le temps écoulé, avec la constante de désintégration et la vie moyenne.",
+    metaDescription: "Résolvez N = N₀(1/2)^(t/T) pour la quantité restante ou initiale, la demi-vie ou le temps écoulé, avec la constante de désintégration et la vie moyenne.",
     keywords: ["demi-vie", "période radioactive", "décroissance radioactive", "décroissance exponentielle", "constante de désintégration", "vie moyenne", "datation au carbone 14", "cinétique d’ordre 1"],
     intro: [
       "La demi-vie est le temps nécessaire pour que la moitié d’une quantité en décroissance disparaisse. Après une demi-vie, il en reste 50 % ; après deux, 25 % ; après trois, 12,5 %, et ainsi de suite.",

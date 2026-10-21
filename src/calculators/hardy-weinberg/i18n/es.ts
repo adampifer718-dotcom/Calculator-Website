@@ -8,7 +8,7 @@ const es: CalculatorTranslation<HardyWeinbergText> = {
     summary: "Calcula las frecuencias alélicas y genotípicas a partir de la frecuencia de un rasgo recesivo, o contrasta recuentos de genotipos con el equilibrio.",
     metaTitle: "Calculadora de Hardy-Weinberg – Frecuencias alélicas y χ²",
     metaDescription:
-      "Obtén p, q, p², 2pq y q² a partir de la proporción de personas con un rasgo recesivo, o contrasta recuentos observados de AA, Aa y aa con una prueba de chi cuadrado.",
+      "Obtén p, q, p², 2pq y q² a partir de la proporción de personas con un rasgo recesivo, o contrasta recuentos de AA, Aa y aa con una prueba de chi cuadrado.",
     keywords: [
       "hardy-weinberg",
       "equilibrio de Hardy-Weinberg",

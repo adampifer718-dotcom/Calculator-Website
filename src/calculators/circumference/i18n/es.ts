@@ -6,7 +6,7 @@ const es: CalculatorTranslation<CircumferenceText> = {
     title: "Calculadora de circunferencia",
     shortTitle: "Circunferencia",
     summary: "Calcula la longitud de una circunferencia a partir del radio, el diámetro o el área, además de las demás medidas.",
-    metaTitle: "Calculadora de circunferencia – Radio, diámetro y área del círculo",
+    metaTitle: "Calculadora de circunferencia – Por radio, diámetro o área",
     metaDescription:
       "Calcula la longitud de la circunferencia de un círculo a partir de su radio, su diámetro o su área, y obtén las demás medidas con la fórmula C = 2πr.",
     keywords: ["longitud de la circunferencia", "perímetro del círculo", "calcular circunferencia", "radio y diámetro", "área del círculo", "número pi"],

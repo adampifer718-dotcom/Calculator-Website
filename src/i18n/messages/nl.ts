@@ -10,7 +10,7 @@ const nl: Messages = {
     homeDescription:
       "Reken loon per uur, dag, week, twee weken, maand of jaar om naar elke betaalperiode, plus gratis procent- en ROI-calculators met de formules erbij.",
     directoryTitle: "Alle calculators",
-    directoryDescription: "Blader, zoek en filter alle {count} gratis calculators van {site} op categorie of sector: financiën, wiskunde, statistiek, gezondheid, natuurkunde en meer.",
+    directoryDescription: "Zoek en filter {count} gratis calculators van {site} op categorie of sector: financiën, wiskunde, statistiek, gezondheid, natuurkunde en meer.",
     aboutTitle: "Over ons en methode",
     aboutDescription: "Zo werken de calculators van {site}: berekeningen in je browser, zichtbare formules, vermelde aannames en alleen afronden bij weergave.",
     notFoundTitle: "Pagina niet gevonden",
@@ -48,6 +48,7 @@ const nl: Messages = {
   search: {
     label: "Calculators zoeken",
     placeholderShort: "Calculators zoeken…",
+    placeholderHeader: "Calculators zoeken…",
     placeholderLong: "Zoek calculators, bijv. salaris of procent",
     submit: "Zoeken",
     suggestions: "Voorgestelde calculators",

@@ -6,7 +6,7 @@ const es: CalculatorTranslation<LengthConverterText> = {
     title: "Calculadora de conversión de longitud",
     shortTitle: "Longitud",
     summary: "Convierte entre milímetros, centímetros, metros, kilómetros, pulgadas, pies, yardas, millas y millas náuticas.",
-    metaTitle: "Calculadora de conversión de longitud – Métricas e imperiales",
+    metaTitle: "Calculadora de conversión de longitud – Métrico e imperial",
     metaDescription:
       "Convierte longitudes entre unidades métricas e imperiales: mm, cm, m, km, pulgadas, pies, yardas, millas y millas náuticas, con factores de conversión exactos.",
     keywords: ["conversor de longitud", "convertir unidades de longitud", "km a millas", "pies a metros", "pulgadas a cm", "conversor de unidades"],

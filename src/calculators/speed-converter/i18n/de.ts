@@ -7,7 +7,7 @@ const de: CalculatorTranslation<SpeedConverterText> = {
     shortTitle: "Geschwindigkeit",
     summary: "Rechnen Sie eine Geschwindigkeit zwischen Metern pro Sekunde, Kilometern pro Stunde, Meilen pro Stunde, Fuß pro Sekunde, Knoten und Zentimetern pro Sekunde um.",
     metaTitle: "Geschwindigkeit umrechnen – km/h, mph, m/s, ft/s, Knoten",
-    metaDescription: "Rechnen Sie Geschwindigkeiten zwischen km/h, mph, m/s, ft/s, Knoten und cm/s mit exakten Faktoren um und sehen Sie Ihren Wert in einer Tabelle in allen Einheiten.",
+    metaDescription: "Rechnen Sie Geschwindigkeiten zwischen km/h, mph, m/s, ft/s, Knoten und cm/s mit exakten Faktoren um – mit Tabelle aller Einheiten.",
     keywords: ["Geschwindigkeit umrechnen", "km/h in mph", "mph in km/h", "m/s in km/h", "Knoten in km/h", "Fuß pro Sekunde", "Einheiten Geschwindigkeit"],
     intro: [
       "Geschwindigkeiten tauchen in vielen Einheiten auf: Verkehrsschilder zeigen km/h oder mph, Physikaufgaben verwenden m/s, Piloten und Segler rechnen in Knoten, und im Labor sind cm/s üblich. Dieser Umrechner wandelt einen Wert von einer dieser Einheiten in eine andere um und zeigt ihn gleichzeitig in allen sechs.",

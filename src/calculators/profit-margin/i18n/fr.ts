@@ -6,7 +6,7 @@ const fr: CalculatorTranslation<ProfitMarginText> = {
     title: "Calculateur de marge bénéficiaire",
     shortTitle: "Marge bénéficiaire",
     summary: "Calculez le bénéfice, le taux de marge et le taux de marque à partir du coût et du prix de vente.",
-    metaTitle: "Calculateur de marge bénéficiaire – Taux de marge et de marque",
+    metaTitle: "Calculateur de marge bénéficiaire – Taux de marge et marque",
     metaDescription:
       "Calculez la marge brute, le taux de marge et le taux de marque à partir du coût et du prix de vente, et comprenez la différence entre marge et marque.",
     keywords: ["calcul marge", "marge bénéficiaire", "taux de marge", "taux de marque", "marge brute", "coefficient multiplicateur", "prix de vente", "e-commerce"],

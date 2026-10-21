@@ -7,7 +7,7 @@ const fr: CalculatorTranslation<PaintText> = {
     shortTitle: "Peinture",
     summary: "Estimez combien de gallons ou de litres de peinture murale il vous faut selon la taille des murs, les portes, les fenêtres, le nombre de couches et le rendement.",
     metaTitle: "Calculateur de peinture – Litres ou gallons pour vos murs",
-    metaDescription: "Calculez la quantité de peinture murale à acheter en litres ou en gallons selon la longueur et la hauteur des murs, moins portes et fenêtres, couches et rendement.",
+    metaDescription: "Calculez la peinture murale à acheter en litres ou en gallons selon les dimensions des murs, les ouvertures à déduire, le nombre de couches et le rendement.",
     keywords: ["calcul peinture", "quantité de peinture", "combien de litres de peinture", "rendement peinture", "peinture murale", "nombre de couches", "surface à peindre"],
     intro: [
       "Acheter de la peinture est plus simple quand on connaît la surface à couvrir. Additionnez les largeurs des murs, multipliez par la hauteur, retirez les portes et les fenêtres, puis divisez par la surface couverte par un gallon ou un litre de votre peinture.",

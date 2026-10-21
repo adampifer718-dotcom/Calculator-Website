@@ -6,9 +6,9 @@ const fr: CalculatorTranslation<FuelCostText> = {
     title: "Calculateur de coût de carburant",
     shortTitle: "Coût de carburant",
     summary: "Estimez le carburant consommé et le coût d’un trajet à partir de la distance, de la consommation et du prix du carburant.",
-    metaTitle: "Calculateur de coût de carburant – Budget essence d’un trajet",
+    metaTitle: "Calculateur de coût de carburant – Budget d’un trajet",
     metaDescription:
-      "Calculez le coût en carburant d’un trajet à partir de la distance, de la consommation et du prix du carburant, en miles et MPG ou en kilomètres et litres aux 100 km.",
+      "Calculez le coût en carburant d’un trajet selon la distance, la consommation et le prix du carburant, en miles et MPG ou en km et litres aux 100 km.",
     keywords: ["coût carburant trajet", "calcul consommation essence", "prix essence trajet", "L/100 km", "budget carburant", "gazole", "road trip"],
     intro: [
       "Calculez la quantité de carburant nécessaire pour un trajet et son coût. Le calcul fonctionne en miles par gallon ou en litres aux 100 kilomètres.",

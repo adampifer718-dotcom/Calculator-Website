@@ -8,7 +8,7 @@ const es: CalculatorTranslation<FlooringText> = {
     summary: "Calcula cuántas cajas de suelo laminado, vinílico en lamas o de madera debes comprar a partir de las medidas de la habitación, un margen de desperdicio y la superficie por caja, con un coste opcional.",
     metaTitle: "Calculadora de revestimiento de suelos – Cajas de laminado",
     metaDescription:
-      "Calcula las cajas de suelo que debes comprar para una habitación rectangular o en L, con margen de desperdicio, superficie por caja y un precio opcional por superficie.",
+      "Calcula cuántas cajas de suelo necesitas para una habitación rectangular o en L, con margen de desperdicio, superficie por caja y precio opcional.",
     keywords: ["calcular suelo laminado", "cuánto suelo necesito", "suelo vinílico", "tarima flotante", "cajas de suelo", "desperdicio suelo", "parquet", "presupuesto suelo"],
     intro: [
       "El suelo se vende por cajas, y cada caja cubre una superficie fija. Para saber cuántas comprar necesitas la superficie del suelo, un margen para las piezas que se pierden en los cortes y la superficie que indica la caja.",

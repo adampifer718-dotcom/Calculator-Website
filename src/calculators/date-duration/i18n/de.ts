@@ -13,7 +13,7 @@ const de: CalculatorTranslation<DateDurationText> = {
     summary: "Zählen Sie die Tage, Wochen, Monate und Jahre zwischen zwei Daten, einschließlich Werktagen und Wochenendtagen.",
     metaTitle: "Datumsrechner – Tage zwischen zwei Daten berechnen",
     metaDescription:
-      "Berechnen Sie die Tage zwischen zwei Daten sowie die Dauer in Jahren, Monaten und Tagen, in Wochen, Werktagen und Wochenendtagen. Das Enddatum lässt sich mitzählen.",
+      "Berechnen Sie die Tage zwischen zwei Daten sowie die Dauer in Jahren, Monaten, Wochen, Werktagen und Wochenendtagen – das Enddatum auf Wunsch mitgezählt.",
     keywords: ["Tage zwischen zwei Daten", "Datumsrechner", "Tagerechner", "Tage zählen", "wie viele Tage bis", "Zeitraum berechnen", "Werktage berechnen"],
     intro: [
       "Ermitteln Sie, wie viele Tage zwischen zwei Daten liegen – für eine Frist, eine Kündigungsfrist, eine Reise oder einen Countdown.",

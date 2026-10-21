@@ -8,7 +8,7 @@ const es: CalculatorTranslation<PaintText> = {
     summary: "Estima cuántos galones o litros de pintura para paredes necesitas según el tamaño de las paredes, las puertas, las ventanas, el número de manos y el rendimiento.",
     metaTitle: "Calculadora de pintura – Galones o litros para tus paredes",
     metaDescription:
-      "Calcula cuánta pintura comprar en galones o litros a partir del largo y la altura de las paredes, descontando puertas y ventanas, para cualquier número de manos.",
+      "Calcula cuánta pintura comprar en galones o litros según el largo y la altura de las paredes, descontando puertas y ventanas, para cualquier número de manos.",
     keywords: [
       "calculadora de pintura",
       "cuánta pintura necesito",

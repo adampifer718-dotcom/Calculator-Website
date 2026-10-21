@@ -8,7 +8,7 @@ const de: CalculatorTranslation<DiscountText> = {
     summary: "Ermitteln Sie aus dem Originalpreis und einem prozentualen Rabatt den reduzierten Preis und Ihre Ersparnis.",
     metaTitle: "Rabattrechner – reduzierter Preis und Ersparnis",
     metaDescription:
-      "Berechnen Sie den reduzierten Preis nach einem prozentualen Rabatt und wie viel Sie sparen. Geben Sie Originalpreis und Rabatt in Prozent ein und erhalten Sie sofort das Ergebnis.",
+      "Berechnen Sie aus Originalpreis und Rabatt in Prozent sofort den reduzierten Preis und wie viel Sie sparen.",
     keywords: ["Rabatt berechnen", "Rabattrechner", "Prozent Rabatt", "reduzierter Preis", "Ersparnis berechnen", "Gutschein", "Preisnachlass"],
     intro: [
       "Geben Sie den Originalpreis und den Rabatt in Prozent ein, um den reduzierten Preis und Ihre Ersparnis zu sehen.",

@@ -6,7 +6,7 @@ const es: CalculatorTranslation<SpeedConverterText> = {
     title: "Calculadora de conversión de velocidad",
     shortTitle: "Velocidad",
     summary: "Convierte una velocidad entre metros por segundo, kilómetros por hora, millas por hora, pies por segundo, nudos y centímetros por segundo.",
-    metaTitle: "Calculadora de conversión de velocidad – km/h, mph, m/s y nudos",
+    metaTitle: "Calculadora de conversión de velocidad – km/h, mph y nudos",
     metaDescription:
       "Convierte velocidades entre km/h, mph, m/s, ft/s, nudos y cm/s con factores exactos, y consulta tu valor en todas las unidades a la vez en una sola tabla.",
     keywords: ["conversor de velocidad", "km/h a mph", "mph a km/h", "m/s a km/h", "nudos a km/h", "pies por segundo", "unidades de velocidad"],

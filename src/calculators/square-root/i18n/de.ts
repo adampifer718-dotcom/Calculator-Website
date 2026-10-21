@@ -8,7 +8,7 @@ const de: CalculatorTranslation<SquareRootText> = {
     summary: "Ermitteln Sie die Quadrat- oder Kubikwurzel einer Zahl und prüfen Sie, ob sie eine Quadrat- oder Kubikzahl ist.",
     metaTitle: "Wurzelrechner – Quadratwurzel und Kubikwurzel berechnen",
     metaDescription:
-      "Berechnen Sie die Quadrat- oder Kubikwurzel jeder Zahl, sehen Sie, ob es sich um eine Quadrat- oder Kubikzahl handelt, und prüfen Sie das Ergebnis durch Potenzieren.",
+      "Berechnen Sie die Quadrat- oder Kubikwurzel jeder Zahl, erkennen Sie Quadrat- und Kubikzahlen und prüfen Sie das Ergebnis durch Potenzieren.",
     keywords: ["Wurzel berechnen", "Quadratwurzel berechnen", "Wurzelrechner", "Kubikwurzel", "dritte Wurzel", "Quadratzahl", "Wurzel ziehen"],
     intro: [
       "Die Quadratwurzel von x ist die Zahl, die mit sich selbst multipliziert x ergibt. √144 = 12, weil 12 × 12 = 144.",

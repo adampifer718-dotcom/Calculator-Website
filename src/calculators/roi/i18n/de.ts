@@ -8,7 +8,7 @@ const de: CalculatorTranslation<RoiText> = {
     summary: "Ermitteln Sie die Kapitalrendite in Prozent, mit Nettogewinn oder -verlust und optional der annualisierten Rendite.",
     metaTitle: "ROI-Rechner – Kapitalrendite und annualisierter ROI",
     metaDescription:
-      "Berechnen Sie die Kapitalrendite aus investiertem und zurückerhaltenem Betrag. Mit Nettogewinn oder -verlust, Gesamt-ROI und annualisiertem ROI über beliebig viele Jahre.",
+      "Berechnen Sie die Kapitalrendite aus investiertem und zurückerhaltenem Betrag – mit Nettogewinn, Gesamt-ROI und annualisiertem ROI über beliebig viele Jahre.",
     keywords: ["ROI berechnen", "Kapitalrendite", "Return on Investment", "Rendite berechnen", "annualisierte Rendite", "Investitionsrendite", "CAGR"],
     intro: [
       "Die Kapitalrendite (ROI, Return on Investment) vergleicht, was Sie zurückerhalten haben, mit dem, was Sie eingesetzt haben. So lassen sich Investitionen, Projekte oder Anschaffungen unterschiedlicher Größe schnell vergleichen.",

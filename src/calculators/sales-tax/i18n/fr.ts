@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<SalesTaxText> = {
     summary: "Ajoutez la taxe de vente à un prix, ou retrouvez le prix hors taxe à partir d’un total taxe comprise.",
     metaTitle: "Calculateur de taxe de vente – Ajouter ou retirer la taxe",
     metaDescription:
-      "Calculez la taxe de vente et le prix total, ou retirez la taxe d’un total taxe comprise pour retrouver le prix d’origine. Fonctionne avec tout taux et toute devise.",
+      "Calculez la taxe de vente et le prix total, ou retirez la taxe d’un montant taxe comprise pour retrouver le prix d’origine. Pour tout taux et toute devise.",
     keywords: ["taxe de vente", "calcul TVA", "prix TTC", "prix hors taxe", "calcul HT TTC", "taux de taxe", "retirer la TVA"],
     intro: [
       "Saisissez un prix et un taux de taxe de vente pour connaître la taxe et le total à payer. Passez au retrait de la taxe pour retrouver le prix hors taxe à partir du total d’un ticket de caisse.",

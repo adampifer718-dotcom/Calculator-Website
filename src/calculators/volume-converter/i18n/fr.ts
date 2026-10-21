@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<VolumeConverterText> = {
     summary: "Convertissez entre litres, millilitres, mètres cubes, gallons américains et impériaux, quarts, pintes, tasses, onces liquides, cuillères et pieds cubes.",
     metaTitle: "Convertisseur de volume – Litres, gallons, tasses et plus",
     metaDescription:
-      "Convertissez des volumes entre litres, millilitres, mètres cubes, gallons américains et impériaux, quarts, pintes, tasses, onces liquides, cuillères et pieds cubes.",
+      "Convertissez des volumes entre litres, millilitres, mètres cubes, gallons américains et impériaux, pintes, tasses, onces liquides et pieds cubes.",
     keywords: ["convertisseur volume", "conversion litre gallon", "gallon en litre", "ml en tasse", "once liquide en ml", "pied cube en litre", "gallon impérial"],
     intro: [
       "Convertissez n’importe quel volume entre 15 unités métriques, américaines et impériales. Le tableau affiche la valeur dans toutes les unités à la fois.",

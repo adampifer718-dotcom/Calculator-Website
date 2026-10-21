@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<AccelerationText> = {
     summary: "Calculez l’accélération à partir d’une variation de vitesse, d’une distance et d’un temps, ou d’une force et d’une masse, en m/s², ft/s² et g.",
     metaTitle: "Calculateur d’accélération – Vitesse, distance ou force",
     metaDescription:
-      "Calculez l’accélération à partir d’une variation de vitesse, d’une distance et d’un temps, ou d’une force et d’une masse (a = F/m). Résultats en m/s², ft/s² et g.",
+      "Calculez l’accélération à partir d’une variation de vitesse, d’une distance et d’un temps, ou d’une force et d’une masse (a = F/m), en m/s², ft/s² et g.",
     keywords: ["calcul accélération", "formule accélération", "m/s2", "décélération", "force g", "a = F/m", "0 à 100 km/h", "cinématique"],
     intro: [
       "L’accélération mesure la rapidité avec laquelle la vitesse change. Une voiture qui passe de l’arrêt à 100 km/h en 8 secondes gagne environ 3,5 mètres par seconde de vitesse chaque seconde, ce qui s’écrit 3,5 m/s².",

@@ -6,7 +6,7 @@ const es: CalculatorTranslation<IdealGasLawText> = {
     title: "Calculadora de la ley de los gases ideales",
     shortTitle: "Ley de los gases ideales",
     summary: "Resuelve PV = nRT para la presión, el volumen, los moles o la temperatura, con conversión de unidades incluida.",
-    metaTitle: "Calculadora de la ley de los gases ideales – Resuelve PV = nRT",
+    metaTitle: "Calculadora de la ley de los gases ideales – PV = nRT",
     metaDescription:
       "Resuelve PV = nRT para la presión, el volumen, la cantidad de gas o la temperatura. Combina Pa, kPa, bar, atm, mmHg, litros, m³, kelvin, °C y °F.",
     keywords: ["ley de los gases ideales", "pv=nrt", "constante de los gases", "presión", "moles", "kelvin", "leyes de los gases", "química"],

@@ -6,7 +6,7 @@ const fr: CalculatorTranslation<OneRepMaxText> = {
     title: "Calculateur de charge maximale (1RM)",
     shortTitle: "1RM",
     summary: "Estimez votre charge maximale sur une répétition à partir d’une série de 1 à 12 répétitions avec les formules d’Epley, de Brzycki et de Lombardi, et obtenez un tableau de charges d’entraînement.",
-    metaTitle: "Calculateur de charge maximale – 1RM Epley, Brzycki, Lombardi",
+    metaTitle: "Calculateur de 1RM – Formules d’Epley, Brzycki et Lombardi",
     metaDescription: "Estimez votre 1RM à partir de la charge et des répétitions d’une série difficile, avec trois formules publiées, et obtenez les charges de 60 % à 95 % du 1RM.",
     keywords: ["1RM", "calcul 1RM", "charge maximale", "répétition maximale", "formule d’Epley", "formule de Brzycki", "max développé couché", "max squat", "pourcentages d’entraînement"],
     intro: [

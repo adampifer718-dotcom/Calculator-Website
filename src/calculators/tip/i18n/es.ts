@@ -6,7 +6,7 @@ const es: CalculatorTranslation<TipText> = {
     title: "Calculadora de propinas",
     shortTitle: "Propinas",
     summary: "Calcula la propina, el total de la cuenta y lo que paga cada persona al dividirla.",
-    metaTitle: "Calculadora de propinas – Importe de la propina y división de la cuenta",
+    metaTitle: "Calculadora de propinas – Propina y reparto de la cuenta",
     metaDescription:
       "Calcula la propina de cualquier cuenta y porcentaje, el total con propina y cuánto paga cada persona si la cuenta se divide a partes iguales.",
     keywords: ["propina", "calcular propina", "dividir la cuenta", "restaurante", "cuenta a partes iguales", "cargo por servicio"],

@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<WeightConverterText> = {
     summary: "Convertissez entre milligrammes, grammes, kilogrammes, tonnes, onces, livres et stones.",
     metaTitle: "Convertisseur de poids – kg, lb, oz, g et stone",
     metaDescription:
-      "Convertissez un poids (une masse) entre kilogrammes, grammes, milligrammes, tonnes, livres, onces et stones grâce à la définition internationale exacte de la livre.",
+      "Convertissez un poids entre kilogrammes, grammes, milligrammes, tonnes, livres, onces et stones grâce à la définition internationale exacte de la livre.",
     keywords: ["convertisseur de poids", "convertir kg en livres", "livres en kg", "onces en grammes", "conversion lb kg", "stone en kg", "conversion de masse"],
     intro: [
       "Convertissez un poids entre unités métriques et impériales. Au sens strict, il s’agit d’unités de masse, ce qu’indiquent les balances.",

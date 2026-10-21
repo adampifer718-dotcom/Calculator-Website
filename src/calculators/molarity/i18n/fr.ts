@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<MolarityText> = {
     summary: "Calculez la concentration molaire d’une solution à partir de la masse de soluté, de sa masse molaire et du volume.",
     metaTitle: "Calculateur de molarité – Concentration molaire (mol/L)",
     metaDescription:
-      "Calculez la molarité en mol/L à partir de la masse de soluté, de sa masse molaire et du volume de la solution, avec la quantité de matière et la valeur en millimolaire.",
+      "Calculez la molarité en mol/L à partir de la masse de soluté, de sa masse molaire et du volume de solution, avec la quantité de matière et la valeur en mmol/L.",
     keywords: ["molarité", "concentration molaire", "calcul concentration molaire", "mol/L", "quantité de matière", "solution", "chimie"],
     intro: [
       "La molarité est le nombre de moles de soluté par litre de solution. C’est la façon la plus courante d’exprimer une concentration en laboratoire de chimie.",

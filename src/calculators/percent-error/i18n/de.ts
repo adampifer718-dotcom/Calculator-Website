@@ -6,7 +6,7 @@ const de: CalculatorTranslation<PercentErrorText> = {
     title: "Rechner für den prozentualen Fehler",
     shortTitle: "Prozentualer Fehler",
     summary: "Vergleichen Sie einen Messwert mit dem wahren Wert als prozentualen Fehler – mit absolutem und vorzeichenbehaftetem relativem Fehler.",
-    metaTitle: "Rechner für den prozentualen Fehler – Messwert vs. wahrer Wert",
+    metaTitle: "Rechner für den prozentualen Fehler – Mess- und wahrer Wert",
     metaDescription: "Berechnen Sie den prozentualen Fehler zwischen Mess- und wahrem Wert, mit absolutem Fehler, relativem Fehler mit Vorzeichen und Über- oder Unterschätzung.",
     keywords: ["prozentualer Fehler", "relativer Fehler", "absoluter Fehler", "Messfehler berechnen", "Messwert", "Literaturwert", "Laborprotokoll", "Messgenauigkeit"],
     intro: [

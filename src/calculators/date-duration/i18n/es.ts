@@ -13,7 +13,7 @@ const es: CalculatorTranslation<DateDurationText> = {
     summary: "Cuenta los días, semanas, meses y años entre dos fechas, incluidos los días laborables y los de fin de semana.",
     metaTitle: "Calculadora de días entre fechas – Duración entre dos fechas",
     metaDescription:
-      "Cuenta los días entre dos fechas y obtén la duración en años, meses y días, en semanas, en días laborables y de fin de semana. Incluye la fecha final si quieres.",
+      "Cuenta los días entre dos fechas y obtén la duración en años, meses y días, en semanas y en días laborables y de fin de semana, con o sin la fecha final.",
     keywords: ["días entre fechas", "calcular días entre dos fechas", "diferencia entre fechas", "cuántos días faltan", "contar días", "días laborables entre fechas", "semanas entre fechas"],
     intro: [
       "Averigua cuántos días hay entre dos fechas, ya sea para un plazo, un periodo de preaviso, un viaje o una cuenta atrás.",

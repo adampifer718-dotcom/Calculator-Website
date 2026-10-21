@@ -8,7 +8,7 @@ const es: CalculatorTranslation<OneRepMaxText> = {
     summary: "Estima tu repetición máxima a partir de una serie de 1 a 12 repeticiones con las fórmulas de Epley, Brzycki y Lombardi, con una tabla de cargas de entrenamiento.",
     metaTitle: "Repetición máxima (1RM) – Epley, Brzycki y Lombardi",
     metaDescription:
-      "Estima tu repetición máxima (1RM) a partir del peso y las repeticiones de una serie exigente, con tres fórmulas publicadas, y obtén cargas del 60 % al 95 % del 1RM.",
+      "Estima tu repetición máxima (1RM) a partir del peso y las repeticiones de una serie exigente con tres fórmulas, y obtén cargas del 60 % al 95 % del 1RM.",
     keywords: [
       "repetición máxima",
       "calculadora 1RM",

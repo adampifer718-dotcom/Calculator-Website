@@ -8,7 +8,7 @@ const de: CalculatorTranslation<GpaText> = {
     summary: "Berechnen Sie den nach Credits gewichteten Notendurchschnitt (GPA, US-amerikanischer Grade Point Average) aus Buchstabennoten oder Notenpunkten und aktualisieren Sie Ihren Gesamt-GPA.",
     metaTitle: "GPA-Rechner – US-Notendurchschnitt für Semester und Studium",
     metaDescription:
-      "Berechnen Sie Ihren Semester-GPA aus US-Buchstabennoten und Credits auf der 4,0- oder 4,3-Skala und kombinieren Sie ihn mit Ihrem bisherigen GPA zum neuen Gesamtdurchschnitt.",
+      "Berechnen Sie Ihren Semester-GPA aus US-Buchstabennoten und Credits (4,0- oder 4,3-Skala) und mit Ihrem bisherigen GPA den neuen Gesamtdurchschnitt.",
     keywords: ["GPA Rechner", "GPA berechnen", "Grade Point Average", "Notendurchschnitt USA", "GPA umrechnen", "Credits", "Auslandssemester USA"],
     intro: [
       "Der Grade Point Average (GPA) ist der in den USA übliche Notendurchschnitt. Er gewichtet die Notenpunkte jedes Kurses mit seinen Credits, sodass ein Kurs mit 4 Credits stärker zählt als einer mit 2 Credits.",

@@ -6,7 +6,7 @@ const de: CalculatorTranslation<PythagoreanText> = {
     title: "Rechner für den Satz des Pythagoras",
     shortTitle: "Satz des Pythagoras",
     summary: "Ermitteln Sie die fehlende Seite eines rechtwinkligen Dreiecks mit a² + b² = c².",
-    metaTitle: "Rechner für den Satz des Pythagoras – fehlende Seite berechnen",
+    metaTitle: "Rechner für den Satz des Pythagoras – fehlende Seite",
     metaDescription:
       "Berechnen Sie mit dem Satz des Pythagoras a² + b² = c² die Hypotenuse oder eine fehlende Kathete eines rechtwinkligen Dreiecks sowie Fläche und Umfang.",
     keywords: ["Satz des Pythagoras", "Pythagoras Rechner", "Hypotenuse berechnen", "Kathete berechnen", "rechtwinkliges Dreieck", "a² + b² = c²"],

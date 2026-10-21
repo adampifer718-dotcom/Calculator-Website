@@ -6,7 +6,7 @@ const de: CalculatorTranslation<ProbabilityEventsText> = {
     title: "Rechner für Wahrscheinlichkeiten (zwei Ereignisse)",
     shortTitle: "Wahrscheinlichkeit",
     summary: "Kombinieren Sie die Wahrscheinlichkeiten zweier unabhängiger oder unvereinbarer Ereignisse: beide, mindestens eines, genau eines oder keines.",
-    metaTitle: "Rechner für Wahrscheinlichkeiten – zwei Ereignisse, und, oder",
+    metaTitle: "Rechner für Wahrscheinlichkeiten – P(A und B), P(A oder B)",
     metaDescription: "Berechnen Sie P(A und B), P(A oder B), genau eines und keines für zwei unabhängige oder unvereinbare Ereignisse – plus die Gegenereignisse.",
     keywords: ["Wahrscheinlichkeit berechnen", "Wahrscheinlichkeit zweier Ereignisse", "unabhängige Ereignisse", "unvereinbare Ereignisse", "P(A und B)", "P(A oder B)", "Gegenereignis", "Additionssatz", "Multiplikationssatz"],
     intro: [

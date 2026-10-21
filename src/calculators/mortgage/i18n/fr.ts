@@ -6,9 +6,9 @@ const fr: CalculatorTranslation<MortgageText> = {
     title: "Calculateur de prêt immobilier",
     shortTitle: "Prêt immobilier",
     summary: "Estimez le coût mensuel complet d’un crédit immobilier : capital et intérêts, plus taxe foncière, assurance habitation, charges de copropriété et assurance hypothécaire.",
-    metaTitle: "Calculateur de prêt immobilier – Mensualité avec taxes et PMI",
+    metaTitle: "Calculateur de prêt immobilier – Mensualité, taxes et PMI",
     metaDescription:
-      "Estimez la mensualité de votre crédit immobilier, avec le capital et les intérêts séparés de la taxe foncière, de l’assurance habitation, des charges et de la PMI.",
+      "Estimez la mensualité de votre crédit immobilier : capital et intérêts, taxe foncière, assurance habitation, charges et PMI, présentés séparément.",
     keywords: ["simulation prêt immobilier", "calcul mensualité crédit immobilier", "crédit immobilier", "prêt hypothécaire", "taxe foncière", "apport personnel", "assurance hypothécaire pmi"],
     intro: [
       "La mensualité d’un prêt immobilier ne se limite pas au remboursement de l’emprunt. Aux États-Unis, les prêteurs prélèvent souvent la taxe foncière et l’assurance habitation avec chaque mensualité, et certains acheteurs paient aussi des charges de copropriété (HOA) ou une assurance hypothécaire.",

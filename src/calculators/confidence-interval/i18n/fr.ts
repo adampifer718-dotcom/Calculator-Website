@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<ConfidenceIntervalText> = {
     summary: "Calculez un intervalle de confiance pour une moyenne à partir de la moyenne, de l’écart-type et de la taille de l’échantillon.",
     metaTitle: "Calculateur d’intervalle de confiance – Pour une moyenne",
     metaDescription:
-      "Calculez un intervalle de confiance pour une moyenne à partir de la moyenne, de l’écart-type, de la taille de l’échantillon et du niveau de confiance, avec marge d’erreur et z*.",
+      "Calculez l’intervalle de confiance d’une moyenne selon l’écart-type, la taille de l’échantillon et le niveau de confiance, avec la marge d’erreur et z*.",
     keywords: ["intervalle de confiance", "calcul intervalle de confiance", "marge d’erreur", "erreur type", "niveau de confiance 95 %", "statistiques", "moyenne"],
     intro: [
       "Un intervalle de confiance donne une plage de valeurs plausibles pour la moyenne d’une population. Un intervalle à 95 % est construit de sorte que 95 % des intervalles obtenus de cette façon contiennent la vraie moyenne.",

@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<CombinationsText> = {
     summary: "Dénombrez exactement les façons de choisir ou d’ordonner r éléments parmi n : nCr, nPr et les deux comptes avec répétition.",
     metaTitle: "Calculateur de permutations et combinaisons – nCr, nPr",
     metaDescription:
-      "Calculez nCr et nPr exacts pour n jusqu’à 10 000, ainsi que les combinaisons et permutations avec répétition, les très grands résultats en notation scientifique.",
+      "Calculez nCr et nPr exacts pour n jusqu’à 10 000, avec ou sans répétition ; les très grands résultats s’affichent en notation scientifique.",
     keywords: ["permutations", "combinaisons", "arrangements", "nCr", "nPr", "k parmi n", "coefficient binomial", "combinaisons avec répétition", "dénombrement", "factorielle"],
     intro: [
       "Combien de comités différents de 4 personnes un club de 12 membres peut-il former ? De combien de façons peut-on attribuer 3 prix à 25 participants ? Ce sont des problèmes de dénombrement, et la réponse dépend de l’importance de l’ordre.",

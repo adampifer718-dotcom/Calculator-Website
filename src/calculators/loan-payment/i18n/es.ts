@@ -8,7 +8,7 @@ const es: CalculatorTranslation<LoanPaymentText> = {
     summary: "Calcula la cuota mensual, los intereses totales y el cuadro de amortización de un préstamo o hipoteca a tipo fijo.",
     metaTitle: "Calculadora de cuota de préstamo – Cuota mensual e intereses",
     metaDescription:
-      "Calcula la cuota mensual de un préstamo o hipoteca a tipo fijo, los intereses totales y el cuadro de amortización anual a partir del importe, el tipo y el plazo.",
+      "Calcula la cuota mensual de un préstamo o hipoteca a tipo fijo, los intereses totales y el cuadro de amortización anual con el importe, el tipo y el plazo.",
     keywords: ["cuota préstamo", "calcular hipoteca", "cuota mensual", "cuadro de amortización", "intereses préstamo", "préstamo coche", "préstamo personal"],
     intro: [
       "La mayoría de los préstamos para coche, préstamos personales e hipotecas a tipo fijo se devuelven en cuotas mensuales iguales. Cada cuota cubre los intereses de ese mes y amortiza parte del capital pendiente.",

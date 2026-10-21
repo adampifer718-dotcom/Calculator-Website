@@ -13,7 +13,7 @@ const es: CalculatorTranslation<AgeText> = {
     summary: "Calcula la edad exacta en años, meses y días en cualquier fecha, con el total de días y semanas y el próximo cumpleaños.",
     metaTitle: "Calculadora de edad – Edad exacta en años, meses y días",
     metaDescription:
-      "Calcula la edad exacta a partir de la fecha de nacimiento en años, meses y días, además del total de días y semanas, el próximo cumpleaños y el día en que naciste.",
+      "Calcula la edad exacta en años, meses y días desde la fecha de nacimiento, más el total de días y semanas, el próximo cumpleaños y el día en que naciste.",
     keywords: ["calculadora de edad", "cuántos años tengo", "calcular edad", "fecha de nacimiento", "edad en días", "edad exacta", "próximo cumpleaños"],
     intro: [
       "Introduce una fecha de nacimiento para ver la edad exacta hoy, o elige otra fecha para saber la edad de alguien ese día.",

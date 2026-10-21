@@ -8,7 +8,7 @@ const de: CalculatorTranslation<TestGradeText> = {
     summary: "Wandeln Sie richtige Antworten oder Punkte in ein Ergebnis in Prozent und eine Buchstabennote um.",
     metaTitle: "Notenrechner – Prozentsatz und Buchstabennote",
     metaDescription:
-      "Ermitteln Sie das Testergebnis in Prozent und die Buchstabennote aus der Zahl richtiger oder falscher Antworten oder aus den erreichten Punkten von der Gesamtpunktzahl.",
+      "Ermitteln Sie das Testergebnis in Prozent und die Buchstabennote – aus richtigen oder falschen Antworten oder aus den erreichten Punkten.",
     keywords: ["Notenrechner", "Testergebnis Prozent", "Punkte in Prozent", "Prüfung Note berechnen", "Klausur Punkte", "Buchstabennote"],
     intro: [
       "Geben Sie ein, wie viele Fragen oder Punkte ein Test hatte und wie viele Sie richtig oder falsch hatten. Der Rechner zeigt das Ergebnis in Prozent und die passende Buchstabennote.",

@@ -6,9 +6,9 @@ const fr: CalculatorTranslation<FractionText> = {
     title: "Calculateur de fractions",
     shortTitle: "Fractions",
     summary: "Additionnez, soustrayez, multipliez ou divisez des fractions et des nombres fractionnaires, avec le résultat sous forme irréductible et en nombre décimal.",
-    metaTitle: "Calculateur de fractions – Addition, soustraction, multiplication",
+    metaTitle: "Calculateur de fractions – Opérations et simplification",
     metaDescription:
-      "Additionnez, soustrayez, multipliez et divisez fractions, nombres fractionnaires et décimaux. Obtenez le résultat exact sous forme irréductible, fractionnaire et décimale.",
+      "Additionnez, soustrayez, multipliez et divisez fractions, nombres fractionnaires et décimaux, avec un résultat exact irréductible, fractionnaire et décimal.",
     keywords: ["calcul fraction", "calculatrice fraction", "simplifier une fraction", "fraction irréductible", "additionner des fractions", "diviser des fractions", "nombre fractionnaire"],
     intro: [
       "Saisissez deux nombres sous forme de fractions (3/4), de nombres fractionnaires (1 1/2), d’entiers ou de décimaux, choisissez une opération et obtenez le résultat exact.",

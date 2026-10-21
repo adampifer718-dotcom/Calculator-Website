@@ -8,7 +8,7 @@ const de: CalculatorTranslation<LoanPaymentText> = {
     summary: "Berechnen Sie die Monatsrate, die Gesamtzinsen und den Tilgungsplan für einen Kredit oder eine Hypothek mit festem Zinssatz.",
     metaTitle: "Kreditrechner – Monatsrate und Zinsen berechnen",
     metaDescription:
-      "Berechnen Sie aus Betrag, effektivem Jahreszins und Laufzeit die Monatsrate eines Kredits oder einer Baufinanzierung mit Festzins, die Gesamtzinsen und einen jährlichen Tilgungsplan.",
+      "Berechnen Sie aus Betrag, effektivem Jahreszins und Laufzeit die Monatsrate eines Kredits mit Festzins, die Gesamtzinsen und einen jährlichen Tilgungsplan.",
     keywords: ["Kreditrechner", "Monatsrate berechnen", "Tilgungsplan", "Annuitätendarlehen", "Baufinanzierung Rechner", "Autokredit", "Ratenkredit", "Zinsen berechnen"],
     intro: [
       "Die meisten Autokredite, Ratenkredite und Hypotheken mit festem Zinssatz werden in gleich hohen Monatsraten zurückgezahlt. Jede Rate deckt die Zinsen des Monats und tilgt einen Teil der Restschuld.",

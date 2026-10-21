@@ -7,7 +7,7 @@ const de: CalculatorTranslation<SigFigText> = {
     shortTitle: "Signifikante Stellen",
     summary: "Zählen Sie die signifikanten Stellen einer Zahl oder runden Sie eine Zahl auf eine gewählte Anzahl signifikanter Stellen.",
     metaTitle: "Rechner für signifikante Stellen – zählen und runden",
-    metaDescription: "Zählen Sie die signifikanten Stellen jeder Zahl, auch bei Dezimalzahlen und E-Notation, oder runden Sie auf eine feste Stellenzahl – mit Zehnerpotenz-Schreibweise.",
+    metaDescription: "Zählen Sie die signifikanten Stellen jeder Zahl, auch in E-Notation, oder runden Sie auf eine feste Stellenzahl – mit Zehnerpotenz-Schreibweise.",
     keywords: ["signifikante Stellen", "geltende Ziffern", "signifikante Ziffern", "auf signifikante Stellen runden", "Rundung Chemie", "wesentliche Stellen"],
     intro: [
       "Signifikante Stellen zeigen, wie genau eine Zahl bekannt ist. Dieser Rechner zählt sie nach den üblichen Regeln oder rundet eine Zahl auf die von Ihnen gewählte Genauigkeit.",

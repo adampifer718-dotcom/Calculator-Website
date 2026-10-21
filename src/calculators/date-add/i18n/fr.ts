@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<DateAddText> = {
     summary: "Trouvez la date située un certain nombre d’années, de mois, de semaines et de jours avant ou après une date de départ, avec le jour de la semaine et le nombre de jours calendaires entre les deux.",
     metaTitle: "Calculateur d’ajout ou de retrait de jours – Date plus jours",
     metaDescription:
-      "Ajoutez ou retirez des années, des mois, des semaines et des jours à une date. Voyez la date obtenue, son jour de la semaine et les jours calendaires qui séparent les deux dates.",
+      "Ajoutez ou retirez des années, mois, semaines et jours à une date pour connaître la date résultante, son jour de la semaine et l’écart en jours calendaires.",
     keywords: ["ajouter des jours à une date", "soustraire des jours à une date", "calcul de date", "dans combien de jours", "date plus jours", "ajouter des mois à une date", "calcul d’échéance"],
     intro: [
       "Les échéances, préavis, garanties et dates limites s’expriment souvent sous la forme « 90 jours à compter du » ou « 6 mois après » une date. Ce calculateur trouve cette date pour vous, en avant ou en arrière.",

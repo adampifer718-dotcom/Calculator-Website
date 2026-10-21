@@ -8,7 +8,7 @@ const de: CalculatorTranslation<DilutionText> = {
     summary: "Lösen Sie C₁V₁ = C₂V₂ nach dem Volumen der Stammlösung, der Endkonzentration, dem Endvolumen oder der Stammkonzentration.",
     metaTitle: "Verdünnungsrechner – C1V1 = C2V2",
     metaDescription:
-      "Lösen Sie die Verdünnungsgleichung C1V1 = C2V2 nach einem beliebigen Wert: benötigtes Volumen der Stammlösung, Endkonzentration, Endvolumen oder Stammkonzentration.",
+      "Lösen Sie die Verdünnungsgleichung C1V1 = C2V2 nach jedem Wert: Volumen der Stammlösung, Endkonzentration, Endvolumen oder Stammkonzentration.",
     keywords: ["Verdünnung berechnen", "Verdünnungsrechner", "C1V1=C2V2", "Mischungsgleichung", "Stammlösung verdünnen", "Konzentration berechnen", "Chemie Rechner"],
     intro: [
       "Beim Verdünnen einer Lösung bleibt die Stoffmenge des gelösten Stoffes gleich, daher gilt C₁V₁ = C₂V₂.",

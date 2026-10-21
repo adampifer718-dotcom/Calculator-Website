@@ -6,7 +6,7 @@ const es: CalculatorTranslation<DataStorageConverterText> = {
     title: "Calculadora de conversión de almacenamiento de datos",
     shortTitle: "Almacenamiento de datos",
     summary: "Convierte entre bits, bytes, kilobytes, megabytes, gigabytes y terabytes, con prefijos decimales (GB) y binarios (GiB).",
-    metaTitle: "Conversión de almacenamiento de datos – GB, GiB, MB, TB y bits",
+    metaTitle: "Conversión de almacenamiento de datos – GB, GiB, MB y TB",
     metaDescription:
       "Convierte bits y bytes entre unidades decimales (kB, MB, GB, TB, PB) y binarias (KiB, MiB, GiB, TiB, PiB), además de kilobits, megabits y gigabits.",
     keywords: [

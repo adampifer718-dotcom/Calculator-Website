@@ -8,7 +8,7 @@ const de: CalculatorTranslation<VolumeConverterText> = {
     summary: "Rechnen Sie zwischen Litern, Millilitern, Kubikmetern, US- und imperialen Gallonen, Quarts, Pints, Tassen, Flüssigunzen, Löffeln und Kubikfuß um.",
     metaTitle: "Volumenumrechner – Liter, Gallonen, Cups und mehr",
     metaDescription:
-      "Rechnen Sie Volumen zwischen Litern, Millilitern, Kubikmetern, US- und imperialen Gallonen, Quarts, Pints, Tassen, Flüssigunzen, Tee- und Esslöffeln und Kubikfuß um.",
+      "Rechnen Sie Volumen zwischen Litern, Millilitern, Kubikmetern, US- und imperialen Gallonen, Pints, Tassen, Flüssigunzen und Esslöffeln um.",
     keywords: ["Volumenumrechner", "Liter in Gallonen", "Gallonen in Liter", "ml in Cups", "Flüssigunzen", "Kubikfuß", "Raummaße umrechnen"],
     intro: [
       "Rechnen Sie ein beliebiges Volumen zwischen 15 metrischen, US-amerikanischen und imperialen Einheiten um. Die Tabelle zeigt den Wert in allen Einheiten gleichzeitig.",

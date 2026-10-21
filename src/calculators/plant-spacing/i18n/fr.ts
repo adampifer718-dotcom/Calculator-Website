@@ -6,8 +6,8 @@ const fr: CalculatorTranslation<PlantSpacingText> = {
     title: "Calculateur d’espacement des plantations",
     shortTitle: "Espacement des plantations",
     summary: "Comptez combien de plants tiennent dans une planche rectangulaire pour un espacement donné, en rangs droits ou en quinconce.",
-    metaTitle: "Calculateur d’espacement des plantations – Plants par planche",
-    metaDescription: "Calculez combien de plants tiennent dans une planche de potager selon l’espacement sur le rang et entre les rangs, en carré ou en quinconce, et la densité par m² ou ft².",
+    metaTitle: "Espacement des plantations – Nombre de plants par planche",
+    metaDescription: "Calculez combien de plants tiennent dans une planche selon l’espacement sur le rang et entre les rangs, en carré ou en quinconce, avec la densité par m² ou ft².",
     keywords: ["espacement des plantations", "distance de plantation", "combien de plants", "plantation en quinconce", "plan de potager", "espacement entre les rangs", "densité de plantation"],
     intro: [
       "Les sachets de graines et les étiquettes de plants indiquent un espacement recommandé. Le traduire en nombre de plants pour une planche donnée relève de l’arithmétique simple, mais on oublie facilement que les plants du bord ont eux aussi besoin de place.",

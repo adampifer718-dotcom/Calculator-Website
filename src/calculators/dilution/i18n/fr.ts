@@ -7,7 +7,7 @@ const fr: CalculatorTranslation<DilutionText> = {
     shortTitle: "Dilution",
     summary: "Résolvez C₁V₁ = C₂V₂ pour trouver le volume de solution mère, la concentration finale, le volume final ou la concentration de la solution mère.",
     metaTitle: "Calculateur de dilution – C1V1 = C2V2",
-    metaDescription: "Résolvez l’équation de dilution C1V1 = C2V2 pour n’importe quelle valeur : volume de solution mère nécessaire, concentration finale, volume final ou concentration mère.",
+    metaDescription: "Résolvez C1V1 = C2V2 pour n’importe quelle valeur : volume de solution mère nécessaire, concentration finale, volume final ou concentration mère.",
     keywords: ["calcul dilution", "C1V1 = C2V2", "solution mère", "concentration", "préparer une solution", "facteur de dilution", "chimie"],
     intro: [
       "Lorsque vous diluez une solution, la quantité de soluté reste la même ; on a donc C₁V₁ = C₂V₂.",

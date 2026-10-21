@@ -6,7 +6,7 @@ const es: CalculatorTranslation<BudgetRuleText> = {
     title: "Calculadora de presupuesto 50/30/20",
     shortTitle: "Presupuesto 50/30/20",
     summary: "Reparte tus ingresos netos mensuales entre necesidades, deseos y ahorro con la regla 50/30/20 u otro reparto sencillo del presupuesto.",
-    metaTitle: "Calculadora de presupuesto 50/30/20 – Necesidades, deseos y ahorro",
+    metaTitle: "Calculadora de presupuesto 50/30/20 – Reparte tus ingresos",
     metaDescription:
       "Reparte tus ingresos netos con la regla 50/30/20, 70/20/10 u 80/20, o con tu propio reparto, y consulta cada partida al mes y al año.",
     keywords: ["regla 50/30/20", "calculadora de presupuesto", "necesidades deseos ahorro", "presupuesto 70/20/10", "presupuesto 80/20", "presupuesto mensual", "sueldo neto"],

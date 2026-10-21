@@ -6,7 +6,7 @@ const es: CalculatorTranslation<SavingsGoalText> = {
     title: "Calculadora de objetivo de ahorro",
     shortTitle: "Objetivo de ahorro",
     summary: "Calcula el depósito mensual necesario para alcanzar una meta de ahorro en una fecha elegida, teniendo en cuenta lo que ya has ahorrado y la rentabilidad que genera.",
-    metaTitle: "Calculadora de objetivo de ahorro – Depósito mensual necesario",
+    metaTitle: "Calculadora de objetivo de ahorro – Cuánto ahorrar al mes",
     metaDescription:
       "Calcula cuánto ahorrar cada mes para alcanzar una meta en un plazo dado, con tus ahorros actuales, una rentabilidad anual prevista y capitalización mensual.",
     keywords: ["objetivo de ahorro", "cuánto ahorrar al mes", "ahorro mensual", "meta de ahorro", "ahorrar para un objetivo", "valor futuro", "plan de ahorro"],

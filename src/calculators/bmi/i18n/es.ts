@@ -8,7 +8,7 @@ const es: CalculatorTranslation<BmiText> = {
     summary: "Calcula el índice de masa corporal a partir de la altura y el peso en unidades métricas o imperiales.",
     metaTitle: "Calculadora del IMC – Índice de masa corporal para adultos",
     metaDescription:
-      "Calcula tu índice de masa corporal (IMC) con la altura y el peso en kg y cm o en libras, pies y pulgadas, con la categoría para adultos y el rango de peso saludable.",
+      "Calcula tu índice de masa corporal (IMC) con la altura y el peso en kg y cm o en libras, pies y pulgadas, y obtén la categoría adulta y el peso saludable.",
     keywords: ["calcular imc", "índice de masa corporal", "peso ideal", "sobrepeso", "obesidad", "imc adultos"],
     intro: [
       "El índice de masa corporal (IMC) relaciona el peso con la altura. Es una medida rápida de cribado para adultos, no un diagnóstico.",

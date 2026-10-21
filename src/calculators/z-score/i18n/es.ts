@@ -6,9 +6,9 @@ const es: CalculatorTranslation<ZScoreText> = {
     title: "Calculadora de puntuación z",
     shortTitle: "Puntuación z",
     summary: "Tipifica un valor como puntuación z y obtén su percentil y las probabilidades de las colas bajo la curva normal.",
-    metaTitle: "Calculadora de puntuación z – Percentil y probabilidad normal",
+    metaTitle: "Calculadora de puntuación z – Percentil y probabilidad",
     metaDescription:
-      "Convierte un valor en puntuación z a partir de la media y la desviación estándar, y obtén su percentil y las probabilidades normales de cola derecha y de dos colas.",
+      "Convierte un valor en puntuación z con la media y la desviación estándar, y obtén su percentil y las probabilidades normales de cola derecha y de dos colas.",
     keywords: [
       "puntuación z",
       "valor z",

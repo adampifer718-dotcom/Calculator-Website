@@ -6,7 +6,7 @@ const es: CalculatorTranslation<HourlyToSalaryText> = {
     title: "Calculadora de salario por horas",
     shortTitle: "Salario por horas",
     summary: "Convierte tu sueldo por hora en salario bruto anual, mensual, quincenal, semanal y diario según tu jornada.",
-    metaTitle: "Calculadora de salario por horas – Sueldo anual, mensual y semanal",
+    metaTitle: "Calculadora de salario por horas – Sueldo anual y mensual",
     metaDescription:
       "Convierte un sueldo por hora en salario anual y consulta el bruto mensual, quincenal, cada dos semanas, semanal y diario según tus horas y semanas pagadas.",
     keywords: ["sueldo por hora a anual", "calcular salario anual", "precio por hora", "salario bruto", "sueldo mensual", "cuánto gano al año"],

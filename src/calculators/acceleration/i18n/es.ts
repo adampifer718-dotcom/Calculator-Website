@@ -6,7 +6,7 @@ const es: CalculatorTranslation<AccelerationText> = {
     title: "Calculadora de aceleración",
     shortTitle: "Aceleración",
     summary: "Calcula la aceleración a partir de un cambio de velocidad, de la distancia y el tiempo o de la fuerza y la masa, en m/s², ft/s² y g.",
-    metaTitle: "Calculadora de aceleración – Por velocidad, distancia o fuerza",
+    metaTitle: "Calculadora de aceleración – Velocidad, distancia o fuerza",
     metaDescription:
       "Calcula la aceleración a partir de un cambio de velocidad en un tiempo, de la distancia y el tiempo o de la fuerza y la masa (a = F/m), en m/s², ft/s² y g.",
     keywords: ["calcular aceleración", "fórmula de la aceleración", "m/s2", "desaceleración", "fuerza g", "a = F/m", "de 0 a 100", "cinemática"],

@@ -6,7 +6,7 @@ const es: CalculatorTranslation<WaistToHipText> = {
     title: "Calculadora del índice cintura-cadera",
     shortTitle: "Índice cintura-cadera",
     summary: "Divide el perímetro de tu cintura entre el de tu cadera para obtener el índice cintura-cadera y compáralo con el umbral de la OMS para mujeres u hombres.",
-    metaTitle: "Calculadora del índice cintura-cadera – ICC y umbral de la OMS",
+    metaTitle: "Calculadora del índice cintura-cadera – ICC según la OMS",
     metaDescription:
       "Calcula tu índice cintura-cadera a partir de las medidas de cintura y cadera en cm o pulgadas, y compáralo con el umbral de la OMS para mujeres y hombres.",
     keywords: ["índice cintura-cadera", "ICC", "relación cintura cadera", "perímetro de cintura", "grasa abdominal", "forma corporal", "índice cintura cadera OMS"],

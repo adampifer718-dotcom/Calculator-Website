@@ -8,7 +8,7 @@ const es: CalculatorTranslation<MortgageText> = {
     summary: "Estima el coste mensual completo de una hipoteca: capital e intereses más impuesto sobre la propiedad, seguro, cuotas de comunidad y seguro hipotecario.",
     metaTitle: "Calculadora de hipoteca – Cuota mensual con impuestos y PMI",
     metaDescription:
-      "Estima la cuota mensual de tu hipoteca: capital e intereses por separado del impuesto sobre la propiedad, el seguro, la comunidad y el PMI, más los intereses totales.",
+      "Estima la cuota mensual de tu hipoteca: capital e intereses aparte del impuesto sobre la propiedad, el seguro, la comunidad y el PMI, más los intereses totales.",
     keywords: ["calculadora de hipoteca", "cuota hipoteca", "simulador hipoteca", "préstamo hipotecario", "entrada vivienda", "seguro hipotecario PMI", "impuesto sobre la propiedad"],
     intro: [
       "La cuota de una hipoteca es más que la devolución del préstamo. En EE. UU., los prestamistas suelen cobrar el impuesto sobre la propiedad y el seguro de hogar junto con cada cuota, y algunos compradores también pagan cuotas de comunidad (HOA) o un seguro hipotecario.",

@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<SampleSizeText> = {
     summary: "Déterminez le nombre de réponses à un sondage nécessaires pour un niveau de confiance et une marge d’erreur donnés, avec une taille de population facultative.",
     metaTitle: "Calculateur de taille d’échantillon – Réponses nécessaires",
     metaDescription:
-      "Calculez le nombre de réponses complètes nécessaires selon le niveau de confiance, la marge d’erreur et la proportion attendue, avec correction pour population finie.",
+      "Calculez le nombre de réponses nécessaires selon le niveau de confiance, la marge d’erreur et la proportion attendue, avec correction pour population finie.",
     keywords: ["taille d’échantillon", "calcul taille échantillon", "taille échantillon sondage", "nombre de répondants", "marge d’erreur", "niveau de confiance", "correction pour population finie", "échantillon statistique"],
     intro: [
       "Avant de lancer une enquête ou un sondage, il faut décider combien de personnes interroger. Trop peu de réponses donnent un résultat large et imprécis ; trop de réponses font perdre du temps et de l’argent. Ce calculateur trouve le plus petit nombre de réponses complètes qui permet d’estimer un pourcentage avec la précision choisie.",

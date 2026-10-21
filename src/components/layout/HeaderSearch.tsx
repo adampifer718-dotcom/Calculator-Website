@@ -48,7 +48,11 @@ function SearchIcon({ className }: { className: string }) {
  * JavaScript, or when no suggestion is chosen, it submits to the directory,
  * which filters by the `q` parameter.
  */
-export function HeaderSearch({ id, label, size = "sm" }: { id: string; label: string; size?: Size }) {
+/**
+ * Site search with suggestions. `compact` uses the shorter header placeholder,
+ * for the desktop header where long navigation labels leave less room.
+ */
+export function HeaderSearch({ id, label, size = "sm", compact = false }: { id: string; label: string; size?: Size; compact?: boolean }) {
   const router = useRouter();
   const locale = useLocale();
   const t = useTranslations("search");
@@ -125,7 +129,7 @@ export function HeaderSearch({ id, label, size = "sm" }: { id: string; label: st
           setActive(-1);
         }}
         onKeyDown={onKeyDown}
-        placeholder={size === "lg" ? t("placeholderLong") : t("placeholderShort")}
+        placeholder={size === "lg" ? t("placeholderLong") : compact ? t("placeholderHeader") : t("placeholderShort")}
         className={`block w-full border border-neutral-300 bg-white text-ink-900 placeholder:text-neutral-500 focus:border-brand-600 focus:ring-2 focus:ring-brand-200 focus:outline-none ${INPUT[size]}`}
       />
       {size === "lg" && (

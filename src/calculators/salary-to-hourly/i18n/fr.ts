@@ -6,9 +6,9 @@ const fr: CalculatorTranslation<SalaryToHourlyText> = {
     title: "Calculateur de salaire en taux horaire",
     shortTitle: "Salaire en taux horaire",
     summary: "Convertissez une rémunération brute annuelle, mensuelle, toutes les deux semaines ou autre en taux horaire selon votre propre emploi du temps.",
-    metaTitle: "Calculateur de salaire en taux horaire – Convertir toute période de paie",
+    metaTitle: "Calculateur de salaire en taux horaire – Toutes périodes",
     metaDescription:
-      "Convertissez un salaire en taux horaire. Saisissez une rémunération brute annuelle, mensuelle, bimensuelle, hebdomadaire ou journalière et votre temps de travail.",
+      "Convertissez un salaire en taux horaire à partir d’une rémunération brute annuelle, mensuelle, bimensuelle, hebdomadaire ou journalière et de vos heures.",
     keywords: ["salaire horaire", "convertir salaire annuel en horaire", "taux horaire brut", "salaire mensuel en horaire", "calcul salaire par heure", "brut horaire"],
     intro: [
       "Ce calculateur convertit une rémunération brute versée selon n’importe quelle période de paie courante en équivalent horaire. Elle indique aussi ce que représente cette même rémunération par an, par mois, par demi-mois, par quinzaine, par semaine et par jour travaillé.",

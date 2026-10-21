@@ -6,7 +6,7 @@ const fr: CalculatorTranslation<BmrText> = {
     title: "Calculateur de métabolisme de base",
     shortTitle: "Métabolisme de base",
     summary: "Estimez votre métabolisme de base (calories dépensées au repos) avec l’équation de Mifflin-St Jeor.",
-    metaTitle: "Calculateur de métabolisme de base – Équation de Mifflin-St Jeor",
+    metaTitle: "Calculateur de métabolisme de base – Mifflin-St Jeor",
     metaDescription: "Estimez votre métabolisme de base (MB) en kcal et en kJ par jour avec l’équation de Mifflin-St Jeor, en unités métriques ou impériales.",
     keywords: ["métabolisme de base", "calcul métabolisme de base", "MB", "BMR", "dépense énergétique au repos", "Mifflin St Jeor", "besoin calorique"],
     intro: [

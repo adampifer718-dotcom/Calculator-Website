@@ -6,9 +6,9 @@ const fr: CalculatorTranslation<BreakEvenText> = {
     title: "Calculateur de seuil de rentabilité",
     shortTitle: "Seuil de rentabilité",
     summary: "Déterminez combien d’unités vous devez vendre pour couvrir vos coûts fixes, ainsi que le chiffre d’affaires au seuil de rentabilité.",
-    metaTitle: "Seuil de rentabilité – Calcul en unités et chiffre d’affaires",
+    metaTitle: "Seuil de rentabilité – En unités et en chiffre d’affaires",
     metaDescription:
-      "Calculez votre seuil de rentabilité en unités et en chiffre d’affaires à partir des coûts fixes, du prix unitaire et du coût variable unitaire, avec la marge sur coûts variables.",
+      "Calculez votre seuil de rentabilité en unités et en chiffre d’affaires à partir des coûts fixes, du prix de vente et du coût variable unitaires, avec la marge.",
     keywords: ["seuil de rentabilité", "point mort", "calcul seuil de rentabilité", "marge sur coûts variables", "coûts fixes", "coûts variables", "rentabilité entreprise"],
     intro: [
       "Le seuil de rentabilité est le point où le chiffre d’affaires total égale les coûts totaux : il n’y a alors ni bénéfice ni perte.",

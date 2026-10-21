@@ -9,9 +9,9 @@ const es: CalculatorTranslation<CreditCardPayoffText> = {
     title: "Calculadora para saldar la tarjeta de crédito",
     shortTitle: "Saldar la tarjeta de crédito",
     summary: "Descubre cuántos meses tarda un pago fijo en saldar la deuda de una tarjeta de crédito, o qué pago necesitas para saldarla en un plazo concreto.",
-    metaTitle: "Calculadora para saldar la tarjeta de crédito – Meses e intereses",
+    metaTitle: "Calculadora para saldar la tarjeta – Meses e intereses",
     metaDescription:
-      "Estima cuánto tarda un pago mensual fijo en saldar una tarjeta de crédito, los intereses totales o el pago necesario para quedar sin deuda en un número de meses.",
+      "Estima cuánto tarda un pago mensual fijo en saldar una tarjeta de crédito, los intereses totales o el pago necesario para liquidarla en cierto número de meses.",
     keywords: ["saldar tarjeta de crédito", "pagar deuda de tarjeta", "intereses tarjeta de crédito", "liquidar deuda", "meses para pagar la tarjeta", "pago mensual tarjeta", "APR"],
     intro: [
       "Los intereses de la tarjeta de crédito se cobran sobre todo el saldo que arrastras, así que un pago mensual pequeño puede mantenerte endeudado durante años. Esta calculadora muestra el efecto de pagar una cantidad fija cada mes.",

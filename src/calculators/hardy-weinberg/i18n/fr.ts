@@ -6,7 +6,7 @@ const fr: CalculatorTranslation<HardyWeinbergText> = {
     title: "Calculateur d’équilibre de Hardy-Weinberg",
     shortTitle: "Hardy-Weinberg",
     summary: "Calculez les fréquences alléliques et génotypiques à partir de la fréquence d’un caractère récessif, ou testez des effectifs génotypiques par rapport à l’équilibre.",
-    metaTitle: "Calculateur de Hardy-Weinberg – Fréquences alléliques et test χ²",
+    metaTitle: "Calculateur de Hardy-Weinberg – Fréquences alléliques et χ²",
     metaDescription: "Obtenez p, q, p², 2pq et q² à partir de la part d’individus présentant un caractère récessif, ou testez des effectifs AA, Aa et aa par un test du khi-deux.",
     keywords: ["hardy-weinberg", "équilibre de hardy-weinberg", "fréquence allélique", "fréquence génotypique", "p2 2pq q2", "fréquence des porteurs", "génétique des populations", "khi-deux"],
     intro: [

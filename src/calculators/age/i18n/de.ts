@@ -13,7 +13,7 @@ const de: CalculatorTranslation<AgeText> = {
     summary: "Ermitteln Sie das genaue Alter in Jahren, Monaten und Tagen zu einem beliebigen Datum – mit Gesamtzahl der Tage und Wochen und dem nächsten Geburtstag.",
     metaTitle: "Altersrechner – genaues Alter in Jahren, Monaten und Tagen",
     metaDescription:
-      "Berechnen Sie aus dem Geburtsdatum das genaue Alter in Jahren, Monaten und Tagen, dazu die Tage und Wochen insgesamt, den nächsten Geburtstag und Ihren Geburtswochentag.",
+      "Berechnen Sie aus dem Geburtsdatum Ihr genaues Alter in Jahren, Monaten und Tagen, dazu Tage und Wochen insgesamt und den nächsten Geburtstag.",
     keywords: ["Altersrechner", "Alter berechnen", "wie alt bin ich", "Geburtsdatum", "Alter in Tagen", "genaues Alter", "nächster Geburtstag"],
     intro: [
       "Geben Sie ein Geburtsdatum ein, um das genaue Alter am heutigen Tag zu sehen, oder wählen Sie ein anderes Datum, um das Alter an diesem Tag zu ermitteln.",

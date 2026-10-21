@@ -6,7 +6,7 @@ const es: CalculatorTranslation<UnitPriceText> = {
     title: "Calculadora de precio unitario",
     shortTitle: "Precio unitario",
     summary: "Compara dos tamaños de envase por precio por kilogramo, litro o unidad para saber cuál sale más barato.",
-    metaTitle: "Calculadora de precio unitario – Compara el precio por unidad",
+    metaTitle: "Calculadora de precio unitario – Compara precios por unidad",
     metaDescription:
       "Compara dos productos por precio unitario por kg, por litro o por unidad, aunque uno venga en onzas o galones, y mira cuánto ahorra el más barato.",
     keywords: [

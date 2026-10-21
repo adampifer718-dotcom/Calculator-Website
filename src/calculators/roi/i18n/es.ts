@@ -6,7 +6,7 @@ const es: CalculatorTranslation<RoiText> = {
     title: "Calculadora de ROI",
     shortTitle: "ROI",
     summary: "Mide el retorno de la inversión en porcentaje, con la ganancia o pérdida neta y una tasa anualizada opcional.",
-    metaTitle: "Calculadora de ROI – Retorno de la inversión y ROI anualizado",
+    metaTitle: "Calculadora de ROI – Retorno de inversión y ROI anualizado",
     metaDescription:
       "Calcula el retorno de la inversión a partir del importe invertido y el obtenido. Consulta la ganancia o pérdida neta, el ROI total y el ROI anualizado.",
     keywords: ["retorno de la inversión", "calcular roi", "rentabilidad de una inversión", "roi anualizado", "beneficio de la inversión", "tasa de crecimiento anual compuesta"],

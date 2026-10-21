@@ -50,6 +50,7 @@ const en = {
   search: {
     label: "Search calculators",
     placeholderShort: "Search calculators…",
+    placeholderHeader: "Search calculators…",
     placeholderLong: "Search calculators, e.g. salary or percent",
     submit: "Search",
     suggestions: "Suggested calculators",

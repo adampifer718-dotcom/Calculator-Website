@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<BmiText> = {
     summary: "Calculez l’indice de masse corporelle à partir de la taille et du poids, en unités métriques ou impériales.",
     metaTitle: "Calculateur d’IMC – Indice de masse corporelle adulte",
     metaDescription:
-      "Calculez votre indice de masse corporelle (IMC) à partir de votre taille et de votre poids en kg et cm ou en lb, pieds et pouces, avec la catégorie adulte et le poids santé.",
+      "Calculez votre IMC à partir de votre taille et de votre poids, en kg et cm ou en lb, pieds et pouces, avec la catégorie adulte et le poids santé.",
     keywords: ["calcul IMC", "indice de masse corporelle", "IMC adulte", "poids idéal", "surpoids", "obésité", "calculer son IMC"],
     intro: [
       "L’indice de masse corporelle (IMC) met en rapport le poids et la taille. C’est un outil de dépistage rapide pour les adultes, et non un diagnostic.",

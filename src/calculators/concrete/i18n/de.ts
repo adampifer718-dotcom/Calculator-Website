@@ -8,7 +8,7 @@ const de: CalculatorTranslation<ConcreteText> = {
     summary: "Schätzen Sie, wie viel Beton Sie für Platten, Fundamente, runde Säulen und Hohlzylinder bestellen müssen – auf Wunsch mit Zuschlag für Verluste.",
     metaTitle: "Betonrechner – Betonmenge für Platte, Säule und Rohr",
     metaDescription:
-      "Berechnen Sie die Betonmenge für Bodenplatten, Fundamente, runde Säulen und Hohlzylinder in Kubikmetern, Kubikyards, Kubikfuß und Litern, optional mit Verlustzuschlag.",
+      "Berechnen Sie die Betonmenge für Platten, Fundamente, Säulen und Hohlzylinder in m³, Kubikyards, Kubikfuß oder Litern, optional mit Verlustzuschlag.",
     keywords: ["Betonrechner", "Beton berechnen", "Betonmenge", "Kubikmeter Beton", "Bodenplatte", "Fundament berechnen", "Transportbeton", "Säule betonieren"],
     intro: [
       "Beton wird nach Volumen bestellt. Geben Sie die Maße einer Platte, eines Fundaments, einer runden Säule oder eines Hohlzylinders ein, um die benötigte Menge in den Einheiten der Lieferanten zu sehen.",

@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<SavingsGoalText> = {
     summary: "Calculez le versement mensuel nécessaire pour atteindre un objectif d’épargne à une date choisie, en tenant compte de ce que vous avez déjà épargné et de son rendement.",
     metaTitle: "Calculateur d’objectif d’épargne – Versement mensuel",
     metaDescription:
-      "Calculez combien épargner chaque mois pour atteindre un objectif dans un délai donné, avec votre épargne actuelle, un rendement annuel prévu et une capitalisation mensuelle.",
+      "Calculez l’épargne mensuelle nécessaire pour atteindre un objectif dans un délai donné, selon votre épargne actuelle et un rendement annuel prévu.",
     keywords: ["objectif d’épargne", "combien épargner par mois", "épargne mensuelle", "plan d’épargne", "épargner pour un projet", "valeur future", "versement mensuel"],
     intro: [
       "Épargner pour un apport, une voiture ou une épargne de précaution est plus facile avec un montant mensuel à viser. Ce calculateur détermine le versement régulier qui vous mène de ce que vous avez aujourd’hui à votre objectif dans le délai choisi.",

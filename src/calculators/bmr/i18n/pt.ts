@@ -6,7 +6,7 @@ const pt: CalculatorTranslation<BmrText> = {
     title: "Calculadora de metabolismo basal (TMB)",
     shortTitle: "Metabolismo basal",
     summary: "Estime a sua taxa metabólica basal (as calorias que gasta em repouso) com a equação de Mifflin-St Jeor.",
-    metaTitle: "Calculadora de metabolismo basal (TMB) – Mifflin-St Jeor",
+    metaTitle: "Calculadora de metabolismo basal (TMB) – Gasto em repouso",
     metaDescription:
       "Estime a sua taxa metabólica basal (TMB) em kcal e kJ por dia com a equação de Mifflin-St Jeor, em unidades métricas ou imperiais.",
     keywords: ["metabolismo basal", "taxa metabólica basal", "calcular TMB", "calorias em repouso", "Mifflin-St Jeor", "gasto energético em repouso", "kcal por dia"],

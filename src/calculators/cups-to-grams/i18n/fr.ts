@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<CupsToGramsText> = {
     summary: "Convertissez des tasses en grammes et des grammes en tasses pour la farine, le sucre, le beurre et d’autres ingrédients de pâtisserie, chacun avec sa propre densité.",
     metaTitle: "Convertisseur de tasses en grammes – Farine, sucre, beurre…",
     metaDescription:
-      "Convertissez des tasses en grammes et des grammes en tasses pour 18 ingrédients de pâtisserie grâce à la densité de chacun, avec les tasses américaine, métrique et impériale.",
+      "Convertissez tasses et grammes dans les deux sens pour 18 ingrédients de pâtisserie selon leur densité, avec les tasses américaine, métrique et impériale.",
     keywords: ["tasse en grammes", "conversion cup en grammes", "1 cup en grammes", "cup farine en grammes", "cup sucre en grammes", "conversion recette américaine", "grammes en tasses"],
     intro: [
       "Une tasse mesure un volume, mais une tasse de farine pèse bien moins lourd qu’une tasse de miel. Pour passer des tasses aux grammes, il faut donc connaître la densité de l’ingrédient concerné.",

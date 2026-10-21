@@ -6,9 +6,9 @@ const es: CalculatorTranslation<TestGradeText> = {
     title: "Calculadora de notas de exámenes",
     shortTitle: "Nota de examen",
     summary: "Convierte las respuestas correctas o los puntos obtenidos en un porcentaje y una nota con letra.",
-    metaTitle: "Calculadora de notas de exámenes – Porcentaje y nota con letra",
+    metaTitle: "Calculadora de notas de exámenes – Porcentaje y letra",
     metaDescription:
-      "Calcula el porcentaje y la nota con letra de un examen a partir del número de respuestas correctas o incorrectas, o de los puntos obtenidos sobre el total posible.",
+      "Calcula el porcentaje y la nota con letra de un examen a partir de las respuestas correctas o incorrectas, o de los puntos obtenidos sobre el total posible.",
     keywords: ["calcular nota examen", "nota de examen", "porcentaje de aciertos", "calculadora de notas", "nota test", "puntuación examen"],
     intro: [
       "Introduce cuántas preguntas o puntos tenía un examen y cuántos acertaste o fallaste. La calculadora muestra el porcentaje obtenido y la nota con letra correspondiente.",

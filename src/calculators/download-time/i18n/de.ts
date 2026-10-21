@@ -9,7 +9,7 @@ const de: CalculatorTranslation<DownloadTimeText> = {
     shortTitle: "Downloadzeit",
     summary: "Schätzen Sie, wie lange der Download oder Upload einer Datei bei Ihrer Verbindungsgeschwindigkeit dauert.",
     metaTitle: "Downloadzeit-Rechner – Dateigröße und Geschwindigkeit",
-    metaDescription: "Schätzen Sie die Download- oder Uploadzeit aus der Dateigröße in MB, GB, GiB oder TB und der Geschwindigkeit in Mbit/s oder Gbit/s, optional mit Protokoll-Overhead.",
+    metaDescription: "Schätzen Sie die Download- oder Uploadzeit aus Dateigröße (MB, GB, GiB, TB) und Geschwindigkeit (Mbit/s, Gbit/s), optional mit Protokoll-Overhead.",
     keywords: ["Downloadzeit berechnen", "Downloaddauer", "Uploadzeit", "Übertragungszeit", "Dateigröße", "Mbit/s", "Internetgeschwindigkeit", "Bandbreite", "wie lange dauert der Download"],
     intro: [
       "Die Downloadzeit ist die Datenmenge geteilt durch die Übertragungsgeschwindigkeit. Der Haken liegt bei den Einheiten: Internettarife werden in Megabit pro Sekunde verkauft, Dateien aber in Megabyte oder Gigabyte gemessen, und ein Byte hat 8 Bit.",

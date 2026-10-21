@@ -51,7 +51,7 @@ export function MegaMenu({ groups, collections, total, allHref }: { groups: NavG
         aria-expanded={open}
         aria-controls="mega-menu"
         onClick={() => setOpen((v) => !v)}
-        className="focus-ring-light inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold text-white/90 transition-colors hover:bg-white/10 hover:text-white aria-expanded:bg-white aria-expanded:text-brand-800"
+        className="focus-ring-light inline-flex items-center gap-1 rounded-full px-2.5 py-2 text-sm xl:px-3 font-semibold text-white/90 transition-colors hover:bg-white/10 hover:text-white aria-expanded:bg-white aria-expanded:text-brand-800"
       >
         {t("calculators")}
         <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className={`size-4 transition-transform ${open ? "rotate-180" : ""}`}>

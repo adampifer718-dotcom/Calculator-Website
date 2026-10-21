@@ -6,7 +6,7 @@ const es: CalculatorTranslation<FuelCostText> = {
     title: "Calculadora de coste de combustible",
     shortTitle: "Coste de combustible",
     summary: "Estima el combustible que consumirás y lo que costará un viaje a partir de la distancia, el consumo y el precio del combustible.",
-    metaTitle: "Calculadora de coste de combustible – Gasto de gasolina por viaje",
+    metaTitle: "Calculadora de coste de combustible – Gasto por viaje",
     metaDescription:
       "Calcula el coste de combustible de un viaje a partir de la distancia, el consumo y el precio, en millas y MPG o en kilómetros y litros a los 100 km.",
     keywords: ["coste gasolina viaje", "calcular gasto combustible", "consumo l/100 km", "precio gasolina", "gasóleo", "coste de un viaje en coche"],

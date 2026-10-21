@@ -6,7 +6,7 @@ const es: CalculatorTranslation<QuadraticText> = {
     title: "Calculadora de ecuaciones de segundo grado",
     shortTitle: "Ecuación de segundo grado",
     summary: "Resuelve ax² + bx + c = 0 con raíces reales o complejas, junto con el discriminante, el vértice y el eje de simetría.",
-    metaTitle: "Calculadora de ecuaciones de segundo grado – Raíces y vértice",
+    metaTitle: "Ecuación de segundo grado – Raíces, discriminante y vértice",
     metaDescription:
       "Resuelve cualquier ecuación de segundo grado ax² + bx + c = 0: raíces reales o complejas, el discriminante y su significado, el vértice y el eje de simetría.",
     keywords: [

@@ -225,3 +225,30 @@ for (const { locale, lang, h1, bill, tip } of [
     expect((await context.cookies()).find((c) => c.name === "NEXT_LOCALE")?.value).toBe(locale);
   });
 }
+
+test("desktop header fits every language without clipping the search placeholder", async ({ browser }) => {
+  test.setTimeout(240_000);
+  for (const width of [1024, 1280]) {
+    const context = await browser.newContext({ viewport: { width, height: 800 } });
+    const page = await context.newPage();
+    for (const prefix of ["", "/ur", "/es", "/fr", "/de", "/ar", "/it", "/pt", "/nl"]) {
+      await page.goto(`${prefix}/calculators`);
+      await page.evaluate(() => document.fonts.ready);
+      const fit = await page.evaluate(() => {
+        const row = document.querySelector("header > div")!;
+        const input = document.querySelector<HTMLInputElement>("#header-search");
+        let placeholderFits = true;
+        if (input && input.offsetParent) {
+          const style = getComputedStyle(input);
+          const ctx = document.createElement("canvas").getContext("2d")!;
+          ctx.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+          const room = input.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+          placeholderFits = ctx.measureText(input.placeholder).width <= room;
+        }
+        return { rowOverflow: row.scrollWidth - row.clientWidth, pageOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth, placeholderFits };
+      });
+      expect(fit, `${prefix || "/en"} at ${width}px`).toEqual({ rowOverflow: 0, pageOverflow: 0, placeholderFits: true });
+    }
+    await context.close();
+  }
+});

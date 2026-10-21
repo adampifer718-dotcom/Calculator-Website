@@ -6,9 +6,9 @@ const es: CalculatorTranslation<RecipeScalerText> = {
     title: "Calculadora de raciones para recetas",
     shortTitle: "Raciones de recetas",
     summary: "Aumenta o reduce las cantidades de los ingredientes de una receta para cualquier número de raciones.",
-    metaTitle: "Calculadora de raciones para recetas – Ajusta los ingredientes",
+    metaTitle: "Calculadora de raciones para recetas – Ajusta ingredientes",
     metaDescription:
-      "Adapta cualquier receta a un nuevo número de raciones. Pega tu lista de ingredientes y obtén las cantidades ajustadas, expresadas en fracciones fáciles de medir.",
+      "Adapta cualquier receta a otro número de raciones. Pega tu lista de ingredientes y obtén las cantidades ajustadas en fracciones fáciles de medir.",
     keywords: ["adaptar receta", "calcular raciones", "ajustar ingredientes", "receta para más personas", "doblar receta", "media receta"],
     intro: [
       "Escalar una receta consiste en multiplicar todas las cantidades por el mismo factor: las raciones deseadas divididas entre las raciones originales.",

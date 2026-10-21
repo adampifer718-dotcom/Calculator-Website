@@ -6,7 +6,7 @@ const de: CalculatorTranslation<WeightedAverageText> = {
     title: "Rechner für den gewichteten Durchschnitt",
     shortTitle: "Gewichteter Durchschnitt",
     summary: "Mitteln Sie eine Liste von Werten, von denen einige stärker zählen als andere, und vergleichen Sie das Ergebnis mit dem einfachen Mittelwert.",
-    metaTitle: "Rechner für den gewichteten Durchschnitt – gewichtetes Mittel",
+    metaTitle: "Gewichteter Durchschnitt berechnen – Werte und Gewichte",
     metaDescription: "Berechnen Sie den gewichteten Durchschnitt von bis zu 100 Werten und ihren Gewichten, mit Summe der Gewichte und ungewichtetem Mittelwert zum Vergleich.",
     keywords: ["gewichteter Durchschnitt", "gewichtetes Mittel", "gewichteter Mittelwert", "Durchschnittsnote berechnen", "Notendurchschnitt gewichtet", "Durchschnittspreis", "Summenprodukt"],
     intro: [

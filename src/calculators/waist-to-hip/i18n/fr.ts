@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<WaistToHipText> = {
     summary: "Divisez votre tour de taille par votre tour de hanches pour obtenir le rapport taille/hanches, et comparez-le au seuil de l’OMS pour les femmes ou les hommes.",
     metaTitle: "Rapport taille/hanches – Calcul et seuil de l’OMS",
     metaDescription:
-      "Calculez votre rapport taille/hanches à partir de vos tours de taille et de hanches en cm ou en pouces, et comparez-le au seuil de l’OMS pour les femmes et les hommes.",
+      "Calculez votre rapport taille/hanches à partir de vos tours de taille et de hanches, en cm ou en pouces, et comparez-le au seuil de l’OMS selon le sexe.",
     keywords: ["rapport taille hanches", "RTH", "ratio taille hanches", "tour de taille", "graisse abdominale", "morphologie", "rapport taille hanches OMS"],
     intro: [
       "Le rapport taille/hanches (RTH) compare la mesure de votre tour de taille à celle de vos hanches. Un rapport plus élevé signifie qu’une plus grande part de votre masse grasse se situe autour de l’abdomen, ce que la recherche associe à un risque plus élevé de diabète de type 2 et de maladie cardiaque.",

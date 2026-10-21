@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<TipText> = {
     summary: "Calculez le pourboire, le total de l’addition et ce que chacun paie en cas de partage.",
     metaTitle: "Calculateur de pourboire – Montant et partage de l’addition",
     metaDescription:
-      "Calculez le pourboire pour n’importe quelle addition et n’importe quel pourcentage, le total pourboire compris et ce que paie chaque personne si l’addition est partagée.",
+      "Calculez le pourboire pour toute addition et tout pourcentage, le total pourboire compris et la part de chacun si l’addition est partagée.",
     keywords: ["calcul pourboire", "pourboire restaurant", "partager l’addition", "combien laisser de pourboire", "diviser l’addition", "frais de service"],
     intro: [
       "Saisissez le montant de l’addition et un pourcentage de pourboire pour voir le pourboire et le total. Indiquez le nombre de personnes pour le partager à parts égales.",

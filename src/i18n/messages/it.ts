@@ -10,9 +10,9 @@ const it: Messages = {
     homeDescription:
       "Converti la paga oraria, giornaliera, settimanale, bisettimanale, mensile o annua in ogni periodo di pagamento, con calcolatori gratuiti di percentuali e ROI.",
     directoryTitle: "Tutti i calcolatori",
-    directoryDescription: "Sfoglia, cerca e filtra tutti i {count} calcolatori gratuiti di {site} per categoria o settore: finanza, matematica, statistica, salute, fisica e altro.",
+    directoryDescription: "Cerca e filtra tutti i {count} calcolatori gratuiti di {site} per categoria o settore: finanza, matematica, statistica, salute, fisica e altro.",
     aboutTitle: "Chi siamo e metodologia",
-    aboutDescription: "Come funzionano i calcolatori di {site}: calcoli nel browser, formule visibili, ipotesi dichiarate e arrotondamento solo in visualizzazione.",
+    aboutDescription: "Come funzionano i calcolatori di {site}: calcoli nel browser, formule visibili, ipotesi dichiarate e arrotondamento solo a video.",
     notFoundTitle: "Pagina non trovata",
   },
   common: {
@@ -48,6 +48,7 @@ const it: Messages = {
   search: {
     label: "Cerca calcolatori",
     placeholderShort: "Cerca calcolatori…",
+    placeholderHeader: "Cerca calcolatori…",
     placeholderLong: "Cerca calcolatori, ad es. stipendio o percentuale",
     submit: "Cerca",
     suggestions: "Calcolatori suggeriti",
@@ -227,7 +228,7 @@ const it: Messages = {
     title: "Convertitori di unità",
     lead: "{count} convertitori per unità di uso quotidiano e tecnico, da lunghezza, peso e temperatura a pressione, energia, elettricità e luce. I risultati si aggiornano mentre scrivi.",
     metaTitle: "Convertitori di unità – Lunghezza, peso, pressione, energia",
-    metaDescription: "Convertitori di unità gratuiti per {count} tipi di grandezze: lunghezza, peso, temperatura, pressione, energia, potenza, portata, elettricità, luce e altro, con fattori esatti.",
+    metaDescription: "Convertitori di unità gratuiti per {count} grandezze: lunghezza, peso, temperatura, pressione, energia, potenza, portata, elettricità e altro, con fattori esatti.",
     searchLabel: "Cerca convertitori e unità",
     searchPlaceholder: "Cerca, ad es. psi, joule o kelvin",
     searchCount: "{count, plural, =0 {Nessun convertitore corrisponde} one {# convertitore corrisponde} other {# convertitori corrispondono}} a «{query}».",

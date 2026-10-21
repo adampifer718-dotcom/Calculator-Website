@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<CompoundInterestText> = {
     summary: "Découvrez comment un dépôt fructifie grâce aux intérêts composés, avec un tableau du solde année par année.",
     metaTitle: "Calculateur d’intérêts composés – Valeur future",
     metaDescription:
-      "Calculez les intérêts composés et la valeur future d’un dépôt avec une capitalisation annuelle, trimestrielle, mensuelle ou quotidienne, et un tableau annuel du solde.",
+      "Calculez les intérêts composés et la valeur future d’un dépôt avec capitalisation annuelle, trimestrielle, mensuelle ou quotidienne, et le solde annuel.",
     keywords: ["intérêts composés", "calcul intérêts composés", "valeur future", "épargne", "taux d’intérêt", "taux annuel effectif", "capitalisation"],
     intro: [
       "Avec les intérêts composés, les intérêts rapportent eux-mêmes des intérêts en plus du dépôt initial : la croissance s’accélère donc avec le temps.",

@@ -7,7 +7,7 @@ const fr: CalculatorTranslation<DoublingTimeText> = {
     shortTitle: "Temps de doublement",
     summary: "Déterminez le temps de doublement (temps de génération) et le taux de croissance d’une population en croissance exponentielle.",
     metaTitle: "Calculateur de temps de doublement – Temps de génération",
-    metaDescription: "Calculez le temps de doublement, le nombre de générations et le taux de croissance d’une population, par exemple de bactéries en culture, à partir des effectifs initial et final.",
+    metaDescription: "Calculez le temps de doublement, le nombre de générations et le taux de croissance d’une population à partir des effectifs initial et final.",
     keywords: ["temps de doublement", "temps de génération", "croissance bactérienne", "croissance exponentielle", "taux de croissance", "calcul nombre de générations"],
     intro: [
       "Pendant une croissance exponentielle, une population double à un rythme constant. Le temps de doublement (ou temps de génération) est la durée de chaque doublement.",

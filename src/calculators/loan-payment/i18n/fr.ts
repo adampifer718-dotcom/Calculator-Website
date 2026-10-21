@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<LoanPaymentText> = {
     summary: "Calculez la mensualité, le coût total des intérêts et le tableau d’amortissement d’un prêt ou d’un crédit immobilier à taux fixe.",
     metaTitle: "Calculateur de mensualités de prêt – Mensualité et intérêts",
     metaDescription:
-      "Calculez la mensualité d’un prêt ou d’un crédit immobilier à taux fixe, le total des intérêts et un tableau d’amortissement annuel à partir du montant, du taux et de la durée.",
+      "Calculez la mensualité d’un prêt à taux fixe, le total des intérêts et un tableau d’amortissement annuel à partir du montant, du taux et de la durée.",
     keywords: ["calcul mensualité prêt", "simulation crédit", "crédit immobilier", "tableau d’amortissement", "intérêts d’emprunt", "prêt auto", "prêt personnel"],
     intro: [
       "La plupart des prêts auto, prêts personnels et crédits immobiliers à taux fixe se remboursent par mensualités constantes. Chaque mensualité couvre les intérêts du mois et rembourse une partie du capital restant dû.",

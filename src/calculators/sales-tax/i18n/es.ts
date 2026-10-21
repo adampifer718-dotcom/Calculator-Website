@@ -6,9 +6,9 @@ const es: CalculatorTranslation<SalesTaxText> = {
     title: "Calculadora del impuesto sobre las ventas",
     shortTitle: "Impuesto sobre las ventas",
     summary: "Suma el impuesto sobre las ventas a un precio o calcula el precio sin impuesto a partir de un total que lo incluye.",
-    metaTitle: "Calculadora del impuesto sobre las ventas – Añadir o quitar impuestos",
+    metaTitle: "Calculadora del impuesto sobre las ventas – Añadir o quitar",
     metaDescription:
-      "Calcula el impuesto sobre las ventas y el precio total, o quita el impuesto de un total con impuestos incluidos para obtener el precio original. Sirve para cualquier tipo y moneda.",
+      "Calcula el impuesto sobre las ventas y el precio total, o quítalo de un precio con impuestos incluidos para obtener el original. Para cualquier tipo y moneda.",
     keywords: ["calcular iva", "quitar iva", "impuesto sobre las ventas", "precio con impuestos", "precio sin iva", "sales tax"],
     intro: [
       "Introduce un precio y un tipo impositivo para ver el impuesto y el total que pagarás. Cambia a quitar el impuesto para obtener el precio antes de impuestos a partir del total de un tique.",

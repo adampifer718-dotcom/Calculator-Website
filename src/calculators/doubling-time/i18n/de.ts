@@ -8,7 +8,7 @@ const de: CalculatorTranslation<DoublingTimeText> = {
     summary: "Ermitteln Sie die Verdopplungszeit (Generationszeit) und die Wachstumsrate einer exponentiell wachsenden Population.",
     metaTitle: "Verdopplungszeitrechner – Generationszeit und Wachstum",
     metaDescription:
-      "Berechnen Sie aus Anfangs- und Endzahl die Verdopplungszeit, die Anzahl der Generationen und die Wachstumsrate einer Population, etwa von Bakterien in einer Kultur.",
+      "Berechnen Sie aus Anfangs- und Endzahl die Verdopplungszeit, die Zahl der Generationen und die Wachstumsrate, etwa von Bakterien in einer Kultur.",
     keywords: ["Verdopplungszeit berechnen", "Generationszeit", "Bakterienwachstum", "exponentielles Wachstum", "Wachstumsrate", "Wachstumskonstante", "Biologie Rechner"],
     intro: [
       "Bei exponentiellem Wachstum verdoppelt sich eine Population in gleichbleibenden Abständen. Die Verdopplungszeit (oder Generationszeit) ist die Dauer einer solchen Verdopplung.",

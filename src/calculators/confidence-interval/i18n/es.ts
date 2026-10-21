@@ -8,7 +8,7 @@ const es: CalculatorTranslation<ConfidenceIntervalText> = {
     summary: "Calcula un intervalo de confianza para una media a partir de la media muestral, la desviación típica y el tamaño de la muestra.",
     metaTitle: "Calculadora de intervalos de confianza – Para una media",
     metaDescription:
-      "Calcula un intervalo de confianza para una media con la media muestral, la desviación típica, el tamaño de la muestra y el nivel de confianza, con margen de error y z*.",
+      "Calcula un intervalo de confianza para una media con la media muestral, la desviación típica, el tamaño muestral y el nivel de confianza, y su margen de error.",
     keywords: ["intervalo de confianza", "margen de error", "error estándar", "nivel de confianza 95 %", "estadística", "intervalo de confianza media"],
     intro: [
       "Un intervalo de confianza da un rango de valores plausibles para la media de una población. Un intervalo al 95 % se construye de forma que el 95 % de los intervalos obtenidos así contendrían la media real.",

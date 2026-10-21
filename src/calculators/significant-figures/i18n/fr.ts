@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<SigFigText> = {
     summary: "Comptez les chiffres significatifs d’un nombre ou arrondissez un nombre au nombre de chiffres significatifs souhaité.",
     metaTitle: "Chiffres significatifs – Compter et arrondir un nombre",
     metaDescription:
-      "Comptez les chiffres significatifs de n’importe quel nombre, décimales et notation E comprises, ou arrondissez à un nombre de chiffres donné, avec la notation scientifique.",
+      "Comptez les chiffres significatifs de n’importe quel nombre, notation E comprise, ou arrondissez à un nombre de chiffres donné, avec la notation scientifique.",
     keywords: ["chiffres significatifs", "compter chiffres significatifs", "arrondir chiffres significatifs", "précision", "notation scientifique", "chimie", "physique"],
     intro: [
       "Les chiffres significatifs indiquent avec quelle précision un nombre est connu. Ce calculateur les compte selon les règles habituelles, ou arrondit un nombre à la précision choisie.",

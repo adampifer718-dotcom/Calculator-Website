@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<PValueText> = {
     summary: "Obtenez la valeur p d’un score z ou d’un score t pour un test bilatéral, unilatéral à gauche ou unilatéral à droite.",
     metaTitle: "Calculateur de valeur p – À partir d’un score z ou t",
     metaDescription:
-      "Calculez la valeur p à partir d’un score z ou d’un score t avec ses degrés de liberté, pour des tests d’hypothèse bilatéraux ou unilatéraux à gauche ou à droite.",
+      "Calculez la valeur p à partir d’un score z, ou d’un score t et de ses degrés de liberté, pour un test bilatéral ou unilatéral à gauche ou à droite.",
     keywords: ["valeur p", "p-value", "calcul valeur p", "score z", "test t de Student", "test d’hypothèse", "seuil de significativité", "statistiques"],
     intro: [
       "Une valeur p mesure à quel point le résultat d’un test serait surprenant si l’hypothèse nulle était vraie. Une petite valeur p suggère que les données sont peu probables sous l’hypothèse nulle.",

@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<TileText> = {
     summary: "Estimez le nombre de carreaux et de boîtes nécessaires pour un sol ou un mur à partir de la surface, de la taille des carreaux, du joint et d’une marge de perte.",
     metaTitle: "Calculateur de carrelage – Combien de carreaux et de boîtes",
     metaDescription:
-      "Estimez les carreaux d’un sol ou d’un mur à partir de la surface, de la taille des carreaux et de la largeur du joint, ajoutez une marge de perte et arrondissez aux boîtes entières.",
+      "Estimez le nombre de carreaux d’un sol ou d’un mur selon la surface, la taille des carreaux et le joint, avec marge de perte et arrondi aux boîtes entières.",
     keywords: ["calcul carrelage", "combien de carreaux", "carrelage sol", "carrelage mural", "joint de carrelage", "boîtes de carrelage", "perte carrelage", "crédence"],
     intro: [
       "Avant d’acheter du carrelage, il faut un nombre de carreaux, et pas seulement une surface. Ce calculateur divise la surface à couvrir par l’espace occupé par chaque carreau, joint compris, puis ajoute une marge de perte pour les coupes et la casse.",

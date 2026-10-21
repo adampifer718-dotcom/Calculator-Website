@@ -8,7 +8,7 @@ const de: CalculatorTranslation<LengthConverterText> = {
     summary: "Rechnen Sie zwischen Millimetern, Zentimetern, Metern, Kilometern, Zoll, Fuß, Yards, Meilen und Seemeilen um.",
     metaTitle: "Längenumrechner – metrische und angloamerikanische Einheiten",
     metaDescription:
-      "Rechnen Sie Längen zwischen metrischen und angloamerikanischen Einheiten um: mm, cm, m, km, Zoll, Fuß, Yards, Meilen und Seemeilen – mit exakten Umrechnungsfaktoren.",
+      "Rechnen Sie Längen zwischen mm, cm, m, km, Zoll, Fuß, Yards, Meilen und Seemeilen um – mit exakten Umrechnungsfaktoren.",
     keywords: ["Längenumrechner", "Einheiten umrechnen", "km in Meilen", "Fuß in Meter", "Zoll in cm", "Längeneinheiten", "Meilen in km"],
     intro: [
       "Rechnen Sie jede Länge zwischen neun gängigen Einheiten um. Die Tabelle zeigt Ihren Wert gleichzeitig in allen Einheiten.",

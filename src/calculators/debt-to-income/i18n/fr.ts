@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<DebtToIncomeText> = {
     summary: "Calculez votre taux d’endettement global (back-end) et votre ratio de logement (front-end) à partir de votre revenu mensuel brut et de vos remboursements mensuels.",
     metaTitle: "Calculateur de taux d’endettement – Front-end et back-end",
     metaDescription:
-      "Calculez votre taux d’endettement (DTI) : remboursements mensuels divisés par le revenu mensuel brut, avec le ratio de logement (front-end) et le total des dettes.",
+      "Calculez votre taux d’endettement (DTI) : remboursements mensuels divisés par le revenu brut mensuel, avec le ratio logement (front-end) et le ratio total.",
     keywords: ["taux d’endettement", "ratio dette revenu", "DTI", "ratio back-end", "ratio front-end", "ratio de logement", "capacité d’emprunt", "dettes mensuelles"],
     intro: [
       "Votre taux d’endettement, ou DTI (debt-to-income), compare ce que vous consacrez chaque mois au remboursement de vos dettes à ce que vous gagnez avant impôts. Les prêteurs l’utilisent comme l’une des mesures de la marge dont dispose votre budget pour un nouveau prêt.",

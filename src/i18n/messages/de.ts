@@ -8,10 +8,10 @@ const de: Messages = {
     tagline: "Klare, genaue Rechner mit sichtbarer Formel",
     homeTitle: "Stundenlohn- und Gehaltsrechner – kostenlose Tools | {site}",
     homeDescription:
-      "Rechnen Sie Stunden-, Tages-, Wochen-, Zweiwochen-, Monats- oder Jahreslohn in jeden Abrechnungszeitraum um – dazu kostenlose Prozent- und ROI-Rechner mit Formeln.",
+      "Rechnen Sie Stunden-, Wochen-, Monats- oder Jahreslohn in jeden Abrechnungszeitraum um – dazu kostenlose Prozent- und ROI-Rechner mit Formeln.",
     directoryTitle: "Alle Rechner",
     directoryDescription:
-      "Alle {count} kostenlosen Rechner von {site} durchsuchen und nach Kategorie oder Branche filtern: Finanzen, Mathematik, Statistik, Gesundheit, Physik und mehr.",
+      "Alle {count} kostenlosen Rechner von {site} durchsuchen und nach Kategorie oder Branche filtern – von Finanzen bis Physik.",
     aboutTitle: "Über uns & Methodik",
     aboutDescription:
       "So funktionieren die Rechner von {site}: Berechnung im Browser, sichtbare Formeln, offengelegte Annahmen und Rundung nur für die Anzeige.",
@@ -50,6 +50,7 @@ const de: Messages = {
   search: {
     label: "Rechner durchsuchen",
     placeholderShort: "Rechner suchen …",
+    placeholderHeader: "Rechner suchen …",
     placeholderLong: "Rechner suchen, z. B. Gehalt oder Prozent",
     submit: "Suchen",
     suggestions: "Vorgeschlagene Rechner",
@@ -257,7 +258,7 @@ const de: Messages = {
     title: "Einheitenumrechner",
     lead: "{count} Umrechner für alltägliche und technische Einheiten, von Länge, Gewicht und Temperatur bis zu Druck, Energie, Elektrizität und Licht. Die Ergebnisse aktualisieren sich während der Eingabe.",
     metaTitle: "Einheitenumrechner – Länge, Gewicht, Druck, Energie und mehr",
-    metaDescription: "Kostenlose Einheitenumrechner für {count} Arten von Messgrößen: Länge, Gewicht, Temperatur, Druck, Energie, Leistung, Durchfluss, Elektrizität, Licht und mehr, mit exakten Faktoren.",
+    metaDescription: "Kostenlose Einheitenumrechner für {count} Arten von Messgrößen wie Länge, Gewicht, Temperatur, Druck und Energie – mit exakten Faktoren.",
     searchLabel: "Umrechner und Einheiten durchsuchen",
     searchPlaceholder: "Suchen, z. B. psi, Joule oder kelvin",
     searchCount: "{count, plural, =0 {Keine Umrechner passen} one {# Umrechner passt} other {# Umrechner passen}} zu „{query}“.",

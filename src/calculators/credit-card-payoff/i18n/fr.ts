@@ -9,9 +9,9 @@ const fr: CalculatorTranslation<CreditCardPayoffText> = {
     title: "Calculateur de remboursement de carte de crédit",
     shortTitle: "Remboursement de carte de crédit",
     summary: "Découvrez combien de mois une mensualité fixe met à solder une carte de crédit, ou la mensualité nécessaire pour la solder à une date donnée.",
-    metaTitle: "Calculateur de remboursement de carte de crédit – Mois et intérêts",
+    metaTitle: "Remboursement de carte de crédit – Durée et intérêts",
     metaDescription:
-      "Estimez le temps qu’une mensualité fixe met à solder une carte de crédit, les intérêts totaux, ou la mensualité pour ne plus avoir de dette en un nombre de mois donné.",
+      "Estimez en combien de temps une mensualité fixe solde une carte de crédit et les intérêts payés, ou la mensualité pour la rembourser en un nombre de mois donné.",
     keywords: ["remboursement carte de crédit", "rembourser carte de crédit", "intérêts carte de crédit", "remboursement de dette", "durée de remboursement", "mensualité carte de crédit", "APR carte de crédit", "taux annuel nominal"],
     intro: [
       "Les intérêts d’une carte de crédit s’appliquent au solde que vous reportez : une petite mensualité peut donc vous maintenir endetté pendant des années. Ce calculateur montre l’effet d’un paiement fixe chaque mois.",

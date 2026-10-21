@@ -8,11 +8,11 @@ const es: Messages = {
     tagline: "Calculadoras claras y precisas, con las fórmulas a la vista",
     homeTitle: "Calculadora de sueldo por hora a salario anual – Gratis | {site}",
     homeDescription:
-      "Convierte tu sueldo por hora, día, semana, cada dos semanas, mes o año a cualquier periodo de pago, y usa calculadoras gratuitas de porcentajes y ROI con fórmulas.",
+      "Convierte tu sueldo por hora, día, semana, cada dos semanas, mes o año a otro periodo de pago y usa calculadoras gratuitas de porcentajes y ROI.",
     directoryTitle: "Todas las calculadoras",
-    directoryDescription: "Explora, busca y filtra las {count} calculadoras gratuitas de {site} por categoría o sector: finanzas, matemáticas, estadística, salud, física y más.",
+    directoryDescription: "Explora, busca y filtra las {count} calculadoras gratuitas de {site} por categoría o sector: finanzas, matemáticas, salud, física y más.",
     aboutTitle: "Acerca de y metodología",
-    aboutDescription: "Cómo funcionan las calculadoras de {site}: cálculos en el navegador, fórmulas visibles, supuestos explícitos y redondeo solo al mostrar los resultados.",
+    aboutDescription: "Cómo funciona {site}: cálculos en el navegador, fórmulas visibles, supuestos explícitos y redondeo solo al mostrar los resultados.",
     notFoundTitle: "Página no encontrada",
   },
   common: {
@@ -48,6 +48,7 @@ const es: Messages = {
   search: {
     label: "Buscar calculadoras",
     placeholderShort: "Buscar calculadoras…",
+    placeholderHeader: "Buscar…",
     placeholderLong: "Buscar calculadoras, p. ej. salario o porcentaje",
     submit: "Buscar",
     suggestions: "Calculadoras sugeridas",
@@ -226,8 +227,8 @@ const es: Messages = {
     breadcrumb: "Conversores de unidades",
     title: "Conversores de unidades",
     lead: "{count} conversores de unidades cotidianas y técnicas, desde longitud, peso y temperatura hasta presión, energía, electricidad y luz. Los resultados se actualizan mientras escribes.",
-    metaTitle: "Conversores de unidades – Longitud, peso, presión, energía y más",
-    metaDescription: "Conversores de unidades gratuitos para {count} tipos de magnitudes: longitud, peso, temperatura, presión, energía, potencia, caudal, electricidad, luz y más, con factores exactos.",
+    metaTitle: "Conversores de unidades – Longitud, peso, presión y más",
+    metaDescription: "Conversores de unidades gratuitos para {count} magnitudes: longitud, peso, temperatura, presión, energía, potencia, caudal y más, con factores exactos.",
     searchLabel: "Buscar conversores y unidades",
     searchPlaceholder: "Buscar, p. ej. psi, julios o kelvin",
     searchCount: "{count, plural, =0 {Ningún conversor coincide} one {# conversor coincide} other {# conversores coinciden}} con «{query}».",

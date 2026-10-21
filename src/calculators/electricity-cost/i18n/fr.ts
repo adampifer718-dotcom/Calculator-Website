@@ -6,8 +6,8 @@ const fr: CalculatorTranslation<ElectricityCostText> = {
     title: "Calculateur de coût d’électricité",
     shortTitle: "Coût d’électricité",
     summary: "Calculez combien coûte le fonctionnement d’un appareil à partir de sa puissance, de sa durée d’utilisation et du prix de votre électricité.",
-    metaTitle: "Calculateur de coût d’électricité – Consommation des appareils",
-    metaDescription: "Calculez l’électricité consommée en kWh et le coût de fonctionnement de tout appareil par jour, sur la période et par an, à partir de sa puissance et de votre tarif.",
+    metaTitle: "Calculateur de coût d’électricité – Coût par appareil",
+    metaDescription: "Calculez la consommation en kWh et le coût de fonctionnement d’un appareil par jour, sur la période et par an, selon sa puissance et votre tarif.",
     keywords: ["coût électricité appareil", "calcul consommation kWh", "prix du kWh", "consommation électrique", "facture d’électricité", "puissance en watts"],
     intro: [
       "L’électricité est facturée au kilowattheure (kWh) : l’énergie d’une puissance de 1 000 watts pendant une heure. Multipliez l’énergie consommée par votre prix du kWh pour obtenir le coût.",
