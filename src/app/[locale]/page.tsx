@@ -12,7 +12,7 @@ import { ConversionChart, HowToUse, PayFormulas } from "@/components/home/PayGui
 import { HeaderSearch } from "@/components/layout/HeaderSearch";
 import { CalculatorCard } from "@/components/ui/CalculatorCard";
 import { CategoryIcon } from "@/components/ui/CategoryIcon";
-import { ArrowIcon, CheckCircleIcon } from "@/components/ui/Icons";
+import { ArrowIcon, CheckCircleIcon, StarIcon } from "@/components/ui/Icons";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { localizePath } from "@/i18n/paths";
 import { currentLocale } from "@/i18n/server";
@@ -101,7 +101,23 @@ export default async function HomePage() {
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-600 sm:text-lg">{tm("siteDescription")}</p>
           </div>
-          <div>
+          <div className="relative">
+            {/* Free / no sign-up badge: a small stamp above the search on wide screens, an inline pill on phones. */}
+            <p className="mb-4 inline-flex max-w-full items-center gap-2.5 rounded-2xl bg-brand-800 py-1.5 ps-1.5 pe-4 text-white shadow-soft ring-2 ring-white lg:hidden">
+              <span aria-hidden="true" className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-accent-400 text-ink-900">
+                <StarIcon className="size-4" />
+              </span>
+              <span className="flex min-w-0 flex-col leading-tight">
+                <span className="text-xs font-extrabold uppercase">{t("badge.free")}</span>
+                <span className="text-[0.7rem] font-bold text-accent-300 uppercase">{t("badge.noSignup")}</span>
+              </span>
+            </p>
+            <p className="absolute end-2 bottom-full mb-6 hidden size-32 rotate-[-6deg] flex-col items-center justify-center rounded-full bg-brand-800 p-3 text-center text-white shadow-lift ring-[6px] ring-white lg:flex rtl:rotate-[6deg]">
+              <span aria-hidden="true" className="absolute inset-1.5 rounded-full border-2 border-dashed border-white/35" />
+              <StarIcon className="size-5 text-butter" />
+              <span className="mt-1 text-base leading-tight font-extrabold uppercase">{t("badge.free")}</span>
+              <span className="mt-0.5 max-w-20 text-[0.6rem] leading-tight font-bold text-balance text-accent-300 uppercase">{t("badge.noSignup")}</span>
+            </p>
             <HeaderSearch id="hero-search" label={t("findCalculator")} size="xl" />
             <p className="mt-3 text-sm text-neutral-600">
               {t("try")}{" "}
@@ -308,6 +324,29 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Benefits row: verified site features only (free, instant, responsive, six languages). */}
+      <section aria-label={t("benefits.label")} className="mx-auto max-w-7xl px-4 pb-4 sm:px-6">
+        <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-[1.25rem] border border-line bg-line shadow-soft min-[420px]:grid-cols-2 lg:grid-cols-4">
+          {[
+            { label: t("benefits.free"), icon: "M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.2l5.9-.9z" },
+            { label: t("benefits.instant"), icon: "M13 3 5 14h6l-1 7 8-11h-6z" },
+            { label: t("benefits.mobile"), icon: "M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM11 18h2" },
+            { label: t("benefits.languages"), icon: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9z" },
+          ].map((item) => (
+            <li
+              key={item.label}
+              className="flex min-w-0 items-center gap-3 bg-white px-4 py-3.5 sm:px-5 sm:py-4"
+            >
+              <span aria-hidden="true" className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700 ring-1 ring-brand-100 sm:size-10">
+                <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d={item.icon} />
+                </svg>
+              </span>
+              <span className="min-w-0 text-sm leading-snug font-bold break-words text-ink-900">{item.label}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
       <JsonLd data={websiteJsonLd({ locale, path: href("/"), description: tm("siteDescription") })} />
     </>
   );

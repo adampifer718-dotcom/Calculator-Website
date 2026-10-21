@@ -101,6 +101,8 @@ const en = {
       "Calculations run in your browser and your figures are not sent or stored. Results are gross income estimates; taxes, overtime, benefits and deductions change your take-home pay.",
     pills: { account: "No account needed", stored: "No pay data stored", assumptions: "Clear assumptions" },
     methodology: "Read about our methodology",
+    badge: { free: "100% Free", noSignup: "No sign-up required" },
+    benefits: { label: "Site benefits", free: "100% free to use", instant: "Instant results", mobile: "Mobile friendly", languages: "Six languages supported" },
   },
   payGuide: {
     stepsKicker: "Step by step",

@@ -126,3 +126,36 @@ test.describe("homepage in every language", () => {
     });
   }
 });
+
+test.describe("homepage badges", () => {
+  test("hero badge and benefits row are visible without overlapping the hero", async ({ page, isMobile }) => {
+    await open(page, "/");
+    const badge = page.locator("#hero-heading").locator("xpath=ancestor::section[1]").getByText("No sign-up required").filter({ visible: true });
+    await expect(badge).toHaveCount(1);
+    const box = await badge.boundingBox();
+    const search = await page.locator("#hero-search").boundingBox();
+    // The badge sits above the search box and never covers it.
+    expect(box!.y + box!.height).toBeLessThanOrEqual(search!.y);
+    const row = page.getByRole("region", { name: "Site benefits" });
+    for (const label of ["100% free to use", "Instant results", "Mobile friendly", "Six languages supported"]) {
+      await expect(row.getByText(label)).toBeVisible();
+    }
+    if (!isMobile) {
+      // One horizontal row on desktop.
+      const tops = await row.locator("li").evaluateAll((items) => items.map((li) => Math.round(li.getBoundingClientRect().top)));
+      expect(new Set(tops).size).toBe(1);
+    }
+  });
+
+  test("badges fit a 320px phone in every language", async ({ browser }) => {
+    const context = await browser.newContext({ viewport: { width: 320, height: 700 } });
+    const page = await context.newPage();
+    for (const prefix of ["", "/ur", "/es", "/fr", "/de", "/ar"]) {
+      await open(page, prefix || "/");
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+      expect(overflow, prefix || "/").toBeLessThanOrEqual(0);
+      await expect(page.locator("section[aria-label] ul li").last()).toBeVisible();
+    }
+    await context.close();
+  });
+});

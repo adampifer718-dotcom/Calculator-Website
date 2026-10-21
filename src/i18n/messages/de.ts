@@ -101,6 +101,8 @@ const de: Messages = {
       "Die Berechnungen laufen in Ihrem Browser, Ihre Zahlen werden weder übertragen noch gespeichert. Die Ergebnisse sind Schätzungen des Bruttoeinkommens; Steuern, Überstunden, Zusatzleistungen und Abzüge verändern Ihren Nettolohn.",
     pills: { account: "Kein Konto nötig", stored: "Keine Lohndaten gespeichert", assumptions: "Klare Annahmen" },
     methodology: "Mehr über unsere Methodik",
+    badge: { free: "100 % kostenlos", noSignup: "Ohne Anmeldung" },
+    benefits: { label: "Vorteile der Website", free: "100 % kostenlos", instant: "Sofortige Ergebnisse", mobile: "Für Mobilgeräte optimiert", languages: "In sechs Sprachen verfügbar" },
   },
   payGuide: {
     stepsKicker: "Schritt für Schritt",

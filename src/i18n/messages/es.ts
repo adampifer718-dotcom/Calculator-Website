@@ -99,6 +99,8 @@ const es: Messages = {
       "Los cálculos se hacen en tu navegador y tus cifras no se envían ni se guardan. Los resultados son estimaciones de ingresos brutos; los impuestos, las horas extra, los beneficios y las deducciones modifican tu sueldo neto.",
     pills: { account: "Sin necesidad de cuenta", stored: "No guardamos datos salariales", assumptions: "Supuestos claros" },
     methodology: "Consulta nuestra metodología",
+    badge: { free: "100 % gratis", noSignup: "Sin registro" },
+    benefits: { label: "Ventajas del sitio", free: "100 % gratis", instant: "Resultados al instante", mobile: "Adaptado a móviles", languages: "Disponible en seis idiomas" },
   },
   payGuide: {
     stepsKicker: "Paso a paso",

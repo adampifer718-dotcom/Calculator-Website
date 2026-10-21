@@ -99,6 +99,8 @@ const fr: Messages = {
       "Les calculs sont effectués dans votre navigateur et vos chiffres ne sont ni envoyés ni enregistrés. Les résultats sont des estimations de revenu brut ; impôts, heures supplémentaires, avantages et retenues modifient votre salaire net.",
     pills: { account: "Aucun compte requis", stored: "Aucune donnée de paie enregistrée", assumptions: "Hypothèses explicites" },
     methodology: "Découvrir notre méthodologie",
+    badge: { free: "100 % gratuit", noSignup: "Sans inscription" },
+    benefits: { label: "Avantages du site", free: "100 % gratuit", instant: "Résultats instantanés", mobile: "Adapté aux mobiles", languages: "Disponible en six langues" },
   },
   payGuide: {
     stepsKicker: "Étape par étape",
