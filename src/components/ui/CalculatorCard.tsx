@@ -14,7 +14,7 @@ export function CalculatorCard({ calculator, headingLevel = "h3" }: { calculator
     >
       <CategoryIcon category={calculator.def.category} slug={calculator.def.slug} size="lg" />
       <span className="min-w-0 flex-1">
-        <Heading className="font-bold text-ink-900 group-hover:text-brand-700">{calculator.content.title}</Heading>
+        <Heading className="font-bold break-words hyphens-auto text-ink-900 group-hover:text-brand-700">{calculator.content.title}</Heading>
         <span className="mt-1 block text-sm leading-relaxed text-neutral-600">{calculator.content.summary}</span>
       </span>
       <ArrowIcon className="mt-1 size-4 text-neutral-400 transition-transform group-hover:translate-x-0.5 group-hover:text-brand-600 rtl:group-hover:-translate-x-0.5" />

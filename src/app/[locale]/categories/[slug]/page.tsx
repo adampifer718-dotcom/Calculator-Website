@@ -55,7 +55,7 @@ export default async function CategoryPage({ params }: PageProps<"/[locale]/cate
       />
       <header className="mt-5 flex max-w-3xl items-start gap-4">
         <CategoryIcon category={category.slug} size="lg" />
-        <div>
+        <div className="min-w-0 break-words hyphens-auto">
           <h1 className="text-3xl font-extrabold tracking-[-0.025em] text-ink-900 sm:text-4xl">{heading}</h1>
           <p className="mt-3 text-lg text-neutral-600">{category.description}</p>
           <p className="mt-2 text-sm text-neutral-500">{tc("calculatorCount", { count: calculators.length })}</p>

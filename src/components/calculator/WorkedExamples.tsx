@@ -17,10 +17,10 @@ export function WorkedExamples({ calculator }: { calculator: LocalizedCalculator
         return (
           <article key={example.title} className="card flex flex-col p-5">
             <h3 className="font-bold text-ink-900">{localized.title}</h3>
-            <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-sm">
+            <dl className="mt-3 grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-1 text-sm">
               {describeInputs(engine, example.inputs).map((input) => (
                 <div key={input.label} className="contents">
-                  <dt className="text-neutral-600">{input.label}</dt>
+                  <dt className="break-words text-neutral-600">{input.label}</dt>
                   <dd className="text-end font-medium text-ink-900 tabular-nums">
                     <bdi>{input.value}</bdi>
                   </dd>
