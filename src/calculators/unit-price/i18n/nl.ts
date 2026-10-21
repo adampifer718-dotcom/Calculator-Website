@@ -6,7 +6,7 @@ const nl: CalculatorTranslation<UnitPriceText> = {
     title: "Eenheidsprijscalculator",
     shortTitle: "Eenheidsprijs",
     summary: "Vergelijk twee verpakkingen op prijs per kilogram, liter of stuk en zie welke de beste koop is.",
-    metaTitle: "Eenheidsprijscalculator – prijs per kilo of liter vergelijken",
+    metaTitle: "Eenheidsprijs – prijs per kilo of liter vergelijken",
     metaDescription:
       "Vergelijk twee producten op eenheidsprijs per kg, per liter of per stuk, ook als er één in ounces of gallons is, en zie hoeveel het goedkopere bespaart.",
     keywords: ["eenheidsprijs", "prijs per eenheid", "prijs per kilo", "kiloprijs", "literprijs", "prijzen vergelijken", "beste koop", "boodschappen vergelijken"],
