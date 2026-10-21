@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<DebtToIncomeText> = {
     summary: "Bereken je schuld-inkomensratio (back-end) en woonquote (front-end) uit je bruto maandinkomen en je maandelijkse schuldbetalingen.",
     metaTitle: "Schuld-inkomensratio berekenen – Front-end en back-end",
     metaDescription:
-      "Bereken je schuld-inkomensratio: totale maandelijkse schuldbetalingen gedeeld door je bruto maandinkomen, plus de woonquote (front-end) en de totale schuldlast.",
+      "Bereken je schuld-inkomensratio: totale maandelijkse schuldbetalingen gedeeld door je bruto maandinkomen, plus de woonquote (front-end) en de schuldlast.",
     keywords: ["schuld-inkomensratio", "DTI", "back-end ratio", "front-end ratio", "woonquote", "hypotheek aanvragen", "maandelijkse schuldlast"],
     intro: [
       "Je schuld-inkomensratio, of DTI (debt-to-income), vergelijkt wat je elke maand aan schulden betaalt met wat je bruto verdient. Kredietverstrekkers gebruiken hem als één maatstaf voor hoeveel ruimte je budget heeft voor een nieuwe lening.",

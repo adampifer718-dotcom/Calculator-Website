@@ -10,7 +10,7 @@ const nl: CalculatorTranslation<DownloadTimeText> = {
     summary: "Schat hoe lang het downloaden of uploaden van een bestand duurt op basis van de bestandsgrootte en je verbindingssnelheid.",
     metaTitle: "Downloadtijdcalculator – bestandsgrootte en snelheid",
     metaDescription:
-      "Schat de download- of uploadtijd op basis van de bestandsgrootte in MB, GB, GiB of TB en de verbindingssnelheid in Mbit/s of Gbit/s, eventueel met protocoloverhead.",
+      "Schat de download- of uploadtijd uit de bestandsgrootte in MB, GB, GiB of TB en de verbindingssnelheid in Mbit/s of Gbit/s, eventueel met protocoloverhead.",
     keywords: ["downloadtijd", "uploadtijd", "overdrachtstijd", "bestandsgrootte", "mbps", "internetsnelheid", "bandbreedte", "hoe lang duurt downloaden"],
     intro: [
       "De downloadtijd is de hoeveelheid data gedeeld door de snelheid waarmee die wordt verstuurd. Het lastige zit in de eenheden: internetabonnementen worden verkocht in megabit per seconde, terwijl bestanden in megabytes of gigabytes worden gemeten, en een byte bestaat uit 8 bits.",

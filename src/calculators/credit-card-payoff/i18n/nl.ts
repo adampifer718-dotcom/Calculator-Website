@@ -11,7 +11,7 @@ const nl: CalculatorTranslation<CreditCardPayoffText> = {
     summary: "Zie hoeveel maanden een vast bedrag nodig heeft om een creditcardschuld af te lossen, of welk bedrag je nodig hebt om op een bepaalde datum schuldenvrij te zijn.",
     metaTitle: "Creditcardschuld aflossen – Looptijd en rente",
     metaDescription:
-      "Schat hoe lang een vast maandbedrag nodig heeft om een creditcard af te lossen, de totale rente, of het bedrag om in een gekozen aantal maanden schuldenvrij te zijn.",
+      "Schat hoe lang een vast maandbedrag nodig heeft om een creditcard af te lossen, de totale rente, of het maandbedrag om op een doeldatum schuldenvrij te zijn.",
     keywords: ["creditcard aflossen", "creditcardschuld", "creditcardrente", "schuld aflossen", "aflostermijn", "maandbedrag creditcard", "APR"],
     intro: [
       "Over het saldo dat je op je creditcard laat staan, betaal je rente. Een klein maandbedrag kan je daardoor jarenlang in de schulden houden. Deze calculator laat zien wat het effect is van elke maand een vast bedrag betalen.",

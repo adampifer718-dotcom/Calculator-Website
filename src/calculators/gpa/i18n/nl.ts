@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<GpaText> = {
     summary: "Bereken een naar studiepunten gewogen grade point average (GPA) uit lettercijfers of gradepunten, en werk je cumulatieve GPA bij.",
     metaTitle: "GPA-calculator – GPA per periode en cumulatief",
     metaDescription:
-      "Bereken je GPA voor een periode uit lettercijfers en studiepunten op een schaal van 4,0 of 4,3, en combineer die met je huidige GPA tot een nieuwe cumulatieve GPA.",
+      "Bereken je GPA per periode uit lettercijfers en studiepunten op een schaal van 4,0 of 4,3, en combineer die met je huidige GPA tot een nieuwe cumulatieve GPA.",
     keywords: ["gpa", "grade point average", "gpa berekenen", "cumulatieve gpa", "semester-gpa", "schaal van 4,0", "studiepunten"],
     intro: [
       "Je grade point average (GPA) weegt de gradepunten van elk vak naar het aantal studiepunten, zodat een vak van 4 studiepunten zwaarder telt dan een vak van 2.",

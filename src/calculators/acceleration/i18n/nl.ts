@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<AccelerationText> = {
     summary: "Bereken de versnelling uit een snelheidsverandering, uit afstand en tijd of uit kracht en massa, in m/s², ft/s² en g.",
     metaTitle: "Versnellingscalculator – Uit snelheid, afstand of kracht",
     metaDescription:
-      "Bereken de versnelling uit een snelheidsverandering in een bepaalde tijd, uit afstand en tijd of uit kracht en massa (a = F/m). Resultaat in m/s², ft/s² en g.",
+      "Bereken de versnelling uit een snelheidsverandering in de tijd, uit afstand en tijd of uit kracht en massa (a = F/m), in m/s², ft/s² en g.",
     keywords: ["versnelling berekenen", "formule versnelling", "m/s2", "vertraging", "g-kracht", "a = F/m", "0 naar 100", "kinematica"],
     intro: [
       "Versnelling geeft aan hoe snel de snelheid verandert. Een auto die in 8 seconden vanuit stilstand naar 100 km/h gaat, wint elke seconde ongeveer 3,5 meter per seconde aan snelheid. Dat schrijf je als 3,5 m/s².",

@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<LoanPaymentText> = {
     summary: "Bereken het maandbedrag, de totale rente en het aflossingsschema van een lening of hypotheek met vaste rente.",
     metaTitle: "Leningcalculator – maandbedrag en totale rente",
     metaDescription:
-      "Bereken het maandbedrag van een lening of hypotheek met vaste rente, de totale rente en een aflossingsschema per jaar op basis van bedrag, jaarrente en looptijd.",
+      "Bereken het maandbedrag van een lening of hypotheek met vaste rente, de totale rente en een aflossingsschema per jaar uit bedrag, jaarrente en looptijd.",
     keywords: ["lening", "hypotheek", "maandbedrag", "maandlasten", "aflossing", "rente", "jkp", "autolening", "persoonlijke lening"],
     intro: [
       "De meeste autoleningen, persoonlijke leningen en hypotheken met vaste rente worden afgelost in gelijke maandbedragen. Elke betaling dekt de rente van die maand en lost een deel van de schuld af.",

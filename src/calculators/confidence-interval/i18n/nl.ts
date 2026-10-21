@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<ConfidenceIntervalText> = {
     summary: "Bereken een betrouwbaarheidsinterval voor een gemiddelde uit het steekproefgemiddelde, de standaardafwijking en de steekproefgrootte.",
     metaTitle: "Betrouwbaarheidsinterval berekenen – Voor een gemiddelde",
     metaDescription:
-      "Bereken een betrouwbaarheidsinterval voor een gemiddelde uit steekproefgemiddelde, standaardafwijking, steekproefgrootte en betrouwbaarheid, met foutmarge en z*.",
+      "Bereken een betrouwbaarheidsinterval voor een gemiddelde uit steekproefgemiddelde, standaardafwijking, steekproefgrootte en niveau, met foutmarge en z*.",
     keywords: ["betrouwbaarheidsinterval", "foutmarge", "standaardfout", "z-score", "95% betrouwbaarheid", "statistiek", "gemiddelde"],
     intro: [
       "Een betrouwbaarheidsinterval geeft een bereik van aannemelijke waarden voor een populatiegemiddelde. Een 95%-interval is zo opgebouwd dat 95% van de intervallen die op deze manier worden gemaakt het echte gemiddelde bevat.",

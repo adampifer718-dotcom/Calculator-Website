@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<HalfLifeText> = {
     summary: "Los exponentieel verval op voor de resterende hoeveelheid, de beginhoeveelheid, de halveringstijd of de verstreken tijd.",
     metaTitle: "Halveringstijdcalculator – resterende hoeveelheid en tijd",
     metaDescription:
-      "Los N = N₀(1/2)^(t/T) op voor de resterende hoeveelheid, de beginhoeveelheid, de halveringstijd of de verstreken tijd, met vervalconstante en gemiddelde levensduur.",
+      "Los N = N₀(1/2)^(t/T) op voor de resterende hoeveelheid, de beginhoeveelheid, de halveringstijd of de verstreken tijd, met vervalconstante en levensduur.",
     keywords: ["halveringstijd", "radioactief verval", "exponentieel verval", "vervalconstante", "gemiddelde levensduur", "koolstofdatering", "eerste-ordekinetiek"],
     intro: [
       "De halveringstijd is de tijd waarin de helft van een vervallende hoeveelheid verdwijnt. Na één halveringstijd is er nog 50% over, na twee 25%, na drie 12,5%, enzovoort.",

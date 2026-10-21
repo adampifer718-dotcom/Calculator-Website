@@ -11,9 +11,9 @@ const nl: CalculatorTranslation<AgeText> = {
     title: "Leeftijdscalculator",
     shortTitle: "Leeftijd",
     summary: "Bereken een exacte leeftijd in jaren, maanden en dagen op elke datum, met het totaal aantal dagen en weken en de volgende verjaardag.",
-    metaTitle: "Leeftijdscalculator – Exacte leeftijd in jaren, maanden, dagen",
+    metaTitle: "Leeftijdscalculator – Leeftijd in jaren, maanden en dagen",
     metaDescription:
-      "Bereken de exacte leeftijd vanaf een geboortedatum in jaren, maanden en dagen, plus het totaal aantal dagen en weken, de volgende verjaardag en je geboortedag.",
+      "Bereken de exacte leeftijd vanaf een geboortedatum in jaren, maanden en dagen, plus het aantal dagen en weken, de volgende verjaardag en je geboortedag.",
     keywords: ["leeftijd berekenen", "hoe oud ben ik", "geboortedatum", "verjaardag", "leeftijd in dagen", "exacte leeftijd", "kalenderleeftijd"],
     intro: [
       "Vul een geboortedatum in om de exacte leeftijd van vandaag te zien, of kies een andere datum om iemands leeftijd op die dag te vinden.",

@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<FractionText> = {
     summary: "Tel breuken en gemengde getallen op, trek ze af, vermenigvuldig of deel ze, met het antwoord vereenvoudigd en als decimaal getal.",
     metaTitle: "Breukencalculator – optellen, aftrekken, vermenigvuldigen",
     metaDescription:
-      "Tel breuken, gemengde getallen en decimale getallen op, trek ze af, vermenigvuldig of deel ze. Krijg het exacte antwoord vereenvoudigd, als gemengd getal en als decimaal.",
+      "Tel breuken, gemengde getallen en decimale getallen op, trek ze af, vermenigvuldig of deel ze. Exact antwoord, vereenvoudigd, als gemengd getal en als decimaal.",
     keywords: ["breuken", "breuken berekenen", "gemengde getallen", "breuken vereenvoudigen", "breuken optellen", "breuken delen", "onvereenvoudigbare breuk"],
     intro: [
       "Vul twee getallen in als breuk (3/4), gemengd getal (1 1/2), geheel getal of decimaal getal, kies een bewerking en krijg het exacte antwoord.",

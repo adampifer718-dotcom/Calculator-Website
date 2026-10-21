@@ -9,7 +9,7 @@ const nl: CalculatorTranslation<HeartRateZonesText> = {
       "Schat je maximale hartslag op basis van je leeftijd en bekijk vijf trainingszones in slagen per minuut, als percentage van het maximum of met de Karvonen-methode.",
     metaTitle: "Hartslagzonecalculator – maximale hartslag en zones",
     metaDescription:
-      "Schat je maximale hartslag met 220 − leeftijd of de Tanaka-formule en krijg vijf trainingszones in bpm, als percentage van het maximum of met de Karvonen-methode.",
+      "Schat je maximale hartslag met 220 − leeftijd of de Tanaka-formule en krijg vijf trainingszones in bpm, als percentage van het maximum of volgens Karvonen.",
     keywords: ["hartslagzones", "streefhartslag", "maximale hartslag", "Karvonen-formule", "trainingszones", "vetverbrandingszone", "hartslagreserve"],
     intro: [
       "Hartslagzones verdelen de inspanning tijdens het sporten in banden op basis van je maximale hartslag. Trainen in een bepaalde zone helpt je om rustige duurlopen, gelijkmatige ritten of zware intervallen te doseren zonder te gissen.",
