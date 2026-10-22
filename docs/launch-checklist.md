@@ -404,3 +404,32 @@ Run on 15 October 2026 after adding the 20 batch-5 calculators and their transla
 | Sitemap | `curl localhost:3100/sitemap.xml` | 732 URLs (122 pages × 6 languages) |
 | SEO crawl | `node scripts/seo-audit.mjs http://localhost:3100 https://hourlytosalarycalculator.net` | 732 sitemap URLs and 732 internal links checked; no problems found |
 | Playwright (desktop and mobile), full suite | `npx playwright test` | **117 passed, 0 failed, 7 skipped** (desktop-only or mobile-only tests); 41.1 min |
+
+### 9.3 Nine-language run (commit `28c99bd`, 22 October 2026)
+
+Run on a clean production build: `.next` was deleted first, then `next build` was run once and served with `next start -p 3100`. Every check below ran against that build, with no code changes in between.
+
+| Check | Command | Result |
+| --- | --- | --- |
+| Lint | `npm run lint` | Pass (0 errors) |
+| TypeScript | `npx tsc --noEmit` | Pass (0 errors) |
+| Unit tests | `npx vitest run` | **3,092 passed**, 0 failed (37 files). Includes the Italian grouping tests: `1234` → `1.234`, and `1234.5 USD` → `1.234,50 USD`. |
+| Production build | `npx next build` | Pass; 1,823 static pages |
+| SEO audit | `node scripts/seo-audit.mjs http://localhost:3100 https://hourlytosalarycalculator.net` | 1,755 sitemap URLs (195 × 9 languages) and 6,048 distinct internal links checked; no problems found (titles, descriptions, canonicals, hreflang, internal links) |
+| Metadata unit checks | `src/i18n/metadata.test.ts` | For each language: titles ≤ 60 characters, descriptions 70–160 characters, and titles and descriptions unique within the language |
+| Playwright, all specs except the sitemap crawl (desktop and mobile) | `npx playwright test` on the 6 specs other than `e2e/pages.spec.ts` | **190 passed, 0 failed, 8 skipped** (desktop-only or mobile-only tests); 3.4 min. Includes the header-fit test for every language at 1024 and 1280 px. |
+| Playwright sitemap crawl, desktop | `npx playwright test e2e/pages.spec.ts --project=desktop` | **31 passed, 0 failed**; 40.1 min |
+| Playwright sitemap crawl, mobile | `npx playwright test e2e/pages.spec.ts --project=mobile` | **31 passed, 0 failed**; 34.8 min |
+| Hydration and console | Scripted Chromium check: 9 languages × home, calculator, converter, category, collection and directory pages | No React #418 or other hydration errors, no console or page errors, no `MISSING_MESSAGE` |
+| Italian formatting | SSR HTML compared with the hydrated DOM | Tip on 1.234,5 → `222,21 USD`; 1.234 bar → `17.897,657 psi`; server and browser output identical |
+| 320 px overflow | Scripted scan of all 1,755 sitemap URLs at 320 px | 0 pages overflow |
+| Header widths | Scripted check of `/calculators` at 1024, 1279, 1280 and 1366 px in all 9 languages | 0 px header-row overflow and 0 px page overflow in all 36 cases. Placeholder fit is asserted by the Playwright header test at 1024 and 1280 px. |
+
+**Total:** 252 Playwright tests ran (190 + 31 + 31) and none failed. With the 8 by-design skips, that covers all 260 listed tests.
+
+**Old build, for comparison.** The desktop crawl on the build before `c1b12d0` finished with 28 passed and 3 failed. All three failures are fixed in the build above:
+- a duplicate es/pt chemistry category title (fixed by distinct Portuguese titles);
+- React #418 hydration errors on Italian pages, caused by number grouping differing between server and browser (fixed in `c1b12d0`);
+- a 10 px overflow at 320 px on `/nl/categories/statistics`; a later scan also found a 7 px overflow on `/nl/calculators/mortgage-calculator` (both fixed in `28c99bd`).
+
+**Still open.** These are not covered by the automated tests: native-speaker proofreading for 8 languages (180 flagged terms in `docs/translation-proofreading.md`), unverified source links (section 3.1), professional review (section 4), no `main` branch or CI run, and the production domain not verified live (section 8).
