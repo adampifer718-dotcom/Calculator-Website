@@ -1,0 +1,115 @@
+import { defineCalculator } from "@/calculators/framework/types";
+import text from "./text/en";
+import { translations } from "./translations";
+import { drywallEngine, makeDrywallEngine } from "./engine";
+
+export const drywall = defineCalculator({
+  id: "drywall",
+  slug: "drywall-calculator",
+  status: "published",
+  title: "Drywall Calculator",
+  shortTitle: "Drywall",
+  category: "construction",
+  collections: ["construction-engineering", "real-estate"],
+  summary: "Estimate how many drywall sheets you need for walls and an optional ceiling, minus doors and windows, with a waste allowance.",
+  metaTitle: "Drywall Calculator – Sheets of Gypsum Board Needed",
+  metaDescription: "Work out how many 4×8, 4×10 or 4×12 ft (or metric) drywall sheets to buy for your walls and ceiling, after doors and windows, plus a waste allowance.",
+  keywords: ["drywall calculator", "sheetrock calculator", "how many sheets of drywall", "gypsum board", "plasterboard", "drywall sheets", "joint compound", "wallboard estimate"],
+  addedOn: "2026-10-22",
+  sources: [
+    {
+      title: "USG Top FAQs 2021",
+      publisher: "USG Corporation",
+      url: "https://www.usg.com/content/usgcom/en/blog/usg-top-faqs-2021.html",
+      usedFor: "The rule of thumb of about two 4.5-gallon pails of ready-mixed joint compound to finish 1,000 ft² of gypsum board.",
+    },
+  ],
+  intro: [
+    "Drywall, also called gypsum board, plasterboard or Sheetrock, is sold in sheets of a fixed size. To know how many to buy, work out the area of the walls (and the ceiling, if you are boarding it), take away the doors and windows, add some extra for offcuts and divide by the area of one sheet.",
+    "This calculator does that for common US and metric sheet sizes and rounds up to whole sheets. It also gives a rough estimate of the ready-mixed joint compound needed to finish the joints.",
+  ],
+  howToUse: [
+    "Choose US units (feet) or metric units (meters).",
+    "Enter the total length of the walls you are covering and their height. For a whole room, the total length is the perimeter.",
+    "Choose whether to include the ceiling; if you do, enter the room's length and width.",
+    "Enter how many doors and windows there are, and adjust their typical sizes if needed.",
+    "Pick the sheet size and a waste allowance, then read the number of sheets to buy.",
+  ],
+  formulas: [
+    { title: "Net area", expression: "A = L × H + ceiling length × ceiling width − openings", explanation: "L is the total wall length and H the wall height. Openings are the doors and windows times their areas." },
+    { title: "Sheets needed", expression: "sheets = ⌈A × (1 + waste) ÷ sheet area⌉", explanation: "Rounded up to a whole sheet. A 4 × 8 ft sheet covers 32 ft² and a 1.2 × 2.4 m sheet covers 2.88 m²." },
+    { title: "Joint compound (approximate)", expression: "compound ≈ A × 9 gal ÷ 1,000 ft² (≈ 0.37 L/m²)", explanation: "A rule of thumb for ready-mixed compound; the product's data sheet gives a better figure." },
+  ],
+  examples: [
+    {
+      title: "Walls of a room with 50 ft of wall, 8 ft high",
+      inputs: { units: "imperial", lengthImperial: 50, heightImperial: 8, ceiling: "no", doors: 1, doorAreaImperial: 20, windows: 2, windowAreaImperial: 15, sheetImperial: "4x8", waste: 10 },
+      steps: ["Wall area = 50 × 8 = 400 ft²", "Openings = 20 + 2 × 15 = 50 ft², so the net area is 350 ft²", "With 10% waste: 385 ft² ÷ 32 ft² ≈ 12.03, so buy 13 sheets"],
+      expectedPrimary: 13,
+    },
+    {
+      title: "14 × 12 ft room with 9 ft walls and the ceiling, 4 × 12 sheets",
+      inputs: {
+        units: "imperial",
+        lengthImperial: 52,
+        heightImperial: 9,
+        ceiling: "yes",
+        roomLengthImperial: 14,
+        roomWidthImperial: 12,
+        doors: 2,
+        doorAreaImperial: 20,
+        windows: 2,
+        windowAreaImperial: 15,
+        sheetImperial: "4x12",
+        waste: 12,
+      },
+      steps: [
+        "Walls = 52 × 9 = 468 ft²; ceiling = 14 × 12 = 168 ft²",
+        "Openings = 2 × 20 + 2 × 15 = 70 ft², so the net area is 566 ft²",
+        "With 12% waste: 633.92 ft² ÷ 48 ft² ≈ 13.21, so buy 14 sheets",
+        "Joint compound ≈ 566 × 9 ÷ 1,000 ≈ 5.1 gal",
+      ],
+      expectedPrimary: 14,
+    },
+    {
+      title: "Metric room with 15.6 m of wall, 2.6 m high, and the ceiling",
+      inputs: {
+        units: "metric",
+        lengthMetric: 15.6,
+        heightMetric: 2.6,
+        ceiling: "yes",
+        roomLengthMetric: 4.5,
+        roomWidthMetric: 3.3,
+        doors: 1,
+        doorAreaMetric: 1.9,
+        windows: 1,
+        windowAreaMetric: 1.4,
+        sheetMetric: "1.2x2.4",
+        waste: 10,
+      },
+      steps: [
+        "Walls = 15.6 × 2.6 = 40.56 m²; ceiling = 4.5 × 3.3 = 14.85 m²",
+        "Openings = 1.9 + 1.4 = 3.3 m², so the net area is 52.11 m²",
+        "With 10% waste: 57.32 m² ÷ 2.88 m² ≈ 19.9, so buy 20 sheets",
+      ],
+      expectedPrimary: 20,
+    },
+  ],
+  assumptions: [
+    "Walls and ceilings are treated as flat rectangles. Work out gable ends, sloped ceilings and soffits separately and add them to the wall length or as an extra ceiling area.",
+    "The count is based on area. A sheet-by-sheet layout can need a few more sheets, especially when the wall height does not suit the sheet length.",
+    "Door and window sizes are typical values. Measure your own for a closer estimate.",
+    "The joint compound figure is approximate, based on a manufacturer's rule of thumb for ready-mixed compound. Screws, tape and corner bead are not estimated.",
+  ],
+  faqs: [
+    { question: "How much waste should I allow for drywall?", answer: "About 10% is common for simple rectangular rooms. Rooms with many corners, openings, angled ceilings or short wall sections produce more offcuts, so 15% or more is safer there." },
+    { question: "Should I use longer sheets?", answer: "Longer sheets, such as 4 × 12 ft, mean fewer joints to tape and finish, which saves time and compound. They are heavier and harder to carry through doors and up stairs, so they suit open rooms and two-person crews." },
+    { question: "Do I subtract windows and doors?", answer: "Yes, for the area. Many installers board straight over small openings and cut them out afterwards, so the waste allowance covers the offcuts." },
+  ],
+  related: ["paint-calculator", "square-footage-calculator", "flooring-calculator"],
+  updated: "2026-10-22",
+  engine: drywallEngine,
+  text,
+  makeEngine: makeDrywallEngine,
+  translations,
+});

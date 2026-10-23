@@ -9,7 +9,8 @@ import { lightConverters } from "./units/light";
 import { magnetismConverters } from "./units/magnetism";
 import { otherConverters } from "./units/other";
 import { radiologyConverters } from "./units/radiology";
-import { caseConverter, currency, numbers } from "./units/special";
+import { extraLinearConverters } from "./units/extra";
+import { caseConverter, currency, numbers, toolConverters } from "./units/special";
 
 /**
  * Every unit converter, in directory order. Client-safe: unit data only, no
@@ -25,11 +26,16 @@ export const ALL_CONVERTERS: readonly ConverterSpec[] = [
   ...engineeringConverters,
   ...heatConverters,
   ...fluidsConverters,
+  extraLinearConverters.glucose,
+  extraLinearConverters.waterHardness,
   ...lightConverters,
   ...electricityConverters,
+  extraLinearConverters.wireGauge,
   ...magnetismConverters,
   ...radiologyConverters,
   ...otherConverters,
+  extraLinearConverters.astronomical,
+  ...toolConverters,
 ];
 
 export function getSpec(id: string): ConverterSpec | undefined {

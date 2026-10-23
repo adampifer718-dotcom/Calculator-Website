@@ -1,0 +1,27 @@
+const text = {
+  solve: "Find",
+  solveOptions: { force: "Force (F)", mass: "Mass (m)", acceleration: "Acceleration (a)" },
+  force: "Force (F)",
+  forceHelp: "Net force. A negative value means it points the opposite way.",
+  forceUnit: "Force unit",
+  forceUnits: { N: "Newtons (N)", kN: "Kilonewtons (kN)", lbf: "Pounds-force (lbf)", dyn: "Dynes (dyn)" },
+  mass: "Mass (m)",
+  massUnit: "Mass unit",
+  massUnits: { kg: "Kilograms (kg)", g: "Grams (g)", lb: "Pounds (lb)", t: "Metric tons (t)" },
+  acceleration: "Acceleration (a)",
+  accelerationHelp: "A negative value means the acceleration points the opposite way (slowing down).",
+  accelerationUnit: "Acceleration unit",
+  accelerationUnits: { ms2: "Meters per second squared (m/s²)", fts2: "Feet per second squared (ft/s²)", g: "Standard gravity (g = 9.80665 m/s²)" },
+  unitHelp: "For the value you are finding, this is the unit of the answer.",
+  zeroAcceleration: "The acceleration cannot be 0 when finding the mass.",
+  zeroForce: "The force cannot be 0 when finding the mass.",
+  signMismatch: "The force and the acceleration must point the same way (have the same sign), because mass is positive.",
+  results: { force: "Force", mass: "Mass", acceleration: "Acceleration" },
+  inUnit: "In {unit}",
+  weightKg: "Weight equivalent: mass that weighs this much at standard gravity",
+  weightLb: "Weight equivalent in pounds",
+  weightNote: "The weight equivalent is |F| ÷ g₀ with g₀ = 9.80665 m/s²: the mass that a scale would read under this force on Earth.",
+  note: "F is the net (total) force on the object. With several forces, add them as vectors first.",
+};
+export type ForceText = typeof text;
+export default text;

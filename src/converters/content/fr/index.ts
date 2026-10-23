@@ -8,6 +8,7 @@ import { electricityContent } from "./electricity";
 import { magnetismContent } from "./magnetism";
 import { radiologyContent } from "./radiology";
 import { otherContent } from "./other";
+import { extraContent } from "./extra";
 
 /**
  * Converter page content in this language, keyed by converter id. A converter
@@ -24,4 +25,5 @@ export const content: Record<string, ConverterContent> = {
   ...magnetismContent,
   ...radiologyContent,
   ...otherContent,
+  ...extraContent,
 };

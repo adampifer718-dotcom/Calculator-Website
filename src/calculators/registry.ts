@@ -76,6 +76,26 @@ import { marginOfError } from "./margin-of-error";
 import { probabilityEvents } from "./probability-events";
 import { combinations } from "./combinations";
 import { seriesParallelResistors } from "./series-parallel-resistors";
+import { quartileIqr } from "./quartile-iqr";
+import { triangle } from "./triangle";
+import { rounding } from "./rounding";
+import { ratio } from "./ratio";
+import { areaShapes } from "./area-shapes";
+import { gravelMulch } from "./gravel-mulch";
+import { drywall } from "./drywall";
+import { capRate } from "./cap-rate";
+import { depreciation } from "./depreciation";
+import { overtimePay } from "./overtime-pay";
+import { clockDuration } from "./clock-duration";
+import { raceTimePredictor } from "./race-time-predictor";
+import { ph } from "./ph";
+import { molarMass } from "./molar-mass";
+import { potentialEnergy } from "./potential-energy";
+import { momentum } from "./momentum";
+import { force } from "./force";
+import { projectileMotion } from "./projectile-motion";
+import { bayes } from "./bayes";
+import { correlation } from "./correlation";
 import { quadratic } from "./quadratic";
 import { gcfLcm } from "./gcf-lcm";
 import { percentError } from "./percent-error";
@@ -188,6 +208,26 @@ export const ALL_CALCULATORS: readonly CalculatorDefinition[] = [] = [
   probabilityEvents,
   combinations,
   seriesParallelResistors,
+  correlation,
+  bayes,
+  projectileMotion,
+  force,
+  momentum,
+  potentialEnergy,
+  molarMass,
+  ph,
+  raceTimePredictor,
+  clockDuration,
+  overtimePay,
+  depreciation,
+  capRate,
+  drywall,
+  gravelMulch,
+  areaShapes,
+  ratio,
+  rounding,
+  triangle,
+  quartileIqr,
 ];
 
 /**

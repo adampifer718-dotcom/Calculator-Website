@@ -1,0 +1,31 @@
+const text = {
+  knownRace: "Recent race distance",
+  targetRace: "Distance to predict",
+  races: { mile: "1 mile", "5k": "5K", "10k": "10K", half: "Half marathon (21.0975 km)", marathon: "Marathon (42.195 km)", custom: "Custom distance" },
+  knownDistance: "Recent race distance",
+  targetDistance: "Distance to predict",
+  unit: "Distance unit",
+  units: { km: "Kilometers (km)", mi: "Miles (mi)" },
+  hours: "Finish time: hours",
+  minutes: "Minutes",
+  seconds: "Seconds",
+  exponent: "Fatigue exponent (k)",
+  exponentHelp: "Riegel's value for running is 1.06. A higher value assumes you slow down more as the distance grows.",
+  timeZero: "Enter a finish time greater than zero.",
+  predicted: "Predicted finish time",
+  caption: "{time} for {known} → {target}, k = {k}",
+  perKm: "Predicted pace per kilometer",
+  perMile: "Predicted pace per mile",
+  speed: "Average speed",
+  tableCaption: "Predictions for standard distances",
+  columns: { distance: "Distance", time: "Predicted time", perKm: "Pace /km", perMile: "Pace /mi" },
+  tableRaces: { mile: "1 mile", "5k": "5K", "10k": "10K", half: "Half marathon", marathon: "Marathon" },
+  notes: {
+    far: "The target distance is more than four times longer or shorter than your race, so the prediction is less reliable.",
+    long: "The predicted time is over about 4 hours, where the formula tends to be optimistic.",
+    same: "Both distances are the same, so the prediction equals your finish time.",
+    training: "Assumes you are equally well trained for the target distance, for example with enough long runs for a marathon.",
+  },
+};
+export type RaceTimePredictorText = typeof text;
+export default text;

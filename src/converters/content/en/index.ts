@@ -2,6 +2,7 @@ import type { ConverterContent, ConverterMeta } from "../../types";
 import { commonContent } from "./common";
 import { electricityContent } from "./electricity";
 import { engineeringContent } from "./engineering";
+import { extraContent } from "./extra";
 import { fluidsContent } from "./fluids";
 import { heatContent } from "./heat";
 import { lightContent } from "./light";
@@ -20,4 +21,5 @@ export const englishContent: Record<string, ConverterContent & ConverterMeta> = 
   ...magnetismContent,
   ...radiologyContent,
   ...otherContent,
+  ...extraContent,
 };

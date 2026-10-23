@@ -1,0 +1,102 @@
+import type { CalculatorTranslation } from "@/calculators/framework/types";
+import type { PotentialEnergyText } from "../text/en";
+
+const de: CalculatorTranslation<PotentialEnergyText> = {
+  content: {
+    title: "Rechner für potenzielle Energie",
+    shortTitle: "Potenzielle Energie",
+    summary: "Berechnen Sie die potenzielle Energie im Schwerefeld (m·g·h) oder die in einer Feder gespeicherte Energie (½·k·x²), oder lösen Sie eine der Formeln nach dem fehlenden Wert auf.",
+    metaTitle: "Rechner für potenzielle Energie – Epot = mgh und ½kx²",
+    metaDescription: "Berechnen Sie die Lageenergie aus Masse, Höhe und Fallbeschleunigung oder die Spannenergie einer Feder und lösen Sie nach m, h, k oder x auf – in jeder Einheit.",
+    keywords: ["potenzielle Energie berechnen", "Lageenergie", "Höhenenergie", "Epot = mgh", "Spannenergie", "Federenergie", "1/2 kx^2", "Joule"],
+    intro: [
+      "Potenzielle Energie ist Energie, die in der Lage oder Verformung eines Körpers steckt. Heben Sie eine 12 kg schwere Kiste auf eine 2,5 m hohe Plattform, speichern Sie darin etwa 294 Joule, die beim Herunterfallen wieder als Bewegung frei werden. Drücken Sie eine Feder zusammen, speichert sie Energie, die sie beim Loslassen abgibt.",
+      "Dieser Rechner beherrscht beide Arten. Für die Schwerkraft verwendet er Epot = m·g·h mit der Fallbeschleunigung von Erde, Mond, Mars oder einem eigenen Wert. Für eine Feder verwendet er Epot = ½·k·x². Sie können beide Formeln auch rückwärts nach Masse, Höhe, Federkonstante oder Auslenkung auflösen.",
+    ],
+    howToUse: [
+      "Wählen Sie potenzielle Energie im Schwerefeld oder Spannenergie einer Feder.",
+      "Wählen Sie, was Sie berechnen möchten. Das Feld für diesen Wert wird ausgeblendet.",
+      "Geben Sie die übrigen Werte ein und wählen Sie ihre Einheiten. Wählen Sie für die Schwerkraft einen Himmelskörper oder geben Sie einen eigenen Wert ein.",
+      "Lesen Sie das Ergebnis in der gewählten Einheit sowie denselben Wert in den anderen Einheiten ab.",
+    ],
+    formulas: [
+      { title: "Potenzielle Energie im Schwerefeld", expression: "Epot = m × g × h", explanation: "m in Kilogramm, g in m/s² und h in Metern ergeben Epot in Joule. h wird von einem selbst gewählten Bezugsniveau aus gemessen." },
+      { title: "Spannenergie einer Feder", expression: "Epot = ½ × k × x²", explanation: "k ist die Federkonstante in N/m und x die Dehnung oder Stauchung gegenüber der entspannten Länge in Metern." },
+      { title: "Rückwärts auflösen", expression: "m = Epot ÷ (g·h)   h = Epot ÷ (m·g)\nk = 2·Epot ÷ x²   x = √(2·Epot ÷ k)", explanation: "Dieselben Formeln, nach der Unbekannten umgestellt." },
+      { title: "Energieeinheiten", expression: "1 kJ = 1.000 J   1 Wh = 3.600 J   1 kWh = 3.600.000 J\n1 ft·lbf = 1,3558179483314 J", explanation: "Ein Foot-Pound ist 0,3048 m × 4,4482216152605 N, beide Werte exakt." },
+    ],
+    examples: [
+      { title: "Eine 12-kg-Kiste auf eine 2,5 m hohe Plattform heben", steps: ["Epot = m × g × h", "= 12 × 9,80665 × 2,5", "= 294,1995 J (etwa 0,29 kJ)"] },
+      { title: "Wie hoch könnte 1 kWh ein 1.000 kg schweres Auto heben?", steps: ["1 kWh = 3.600.000 J", "h = Epot ÷ (m × g) = 3.600.000 ÷ (1.000 × 9,80665)", "≈ 367,10 m"] },
+      { title: "Eine Feder mit 400 N/m, um 15 cm zusammengedrückt", steps: ["15 cm = 0,15 m", "Epot = ½ × 400 × 0,15²", "= 200 × 0,0225 = 4,5 J"] },
+    ],
+    assumptions: [
+      "Die Fallbeschleunigung wird über die Höhe als konstant angenommen, was nahe der Oberfläche eines Planeten genau ist. Bei Höhen von Hunderten Kilometern spielt die Abnahme der Schwerkraft mit der Entfernung eine Rolle.",
+      "Für die Erde wird die Normfallbeschleunigung von 9,80665 m/s² verwendet, die per Definition exakt ist. Die tatsächliche Fallbeschleunigung schwankt leicht mit geografischer Breite und Höhe. Die Werte für Mond und Mars sind mittlere Oberflächenwerte aus NASA-Datenblättern.",
+      "Die Feder ist ideal: Sie folgt dem hookeschen Gesetz und wird nicht über ihre Elastizitätsgrenze hinaus gedehnt. Reibung, Luftwiderstand und als Wärme verlorene Energie werden vernachlässigt.",
+    ],
+    faqs: [
+      { question: "Von wo aus sollte ich die Höhe messen?", answer: "Von jedem Niveau, das Sie als null festlegen, etwa dem Fußboden, dem Erdboden oder einer Tischplatte. Die potenzielle Energie hängt von dieser Wahl ab, die Energieänderung zwischen zwei Höhen aber nicht, und genau diese Änderung ist in der Praxis entscheidend." },
+      { question: "Wie hängt potenzielle Energie mit kinetischer Energie zusammen?", answer: "Fällt ein Körper ohne Luftwiderstand, wird seine potenzielle Energie in kinetische Energie umgewandelt. Eine 12-kg-Kiste, die aus 2,5 m fällt, erreicht den Boden mit etwa 294 J kinetischer Energie und einer Geschwindigkeit von √(2gh) ≈ 7,0 m/s." },
+      { question: "Spielt es eine Rolle, ob eine Feder gedehnt oder gestaucht wird?", answer: "Nein. Die Energie hängt von x² ab, daher speichert eine ideale Feder dieselbe Energie, wenn sie um dieselbe Strecke gedehnt oder gestaucht wird." },
+    ],
+    sourcesUsedFor: [
+      "Potenzielle Energie im Schwerefeld nahe der Erdoberfläche (mgh), Spannenergie einer Feder (½kx²) und die Wahl des Nullniveaus.",
+      "Die Fallbeschleunigung an der Mondoberfläche, 1,62 m/s².",
+      "Die mittlere Fallbeschleunigung an der Marsoberfläche, 3,73 m/s².",
+    ],
+  },
+  text: {
+    mode: "Art der potenziellen Energie",
+    modes: { gravitational: "Im Schwerefeld (m·g·h)", elastic: "Feder (½·k·x²)" },
+    solve: "Gesuchter Wert",
+    gSolveOptions: { energy: "Potenzielle Energie (Epot)", mass: "Masse (m)", height: "Höhe (h)" },
+    eSolveOptions: { energy: "Gespeicherte Energie (Epot)", k: "Federkonstante (k)", x: "Dehnung oder Stauchung (x)" },
+    mass: "Masse (m)",
+    massUnit: "Masseeinheit",
+    massUnits: { kg: "Kilogramm (kg)", g: "Gramm (g)", lb: "Pfund (lb)" },
+    height: "Höhe über dem Bezugsniveau (h)",
+    heightHelp: "Gemessen von dem Niveau, das Sie als null festlegen, etwa dem Fußboden oder dem Erdboden.",
+    heightUnit: "Höheneinheit",
+    heightUnits: { m: "Meter (m)", cm: "Zentimeter (cm)", ft: "Fuß (ft)" },
+    gravity: "Fallbeschleunigung (g)",
+    gravityOptions: { earth: "Erde, Normwert (9,80665 m/s²)", moon: "Mond (1,62 m/s²)", mars: "Mars (3,73 m/s²)", custom: "Eigener Wert" },
+    customG: "Eigene Fallbeschleunigung",
+    energy: "Potenzielle Energie (Epot)",
+    energyUnit: "Energieeinheit",
+    energyUnits: { J: "Joule (J)", kJ: "Kilojoule (kJ)", Wh: "Wattstunden (Wh)", kWh: "Kilowattstunden (kWh)", ftlbf: "Foot-Pound (ft·lbf)" },
+    k: "Federkonstante (k)",
+    kHelp: "Wie steif die Feder ist: die Kraft in Newton, die nötig ist, um sie um einen Meter zu dehnen.",
+    x: "Dehnung oder Stauchung (x)",
+    xHelp: "Der Abstand zur entspannten Länge der Feder. Stauchen und Dehnen speichern dieselbe Energie.",
+    xUnit: "Einheit der Auslenkung",
+    xUnits: { m: "Meter (m)", cm: "Zentimeter (cm)", in: "Zoll (in)" },
+    results: {
+      gEnergy: "Potenzielle Energie im Schwerefeld",
+      mass: "Benötigte Masse",
+      height: "Benötigte Höhe",
+      eEnergy: "Spannenergie der Feder",
+      k: "Benötigte Federkonstante",
+      x: "Benötigte Dehnung oder Stauchung",
+    },
+    captions: {
+      gEnergy: "Epot = m × g × h",
+      mass: "m = Epot ÷ (g × h)",
+      height: "h = Epot ÷ (m × g)",
+      eEnergy: "Epot = ½ × k × x²",
+      k: "k = 2 × Epot ÷ x²",
+      x: "x = √(2 × Epot ÷ k)",
+    },
+    inUnit: "In {unit}",
+    weight: "Gewichtskraft (m × g)",
+    fallSpeed: "Geschwindigkeit nach einem Fall um die Höhe h (ohne Luftwiderstand)",
+    springForce: "Federkraft bei dieser Auslenkung (k × x)",
+    notes: {
+      reference: "Die potenzielle Energie wird relativ zu der Höhe gemessen, die Sie als null gewählt haben. Nur Höhenunterschiede sind entscheidend.",
+      gravity: "Verwendet g = {g} m/s², über die Höhe als konstant angenommen.",
+      hooke: "Setzt eine ideale Feder voraus, die dem hookeschen Gesetz (F = k × x) folgt und nicht über ihre Elastizitätsgrenze hinaus gedehnt wird.",
+    },
+  },
+};
+
+export default de;
