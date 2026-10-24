@@ -23,6 +23,7 @@ export function translationReport(): string {
     "A language is published only when its interface, shared calculator strings, category and collection names and homepage pay converter are all translated.",
     "A calculator page exists in a language only when its full content and engine strings are translated; otherwise the language selector sends visitors to that language's homepage and the page is not in the sitemap.",
     "Translations were drafted with AI assistance and checked automatically (structure, placeholders, untranslated text, identical calculator results). No human linguistic review has taken place; terms flagged for native-speaker proofreading are listed in `docs/translation-proofreading.md`.",
+    "Browser checks of every published page in all nine languages (desktop and mobile sitemap crawls: internal links, console errors, accessibility, 320 px overflow and default calculator results) are recorded with their dates and counts in section 9 of `docs/launch-checklist.md`.",
     "",
   );
   lines.push("## Languages", "");

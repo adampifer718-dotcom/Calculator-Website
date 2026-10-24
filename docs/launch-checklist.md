@@ -476,3 +476,37 @@ Run on a clean production build: `.next` was deleted first, then `next build` wa
 - a 10 px overflow at 320 px on `/nl/categories/statistics`; a later scan also found a 7 px overflow on `/nl/calculators/mortgage-calculator` (both fixed in `28c99bd`).
 
 **Still open.** These are not covered by the automated tests: native-speaker proofreading for 8 languages (180 flagged terms in `docs/translation-proofreading.md`), unverified source links (section 3.1), professional review (section 4), no `main` branch or CI run, and the production domain not verified live (section 8).
+
+### 9.4 Batch 6 run (110 calculators, 89 converters; 24 October 2026)
+
+This run used a clean production build of commit `a9b7fa9`, built with `NEXT_PUBLIC_SITE_URL=https://hourlytosalarycalculator.net` and served with `next start -p 3100`. Later commits up to `88be835` changed only documentation and tests. The one exception is an updated header-search test, which was rerun against the same build.
+
+| Check | Command | Result |
+| --- | --- | --- |
+| Lint | `npm run lint` | Pass (0 errors) |
+| TypeScript | `npx tsc --noEmit` | Pass (0 errors) |
+| Unit tests | `npx vitest run` | **3,759 passed**, 0 failed (42 files) |
+| Production build | `npx next build` | Pass; 2,093 static pages. The first two attempts stopped with a Next.js security-upgrade notice and passed on the retry the notice allows (see blocker 6 in section 8). |
+| SEO audit | `node scripts/seo-audit.mjs http://localhost:3100 https://hourlytosalarycalculator.net` | 2,025 sitemap URLs and 6,480 internal links checked; no problems found |
+| Playwright, batch-6 spec | `npx playwright test e2e/batch-6.spec.ts` | **22 passed**, 0 failed (desktop and mobile) |
+| Playwright, all non-crawl specs | `npx playwright test` on every spec except `e2e/pages.spec.ts` | 210 passed, 8 skipped (desktop-only or mobile-only tests), 2 failed |
+| Fix for those 2 failures | `e2e/navigation.spec.ts` "header search" test, rerun | The test expected 2 matches for "hourly". The new Overtime Pay Calculator correctly makes it 3. The test now checks all three names: **2 passed** |
+| Playwright sitemap crawl, desktop | `npx playwright test e2e/pages.spec.ts --project=desktop` | **31 passed, 0 failed, 0 skipped, 0 timed out**; 49.9 min |
+| Playwright sitemap crawl, mobile | `npx playwright test e2e/pages.spec.ts --project=mobile` | **31 passed, 0 failed, 0 skipped, 0 timed out**; 44.6 min |
+
+**What the crawls cover.** In all nine languages:
+- every sitemap page;
+- every internal link;
+- unknown URLs returning 404;
+- no horizontal overflow, console errors or axe violations on each page;
+- every calculator's default result;
+- no horizontal scrolling at 320 px.
+
+**Still open.** These are not covered by automated tests:
+- native-speaker proofreading (265 flagged terms);
+- unverified source links (sections 3.1 and 3.6);
+- professional review (section 4);
+- the Next.js security upgrade (blocker 6);
+- no `main` branch or CI run;
+- the production domain has not been checked live.
+
