@@ -5,10 +5,11 @@ import en, { type DueDateText } from "./text/en";
 
 export type DueDateValues = {
   method: string;
-  lmp: string | null;
+  /* Hidden date fields evaluate to null at runtime; only the visible one is read. */
+  lmp: string;
   cycle: number | null;
-  conception: string | null;
-  transfer: string | null;
+  conception: string;
+  transfer: string;
   embryoAge: string;
   asOf: string;
 };
