@@ -191,4 +191,130 @@ export const astronomical: LinearSpec = {
   ],
 };
 
-export const extraLinearConverters = { glucose, waterHardness, wireGauge, astronomical };
+/** RF and audio power on linear (W) and logarithmic (dBm, dBW) scales. */
+export const rfPower: LinearSpec = {
+  id: "rf-power",
+  slug: "dbm-converter",
+  group: "electricity",
+  kind: "linear",
+  dimension: "power",
+  baseUnit: "w",
+  units: [
+    // dBm: level relative to 1 mW; dBW: relative to 1 W. Any real value (negative for powers below the reference).
+    { id: "dbm", symbol: "dBm", toBase: (x) => 10 ** (x / 10) / 1000, fromBase: (w) => 10 * Math.log10(w * 1000), system: "other" },
+    { id: "dbw", symbol: "dBW", toBase: (x) => 10 ** (x / 10), fromBase: (w) => 10 * Math.log10(w), system: "other" },
+    { id: "w", symbol: "W", factor: 1, system: "si", min: 0, minExclusive: true },
+    { id: "mw", symbol: "mW", factor: 1e-3, system: "si", min: 0, minExclusive: true },
+    { id: "uw", symbol: "µW", factor: 1e-6, system: "si", min: 0, minExclusive: true },
+    { id: "nw", symbol: "nW", factor: 1e-9, system: "si", min: 0, minExclusive: true },
+    { id: "kw", symbol: "kW", factor: 1e3, system: "si", min: 0, minExclusive: true },
+  ],
+  defaultFrom: "dbm",
+  defaultTo: "mw",
+  defaultValue: 20,
+  popularPairs: [
+    ["dbm", "mw"],
+    ["mw", "dbm"],
+    ["dbm", "w"],
+    ["w", "dbm"],
+    ["dbw", "dbm"],
+  ],
+  allowNegative: true,
+  related: ["power", "electric-potential", "sound"],
+  known: [
+    { value: 0, from: "dbm", to: "mw", expected: 1 },
+    { value: 30, from: "dbm", to: "w", expected: 1 },
+    { value: 1, from: "w", to: "dbm", expected: 30 },
+    { value: 0, from: "dbw", to: "dbm", expected: 30 },
+    { value: -30, from: "dbm", to: "uw", expected: 1 },
+    // 10^(20/10) mW
+    { value: 20, from: "dbm", to: "mw", expected: 100 },
+    // 10·log10(2) ≈ 3.0103 dB
+    { value: 2, from: "mw", to: "dbm", expected: 3.010299956639812 },
+  ],
+};
+
+/** Dimensionless ratios: fraction, percent, per mille, basis points and parts per million/billion/trillion. */
+export const partsPer: LinearSpec = {
+  id: "parts-per",
+  slug: "ppm-converter",
+  group: "other",
+  kind: "linear",
+  dimension: "ratio",
+  baseUnit: "fraction",
+  units: [
+    { id: "fraction", symbol: "", factor: 1, system: "other" },
+    { id: "percent", symbol: "%", factor: 1e-2, system: "other" },
+    { id: "permille", symbol: "‰", factor: 1e-3, system: "other" },
+    { id: "bp", symbol: "‱", factor: 1e-4, system: "other" },
+    { id: "ppm", symbol: "ppm", factor: 1e-6, system: "other" },
+    { id: "ppb", symbol: "ppb", factor: 1e-9, system: "other" },
+    // Short-scale trillion (10¹²); "ppt" can also mean parts per thousand in some fields.
+    { id: "ppt", symbol: "ppt", factor: 1e-12, system: "other" },
+    { id: "ppq", symbol: "ppq", factor: 1e-15, system: "other" },
+  ],
+  defaultFrom: "percent",
+  defaultTo: "ppm",
+  defaultValue: 0.5,
+  popularPairs: [
+    ["percent", "ppm"],
+    ["ppm", "percent"],
+    ["ppm", "ppb"],
+    ["bp", "percent"],
+    ["fraction", "percent"],
+  ],
+  related: ["solution-concentration", "prefixes", "water-hardness"],
+  known: [
+    { value: 1, from: "percent", to: "ppm", expected: 10000 },
+    { value: 1, from: "ppm", to: "ppb", expected: 1000 },
+    { value: 25, from: "bp", to: "percent", expected: 0.25 },
+    { value: 0.5, from: "fraction", to: "percent", expected: 50 },
+    { value: 1, from: "permille", to: "ppm", expected: 1000 },
+    { value: 350, from: "ppb", to: "ppm", expected: 0.35 },
+  ],
+};
+
+/** Basis weight: pounds per 500-sheet ream of a grade's basic sheet size, converted through grams per square metre. */
+const POUND_G = 453.59237;
+const ream = (widthIn: number, heightIn: number) => POUND_G / (500 * widthIn * heightIn * INCH ** 2);
+
+export const paperWeight: LinearSpec = {
+  id: "paper-weight",
+  slug: "paper-weight-converter",
+  group: "other",
+  kind: "linear",
+  dimension: "grammage",
+  baseUnit: "gsm",
+  units: [
+    { id: "gsm", symbol: "g/m²", factor: 1, system: "si" },
+    { id: "bond", symbol: "lb bond", factor: ream(17, 22), system: "us" },
+    { id: "text", symbol: "lb text", factor: ream(25, 38), system: "us" },
+    { id: "cover", symbol: "lb cover", factor: ream(20, 26), system: "us" },
+    { id: "index", symbol: "lb index", factor: ream(25.5, 30.5), system: "us" },
+    { id: "bristol", symbol: "lb bristol", factor: ream(22.5, 28.5), system: "us" },
+    { id: "tag", symbol: "lb tag", factor: ream(24, 36), system: "us" },
+  ],
+  defaultFrom: "bond",
+  defaultTo: "gsm",
+  defaultValue: 20,
+  popularPairs: [
+    ["bond", "gsm"],
+    ["gsm", "bond"],
+    ["text", "gsm"],
+    ["cover", "gsm"],
+    ["bond", "text"],
+  ],
+  related: ["density", "typography", "area"],
+  known: [
+    // 20 × 453.59237 g ÷ (500 × 17 in × 22 in × 0.00064516 m²/in²) ≈ 75.19 g/m²
+    { value: 20, from: "bond", to: "gsm", expected: 75.19460744803843 },
+    // 80 lb text (basic size 25 × 38 in) ≈ 118.4 g/m²
+    { value: 80, from: "text", to: "gsm", expected: 118.41171867606896 },
+    // 80 lb cover (basic size 20 × 26 in) ≈ 216.3 g/m²
+    { value: 80, from: "cover", to: "gsm", expected: 216.3291014274336 },
+    // 20 lb bond ≈ 50.8 lb text: the two are often quoted as equivalent
+    { value: 20, from: "bond", to: "text", expected: 50.80213903743314 },
+  ],
+};
+
+export const extraLinearConverters = { glucose, waterHardness, wireGauge, astronomical, rfPower, partsPer, paperWeight };

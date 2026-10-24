@@ -31,10 +31,13 @@ export const ALL_CONVERTERS: readonly ConverterSpec[] = [
   ...lightConverters,
   ...electricityConverters,
   extraLinearConverters.wireGauge,
+  extraLinearConverters.rfPower,
   ...magnetismConverters,
   ...radiologyConverters,
   ...otherConverters,
   extraLinearConverters.astronomical,
+  extraLinearConverters.partsPer,
+  extraLinearConverters.paperWeight,
   ...toolConverters,
 ];
 

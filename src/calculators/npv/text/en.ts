@@ -1,0 +1,50 @@
+const forms = (one: string, other: string) => ({ zero: other, one, two: other, few: other, many: other, other });
+
+const text = {
+  initial: "Initial investment",
+  initialHelp: "The amount paid out at the start (year 0). Enter it as a positive number; it is treated as an outflow.",
+  cashFlows: "Yearly cash flows",
+  cashFlowsHelp: "Net cash flow at the end of year 1, year 2 and so on, separated by commas, spaces or new lines. Use a minus sign for a year with a net outflow.",
+  rate: "Discount rate",
+  rateHelp: "Your required return or cost of capital per year.",
+  errors: {
+    empty: "Enter at least one cash flow.",
+    tooMany: "Enter at most {max} cash flows.",
+    notNumber: "“{token}” is not a number. Separate values with commas, spaces or new lines.",
+    tooLarge: "“{token}” is too large.",
+  },
+  tooBig: "{value} is too large. Each cash flow can be at most {max} in size.",
+  npv: "Net present value (NPV)",
+  caption: "{count} discounted at {rate} per year, after an initial investment of {initial}.",
+  yearCount: forms("{n} year of cash flows", "{n} years of cash flows"),
+  irr: "Internal rate of return (IRR)",
+  irrNone: "Not found",
+  irrNotUnique: "Not unique",
+  irrOutOfRange: "Not found between {low} and {high}",
+  pvInflows: "Present value of the yearly cash flows",
+  profitabilityIndex: "Profitability index (PV of cash flows ÷ initial investment)",
+  totalUndiscounted: "Total undiscounted cash flow (including the initial investment)",
+  payback: "Discounted payback period",
+  paybackYears: forms("{n} year", "{n} years"),
+  paybackNever: "Not reached within these cash flows",
+  table: {
+    caption: "Cash flows by year",
+    year: "Year",
+    cashFlow: "Cash flow",
+    discounted: "Discounted value",
+    cumulative: "Cumulative discounted value",
+    yearLabel: "Year {n}",
+  },
+  notes: {
+    positive: "A positive NPV means the cash flows earn more than the discount rate after recovering the initial investment.",
+    negative: "A negative NPV means the cash flows earn less than the discount rate.",
+    zero: "An NPV of zero means the cash flows earn exactly the discount rate.",
+    irrNone: "The cash flows never change sign (they are all outflows or all inflows), so no rate makes the NPV zero.",
+    irrNotUnique: "The cash flows change sign more than once, so there may be several rates that make the NPV zero, or none. The IRR is not reported; rely on the NPV instead.",
+    irrOutOfRange: "No rate between {low} and {high} per year makes the NPV zero.",
+    payback: "The discounted payback period assumes each year's cash flow arrives evenly through the year when it crosses zero.",
+    timing: "Cash flows are assumed to arrive at the end of each year, discounted at a constant rate.",
+  },
+};
+export type NpvText = typeof text;
+export default text;

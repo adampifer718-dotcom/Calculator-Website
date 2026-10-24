@@ -116,7 +116,7 @@ export interface NumberBaseSpec extends SpecBase {
 }
 
 /** Text-based conversion tools with their own widget and logic in ../tools.ts. */
-export const TOOL_IDS = ["roman", "unix-time", "color", "morse", "text-binary", "coordinates"] as const;
+export const TOOL_IDS = ["roman", "unix-time", "color", "morse", "text-binary", "coordinates", "base64", "url", "tire", "fraction", "paper-size"] as const;
 export type ToolId = (typeof TOOL_IDS)[number];
 
 export interface ToolSpec extends SpecBase {

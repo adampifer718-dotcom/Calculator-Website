@@ -480,3 +480,258 @@ export function hemisphere(degrees: number, axis: CoordinateAxis): "N" | "S" | "
   if (axis === "lat") return degrees < 0 ? "S" : "N";
   return degrees < 0 ? "W" : "E";
 }
+
+// ── Base64 (RFC 4648) ─────────────────────────────────────────────────────
+
+export type Base64Result = { ok: true; output: string; bytes: number } | { ok: false; error: "empty" | "invalid" | "notUtf8" | "tooLong" };
+export const BASE64_MAX_CHARS = 100_000;
+
+function bytesToBinary(bytes: Uint8Array): string {
+  let out = "";
+  for (let i = 0; i < bytes.length; i += 0x8000) out += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+  return out;
+}
+
+/** Encodes text as UTF-8 and then Base64, optionally in the URL-safe alphabet without padding (RFC 4648 §5). */
+export function encodeBase64(text: string, urlSafe: boolean): Base64Result {
+  if (text.length > BASE64_MAX_CHARS) return { ok: false, error: "tooLong" };
+  const bytes = new TextEncoder().encode(text);
+  const standard = btoa(bytesToBinary(bytes));
+  return { ok: true, bytes: bytes.length, output: urlSafe ? standard.replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "") : standard };
+}
+
+/** Decodes standard or URL-safe Base64 (padding optional, whitespace ignored) and reads the bytes as UTF-8. */
+export function decodeBase64(raw: string): Base64Result {
+  const text = raw.replace(/\s+/g, "");
+  if (text === "") return { ok: false, error: "empty" };
+  if (text.length > BASE64_MAX_CHARS) return { ok: false, error: "tooLong" };
+  const standard = text.replace(/-/g, "+").replace(/_/g, "/");
+  if (!/^[A-Za-z0-9+/]*={0,2}$/.test(standard)) return { ok: false, error: "invalid" };
+  const unpadded = standard.replace(/=+$/, "");
+  if (unpadded.length % 4 === 1) return { ok: false, error: "invalid" };
+  const padded = unpadded + "=".repeat((4 - (unpadded.length % 4)) % 4);
+  let binary: string;
+  try {
+    binary = atob(padded);
+  } catch {
+    return { ok: false, error: "invalid" };
+  }
+  const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0));
+  try {
+    return { ok: true, output: new TextDecoder("utf-8", { fatal: true }).decode(bytes), bytes: bytes.length };
+  } catch {
+    return { ok: false, error: "notUtf8" };
+  }
+}
+
+// ── URL percent-encoding (RFC 3986) ───────────────────────────────────────
+
+export type UrlMode = "component" | "uri";
+export type UrlResult = { ok: true; output: string } | { ok: false; error: "empty" | "malformed" | "tooLong" };
+export const URL_MAX_CHARS = 100_000;
+
+/**
+ * Percent-encodes UTF-8 text. "component" encodes everything except the RFC 3986
+ * unreserved characters (also ! ' ( ) * as reserved sub-delimiters), for query values;
+ * "uri" keeps the characters that structure a full URL (: / ? # & = …).
+ */
+export function encodeUrl(text: string, mode: UrlMode): UrlResult {
+  if (text === "") return { ok: false, error: "empty" };
+  if (text.length > URL_MAX_CHARS) return { ok: false, error: "tooLong" };
+  try {
+    const out = mode === "component" ? encodeURIComponent(text).replace(/[!'()*]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`) : encodeURI(text);
+    return { ok: true, output: out };
+  } catch {
+    // Lone surrogates cannot be encoded as UTF-8.
+    return { ok: false, error: "malformed" };
+  }
+}
+
+/** Decodes %XX sequences as UTF-8; optionally turns "+" into a space (HTML form encoding). */
+export function decodeUrl(text: string, plusAsSpace: boolean): UrlResult {
+  if (text === "") return { ok: false, error: "empty" };
+  if (text.length > URL_MAX_CHARS) return { ok: false, error: "tooLong" };
+  try {
+    return { ok: true, output: decodeURIComponent(plusAsSpace ? text.replace(/\+/g, " ") : text) };
+  } catch {
+    return { ok: false, error: "malformed" };
+  }
+}
+
+// ── Tyre sizes (ISO metric designation) ───────────────────────────────────
+
+export interface TireSize {
+  /** Section width in millimetres. */
+  width: number;
+  /** Aspect ratio: sidewall height as a percentage of the width. */
+  aspect: number;
+  /** Rim diameter in inches. */
+  rim: number;
+}
+
+export interface TireDimensions {
+  sidewallMm: number;
+  diameterMm: number;
+  circumferenceMm: number;
+  revsPerKm: number;
+  revsPerMile: number;
+}
+
+export type TireResult = { ok: true; size: TireSize; dims: TireDimensions } | { ok: false; error: "empty" | "invalid" | "range" };
+
+/** Parses designations such as 225/45R17, P215/65R15, LT245/75R16 or 205/55 ZR 16. */
+export function parseTireSize(raw: string): TireResult {
+  const text = raw.trim().toUpperCase();
+  if (text === "") return { ok: false, error: "empty" };
+  const m = /^(?:P|LT|T|ST)?\s*(\d{3})\s*\/\s*(\d{2,3})\s*(?:[A-Z]{0,2}R|-|D|B)?\s*(\d{2}(?:[.,]\d)?)(?:\s+.*)?$/.exec(text);
+  if (!m) return { ok: false, error: "invalid" };
+  const size = { width: Number(m[1]), aspect: Number(m[2]), rim: Number(m[3].replace(",", ".")) };
+  if (size.width < 100 || size.width > 500 || size.aspect < 20 || size.aspect > 120 || size.rim < 10 || size.rim > 30) return { ok: false, error: "range" };
+  return { ok: true, size, dims: tireDimensions(size) };
+}
+
+export function tireDimensions({ width, aspect, rim }: TireSize): TireDimensions {
+  const sidewallMm = (width * aspect) / 100;
+  const diameterMm = rim * 25.4 + 2 * sidewallMm;
+  const circumferenceMm = Math.PI * diameterMm;
+  return { sidewallMm, diameterMm, circumferenceMm, revsPerKm: 1e6 / circumferenceMm, revsPerMile: 1609344 / circumferenceMm };
+}
+
+// ── Decimals and fractions ────────────────────────────────────────────────
+
+export interface Fraction {
+  num: bigint;
+  den: bigint;
+}
+
+const gcdBig = (a: bigint, b: bigint): bigint => {
+  let x = a < 0n ? -a : a;
+  let y = b < 0n ? -b : b;
+  while (y) [x, y] = [y, x % y];
+  return x || 1n;
+};
+
+export function reduceFraction(num: bigint, den: bigint): Fraction {
+  const sign = den < 0n ? -1n : 1n;
+  const g = gcdBig(num, den);
+  return { num: (sign * num) / g, den: (sign * den) / g };
+}
+
+export type FractionResult = { ok: true; exact: Fraction; value: number } | { ok: false; error: "empty" | "invalid" | "tooLong" };
+
+/**
+ * Reads a decimal number given as plain text with a dot (already locale-normalised),
+ * an optional exponent, or a fraction "a/b", and returns it as an exact reduced fraction.
+ */
+export function parseExactFraction(text: string): FractionResult {
+  const t = text.trim();
+  if (t === "") return { ok: false, error: "empty" };
+  if (t.length > 40) return { ok: false, error: "tooLong" };
+  const frac = /^([+-]?\d+)\s*\/\s*(\d+)$/.exec(t);
+  if (frac) {
+    if (BigInt(frac[2]) === 0n) return { ok: false, error: "invalid" };
+    const exact = reduceFraction(BigInt(frac[1]), BigInt(frac[2]));
+    return { ok: true, exact, value: Number(frac[1]) / Number(frac[2]) };
+  }
+  const m = /^([+-]?)(\d*)(?:\.(\d*))?(?:e([+-]?\d{1,3}))?$/i.exec(t);
+  if (!m || (m[2] === "" && (m[3] ?? "") === "")) return { ok: false, error: "invalid" };
+  const digits = `${m[2]}${m[3] ?? ""}` || "0";
+  const exp = Number(m[4] ?? 0) - (m[3] ?? "").length;
+  if (Math.abs(exp) > 60) return { ok: false, error: "tooLong" };
+  let num = BigInt(digits) * (m[1] === "-" ? -1n : 1n);
+  let den = 1n;
+  if (exp >= 0) num *= 10n ** BigInt(exp);
+  else den = 10n ** BigInt(-exp);
+  const exact = reduceFraction(num, den);
+  return { ok: true, exact, value: Number(t) };
+}
+
+/** Best rational approximation with denominator ≤ maxDen (continued fractions with semiconvergents). */
+export function bestRational(x: number, maxDen: number): { num: number; den: number } {
+  if (!Number.isFinite(x)) return { num: 0, den: 1 };
+  const sign = x < 0 ? -1 : 1;
+  let value = Math.abs(x);
+  let [h0, h1, k0, k1] = [0, 1, 1, 0];
+  for (let i = 0; i < 64; i++) {
+    const a = Math.floor(value);
+    const k2 = a * k1 + k0;
+    if (k2 > maxDen) {
+      // Largest semiconvergent that still fits.
+      const t = Math.floor((maxDen - k0) / k1);
+      const hs = t * h1 + h0;
+      const ks = t * k1 + k0;
+      const target = Math.abs(x);
+      if (ks > 0 && Math.abs(hs / ks - target) < Math.abs(h1 / k1 - target)) return { num: sign * hs, den: ks };
+      return { num: sign * h1, den: k1 };
+    }
+    [h0, h1] = [h1, a * h1 + h0];
+    [k0, k1] = [k1, k2];
+    const frac = value - a;
+    if (frac < 1e-12) break;
+    value = 1 / frac;
+  }
+  return { num: sign * h1, den: k1 };
+}
+
+/** Rounds to the nearest multiple of 1/den (for inch rulers), reduced. */
+export function nearestFraction(x: number, den: number): { num: number; den: number } {
+  const n = Math.round(x * den);
+  const r = reduceFraction(BigInt(n), BigInt(den));
+  return { num: Number(r.num), den: Number(r.den) };
+}
+
+/** Splits an improper fraction into a whole part and a proper fraction (sign on the whole part, or on the fraction if the whole part is 0). */
+export function mixedParts(num: bigint, den: bigint): { whole: bigint; num: bigint; den: bigint; negative: boolean } {
+  const negative = num < 0n;
+  const a = negative ? -num : num;
+  return { whole: a / den, num: a % den, den, negative };
+}
+
+// ── Paper sizes (ISO 216, ISO 269, ANSI) ─────────────────────────────────
+
+export interface PaperSize {
+  id: string;
+  /** Width and height in the unit the standard defines them in. */
+  width: number;
+  height: number;
+  unit: "mm" | "in";
+  series: "a" | "b" | "c" | "us" | "ansi";
+}
+
+/** ISO series by repeated halving of the long side, rounding each result down to whole millimetres. */
+function isoSeries(prefix: "A" | "B" | "C", w0: number, h0: number): PaperSize[] {
+  const out: PaperSize[] = [];
+  let [w, h] = [w0, h0];
+  for (let i = 0; i <= 10; i++) {
+    out.push({ id: `${prefix}${i}`, width: w, height: h, unit: "mm", series: prefix.toLowerCase() as "a" | "b" | "c" });
+    [w, h] = [Math.floor(h / 2), w];
+  }
+  return out;
+}
+
+export const PAPER_SIZES: readonly PaperSize[] = [
+  ...isoSeries("A", 841, 1189),
+  ...isoSeries("B", 1000, 1414),
+  ...isoSeries("C", 917, 1297),
+  { id: "letter", width: 8.5, height: 11, unit: "in", series: "us" },
+  { id: "legal", width: 8.5, height: 14, unit: "in", series: "us" },
+  { id: "tabloid", width: 11, height: 17, unit: "in", series: "us" },
+  { id: "executive", width: 7.25, height: 10.5, unit: "in", series: "us" },
+  { id: "half-letter", width: 5.5, height: 8.5, unit: "in", series: "us" },
+  { id: "ansi-c", width: 17, height: 22, unit: "in", series: "ansi" },
+  { id: "ansi-d", width: 22, height: 34, unit: "in", series: "ansi" },
+  { id: "ansi-e", width: 34, height: 44, unit: "in", series: "ansi" },
+];
+
+/** A paper size in millimetres, inches, points (1/72 in) and pixels at a given resolution. */
+export function paperDimensions(size: PaperSize, dpi: number) {
+  const mm = size.unit === "mm" ? [size.width, size.height] : [size.width * 25.4, size.height * 25.4];
+  const inches = size.unit === "in" ? [size.width, size.height] : [size.width / 25.4, size.height / 25.4];
+  return {
+    mm: mm as [number, number],
+    cm: [mm[0] / 10, mm[1] / 10] as [number, number],
+    in: inches as [number, number],
+    pt: [inches[0] * 72, inches[1] * 72] as [number, number],
+    px: [Math.round(inches[0] * dpi), Math.round(inches[1] * dpi)] as [number, number],
+  };
+}

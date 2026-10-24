@@ -37,5 +37,15 @@ export const textBinary: ToolSpec = { id: "text-binary", slug: "text-to-binary-c
 
 export const coordinates: ToolSpec = { id: "coordinates", slug: "coordinate-converter", group: "other", kind: "tool", tool: "coordinates", related: ["angle", "astronomical", "length"] };
 
+export const base64: ToolSpec = { id: "base64", slug: "base64-converter", group: "other", kind: "tool", tool: "base64", related: ["url", "text-binary", "numbers"] };
+
+export const url: ToolSpec = { id: "url", slug: "url-encoder", group: "other", kind: "tool", tool: "url", related: ["base64", "text-binary", "case"] };
+
+export const tire: ToolSpec = { id: "tire", slug: "tire-size-converter", group: "other", kind: "tool", tool: "tire", related: ["length", "speed", "fraction"] };
+
+export const fraction: ToolSpec = { id: "fraction", slug: "decimal-to-fraction-converter", group: "other", kind: "tool", tool: "fraction", related: ["length", "parts-per", "numbers"] };
+
+export const paperSize: ToolSpec = { id: "paper-size", slug: "paper-size-converter", group: "other", kind: "tool", tool: "paper-size", related: ["paper-weight", "typography", "image-resolution"] };
+
 /** The text-based tools, in directory order. */
-export const toolConverters: readonly ToolSpec[] = [roman, unixTime, color, morse, textBinary, coordinates];
+export const toolConverters: readonly ToolSpec[] = [roman, unixTime, color, morse, textBinary, coordinates, base64, url, tire, fraction, paperSize];

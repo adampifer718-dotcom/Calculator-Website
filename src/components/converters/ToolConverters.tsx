@@ -20,12 +20,26 @@ import {
   parseTimestamp,
   toDdm,
   toDms,
+  PAPER_SIZES,
+  bestRational,
+  decodeBase64,
+  decodeUrl,
+  encodeBase64,
+  encodeUrl,
+  mixedParts,
+  nearestFraction,
+  paperDimensions,
+  parseExactFraction,
+  parseTireSize,
+  reduceFraction,
+  type UrlMode,
   type ByteFormat,
   type CoordinateAxis,
 } from "@/converters/tools";
 import type { ToolId } from "@/converters/types";
 import { LOCALE_INFO, type Locale } from "@/i18n/config";
 import { getFormatter } from "@/lib/format";
+import { normalizeNumberText } from "@/lib/parse";
 import { CopyButton, FIELD, GHOST_BUTTON, LABEL, SELECT } from "./widget-ui";
 
 const RESULT_PANEL = "border-t border-brand-100 bg-brand-50 px-5 py-6 sm:px-7";
@@ -508,6 +522,450 @@ function CoordinatesTool() {
   );
 }
 
+/** A text area tool with a mode select: shared layout of the Base64 and URL tools. */
+function EncodeLayout({
+  uid,
+  controls,
+  inputLabel,
+  input,
+  setInput,
+  output,
+  error,
+  footer,
+  monoInput,
+  monoOutput,
+}: {
+  uid: string;
+  controls: React.ReactNode;
+  inputLabel: string;
+  input: string;
+  setInput: (v: string) => void;
+  output: string;
+  error: string | null;
+  footer?: React.ReactNode;
+  monoInput: boolean;
+  monoOutput: boolean;
+}) {
+  const t = useTranslations("converters.widget");
+  return (
+    <div className="card overflow-hidden">
+      <div className="grid gap-4 p-5 sm:grid-cols-2 sm:p-7">
+        {controls}
+        <div className="sm:col-span-2">
+          <label htmlFor={`${uid}-input`} className={LABEL}>
+            {inputLabel}
+          </label>
+          <textarea
+            id={`${uid}-input`}
+            dir={monoInput ? "ltr" : "auto"}
+            rows={4}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            aria-invalid={error ? true : undefined}
+            aria-describedby={error ? `${uid}-error` : undefined}
+            className={`${FIELD} h-auto min-h-28 py-3 leading-relaxed break-all ${monoInput ? "font-mono" : ""}`}
+          />
+          {error && <ErrorText id={`${uid}-error`}>{error}</ErrorText>}
+        </div>
+      </div>
+      <div className={RESULT_PANEL} aria-live="polite">
+        <label htmlFor={`${uid}-output`} className="eyebrow text-brand-800">
+          {t("result")}
+        </label>
+        <textarea
+          id={`${uid}-output`}
+          readOnly
+          dir={monoOutput ? "ltr" : "auto"}
+          rows={4}
+          value={output}
+          className={`${FIELD} mt-2 h-auto min-h-28 py-3 leading-relaxed break-all ${monoOutput ? "font-mono" : ""}`}
+          data-tool-result
+        />
+        {footer}
+        <div className="mt-4 flex flex-wrap gap-2">
+          <CopyButton text={output} label={t("copy")} copiedLabel={t("copied")} disabled={!output} />
+          <button type="button" onClick={() => setInput("")} className={GHOST_BUTTON}>
+            {t("clear")}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SelectField({ id, label, value, onChange, options }: { id: string; label: string; value: string; onChange: (v: string) => void; options: { value: string; label: string }[] }) {
+  return (
+    <div>
+      <label htmlFor={id} className={LABEL}>
+        {label}
+      </label>
+      <select id={id} value={value} onChange={(e) => onChange(e.target.value)} className={SELECT}>
+        {options.map((o) => (
+          <option key={o.value} value={o.value}>
+            {o.label}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+function Base64Tool() {
+  const t = useTranslations("converters.widget");
+  const uid = useId();
+  const [mode, setMode] = useState<"encode" | "decode">("encode");
+  const [variant, setVariant] = useState<"standard" | "url">("standard");
+  const [input, setInput] = useState("Hello, world!");
+  const result = mode === "encode" ? (input === "" ? null : encodeBase64(input, variant === "url")) : decodeBase64(input);
+  const error = result && !result.ok && result.error !== "empty" ? t(`tools.base64.errors.${result.error}`) : null;
+  const output = result && result.ok ? result.output : "";
+  return (
+    <EncodeLayout
+      uid={uid}
+      controls={
+        <>
+          <SelectField
+            id={`${uid}-mode`}
+            label={t("tools.base64.mode")}
+            value={mode}
+            onChange={(v) => setMode(v as "encode" | "decode")}
+            options={[
+              { value: "encode", label: t("tools.base64.encode") },
+              { value: "decode", label: t("tools.base64.decode") },
+            ]}
+          />
+          {mode === "encode" ? (
+            <SelectField
+              id={`${uid}-variant`}
+              label={t("tools.base64.variant")}
+              value={variant}
+              onChange={(v) => setVariant(v as "standard" | "url")}
+              options={[
+                { value: "standard", label: t("tools.base64.standard") },
+                { value: "url", label: t("tools.base64.urlSafe") },
+              ]}
+            />
+          ) : (
+            <div aria-hidden="true" />
+          )}
+        </>
+      }
+      inputLabel={mode === "encode" ? t("tools.base64.inputText") : t("tools.base64.inputBase64")}
+      input={input}
+      setInput={setInput}
+      output={output}
+      error={error}
+      monoInput={mode === "decode"}
+      monoOutput={mode === "encode"}
+      footer={result && result.ok ? <p className="mt-2 text-sm text-neutral-700">{t("tools.base64.count", { count: result.bytes })}</p> : null}
+    />
+  );
+}
+
+function UrlTool() {
+  const t = useTranslations("converters.widget");
+  const uid = useId();
+  const [mode, setMode] = useState<"encode" | "decode">("encode");
+  const [scope, setScope] = useState<UrlMode>("component");
+  const [plus, setPlus] = useState(false);
+  const [input, setInput] = useState("café & crème?");
+  const result = mode === "encode" ? encodeUrl(input, scope) : decodeUrl(input, plus);
+  const error = !result.ok && result.error !== "empty" ? t(`tools.url.errors.${result.error}`) : null;
+  return (
+    <EncodeLayout
+      uid={uid}
+      controls={
+        <>
+          <SelectField
+            id={`${uid}-mode`}
+            label={t("tools.url.mode")}
+            value={mode}
+            onChange={(v) => setMode(v as "encode" | "decode")}
+            options={[
+              { value: "encode", label: t("tools.url.encode") },
+              { value: "decode", label: t("tools.url.decode") },
+            ]}
+          />
+          {mode === "encode" ? (
+            <SelectField
+              id={`${uid}-scope`}
+              label={t("tools.url.scope")}
+              value={scope}
+              onChange={(v) => setScope(v as UrlMode)}
+              options={[
+                { value: "component", label: t("tools.url.component") },
+                { value: "uri", label: t("tools.url.uri") },
+              ]}
+            />
+          ) : (
+            <label className="flex items-center gap-2 self-end pb-3 text-sm font-semibold text-ink-800">
+              <input type="checkbox" checked={plus} onChange={(e) => setPlus(e.target.checked)} className="size-4 accent-brand-600" />
+              {t("tools.url.plus")}
+            </label>
+          )}
+        </>
+      }
+      inputLabel={t("tools.url.input")}
+      input={input}
+      setInput={setInput}
+      output={result.ok ? result.output : ""}
+      error={error}
+      monoInput={mode === "decode"}
+      monoOutput={mode === "encode"}
+    />
+  );
+}
+
+function TireTool() {
+  const locale = useLocale() as Locale;
+  const t = useTranslations("converters.widget");
+  const uid = useId();
+  const fmt = getFormatter(locale);
+  const [first, setFirst] = useState("225/45R17");
+  const [second, setSecond] = useState("235/40R18");
+  const a = parseTireSize(first);
+  const b = second.trim() === "" ? null : parseTireSize(second);
+  const errorOf = (r: ReturnType<typeof parseTireSize> | null) => (r && !r.ok && r.error !== "empty" ? t(`tools.tire.errors.${r.error}`) : null);
+  const mmIn = (mm: number) => `${fmt.number(mm, 1)} mm (${fmt.number(mm / 25.4, 2)} in)`;
+  const rows = (r: ReturnType<typeof parseTireSize>) =>
+    r.ok
+      ? [
+          [t("tools.tire.width"), mmIn(r.size.width)],
+          [t("tools.tire.sidewall"), mmIn(r.dims.sidewallMm)],
+          [t("tools.tire.diameter"), mmIn(r.dims.diameterMm)],
+          [t("tools.tire.circumference"), mmIn(r.dims.circumferenceMm)],
+          [t("tools.tire.revsKm"), fmt.number(r.dims.revsPerKm, 1)],
+          [t("tools.tire.revsMile"), fmt.number(r.dims.revsPerMile, 1)],
+        ]
+      : [];
+  const both = a.ok && b && b.ok ? { ratio: b.dims.diameterMm / a.dims.diameterMm } : null;
+  const field = (id: string, label: string, value: string, set: (v: string) => void, error: string | null) => (
+    <div>
+      <label htmlFor={`${uid}-${id}`} className={LABEL}>
+        {label}
+      </label>
+      <input
+        id={`${uid}-${id}`}
+        type="text"
+        dir="ltr"
+        autoComplete="off"
+        spellCheck={false}
+        value={value}
+        onChange={(e) => set(e.target.value)}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={`${uid}-help${error ? ` ${uid}-${id}-error` : ""}`}
+        className={`${FIELD} font-mono`}
+      />
+      {error && <ErrorText id={`${uid}-${id}-error`}>{error}</ErrorText>}
+    </div>
+  );
+  return (
+    <div className="card overflow-hidden">
+      <div className="grid gap-4 p-5 sm:grid-cols-2 sm:p-7">
+        {field("first", t("tools.tire.size"), first, setFirst, errorOf(a))}
+        {field("second", t("tools.tire.compare"), second, setSecond, errorOf(b))}
+        <p id={`${uid}-help`} className="text-xs text-neutral-600 sm:col-span-2">
+          {t("tools.tire.help")}
+        </p>
+      </div>
+      <div className={RESULT_PANEL} aria-live="polite">
+        <div className="grid gap-4 sm:grid-cols-2">
+          {[a, b].map((r, i) =>
+            r && r.ok ? (
+              <table key={i} className="w-full text-sm">
+                <caption className="pb-2 text-start font-mono text-lg font-bold text-ink-900" dir="ltr">
+                  {i === 0 ? first.trim().toUpperCase() : second.trim().toUpperCase()}
+                </caption>
+                <tbody>
+                  {rows(r).map(([label, value]) => (
+                    <tr key={label} className="border-t border-line">
+                      <th scope="row" className="py-2 pe-3 text-start font-semibold text-neutral-700">
+                        {label}
+                      </th>
+                      <td className="py-2 text-end tabular-nums text-ink-900" data-tool-value>
+                        {value}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : null,
+          )}
+        </div>
+        {both && (
+          <div className="mt-4 rounded-2xl bg-white p-4 ring-1 ring-line">
+            <p className="font-bold text-ink-900" data-tool-result>
+              {t("tools.tire.difference")}: {fmt.percent((both.ratio - 1) * 100, 2)}
+            </p>
+            <p className="mt-1 text-sm text-neutral-700">{t("tools.tire.speedo", { shown: "100 km/h", actual: `${fmt.number(100 * both.ratio, 1)} km/h` })}</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function FractionTool() {
+  const locale = useLocale() as Locale;
+  const t = useTranslations("converters.widget");
+  const uid = useId();
+  const fmt = getFormatter(locale);
+  const [input, setInput] = useState("0.6875");
+  const [mode, setMode] = useState<"exact" | "nearest" | "best">("exact");
+  const [denText, setDenText] = useState("16");
+  const den = Number(denText);
+  const denOk = Number.isInteger(den) && den >= 1 && den <= 1_000_000;
+  const parsed = parseExactFraction(input.includes("/") ? input : normalizeNumberText(input, locale));
+  let error = !parsed.ok && parsed.error !== "empty" ? t(`tools.fraction.errors.${parsed.error}`) : null;
+  if (!error && mode !== "exact" && !denOk) error = t("tools.fraction.errors.denominator");
+  let result: { num: bigint; den: bigint } | null = null;
+  if (parsed.ok && !error) {
+    if (mode === "exact") result = parsed.exact;
+    else {
+      const r = mode === "nearest" ? nearestFraction(parsed.value, den) : bestRational(parsed.value, den);
+      result = reduceFraction(BigInt(r.num), BigInt(r.den));
+    }
+  }
+  const fractionText = result ? (result.den === 1n ? String(result.num) : `${result.num}/${result.den}`) : "";
+  const mixed = result ? mixedParts(result.num, result.den) : null;
+  const mixedText = mixed ? (mixed.num === 0n ? `${mixed.negative ? "-" : ""}${mixed.whole}` : mixed.whole === 0n ? `${mixed.negative ? "-" : ""}${mixed.num}/${mixed.den}` : `${mixed.negative ? "-" : ""}${mixed.whole} ${mixed.num}/${mixed.den}`) : "";
+  const approx = result ? Number(result.num) / Number(result.den) : 0;
+  return (
+    <div className="card overflow-hidden">
+      <div className="grid gap-4 p-5 sm:grid-cols-3 sm:p-7">
+        <div className="sm:col-span-3">
+          <label htmlFor={`${uid}-input`} className={LABEL}>
+            {t("tools.fraction.input")}
+          </label>
+          <input
+            id={`${uid}-input`}
+            type="text"
+            inputMode="decimal"
+            autoComplete="off"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            aria-invalid={error ? true : undefined}
+            aria-describedby={`${uid}-help${error ? ` ${uid}-error` : ""}`}
+            className={`${FIELD} tabular-nums`}
+          />
+          <p id={`${uid}-help`} className="mt-1.5 text-xs text-neutral-600">
+            {t("tools.fraction.help")}
+          </p>
+          {error && <ErrorText id={`${uid}-error`}>{error}</ErrorText>}
+        </div>
+        <div className="sm:col-span-2">
+          <SelectField
+            id={`${uid}-mode`}
+            label={t("tools.fraction.mode")}
+            value={mode}
+            onChange={(v) => setMode(v as "exact" | "nearest" | "best")}
+            options={[
+              { value: "exact", label: t("tools.fraction.exact") },
+              { value: "nearest", label: t("tools.fraction.nearest") },
+              { value: "best", label: t("tools.fraction.best") },
+            ]}
+          />
+        </div>
+        {mode !== "exact" && (
+          <div>
+            <label htmlFor={`${uid}-den`} className={LABEL}>
+              {t("tools.fraction.denominator")}
+            </label>
+            <input id={`${uid}-den`} type="text" inputMode="numeric" dir="ltr" value={denText} onChange={(e) => setDenText(e.target.value)} className={`${FIELD} tabular-nums`} />
+          </div>
+        )}
+      </div>
+      <div className={RESULT_PANEL} aria-live="polite">
+        <ul className="grid gap-3">
+          <ValueRow label={t("tools.fraction.fraction")} value={fractionText} />
+          <ValueRow label={t("tools.fraction.mixed")} value={mixedText} />
+          <ValueRow label={t("tools.fraction.decimal")} value={result ? fmt.significant(approx, 12) : ""} mono={false} />
+          {result && mode !== "exact" && parsed.ok && <ValueRow label={t("tools.fraction.error")} value={fmt.significant(approx - parsed.value, 6)} mono={false} />}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function PaperSizeTool() {
+  const locale = useLocale() as Locale;
+  const t = useTranslations("converters.widget");
+  const uid = useId();
+  const fmt = getFormatter(locale);
+  const [id, setId] = useState("A4");
+  const [orientation, setOrientation] = useState<"portrait" | "landscape">("portrait");
+  const [dpiText, setDpiText] = useState("300");
+  const dpi = Number(dpiText);
+  const dpiOk = Number.isFinite(dpi) && dpi >= 1 && dpi <= 10000;
+  const size = PAPER_SIZES.find((p) => p.id === id) ?? PAPER_SIZES[4];
+  const d = paperDimensions(size, dpiOk ? dpi : 300);
+  const pair = ([w, h]: [number, number], digits: number) => {
+    const [a, b] = orientation === "portrait" ? [w, h] : [h, w];
+    return `${fmt.number(a, digits)} × ${fmt.number(b, digits)}`;
+  };
+  const name = (sid: string) => (/^[ABC]\d+$/.test(sid) ? sid : t(`tools.paper.names.${sid}` as "tools.paper.names.letter"));
+  const groups = (["a", "b", "c", "us", "ansi"] as const).map((series) => ({ series, sizes: PAPER_SIZES.filter((p) => p.series === series) }));
+  return (
+    <div className="card overflow-hidden">
+      <div className="grid gap-4 p-5 sm:grid-cols-3 sm:p-7">
+        <div>
+          <label htmlFor={`${uid}-size`} className={LABEL}>
+            {t("tools.paper.size")}
+          </label>
+          <select id={`${uid}-size`} value={id} onChange={(e) => setId(e.target.value)} className={SELECT}>
+            {groups.map((g) => (
+              <optgroup key={g.series} label={t(`tools.paper.series.${g.series}`)}>
+                {g.sizes.map((p) => (
+                  <option key={p.id} value={p.id}>
+                    {name(p.id)}
+                  </option>
+                ))}
+              </optgroup>
+            ))}
+          </select>
+        </div>
+        <SelectField
+          id={`${uid}-orientation`}
+          label={t("tools.paper.orientation")}
+          value={orientation}
+          onChange={(v) => setOrientation(v as "portrait" | "landscape")}
+          options={[
+            { value: "portrait", label: t("tools.paper.portrait") },
+            { value: "landscape", label: t("tools.paper.landscape") },
+          ]}
+        />
+        <div>
+          <label htmlFor={`${uid}-dpi`} className={LABEL}>
+            {t("tools.paper.dpi")}
+          </label>
+          <input
+            id={`${uid}-dpi`}
+            type="text"
+            inputMode="numeric"
+            dir="ltr"
+            value={dpiText}
+            onChange={(e) => setDpiText(e.target.value)}
+            aria-invalid={dpiOk ? undefined : true}
+            aria-describedby={dpiOk ? undefined : `${uid}-dpi-error`}
+            className={`${FIELD} tabular-nums`}
+          />
+          {!dpiOk && <ErrorText id={`${uid}-dpi-error`}>{t("tools.paper.errors.dpi")}</ErrorText>}
+        </div>
+      </div>
+      <div className={RESULT_PANEL} aria-live="polite">
+        <h2 className="eyebrow text-brand-800">{name(size.id)}</h2>
+        <ul className="mt-3 grid gap-3">
+          <ValueRow label={t("tools.paper.millimetres")} value={`${pair(d.mm, size.unit === "mm" ? 0 : 1)} mm`} mono={false} />
+          <ValueRow label={t("tools.paper.centimetres")} value={`${pair(d.cm, 2)} cm`} mono={false} />
+          <ValueRow label={t("tools.paper.inches")} value={`${pair(d.in, size.unit === "in" ? 2 : 2)} in`} mono={false} />
+          <ValueRow label={t("tools.paper.points")} value={`${pair(d.pt, 1)} pt`} mono={false} />
+          {dpiOk && <ValueRow label={t("tools.paper.pixels", { dpi: fmt.number(dpi, 0) })} value={`${pair(d.px, 0)} px`} mono={false} />}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
 export function ToolConverter({ tool }: { tool: ToolId }) {
   switch (tool) {
     case "roman":
@@ -522,5 +980,15 @@ export function ToolConverter({ tool }: { tool: ToolId }) {
       return <TextBinaryTool />;
     case "coordinates":
       return <CoordinatesTool />;
+    case "base64":
+      return <Base64Tool />;
+    case "url":
+      return <UrlTool />;
+    case "tire":
+      return <TireTool />;
+    case "fraction":
+      return <FractionTool />;
+    case "paper-size":
+      return <PaperSizeTool />;
   }
 }

@@ -1,0 +1,51 @@
+const text = {
+  solve: "Calculate",
+  solves: {
+    ph: "Buffer pH from concentrations",
+    ratio: "Base-to-acid ratio for a target pH",
+    base: "Base concentration for a target pH",
+  },
+  acid: "Weak acid / conjugate base pair",
+  acids: {
+    acetic: "Acetic acid / acetate (pKa {pka})",
+    carbonic: "Carbonic acid / bicarbonate, first step (pKa {pka})",
+    phosphate: "Dihydrogen phosphate / hydrogen phosphate (pKa {pka})",
+    tris: "Tris-H⁺ / Tris base (pKa {pka})",
+    ammonium: "Ammonium / ammonia (pKa {pka})",
+    custom: "Other (enter pKa)",
+  },
+  pka: "pKa of the weak acid",
+  pkaHelp: "−log₁₀ of the acid dissociation constant Ka, at the temperature of your buffer.",
+  base: "Conjugate base concentration [A⁻]",
+  acidConc: "Weak acid concentration [HA]",
+  concentrationHelp: "In mol/L. E-notation such as 5e-3 is accepted.",
+  targetPh: "Target pH",
+  targetPhHelp: "Between 0 and 14. Buffers work best within 1 unit of the pKa.",
+  errors: {
+    notNumber: "Enter a positive number such as 0.1 or 1e-3.",
+    notPositive: "The concentration must be greater than 0.",
+    tooConcentrated: "Enter at most {max} mol/L.",
+  },
+  molar: "{value} mol/L",
+  results: { ph: "Buffer pH", ratio: "Ratio [A⁻] ÷ [HA]", base: "Conjugate base concentration [A⁻]" },
+  captions: {
+    ph: "pH = pKa + log₁₀([A⁻] ÷ [HA])",
+    ratio: "[A⁻] ÷ [HA] = 10^(pH − pKa)",
+    base: "[A⁻] = [HA] × 10^(pH − pKa)",
+  },
+  ratio: "Ratio [A⁻] ÷ [HA]",
+  phUsed: "Target pH",
+  pkaUsed: "pKa used",
+  range: "Effective buffer range (pKa ± 1)",
+  rangeText: "pH {low} to {high}",
+  baseShare: "Share of the buffer in the base form",
+  notes: {
+    insideRange: "The pH is within 1 unit of the pKa, where the buffer resists pH changes well.",
+    outsideRange: "The pH is more than 1 unit from the pKa. One form of the pair is then more than 10 times the other, so the buffer has little capacity left in one direction. A pair with a pKa closer to the target usually works better.",
+    tooMuchBase: "The required base concentration is above 20 mol/L, which is not practical. Lower the acid concentration or choose a pair with a pKa closer to the target pH.",
+    extreme: "The pH is outside 0–14. The Henderson–Hasselbalch equation is not reliable that far from the pKa.",
+    general: "The equation uses concentrations in place of activities and assumes both forms are present well above the H⁺ and OH⁻ concentrations. The listed pKa values apply at 25 °C; pKa changes with temperature and ionic strength, notably for Tris.",
+  },
+};
+export type HendersonHasselbalchText = typeof text;
+export default text;

@@ -1,0 +1,38 @@
+const text = {
+  diameter: "Rotor diameter",
+  diameterHelp: "The diameter of the circle swept by the blade tips (twice the blade length plus the hub).",
+  diameterUnit: "Diameter unit",
+  diameterUnits: { m: "Meters (m)", ft: "Feet (ft)" },
+  speed: "Wind speed",
+  speedHelp: "The wind speed at hub height. Power rises with the cube of the speed, so a small change matters a lot.",
+  speedUnit: "Speed unit",
+  speedUnits: { ms: "Meters per second (m/s)", kmh: "Kilometers per hour (km/h)", mph: "Miles per hour (mph)", kn: "Knots (kn)" },
+  density: "Air density",
+  densityHelp: "1.225 kg/m³ is the International Standard Atmosphere value at sea level and 15 °C. Air is thinner at altitude and in hot weather.",
+  cp: "Power coefficient (Cp)",
+  cpHelp: "The share of the wind's power the rotor turns into output. 0.40 is a reasonable figure for a good modern turbine; the theoretical maximum is 16/27 ≈ 0.593 (the Betz limit).",
+  ratedPower: "Rated power (optional)",
+  ratedPowerHelp: "The generator's nameplate power. If given, the output is capped at this value.",
+  capacityFactor: "Capacity factor (optional)",
+  capacityFactorHelp: "The average output over a year as a percentage of the power used for the estimate. Leave empty to skip the annual energy.",
+  errors: {
+    betz: "The power coefficient cannot be more than 16/27 ≈ 0.5926 (the Betz limit). No rotor can capture a larger share of the wind's power.",
+  },
+  power: "Turbine power output",
+  caption: "Swept area {area}, wind {speed}, Cp {cp}.",
+  powerW: "Power in watts",
+  aeroPower: "Rotor power before the rated-power cap",
+  windPower: "Power in the wind through the swept area (Cp = 1)",
+  betzPower: "Most power any rotor could capture (Betz limit)",
+  sweptArea: "Swept area",
+  speedMs: "Wind speed in m/s",
+  annualEnergy: "Annual energy, rough estimate",
+  annualEnergyMwh: "Annual energy in MWh",
+  notes: {
+    capped: "The rotor could produce more at this wind speed than the rated power, so the output is capped at the rated {rated}.",
+    annual: "The annual energy is a rough estimate: the power above × 8,760 hours × the capacity factor. Real output depends on how the wind speed varies over the year, the turbine's power curve, downtime and losses.",
+    single: "This is the output at one steady wind speed. Real wind changes all the time, and turbines produce nothing below their cut-in speed and shut down above their cut-out speed.",
+  },
+};
+export type WindTurbineText = typeof text;
+export default text;

@@ -14,9 +14,9 @@ Priority = 2 × usefulness + 2 × demand − difficulty (each scored 1–5). Sco
 | --- | --- |
 | published | 110 |
 | testing | 0 |
-| implementing | 0 |
-| researching | 22 |
-| planned | 116 |
+| implementing | 20 |
+| researching | 19 |
+| planned | 99 |
 | **total** | **248** |
 
 ## Coverage by category
@@ -67,17 +67,17 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | BMI Calculator | medical | published |
 | Compound Interest Calculator | financial | published |
 | Concrete Calculator | engineering | published |
-| Pregnancy Due Date Calculator | medical | planned |
-| TDEE Calculator | medical | researching |
+| Pregnancy Due Date Calculator | medical | implementing |
+| TDEE Calculator | medical | implementing |
 | Loan Payment Calculator | financial | published |
 | Mortgage Calculator (with taxes and insurance) | financial | published |
 | BMR Calculator | medical | published |
-| Calories Burned Calculator | medical | researching |
+| Calories Burned Calculator | medical | implementing |
 | Credit Card Payoff Calculator | financial | published |
 | Debt-to-Income Ratio Calculator | financial | published |
 | Macronutrient Calculator | medical | researching |
 | Take-Home Pay Calculator | tax | researching |
-| Body Fat Calculator (US Navy method) | medical | planned |
+| Body Fat Calculator (US Navy method) | medical | implementing |
 | Debt Avalanche and Snowball Calculator | financial | planned |
 | Heart Rate Zone Calculator | medical | published |
 | Ideal Weight Calculator | medical | planned |
@@ -88,7 +88,7 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | Calorie Deficit Calculator | medical | researching |
 | Cap Rate Calculator | financial | published |
 | LED Resistor Calculator | safety | planned |
-| Stair Calculator | safety | planned |
+| Stair Calculator | safety | implementing |
 | Straight-Line Depreciation Calculator | tax | published |
 | Payback Period Calculator | financial | planned |
 | Solar Payback Period Calculator | financial | planned |
@@ -98,13 +98,13 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | Cash-on-Cash Return Calculator | financial | planned |
 | Cholesterol Ratio Calculator | medical | planned |
 | Credit Utilization Calculator | financial | planned |
-| Net Present Value (NPV) Calculator | financial | planned |
+| Net Present Value (NPV) Calculator | financial | implementing |
 | Waist-to-Height Ratio Calculator | medical | planned |
 | Waist-to-Hip Ratio Calculator | medical | published |
 | Baluster Spacing Calculator | safety | planned |
 | Body Surface Area Calculator | medical | planned |
 | Internal Rate of Return (IRR) Calculator | financial | planned |
-| Password Strength (Entropy) Calculator | safety | planned |
+| Password Strength (Entropy) Calculator | safety | implementing |
 | Pet Pregnancy Due Date Calculator | medical | researching |
 | Creatinine Clearance (Cockcroft–Gault) Calculator | medical | researching |
 | Steak Doneness and Cook Time Calculator | safety | researching |
@@ -227,18 +227,40 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | 10 | Race Time Predictor | Sports | Fitness & Sports | 2 |  | Riegel formula; state its limits. |
 | 10 | Rainwater Harvesting Calculator | Ecology | Environment & Energy, Agriculture & Gardening | 2 |  |  |
 
-## Researching (22)
+## Implementing (20)
 
 | Priority | Concept | Category | Collections | Difficulty | Review | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
+| 18 | Pregnancy Due Date Calculator | Health | Healthcare & Medical Professionals | 2 | medical | The date field now exists; needs medical review before building. |
 | 18 | TDEE Calculator | Health | Healthcare & Medical Professionals, Fitness & Sports | 2 | medical | Needs sourced physical activity level multipliers. |
 | 15 | Calories Burned Calculator | Sports | Fitness & Sports, Healthcare & Medical Professionals | 3 | medical | Needs the published MET compendium values. |
+| 14 | Body Fat Calculator (US Navy method) | Health | Healthcare & Medical Professionals, Fitness & Sports | 2 | medical |  |
+| 14 | Roofing Area and Shingle Calculator | Construction | Construction & Civil Engineering, Real Estate & Property | 2 |  |  |
+| 13 | Car CO₂ Emissions Calculator | Ecology | Environment & Energy | 3 |  | Needs sourced fuel emission factors. |
+| 13 | Coffee to Water Ratio Calculator | Food | Food Service & Hospitality | 1 |  |  |
+| 13 | Stair Calculator | Construction | Construction & Civil Engineering | 3 | safety | Check local building code rise/run limits. |
+| 11 | Battery Life Calculator | Other | Manufacturing & Operations, Environment & Energy | 1 |  |  |
+| 11 | IP Subnet (CIDR) Calculator | Other | Software, IT & Data | 3 |  |  |
+| 11 | Linear Regression Calculator | Statistics | Education & Academic Research, Software, IT & Data | 3 |  |  |
+| 11 | Net Present Value (NPV) Calculator | Finance | Business & Entrepreneurship, Accounting & Finance | 3 | financial | Needs a cash-flow list input. |
+| 11 | Percent Yield Calculator | Chemistry | Education & Academic Research | 1 |  |  |
+| 11 | Punnett Square Calculator | Biology | Education & Academic Research | 3 |  | Needs a grid UI for genotype combinations. |
+| 10 | Baker's Percentage Calculator | Food | Food Service & Hospitality | 2 |  |  |
+| 10 | Buffer pH (Henderson–Hasselbalch) Calculator | Chemistry | Education & Academic Research, Healthcare & Medical Professionals | 2 |  |  |
+| 10 | DNA Concentration Calculator (A260) | Biology | Education & Academic Research, Healthcare & Medical Professionals | 2 |  | Use standard extinction conversion factors; cite a lab reference. |
+| 10 | Password Strength (Entropy) Calculator | Other | Software, IT & Data | 2 | safety | Entropy estimates only; not a security guarantee. |
+| 10 | Wind Turbine Power Calculator | Ecology | Environment & Energy | 2 |  |  |
+| 9 | Swim Pace Calculator | Sports | Fitness & Sports | 1 |  |  |
+
+## Researching (19)
+
+| Priority | Concept | Category | Collections | Difficulty | Review | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
 | 15 | Macronutrient Calculator | Health | Healthcare & Medical Professionals, Fitness & Sports | 3 | medical |  |
 | 15 | Take-Home Pay Calculator | Finance | HR, Payroll & Employment, Personal Finance & Household | 5 | tax | Requires jurisdiction tax tables and annual updates. |
 | 14 | Water Intake Calculator | Health | Healthcare & Medical Professionals, Fitness & Sports | 2 | medical |  |
 | 13 | Blood Alcohol Content Calculator | Health | Healthcare & Medical Professionals | 3 | safety | Widmark estimate only; must never suggest it is safe to drive. |
 | 13 | Calorie Deficit Calculator | Health | Healthcare & Medical Professionals, Fitness & Sports | 3 | medical |  |
-| 13 | Car CO₂ Emissions Calculator | Ecology | Environment & Energy | 3 |  | Needs sourced fuel emission factors. |
 | 13 | Inflation Calculator | Finance | Personal Finance & Household | 3 |  | Needs an official CPI dataset and update process. |
 | 12 | Flight CO₂ Emissions Calculator | Ecology | Environment & Energy | 4 |  |  |
 | 12 | Rice to Water Ratio Calculator | Food | Food Service & Hospitality | 2 |  |  |
@@ -254,25 +276,20 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | 7 | Tree Carbon Sequestration Calculator | Ecology | Environment & Energy, Agriculture & Gardening | 5 |  | Species-specific allometric data needed. |
 | 6 | Irrigation Water Requirement Calculator | Ecology | Agriculture & Gardening, Environment & Energy | 4 |  | Needs evapotranspiration data sources. |
 
-## Planned (116)
+## Planned (99)
 
 | Priority | Concept | Category | Collections | Difficulty | Review | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| 18 | Pregnancy Due Date Calculator | Health | Healthcare & Medical Professionals | 2 | medical | The date field now exists; needs medical review before building. |
 | 15 | Distance Between Two Points Calculator | Math | Education & Academic Research | 1 |  | Not built: the published Slope Calculator already shows the distance between two points (batch 5 replaced it with the Permutations and Combinations Calculator). |
 | 15 | Markup Calculator | Finance | Business & Entrepreneurship, Digital Marketing & Ecommerce | 1 |  | Not built: duplicates the markup output of the published Profit Margin Calculator (batch 5 replaced it with the Credit Card Payoff Calculator). |
-| 14 | Body Fat Calculator (US Navy method) | Health | Healthcare & Medical Professionals, Fitness & Sports | 2 | medical |  |
 | 14 | Debt Avalanche and Snowball Calculator | Finance | Personal Finance & Household | 4 | financial | Combine both strategies in one tool. |
 | 14 | Ideal Weight Calculator | Health | Healthcare & Medical Professionals | 2 | medical | Present several published formulas side by side. |
-| 14 | Roofing Area and Shingle Calculator | Construction | Construction & Civil Engineering, Real Estate & Property | 2 |  |  |
 | 13 | Business Days Calculator | Everyday Life | Business & Entrepreneurship, HR, Payroll & Employment | 3 |  |  |
-| 13 | Coffee to Water Ratio Calculator | Food | Food Service & Hospitality | 1 |  |  |
 | 13 | Contribution Margin Calculator | Finance | Business & Entrepreneurship, Accounting & Finance | 1 |  |  |
 | 13 | Conversion Rate Calculator | Statistics | Digital Marketing & Ecommerce | 1 |  |  |
 | 13 | Food Cost Percentage Calculator | Food | Food Service & Hospitality, Business & Entrepreneurship | 1 |  |  |
 | 13 | LED Resistor Calculator | Physics | Manufacturing & Operations, Education & Academic Research | 1 | safety |  |
 | 13 | ROAS Calculator | Finance | Digital Marketing & Ecommerce | 1 |  |  |
-| 13 | Stair Calculator | Construction | Construction & Civil Engineering | 3 | safety | Check local building code rise/run limits. |
 | 13 | Time Card Calculator | Everyday Life | HR, Payroll & Employment, Business & Entrepreneurship | 3 |  |  |
 | 12 | Customer Lifetime Value Calculator | Finance | Digital Marketing & Ecommerce, Business & Entrepreneurship | 2 |  |  |
 | 12 | Normal Distribution Calculator | Statistics | Education & Academic Research | 2 |  | Reuses the existing normal CDF. |
@@ -282,7 +299,6 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | 12 | Wall Framing (Stud) Calculator | Construction | Construction & Civil Engineering | 2 | engineering |  |
 | 11 | A/B Test Significance Calculator | Statistics | Digital Marketing & Ecommerce, Software, IT & Data | 3 |  | Two-proportion z-test. |
 | 11 | Aspect Ratio Calculator | Other | Software, IT & Data | 1 |  |  |
-| 11 | Battery Life Calculator | Other | Manufacturing & Operations, Environment & Energy | 1 |  |  |
 | 11 | Board Foot Calculator | Construction | Construction & Civil Engineering, Manufacturing & Operations | 1 |  |  |
 | 11 | Bond Current Yield Calculator | Finance | Accounting & Finance | 1 | financial |  |
 | 11 | Cash-on-Cash Return Calculator | Finance | Real Estate & Property | 1 | financial |  |
@@ -294,15 +310,10 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | 11 | Customer Acquisition Cost Calculator | Finance | Digital Marketing & Ecommerce, Business & Entrepreneurship | 1 |  |  |
 | 11 | Hooke's Law (Spring Force) Calculator | Physics | Education & Academic Research | 1 |  |  |
 | 11 | Inventory Turnover Calculator | Finance | Manufacturing & Operations, Business & Entrepreneurship | 1 |  |  |
-| 11 | IP Subnet (CIDR) Calculator | Other | Software, IT & Data | 3 |  |  |
 | 11 | Leaky Faucet Water Waste Calculator | Ecology | Environment & Energy, Personal Finance & Household | 1 |  |  |
-| 11 | Linear Regression Calculator | Statistics | Education & Academic Research, Software, IT & Data | 3 |  |  |
 | 11 | Mass Percent Calculator | Chemistry | Education & Academic Research | 1 |  |  |
 | 11 | Midpoint Calculator | Math | Education & Academic Research | 1 |  |  |
-| 11 | Net Present Value (NPV) Calculator | Finance | Business & Entrepreneurship, Accounting & Finance | 3 | financial | Needs a cash-flow list input. |
-| 11 | Percent Yield Calculator | Chemistry | Education & Academic Research | 1 |  |  |
 | 11 | PTO Accrual Calculator | Finance | HR, Payroll & Employment | 1 |  |  |
-| 11 | Punnett Square Calculator | Biology | Education & Academic Research | 3 |  | Needs a grid UI for genotype combinations. |
 | 11 | Rule of 72 Calculator | Finance | Personal Finance & Household | 1 |  |  |
 | 11 | Shower Water Use Calculator | Ecology | Environment & Energy, Personal Finance & Household | 1 |  |  |
 | 11 | Stride Length Calculator | Sports | Fitness & Sports | 1 |  |  |
@@ -312,16 +323,13 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | 11 | Waist-to-Height Ratio Calculator | Health | Healthcare & Medical Professionals, Fitness & Sports | 1 | medical |  |
 | 11 | Wavelength and Frequency Calculator | Physics | Education & Academic Research | 1 |  |  |
 | 10 | Alcohol by Volume (ABV) Calculator | Food | Food Service & Hospitality | 2 |  | Gravity-based formula; document which one. |
-| 10 | Baker's Percentage Calculator | Food | Food Service & Hospitality | 2 |  |  |
 | 10 | Baluster Spacing Calculator | Construction | Construction & Civil Engineering | 2 | safety |  |
 | 10 | Body Surface Area Calculator | Health | Healthcare & Medical Professionals | 2 | medical | Clinical use; expert review before publishing. |
 | 10 | Brick Calculator | Construction | Construction & Civil Engineering | 2 |  |  |
-| 10 | Buffer pH (Henderson–Hasselbalch) Calculator | Chemistry | Education & Academic Research, Healthcare & Medical Professionals | 2 |  |  |
 | 10 | Circular Motion Calculator | Physics | Education & Academic Research | 2 |  |  |
 | 10 | Commute Cost Calculator | Everyday Life | Personal Finance & Household, Environment & Energy | 2 |  |  |
 | 10 | Confusion Matrix Calculator | Statistics | Software, IT & Data, Healthcare & Medical Professionals | 2 |  |  |
 | 10 | Deck Boards and Stain Calculator | Construction | Construction & Civil Engineering, Real Estate & Property | 2 |  |  |
-| 10 | DNA Concentration Calculator (A260) | Biology | Education & Academic Research, Healthcare & Medical Professionals | 2 |  | Use standard extinction conversion factors; cite a lab reference. |
 | 10 | DNA to mRNA Transcription Tool | Biology | Education & Academic Research | 2 |  |  |
 | 10 | Fence Materials Calculator | Construction | Construction & Civil Engineering, Agriculture & Gardening | 2 |  |  |
 | 10 | Fertilizer (N-P-K) Rate Calculator | Ecology | Agriculture & Gardening | 2 |  |  |
@@ -329,7 +337,6 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | 10 | Internal Rate of Return (IRR) Calculator | Finance | Business & Entrepreneurship, Accounting & Finance | 4 | financial | Root finding; handle multiple/no IRR. |
 | 10 | Limiting Reagent Calculator | Chemistry | Education & Academic Research | 4 |  | Depends on the molar mass parser. |
 | 10 | Party Food Quantity Calculator | Food | Food Service & Hospitality | 2 |  |  |
-| 10 | Password Strength (Entropy) Calculator | Other | Software, IT & Data | 2 | safety | Entropy estimates only; not a security guarantee. |
 | 10 | Percentile Calculator | Statistics | Education & Academic Research | 2 |  | Document the percentile definition used. |
 | 10 | Prime Factorization Calculator | Math | Education & Academic Research | 2 |  |  |
 | 10 | RAID Capacity Calculator | Other | Software, IT & Data | 2 |  |  |
@@ -337,7 +344,6 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | 10 | t-Statistic Calculator | Statistics | Education & Academic Research | 2 |  |  |
 | 10 | Titration Calculator | Chemistry | Education & Academic Research | 2 |  |  |
 | 10 | Vector Cross and Dot Product Calculator | Math | Education & Academic Research | 2 |  |  |
-| 10 | Wind Turbine Power Calculator | Ecology | Environment & Energy | 2 |  |  |
 | 9 | 3D Printing Cost Calculator | Other | Manufacturing & Operations | 1 |  |  |
 | 9 | Baseball ERA Calculator | Sports | Fitness & Sports | 1 |  | Pairs with the batting average calculator. |
 | 9 | Batting Average Calculator | Sports | Fitness & Sports | 1 |  |  |
@@ -349,7 +355,6 @@ Medical, financial, tax, engineering and safety topics. Published items here hav
 | 9 | Molality Calculator | Chemistry | Education & Academic Research | 1 |  |  |
 | 9 | OEE Calculator | Other | Manufacturing & Operations | 1 |  |  |
 | 9 | Percent Composition Calculator | Chemistry | Education & Academic Research | 3 |  | Depends on the molar mass parser. |
-| 9 | Swim Pace Calculator | Sports | Fitness & Sports | 1 |  |  |
 | 9 | Takt Time Calculator | Other | Manufacturing & Operations | 1 |  |  |
 | 9 | Uptime and SLA Calculator | Other | Software, IT & Data, Business & Entrepreneurship | 1 |  |  |
 | 8 | Bond Yield to Maturity Calculator | Finance | Accounting & Finance | 4 | financial | Day-count conventions vary by market. |

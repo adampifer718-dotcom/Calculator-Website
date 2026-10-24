@@ -1,0 +1,53 @@
+const forms = (one: string, other: string) => ({ zero: other, one, two: other, few: other, many: other, other });
+
+const text = {
+  mode: "Password type",
+  modes: { random: "Random characters", passphrase: "Random words (passphrase)" },
+  length: "Length (characters)",
+  poolMode: "Character pool",
+  poolModes: { sets: "Choose character sets", custom: "Custom pool size" },
+  lower: "Lowercase letters a–z (26)",
+  upper: "Uppercase letters A–Z (26)",
+  digits: "Digits 0–9 (10)",
+  symbols: "Symbols",
+  yesNo: { yes: "Include", no: "Exclude" },
+  symbolCount: "Number of possible symbols",
+  symbolCountHelp: "32 covers every printable ASCII symbol on a US keyboard, such as ! ? # and @. Use a smaller number if only some symbols are allowed.",
+  customPool: "Pool size (possible characters)",
+  customPoolHelp: "How many different characters each position can take.",
+  words: "Number of words",
+  wordList: "Word list size",
+  wordListHelp: "7,776 is the size of a Diceware word list, made for five rolls of a six-sided die per word.",
+  guessRate: "Attacker's guesses per second",
+  guessRateHelp: "An assumption about the attacker. 10¹⁰ (10 billion) per second is a fast offline attack on a weakly hashed password; online attacks are far slower.",
+  errors: {
+    noSets: "Include at least one character set.",
+  },
+  entropy: "Entropy",
+  bits: "bits",
+  captionRandom: "{length} chosen at random from a pool of {pool} characters.",
+  captionPassphrase: "{words} chosen at random from a list of {list} words.",
+  lengthCount: forms("{n} character", "{n} characters"),
+  wordCount: forms("{n} word", "{n} words"),
+  combinations: "Possible combinations",
+  poolSize: "Pool size per position",
+  bitsPerItem: "Entropy per character or word",
+  averageTime: "Average time to guess",
+  worstTime: "Time to try every combination",
+  duration: {
+    lessThanSecond: "Less than 1 second",
+    seconds: forms("{n} second", "{n} seconds"),
+    minutes: forms("{n} minute", "{n} minutes"),
+    hours: forms("{n} hour", "{n} hours"),
+    days: forms("{n} day", "{n} days"),
+    years: forms("{n} year", "{n} years"),
+  },
+  notes: {
+    random: "These figures hold only if every character or word is chosen truly at random, for example by a password manager or by dice. Passwords people make up, names, dates and common substitutions have far less entropy.",
+    average: "On average an attacker finds the password after trying half of the combinations.",
+    notCollected: "This page never asks for your password. It works only from the length and the kinds of characters or words.",
+    zero: "With only one possible choice per position there is no uncertainty, so the entropy is 0 bits.",
+  },
+};
+export type PasswordEntropyText = typeof text;
+export default text;

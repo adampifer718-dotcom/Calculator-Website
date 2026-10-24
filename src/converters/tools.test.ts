@@ -17,6 +17,17 @@ import {
   toDdm,
   toDms,
   toRoman,
+  PAPER_SIZES,
+  bestRational,
+  decodeBase64,
+  decodeUrl,
+  encodeBase64,
+  encodeUrl,
+  mixedParts,
+  nearestFraction,
+  paperDimensions,
+  parseExactFraction,
+  parseTireSize,
 } from "./tools";
 
 describe("Roman numerals", () => {
@@ -226,5 +237,105 @@ describe("coordinates", () => {
     // 59.99999 seconds rounds up into the next minute and degree
     expect(toDms(10.999999999)).toEqual({ d: 11, m: 0, s: 0 });
     expect(toDms(-33.868806)).toEqual({ d: 33, m: 52, s: 7.7 });
+  });
+});
+
+describe("Base64", () => {
+  it("encodes UTF-8 text in both alphabets", () => {
+    // python: base64.b64encode("Hello, world!".encode())
+    expect(encodeBase64("Hello, world!", false)).toEqual({ ok: true, bytes: 13, output: "SGVsbG8sIHdvcmxkIQ==" });
+    // python: base64.urlsafe_b64encode("é?>".encode()) → "w6k_Pg==", padding dropped
+    expect(encodeBase64("é?>", true)).toEqual({ ok: true, bytes: 4, output: "w6k_Pg" });
+    expect(encodeBase64("😀", false)).toMatchObject({ output: "8J+YgA==" });
+  });
+  it("decodes standard and URL-safe input, with or without padding", () => {
+    expect(decodeBase64("SGVsbG8sIHdvcmxkIQ==")).toEqual({ ok: true, output: "Hello, world!", bytes: 13 });
+    expect(decodeBase64("w6k_Pg")).toEqual({ ok: true, output: "é?>", bytes: 4 });
+    expect(decodeBase64(" SGkh\n")).toMatchObject({ output: "Hi!" });
+  });
+  it("rejects invalid Base64 and non-UTF-8 bytes", () => {
+    expect(decodeBase64("SGk*")).toEqual({ ok: false, error: "invalid" });
+    expect(decodeBase64("A")).toEqual({ ok: false, error: "invalid" });
+    // 0xFF 0xFE is not UTF-8
+    expect(decodeBase64("//4=")).toEqual({ ok: false, error: "notUtf8" });
+    expect(decodeBase64("")).toEqual({ ok: false, error: "empty" });
+  });
+});
+
+describe("URL encoding", () => {
+  it("encodes single values and whole URLs", () => {
+    // python: urllib.parse.quote("café & crème?", safe="-_.~")
+    expect(encodeUrl("café & crème?", "component")).toEqual({ ok: true, output: "caf%C3%A9%20%26%20cr%C3%A8me%3F" });
+    expect(encodeUrl("it's (ok)*!", "component")).toEqual({ ok: true, output: "it%27s%20%28ok%29%2A%21" });
+    expect(encodeUrl("https://example.com/a b?q=é&x=1", "uri")).toEqual({ ok: true, output: "https://example.com/a%20b?q=%C3%A9&x=1" });
+  });
+  it("decodes, optionally treating + as a space, and rejects broken sequences", () => {
+    expect(decodeUrl("caf%C3%A9%20%26", false)).toEqual({ ok: true, output: "café &" });
+    expect(decodeUrl("a+b", true)).toEqual({ ok: true, output: "a b" });
+    expect(decodeUrl("a+b", false)).toEqual({ ok: true, output: "a+b" });
+    expect(decodeUrl("%E2%8", false)).toEqual({ ok: false, error: "malformed" });
+    expect(decodeUrl("%FF", false)).toEqual({ ok: false, error: "malformed" });
+  });
+});
+
+describe("tire sizes", () => {
+  it("parses metric designations and computes dimensions", () => {
+    const r = parseTireSize("225/45R17");
+    expect(r.ok).toBe(true);
+    if (!r.ok) return;
+    // 17 × 25.4 + 2 × 101.25 = 634.3 mm (24.972 in); revs/km = 1e6 / (π × 634.3)
+    expect(r.dims.sidewallMm).toBeCloseTo(101.25, 10);
+    expect(r.dims.diameterMm).toBeCloseTo(634.3, 10);
+    expect(r.dims.revsPerKm).toBeCloseTo(501.83, 2);
+    expect(parseTireSize("P215/65R15").ok).toBe(true);
+    expect(parseTireSize("LT245/75R16 120/116S").ok).toBe(true);
+    expect(parseTireSize("205/55 ZR 16")).toMatchObject({ ok: true, size: { width: 205, aspect: 55, rim: 16 } });
+    // 18 × 25.4 + 2 × 94 = 645.2 mm; ratio to 634.3 = 1.01718
+    const b = parseTireSize("235/40R18");
+    expect(b.ok && b.dims.diameterMm / r.dims.diameterMm).toBeCloseTo(1.017184, 6);
+  });
+  it("rejects malformed and implausible sizes", () => {
+    expect(parseTireSize("31x10.50R15")).toEqual({ ok: false, error: "invalid" });
+    expect(parseTireSize("225/45R35")).toEqual({ ok: false, error: "range" });
+    expect(parseTireSize("225/45R9")).toEqual({ ok: false, error: "invalid" });
+    expect(parseTireSize("")).toEqual({ ok: false, error: "empty" });
+  });
+});
+
+describe("decimal to fraction", () => {
+  it("converts decimals and fractions exactly", () => {
+    expect(parseExactFraction("0.375")).toMatchObject({ ok: true, exact: { num: 3n, den: 8n } });
+    expect(parseExactFraction("2.6875")).toMatchObject({ exact: { num: 43n, den: 16n } });
+    expect(parseExactFraction("-1.5")).toMatchObject({ exact: { num: -3n, den: 2n } });
+    expect(parseExactFraction("14/16")).toMatchObject({ exact: { num: 7n, den: 8n } });
+    expect(parseExactFraction("2.5e-3")).toMatchObject({ exact: { num: 1n, den: 400n } });
+    expect(parseExactFraction("3")).toMatchObject({ exact: { num: 3n, den: 1n } });
+    expect(parseExactFraction("1/0")).toEqual({ ok: false, error: "invalid" });
+    expect(parseExactFraction("abc")).toEqual({ ok: false, error: "invalid" });
+  });
+  it("finds nearest and best approximations", () => {
+    expect(nearestFraction(0.7, 16)).toEqual({ num: 11, den: 16 });
+    expect(nearestFraction(0.5, 16)).toEqual({ num: 1, den: 2 });
+    // python: Fraction(3.14159).limit_denominator(1000) → 355/113
+    expect(bestRational(3.14159, 1000)).toEqual({ num: 355, den: 113 });
+    expect(bestRational(0.333, 10)).toEqual({ num: 1, den: 3 });
+    expect(bestRational(-0.75, 100)).toEqual({ num: -3, den: 4 });
+    expect(mixedParts(43n, 16n)).toEqual({ whole: 2n, num: 11n, den: 16n, negative: false });
+  });
+});
+
+describe("paper sizes", () => {
+  it("derives the ISO series and converts units", () => {
+    const get = (id: string) => PAPER_SIZES.find((p) => p.id === id)!;
+    expect([get("A4").width, get("A4").height]).toEqual([210, 297]);
+    expect([get("A10").width, get("A10").height]).toEqual([26, 37]);
+    expect([get("B5").width, get("B5").height]).toEqual([176, 250]);
+    expect([get("C4").width, get("C4").height]).toEqual([229, 324]);
+    const a4 = paperDimensions(get("A4"), 300);
+    expect(a4.px).toEqual([2480, 3508]);
+    expect(a4.pt[0]).toBeCloseTo(595.28, 2);
+    const letter = paperDimensions(get("letter"), 300).mm;
+    expect(letter[0]).toBeCloseTo(215.9, 9);
+    expect(letter[1]).toBeCloseTo(279.4, 9);
   });
 });
