@@ -76,6 +76,26 @@ import { marginOfError } from "./margin-of-error";
 import { probabilityEvents } from "./probability-events";
 import { combinations } from "./combinations";
 import { seriesParallelResistors } from "./series-parallel-resistors";
+import { stairs } from "./stairs";
+import { roofing } from "./roofing";
+import { bakersPercentage } from "./bakers-percentage";
+import { coffeeRatio } from "./coffee-ratio";
+import { carbonFootprintDriving } from "./carbon-footprint-driving";
+import { windTurbine } from "./wind-turbine";
+import { batteryLife } from "./battery-life";
+import { passwordEntropy } from "./password-entropy";
+import { subnet } from "./subnet";
+import { npv } from "./npv";
+import { linearRegression } from "./linear-regression";
+import { hendersonHasselbalch } from "./henderson-hasselbalch";
+import { percentYield } from "./percent-yield";
+import { dnaConcentration } from "./dna-concentration";
+import { punnettSquare } from "./punnett-square";
+import { swimPace } from "./swim-pace";
+import { caloriesBurned } from "./calories-burned";
+import { bodyFatNavy } from "./body-fat-navy";
+import { dueDate } from "./due-date";
+import { tdee } from "./tdee";
 import { quartileIqr } from "./quartile-iqr";
 import { triangle } from "./triangle";
 import { rounding } from "./rounding";
@@ -228,6 +248,26 @@ export const ALL_CALCULATORS: readonly CalculatorDefinition[] = [] = [
   rounding,
   triangle,
   quartileIqr,
+  tdee,
+  dueDate,
+  bodyFatNavy,
+  caloriesBurned,
+  swimPace,
+  punnettSquare,
+  dnaConcentration,
+  percentYield,
+  hendersonHasselbalch,
+  linearRegression,
+  npv,
+  subnet,
+  passwordEntropy,
+  batteryLife,
+  windTurbine,
+  carbonFootprintDriving,
+  coffeeRatio,
+  bakersPercentage,
+  roofing,
+  stairs,
 ];
 
 /**

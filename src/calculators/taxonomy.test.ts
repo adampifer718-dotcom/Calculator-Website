@@ -68,7 +68,7 @@ describe("registry records", () => {
     "%s is review-flagged, cites sources and states it is not professional advice",
     (_id, c) => {
       expect(c.sources.length).toBeGreaterThan(0);
-      expect(c.assumptions.join(" ")).toMatch(/not (medical|financial|investment|tax|legal|engineering)?\s*(or [a-z]+ )?advice|not a prescription|not medical/i);
+      expect(c.assumptions.join(" ")).toMatch(/not (medical|financial|investment|tax|legal|engineering|safety|security)?\s*(or [a-z]+ )?advice|not a prescription|not medical/i);
     },
   );
 

@@ -74,7 +74,7 @@ export const passwordEntropy = defineCalculator({
     "Every character or word is chosen independently and uniformly at random, as a password manager or dice would. Passwords chosen by people are far more predictable than these numbers suggest.",
     "The guessing rate is an assumption you can change. Real rates range from a few guesses per second against an online login with rate limits to many billions per second against stolen, weakly hashed passwords.",
     "Entropy does not cover other risks, such as phishing, reuse of the same password on several sites, or a password that has already leaked.",
-    "This is an estimate for comparison, not a security guarantee or professional security advice, and it has not been professionally reviewed.",
+    "This is an estimate for comparison, not security advice or a guarantee, and it has not been professionally reviewed.",
   ],
   faqs: [
     { question: "How many bits of entropy is enough?", answer: "There is no single threshold, because it depends on how the password is stored and who might attack it. As a rough guide, each bit doubles the work, so a random password of 16 or more characters, or a passphrase of six or more Diceware words, is far beyond practical brute force at the default rate." },
