@@ -48,7 +48,7 @@ const it: CalculatorTranslation<TriangleText> = {
       },
       {
         title: "Area e raggi",
-        expression: "Area = √(s(s − a)(s − b)(s − c)), s = (a + b + c) ÷ 2\nr = Area ÷ s\nR = abc ÷ (4 × Area)",
+        expression: "area = √(s(s − a)(s − b)(s − c)), dove s = (a + b + c) ÷ 2\nr = area ÷ s\nR = abc ÷ (4 × area)",
         explanation: "La formula di Erone dà l'area dai tre lati. r è il raggio della circonferenza inscritta e R quello della circonferenza circoscritta.",
       },
     ],

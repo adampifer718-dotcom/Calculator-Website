@@ -24,15 +24,15 @@ const ar: CalculatorTranslation<OvertimePayText> = {
     formulas: [
       {
         title: "الساعات العادية والإضافية",
-        expression: "regular = min(H, T); overtime = max(0, H − T)",
+        expression: "الساعات العادية = min(H, T)؛ الساعات الإضافية = max(0, H − T)",
         explanation: "H عدد الساعات المعمولة في الأسبوع، وT حد الساعات العادية.",
       },
       {
         title: "الأجر الإجمالي",
-        expression: "pay = regular × r + (overtime − D) × r × m + D × r × d",
+        expression: "الأجر = الساعات العادية × r + (الساعات الإضافية − D) × r × m + D × r × d",
         explanation: "r الأجر بالساعة، وm معامل العمل الإضافي، وD ساعات الأجر المضاعف، وd معامل الأجر المضاعف.",
       },
-      { title: "الأجر الفعلي للساعة", expression: "effective = pay ÷ H", explanation: "متوسط ما يُدفع عن كل ساعة عمل بعد احتساب علاوة العمل الإضافي." },
+      { title: "الأجر الفعلي للساعة", expression: "الأجر الفعلي للساعة = الأجر ÷ H", explanation: "متوسط ما يُدفع عن كل ساعة عمل بعد احتساب علاوة العمل الإضافي." },
     ],
     examples: [
       { title: "46 ساعة بأجر US$ 22 في الساعة", steps: ["الأجر العادي = 40 × US$ 22 = US$ 880", "العمل الإضافي = 6 h × US$ 22 × 1.5 = US$ 198", "المجموع = US$ 880 + US$ 198 = US$ 1,078"] },

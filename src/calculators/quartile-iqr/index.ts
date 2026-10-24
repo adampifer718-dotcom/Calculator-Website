@@ -12,7 +12,7 @@ export const quartileIqr = defineCalculator({
   category: "statistics",
   collections: ["education-research", "software-data"],
   summary: "Find the quartiles, interquartile range, five-number summary, 1.5 × IQR fences and outliers of a data set, with two common quartile methods.",
-  metaTitle: "Quartile Calculator – IQR, Five-Number Summary, Outliers",
+  metaTitle: "Quartile and IQR Calculator – Five-Number Summary, Outliers",
   metaDescription: "Find Q1, the median, Q3 and the interquartile range of a list of numbers, with the five-number summary, 1.5 × IQR fences and any outliers.",
   keywords: ["quartile calculator", "IQR calculator", "interquartile range", "five number summary", "Q1 Q3", "outlier fences", "box plot", "1.5 IQR rule"],
   addedOn: "2026-10-22",

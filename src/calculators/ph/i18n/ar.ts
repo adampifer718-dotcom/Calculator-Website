@@ -23,7 +23,7 @@ const ar: CalculatorTranslation<PhText> = {
     formulas: [
       {
         title: "pH وpOH",
-        expression: "pH = −log₁₀[H⁺]   pOH = −log₁₀[OH⁻]\npH + pOH = 14   (Kw = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴ at 25 °C)",
+        expression: "pH = −log₁₀[H⁺]   pOH = −log₁₀[OH⁻]\npH + pOH = 14   (Kw = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴ عند 25 °C)",
         explanation: "التراكيز بوحدة mol/L.",
       },
       {

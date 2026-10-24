@@ -42,6 +42,15 @@ describe("text number normalization", () => {
     expect(countSigFigs("2,50", "en")).toBe(2); // commas group thousands in English: "250"
   });
 
+  it("never reads a leading zero as a thousands group", () => {
+    for (const locale of ["es", "fr", "de", "it", "pt", "nl"] as const) {
+      // "0.025" is a decimal everywhere; "60.000" still groups thousands in comma locales.
+      expect(normalizeNumberText("0.025", locale)).toBe("0.025");
+      expect(normalizeNumberText("-0.500", locale)).toBe("-0.500");
+      expect(normalizeNumberText("60.000", locale)).toBe("60000");
+    }
+  });
+
   it("rejects ambiguous text", () => {
     expect(isNumberText("1,2,3", "de")).toBe(false);
     expect(isNumberText("abc", "en")).toBe(false);

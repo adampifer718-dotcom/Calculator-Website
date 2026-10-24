@@ -18,7 +18,8 @@ function asciiDigits(text: string): string {
 }
 
 const NUMBER_PATTERN = /^[-+]?(\d+\.?\d*|\.\d+)$/;
-const DOT_GROUPS = /^[-+]?\d{1,3}(\.\d{3})+$/;
+// A leading zero never starts a thousands group, so "0.025" stays a decimal.
+const DOT_GROUPS = /^[-+]?[1-9]\d{0,2}(\.\d{3})+$/;
 
 /**
  * Parses a number typed in the given locale. Returns null for empty input

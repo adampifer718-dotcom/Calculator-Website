@@ -22,7 +22,7 @@ const ar: CalculatorTranslation<MolarMassText> = {
     ],
     formulas: [
       { title: "الكتلة المولية", expression: "M = Σ (nᵢ × Aᵣ,ᵢ)  g/mol", explanation: "nᵢ عدد ذرات العنصر i في الصيغة، وAᵣ,ᵢ وزنه الذري المعياري." },
-      { title: "المجموعات والأملاح المميهة", expression: "(X)ₖ → every count inside × k\nA·nB → atoms of A + n × atoms of B", explanation: "يُطبَّق مضاعِف القوس على كل ما بداخله، بما في ذلك المجموعات المتداخلة؛ ويُطبَّق معامل الإماهة على الجزء الذي يلي النقطة." },
+      { title: "المجموعات والأملاح المميهة", expression: "(X)ₖ → كل عدد داخل القوسين × k\nA·nB → ذرات A + n × ذرات B", explanation: "يُطبَّق مضاعِف القوس على كل ما بداخله، بما في ذلك المجموعات المتداخلة؛ ويُطبَّق معامل الإماهة على الجزء الذي يلي النقطة." },
       { title: "النسبة المئوية الكتلية", expression: "% element i = nᵢ × Aᵣ,ᵢ ÷ M × 100", explanation: "حصة الكتلة المولية التي يسهم بها كل عنصر." },
     ],
     examples: [

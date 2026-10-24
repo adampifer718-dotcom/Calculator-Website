@@ -20,7 +20,7 @@ const ur: CalculatorTranslation<PhText> = {
       "pH، pOH، دونوں آئنوں کے ارتکاز اور یہ دیکھیں کہ محلول تیزابی، غیر جانبدار یا اساسی ہے۔",
     ],
     formulas: [
-      { title: "pH اور pOH", expression: "pH = −log₁₀[H⁺]   pOH = −log₁₀[OH⁻]\npH + pOH = 14   (Kw = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴ at 25 °C)", explanation: "ارتکاز mol/L میں ہیں۔" },
+      { title: "pH اور pOH", expression: "pH = −log₁₀[H⁺]   pOH = −log₁₀[OH⁻]\npH + pOH = 14   (Kw = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴، 25 °C پر)", explanation: "ارتکاز mol/L میں ہیں۔" },
       { title: "طاقتور یک پروٹونی تیزاب", expression: "[H⁺] = (C + √(C² + 4Kw)) ÷ 2", explanation: "چارج توازن [H⁺] = C + [OH⁻] سے۔ جب C، 10⁻⁶ mol/L سے کافی زیادہ ہو تو یہ بس [H⁺] ≈ C ہے۔ طاقتور اساس [OH⁻] کے لیے یہی فارمولا استعمال کرتی ہے۔" },
       { title: "کمزور یک پروٹونی تیزاب", expression: "Ka = x² ÷ (C − x)   ⇒   x = [H⁺] = (−Ka + √(Ka² + 4·Ka·C)) ÷ 2", explanation: "دو درجی مساوات کا درست حل، x ≪ C والے مختصر طریقے کے بغیر، پانی سے آنے والے H⁺ کو نظر انداز کرتے ہوئے۔ Ka = 10^(−pKa)۔" },
     ],
