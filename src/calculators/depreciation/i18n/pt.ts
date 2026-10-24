@@ -6,9 +6,9 @@ const pt: CalculatorTranslation<DepreciationText> = {
     title: "Calculadora de depreciações",
     shortTitle: "Depreciações",
     summary: "Elabore um plano anual de depreciações pelo método das quotas constantes, das quotas degressivas ou da soma dos dígitos dos anos.",
-    metaTitle: "Calculadora de depreciações – Quotas constantes e degressivas",
+    metaTitle: "Calculadora de depreciações – Quotas lineares e degressivas",
     metaDescription:
-      "Calcule a depreciação anual e o valor contabilístico pelo método das quotas constantes, das quotas degressivas (200% ou 150%) ou da soma dos dígitos, com o plano completo.",
+      "Calcule a depreciação anual e o valor contabilístico por quotas constantes, quotas degressivas (200% ou 150%) ou soma dos dígitos, com o plano completo.",
     keywords: ["depreciações", "calcular depreciação", "quotas constantes", "quotas degressivas", "soma dos dígitos dos anos", "valor contabilístico", "plano de depreciações", "valor residual"],
     intro: [
       "A depreciação reparte o custo de um ativo de longa duração, como uma máquina, um veículo ou um computador, pelos anos em que é utilizado. Em cada ano, parte do custo passa a gasto e o valor contabilístico do ativo diminui até atingir o valor residual esperado.",

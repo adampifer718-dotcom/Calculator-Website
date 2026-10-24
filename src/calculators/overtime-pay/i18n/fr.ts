@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<OvertimePayText> = {
     summary: "Calculez la paie brute d’une semaine avec heures supplémentaires, majorées de 50 %, avec une part en option payée double et le taux horaire effectif.",
     metaTitle: "Calculateur d’heures supplémentaires – Paie majorée",
     metaDescription:
-      "Calculez la paie brute hebdomadaire avec heures supplémentaires : paie normale jusqu’à 40 heures ou votre seuil, majoration de 50 %, heures payées double et taux effectif.",
+      "Paie brute hebdomadaire avec heures supplémentaires : taux normal jusqu’à 40 heures ou votre seuil, majoration de 50 %, heures payées double et taux effectif.",
     keywords: ["heures supplémentaires", "calcul heures supplémentaires", "majoration 50 %", "heures payées double", "paie hebdomadaire", "FLSA", "taux majoré", "40 heures"],
     intro: [
       "La rémunération des heures supplémentaires paie à un taux plus élevé les heures travaillées au-delà d’une semaine normale. Selon la loi fédérale américaine Fair Labor Standards Act, les salariés couverts et non exemptés doivent recevoir au moins une fois et demie leur taux normal pour chaque heure au-delà de 40 heures dans une semaine de travail.",

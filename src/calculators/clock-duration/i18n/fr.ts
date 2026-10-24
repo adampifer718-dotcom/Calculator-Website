@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<ClockDurationText> = {
     summary: "Comptez les heures et minutes entre une heure de début et une heure de fin, moins une pause non payée, y compris pour les postes de nuit, en heures décimales et avec la paie en option.",
     metaTitle: "Calculateur d’heures travaillées – Durée entre deux horaires",
     metaDescription:
-      "Calculez les heures entre deux horaires, pauses déduites, même après minuit. Obtenez la durée en h:mm, en heures décimales pour vos relevés et la paie au taux horaire.",
+      "Calculez les heures entre deux horaires, pauses déduites, même après minuit, en h:mm et en heures décimales pour vos relevés, avec la paie au taux horaire.",
     keywords: ["calcul heures travaillées", "calculateur d’heures", "calcul durée de travail", "temps entre deux heures", "feuille de temps", "heures décimales", "poste de nuit", "calcul horaire"],
     intro: [
       "Combien dure un poste de 9 h 00 à 17 h 30 avec une demi-heure de pause déjeuner ? Compter les heures à la main est source d’erreurs, surtout quand le poste se termine après minuit ou qu’il faut le total en heures décimales pour une feuille de temps.",

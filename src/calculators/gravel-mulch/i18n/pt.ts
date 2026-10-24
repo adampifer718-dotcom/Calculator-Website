@@ -6,7 +6,7 @@ const pt: CalculatorTranslation<GravelMulchText> = {
     title: "Calculadora de gravilha e cobertura do solo",
     shortTitle: "Gravilha e cobertura",
     summary: "Calcule quantas jardas cúbicas ou metros cúbicos de gravilha, brita ou cobertura do solo (mulch) deve encomendar, com o peso, os sacos e o custo.",
-    metaTitle: "Calculadora de gravilha e cobertura do solo – m³, peso e sacos",
+    metaTitle: "Calculadora de gravilha e cobertura do solo – Volume e sacos",
     metaDescription:
       "Estime a gravilha, a brita ou a cobertura do solo para uma área retangular ou circular em m³ ou jardas cúbicas, com o peso em toneladas, os sacos e o custo.",
     keywords: ["calcular gravilha", "quanta gravilha preciso", "calculadora de brita", "cobertura do solo", "mulch", "casca de pinheiro", "toneladas de gravilha", "sacos de mulch"],

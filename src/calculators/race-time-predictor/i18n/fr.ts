@@ -6,7 +6,7 @@ const fr: CalculatorTranslation<RaceTimePredictorText> = {
     title: "Calculateur de prédiction de temps de course",
     shortTitle: "Temps de course",
     summary: "Prédisez votre temps sur un mile, 5 km, 10 km, semi-marathon, marathon ou toute autre distance à partir d’une course récente, avec la formule d’endurance de Riegel.",
-    metaTitle: "Calculateur de temps de course – Du 5 km au marathon (Riegel)",
+    metaTitle: "Calculateur de temps de course – Riegel, du 5 km au marathon",
     metaDescription:
       "Prédisez un temps de course et l’allure associée à partir d’un résultat récent avec la formule de Riegel, T₂ = T₁ × (D₂/D₁)^1,06, du 5 km au marathon.",
     keywords: ["prédiction temps de course", "prédiction marathon", "formule de Riegel", "prédiction semi-marathon", "5 km au marathon", "équivalence de course", "temps prévu", "course à pied"],

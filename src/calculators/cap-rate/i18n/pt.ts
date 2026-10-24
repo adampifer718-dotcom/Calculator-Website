@@ -8,7 +8,7 @@ const pt: CalculatorTranslation<CapRateText> = {
     summary: "Obtenha a taxa de capitalização (cap rate) de um imóvel arrendado a partir das rendas, da desocupação e dos gastos operacionais, ou o seu valor a partir de uma taxa pretendida.",
     metaTitle: "Calculadora de taxa de capitalização – NOI e valor do imóvel",
     metaDescription:
-      "Calcule a cap rate de um imóvel arrendado a partir das rendas, da desocupação e dos gastos operacionais, ou estime o seu valor a partir do NOI e de uma taxa pretendida.",
+      "Calcule a cap rate de um imóvel arrendado a partir das rendas, da desocupação e dos gastos operacionais, ou estime o valor do imóvel com o NOI e uma taxa-alvo.",
     keywords: ["taxa de capitalização", "cap rate", "rendimento operacional líquido", "NOI", "imóvel para arrendamento", "método do rendimento", "investimento imobiliário", "valor do imóvel"],
     intro: [
       "A taxa de capitalização, ou cap rate, compara o rendimento que um imóvel gera com o seu valor. É o rendimento operacional líquido de um ano dividido pelo valor ou pelo preço do imóvel, expresso em percentagem.",

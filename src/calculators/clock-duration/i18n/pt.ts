@@ -8,7 +8,7 @@ const pt: CalculatorTranslation<ClockDurationText> = {
     summary: "Conte as horas e os minutos entre uma hora de início e uma hora de fim, descontando uma pausa não remunerada, incluindo turnos noturnos, com horas decimais e remuneração opcional.",
     metaTitle: "Calculadora de horas – Tempo entre duas horas do relógio",
     metaDescription:
-      "Calcule as horas entre duas horas do relógio, descontando pausas, mesmo depois da meia-noite. Obtenha h:mm, horas decimais para a folha de horas e a remuneração.",
+      "Calcule as horas entre duas horas do relógio, descontando pausas, mesmo após a meia-noite. Obtenha h:mm, horas decimais para a folha de horas e a remuneração.",
     keywords: ["calculadora de horas", "horas de trabalho", "calcular horas trabalhadas", "tempo entre duas horas", "folha de horas", "horas decimais", "turno noturno", "calculadora de turnos"],
     intro: [
       "Quanto dura um turno das 9:00 às 17:30 com meia hora de almoço? Contar as horas à mão é fácil de errar, sobretudo quando o turno termina depois da meia-noite ou quando precisa do total em horas decimais para uma folha de horas.",

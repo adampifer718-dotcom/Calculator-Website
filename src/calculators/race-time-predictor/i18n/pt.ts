@@ -8,7 +8,7 @@ const pt: CalculatorTranslation<RaceTimePredictorText> = {
     summary: "Preveja o seu tempo final numa milha, 5K, 10K, meia maratona, maratona ou qualquer distância a partir de uma prova recente, com a fórmula de resistência de Riegel.",
     metaTitle: "Calculadora de previsão de tempos de corrida – 5K a maratona",
     metaDescription:
-      "Preveja o tempo final e o ritmo de uma prova a partir de um resultado recente com a fórmula de Riegel, T₂ = T₁ × (D₂/D₁)^1,06, para 5K, 10K, meia maratona e maratona.",
+      "Preveja o tempo e o ritmo de uma prova a partir de um resultado recente com a fórmula de Riegel, T₂ = T₁ × (D₂/D₁)^1,06, para 5K, 10K, meia maratona e maratona.",
     keywords: ["previsão de tempo de corrida", "previsão de tempo na maratona", "fórmula de Riegel", "previsão meia maratona", "5K para maratona", "equivalência de provas", "tempo final previsto"],
     intro: [
       "Se sabe a que velocidade correu uma prova, pode estimar a que velocidade conseguiria correr outra. Os corredores abrandam um pouco à medida que a distância aumenta e, em 1981, o engenheiro Peter Riegel mostrou que os tempos dos recordes mundiais em muitas distâncias se ajustam a uma única lei de potência simples.",

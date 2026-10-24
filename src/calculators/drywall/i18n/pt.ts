@@ -6,9 +6,9 @@ const pt: CalculatorTranslation<DrywallText> = {
     title: "Calculadora de placas de gesso cartonado",
     shortTitle: "Gesso cartonado",
     summary: "Estime quantas placas de gesso cartonado são necessárias para as paredes e, opcionalmente, o teto, descontando portas e janelas, com uma margem para desperdício.",
-    metaTitle: "Calculadora de placas de gesso cartonado – Placas necessárias",
+    metaTitle: "Calculadora de placas de gesso cartonado – Paredes e teto",
     metaDescription:
-      "Calcule quantas placas de gesso cartonado de 4×8, 4×10 ou 4×12 ft (ou métricas) deve comprar para paredes e teto, descontando portas e janelas, com margem para desperdício.",
+      "Calcule quantas placas de gesso cartonado de 4×8, 4×10 ou 4×12 ft (ou métricas) comprar para paredes e teto, sem portas e janelas e com margem de desperdício.",
     keywords: ["gesso cartonado", "placas de gesso cartonado", "quantas placas de gesso", "pladur", "drywall", "massa para juntas", "placas para paredes e tetos", "orçamento de gesso cartonado"],
     intro: [
       "O gesso cartonado, também conhecido por drywall ou pela marca Pladur, é vendido em placas de tamanho fixo. Para saber quantas comprar, calcule a área das paredes (e do teto, se também o for revestir), retire as portas e as janelas, acrescente uma margem para os recortes e divida pela área de uma placa.",

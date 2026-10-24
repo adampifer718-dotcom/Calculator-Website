@@ -8,7 +8,7 @@ const pt: CalculatorTranslation<MolarMassText> = {
     summary: "Escreva uma fórmula química, com parênteses e hidratos, e obtenha a massa molar em g/mol, com a contribuição de cada elemento para a massa.",
     metaTitle: "Calculadora de massa molar – g/mol a partir da fórmula",
     metaDescription:
-      "Obtenha a massa molar de qualquer fórmula química em g/mol, com parênteses e hidratos como CuSO4·5H2O, e o número de átomos e a percentagem mássica de cada elemento.",
+      "Obtenha a massa molar de uma fórmula química em g/mol, com parênteses e hidratos como CuSO4·5H2O, e o número de átomos e a percentagem mássica por elemento.",
     keywords: ["massa molar", "calcular massa molar", "massa molecular", "g/mol", "massa molar de um composto", "composição percentual", "massa molar de hidratos"],
     intro: [
       "A massa molar de uma substância é a massa de uma mole dessa substância, em gramas por mole. Para um composto, é simplesmente a soma das massas atómicas de todos os átomos da fórmula: a água, H2O, tem dois hidrogénios e um oxigénio, ou seja, cerca de 2 × 1,008 + 15,999 = 18,015 g/mol.",

@@ -6,7 +6,7 @@ const fr: CalculatorTranslation<CapRateText> = {
     title: "Calculateur de taux de capitalisation",
     shortTitle: "Taux de capitalisation",
     summary: "Trouvez le taux de capitalisation d’un bien locatif à partir de ses revenus, de la vacance et des charges d’exploitation, ou sa valeur à partir d’un taux cible.",
-    metaTitle: "Calculateur de taux de capitalisation – NOI et valeur du bien",
+    metaTitle: "Calculateur de taux de capitalisation – NOI et prix du bien",
     metaDescription:
       "Calculez le taux de capitalisation d’un bien locatif à partir des loyers, de la vacance et des charges, ou estimez sa valeur à partir du NOI et d’un taux cible.",
     keywords: ["taux de capitalisation", "cap rate", "revenu net d’exploitation", "NOI", "bien locatif", "méthode par le revenu", "investissement immobilier", "valeur d’un bien"],

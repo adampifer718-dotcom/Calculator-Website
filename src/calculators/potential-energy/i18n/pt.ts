@@ -8,7 +8,7 @@ const pt: CalculatorTranslation<PotentialEnergyText> = {
     summary: "Calcule a energia potencial gravítica (m·g·h) ou a energia armazenada numa mola (½·k·x²), ou resolva qualquer das fórmulas em ordem ao valor em falta.",
     metaTitle: "Calculadora de energia potencial – Ep = mgh e ½kx²",
     metaDescription:
-      "Calcule a energia potencial gravítica a partir da massa, da altura e da gravidade, ou a energia elástica de uma mola, e obtenha m, h, k ou x em qualquer unidade.",
+      "Calcule a energia potencial gravítica a partir da massa, altura e gravidade, ou a energia elástica de uma mola, e obtenha m, h, k ou x em qualquer unidade.",
     keywords: ["energia potencial", "calcular energia potencial", "energia potencial gravítica", "Ep = mgh", "energia potencial elástica", "energia de uma mola", "1/2 kx2", "joules"],
     intro: [
       "A energia potencial é a energia armazenada devido à posição de um objeto ou à sua deformação. Ao elevar uma caixa de 12 kg para uma plataforma de 2,5 m, armazena nela cerca de 294 joules, que a caixa devolve sob a forma de movimento se cair. Ao comprimir uma mola, esta armazena energia que liberta quando é solta.",

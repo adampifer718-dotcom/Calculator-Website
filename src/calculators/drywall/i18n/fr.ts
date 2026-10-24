@@ -6,9 +6,9 @@ const fr: CalculatorTranslation<DrywallText> = {
     title: "Calculateur de plaques de plâtre",
     shortTitle: "Plaques de plâtre",
     summary: "Estimez le nombre de plaques de plâtre nécessaires pour les murs et, en option, le plafond, ouvertures déduites, avec une marge pour les chutes.",
-    metaTitle: "Calculateur de plaques de plâtre – Nombre de plaques à acheter",
+    metaTitle: "Calculateur de plaques de plâtre – Combien en acheter",
     metaDescription:
-      "Calculez combien de plaques de plâtre 4×8, 4×10 ou 4×12 ft (ou métriques) acheter pour vos murs et plafond, portes et fenêtres déduites, plus une marge pour les chutes.",
+      "Calculez combien de plaques de plâtre 4×8, 4×10 ou 4×12 ft (ou métriques) acheter pour murs et plafond, portes et fenêtres déduites, avec une marge de chutes.",
     keywords: ["plaques de plâtre", "calcul placo", "nombre de plaques de plâtre", "plaque BA13", "cloison sèche", "enduit à joints", "plâtrerie", "devis plaques de plâtre"],
     intro: [
       "Les plaques de plâtre, aussi appelées placoplâtre ou placo, sont vendues en formats fixes. Pour savoir combien en acheter, calculez la surface des murs (et du plafond si vous le doublez), retirez les portes et fenêtres, ajoutez une marge pour les chutes et divisez par la surface d’une plaque.",

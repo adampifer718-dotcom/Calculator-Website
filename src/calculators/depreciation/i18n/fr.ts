@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<DepreciationText> = {
     summary: "Établissez un plan d’amortissement annuel selon la méthode linéaire, dégressive ou de la somme des chiffres des années (SYD).",
     metaTitle: "Calculateur d’amortissement – Linéaire, dégressif et SYD",
     metaDescription:
-      "Calculez l’amortissement annuel et la valeur comptable en linéaire, en dégressif à 200 % ou 150 %, ou selon la somme des chiffres des années, avec le plan complet.",
+      "Calculez l’amortissement annuel et la valeur comptable en linéaire, en dégressif à 200 % ou 150 % ou par somme des chiffres des années, avec le plan complet.",
     keywords: ["calcul amortissement", "amortissement linéaire", "amortissement dégressif", "dégressif à taux double", "somme des chiffres des années", "valeur comptable", "plan d’amortissement", "valeur résiduelle"],
     intro: [
       "L’amortissement répartit le coût d’un bien durable, comme une machine, un véhicule ou un ordinateur, sur les années pendant lesquelles il est utilisé. Chaque année, une partie du coût devient une charge, et la valeur comptable du bien diminue jusqu’à atteindre la valeur résiduelle prévue.",
