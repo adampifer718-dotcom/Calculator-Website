@@ -7,7 +7,7 @@ const de: CalculatorTranslation<AreaShapesText> = {
     shortTitle: "Fläche",
     summary: "Berechnen Sie den Flächeninhalt von Trapez, Parallelogramm, Raute, Ellipse, Kreissektor, Kreisring, Dreieck aus drei Seiten oder regelmäßigem Vieleck – mit Umfang, wo er sich bestimmen lässt.",
     metaTitle: "Flächenrechner – Trapez, Ellipse, Kreissektor und Vieleck",
-    metaDescription: "Berechnen Sie die Fläche von Trapez, Parallelogramm, Raute, Ellipse, Kreissektor, Kreisring, Dreieck aus drei Seiten oder regelmäßigem Vieleck in sieben Einheiten.",
+    metaDescription: "Berechnen Sie die Fläche von Trapez, Parallelogramm, Raute, Ellipse, Kreissektor, Kreisring, Dreieck aus drei Seiten oder Vieleck in sieben Einheiten.",
     keywords: ["Fläche berechnen", "Flächeninhalt Trapez", "Fläche Ellipse", "Kreisausschnitt Fläche", "Kreisring Fläche", "Satz des Heron", "Fläche Sechseck", "Fläche Raute"],
     intro: [
       "Der Flächeninhalt gibt an, wie viel ebene Fläche eine Figur bedeckt. Dieser Rechner behandelt acht Figuren, für die Länge mal Breite nicht ausreicht: Trapez, Parallelogramm, Raute, Ellipse, Kreissektor, Kreisring, ein Dreieck, von dem nur die drei Seiten bekannt sind, und jedes regelmäßige Vieleck vom Dreieck bis zum 1.000-Eck.",

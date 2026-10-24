@@ -9,7 +9,7 @@ const es: CalculatorTranslation<RoundingText> = {
       "Redondea un número a decimales, a un entero, a la decena, centena o millar más cercanos o a cualquier incremento, con seis métodos de redondeo exactos.",
     metaTitle: "Calculadora de redondeo – Decimales, mitad al par y más",
     metaDescription:
-      "Redondea cualquier número de forma exacta a decimales, decenas, centenas o un incremento propio como 0,05, con mitad hacia arriba, redondeo bancario, techo, suelo o truncamiento.",
+      "Redondea con exactitud a decimales, decenas, centenas o un incremento como 0,05, con mitad hacia arriba, redondeo bancario, techo, suelo o truncamiento.",
     keywords: ["calculadora de redondeo", "redondear decimales", "redondear al más cercano", "redondeo bancario", "redondeo mitad al par", "redondeo hacia arriba", "función techo", "función suelo", "truncar", "redondear a 0,05"],
     intro: [
       "Redondear sustituye un número por otro cercano y más sencillo: 3,14159 pasa a 3,14, un precio de 19,97 pasa a 19,95 en pasos de 5 céntimos y 87.654 pasa a 88.000 al millar más cercano. Esta calculadora redondea a un número de decimales, a un entero, a la decena, centena o millar más cercanos, o a cualquier incremento que elijas.",

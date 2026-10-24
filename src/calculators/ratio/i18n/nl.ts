@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<RatioText> = {
     summary: "Vereenvoudig een verhouding van twee of drie termen, los een evenredigheid op voor een ontbrekende term of verdeel een bedrag volgens een verhouding.",
     metaTitle: "Verhoudingscalculator – vereenvoudigen, oplossen en verdelen",
     metaDescription:
-      "Vereenvoudig verhoudingen met gehele of decimale termen, vind de ontbrekende term in A : B = C : x of verdeel een bedrag in twee of drie delen volgens een verhouding.",
+      "Vereenvoudig verhoudingen met gehele of decimale termen, vind de ontbrekende term in A : B = C : x of verdeel een bedrag in twee of drie delen.",
     keywords: ["verhouding berekenen", "verhouding vereenvoudigen", "evenredigheid", "ontbrekende term", "verdelen naar verhouding", "kruislings vermenigvuldigen", "verhouding 1 op n"],
     intro: [
       "Een verhouding vergelijkt hoeveelheden: 3 : 4 betekent drie delen van het ene op elke vier delen van het andere. Verhoudingen kom je tegen in recepten, bij het mengen van beton of verf, in kaartschalen, schermformaten en bij het delen van kosten.",

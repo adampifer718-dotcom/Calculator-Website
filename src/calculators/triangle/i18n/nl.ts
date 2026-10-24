@@ -1,0 +1,115 @@
+import type { CalculatorTranslation } from "@/calculators/framework/types";
+import type { TriangleText } from "../text/en";
+
+const nl: CalculatorTranslation<TriangleText> = {
+  content: {
+    title: "Driehoekscalculator",
+    shortTitle: "Driehoek",
+    summary: "Los elke driehoek op uit drie bekende zijden en hoeken (ZZZ, ZHZ, HZH, HHZ of ZZH) en krijg de oppervlakte, omtrek, soort, straal van de ingeschreven en de omgeschreven cirkel.",
+    metaTitle: "Driehoekscalculator – los ZZZ, ZHZ, HZH, HHZ en ZZH op",
+    metaDescription:
+      "Los een driehoek op uit drie zijden, twee zijden en een hoek, of twee hoeken en een zijde. Ook het dubbelzinnige geval ZZH, met oppervlakte, omtrek en soort.",
+    keywords: ["driehoek berekenen", "driehoek oplossen", "sinusregel", "cosinusregel", "dubbelzinnig geval ZZH", "oppervlakte driehoek", "ontbrekende zijde", "ontbrekende hoek"],
+    intro: [
+      "Een driehoek ligt vast door drie metingen, zolang er minstens één zijde bij is. Deze calculator neemt elke zo'n combinatie, ZZZ, ZHZ, HZH, HHZ of ZZH, en berekent de ontbrekende zijden en hoeken met de cosinusregel en de sinusregel.",
+      "Hij vindt ook de oppervlakte, de omtrek en de stralen van de ingeschreven en de omgeschreven cirkel, en zegt of de driehoek scherphoekig, rechthoekig of stomphoekig is en of hij gelijkzijdig, gelijkbenig of ongelijkzijdig is. In het geval ZZH kunnen twee verschillende driehoeken bij dezelfde waarden passen; de calculator toont ze dan allebei en zegt het als er geen driehoek bestaat. Voor rechthoekige driehoeken uit twee zijden is de Stelling van Pythagoras-calculator sneller.",
+    ],
+    howToUse: [
+      "Kies welke waarden je kent. Zijde a ligt altijd tegenover hoek A, b tegenover B en c tegenover C.",
+      "Vul de zijden in één willekeurige eenheid in en de hoeken in graden.",
+      "Lees de oppervlakte af en daarna de tabel met alle drie de zijden en hoeken.",
+      "Kijk bij ZZH naar de opmerking: er kan een tweede driehoek zijn, die apart wordt vermeld.",
+    ],
+    formulas: [
+      { title: "Cosinusregel", expression: "c² = a² + b² − 2ab cos C\ncos A = (b² + c² − a²) ÷ (2bc)", explanation: "Geeft de derde zijde uit twee zijden en de ingesloten hoek (ZHZ), of elke hoek uit drie zijden (ZZZ)." },
+      { title: "Sinusregel", expression: "a ÷ sin A = b ÷ sin B = c ÷ sin C = 2R", explanation: "Geeft de overige zijden zodra twee hoeken bekend zijn (HZH, HHZ), en de tweede hoek bij ZZH. R is de straal van de omgeschreven cirkel." },
+      { title: "Dubbelzinnig geval ZZH", expression: "h = b sin A\na < h: geen driehoek; a = h: één rechthoekige driehoek\nh < a < b: twee driehoeken; a ≥ b: één driehoek", explanation: "Bij een scherpe hoek A heeft sin B = b sin A ÷ a twee mogelijke hoeken, B en 180° − B. Is A 90° of meer, dan bestaat er alleen een driehoek als a > b." },
+      { title: "Oppervlakte en stralen", expression: "Oppervlakte = √(s(s − a)(s − b)(s − c)), s = (a + b + c) ÷ 2\nr = Oppervlakte ÷ s\nR = abc ÷ (4 × Oppervlakte)", explanation: "De formule van Heron geeft de oppervlakte uit de drie zijden. r is de straal van de ingeschreven cirkel en R die van de omgeschreven cirkel." },
+    ],
+    examples: [
+      {
+        title: "Drie zijden: 5, 6 en 7",
+        steps: ["cos A = (36 + 49 − 25) ÷ 84 ≈ 0,7143, dus A ≈ 44,4153°; zo ook B ≈ 57,1217° en C ≈ 78,4630°", "s = 9, Oppervlakte = √(9 × 4 × 3 × 2) = √216 ≈ 14,6969", "Alle hoeken zijn kleiner dan 90° en alle zijden verschillen: een scherphoekige, ongelijkzijdige driehoek"],
+      },
+      {
+        title: "Twee zijden van 8 en 11 met een ingesloten hoek van 37°",
+        steps: ["c² = 64 + 121 − 176 × cos 37° ≈ 44,4401, dus c ≈ 6,6663", "Oppervlakte = ½ × 8 × 11 × sin 37° ≈ 26,4799", "B ≈ 96,7625°, dus de driehoek is stomphoekig"],
+      },
+      {
+        title: "ZZH: a = 6, b = 8 en A = 35° (twee driehoeken)",
+        steps: ["h = 8 × sin 35° ≈ 4,5886; omdat 4,5886 < 6 < 8, passen er twee driehoeken", "sin B = 8 × sin 35° ÷ 6 ≈ 0,7648, dus B ≈ 49,8864° of 130,1136°", "Driehoek 1: C ≈ 95,1136°, c ≈ 10,4190, oppervlakte ≈ 23,9045. Driehoek 2: C ≈ 14,8864°, c ≈ 2,6874, oppervlakte ≈ 6,1657"],
+      },
+    ],
+    assumptions: [
+      "De driehoek is vlak (euclidisch). Hoeken zijn in graden en alle zijden gebruiken dezelfde lengte-eenheid.",
+      "Elke hoek moet groter zijn dan 0° en kleiner dan 180°, de gegeven hoeken moeten samen minder dan 180° zijn, en drie zijden moeten aan de driehoeksongelijkheid voldoen.",
+      "Scherp-, recht- of stomphoekig en gelijke zijden worden beoordeeld met een heel kleine tolerantie, zodat afrondingen in de computer een rechte hoek of gelijke zijden niet verbergen.",
+      "Resultaten worden alleen voor de weergave afgerond.",
+    ],
+    faqs: [
+      { question: "Waarom kan ZZH twee driehoeken geven?", answer: "Als de zijde tegenover de bekende hoek korter is dan de andere bekende zijde maar langer dan de hoogte b × sin A, kan ze de derde zijde in twee punten raken. Het ene punt geeft een scherpe hoek B, het andere zijn supplement, 180° − B." },
+      { question: "Waarom is HHH geen optie?", answer: "Drie hoeken leggen de vorm vast, maar niet de grootte: elke geschaalde kopie heeft dezelfde hoeken. Je hebt minstens één zijde nodig." },
+      { question: "Hoe controleer ik of drie lengtes een driehoek vormen?", answer: "Elke zijde moet korter zijn dan de andere twee samen. Lengtes van 3, 4 en 8 voldoen niet, omdat 3 + 4 kleiner is dan 8." },
+    ],
+    sourcesUsedFor: [
+      "De cosinusregel voor ZZZ en ZHZ, en de formule van Heron voor de oppervlakte.",
+      "De sinusregel voor HZH, HHZ en ZZH, inclusief het dubbelzinnige geval.",
+    ],
+  },
+  text: {
+    given: "Bekende waarden",
+    modes: {
+      sss: "ZZZ: drie zijden a, b en c",
+      sas: "ZHZ: zijden a, b en de ingesloten hoek C",
+      asa: "HZH: hoeken A, B en de ingesloten zijde c",
+      aas: "HHZ: hoeken A, B en de zijde a tegenover A",
+      ssa: "ZZH: zijden a, b en de hoek A tegenover a",
+    },
+    givenHelp: "Zijde a ligt tegenover hoek A, zijde b tegenover hoek B en zijde c tegenover hoek C.",
+    sideA: "Zijde a",
+    sideB: "Zijde b",
+    sideC: "Zijde c",
+    angleA: "Hoek A",
+    angleB: "Hoek B",
+    angleC: "Hoek C",
+    angleHelp: "In graden, tussen 0 en 180.",
+    notTriangle: "Met deze zijden kun je geen driehoek maken: elke zijde moet korter zijn dan de andere twee samen.",
+    angleRange: "Vul een hoek kleiner dan 180° in.",
+    angleSum: "De twee hoeken moeten samen kleiner zijn dan 180°.",
+    noSolution: "Geen enkele driehoek heeft deze waarden: zijde a is te kort om de derde zijde te bereiken. Ze moet minstens b × sin A zijn.",
+    noSolutionObtuse: "Geen enkele driehoek heeft deze waarden: als hoek A 90° of meer is, moet zijde a langer zijn dan zijde b.",
+    area: "Oppervlakte",
+    areaTwo: "Oppervlakte (driehoek 1)",
+    caption: "Berekend met {method}.",
+    methods: {
+      sss: "de cosinusregel",
+      sas: "de cosinusregel",
+      asa: "de hoekensom en de sinusregel",
+      aas: "de hoekensom en de sinusregel",
+      ssa: "de sinusregel",
+    },
+    perimeter: "Omtrek",
+    classification: "Soort",
+    inradius: "Straal ingeschreven cirkel (r)",
+    circumradius: "Straal omgeschreven cirkel (R)",
+    secondArea: "Oppervlakte (driehoek 2)",
+    secondPerimeter: "Omtrek (driehoek 2)",
+    secondClassification: "Soort (driehoek 2)",
+    byAngle: { acute: "scherphoekig", right: "rechthoekig", obtuse: "stomphoekig" },
+    bySide: { equilateral: "gelijkzijdig", isosceles: "gelijkbenig", scalene: "ongelijkzijdig" },
+    type: "{angle}, {side}",
+    tableCaption: "Zijden en hoeken",
+    tableCaptionN: "Driehoek {n}: zijden en hoeken",
+    colVertex: "Hoekpunt",
+    colSide: "Overstaande zijde",
+    colAngle: "Hoek",
+    rowA: "A",
+    rowB: "B",
+    rowC: "C",
+    degrees: "{value}°",
+    ambiguous: "Twee verschillende driehoeken passen bij deze waarden (het dubbelzinnige geval ZZH). Hoek B kan scherp of stomp zijn; beide worden getoond.",
+    tolerance: "De soort wordt beoordeeld met een heel kleine tolerantie, zodat een rechte hoek of gelijke zijden ook herkend worden als afronding in de computer ze in het 10e cijfer laat verschillen.",
+  },
+};
+
+export default nl;
