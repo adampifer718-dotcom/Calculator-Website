@@ -9,10 +9,10 @@ Every factor is defined in code from exact definitions or NIST SP 811 values and
 
 | | Count |
 | --- | --- |
-| Converters in the catalogue | 79 |
+| Converters in the catalogue | 89 |
 | Served by existing calculator pages (reused, not duplicated) | 7 |
-| New converter pages under `/unit-converters/` | 72 |
-| New converter pages complete in all 9 languages | 72 |
+| New converter pages under `/unit-converters/` | 82 |
+| New converter pages complete in all 9 languages | 82 |
 
 Currency runs in manual-rate mode: no exchange-rate provider is configured, so no rates are fetched or stored.
 
@@ -67,7 +67,7 @@ Currency runs in manual-rate mode: no exchange-rate provider is configured, so n
 | Heat Flux Density Converter | `/unit-converters/heat-flux-density-converter` | 12 | exact | 9 / 9 | [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8) |
 | Heat Transfer Coefficient Converter | `/unit-converters/heat-transfer-coefficient-converter` | 10 | exact | 9 / 9 | [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8) |
 
-## Fluids (10)
+## Fluids (12)
 
 | Converter | Page | Units | Verification | Languages | Sources |
 | --- | --- | --- | --- | --- | --- |
@@ -81,6 +81,8 @@ Currency runs in manual-rate mode: no exchange-rate provider is configured, so n
 | Kinematic Viscosity Converter | `/unit-converters/kinematic-viscosity-converter` | 9 | exact | 9 / 9 | [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8) |
 | Surface Tension Converter | `/unit-converters/surface-tension-converter` | 12 | exact | 9 / 9 | [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8) |
 | Permeability Converter | `/unit-converters/permeability-converter` | 10 | standard | 9 / 9 | [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8) |
+| Blood Sugar Converter | `/unit-converters/blood-sugar-converter` | 5 | standard | 9 / 9 | [IUPAC Commission on Isotopic Abundances and Atomic Weights (CIAAW)](https://ciaaw.org/abridged-atomic-weights.htm), [Labcorp](https://www.labcorp.com/test-menu/resources/si-unit-conversion-table) |
+| Water Hardness Converter | `/unit-converters/water-hardness-converter` | 8 | standard | 9 / 9 | [IUPAC Commission on Isotopic Abundances and Atomic Weights (CIAAW)](https://ciaaw.org/abridged-atomic-weights.htm), [U.S. Geological Survey](https://www.usgs.gov/faqs/do-you-have-information-about-water-hardness-united-states) |
 
 ## Light (5)
 
@@ -92,7 +94,7 @@ Currency runs in manual-rate mode: no exchange-rate provider is configured, so n
 | Image Resolution Converter | `/unit-converters/image-resolution-converter` | 6 | exact | 9 / 9 | [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8) |
 | Frequency Wavelength Converter | `/unit-converters/frequency-wavelength-converter` | 16 | standard | 9 / 9 | [National Institute of Standards and Technology](https://physics.nist.gov/cuu/Constants/Value/c.html) |
 
-## Electricity (15)
+## Electricity (16)
 
 | Converter | Page | Units | Verification | Languages | Sources |
 | --- | --- | --- | --- | --- | --- |
@@ -111,6 +113,7 @@ Currency runs in manual-rate mode: no exchange-rate provider is configured, so n
 | Electric Conductivity Converter | `/unit-converters/electric-conductivity-converter` | 16 | exact | 9 / 9 | [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8) |
 | Capacitance Converter | `/unit-converters/capacitance-converter` | 10 | exact | 9 / 9 | [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8) |
 | Inductance Converter | `/unit-converters/inductance-converter` | 9 | exact | 9 / 9 | [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8) |
+| Wire Gauge Converter | `/unit-converters/wire-gauge-converter` | 7 | standard | 9 / 9 | [ASTM International](https://store.astm.org/standards/b258) |
 
 ## Magnetism (4)
 
@@ -130,7 +133,7 @@ Currency runs in manual-rate mode: no exchange-rate provider is configured, so n
 | Radiation Exposure Converter | `/unit-converters/radiation-exposure-converter` | 8 | exact | 9 / 9 | [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8) |
 | Absorbed Dose Converter | `/unit-converters/radiation-absorbed-dose-converter` | 10 | exact | 9 / 9 | [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8), [Bureau International des Poids et Mesures](https://www.bipm.org/en/si-brochure-9) |
 
-## Other (5)
+## Other (12)
 
 | Converter | Page | Units | Verification | Languages | Sources |
 | --- | --- | --- | --- | --- | --- |
@@ -139,6 +142,13 @@ Currency runs in manual-rate mode: no exchange-rate provider is configured, so n
 | Sound Level Converter | `/unit-converters/sound-converter` | 8 | exact | 9 / 9 | International Organization for Standardization, International Organization for Standardization |
 | Typography Converter | `/unit-converters/typography-converter` | 8 | exact | 9 / 9 | World Wide Web Consortium (W3C), [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8) |
 | Lumber Volume Converter | `/unit-converters/lumber-volume-converter` | 10 | standard | 9 / 9 | [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8) |
+| Astronomical Distance Converter | `/unit-converters/astronomical-distance-converter` | 8 | exact | 9 / 9 | [Paris Observatory – PSL](https://observatoiredeparis.psl.eu/the-new-definition-of-the-astronomical-unit.html), International Astronomical Union |
+| Roman Numeral Converter | `/unit-converters/roman-numeral-converter` | tool | exact | 9 / 9 | Encyclopaedia Britannica |
+| Unix Timestamp Converter | `/unit-converters/unix-timestamp-converter` | tool | exact | 9 / 9 | [The Open Group / Linux man-pages project](https://man.archlinux.org/man/time.3p.en), [Ecma International (TC39)](https://tc39.es/ecma262/pr/3966/multipage/dates-and-temporal.html) |
+| Color Converter | `/unit-converters/color-converter` | tool | exact | 9 / 9 | [World Wide Web Consortium (W3C)](https://drafts.csswg.org/css-color/Overview.bs) |
+| Morse Code Translator | `/unit-converters/morse-code-translator` | tool | exact | 9 / 9 | [International Telecommunication Union](https://www.itu.int/rec/R-REC-M.1677-1-200910-I/en) |
+| Text to Binary Converter | `/unit-converters/text-to-binary-converter` | tool | exact | 9 / 9 | [Internet Engineering Task Force (IETF)](https://www.rfc-editor.org/rfc/rfc3629) |
+| Coordinate Converter | `/unit-converters/coordinate-converter` | tool | exact | 9 / 9 | [International Organization for Standardization](https://scc-ccn.ca/standardsdb/standards/8177905) |
 
 ## Not implemented
 
