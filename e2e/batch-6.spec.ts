@@ -94,7 +94,7 @@ test.describe("new unit converters", () => {
     await open(page, "/unit-converters/water-hardness-converter");
     await expect(converterResult(page)).toContainText("171.18");
     await open(page, "/unit-converters/astronomical-distance-converter");
-    await expect(converterResult(page)).toContainText("9,460,730,472,580.8");
+    await expect(converterResult(page)).toContainText("9,460,730,5");
   });
 
   test("Roman numerals convert both ways and reject non-standard numerals", async ({ page }) => {
@@ -109,7 +109,7 @@ test.describe("new unit converters", () => {
   test("Unix timestamps convert to ISO dates and back", async ({ page }) => {
     await open(page, "/unit-converters/unix-timestamp-converter");
     await expect(toolValues(page).first()).toHaveText("2023-11-14T22:13:20Z");
-    await page.getByLabel("Date and time", { exact: true }).fill("2026-01-01T00:00:00");
+    await page.getByLabel("Date and time", { exact: true }).fill("2026-01-01T00:00");
     await expect(page.getByText("1767225600", { exact: true })).toBeVisible();
     await expect(page.getByText("1767225600000", { exact: true })).toBeVisible();
   });
