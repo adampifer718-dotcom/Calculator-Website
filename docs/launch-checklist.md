@@ -387,6 +387,11 @@ Measured on `next start` (gzip enabled), in Chromium.
 3. **Professional review pending** for BMI, BMR, waist-to-hip ratio, heart rate zones (medical); loan payment, mortgage, compound interest, credit card payoff, debt-to-income, savings goal (financial); and concrete (engineering) (section 4). The pages already say they are estimates, not advice. Either complete the reviews or accept the risk explicitly and keep the disclaimers.
 4. **Native-speaker proofreading pending** for Urdu, Arabic, Spanish, French, German, Italian, European Portuguese and Dutch (section 5, plus the 265 flagged terms in `docs/translation-proofreading.md`). Alternatively, launch English first and publish other languages as reviews complete; the site only publishes a language when its files exist.
 5. **No `main` branch / CI never run on GitHub.** Create the default branch, merge, and confirm CI passes.
+6. **Next.js security upgrade required before any deployment.**
+   - **What happened:** on 24 October 2026, `next build` stopped with "Your version of Next.js is affected by a known security vulnerability" for the installed `next@16.4.0`. The build only completed on the retry the notice allows.
+   - **Decision:** the upgrade was deliberately deferred at the owner's request. The site must not be deployed or exposed publicly on 16.4.0.
+   - **Before launch:** run the recommended upgrade (`next upgrade`, ideally in a separate worktree). Then re-run lint, TypeScript, unit tests, the production build, the SEO audit and the Playwright desktop and mobile suites.
+   - **Advisory:** the specific advisory was not inspected from the build environment.
 
 **Not blockers, but recommended:**
 - A manual screen-reader check.
