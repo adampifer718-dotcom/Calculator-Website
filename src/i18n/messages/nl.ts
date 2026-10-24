@@ -378,7 +378,7 @@ const nl: Messages = {
           inputBytes: "Bytes",
           bytesHelp: "Scheid bytes met spaties, bijvoorbeeld 01001000 01101001. Binair en hexadecimaal mag je ook zonder spaties schrijven.",
           output: "Resultaat",
-          count: "{count, plural, one {# byte} other {# bytes}} in UTF-8",
+          count: "{count, plural, one {# byte} other {# bytes}} in UTF-8-codering",
           errors: {
             tooLong: "Vul maximaal 4.096 bytes in.",
             invalidDigits: "‘{token}’ is geen geldige byte in dit formaat.",
