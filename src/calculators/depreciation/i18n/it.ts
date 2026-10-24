@@ -7,9 +7,9 @@ const it: CalculatorTranslation<DepreciationText> = {
     shortTitle: "Ammortamento",
     summary:
       "Crea un piano di ammortamento annuale con il metodo a quote costanti, a quote decrescenti o della somma delle cifre degli anni.",
-    metaTitle: "Calcolatore dell'ammortamento – Quote costanti, decrescenti e SYD",
+    metaTitle: "Calcolatore dell'ammortamento – Lineare, decrescente e SYD",
     metaDescription:
-      "Calcola l'ammortamento annuale e il valore contabile a quote costanti, a quote decrescenti doppie o al 150% o con la somma delle cifre degli anni, con il piano completo.",
+      "Calcola ammortamento annuo e valore contabile a quote costanti, a quote decrescenti (doppie o 150%) o con la somma delle cifre degli anni, con piano completo.",
     keywords: [
       "calcolo ammortamento",
       "ammortamento a quote costanti",

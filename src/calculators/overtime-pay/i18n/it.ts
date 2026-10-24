@@ -9,7 +9,7 @@ const it: CalculatorTranslation<OvertimePayText> = {
       "Calcola la retribuzione lorda di una settimana con gli straordinari, compresa la maggiorazione del 50%, un'eventuale quota pagata al doppio e la tariffa oraria effettiva.",
     metaTitle: "Calcolatore della paga degli straordinari – 1,5× e 2×",
     metaDescription:
-      "Calcola la paga lorda settimanale con straordinari: paga ordinaria fino a 40 ore o a una tua soglia, maggiorazione del 50%, doppia paga facoltativa e tariffa effettiva.",
+      "Calcola la paga lorda settimanale: ore ordinarie fino a 40 o a una tua soglia, straordinari maggiorati del 50%, doppia paga facoltativa e tariffa effettiva.",
     keywords: [
       "calcolo straordinari",
       "paga straordinari",

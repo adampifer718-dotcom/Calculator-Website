@@ -9,7 +9,7 @@ const es: CalculatorTranslation<MolarMassText> = {
       "Escribe una fórmula química, con paréntesis e hidratos incluidos, y obtén su masa molar en g/mol con el desglose de la fracción en masa de cada elemento.",
     metaTitle: "Calculadora de masa molar – g/mol a partir de una fórmula",
     metaDescription:
-      "Halla la masa molar de cualquier fórmula química en g/mol, con paréntesis e hidratos como CuSO4·5H2O, y el número de átomos y el porcentaje en masa de cada elemento.",
+      "Halla la masa molar de cualquier fórmula química en g/mol, con paréntesis e hidratos como CuSO4·5H2O, más los átomos y el porcentaje en masa de cada elemento.",
     keywords: [
       "masa molar",
       "calcular masa molar",

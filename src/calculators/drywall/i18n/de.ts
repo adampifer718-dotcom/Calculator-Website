@@ -7,7 +7,7 @@ const de: CalculatorTranslation<DrywallText> = {
     shortTitle: "Gipskarton",
     summary: "Schätzen Sie, wie viele Gipskartonplatten Sie für Wände und optional die Decke brauchen, abzüglich Türen und Fenster und mit Verschnittzuschlag.",
     metaTitle: "Gipskartonrechner – benötigte Gipskartonplatten",
-    metaDescription: "Berechnen Sie, wie viele Gipskartonplatten (4×8, 4×10 oder 4×12 ft oder metrisch) Sie für Wände und Decke nach Abzug von Türen und Fenstern samt Verschnitt brauchen.",
+    metaDescription: "Berechnen Sie, wie viele Gipskartonplatten (4×8, 4×10, 4×12 ft oder metrisch) Sie für Wände und Decke brauchen – abzüglich Türen und Fenster, mit Verschnitt.",
     keywords: ["Gipskarton berechnen", "Gipskartonplatten Bedarf", "Trockenbau Rechner", "wie viele Gipskartonplatten", "Rigipsplatten", "Fugenspachtel", "Plattenbedarf"],
     intro: [
       "Gipskarton, auch Gipskartonplatte, Trockenbauplatte oder nach einer bekannten Marke Rigips genannt, wird in Platten fester Größe verkauft. Um zu wissen, wie viele Sie kaufen müssen, berechnen Sie die Fläche der Wände (und der Decke, falls Sie diese beplanken), ziehen Türen und Fenster ab, geben etwas für Verschnitt hinzu und teilen durch die Fläche einer Platte.",

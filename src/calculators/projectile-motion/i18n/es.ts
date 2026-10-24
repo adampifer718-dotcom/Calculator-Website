@@ -8,7 +8,7 @@ const es: CalculatorTranslation<ProjectileMotionText> = {
     summary: "Calcula el alcance, el tiempo de vuelo, la altura máxima y la velocidad de impacto de un objeto lanzado desde cualquier altura, en la Tierra, la Luna o Marte.",
     metaTitle: "Calculadora de tiro parabólico – Alcance, altura y tiempo",
     metaDescription:
-      "Con la velocidad, el ángulo y la altura de lanzamiento obtén el alcance, el tiempo de vuelo, la altura máxima y la velocidad de impacto, sin rozamiento del aire.",
+      "Con la velocidad, el ángulo y la altura inicial obtén el alcance, el tiempo de vuelo, la altura máxima y la velocidad de impacto, sin rozamiento del aire.",
     keywords: ["tiro parabólico", "movimiento parabólico", "trayectoria", "alcance", "tiempo de vuelo", "altura máxima", "ángulo de lanzamiento", "cinemática"],
     intro: [
       "Una pelota lanzada, un balón chutado o un chorro de agua siguen casi la misma curva una vez en el aire: avanzan de lado a velocidad constante mientras la gravedad los atrae hacia abajo a un ritmo constante. El resultado es una parábola.",

@@ -7,7 +7,7 @@ const de: CalculatorTranslation<OvertimePayText> = {
     shortTitle: "Überstundenvergütung",
     summary: "Berechnen Sie den Bruttowochenlohn mit Überstunden, einschließlich 50 % Zuschlag, einem optionalen Anteil mit doppeltem Satz und dem effektiven Stundenlohn.",
     metaTitle: "Überstundenrechner – Zuschlag 50 % und doppelter Satz",
-    metaDescription: "Berechnen Sie den Bruttowochenlohn mit Überstunden: Grundlohn bis 40 Stunden oder eigener Schwelle, 1,5-facher und optional doppelter Satz sowie effektiver Stundenlohn.",
+    metaDescription: "Berechnen Sie den Bruttowochenlohn mit Überstunden: Grundlohn bis 40 Stunden oder eigener Grenze, 1,5-facher und doppelter Satz sowie effektiver Stundenlohn.",
     keywords: ["Überstunden berechnen", "Überstundenvergütung", "Überstundenzuschlag", "doppelter Stundensatz", "Wochenlohn", "FLSA Überstunden", "40 Stunden"],
     intro: [
       "Die Überstundenvergütung belohnt Stunden, die über eine normale Woche hinaus gearbeitet werden, mit einem höheren Satz. Nach dem US-Bundesgesetz Fair Labor Standards Act müssen erfasste, nicht ausgenommene Beschäftigte für jede Stunde über 40 in einer Arbeitswoche mindestens das 1,5-Fache des regulären Satzes erhalten.",

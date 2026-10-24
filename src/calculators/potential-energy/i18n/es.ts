@@ -9,7 +9,7 @@ const es: CalculatorTranslation<PotentialEnergyText> = {
       "Calcula la energía potencial gravitatoria (m·g·h) o la energía almacenada en un muelle (½·k·x²), o despeja de cualquiera de las dos fórmulas el valor que falta.",
     metaTitle: "Calculadora de energía potencial – Ep = mgh y ½kx²",
     metaDescription:
-      "Calcula la energía potencial gravitatoria a partir de la masa, la altura y la gravedad, o la energía elástica de un muelle, y despeja m, h, k o x en cualquier unidad.",
+      "Calcula la energía potencial gravitatoria con la masa, la altura y la gravedad, o la energía elástica de un muelle, y despeja m, h, k o x en cualquier unidad.",
     keywords: [
       "energía potencial",
       "calcular energía potencial",

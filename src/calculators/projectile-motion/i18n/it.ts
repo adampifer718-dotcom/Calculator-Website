@@ -9,7 +9,7 @@ const it: CalculatorTranslation<ProjectileMotionText> = {
       "Trova gittata, tempo di volo, altezza massima e velocità d'impatto di un oggetto lanciato da qualsiasi altezza, sulla Terra, sulla Luna o su Marte.",
     metaTitle: "Calcolatore del moto del proiettile – Gittata, altezza, volo",
     metaDescription:
-      "Da velocità, angolo e altezza di lancio ottieni gittata, tempo di volo, altezza massima e velocità d'impatto, e una tabella delle posizioni. Senza resistenza dell'aria.",
+      "Da velocità, angolo e altezza di lancio ricava gittata, tempo di volo, altezza massima, velocità d'impatto e posizioni nel tempo, senza resistenza dell'aria.",
     keywords: [
       "moto del proiettile",
       "moto parabolico",

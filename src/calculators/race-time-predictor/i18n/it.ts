@@ -7,7 +7,7 @@ const it: CalculatorTranslation<RaceTimePredictorText> = {
     shortTitle: "Tempo di gara",
     summary:
       "Prevedi il tuo tempo finale su miglio, 5K, 10K, mezza maratona, maratona o qualsiasi distanza a partire da una gara recente, con la formula di resistenza di Riegel.",
-    metaTitle: "Calcolatore di previsione del tempo di gara – Formula di Riegel",
+    metaTitle: "Calcolatore del tempo di gara – Previsione con Riegel",
     metaDescription:
       "Prevedi tempo finale e passo da un risultato recente con la formula di Riegel, T₂ = T₁ × (D₂/D₁)^1,06, per 5K, 10K, mezza maratona e maratona.",
     keywords: [

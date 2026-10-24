@@ -7,7 +7,7 @@ const de: CalculatorTranslation<ClockDurationText> = {
     shortTitle: "Arbeitszeit",
     summary: "Zählen Sie die Stunden und Minuten zwischen Beginn und Ende abzüglich einer unbezahlten Pause, auch bei Nachtschichten, mit Dezimalstunden und optionalem Lohn.",
     metaTitle: "Arbeitszeitrechner – Zeit zwischen zwei Uhrzeiten",
-    metaDescription: "Berechnen Sie die Stunden zwischen zwei Uhrzeiten abzüglich Pausen, auch über Mitternacht. Mit h:mm, Dezimalstunden für den Stundenzettel und Lohn zum Stundensatz.",
+    metaDescription: "Berechnen Sie die Stunden zwischen zwei Uhrzeiten abzüglich Pausen, auch über Mitternacht – in h:mm, als Dezimalstunden für den Stundenzettel und als Lohn.",
     keywords: ["Arbeitszeit berechnen", "Stundenrechner", "Schichtrechner", "Zeit zwischen zwei Uhrzeiten", "Stundenzettel", "Dezimalstunden", "gearbeitete Stunden", "Nachtschicht Stunden"],
     intro: [
       "Wie lang ist eine Schicht von 9:00 bis 17:30 Uhr mit einer halben Stunde Mittagspause? Von Hand über die Stunden hinweg zu zählen ist fehleranfällig, besonders wenn die Schicht nach Mitternacht endet oder Sie die Summe für einen Stundenzettel in Dezimalstunden brauchen.",

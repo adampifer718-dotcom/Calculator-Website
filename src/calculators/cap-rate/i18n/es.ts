@@ -9,7 +9,7 @@ const es: CalculatorTranslation<CapRateText> = {
       "Calcula la tasa de capitalización (cap rate) de un inmueble en alquiler a partir de sus ingresos, la desocupación y los gastos de explotación, o su valor a partir de una tasa objetivo.",
     metaTitle: "Calculadora de tasa de capitalización – NOI y valor",
     metaDescription:
-      "Calcula la tasa de capitalización de un inmueble en alquiler a partir del alquiler, la desocupación y los gastos, o estima su valor con el NOI y una tasa objetivo.",
+      "Calcula la tasa de capitalización de un inmueble en alquiler con el alquiler, la desocupación y los gastos, o estima su valor con el NOI y una tasa objetivo.",
     keywords: [
       "tasa de capitalización",
       "cap rate",
