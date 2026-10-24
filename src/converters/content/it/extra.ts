@@ -5,7 +5,7 @@ export const extraContent: Record<string, ConverterContent> = {
   glucose: {
     title: "Convertitore di glicemia",
     shortTitle: "Glicemia",
-    summary: "Converti i valori della glicemia tra mg/dL, usati soprattutto negli Stati Uniti e in Italia, e mmol/L, usati nella maggior parte degli altri paesi.",
+    summary: "Converti i valori della glicemia tra mg/dL, usati soprattutto negli Stati Uniti, e mmol/L, usati nella maggior parte degli altri paesi.",
     metaTitle: "Convertitore di glicemia – Da mg/dL a mmol/L e viceversa",
     metaDescription: "Converti la glicemia tra mg/dL e mmol/L con la massa molare del glucosio (180,156 g/mol). Converte anche g/L, mg/L e µmol/L.",
     keywords: ["convertitore glicemia", "glicemia da mg/dl a mmol/l", "da mmol/l a mg/dl", "unità della glicemia", "conversione glucosio", "unità hba1c"],
@@ -44,7 +44,7 @@ export const extraContent: Record<string, ConverterContent> = {
     metaDescription: "Converti la durezza dell'acqua tra ppm o mg/L come CaCO₃, grani per gallone, mmol/L, meq/L e gradi tedeschi, francesi e inglesi (Clark).",
     keywords: ["convertitore durezza acqua", "da gpg a ppm", "da ppm a gpg", "gradi tedeschi durezza", "da °dH a ppm", "gradi francesi", "durezza addolcitore"],
     intro: [
-      "La durezza dell'acqua misura il calcio e il magnesio disciolti. Addolcitori, strisce reattive, kit per acquari e rapporti dei gestori idrici la esprimono in unità diverse: grani per gallone negli Stati Uniti, gradi tedeschi (°dH) in gran parte d'Europa, gradi francesi (°fH) in Francia, Svizzera e Italia, e milligrammi per litro come carbonato di calcio nei referti di laboratorio.",
+      "La durezza dell'acqua misura il calcio e il magnesio disciolti. Addolcitori, strisce reattive, kit per acquari e rapporti dei gestori idrici la esprimono in unità diverse: grani per gallone negli Stati Uniti, gradi tedeschi (°dH) in gran parte d'Europa, gradi francesi (°fH) in Francia e in Svizzera, e milligrammi per litro come carbonato di calcio nei referti di laboratorio.",
       "Tutte queste unità descrivono la stessa cosa, la quantità equivalente di carbonato di calcio, quindi ognuna si può convertire in qualsiasi altra.",
     ],
     formula: {
@@ -74,7 +74,7 @@ export const extraContent: Record<string, ConverterContent> = {
     sourcesUsedFor: ["Pesi atomici per le masse molari di CaCO₃ e CaO.", "Classi di durezza in mg/L come carbonato di calcio."],
   },
   "wire-gauge": {
-    title: "Convertitore di calibro AWG dei fili",
+    title: "Convertitore di calibro AWG",
     shortTitle: "Calibro AWG",
     summary: "Converti i calibri American Wire Gauge (AWG) in diametro in mm o pollici e in sezione in mm², kcmil e circular mil.",
     metaTitle: "Convertitore di calibro AWG – Da AWG a mm² e diametro",
