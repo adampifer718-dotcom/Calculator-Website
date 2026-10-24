@@ -194,3 +194,118 @@ Points that apply to all three languages:
 - converters/radiology radiation-exposure: "exposie"/"blootstelling" and "bescherming bevolking" for civil defence — check preferred wording
 - converters/other lumber-volume: "board feet", "cord", "Hoppus foot" kept in English — no Dutch equivalents
 - converters/other typography: "dtp-punt (PostScript-punt)", "Didotpunt" — check spelling
+
+## Batch 6: 20 calculators and 10 converters (22–24 October 2026)
+
+All eight languages were drafted by AI translation agents and checked automatically: structure, placeholders, untranslated English, metadata length, title uniqueness, and identical calculator results. **No human linguistic review has taken place.**
+
+Two translation runs were interrupted by usage limits and resumed, so these lists only hold the terms the agents recorded. The whole batch-6 content should get a general read, not just these items.
+
+### Urdu (`ur`) — 8 items
+
+- converters.widget.tools.unix.zone: "تاریخ کس ٹائم زون میں سمجھی جائے" — rendered "Interpret the date in" as a question-like label; check it reads well next to the UTC / آپ کا ٹائم زون options
+- converters.widget.tools.roman: رومن ہندسہ / رومن ہندسے for "Roman numeral" — check vs. "رومن عدد"
+- converters.widget.tools.color.contrastWhite/Black: کنٹراسٹ — loanword kept; "تضاد" is the alternative
+- converters.widget.tools.bytes: بائٹ / بائٹس, ہیکساڈیسیمل, اعشاری, انکوڈ / ڈی کوڈ — technical loanwords
+- converters.widget.tools.coordinates.ddm: "ڈگریاں اور اعشاری منٹ" — check phrasing for degrees and decimal minutes
+- converters.groups.other.description: ٹائم اسٹیمپس، رنگ اور کوڈز — plural loanwords
+- quartile-calculator metaTitle: "چوتھائیاں اور IQR کیلکولیٹر – پانچ اعداد کا خلاصہ" — shortened; outliers dropped from title (still in description)
+- projectile-motion-calculator metaDescription: "... مقامات کے جدول سمیت دیکھیں" — reworded for length
+
+### Spanish (`es`) — 2 items
+
+- projectile-motion metaDescription: "altura inicial" (was "altura de lanzamiento"), "sin rozamiento del aire".
+- molar-mass metaDescription: "más los átomos y el porcentaje en masa de cada elemento".
+
+### French (`fr`) — 11 items
+
+- converters.widget.tools.unix: horodatage / Horodatage vers date — "horodatage" used for "timestamp" (matches fr/extra.ts); "timestamp" is also common among developers
+- converters.widget.tools.unix.zone: "Interpréter la date en" — followed by an option (UTC / Votre fuseau horaire); check it reads naturally with both
+- converters.widget.tools.bytes.mode: Sens — chosen for "Direction" (encode/decode); "Mode" or "Opération" possible
+- converters.widget.tools.bytes: octet(s) for "byte(s)" — standard, but confirm in labels like "Format des octets"
+- converters.widget.tools.coordinates.help: "E et W (ouest)" — W kept as in English per the rules; French normally writes O for ouest; the decimal examples keep the dot (48.8584) because they are input samples
+- converters.widget.tools.coordinates.ddm: "Degrés et minutes décimales" — gender agreement (minutes décimales) intentional
+- converters.groups.other.description: "horodatages, couleurs et codes" — "codes" for Morse/binary codes
+- overtime-pay metaDescription: now starts "Paie brute hebdomadaire avec heures supplémentaires : taux normal jusqu’à 40 heures…" (shortened to ≤160)
+- race-time-predictor metaTitle: "Calculateur de temps de course – Riegel, du 5 km au marathon" — word order changed to fit 60 chars
+- cap-rate metaTitle: "NOI et prix du bien" — "prix" replaces "valeur" to fit 60 chars; NOI kept as in the existing file (French term: résultat net d’exploitation)
+- drywall metaTitle: "Calculateur de plaques de plâtre – Combien en acheter"
+
+### German (`de`) — 3 items
+
+- clock-duration metaDescription: "in h:mm, als Dezimalstunden für den Stundenzettel und als Lohn".
+- overtime-pay metaDescription: "eigener Grenze" (was "eigener Schwelle"); "optional" dropped before "doppelter Satz".
+- drywall metaDescription: "abzüglich Türen und Fenster, mit Verschnitt".
+
+### Arabic (`ar`) — 20 items
+
+- converters/extra (T2) water-hardness: عسر الماء / ماء يسر / أجهزة تيسير الماء — standard chemistry terms for hardness/soft water/water softener; check the wording in the USGS classes
+- converters/extra (T2) water-hardness: حبة لكل غالون (grain per gallon), مِلّي مكافئ (milliequivalent) — check that these are the usual Arabic unit names
+- converters/extra (T2) wire-gauge: المقياس الأمريكي للأسلاك, سلك مجدول (stranded), مل دائري (circular mil), ألف مل دائري (kcmil) — check against electrical trade usage
+- converters/extra (T2) astronomical: فرسخ فلكي / كيلوفرسخ / ميغافرسخ (parsec, kpc, Mpc); السنة اليوليانية — check the forms and plurals
+- converters/extra (T2) roman: الصيغة الطرحية, الخط الفوقي (vinculum) — check the terms
+- converters/extra (T2) unix-time: الطابع الزمني يونكس (title), حقبة يونكس (Epoch), الثواني الكبيسة — the title phrasing could also be «طابع يونكس الزمني»
+- converters/extra (T2) color: تدرج اللون / الإشباع / الإضاءة (hue/saturation/lightness), العتامة (opacity); the FAQ uses ← in "#1E7A5A ← 1E = 30" where English has → — check arrow direction in RTL
+- converters/extra (T2) morse: title «مترجم شفرة مورس» (follows English "Translator", not «محوّل»); «الحروف المشكولة» for accented letters — check
+- converters/extra (T2) text-binary: المستوى متعدد اللغات الأساسي (BMP), الرموز التعبيرية (emoji) — check
+- converters/extra (T2) coordinates: المرجع الجيوديسي (datum), الدقائق العشرية — check
+- momentum: الزخم / الدفع (impulse) — chose الزخم over كمية الحركة (kept the latter as keyword); الدفع also means "payment" elsewhere on the site
+- momentum: مبرهنة الدفع والزخم — "impulse-momentum theorem"; نظرية الدفع والزخم may be more common in school textbooks
+- gravel-mulch: المهاد — for "mulch"; colloquial الملش is in keywords only; check whether الغطاء العضوي reads better
+- gravel-mulch: الكثافة الظاهرية — for "bulk density"
+- gravel-mulch: الدمك / المدموكة — for "compaction / compacted"; some regions use الرصّ / الدك
+- gravel-mulch: التدرج الحبيبي — for "grading" of aggregate
+- gravel-mulch: الطن القصير الأمريكي — for "US short ton"
+- messages: طابع زمن يونكس — for "Unix timestamp"
+- messages: أجزاء من الألف من الثانية — for "milliseconds"; ملّي ثانية is shorter but less formal
+- messages: ثنائي / سداسي عشري / عشري — byte format labels
+
+### Italian (`it`) — 11 items
+
+- wire-gauge: "circular mil" / "Migliaia di circular mil" (kcmil) — English term kept, no settled Italian equivalent
+- wire-gauge: "Convertitore di calibro AWG", "conduttori tondi pieni (a filo unico)", "cavo a trefoli" — check electrical terminology
+- water-hardness: "gradi inglesi (Clark)", "grani per gallone USA", "rapporti dei gestori idrici" — check usual Italian wording (°f is common in Italy; symbol °fH kept as in English)
+- astronomical: "au" as the astronomical-unit symbol (Italian texts often write "UA"), "al" for anno luce; "9.460 miliardi" / "40.000 miliardi" for English "trillion"
+- glucose: "team diabetologico", "glucometro domestico" — check the medical register
+- unix-time: "secondi intercalari", "l'epoch Unix", "vanno in overflow" — check
+- color: "selettore" (colour picker), "campione di anteprima" (swatch), "un'andata e ritorno" (round trip)
+- morse: "linee" for dashes (matches messages/it.ts), "radiofari", "temporizzazione"
+- text-binary: "codificatore utf-8" keyword, "Basic Multilingual Plane" left in English
+- race-time-predictor (metaTitle): "Calcolatore del tempo di gara – Previsione con Riegel" — shortened rewrite
+- depreciation (metaTitle): "Lineare, decrescente e SYD" — "lineare" used for quote costanti to fit 60 chars
+
+### European Portuguese (`pt`) — 21 items
+
+- converters.widget.tools.unix: "timestamp" kept as an anglicism ("Timestamp Unix", "Timestamp para data") — "carimbo temporal"/"marca temporal" may be preferred in pt-PT
+- converters.widget.tools.roman: "numeral romano" for "Roman numeral" — "numeração romana"/"número romano" also common
+- converters.widget.tools.bytes.mode: "Sentido" for "Direction" (encode/decode) — "Direção"/"Modo" possible
+- converters.widget.tools.coordinates.help: kept N/S/E/W symbols with "E (este) e W (oeste)" glosses — check the gloss reads well
+- converters.widget.tools.color.preview: "Pré-visualização" — check against site UI terminology
+- converters.groups.other.description: "som, tipografia, madeira, astronomia, timestamps, cores e códigos" — "madeira" for lumber, "timestamps" anglicism
+- depreciation metaTitle: "Quotas lineares e degressivas" (was "Quotas constantes") to fit 60 chars — body still says "quotas constantes"
+- cap-rate metaDescription: "taxa-alvo" for target rate (was "taxa pretendida")
+- drywall metaTitle: "Calculadora de placas de gesso cartonado – Paredes e teto"; metaDescription "sem portas e janelas" for "excluding doors and windows"
+- gravel-mulch metaTitle: "– Volume e sacos" (dropped "m³, peso") to fit 60 chars
+- glucose: "Conversor de glicemia" / "glucómetros" — chosen over "açúcar no sangue"/"glicosímetro"; check the usual pt-PT term
+- water-hardness: "relatórios das entidades gestoras" — rendering of US "utility reports"
+- water-hardness: "macia / moderadamente dura / dura / muito dura" — USGS hardness classes; "água macia" vs "água branda"
+- wire-gauge: "calibre de fios", "fio multifilar", "condutor maciço", "circular mils" (left untranslated) — check pt-PT electrical terminology
+- wire-gauge: "regras técnicas de instalações elétricas locais" — rendering of "local electrical codes"
+- astronomical: symbols kept as au / ly / pc (pt texts often use ua / a.l.); "UAI" for IAU; "biliões" = 10^12 (pt-PT long scale)
+- unix-time: "timestamp", "época Unix", "segundos intercalares", "transbordam" (integer overflow) — check usual pt-PT IT wording
+- color: "matiz, saturação e luminosidade" for HSL; "seletor" for colour picker
+- morse: title "Conversor de código Morse" (English says "Translator"); "radiofaróis"
+- text-binary: title "Conversor de texto para binário" avoids clash with "Conversor de binário" (torque); «Hi» kept in English because the bytes depend on it
+- coordinates: "GMS" (graus, minutos, segundos) for DMS; letter W kept for west since the tool outputs it
+
+### Dutch (`nl`) — 9 items
+
+- converters/extra wire-gauge: "Draaddikte omrekenen", "circular mils", "Soepele (meeraderige) draad" — AWG/circular mil have no established Dutch name; check that the title and the kept English unit names read naturally
+- converters/extra astronomical: "au" (vs. Dutch "AE") and "lj" in the formula — kept the IAU symbol au to match the tool; Dutch texts often write AE
+- converters/extra water-hardness: "Grain per Amerikaanse gallon", "Engelse (Clark-)graden", "Deeltjes per miljoen (ppm)" — unit-list names, check that they are idiomatic
+- converters/extra unix-time: "Unix-tijdstempel" vs. the common loanword "timestamp"; "32-bits geheel getal met teken" for signed 32-bit integer
+- converters/extra color: "Kleurcodes omrekenen" title, "kleurstaal" for swatch, "tint/verzadiging/lichtheid" for HSL
+- converters/extra morse: title "Morsecode vertalen" (does not follow the "… omrekenen" pattern)
+- converters/extra coordinates and widget.tools.coordinates.help: hemisphere letters kept as N, S, E, W (the parser only accepts these), whereas Dutch normally writes N, Z, O, W
+- messages converters.widget.tools.bytes.count: "… in UTF-8-codering" — "codering" added so the string is not identical to the English one
+- messages converters.groups.other.description: "geluid, typografie, hout, sterrenkunde, tijdstempels, kleuren en codes"

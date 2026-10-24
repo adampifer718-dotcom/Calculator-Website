@@ -12,7 +12,11 @@ test("header search filters the directory", async ({ page, isMobile }) => {
   }
   await expect(page).toHaveURL(/\/calculators\?q=hourly/);
   await expect(page.locator("#directory-search")).toHaveValue("hourly");
-  await expect(page.locator("#directory-count")).toHaveText(/^2 of \d+ calculators match “hourly”\.$/);
+  // Salary to Hourly, Hourly to Salary and the Overtime Pay Calculator (whose summary mentions the hourly rate).
+  await expect(page.locator("#directory-count")).toHaveText(/^3 of \d+ calculators match “hourly”\.$/);
+  for (const name of ["Salary to Hourly Calculator", "Hourly to Salary Calculator", "Overtime Pay Calculator"]) {
+    await expect(page.locator("main").getByRole("link", { name: new RegExp(name) }).first()).toBeVisible();
+  }
 });
 
 test("directory search updates results and handles no matches", async ({ page }) => {

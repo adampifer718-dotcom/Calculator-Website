@@ -138,6 +138,32 @@ These 24 rely on arithmetic or definitions only. Adding a reference would help r
 - **Translations:** converter content in Urdu, Spanish, French, German and Arabic was machine-drafted to the same rules as the calculators. It has **not** been reviewed by native speakers or subject specialists. Some unit names are transliterations; the Arabic agent also used singular unit names, as the existing Arabic calculators do.
 - **Medical disclaimer:** the radiology converters carry a "not medical or radiation-safety advice" assumption.
 
+### 3.6 Batch 6: 20 calculators and 10 converters (22–24 October 2026)
+
+- **Source links:** all are unverified. They were found by web search and not opened from the build environment, which blocks most outbound sites.
+  - **Calculators:** OpenStax (physics, chemistry, statistics, prealgebra, precalculus), NIST e-Handbook and Dataplot, the Python `decimal` documentation, NIST GLP 9, StatPearls, NASA NSSDC Moon and Mars fact sheets, the CIAAW abridged atomic weights, Riegel (1981, cited without a URL), the US Department of Labor overtime pages, IRS Publication 946, the California BOE and Arizona DOR valuation material, USG, an Ohio University weights table and an EPA conversion-factor memo.
+  - **Converters:** the CIAAW atomic weights, the Labcorp SI conversion table, the USGS water-hardness FAQ, ASTM B258 (store page only), the Paris Observatory page on the 2012 au definition, ITU-R M.1677-1, RFC 3629, CSS Color Module Level 4, ECMA-262 and the POSIX `time` manual page.
+  - **Two NIST titles** (GLP 9 and e-Handbook section 7.1.6) were inferred from snippets and URLs, and **two sources** are LibreTexts copies of OpenStax pages.
+- **Values written from memory or from snippets, to confirm:**
+  - **Molar mass:** all 84 atomic weights were written from memory, matching the CIAAW abridged table as far as known, including the 2024 Zr, Gd and Lu revisions. The 10 common elements were spot-checked.
+  - **Gravity:** the Moon is 1.62 m/s². For Mars, 3.73 m/s² is the current NSSDC mean; older copies say 3.71.
+  - **Bulk densities in the gravel and mulch calculator:** gravel 1,600 kg/m³ (100 lb/ft³), crushed stone 1,480 kg/m³ and wood mulch 300 kg/m³. These come from search summaries and vary widely; the fields are editable.
+  - **Drywall:** joint compound is about 9 US gal per 1,000 ft², a USG rule of thumb. The metric value was converted from it.
+  - **Glucose:** molar mass 180.156 g/mol, from CIAAW conventional weights. Labcorp lists the factor as 0.0555.
+  - **Water hardness:** CaCO₃ 100.086 and CaO 56.077 g/mol.
+  - **Wire gauge:** the AWG law d = 0.005 in × 92^((36 − n)/39) was taken from a search summary, because the ASTM B258 text is paywalled.
+- **Known limitations:**
+  - **Declining-balance depreciation:** it never switches to straight-line.
+  - **pH:** activities are approximated by concentrations; it is valid at 25 °C only; and the weak-acid mode ignores water's own ions.
+  - **Race time predictor:** Riegel's exponent is a population average.
+  - **Ratio:** terms are limited to 40 digits.
+  - **Rounding:** at most 40 significant digits.
+  - **Morse:** the international (Latin) alphabet only.
+  - **Unix timestamp:** the local time zone is shown only after the page loads in the browser.
+  - **Coordinates:** the notation changes but the datum does not.
+- **Currency:** still manual-rate only.
+- **A shared parser fix found during this batch:** in es, fr, de, it, pt and nl, text such as "0.025" or "0.500" was read as thousands grouping (25, 500). A leading zero now never starts a thousands group, and a regression test covers this.
+
 ## 4. Professional review checklist
 
 | Calculator | Area | Mathematically tested | Professionally reviewed |
@@ -153,6 +179,9 @@ These 24 rely on arithmetic or definitions only. Adding a reference would help r
 | Savings goal | Financial | Yes | **No (pending)** |
 | Waist-to-hip ratio | Medical | Yes | **No (pending)** |
 | Heart rate zones | Medical | Yes | **No (pending)** |
+| Overtime pay | Tax / employment law | Yes | **No (pending)** |
+| Depreciation | Tax / accounting | Yes | **No (pending)** |
+| Cap rate | Financial | Yes | **No (pending)** |
 
 All other calculators are mathematically tested and not flagged for review. Salary, sales tax, ROI, electricity, fuel cost and rainwater give general estimates; a general content review is still advisable.
 
@@ -189,6 +218,15 @@ All other calculators are mathematically tested and not flagged for review. Sala
 - [ ] The text states that it is a volume estimate only, not a structural design.
 - [ ] Whether premix bag yields should be added, using manufacturer figures only.
 
+**Tax, payroll and financial reviewers, batch 6** (overtime pay, depreciation, cap rate):
+- [ ] **Overtime pay:** the US FLSA default of 40 hours at 1.5×, double time counted inside the overtime hours, and wording for daily overtime and other jurisdictions.
+- [ ] **Depreciation:**
+  - [ ] the full-year convention;
+  - [ ] declining balance that never switches to straight-line;
+  - [ ] the statement that US tax depreciation uses MACRS (IRS Publication 946), which the tool does not compute.
+- [ ] **Cap rate:** the NOI definition (excluding debt service and depreciation), the vacancy treatment, and the neutral handling of a negative NOI.
+- [ ] **Disclaimers:** each says the result is an estimate, not tax, legal or investment advice.
+
 Record the reviewer's name, qualification, date and outcome here before changing a calculator's `expertReview.status` to `"completed"`.
 
 ## 5. Native-speaker proofreading
@@ -197,17 +235,17 @@ AI agents produced every translation, and automated tests checked them for compl
 
 | Language | Scope | Proofread |
 | --- | --- | --- |
-| Urdu (اردو) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
-| Arabic (العربية) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
-| Spanish (Español) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
-| French (Français) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
-| German (Deutsch) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
-| Italian (Italiano) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
-| European Portuguese (Português) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
-| Dutch (Nederlands) | Interface, categories, collections, 90 calculators, 72 unit converters | **No** |
+| Urdu (اردو) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
+| Arabic (العربية) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
+| Spanish (Español) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
+| French (Français) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
+| German (Deutsch) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
+| Italian (Italiano) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
+| European Portuguese (Português) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
+| Dutch (Nederlands) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
 
 **Italian, European Portuguese and Dutch (added 21 October 2026):**
-- The translators flagged 180 terms for proofreading; they are listed in `docs/translation-proofreading.md`. Check these first.
+- The translators flagged 265 terms for proofreading (180 earlier, 85 in batch 6); they are listed in `docs/translation-proofreading.md`. Check these first.
 - European Portuguese must read as pt-PT, not Brazilian Portuguese. The language selector and `hreflang` use `pt-PT`, and the URL prefix is `/pt`.
 - Metadata (titles and descriptions) in all nine languages was rewritten on 21 October 2026 to fit search snippets (about 60 and 70–160 characters). The new wording also needs proofreading.
 
@@ -347,7 +385,7 @@ Measured on `next start` (gzip enabled), in Chromium.
    - Live DNS, HTTPS and redirects could not be checked from the build environment, because its outbound proxy refused connections to the domain.
 2. **Source links unverified** (section 3.1), including the ingredient densities in section 3.2.
 3. **Professional review pending** for BMI, BMR, waist-to-hip ratio, heart rate zones (medical); loan payment, mortgage, compound interest, credit card payoff, debt-to-income, savings goal (financial); and concrete (engineering) (section 4). The pages already say they are estimates, not advice. Either complete the reviews or accept the risk explicitly and keep the disclaimers.
-4. **Native-speaker proofreading pending** for Urdu, Arabic, Spanish, French, German, Italian, European Portuguese and Dutch (section 5, plus the 180 flagged terms in `docs/translation-proofreading.md`). Alternatively, launch English first and publish other languages as reviews complete; the site only publishes a language when its files exist.
+4. **Native-speaker proofreading pending** for Urdu, Arabic, Spanish, French, German, Italian, European Portuguese and Dutch (section 5, plus the 265 flagged terms in `docs/translation-proofreading.md`). Alternatively, launch English first and publish other languages as reviews complete; the site only publishes a language when its files exist.
 5. **No `main` branch / CI never run on GitHub.** Create the default branch, merge, and confirm CI passes.
 
 **Not blockers, but recommended:**
