@@ -7,9 +7,9 @@ const it: CalculatorTranslation<WindTurbineText> = {
     shortTitle: "Potenza turbina eolica",
     summary:
       "Stima la potenza di una turbina eolica dal diametro del rotore, dalla velocità del vento, dalla densità dell'aria e dal coefficiente di potenza, con un valore indicativo dell'energia annua.",
-    metaTitle: "Calcolatore turbina eolica – Potenza in kW e kWh",
+    metaTitle: "Calcolatore potenza turbina eolica – Resa in kW e kWh",
     metaDescription:
-      "Calcola la potenza di una turbina eolica da diametro del rotore, velocità del vento, densità dell'aria e coefficiente di potenza, confrontala col limite di Betz e stima i kWh annui.",
+      "Ricava la potenza di una turbina eolica da rotore, vento, densità dell'aria e coefficiente di potenza, verificala col limite di Betz e stima i kWh annui.",
     keywords: [
       "turbina eolica",
       "potenza eolica formula",

@@ -9,7 +9,7 @@ const it: CalculatorTranslation<CarCo2Text> = {
       "Stima la CO₂ allo scarico di un'auto a benzina o diesel a partire dalla distanza e dai consumi o dal carburante utilizzato, per viaggio e per anno.",
     metaTitle: "Calcolatore emissioni CO₂ auto – Impronta di carbonio",
     metaDescription:
-      "Stima la CO₂ allo scarico di un viaggio in auto a benzina o diesel da distanza e consumi in mpg o L/100 km, con i fattori US EPA e i totali per km, miglio e anno.",
+      "Stima la CO₂ allo scarico di un'auto a benzina o diesel da distanza e consumi (mpg o L/100 km) con i fattori EPA, per km, per miglio e all'anno.",
     keywords: [
       "emissioni CO2 auto",
       "impronta di carbonio auto",
