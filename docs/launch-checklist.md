@@ -164,6 +164,49 @@ These 24 rely on arithmetic or definitions only. Adding a reference would help r
 - **Currency:** still manual-rate only.
 - **A shared parser fix found during this batch:** in es, fr, de, it, pt and nl, text such as "0.025" or "0.500" was read as thousands grouping (25, 500). A leading zero now never starts a thousands group, and a regression test covers this.
 
+### 3.7 Batch 7: 20 calculators and 8 converters (24–28 October 2026)
+
+- **Source links:** all are unverified. They were found by web search and not opened from the build environment.
+  - **Calculators:**
+    - Mifflin et al. (1990, DOI) and the NCI ADOPT PAL page (TDEE);
+    - ACOG Committee Opinion 700 (an SMFM copy) and NHS 111 Wales (due date);
+    - Hodgdon and Beckett, Navy report 84-11 (DTIC PDF), and HPRC (body fat);
+    - the 2011 and 2024 Compendium of Physical Activities (PubMed) (calories burned);
+    - NIST SP 811 (swim pace);
+    - OpenStax Biology 2e, Chemistry 2e, Introductory Statistics and Principles of Finance;
+    - QIAGEN and a Thermo NanoDrop bulletin copy hosted by UMD (DNA concentration);
+    - Sigma-Aldrich buffer reference (buffer pH);
+    - NIST Dataplot (linear regression);
+    - a QMUL "Power in the wind" PDF and a Cambridge atmosphere table (wind turbine);
+    - the EPA typical-vehicle page (car CO₂);
+    - King Arthur Baking (baker's percentage);
+    - GAF and Fine Homebuilding (roofing);
+    - Placer County residential stairs and Autodesk Revit help (stairs);
+    - Newcastle University (NPV/IRR);
+    - RFC 1918, 3021, 4632 and 6890 (subnet);
+    - NIST SP 800-63B-4 and the EFF word lists (password entropy);
+    - the FAA PackSafe pages and a Discover Battery Peukert page (battery life).
+  - **Converters:** NIST SP 811 (dBm, ppm), Neenah Paper basis weights (paper weight), RFC 4648 (Base64) and RFC 3986 (URL).
+  - **No URL:** the tire, fraction and paper-size pages cite no URL; they name ISO tire designation, continued fractions and ISO 216/269 as concepts only. The coffee-ratio page names the SCA Golden Cup standard without a link. Swim pace cites NIST SP 811 Appendix B.8 without a URL.
+- **Values written from memory or from snippets, to confirm:**
+  - **TDEE:** the activity multipliers (1.2 / 1.375 / 1.55 / 1.725 / 1.9) are a common convention, not from one source.
+  - **Calories burned:** the MET values were written from memory of the Compendium; check each against the 2024 Compendium tables.
+  - **Body fat:** the men's US Navy constants come from the Hodgdon–Beckett report. The women's constants were seen only on calculator sites.
+  - **Buffer pH:** Tris pKa 8.07 at 25 °C was not confirmed against a primary table.
+  - **Coffee:** the Golden Cup ratio (about 55 g/L) has no source URL.
+  - **Car CO₂:** EPA 8,887 g CO₂ per gallon of gasoline and 10,180 g per gallon of diesel, converted per liter.
+  - **Paper sizes:** ISO A/B/C dimensions are computed by halving with floor rounding. The US basis sheet sizes (bond 17 × 22, text 25 × 38, cover 20 × 26, index 25.5 × 30.5, bristol 22.5 × 28.5, tag 24 × 36 in) come from the Neenah page, which was not opened.
+- **Known limitations:**
+  - **Due date:** an estimate only; most births fall within two weeks of it.
+  - **Body fat:** the Navy tape method is typically within about 3–4 percentage points of laboratory measurements, and less accurate for very muscular, very lean or older people.
+  - **Wind turbine:** air density defaults to sea level unless edited; the annual energy is a capacity-factor estimate.
+  - **Stairs:** the IRC defaults are US model-code values; local codes differ.
+  - **Password entropy:** valid only for randomly generated passwords, not human-chosen ones.
+  - **Battery life:** an ideal, linear estimate; Peukert and temperature effects are described but not modelled.
+  - **Subnet:** IPv4 only.
+  - **Tire size:** ISO metric sizes only.
+- **IRR backlog item removed:** the NPV and IRR Calculator covers it.
+
 ## 4. Professional review checklist
 
 | Calculator | Area | Mathematically tested | Professionally reviewed |
@@ -182,6 +225,13 @@ These 24 rely on arithmetic or definitions only. Adding a reference would help r
 | Overtime pay | Tax / employment law | Yes | **No (pending)** |
 | Depreciation | Tax / accounting | Yes | **No (pending)** |
 | Cap rate | Financial | Yes | **No (pending)** |
+| TDEE | Medical | Yes | **No (pending)** |
+| Pregnancy due date | Medical | Yes | **No (pending)** |
+| Body fat (US Navy) | Medical | Yes | **No (pending)** |
+| Calories burned | Medical | Yes | **No (pending)** |
+| Stairs | Safety (building code) | Yes | **No (pending)** |
+| Password entropy | Safety (security) | Yes | **No (pending)** |
+| NPV and IRR | Financial | Yes | **No (pending)** |
 
 All other calculators are mathematically tested and not flagged for review. Salary, sales tax, ROI, electricity, fuel cost and rainwater give general estimates; a general content review is still advisable.
 
@@ -227,6 +277,19 @@ All other calculators are mathematically tested and not flagged for review. Sala
 - [ ] **Cap rate:** the NOI definition (excluding debt service and depreciation), the vacancy treatment, and the neutral handling of a negative NOI.
 - [ ] **Disclaimers:** each says the result is an estimate, not tax, legal or investment advice.
 
+**Medical reviewer, batch 7** (TDEE, due date, body fat, calories burned):
+- [ ] TDEE: Mifflin–St Jeor and the activity multipliers; the wording of the weekly-change estimate.
+- [ ] Due date: Naegele's rule with the cycle-length adjustment, the conception and IVF embryo-age offsets, and agreement with ACOG Committee Opinion 700.
+- [ ] Body fat: the US Navy equations (especially the women's constants) and the error wording.
+- [ ] Calories burned: each MET value against the 2024 Compendium, and the "above resting" figure.
+
+**Safety reviewers, batch 7** (stairs, password entropy):
+- [ ] Stairs: the IRC defaults (7¾ in maximum riser, 10 in minimum tread), the comfort rule, and the statement that local building code governs.
+- [ ] Password entropy: the entropy formulas, the guess-rate assumptions, and the statement that the result is not security advice.
+
+**Financial reviewer, batch 7** (NPV and IRR):
+- [ ] End-of-period cash flows, the IRR solver (no or multiple IRRs), the profitability index and the discounted payback.
+
 Record the reviewer's name, qualification, date and outcome here before changing a calculator's `expertReview.status` to `"completed"`.
 
 ## 5. Native-speaker proofreading
@@ -235,17 +298,17 @@ AI agents produced every translation, and automated tests checked them for compl
 
 | Language | Scope | Proofread |
 | --- | --- | --- |
-| Urdu (اردو) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
-| Arabic (العربية) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
-| Spanish (Español) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
-| French (Français) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
-| German (Deutsch) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
-| Italian (Italiano) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
-| European Portuguese (Português) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
-| Dutch (Nederlands) | Interface, categories, collections, 110 calculators, 82 unit converters | **No** |
+| Urdu (اردو) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
+| Arabic (العربية) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
+| Spanish (Español) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
+| French (Français) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
+| German (Deutsch) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
+| Italian (Italiano) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
+| European Portuguese (Português) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
+| Dutch (Nederlands) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
 
 **Italian, European Portuguese and Dutch (added 21 October 2026):**
-- The translators flagged 265 terms for proofreading (180 earlier, 85 in batch 6); they are listed in `docs/translation-proofreading.md`. Check these first.
+- The translators flagged 410 terms for proofreading (180 earlier, 85 in batch 6, 145 in batch 7); they are listed in `docs/translation-proofreading.md`. Check these first.
 - European Portuguese must read as pt-PT, not Brazilian Portuguese. The language selector and `hreflang` use `pt-PT`, and the URL prefix is `/pt`.
 - Metadata (titles and descriptions) in all nine languages was rewritten on 21 October 2026 to fit search snippets (about 60 and 70–160 characters). The new wording also needs proofreading.
 
@@ -384,8 +447,8 @@ Measured on `next start` (gzip enabled), in Chromium.
    - Still to do: the hosting environment variable, the domain and `www` redirect in the hosting dashboard, the DNS records at the registrar, TLS, and a production redeploy (section 6).
    - Live DNS, HTTPS and redirects could not be checked from the build environment, because its outbound proxy refused connections to the domain.
 2. **Source links unverified** (section 3.1), including the ingredient densities in section 3.2.
-3. **Professional review pending** for BMI, BMR, waist-to-hip ratio, heart rate zones (medical); loan payment, mortgage, compound interest, credit card payoff, debt-to-income, savings goal (financial); and concrete (engineering) (section 4). The pages already say they are estimates, not advice. Either complete the reviews or accept the risk explicitly and keep the disclaimers.
-4. **Native-speaker proofreading pending** for Urdu, Arabic, Spanish, French, German, Italian, European Portuguese and Dutch (section 5, plus the 265 flagged terms in `docs/translation-proofreading.md`). Alternatively, launch English first and publish other languages as reviews complete; the site only publishes a language when its files exist.
+3. **Professional review pending** for BMI, BMR, waist-to-hip ratio, heart rate zones (medical); loan payment, mortgage, compound interest, credit card payoff, debt-to-income, savings goal (financial); and concrete (engineering); and the batch-6 and batch-7 rows in section 4 (overtime pay, depreciation, cap rate, TDEE, due date, body fat, calories burned, stairs, password entropy, NPV) (section 4). The pages already say they are estimates, not advice. Either complete the reviews or accept the risk explicitly and keep the disclaimers.
+4. **Native-speaker proofreading pending** for Urdu, Arabic, Spanish, French, German, Italian, European Portuguese and Dutch (section 5, plus the 410 flagged terms in `docs/translation-proofreading.md`). Alternatively, launch English first and publish other languages as reviews complete; the site only publishes a language when its files exist.
 5. **No `main` branch / CI never run on GitHub.** Create the default branch, merge, and confirm CI passes.
 6. **Next.js security upgrade required before any deployment.**
    - **What happened:** on 24 October 2026, `next build` stopped with "Your version of Next.js is affected by a known security vulnerability" for the installed `next@16.4.0`. The build only completed on the retry the notice allows.

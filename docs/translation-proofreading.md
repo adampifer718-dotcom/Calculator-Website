@@ -309,3 +309,178 @@ Two translation runs were interrupted by usage limits and resumed, so these list
 - converters/extra coordinates and widget.tools.coordinates.help: hemisphere letters kept as N, S, E, W (the parser only accepts these), whereas Dutch normally writes N, Z, O, W
 - messages converters.widget.tools.bytes.count: "… in UTF-8-codering" — "codering" added so the string is not identical to the English one
 - messages converters.groups.other.description: "geluid, typografie, hout, sterrenkunde, tijdstempels, kleuren en codes"
+
+## Batch 7: 20 calculators and 8 converters (24–28 October 2026)
+
+All eight languages were drafted by AI translation agents and checked automatically: structure, placeholders, untranslated English, metadata length, title uniqueness, and identical calculator results. **No human linguistic review has taken place.**
+
+Several translation runs were interrupted by usage limits and resumed, and some metaTitles and descriptions were shortened afterwards to fit the length limits. These lists only hold the terms the agents recorded, so the whole batch-7 content should get a general read. The medical (TDEE, due date, body fat, calories burned), safety (stairs, password entropy) and financial (NPV) pages need a reader with that background.
+
+### Urdu (`ur`) — 18 items
+
+- parts-per: بیسس پوائنٹس (basis points) — transliteration; check whether a finance term such as "بنیادی پوائنٹس" is more usual.
+- parts-per: حصے فی بلین / ٹریلین / کواڈریلین; شارٹ اسکیل — transliterated short-scale names.
+- paper-weight: بیسس ویٹ، بانڈ، ٹیکسٹ (بُک)، کور، انڈیکس، برسٹل، ٹیگ — US paper-trade grade names transliterated; کیلیپر for caliper.
+- base64/url: حروفِ تہجی for "alphabet", پیڈنگ, پرسنٹ انکوڈنگ, URL-safe kept in English, غیر محفوظ (unreserved) — technical calques.
+- tire: سائیڈ وال، ایسپیکٹ ریشو، رِم، ٹریڈ، فلوٹیشن سائز — transliterated tire terms.
+- fraction: نسب نما، عادِ اعظم (GCD)، مسلسل کسور (continued fractions)، ناطق تخمینے (rational approximations) — check school-math usage.
+- paper-size: رخ / عمودی / افقی for orientation portrait/landscape; Letter/Legal/Tabloid/Executive/Half Letter kept in English.
+- rf-power: ڈیسیبل ملی واٹ / ڈیسیبل واٹ unit names; "سگنل کی طاقت" vs "سگنل کی قوت".
+- tdee: سرگرمی کا ضارب (activity multiplier), مینٹیننس کیلوریز (maintenance calories), غیر فعال / ہلکا فعال / درمیانہ فعال — check naturalness
+- due-date: متوقع تاریخِ پیدائش (due date), حمل ٹھہرنا (conception), بیضہ ریزی (ovulation), سہ ماہی (trimester), مڈوائف — check medical register
+- body-fat-navy: بغیر چربی کی کمیت (lean mass), فیصدی پوائنٹس (percentage points), گھیر والا طریقہ (circumference method)
+- calories-burned: میٹابولک مساوی (metabolic equivalent), آرام سے زائد (above resting); Compendium of Physical Activities left in English
+- swim-pace: رفتار (پیس) vs سپیڈ used to distinguish pace from speed — check consistency with running-pace
+- punnett-square: پنیٹ اسکوائر, گیمیٹ, فینوٹائپ, غالب/مغلوب, ہم غلبہ (codominance), آزادانہ تقسیم (independent assortment), علیحدگی (segregation)
+- dna-concentration: دوہری/اکہری لڑی والا DNA, کیووٹ, اولیگونیوکلیوٹائیڈ, خالصیت کے تناسب, بلینک سے درست کی گئی ریڈنگ
+- percent-yield: محدود متعامل (limiting reactant), عددی سر (coefficient), حاصل (product), قلمیں / دوبارہ قلمانا (crystals / recrystallizing)
+- henderson-hasselbalch: ہینڈرسن–ہیسل باخ transliteration, مزدوج اساس (conjugate base), ایکٹیویٹی (activity), تحلیلی مستقل (dissociation constant)
+- linear-regression: خطی رجعت (لینیئر ریگریشن), مقطع (intercept), باقیہ (residual), پیش گو متغیر / ردِعمل (predictor / response), بیرونی قدریں (outliers)
+
+### Spanish (`es`) — 13 items
+
+- tdee: "Calculadora de gasto energético diario (TDEE)" — the English acronym TDEE is kept (glossed as "por sus siglas en inglés"); check whether GET (gasto energético total) is preferred.
+- tdee: "factor de actividad" for "activity multiplier" and "Extremadamente activo" for "Extra active" — check these are the usual terms.
+- tdee/bmr: "dietista-nutricionista" for "registered dietitian" — this is the Spanish (Spain) title; Latin America may expect "nutricionista".
+- due-date: "última regla" / "fecha probable de parto (FPP)" — Spain usage; check whether "último periodo menstrual (FUM)" would suit better. "matrona" for "midwife" is also Spain usage.
+- due-date: "cómputo del embarazo" for "pregnancy dating" and "ecografía de datación" for "dating ultrasound" — check the wording.
+- body-fat-navy: "Método de la Marina de EE. UU." / metaTitle "Método de la Marina" — the method is often just called "método US Navy"; "pesaje hidrostático" for "underwater weighing"; "meter tripa" (informal) in the measuring note.
+- calories-burned: "Compendium of Physical Activities" is left in English as a proper name; "saltar a la comba" (Spain) vs "saltar la cuerda" (LatAm); "crol" for freestyle.
+- swim-pace: "tramos de 100 yd" for "lengths of 100 yd"; "virajes" for "turns".
+- punnett-square: "progenitor" for "parent", "cruzamiento prueba" for "test cross", "carácter" for "trait", "segregación independiente" for "independent assortment".
+- dna-concentration: "cociente A260/A280" (vs "relación"/"ratio"), "paso óptico" for "path length", "ADNbc/ADNmc", "solución madre" for "stock", "rendimiento total" for "total yield".
+- percent-yield: "rendimiento porcentual" (vs "porcentaje de rendimiento"), "aislamiento del producto" for "work-up", "ecuación ajustada" (Spain) vs "balanceada" (LatAm).
+- henderson-hasselbalch: "tampón" (Spain) vs "buffer"/"amortiguador"; "Dihidrogenofosfato / hidrogenofosfato"; "Tris base" kept as is.
+- linear-regression: "ordenada en el origen" for "intercept", "variable predictora/respuesta", "gl" as the abbreviation for degrees of freedom in a formula; "SE(b)" is left untranslated.
+
+### French (`fr`) — 21 items
+
+- parts-per: "parties par billion" (ppt, 10⁻¹²) / "parties par billiard" (ppq) — long-scale French names; the assumption was reworded to explain the English short-scale sigles, check clarity.
+- paper-weight: "grammage" for US basis weight, grade names kept in English (bond, text, cover, index, bristol, tag) with glosses "(papier écriture)", "(papier édition)" — check whether French print trade uses other names.
+- paper-weight: "basis weight" / "M-weight" left in English in prose — maybe "poids de base".
+- base64/url: "remplissage" for padding, "URL-safe" kept in English, "encodage-pourcent" in metaTitle vs "encodage en pourcentage" in prose.
+- tire: "série" for aspect ratio, "dimensions homologuées", "écart compteur" — check usual French tyre vocabulary.
+- tire: "tailles en pouces" for "flotation sizes" (31×10.50R15) — loses the term "flotation".
+- fraction: "Nombre fractionnaire" for mixed number; "décimaux périodiques" covering "repeating decimals".
+- paper: "Tabloïd" translated, Letter/Legal/Executive/Half Letter kept; "Formats techniques ANSI" for ANSI engineering sizes.
+- url messages: "Sens" for Direction; "une espace" (typographic feminine) for space.
+- tdee: title "Calculateur de dépense énergétique (TDEE)" and "coefficient d’activité" — TDEE kept as English acronym; "DEJ" is sometimes used in French
+- tdee: activity labels "Légèrement actif / Extrêmement actif" — masculine only; check whether a neutral form is preferred
+- due-date: "date d’accouchement" counted as DDR + 280 jours — in France clinicians often use 41 SA; text kept faithful to the English source, check wording such as "semaines" vs "semaines d’aménorrhée (SA)"
+- due-date: "14 semaines 0 jour", "0 semaine 0 jour" — singular after 0, check style
+- body-fat-navy: "taux de masse grasse", "%MG", "pesée hydrostatique" for underwater weighing
+- calories-burned: "Randonnée en terrain varié" for "Hiking, cross-country"; "Football, loisir" for "Soccer, casual"
+- swim-pace: "allure aux 100 m" vs "temps au 100 m" (swimmers’ usage)
+- punnett-square: "échiquier de Punnett" (vs "tableau de Punnett"); "proportion génotypique/phénotypique"; "ségrégation indépendante" for independent assortment
+- dna-concentration: "trajet optique" for path length; "ADNdb/ADNsb"; "corrigée du blanc"
+- percent-yield: title "Calculateur de rendement de réaction"; "rendement réel" for actual yield
+- henderson-hasselbalch: "pH tampon", "première acidité" for carbonic acid first step, "Dihydrogénophosphate / hydrogénophosphate"
+- linear-regression: "variable explicative / variable réponse", "erreur type résiduelle", "ddl"
+
+### German (`de`) — 20 items
+
+- tdee: "Täglicher Gesamtenergieumsatz" / activity levels "Sitzend … Extrem aktiv" — check against usual German PAL wording
+- due-date: "Schwangerschaftsalter" vs. "SSW" in labels; "Embryo am Tag 5 (Blastozyste)" for "Day 5 embryo"
+- body-fat-navy: "fettfreie Masse" for lean mass; formula symbol "%KF" for %BF
+- calories-burned: activity names ("Bahnenschwimmen, Kraul", "Fußball, locker", "Wandern, querfeldein")
+- swim-pace: "Schwimmpace" (feminine "die Pace") as in Laufpace-Rechner; "Abschnitte zu 100 yd" for lengths
+- punnett-square: "unabhängige Neukombination" for independent assortment; dominantTrait "{gene} dominant" inside "Wahrscheinlichkeit für Nachkommen mit A dominant, b rezessiv"
+- dna-concentration: "Quotient A260/A280" vs "Verhältnis"; "blindwertkorrigiert", "Leerwert"
+- percent-yield: "Ausbeuterechner" title; "limitierender Reaktant"; "gekürzte Standardatomgewichte der IUPAC"
+- henderson-hasselbalch: "korrespondierende Base"; title keeps en dash "(Henderson–Hasselbalch)" to stay within 2 hyphens
+- linear-regression: "Zielgröße" for response; "Residuenstandardfehler"; caption "Kleinste-Quadrate-Anpassung aus {count}"
+- wind-turbine: Leistungsbeiwert / Kapazitätsfaktor / Betz-Limit — check vs. "Betz'sches Gesetz", "Volllaststunden"
+- carbon-footprint-driving: title "Auto-CO₂-Rechner", shortTitle "Auto-CO₂-Ausstoß" — natural? methodOptions.fuel "Verbrauchter Kraftstoffmenge" follows "Kraftstoffmenge ermitteln aus" (dative)
+- coffee-ratio: "Handfilter" for pour-over, "Filterkaffee" for drip; "Cold Brew", "French Press" kept as loanwords
+- bakers-percentage: "Bäckerprozente" and "Hydration" (vs. "Teigausbeute"/"Wasseranteil")
+- roofing: "Square" (US 100 ft² unit) kept untranslated; "Unterdeckbahn", "Schindelpakete", "Traufe und Ortgang" for eaves and rakes
+- stairs: Steigung/Auftritt/Lauflänge/Treppenwange; kept "2R + T" instead of German "2s + a" Schrittmaßregel; treadsCount in dative ("13 Auftritten") because only used after "mit" in the caption
+- npv: "Kapitalwert" for NPV, "interner Zinsfuß", "dynamische Amortisationsdauer", "Kalkulationszinssatz", "Zahlungsströme" for cash flows
+- subnet: "Netzadresse" vs "Netzwerkadresse"; "Wildcard-Maske"; metaDescription uses infinitive style ("eingeben … erhalten")
+- password-entropy: "Zeichenvorrat"/"Vorratsgröße" for character pool; "Bit" as unit label
+- battery-life: title "Batterielaufzeitrechner" ("Laufzeitrechner" was taken); "Entladetiefe", "Bleiakku"
+
+### Arabic (`ar`) — 28 items
+
+- rf-power: title "محوّل dBm" with a Latin symbol; قدرة الترددات الراديوية for "RF power"; ديسيبل مليواط unit names.
+- parts-per: نقاط الأساس، في الألف، السلّم القصير (short scale)، أجزاء في الكوادريليون.
+- paper-weight: grade names kept in Latin (bond, text, cover, index, bristol, tag) with Arabic glosses; فرخ/رزمة for sheet/ream; "ورق البطاقات المعلّقة" for tag stock.
+- base64/url: محرف/محارف for characters, الحشو for padding, الترميز بالنسبة المئوية for percent-encoding, المحارف غير المحجوزة for unreserved; title "محوّل Base64" and "محوّل ترميز URL" (English: Encoder and Decoder).
+- tire: الجدار الجانبي، نسبة الارتفاع، الجنط، النقشة، مقاسات الطفو (flotation sizes)، بنية شعاعية.
+- fraction: title "محوّل الكسور العشرية إلى كسور"; الكسور المستمرة، أفضل التقريبات النسبية، عدد كسري مختلط.
+- paper-size: عمودي/أفقي for portrait/landscape; Letter/Legal/Tabloid/Executive/Half Letter kept in English.
+- tdee: «سعرات الثبات» for "maintenance calories", and «خامل / نشاط خفيف / نشاط معتدل / نشط جدًا / نشط للغاية» for the activity levels: check these sound natural.
+- due-date: the user-facing text speaks to a woman (اختاري، أدخلي). Check whether the site wants the masculine/neutral form instead; also «الأثلاث / الثلث الأول» for trimesters, and «كيسة أريمية» for blastocyst.
+- due-date: «قاعدة نيغلي» is the transliteration used for Naegele's rule.
+- body-fat-navy: «الكتلة الخالية من الدهون» for lean mass, and «طريقة المحيطات» for the circumference method.
+- calories-burned: «موسوعة الأنشطة البدنية» for the Compendium of Physical Activities (English name added in brackets in the intro); «المكافئ الأيضي» for MET.
+- swim-pace: «الوتيرة» for pace (matches running-pace); «مقطعًا من 100 yd» for 100 yd lengths.
+- punnett-square: «الأب الأول / الأب الثاني» used for parent 1/2 (the gender-neutral «الوالد» is the alternative); «متغايرا اللواقح» for heterozygous; the gridCorner arrow was changed to ← because the page reads right to left. Check it against the rendered grid.
+- dna-concentration: «قليل النوكليوتيد» for oligonucleotide; «المحلول المرجعي (الفارغ)» for the blank; «خلية» for cuvette.
+- percent-yield: «المردود المئوي» for percent yield, «المادة المحددة للتفاعل» for limiting reactant.
+- henderson-hasselbalch: «المحلول المنظم» for buffer, «النشاطيات» for activities, «تريس» for Tris, «هندرسون–هاسلباخ» transliteration.
+- linear-regression: «المتغير المتنبِّئ / المتغير التابع» for predictor/response; «توفيق» for fit; «الاستقراء» for extrapolation.
+- wind-turbine: المساحة المجتاحة (swept area), معامل السعة (capacity factor), حد بيتز (Betz limit), سرعة بدء التشغيل/سرعة الإيقاف (cut-in/cut-out speed)
+- carbon-footprint-driving: الغالون الإمبراطوري (imperial gallon); title "حاسبة انبعاثات CO₂ من السيارة"
+- coffee-ratio: التقطير اليدوي (pour-over), المكبس الفرنسي (French press), «الكوب الذهبي» (Golden Cup), جمعية القهوة المختصة (Specialty Coffee Association)
+- bakers-percentage: نسب الخبّاز (baker's percentage), نسبة الترطيب (hydration), خميرة العجين المخمّر (sourdough starter), خبز توست (sandwich loaf)
+- roofing: مربع التسقيف (roofing square), القرميد الإسفلتي (asphalt shingles), سقف جملوني / رباعي المنحدرات (gable / hip), الطبقة العازلة (underlayment), حواف التنقيط (drip edge), النوافذ السقفية البارزة (dormers)
+- stairs: القائمة / النائمة (riser / tread) and plurals قوائم / نوائم, الحامل الجانبي (stringer), البسطة (landing), الدرجات المروحية (winders), الارتفاع الحر فوق الرأس (headroom)
+- npv: فترة الاسترداد المخصومة (discounted payback), مؤشر الربحية (profitability index), "غير وحيد" (IRR not unique), طريقة التنصيف (bisection)
+- subnet: قناع البدل (wildcard mask), عنوان البث (broadcast), الارتباط المحلي (link-local), الاسترجاع (loopback), NAT على مستوى مزوّد الخدمة (carrier-grade NAT)
+- password-entropy: الإنتروبيا, عبارة المرور (passphrase), القوة الغاشمة (brute force), تجزئة ضعيفة (weakly hashed)
+- battery-life: عمق التفريغ (depth of discharge), تأثير بيوكرت (Peukert effect), الحِمل (load), مللي أمبير ساعة (mAh)
+
+### Italian (`it`) — 22 items
+
+- parts-per: "parti per bilione" (ppt, 10⁻¹²) / "parti per biliardo" (ppq) — Italian long-scale names; assumption reworded to explain the English short-scale sigles, check clarity.
+- paper-weight: "grammatura" for US basis weight; grade names kept in English (bond, text, cover, index, bristol, tag) with glosses; "basis weight" / "M-weight" left in English.
+- base64/url: "riempimento" for padding; "URL-safe", "query string", "data URI" kept in English.
+- tire: "serie" for aspect ratio, "fianco"/"spalla", "misure omologate", "misure in pollici" for flotation sizes (31×10.50R15).
+- fraction: "Numero misto" for mixed number; "decimali periodici".
+- paper: "Verticale"/"Orizzontale" for portrait/landscape; Letter/Legal/Tabloid/Executive/Half Letter kept in English; "Formati tecnici ANSI".
+- rf-power: unit names "Decibel-milliwatt" / "Decibel-watt" (invariable plural).
+- tdee: "dispendio energetico totale giornaliero" / "fabbisogno calorico di mantenimento" for TDEE / maintenance calories — check the most natural fitness term
+- tdee: "dietista abilitato" for "registered dietitian" — Italian profession is "dietista" (or "dietologo"/"nutrizionista"); check qualifier
+- tdee: activity levels "Leggermente attivo", "Estremamente attivo" — check usual Italian labels
+- due-date: "data presunta del parto", "DUM", "FIVET", "transfer di embrioni" — check clinical usage (PMA/FIVET vs IVF)
+- due-date: cycleHelp uses feminine "sei sicura" — assumes the user is the pregnant person
+- body-fat-navy: "metodo delle circonferenze della US Navy / Marina statunitense", "pesata idrostatica" for underwater weighing
+- body-fat-navy: "metro da sarta" for tape measure
+- calories-burned: "Escursionismo, fuori sentiero" for "Hiking, cross-country"; "Calcio, amatoriale" for "Soccer, casual"
+- calories-burned: Compendium of Physical Activities left untranslated as a proper name
+- swim-pace: "passo ogni 100 m" for swim pace per 100 m; "tratti da 100 yd" for lengths; "fondisti" for distance swimmers
+- punnett-square: "reincrocio" for test cross (also "test-cross"); "assortimento indipendente"; gruppi sanguigni "AB0" (Italian convention) vs English ABO
+- dna-concentration: "cammino ottico", "corretta per il bianco", "soluzione madre" for stock, "strumenti per microvolumi"
+- percent-yield: "resa effettiva" for actual yield (also "resa reale"); "trattamento successivo" for work-up
+- henderson-hasselbalch: "pH obiettivo" for target pH; "Diidrogenofosfato / idrogenofosfato"; "potere tampone" for buffer capacity
+- linear-regression: "adattamento" for fit; "errore standard dei residui"; separator help says semicolons (decimal comma), as in correlation
+
+### European Portuguese (`pt`) — 12 items
+
+- tdee: "TDEE" kept as English acronym (with "gasto energético diário total"); a native might prefer "GET"/"GEDT"
+- tdee/calories-burned: "pulseira de atividade" for "fitness tracker" — check common pt-PT usage
+- due-date: "data prevista do parto" (DPP), "DUM" in metaTitle, "conceção" (AO90), "ecografia de datação", "parteira" for midwife (pt-PT often "enfermeira especialista em saúde materna/obstétrica")
+- body-fat-navy: "perímetro" for circumference, "anca" (singular) for hips, "pesagem hidrostática" for underwater weighing, "%GC" for %BF
+- calories-burned: "crol" for freestyle, "corta-mato" for cross-country hiking, "Compêndio de Atividades Físicas"
+- swim-pace: "ritmo aos 100 m" / "jd" abbreviation in metaTitle; "troços de 100 yd" for lengths
+- punnett-square: "gâmeta" (pt-PT) vs "gâmeta/gameta"; "casas" for grid squares; "progenitor"; "cruzamento-teste"; "traço de sublinhado"
+- dna-concentration: "percurso ótico" for path length; "espetrofotómetro"; "solução-mãe" for stock; "corrigida pelo branco"
+- percent-yield: "rendimento percentual" vs "rendimento da reação"; "equação acertada" for balanced equation
+- henderson-hasselbalch: "pH de tampões" title; "Di-hidrogenofosfato / hidrogenofosfato"; "primeira dissociação" for "first step"
+- linear-regression: "ordenada na origem" for intercept; "gl" for df; "preditora"/"resposta"
+- all: 4-digit numbers written with a space (1 394, 7 700) per the brief, though some older pt files write 4-digit numbers unspaced
+
+### Dutch (`nl`) — 11 items
+
+- tdee: "activiteitsfactor", levels "Zittend / Licht actief / Matig actief / Zeer actief / Extreem actief" — check that these match common Dutch PAL labels
+- tdee: "onderhoudscalorieën" for maintenance calories — anglicism, common in fitness Dutch but maybe "calorieën om op gewicht te blijven"
+- due-date: "uitgerekende datum", "termijnecho", "ivf-terugplaatsing", "zwangerschapsduur" — check the obstetric terms used by Dutch/Flemish midwives
+- body-fat-navy: "vetvrije massa" for lean mass, "meetlintmethode", "onderwaterweging" — check the terms
+- calories-burned: "metabool equivalent", activity labels such as "Trektocht, door het terrein" (hiking, cross-country) and "Baantjes zwemmen, borstcrawl"
+- swim-pace: "zwemtempo", "keerpunten", "16,5 keer 100 yd" (lengths of 100 yd) — check the wording
+- punnett-square: "Punnett-vierkant" vs "kruisingsschema"; "Terugkruising" for test cross; "dominant {gene}" / "recessief {gene}" as phenotype labels
+- dna-concentration: "weglengte" (path length), "voor de blanco gecorrigeerd", "stockoplossing", "detergentia"
+- percent-yield: title "Rendementscalculator voor chemische reacties"; "beperkende reactant" vs "beperkende stof"; "opwerking" for work-up
+- henderson-hasselbalch: "base-zuurverhouding", "diwaterstoffosfaat / waterstoffosfaat", "trisbase", "werkzaam bufferbereik"
+- linear-regression: "intercept" vs "snijpunt met de y-as"; "kleinste-kwadratenaanpassing"; "residuele standaardfout"; "IJklijn"
