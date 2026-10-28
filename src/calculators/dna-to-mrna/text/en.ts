@@ -1,0 +1,55 @@
+const text = {
+  sequence: "DNA sequence",
+  sequenceHelp: "Letters A, C, G and T, in upper or lower case. Spaces, line breaks and position numbers are ignored.",
+  strand: "The sequence is the…",
+  strands: {
+    coding: "Coding (sense) strand, 5′→3′",
+    template: "Template (antisense) strand, 5′→3′",
+  },
+  frame: "Start translating at",
+  frames: {
+    first: "The first base",
+    aug: "The first AUG (start codon)",
+  },
+  stops: "At a stop codon",
+  stopModes: {
+    stop: "Stop translating",
+    readThrough: "Read through and mark it with *",
+  },
+  errors: {
+    invalidChar: "“{char}” (character {position}) is not a DNA base. Use only A, C, G and T.",
+    empty: "Enter at least one base (A, C, G or T).",
+    tooLong: "Enter at most {max} bases.",
+    noAug: "The mRNA contains no AUG start codon. Choose “The first base” to translate it anyway.",
+  },
+  result: "mRNA (5′→3′)",
+  caption: "Grouped in codons from the start of the reading frame.",
+  complement: "Complementary DNA strand (5′→3′)",
+  proteinOne: "Protein (one-letter code)",
+  proteinThree: "Protein (three-letter code)",
+  noProtein: "(no complete codon translated)",
+  length: "mRNA length",
+  bases: "bases",
+  codonsInFrame: "Complete codons in the reading frame",
+  codonsTranslated: "Codons translated",
+  aminoAcids: "Amino acids in the protein",
+  gc: "GC content",
+  notes: {
+    stopped: "Translation stopped at codon {codon} ({stop}), a stop codon. The protein above ends before it.",
+    noStop: "No stop codon was reached before the end of the sequence, so the protein may be incomplete.",
+    readThrough: "Stop codons were read through and are shown as * (Ter in the three-letter code).",
+    augStart: "The first AUG starts at base {position} of the mRNA. The bases before it are not translated.",
+    leftover: {
+      zero: "{n} bases at the end do not form a complete codon and are not translated.",
+      one: "{n} base at the end does not form a complete codon and is not translated.",
+      two: "{n} bases at the end do not form a complete codon and are not translated.",
+      few: "{n} bases at the end do not form a complete codon and are not translated.",
+      many: "{n} bases at the end do not form a complete codon and are not translated.",
+      other: "{n} bases at the end do not form a complete codon and are not translated.",
+    },
+    template: "The mRNA is the reverse complement of the template strand you entered, with U in place of T.",
+    general: "This uses the standard genetic code (NCBI table 1) and ignores introns, splicing and alternative start codons. Real genes may need a different code or processing.",
+  },
+};
+export type DnaToMrnaText = typeof text;
+export default text;

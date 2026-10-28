@@ -1,0 +1,37 @@
+const text = {
+  live: "Live (unstained) cells counted",
+  liveHelp: "The total number of live cells in all the large squares you counted.",
+  dead: "Dead (stained) cells counted",
+  deadHelp: "Optional. Cells that took up the stain, such as trypan blue, in the same squares. Used for the total count and the viability.",
+  squares: "Large squares counted",
+  squaresHelp: "Each large square of an improved Neubauer chamber is 1 mm × 1 mm × 0.1 mm deep, or 0.1 µL. Typically 4 corner squares are counted.",
+  dilution: "Dilution factor",
+  dilutionHelp: "Total volume ÷ volume of cell suspension. For equal volumes of cells and trypan blue (1:1), enter 2. Enter 1 if undiluted.",
+  volume: "Sample volume",
+  volumeHelp: "Optional. The volume of the cell suspension, to get the total number of live cells in it.",
+  target: "Cells needed for seeding",
+  targetHelp: "Optional. The number of live cells you want to seed, to get the volume of suspension to take.",
+  errors: {
+    noLiveForTarget: "No live cells were counted, so the volume needed for seeding cannot be calculated.",
+  },
+  cellsPerMl: "{value} cells/mL",
+  cellsPerMlUnit: "cells/mL",
+  cellsUnit: "cells",
+  result: "Live cells per mL",
+  caption: "Live cells ÷ squares counted × dilution factor × 10⁴",
+  totalPerMl: "Total cells per mL (live + dead)",
+  viability: "Viability",
+  averagePerSquare: "Average live cells per large square",
+  totalLive: "Live cells in {volume} mL",
+  volumeNeeded: "Volume of suspension for {target} cells",
+  volumeNeededUl: "Same volume in µL",
+  notes: {
+    poisson: "You counted {count} cells in total. Counting statistics alone give a relative error of about ±{cv}% (1 ÷ √count); counting more cells reduces it. Counting a few hundred cells in total is a common recommendation.",
+    density: "The average of {average} live cells per square is outside the range of about 20–50 cells per square often recommended for counting. Consider adjusting the dilution and counting again.",
+    noCells: "No live cells were counted, so the live cell concentration is zero. Check the sample and the dilution.",
+    exceedsSample: "The seeding target needs more live cells than the sample volume contains.",
+    general: "This assumes an improved Neubauer chamber with 0.1 mm depth and 1 mm² large squares. Other chambers, or counting small squares, need a different factor.",
+  },
+};
+export type HemocytometerText = typeof text;
+export default text;
