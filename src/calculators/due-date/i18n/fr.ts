@@ -17,8 +17,8 @@ const fr: CalculatorTranslation<DueDateText> = {
       "Ce calculateur estime la date d’accouchement à partir des dernières règles (en tenant compte de la durée de votre cycle), d’une date de conception connue ou d’un transfert d’embryon en FIV. Il indique aussi à combien de semaines de grossesse vous êtes à une date choisie, le trimestre en cours et les dates de fin de chaque trimestre.",
     ],
     howToUse: [
-      "Choisissez la base du calcul : les dernières règles, la conception ou un transfert en FIV.",
-      "Saisissez la date. Pour les dernières règles, indiquez aussi la durée habituelle de votre cycle ; pour une FIV, choisissez l’âge de l’embryon au moment du transfert.",
+      "Choisissez la base du calcul : les dernières règles, la conception ou un transfert en FIV.",
+      "Saisissez la date. Pour les dernières règles, indiquez aussi la durée habituelle de votre cycle ; pour une FIV, choisissez l’âge de l’embryon au moment du transfert.",
       "Gardez la date du jour ou choisissez une autre date pour voir l’âge gestationnel à ce jour-là.",
       "Lisez la date d’accouchement estimée, l’âge gestationnel, le trimestre et les dates des trimestres.",
     ],
@@ -31,11 +31,11 @@ const fr: CalculatorTranslation<DueDateText> = {
     examples: [
       {
         title: "Dernières règles le 1er juin 2026, cycle de 28 jours",
-        steps: ["1er juin 2026 + 280 jours = 8 mars 2027", "Le 24 octobre 2026 : 145 jours = 20 semaines et 5 jours", "C’est le deuxième trimestre (de 14 semaines 0 jour à 27 semaines 6 jours)"],
+        steps: ["1er juin 2026 + 280 jours = 8 mars 2027", "Le 24 octobre 2026 : 145 jours = 20 semaines et 5 jours", "C’est le deuxième trimestre (de 14 semaines 0 jour à 27 semaines 6 jours)"],
       },
       {
         title: "Dernières règles le 10 mars 2026, cycle de 32 jours",
-        steps: ["10 mars 2026 + 280 + (32 − 28) = 284 jours = 19 décembre 2026", "La datation commence alors le 14 mars 2026 (date d’accouchement − 280 jours)", "Le 24 octobre 2026 : 224 jours = 32 semaines et 0 jour, troisième trimestre"],
+        steps: ["10 mars 2026 + 280 + (32 − 28) = 284 jours = 19 décembre 2026", "La datation commence alors le 14 mars 2026 (date d’accouchement − 280 jours)", "Le 24 octobre 2026 : 224 jours = 32 semaines et 0 jour, troisième trimestre"],
       },
       {
         title: "Embryon de 5 jours transféré le 20 juin 2026",
@@ -43,15 +43,15 @@ const fr: CalculatorTranslation<DueDateText> = {
       },
     ],
     assumptions: [
-      "La date d’accouchement est une estimation, pas un avis médical, et ce calculateur n’a pas encore été vérifié par un professionnel. Seule une faible part des bébés naît le jour prévu ; la plupart arrivent dans les deux semaines environ autour de cette date.",
+      "La date d’accouchement est une estimation, pas un avis médical, et ce calculateur n’a pas encore été vérifié par un professionnel. Seule une faible part des bébés naît le jour prévu ; la plupart arrivent dans les deux semaines environ autour de cette date.",
       "Une échographie de datation en début de grossesse est plus précise qu’une estimation fondée sur les dates et peut modifier la date d’accouchement. C’est votre sage-femme ou votre médecin qui fixe la date retenue pour votre suivi.",
       "L’ajustement au cycle suppose une ovulation environ 14 jours avant les règles suivantes. Il ne tient pas compte des cycles irréguliers, d’une contraception hormonale récente ni de dates incertaines.",
-      "Les trimestres sont définis ainsi : jusqu’à 13 semaines 6 jours, de 14 semaines 0 jour à 27 semaines 6 jours, et à partir de 28 semaines 0 jour. Certaines sources placent ces limites une semaine plus tôt ou plus tard.",
+      "Les trimestres sont définis ainsi : jusqu’à 13 semaines 6 jours, de 14 semaines 0 jour à 27 semaines 6 jours, et à partir de 28 semaines 0 jour. Certaines sources placent ces limites une semaine plus tôt ou plus tard.",
     ],
     faqs: [
-      { question: "Pourquoi la grossesse est-elle comptée à partir des dernières règles et non de la conception ?", answer: "Le premier jour des dernières règles est généralement connu, alors que le jour de la conception ne l’est pas. Compter à partir de cette date est une convention ancienne : au moment de la conception, une grossesse en est donc déjà à environ 2 semaines." },
-      { question: "Comment la durée du cycle modifie-t-elle la date d’accouchement ?", answer: "Dans un cycle de 28 jours, l’ovulation a lieu vers le 14e jour. Dans un cycle plus long, elle est plus tardive : la date d’accouchement est donc repoussée du même nombre de jours. Un cycle plus court l’avance." },
-      { question: "La date d’accouchement peut-elle changer ?", answer: "Oui. Une échographie précoce peut donner une autre date, et votre soignant peut la mettre à jour, en général une seule fois, d’après cet examen." },
+      { question: "Pourquoi la grossesse est-elle comptée à partir des dernières règles et non de la conception ?", answer: "Le premier jour des dernières règles est généralement connu, alors que le jour de la conception ne l’est pas. Compter à partir de cette date est une convention ancienne : au moment de la conception, une grossesse en est donc déjà à environ 2 semaines." },
+      { question: "Comment la durée du cycle modifie-t-elle la date d’accouchement ?", answer: "Dans un cycle de 28 jours, l’ovulation a lieu vers le 14e jour. Dans un cycle plus long, elle est plus tardive : la date d’accouchement est donc repoussée du même nombre de jours. Un cycle plus court l’avance." },
+      { question: "La date d’accouchement peut-elle changer ?", answer: "Oui. Une échographie précoce peut donner une autre date, et votre soignant peut la mettre à jour, en général une seule fois, d’après cet examen." },
     ],
     sourcesUsedFor: [
       "Le fait que l’échographie du premier trimestre est la méthode la plus précise pour confirmer la date d’accouchement, et que les grossesses obtenues par FIV sont datées à partir du transfert.",
@@ -87,8 +87,8 @@ const fr: CalculatorTranslation<DueDateText> = {
     daysToDue: "Jours restants avant la date d’accouchement",
     startDate: "Début de la datation de la grossesse (0 semaine 0 jour)",
     notes: {
-      estimate: "Une simple estimation : seule une faible part des bébés naît à la date prévue, et la plupart arrivent dans les deux semaines environ avant ou après. Une échographie de datation peut la modifier.",
-      beforeStart: "La date choisie est antérieure au début de la datation de la grossesse : il n’y a donc pas encore d’âge gestationnel.",
+      estimate: "Une simple estimation : seule une faible part des bébés naît à la date prévue, et la plupart arrivent dans les deux semaines environ avant ou après. Une échographie de datation peut la modifier.",
+      beforeStart: "La date choisie est antérieure au début de la datation de la grossesse : il n’y a donc pas encore d’âge gestationnel.",
       pastDue: "La date choisie tombe le jour de la date d’accouchement estimée ou après.",
       veryLate: "La date choisie correspond à plus de 42 semaines de grossesse. Vérifiez que les dates sont correctes.",
       clinician: "L’âge gestationnel est compté à partir du premier jour des dernières règles, même lorsque la date provient de la conception ou du transfert. C’est votre sage-femme ou votre médecin qui fixe la date d’accouchement officielle.",

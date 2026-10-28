@@ -8,7 +8,7 @@ const pt: CalculatorTranslation<CarCo2Text> = {
     summary: "Estime o CO₂ emitido pelo escape de um carro a gasolina ou a gasóleo, a partir da distância e do consumo ou do combustível gasto, por viagem e por ano.",
     metaTitle: "Calculadora de emissões de CO₂ do carro – Pegada de carbono",
     metaDescription:
-      "Estime o CO₂ do escape numa viagem de carro a gasolina ou a gasóleo a partir da distância e das mpg ou L/100 km, com fatores da EPA e totais por km, milha e ano.",
+      "Estime o CO₂ do escape de uma viagem de carro a gasolina ou gasóleo pela distância e pelas mpg ou L/100 km, com fatores da EPA e totais por km, milha e ano.",
     keywords: ["emissões de CO2 do carro", "pegada de carbono automóvel", "CO2 por km", "CO2 por milha", "CO2 por litro de gasolina", "CO2 do gasóleo", "emissões de veículos", "calculadora de CO2"],
     intro: [
       "A queima de combustível transforma o seu carbono em dióxido de carbono. Como quase todo o carbono da gasolina ou do gasóleo acaba sob a forma de CO₂, as emissões de escape de um carro dependem sobretudo da quantidade de combustível que queima, seja qual for a marca ou o modelo.",

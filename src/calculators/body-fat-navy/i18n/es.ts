@@ -7,9 +7,9 @@ const es: CalculatorTranslation<BodyFatText> = {
     shortTitle: "Grasa corporal",
     summary:
       "Estima tu porcentaje de grasa corporal a partir de la altura y los perímetros de cuello, cintura y cadera con el método de perímetros de la Marina de EE. UU.",
-    metaTitle: "Calculadora de grasa corporal – Método de la Marina de EE. UU.",
+    metaTitle: "Calculadora de grasa corporal – Método de la Marina",
     metaDescription:
-      "Estima tu porcentaje de grasa corporal con una cinta métrica y las ecuaciones de perímetros de la Marina de EE. UU., en cm o pulgadas, con masa grasa y masa magra.",
+      "Estima tu porcentaje de grasa con una cinta métrica y las ecuaciones de perímetros de la Marina de EE. UU., en cm o pulgadas, con tu masa grasa y masa magra.",
     keywords: [
       "grasa corporal",
       "porcentaje de grasa corporal",

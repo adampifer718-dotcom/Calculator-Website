@@ -8,7 +8,7 @@ const pt: CalculatorTranslation<WindTurbineText> = {
     summary: "Estime a potência de uma turbina eólica a partir do diâmetro do rotor, da velocidade do vento, da densidade do ar e do coeficiente de potência, com um valor aproximado de energia anual.",
     metaTitle: "Calculadora de potência de turbina eólica – kW e kWh",
     metaDescription:
-      "Obtenha a potência de uma turbina eólica a partir do diâmetro do rotor, do vento, da densidade do ar e do Cp, compare com o limite de Betz e estime os kWh anuais.",
+      "Obtenha a potência de uma turbina eólica pelo diâmetro do rotor, o vento, a densidade do ar e o Cp, compare-a com o limite de Betz e estime os kWh anuais.",
     keywords: ["turbina eólica", "potência eólica", "aerogerador", "fórmula da energia eólica", "área varrida", "coeficiente de potência", "limite de Betz", "fator de capacidade"],
     intro: [
       "Uma turbina eólica transforma parte da energia cinética do ar em movimento em eletricidade. A potência disponível depende da quantidade de ar que atravessa o círculo varrido pelas pás, da densidade desse ar e, sobretudo, da sua velocidade: a potência cresce com o cubo da velocidade do vento, pelo que duplicar a velocidade dá oito vezes mais potência.",

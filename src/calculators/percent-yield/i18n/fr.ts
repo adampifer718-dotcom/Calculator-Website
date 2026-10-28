@@ -1,0 +1,105 @@
+import type { CalculatorTranslation } from "@/calculators/framework/types";
+import type { PercentYieldText } from "../text/en";
+
+const fr: CalculatorTranslation<PercentYieldText> = {
+  content: {
+    title: "Calculateur de rendement de réaction",
+    shortTitle: "Rendement de réaction",
+    summary: "Calculez le rendement d’une réaction à partir des rendements réel et théorique, ou déterminez le rendement théorique à partir des moles et d’une équation équilibrée.",
+    metaTitle: "Calculateur de rendement – Rendement réel et théorique",
+    metaDescription: "Calculez le rendement en pourcentage d’après les rendements réel et théorique, ou le rendement théorique d’après le réactif limitant et l’équation.",
+    keywords: ["rendement de réaction", "rendement en pourcentage", "rendement théorique", "rendement réel", "réactif limitant", "stœchiométrie", "rendement chimique"],
+    intro: [
+      "Le rendement théorique est la quantité de produit prévue par une équation équilibrée lorsque le réactif limitant est entièrement consommé. Le rendement réel est ce que vous recueillez. Le rendement en pourcentage compare les deux et montre l’efficacité de la réaction et du traitement.",
+      "Si vous connaissez déjà le rendement théorique, saisissez les deux masses. Sinon, saisissez les moles de réactif limitant, les coefficients de l’équation équilibrée et la formule ou la masse molaire du produit : le calculateur détermine d’abord le rendement théorique.",
+    ],
+    howToUse: [
+      "Choisissez si vous connaissez le rendement théorique ou si vous voulez le calculer à partir des moles.",
+      "Choisissez l’unité de masse et saisissez le rendement réel recueilli.",
+      "Saisissez le rendement théorique, ou les moles de réactif limitant, les deux coefficients et la formule du produit (ou sa masse molaire).",
+      "Lisez le rendement en pourcentage, le rendement théorique et la masse perdue.",
+    ],
+    formulas: [
+      { title: "Rendement en pourcentage", expression: "rendement = rendement réel ÷ rendement théorique × 100 %", explanation: "Les deux rendements doivent être dans la même unité, qui s’annule." },
+      { title: "Rendement théorique à partir des moles", expression: "théorique (g) = n(limitant) × (coefficient du produit ÷ coefficient du réactif) × M(produit)", explanation: "Le rapport des coefficients convertit les moles de réactif limitant en moles de produit ; la masse molaire convertit les moles en grammes." },
+      { title: "Masse perdue", expression: "perte = rendement théorique − rendement réel", explanation: "Également indiquée en part du rendement théorique, qui vaut 100 % moins le rendement en pourcentage." },
+    ],
+    examples: [
+      {
+        title: "Cristaux récupérés après une synthèse au laboratoire",
+        steps: ["Rendement = 4,25 g ÷ 5,6 g × 100 %", "≈ 75,89 %", "Masse perdue = 5,6 − 4,25 = 1,35 g"],
+      },
+      {
+        title: "Aspirine à partir de 0,0200 mol d’acide salicylique",
+        steps: ["Une molécule d’acide salicylique donne une molécule d’aspirine : le rapport est donc 1 ÷ 1.", "M(C9H8O4) = 9 × 12,011 + 8 × 1,008 + 4 × 15,999 = 180,159 g/mol", "Rendement théorique = 0,0200 × 180,159 ≈ 3,6032 g", "Rendement = 2,95 ÷ 3,6032 × 100 % ≈ 81,87 %"],
+      },
+      {
+        title: "Ammoniac lorsque l’hydrogène est le réactif limitant",
+        steps: ["N₂ + 3 H₂ → 2 NH₃, donc 0,90 mol H₂ × 2 ÷ 3 = 0,60 mol NH₃", "Rendement théorique = 0,60 × 17,031 = 10,2186 g", "Rendement = 8,1 ÷ 10,2186 × 100 % ≈ 79,27 %"],
+      },
+    ],
+    assumptions: [
+      "Le réactif limitant est connu. En cas de doute, calculez la quantité de produit que chaque réactif pourrait former : celui qui en donne le moins est le réactif limitant.",
+      "L’équation est équilibrée et donne un seul produit principal. Les produits secondaires ne sont pas comptés.",
+      "Les masses molaires calculées à partir d’une formule utilisent les masses atomiques standard abrégées de l’IUPAC. Les résultats ne sont pas plus précis que les masses que vous mesurez.",
+      "Le rendement réel doit être celui du produit sec et purifié. Un solvant ou des impuretés font paraître le rendement plus élevé qu’il ne l’est.",
+    ],
+    faqs: [
+      { question: "Le rendement peut-il dépasser 100 % ?", answer: "Pas pour un produit pur et sec, car la masse ne peut pas être créée. Un résultat supérieur à 100 % signifie généralement que le produit est encore humide, qu’il contient des impuretés ou des réactifs qui n’ont pas réagi, ou qu’une masse a été mal mesurée ou mal notée." },
+      { question: "Pourquoi mon rendement est-il plus faible que prévu ?", answer: "Des réactions secondaires consomment des réactifs, beaucoup de réactions s’arrêtent avant d’être complètes, et une partie du produit est toujours perdue lors de la filtration, des transferts ou de la recristallisation. Des rendements nettement inférieurs à 100 % sont normaux, surtout pour les synthèses en plusieurs étapes." },
+      { question: "Faut-il utiliser des moles ou des grammes ?", answer: "Le rendement en pourcentage compare des masses (ou des moles) de produit, et l’unité s’annule. Pour calculer le rendement théorique, il faut des moles, car les coefficients d’une équation équilibrée relient des quantités en moles, pas en grammes." },
+    ],
+    sourcesUsedFor: ["Les définitions des rendements théorique, réel et en pourcentage, et du réactif limitant."],
+  },
+  text: {
+    mode: "Rendement théorique",
+    modes: { direct: "Je le connais", stoichiometry: "Le calculer à partir des moles" },
+    unit: "Unité de masse",
+    actual: "Rendement réel",
+    actualHelp: "La masse de produit effectivement recueillie (idéalement sèche et pure).",
+    theoretical: "Rendement théorique",
+    theoreticalHelp: "La masse de produit prévue par l’équation équilibrée, dans la même unité que le rendement réel.",
+    moles: "Moles de réactif limitant",
+    molesHelp: "Le réactif qui s’épuise en premier. Divisez sa masse par sa masse molaire pour obtenir les moles.",
+    reactantCoef: "Coefficient du réactif limitant",
+    productCoef: "Coefficient du produit",
+    coefHelp: "D’après l’équation équilibrée. Dans N₂ + 3 H₂ → 2 NH₃, H₂ a 3 et NH₃ a 2.",
+    massSource: "Masse molaire du produit d’après",
+    massSources: { formula: "La formule chimique", molarMass: "Une valeur de masse molaire" },
+    formula: "Formule du produit",
+    formulaHelp: "Les symboles des éléments respectent la casse, par exemple C9H8O4 ou Ca(OH)2. La masse molaire est calculée à partir des masses atomiques standard.",
+    molarMass: "Masse molaire du produit",
+    formulaErrors: {
+      empty: "Saisissez une formule chimique.",
+      tooLong: "La formule est trop longue. Utilisez 200 caractères au maximum.",
+      invalidChar: "Caractère non valide « {token} » à la position {position}. Utilisez uniquement des symboles d’éléments, des nombres, des parenthèses et des points d’hydrate.",
+      lowercase: "Minuscule inattendue « {token} » à la position {position}. Les symboles des éléments commencent par une majuscule, par exemple Na ou Cl.",
+      unknownElement: "Symbole d’élément inconnu « {token} » à la position {position}.",
+      noStandardWeight: "{token} (position {position}) n’a pas de masse atomique standard : sa masse molaire ne peut donc pas être calculée.",
+      unclosed: "Parenthèses non équilibrées : le « {token} » à la position {position} n’est jamais fermé.",
+      unexpectedClose: "Parenthèses non équilibrées : le « {token} » à la position {position} n’a pas de parenthèse ouvrante correspondante.",
+      mismatched: "Parenthèses incompatibles : le « {token} » à la position {position} ne correspond pas à la parenthèse qu’il ferme.",
+      emptyGroup: "Le groupe entre parenthèses commençant à la position {position} est vide.",
+      zeroCount: "L’indice à la position {position} vaut zéro. Les indices doivent être des nombres entiers d’au moins 1.",
+      misplacedNumber: "Le nombre à la position {position} n’est rattaché à aucun élément ni groupe.",
+      misplacedDot: "Le point d’hydrate à la position {position} doit se trouver entre deux parties de la formule, par exemple CuSO4·5H2O.",
+      tooManyAtoms: "La formule contient trop d’atomes. Utilisez au maximum 1 000 000 atomes au total.",
+    },
+    result: "Rendement en pourcentage",
+    caption: "Rendement réel ÷ rendement théorique × 100",
+    theoreticalResult: "Rendement théorique",
+    productMoles: "Moles théoriques de produit",
+    molarMassUsed: "Masse molaire du produit utilisée",
+    loss: "Masse perdue (théorique − réel)",
+    excess: "Masse au-delà du rendement théorique",
+    lossPercent: "Part du rendement théorique perdue",
+    excessPercent: "Part au-delà du rendement théorique",
+    notes: {
+      over100: "Un rendement supérieur à 100 % est physiquement impossible pour un produit pur et sec. Cela signifie généralement que le produit est encore humide ou contient des impuretés ou des restes de réactifs, ou qu’une masse ou une quantité a été mal mesurée.",
+      zero: "Aucun produit n’a été recueilli : le rendement est donc de 0 %.",
+      general: "Les causes habituelles d’un rendement inférieur à 100 % sont les réactions secondaires, les réactions incomplètes et les pertes de produit lors des transferts, de la filtration ou de la purification.",
+    },
+  },
+};
+
+export default fr;

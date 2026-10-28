@@ -12,7 +12,7 @@ const es: CalculatorTranslation<DueDateText> = {
       "Estima la fecha probable de parto a partir de la última regla, la fecha de concepción o una transferencia de FIV, con la edad gestacional actual y las fechas de cada trimestre.",
     metaTitle: "Fecha probable de parto – Última regla, concepción o FIV",
     metaDescription:
-      "Estima tu fecha probable de parto a partir del primer día de la última regla, la concepción o una transferencia embrionaria de FIV, con edad gestacional y trimestres.",
+      "Estima tu fecha probable de parto a partir de la última regla, la concepción o una transferencia de embriones (FIV), con la edad gestacional y los trimestres.",
     keywords: [
       "fecha probable de parto",
       "calculadora de embarazo",

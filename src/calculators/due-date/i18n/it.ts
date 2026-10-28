@@ -10,9 +10,9 @@ const it: CalculatorTranslation<DueDateText> = {
     shortTitle: "Data del parto",
     summary:
       "Stima la data presunta del parto dall'ultima mestruazione, dalla data del concepimento o da un transfer di FIVET, con l'età gestazionale di oggi e le date dei trimestri.",
-    metaTitle: "Calcolatore della data presunta del parto – DUM, concepimento o FIVET",
+    metaTitle: "Data presunta del parto – Da DUM, concepimento o FIVET",
     metaDescription:
-      "Stima la data presunta del parto dal primo giorno dell'ultima mestruazione, dal concepimento o da un transfer di embrioni in FIVET, con età gestazionale e trimestri.",
+      "Stima la data presunta del parto dall'ultima mestruazione, dal concepimento o da un transfer di embrioni in FIVET, con età gestazionale e trimestri.",
     keywords: [
       "data presunta del parto",
       "calcolo data del parto",
