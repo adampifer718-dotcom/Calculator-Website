@@ -6,8 +6,8 @@ const fr: CalculatorTranslation<WindTurbineText> = {
     title: "Calculateur de puissance d’éolienne",
     shortTitle: "Puissance d’éolienne",
     summary: "Estimez la puissance produite par une éolienne à partir du diamètre du rotor, de la vitesse du vent, de la masse volumique de l’air et du coefficient de puissance, avec une estimation approximative de l’énergie annuelle.",
-    metaTitle: "Calculateur de puissance d’éolienne – Production en kW et kWh",
-    metaDescription: "Calculez la puissance d’une éolienne selon le diamètre du rotor, le vent, la masse volumique de l’air et le Cp, comparez-la à la limite de Betz et estimez les kWh annuels.",
+    metaTitle: "Calculateur de puissance d’éolienne – kW et kWh annuels",
+    metaDescription: "Puissance d’une éolienne selon le diamètre du rotor, le vent, la densité de l’air et le Cp, comparée à la limite de Betz, avec les kWh annuels estimés.",
     keywords: ["puissance éolienne", "calcul éolienne", "formule puissance du vent", "surface balayée", "coefficient de puissance", "limite de Betz", "facteur de charge", "production éolienne kWh"],
     intro: [
       "Une éolienne convertit une partie de l’énergie cinétique de l’air en mouvement en électricité. La puissance disponible dépend de la quantité d’air qui traverse le cercle balayé par les pales, de la masse volumique de cet air et surtout de sa vitesse : la puissance croît avec le cube de la vitesse du vent, si bien qu’un vent deux fois plus rapide donne huit fois plus de puissance.",

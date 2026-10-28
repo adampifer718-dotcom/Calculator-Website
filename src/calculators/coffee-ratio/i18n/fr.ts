@@ -7,7 +7,7 @@ const fr: CalculatorTranslation<CoffeeRatioText> = {
     shortTitle: "Ratio café/eau",
     summary: "Calculez la quantité de café moulu à utiliser pour une quantité d’eau donnée, ou la quantité d’eau pour votre café, en filtre, à la cafetière à piston, en espresso et en cold brew.",
     metaTitle: "Calculateur de ratio café/eau – Grammes de café par tasse",
-    metaDescription: "Calculez combien de grammes de café utiliser pour votre eau, ou combien d’eau pour votre café, avec des ratios modifiables : filtre, piston, espresso et cold brew.",
+    metaDescription: "Combien de grammes de café pour votre eau, ou d’eau pour votre café ? Ratios modifiables pour filtre, cafetière à piston, espresso et cold brew.",
     keywords: ["ratio café eau", "dosage café", "combien de café par tasse", "ratio café filtre", "ratio cafetière à piston", "ratio cold brew", "ratio espresso", "grammes de café"],
     intro: [
       "Le ratio café/eau est le moyen le plus simple d’obtenir un café au goût constant. Il s’écrit 1 : n, c’est-à-dire n grammes d’eau pour chaque gramme de café moulu : à 1:16, 20 g de café vont avec 320 g d’eau. Plus n est petit, plus le café est fort.",

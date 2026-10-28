@@ -6,8 +6,8 @@ const fr: CalculatorTranslation<CarCo2Text> = {
     title: "Calculateur d’émissions de CO₂ en voiture",
     shortTitle: "CO₂ en voiture",
     summary: "Estimez le CO₂ émis à l’échappement par une voiture essence ou diesel, à partir de la distance et de la consommation ou du carburant utilisé, par trajet et par an.",
-    metaTitle: "Calculateur d’émissions de CO₂ en voiture – Empreinte carbone",
-    metaDescription: "Estimez le CO₂ à l’échappement d’un trajet en voiture essence ou diesel selon la distance et la consommation, avec les facteurs de l’EPA, par km, par mile et par an.",
+    metaTitle: "Calculateur d’émissions de CO₂ en voiture – Bilan carbone",
+    metaDescription: "Estimez le CO₂ à l’échappement d’un trajet en voiture essence ou diesel selon la distance et la consommation (facteurs EPA), par km, par mile et par an.",
     keywords: ["calcul CO2 voiture", "empreinte carbone voiture", "émissions CO2 par km", "CO2 par litre d’essence", "CO2 diesel par litre", "émissions d’un trajet", "bilan carbone voiture"],
     intro: [
       "La combustion d’un carburant transforme son carbone en dioxyde de carbone. Comme presque tout le carbone de l’essence ou du gazole finit sous forme de CO₂, les émissions à l’échappement d’une voiture dépendent surtout de la quantité de carburant brûlée, quels que soient la marque ou le modèle.",
