@@ -10,15 +10,15 @@ Browser checks of every published page in all nine languages (desktop and mobile
 
 | Language | Interface | Calculator strings | Categories & collections | Pay converter | Published | Calculators |
 | --- | --- | --- | --- | --- | --- | --- |
-| English (English, `en`) | ✅ | ✅ | ✅ | ✅ | ✅ | 110 / 110 |
-| Urdu (اردو, `ur`) | ✅ | ✅ | ✅ | ✅ | ✅ | 110 / 110 |
-| Spanish (Español, `es`) | ✅ | ✅ | ✅ | ✅ | ✅ | 110 / 110 |
-| French (Français, `fr`) | ✅ | ✅ | ✅ | ✅ | ✅ | 110 / 110 |
-| German (Deutsch, `de`) | ✅ | ✅ | ✅ | ✅ | ✅ | 110 / 110 |
-| Arabic (العربية, `ar`) | ✅ | ✅ | ✅ | ✅ | ✅ | 110 / 110 |
-| Italian (Italiano, `it`) | ✅ | ✅ | ✅ | ✅ | ✅ | 110 / 110 |
-| Portuguese (Portugal) (Português, `pt`) | ✅ | ✅ | ✅ | ✅ | ✅ | 110 / 110 |
-| Dutch (Nederlands, `nl`) | ✅ | ✅ | ✅ | ✅ | ✅ | 110 / 110 |
+| English (English, `en`) | ✅ | ✅ | ✅ | ✅ | ✅ | 130 / 130 |
+| Urdu (اردو, `ur`) | ✅ | ✅ | ✅ | ✅ | ✅ | 130 / 130 |
+| Spanish (Español, `es`) | ✅ | ✅ | ✅ | ✅ | ✅ | 130 / 130 |
+| French (Français, `fr`) | ✅ | ✅ | ✅ | ✅ | ✅ | 130 / 130 |
+| German (Deutsch, `de`) | ✅ | ✅ | ✅ | ✅ | ✅ | 130 / 130 |
+| Arabic (العربية, `ar`) | ✅ | ✅ | ✅ | ✅ | ✅ | 130 / 130 |
+| Italian (Italiano, `it`) | ✅ | ✅ | ✅ | ✅ | ✅ | 130 / 130 |
+| Portuguese (Portugal) (Português, `pt`) | ✅ | ✅ | ✅ | ✅ | ✅ | 130 / 130 |
+| Dutch (Nederlands, `nl`) | ✅ | ✅ | ✅ | ✅ | ✅ | 130 / 130 |
 
 Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`, `it`, `pt`, `nl`.
 
@@ -33,12 +33,19 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`, `it`, `pt`, `nl`.
 | APR to APY Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Area Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Area Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Baker's Percentage Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Battery Life Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Bayes' Theorem Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | BMI Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | BMR Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Body Fat Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Break-Even Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Buffer pH Calculator (Henderson–Hasselbalch) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Calories Burned Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Cap Rate Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Car CO₂ Emissions Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Circumference Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Coffee to Water Ratio Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Compound Interest Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Concrete Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Confidence Interval Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -52,6 +59,7 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`, `it`, `pt`, `nl`.
 | Depreciation Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Dilution Calculator (C₁V₁ = C₂V₂) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Discount Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| DNA and RNA Concentration Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Doubling Time Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Download Time Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Drywall Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -71,8 +79,10 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`, `it`, `pt`, `nl`.
 | Hourly to Salary Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Hours Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Ideal Gas Law Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| IP Subnet Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Kinetic Energy Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Length Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Linear Regression Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Loan Payment Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Log Calculator (Logarithm) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Margin of Error Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -81,12 +91,15 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`, `it`, `pt`, `nl`.
 | Molarity Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Momentum Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Mortgage Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| NPV and IRR Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Ohm's Law Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | One-Rep Max Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Overtime Pay Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | P-value Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Paint Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Password Entropy Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Percent Error Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Percent Yield Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Percentage Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Percentage Increase Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Permutations and Combinations Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -94,9 +107,11 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`, `it`, `pt`, `nl`.
 | Pizza Size Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Plant Spacing Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Potential Energy Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Pregnancy Due Date Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Probability Calculator (Two Events) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Profit Margin Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Projectile Motion Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Punnett Square Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Pythagorean Theorem Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Quadratic Equation Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Quartile and IQR Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -106,6 +121,7 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`, `it`, `pt`, `nl`.
 | Recipe Scaler | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | ROI Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Roof Pitch Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Roofing Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Rounding Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Running Pace Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Salary to Hourly Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -121,8 +137,11 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`, `it`, `pt`, `nl`.
 | Speed, Distance and Time Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Square Footage Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Square Root Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Stair Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Standard Deviation Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Surface Area Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Swim Pace Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| TDEE Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Temperature Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Test Grade Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Tile Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -135,6 +154,7 @@ Published languages: `en`, `ur`, `es`, `fr`, `de`, `ar`, `it`, `pt`, `nl`.
 | Waist-to-Hip Ratio Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Weight Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Weighted Average Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Wind Turbine Power Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Z-Score Calculator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ## Untranslated pages
@@ -145,7 +165,7 @@ Calculators in the backlog (`docs/calculator-backlog.md`) are not published in a
 
 ## Unit converters
 
-82 converter pages under `/unit-converters/` plus 7 converters served by existing calculator pages (listed above).
+90 converter pages under `/unit-converters/` plus 7 converters served by existing calculator pages (listed above).
 A converter page exists in a language only when its full content, including a name for every unit, is translated.
 
 | Converter | `ur` | `es` | `fr` | `de` | `ar` | `it` | `pt` | `nl` |
@@ -212,6 +232,7 @@ A converter page exists in a language only when its full content, including a na
 | Capacitance Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Inductance Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Wire Gauge Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| dBm Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Magnetomotive Force Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Magnetic Field Strength Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Magnetic Flux Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -226,11 +247,18 @@ A converter page exists in a language only when its full content, including a na
 | Typography Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Lumber Volume Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Astronomical Distance Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Parts Per Million Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Paper Weight Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Roman Numeral Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Unix Timestamp Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Color Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Morse Code Translator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Text to Binary Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Coordinate Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Base64 Encoder and Decoder | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| URL Encoder and Decoder | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Tire Size Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Decimal to Fraction Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Paper Size Converter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 Every converter page is available in every language.

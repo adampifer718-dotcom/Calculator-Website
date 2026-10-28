@@ -57,7 +57,7 @@ describe("batch 7 group C: content and examples", () => {
     expect(c.howToUse.length).toBeGreaterThan(0);
     expect(c.formulas.length).toBeGreaterThan(0);
     expect(c.assumptions.length).toBeGreaterThan(0);
-    expect(Object.keys(c.translations)).toEqual([]);
+    expect(Object.keys(c.translations).sort()).toEqual(["ar", "de", "es", "fr", "it", "nl", "pt", "ur"]);
     const ids = (c.engine.fields as readonly { id: string }[]).map((f) => f.id);
     expect(new Set(ids).size).toBe(ids.length);
     expect(evaluate(c.engine, defaultRawValues(c.engine)).ok).toBe(true);
