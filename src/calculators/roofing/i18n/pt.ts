@@ -8,7 +8,7 @@ const pt: CalculatorTranslation<RoofingText> = {
     summary: "Estime a área do telhado, os squares e os pacotes de telhas asfálticas para um telhado simples de duas ou de quatro águas, a partir da planta do edifício, do beiral e da inclinação.",
     metaTitle: "Calculadora de materiais para telhado – Área e telhas",
     metaDescription:
-      "Estime a área do telhado pela planta, beiral e inclinação, e depois os squares, os pacotes de telhas asfálticas e os rolos de subtelha a comprar, com desperdício.",
+      "Estime a área do telhado pela planta, beiral e inclinação, e depois os squares, pacotes de telhas asfálticas e rolos de subtelha a comprar, com desperdício.",
     keywords: ["calculadora de telhado", "área do telhado", "telhas asfálticas", "pacotes de telhas", "square de cobertura", "subtelha", "fator de inclinação", "materiais de cobertura"],
     intro: [
       "Os materiais de cobertura vendem-se ao square: um square cobre 100 ft² (cerca de 9,29 m²) de telhado. Um telhado inclinado tem mais superfície do que a planta por baixo dele, pelo que a área em planta é multiplicada por um fator de inclinação que aumenta com a inclinação do telhado.",

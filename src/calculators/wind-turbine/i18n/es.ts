@@ -9,7 +9,7 @@ const es: CalculatorTranslation<WindTurbineText> = {
       "Estima la potencia de un aerogenerador a partir del diámetro del rotor, la velocidad del viento, la densidad del aire y el coeficiente de potencia, con una cifra aproximada de energía anual.",
     metaTitle: "Calculadora de potencia de aerogeneradores – kW y kWh",
     metaDescription:
-      "Calcula la potencia de un aerogenerador según el diámetro del rotor, el viento, la densidad del aire y el Cp, compárala con el límite de Betz y estima los kWh anuales.",
+      "Calcula la potencia de un aerogenerador con el rotor, el viento, la densidad del aire y el Cp, compárala con el límite de Betz y estima los kWh al año.",
     keywords: [
       "potencia aerogenerador",
       "fórmula potencia eólica",

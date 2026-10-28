@@ -9,7 +9,7 @@ const es: CalculatorTranslation<BakersPercentageText> = {
       "Convierte porcentajes panaderos en pesos de ingredientes a partir del peso de la harina, o calcula la harina necesaria para un peso de masa objetivo, con la hidratación.",
     metaTitle: "Calculadora de porcentaje panadero – Pesos e hidratación",
     metaDescription:
-      "Convierte porcentajes panaderos en gramos u onzas de harina, agua, sal, levadura y extras, calcula la harina para un peso de masa objetivo y consulta la hidratación.",
+      "Convierte porcentajes panaderos en gramos u onzas de harina, agua, sal, levadura y extras, y calcula la harina para un peso de masa dado y la hidratación.",
     keywords: [
       "porcentaje panadero",
       "porcentajes de panadería",

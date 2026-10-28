@@ -9,7 +9,7 @@ const nl: CalculatorTranslation<CoffeeRatioText> = {
       "Bereken hoeveel gemalen koffie je nodig hebt voor een hoeveelheid water, of hoeveel water voor je koffie, voor filterkoffie, French press, espresso en cold brew.",
     metaTitle: "Koffie-waterverhoudingcalculator – gram per kop",
     metaDescription:
-      "Bereken hoeveel gram koffie je gebruikt voor je water, of hoeveel water voor je koffie, met aanpasbare verhoudingen voor filter, French press, espresso en cold brew.",
+      "Bereken hoeveel gram koffie je nodig hebt voor je water, of andersom, met aanpasbare verhoudingen voor filter, French press, espresso en cold brew.",
     keywords: ["koffieverhouding", "verhouding koffie water", "hoeveel koffie per kop", "pour-over verhouding", "French press verhouding", "cold brew verhouding", "gram koffie", "espresso brew ratio"],
     intro: [
       "De verhouding tussen koffie en water is de eenvoudigste manier om je koffie elke keer hetzelfde te laten smaken. Je schrijft haar als 1 : n, dus n gram water voor elke gram gemalen koffie: bij 1:16 hoort bij 20 g koffie 320 g water. Een kleinere n geeft sterkere koffie.",

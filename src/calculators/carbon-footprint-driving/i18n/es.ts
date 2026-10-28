@@ -9,7 +9,7 @@ const es: CalculatorTranslation<CarCo2Text> = {
       "Estima el CO₂ que sale por el tubo de escape de un coche de gasolina o diésel a partir de la distancia y el consumo, o del combustible gastado, por viaje y por año.",
     metaTitle: "Calculadora de emisiones de CO₂ del coche – Por viaje y año",
     metaDescription:
-      "Estima el CO₂ de escape de un viaje en coche de gasolina o diésel según la distancia y el consumo en mpg o L/100 km, con factores de la EPA, por km, milla y año.",
+      "Estima el CO₂ de escape de un coche de gasolina o diésel según la distancia y el consumo (mpg o L/100 km), con factores de la EPA, por km, por milla y al año.",
     keywords: [
       "emisiones CO2 coche",
       "huella de carbono conducir",

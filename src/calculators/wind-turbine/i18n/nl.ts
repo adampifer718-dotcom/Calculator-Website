@@ -9,7 +9,7 @@ const nl: CalculatorTranslation<WindTurbineText> = {
       "Schat het vermogen van een windturbine uit de rotordiameter, de windsnelheid, de luchtdichtheid en de vermogenscoëfficiënt, met een ruwe schatting van de jaarlijkse energie.",
     metaTitle: "Windturbinevermogencalculator – vermogen in kW en kWh",
     metaDescription:
-      "Bereken het vermogen van een windturbine uit rotordiameter, windsnelheid, luchtdichtheid en vermogenscoëfficiënt, toets het aan de Betz-limiet en schat de kWh per jaar.",
+      "Bereken het vermogen van een windturbine uit rotordiameter, windsnelheid, luchtdichtheid en Cp, toets het aan de Betz-limiet en schat de kWh per jaar.",
     keywords: ["windturbine berekenen", "windvermogen formule", "vermogen windturbine", "rotoroppervlak", "vermogenscoëfficiënt", "Betz-limiet", "capaciteitsfactor", "windenergie kWh"],
     intro: [
       "Een windturbine zet een deel van de bewegingsenergie van stromende lucht om in elektriciteit. Het beschikbare vermogen hangt af van hoeveel lucht door de cirkel gaat die de bladen beschrijven, hoe dicht die lucht is en vooral hoe snel ze beweegt: het vermogen groeit met de derde macht van de windsnelheid, dus bij een twee keer zo hoge snelheid krijg je acht keer zoveel vermogen.",

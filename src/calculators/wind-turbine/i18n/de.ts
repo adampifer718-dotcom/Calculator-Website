@@ -7,7 +7,7 @@ const de: CalculatorTranslation<WindTurbineText> = {
     shortTitle: "Windkraftleistung",
     summary: "Schätzen Sie die Leistung einer Windkraftanlage aus Rotordurchmesser, Windgeschwindigkeit, Luftdichte und Leistungsbeiwert – mit einem groben Jahresertrag.",
     metaTitle: "Windkraftrechner – Leistung in kW und Ertrag in kWh",
-    metaDescription: "Berechnen Sie die Leistung einer Windkraftanlage aus Rotordurchmesser, Wind, Luftdichte und Leistungsbeiwert, prüfen Sie das Betz-Limit und schätzen Sie die kWh pro Jahr.",
+    metaDescription: "Leistung einer Windkraftanlage aus Rotordurchmesser, Wind, Luftdichte und Leistungsbeiwert – mit Betz-Limit und geschätztem Jahresertrag in kWh.",
     keywords: ["Windkraftanlage Leistung berechnen", "Windleistung Formel", "Windrad Ertrag", "Rotorfläche", "Leistungsbeiwert", "Betz-Limit", "Kapazitätsfaktor", "Windenergie kWh"],
     intro: [
       "Eine Windkraftanlage wandelt einen Teil der Bewegungsenergie der Luft in Strom um. Die verfügbare Leistung hängt davon ab, wie viel Luft durch den von den Rotorblättern überstrichenen Kreis strömt, wie dicht diese Luft ist und vor allem, wie schnell sie sich bewegt: Die Leistung wächst mit der dritten Potenz der Windgeschwindigkeit, doppelte Geschwindigkeit ergibt also die achtfache Leistung.",
