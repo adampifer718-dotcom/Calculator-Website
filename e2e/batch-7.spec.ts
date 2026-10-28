@@ -68,7 +68,7 @@ test.describe("batch-7 unit converters", () => {
     await open(page, "/unit-converters/base64-converter");
     await expect(toolResult(page)).toHaveValue("SGVsbG8sIHdvcmxkIQ==");
     await page.getByLabel("Direction").selectOption("decode");
-    await page.getByLabel("Base64", { exact: true }).fill("SGkh");
+    await page.getByRole("textbox", { name: "Base64", exact: true }).fill("SGkh");
     await expect(toolResult(page)).toHaveValue("Hi!");
     await open(page, "/unit-converters/url-encoder");
     await expect(toolResult(page)).toHaveValue("caf%C3%A9%20%26%20cr%C3%A8me%3F");
