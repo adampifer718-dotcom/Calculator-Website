@@ -1,6 +1,6 @@
 # HourlyToSalaryCalculator.net launch checklist
 
-Status as of 15 October 2026, branch `claude/magical-planck-oou76v`.
+Status as of 28 October 2026, branch `claude/magical-planck-oou76v`.
 
 **Recommendation: NO-GO for a public production launch until the blockers in section 8 are closed.**
 The code, routing, SEO and automated tests are in launch condition (section 9), so a soft launch to a staging or preview domain is reasonable now. A public launch should wait for the production domain to be connected and verified live, the unverified sources and the professional and native-speaker reviews listed below.
@@ -573,3 +573,28 @@ This run used a clean production build of commit `a9b7fa9`, built with `NEXT_PUB
 - no `main` branch or CI run;
 - the production domain has not been checked live.
 
+### 9.5 Batch 7 run (130 calculators, 97 converters; 28 October 2026)
+
+This run used a clean production build of commit `0fdd254` (build ID `Q5-lHVMSvxg_zh4E6VPQn`), built with `NEXT_PUBLIC_SITE_URL=https://hourlytosalarycalculator.net` and served with `next start -p 3100`. The later commits change only an e2e locator (`ccbd933`, rerun against the same build) and documentation. Both crawls ran one after the other against the same server.
+
+| Check | Command | Result |
+| --- | --- | --- |
+| Lint | `npm run lint` | Pass (0 errors) |
+| TypeScript | `npx tsc --noEmit` | Pass (0 errors) |
+| Unit tests | `npx vitest run` | **4,322 passed**, 0 failed (46 files). The first run had 11 failures: the batch-7 content tests still expected the calculators to have no translations. They now require all eight translations. |
+| Production build | `rm -rf .next && npx next build` | Pass; 2,345 static pages. The first attempt stopped with the Next.js security-upgrade notice and passed on the retry the notice allows (blocker 6 in section 8; the upgrade was not performed). |
+| SEO audit | `node scripts/seo-audit.mjs http://localhost:3100 https://hourlytosalarycalculator.net` | 2,277 sitemap URLs (253 × 9 languages) and 6,867 internal links checked; no problems found |
+| Playwright, batch-7 spec | `npx playwright test e2e/batch-7.spec.ts` | **10 passed**, 0 failed (desktop and mobile). The first run had 2 failures: the "Base64" label locator also matched a page section. The test now targets the textbox by role. |
+| Playwright, all other non-crawl specs | batch-6, calculators, converters, home, i18n, navigation and new-calculators specs | **212 passed**, 0 failed |
+| Playwright sitemap crawl, desktop | `npx playwright test e2e/pages.spec.ts --project=desktop --workers=4` | **31 passed, 0 failed, 0 skipped, 0 timed out**; 1.2 h |
+| Playwright sitemap crawl, mobile | `npx playwright test e2e/pages.spec.ts --project=mobile --workers=4` | **31 passed, 0 failed, 0 skipped, 0 timed out**; 1.1 h (16:10–17:17 UTC) |
+
+The crawls cover the same checks as in section 9.4, in all nine languages, now including the 20 batch-7 calculators and 8 batch-7 converters.
+
+**Still open.** These are not covered by automated tests:
+- native-speaker proofreading (410 flagged terms);
+- unverified source links (sections 3.1, 3.6 and 3.7);
+- professional review (section 4);
+- the Next.js security upgrade (blocker 6, mandatory before any deployment);
+- no `main` branch or CI run;
+- the production domain has not been checked live.
