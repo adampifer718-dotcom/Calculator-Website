@@ -9,9 +9,9 @@ const nl: CalculatorTranslation<NpvText> = {
     shortTitle: "NCW en IRR",
     summary:
       "Disconteer een reeks jaarlijkse kasstromen om de netto contante waarde, de interne rentabiliteit, de rentabiliteitsindex en de verdisconteerde terugverdientijd te vinden.",
-    metaTitle: "NCW- en IRR-calculator – netto contante waarde van kasstromen",
+    metaTitle: "NCW- en IRR-calculator – netto contante waarde",
     metaDescription:
-      "Bereken de netto contante waarde en de interne rentabiliteit (IRR) van een investering uit de jaarlijkse kasstromen, met rentabiliteitsindex en terugverdientijd.",
+      "Bereken de netto contante waarde en de interne rentabiliteit (IRR) van een investering uit jaarlijkse kasstromen, met rentabiliteitsindex en terugverdientijd.",
     keywords: ["NCW berekenen", "netto contante waarde", "IRR berekenen", "interne rentabiliteit", "verdisconteerde kasstromen", "rentabiliteitsindex", "terugverdientijd", "investeringsbeslissing"],
     intro: [
       "Geld dat je later ontvangt is minder waard dan hetzelfde bedrag vandaag, omdat je het geld van vandaag in de tussentijd kunt beleggen. De netto contante waarde (NCW) zet elke toekomstige kasstroom van een project om naar de waarde van vandaag door haar te disconteren tegen je vereiste rendement, en trekt daarna af wat je vooraf betaalt.",

@@ -9,7 +9,7 @@ const it: CalculatorTranslation<RoofingText> = {
       "Stima la superficie del tetto, gli square e i pacchi di tegole canadesi per un semplice tetto a capanna o a padiglione da pianta dell'edificio, sporto e pendenza.",
     metaTitle: "Calcolatore materiali per il tetto – Square, pacchi e area",
     metaDescription:
-      "Stima la superficie del tetto da pianta, sporto e pendenza, poi gli square, i pacchi di tegole canadesi e i rotoli di telo sottotegola da comprare, con lo sfrido.",
+      "Stima la superficie del tetto da pianta, sporto e pendenza, poi square, pacchi di tegole canadesi e rotoli di telo sottotegola da comprare, con lo sfrido.",
     keywords: [
       "calcolo superficie tetto",
       "tegole canadesi quantità",

@@ -9,7 +9,7 @@ const fr: CalculatorTranslation<NpvText> = {
     shortTitle: "VAN et TRI",
     summary: "Actualisez une série de flux de trésorerie annuels pour obtenir la valeur actuelle nette, le taux de rendement interne, l’indice de profitabilité et le délai de récupération actualisé.",
     metaTitle: "Calculateur de VAN et de TRI – Valeur actuelle nette",
-    metaDescription: "Calculez la valeur actuelle nette et le taux de rendement interne d’un investissement selon ses flux annuels, avec l’indice de profitabilité et le délai actualisé.",
+    metaDescription: "Calculez la valeur actuelle nette et le taux de rendement interne d’un investissement selon ses flux annuels, avec indice de profitabilité et délai actualisé.",
     keywords: ["calcul VAN", "valeur actuelle nette", "calcul TRI", "taux de rendement interne", "flux de trésorerie actualisés", "indice de profitabilité", "délai de récupération actualisé", "choix d’investissement"],
     intro: [
       "Une somme reçue plus tard vaut moins que la même somme aujourd’hui, car l’argent d’aujourd’hui pourrait être placé entre-temps. La valeur actuelle nette (VAN) ramène chaque flux de trésorerie futur d’un projet en valeur d’aujourd’hui en l’actualisant à votre taux de rendement exigé, puis soustrait ce que vous payez au départ.",

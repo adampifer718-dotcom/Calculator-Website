@@ -81,6 +81,7 @@ const it: CalculatorTranslation<StairsText> = {
     assumptions: [
       "Questa è una stima geometrica per una singola rampa diritta con gradini uguali. Pianerottoli, gradini a ventaglio, scale a chiocciola e lo spessore delle pedate non sono considerati.",
       "Le norme edilizie variano da un luogo all'altro e cambiano nel tempo, e riguardano molto più delle dimensioni dei gradini: altezza libera, larghezza, corrimano, parapetti, nasi dei gradini e la variazione ammessa tra un gradino e l'altro. I valori predefiniti sono presi dall'International Residential Code solo come punto di partenza; verifica le norme in vigore dove costruisci.",
+      "Il risultato non è stato verificato da professionisti e non costituisce una consulenza tecnica o di sicurezza. Le scale sono una causa frequente di cadute: prima di costruire, fai controllare il progetto dall'ufficio tecnico comunale o da un professionista qualificato.",
       "Il dislivello totale va misurato tra le superfici dei pavimenti finiti. Cambiare in seguito la finitura del pavimento modifica l'altezza del primo e dell'ultimo gradino.",
     ],
     faqs: [

@@ -7,7 +7,7 @@ const de: CalculatorTranslation<SubnetText> = {
     shortTitle: "IP-Subnetz",
     summary: "Ermitteln Sie Netz- und Broadcast-Adresse, nutzbaren Hostbereich, Masken und Adresstyp für jede IPv4-Adresse und jedes Präfix.",
     metaTitle: "IP-Subnetzrechner – IPv4-CIDR, Maske und Hostbereich",
-    metaDescription: "Geben Sie eine IPv4-Adresse mit CIDR-Präfix oder Subnetzmaske ein und erhalten Sie Netzadresse, Broadcast, ersten und letzten Host, nutzbare Hosts und Wildcard-Maske.",
+    metaDescription: "IPv4-Adresse mit CIDR-Präfix oder Subnetzmaske eingeben und Netzadresse, Broadcast, ersten und letzten Host, nutzbare Hosts und Wildcard-Maske erhalten.",
     keywords: ["Subnetzrechner", "IP-Subnetz berechnen", "CIDR-Rechner", "IPv4-Subnetz", "Subnetzmaske", "Wildcard-Maske", "Netzadresse", "Broadcast-Adresse", "nutzbare Hosts"],
     intro: [
       "Eine IPv4-Adresse ist eine 32-Bit-Zahl, geschrieben als vier Teile von 0 bis 255. Die Präfixlänge, etwa /24, gibt an, wie viele dieser Bits das Netz bezeichnen; die übrigen nummerieren die Hosts darin. Eine Subnetzmaske wie 255.255.255.0 ist dieselbe Information in Adressform.",

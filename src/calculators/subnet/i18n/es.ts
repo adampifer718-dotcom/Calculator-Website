@@ -9,7 +9,7 @@ const es: CalculatorTranslation<SubnetText> = {
       "Obtén las direcciones de red y de difusión, el rango de hosts utilizables, las máscaras y el tipo de dirección de cualquier dirección IPv4 con su prefijo.",
     metaTitle: "Calculadora de subredes IP – IPv4, CIDR y máscara",
     metaDescription:
-      "Introduce una dirección IPv4 con prefijo CIDR o máscara de subred y obtén la red, la difusión, el primer y el último host, los hosts utilizables y la máscara wildcard.",
+      "Introduce una IPv4 con prefijo CIDR o máscara de subred y obtén la red, la difusión, el primer y el último host, los hosts utilizables y la máscara wildcard.",
     keywords: [
       "calculadora de subredes",
       "subred IP",

@@ -9,7 +9,7 @@ const fr: CalculatorTranslation<PasswordEntropyText> = {
     shortTitle: "Entropie de mot de passe",
     summary: "Estimez l’entropie en bits d’un mot de passe ou d’une phrase de passe générés aléatoirement, et le temps qu’il faudrait à un attaquant pour les deviner.",
     metaTitle: "Calculateur d’entropie de mot de passe – Bits et temps",
-    metaDescription: "Calculez l’entropie en bits d’un mot de passe aléatoire ou d’une phrase de passe Diceware selon sa longueur et ses caractères, et le temps moyen pour la deviner.",
+    metaDescription: "Calculez l’entropie en bits d’un mot de passe aléatoire ou d’une phrase Diceware selon sa longueur et ses caractères, et le temps moyen pour la deviner.",
     keywords: ["entropie mot de passe", "robustesse mot de passe", "entropie phrase de passe", "diceware", "bits d’entropie", "temps de force brute", "longueur mot de passe", "jeu de caractères"],
     intro: [
       "L’entropie mesure à quel point un secret est imprévisible. Un mot de passe choisi au hasard dans un ensemble de N caractères possibles gagne log₂(N) bits par caractère, et chaque bit supplémentaire double le nombre d’essais dont un attaquant peut avoir besoin.",

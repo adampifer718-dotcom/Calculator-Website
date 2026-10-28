@@ -9,7 +9,7 @@ const nl: CalculatorTranslation<DueDateText> = {
     title: "Zwangerschapscalculator voor de uitgerekende datum",
     shortTitle: "Uitgerekende datum",
     summary: "Schat de uitgerekende datum van een zwangerschap uit de laatste menstruatie, de conceptiedatum of een ivf-terugplaatsing, met de huidige zwangerschapsduur en de data van de trimesters.",
-    metaTitle: "Zwangerschapscalculator – uitgerekende datum berekenen",
+    metaTitle: "Zwangerschapscalculator: uitgerekende datum berekenen",
     metaDescription:
       "Schat je uitgerekende datum uit de eerste dag van je laatste menstruatie, de conceptie of een ivf-terugplaatsing, en zie de zwangerschapsduur en trimesters.",
     keywords: ["uitgerekende datum", "zwangerschapscalculator", "hoeveel weken zwanger", "zwangerschapsduur", "regel van Naegele", "ivf uitgerekende datum", "trimester"],

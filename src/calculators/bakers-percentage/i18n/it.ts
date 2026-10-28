@@ -9,7 +9,7 @@ const it: CalculatorTranslation<BakersPercentageText> = {
       "Trasforma le percentuali del panettiere in pesi degli ingredienti a partire dal peso della farina, oppure trova la farina per un peso d'impasto desiderato, con l'idratazione.",
     metaTitle: "Calcolatore percentuali del panettiere – Pesi e idratazione",
     metaDescription:
-      "Converti le percentuali del panettiere in grammi o once di farina, acqua, sale, lievito e altri ingredienti, trova la farina per un peso d'impasto e vedi l'idratazione.",
+      "Converti le percentuali del panettiere in grammi o once di farina, acqua, sale, lievito e altro, trova la farina per un peso d'impasto e vedi l'idratazione.",
     keywords: [
       "percentuale del panettiere",
       "percentuali da fornaio",

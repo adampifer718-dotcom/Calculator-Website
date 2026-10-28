@@ -9,7 +9,7 @@ const nl: CalculatorTranslation<RoofingText> = {
       "Schat het dakoppervlak, het aantal squares en de pakken shingles voor een eenvoudig zadeldak of schilddak uit de plattegrond, de overstek en de dakhelling.",
     metaTitle: "Dakbedekkingscalculator – squares, pakken en dakoppervlak",
     metaDescription:
-      "Schat het dakoppervlak uit plattegrond, overstek en helling, en daarna de squares, pakken shingles en rollen onderdakfolie die je koopt, met een marge voor verlies.",
+      "Schat het dakoppervlak uit plattegrond, overstek en helling, en daarna de squares, pakken shingles en rollen onderdakfolie die je nodig hebt, inclusief verlies.",
     keywords: ["dakbedekking berekenen", "dakoppervlak berekenen", "shingles berekenen", "pakken shingles", "roofing square", "onderdakfolie rollen", "hellingsfactor", "dakbedekkingscalculator"],
     intro: [
       "Dakbedekking wordt in de VS per square verkocht: één square bedekt 100 ft² (ongeveer 9,29 m²) dak. Een hellend dak heeft meer oppervlak dan de plattegrond eronder, dus het grondoppervlak wordt vermenigvuldigd met een hellingsfactor die groter wordt naarmate het dak steiler is.",

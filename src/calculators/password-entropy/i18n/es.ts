@@ -11,7 +11,7 @@ const es: CalculatorTranslation<PasswordEntropyText> = {
       "Estima la entropía en bits de una contraseña o frase de contraseña generada al azar y cuánto tardaría un atacante en adivinarla.",
     metaTitle: "Entropía de contraseñas – Bits y tiempo para descifrarla",
     metaDescription:
-      "Calcula la entropía en bits de una contraseña aleatoria o una frase Diceware a partir de su longitud y su conjunto de caracteres, y el tiempo medio para adivinarla.",
+      "Calcula la entropía en bits de una contraseña aleatoria o una frase Diceware según su longitud y su conjunto de caracteres, y el tiempo medio para adivinarla.",
     keywords: [
       "entropía de contraseña",
       "seguridad de contraseña",

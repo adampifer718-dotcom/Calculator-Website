@@ -6,7 +6,7 @@ const fr: CalculatorTranslation<RoofingText> = {
     title: "Calculateur de toiture",
     shortTitle: "Toiture",
     summary: "Estimez la surface de toiture, les squares et les paquets de bardeaux d’un toit simple à deux pans ou à quatre pans, à partir de l’emprise du bâtiment, du débord et de la pente.",
-    metaTitle: "Calculateur de toiture – Surface, squares et paquets de bardeaux",
+    metaTitle: "Calculateur de toiture – Surface, squares et bardeaux",
     metaDescription: "Estimez la surface du toit selon l’emprise, le débord et la pente, puis les squares, paquets de bardeaux et rouleaux de sous-couche à acheter, pertes comprises.",
     keywords: ["calcul toiture", "surface de toit", "calcul bardeaux", "paquets de bardeaux", "square de toiture", "pente de toit", "rouleaux de sous-couche", "coefficient de pente"],
     intro: [

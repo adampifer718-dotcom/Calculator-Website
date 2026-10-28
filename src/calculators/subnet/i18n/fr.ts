@@ -7,7 +7,7 @@ const fr: CalculatorTranslation<SubnetText> = {
     shortTitle: "Sous-réseau IP",
     summary: "Trouvez l’adresse réseau, l’adresse de diffusion, la plage d’hôtes utilisables, les masques et le type d’adresse de toute adresse IPv4 avec son préfixe.",
     metaTitle: "Calculateur de sous-réseau IP – CIDR IPv4, masque et hôtes",
-    metaDescription: "Saisissez une adresse IPv4 avec un préfixe CIDR ou un masque pour obtenir le réseau, la diffusion, le premier et le dernier hôte, les hôtes utilisables et le masque inverse.",
+    metaDescription: "Saisissez une adresse IPv4 avec un préfixe CIDR ou un masque et obtenez réseau, diffusion, premier et dernier hôte, hôtes utilisables et masque inverse.",
     keywords: ["calcul sous-réseau", "calculateur IP", "calcul CIDR", "sous-réseau IPv4", "masque de sous-réseau", "masque inverse", "adresse réseau", "adresse de diffusion"],
     intro: [
       "Une adresse IPv4 est un nombre de 32 bits écrit en quatre parties de 0 à 255. La longueur de préfixe, par exemple /24, indique combien de ces bits désignent le réseau ; les bits restants numérotent les hôtes qu’il contient. Un masque de sous-réseau comme 255.255.255.0 donne la même information écrite sous forme d’adresse.",

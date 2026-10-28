@@ -9,7 +9,7 @@ const es: CalculatorTranslation<RoofingText> = {
       "Estima la superficie del tejado, los squares de cubierta y los paquetes de tejas de un tejado sencillo a dos o a cuatro aguas a partir de la planta del edificio, el alero y la pendiente.",
     metaTitle: "Calculadora de tejados – Squares, paquetes y superficie",
     metaDescription:
-      "Estima la superficie del tejado según la planta, el alero y la pendiente, y los squares, paquetes de tejas y rollos de lámina base que comprar, con margen de desperdicio.",
+      "Estima la superficie del tejado según la planta, el alero y la pendiente, y los squares, paquetes de tejas y rollos de lámina base que comprar, con desperdicio.",
     keywords: [
       "calculadora de tejados",
       "superficie de tejado",

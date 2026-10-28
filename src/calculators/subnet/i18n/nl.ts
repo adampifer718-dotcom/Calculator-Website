@@ -9,7 +9,7 @@ const nl: CalculatorTranslation<SubnetText> = {
       "Vind het netwerk- en broadcastadres, het bruikbare hostbereik, de maskers en het adrestype van elk IPv4-adres met prefix.",
     metaTitle: "IP-subnetcalculator – IPv4-CIDR, masker en hostbereik",
     metaDescription:
-      "Vul een IPv4-adres in met een CIDR-prefix of subnetmasker en krijg het netwerk- en broadcastadres, de eerste en laatste host, bruikbare hosts en het wildcardmasker.",
+      "Vul een IPv4-adres in met een CIDR-prefix of subnetmasker en zie het netwerk- en broadcastadres, de eerste en laatste host, bruikbare hosts en wildcardmasker.",
     keywords: ["subnetcalculator", "IP-subnet berekenen", "CIDR-calculator", "IPv4-subnet", "subnetmasker", "wildcardmasker", "netwerkadres", "broadcastadres"],
     intro: [
       "Een IPv4-adres is een getal van 32 bits, geschreven als vier delen van 0 tot 255. De prefixlengte, zoals /24, geeft aan hoeveel van die bits het netwerk aanduiden; de rest nummert de hosts daarbinnen. Een subnetmasker zoals 255.255.255.0 is dezelfde informatie, geschreven als adres.",

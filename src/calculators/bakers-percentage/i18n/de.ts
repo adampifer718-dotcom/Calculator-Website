@@ -7,7 +7,7 @@ const de: CalculatorTranslation<BakersPercentageText> = {
     shortTitle: "Bäckerprozente",
     summary: "Rechnen Sie Bäckerprozente aus einem Mehlgewicht in Zutatengewichte um oder ermitteln Sie das Mehl für ein Ziel-Teiggewicht – mit Hydration.",
     metaTitle: "Bäckerprozent-Rechner – Teiggewichte und Hydration",
-    metaDescription: "Rechnen Sie Bäckerprozente in Gramm oder Unzen Mehl, Wasser, Salz, Hefe und weitere Zutaten um, finden Sie das Mehl für ein Teiggewicht und sehen Sie die Hydration.",
+    metaDescription: "Bäckerprozente in Gramm oder Unzen Mehl, Wasser, Salz, Hefe und weitere Zutaten umrechnen, das Mehl für ein Teiggewicht finden und die Hydration sehen.",
     keywords: ["Bäckerprozente", "Bäckerprozent-Rechner", "Teigrechner", "Hydration Brotteig", "Mehlanteil", "Brotrezept berechnen", "Pizzateig berechnen", "Teigausbeute"],
     intro: [
       "Bäcker schreiben Brotrezepte als Prozentsätze des Mehls. Das Mehl ist immer 100 %, und jede andere Zutat wird im Verhältnis dazu angegeben: Ein Teig mit 70 % Wasser enthält 700 g Wasser auf je 1.000 g Mehl. Weil sich die Prozente auf das Mehl beziehen, ergeben sie zusammen mehr als 100 %.",

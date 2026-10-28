@@ -11,7 +11,7 @@ const es: CalculatorTranslation<NpvText> = {
       "Descuenta una serie de flujos de caja anuales para obtener el valor actual neto, la tasa interna de retorno, el índice de rentabilidad y el plazo de recuperación descontado.",
     metaTitle: "Calculadora de VAN y TIR – Valor actual de flujos de caja",
     metaDescription:
-      "Calcula el valor actual neto y la tasa interna de retorno de una inversión a partir de sus flujos de caja anuales, con el índice de rentabilidad y el payback descontado.",
+      "Calcula el valor actual neto y la tasa interna de retorno de una inversión según sus flujos de caja anuales, con índice de rentabilidad y payback descontado.",
     keywords: [
       "calculadora VAN",
       "valor actual neto",

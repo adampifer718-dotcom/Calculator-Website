@@ -6,7 +6,7 @@ const nl: CalculatorTranslation<PercentYieldText> = {
     title: "Rendementscalculator voor chemische reacties",
     shortTitle: "Procentueel rendement",
     summary: "Bereken het procentuele rendement van een reactie uit de werkelijke en theoretische opbrengst, of bereken de theoretische opbrengst uit het aantal mol en een kloppende reactievergelijking.",
-    metaTitle: "Rendementscalculator – werkelijke en theoretische opbrengst",
+    metaTitle: "Rendementscalculator: procentueel rendement en opbrengst",
     metaDescription:
       "Bereken het procentuele rendement uit de werkelijke en theoretische opbrengst, of de theoretische opbrengst uit mol beperkende stof, coëfficiënten en formule.",
     keywords: ["rendement berekenen", "procentueel rendement", "theoretische opbrengst", "werkelijke opbrengst", "beperkende reactant", "stoichiometrie", "scheikunde practicum"],

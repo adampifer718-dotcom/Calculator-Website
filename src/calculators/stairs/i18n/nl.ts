@@ -9,7 +9,7 @@ const nl: CalculatorTranslation<StairsText> = {
       "Bereken het aantal treden, de optrede, de totale traplengte, de traphoek en de lengte van de trapboom uit de verdiepingshoogte, met een comfortcontrole 2R + T.",
     metaTitle: "Trapcalculator – optrede, aantrede, lengte en trapboom",
     metaDescription:
-      "Bereken hoeveel treden een trap nodig heeft uit de totale hoogte, plus de optrede, traplengte, hoek, lengte van de trapboom en een comfortcontrole 2R + T, in inch of cm.",
+      "Bereken het aantal treden uit de totale hoogte, plus de optrede, traplengte, hoek, lengte van de trapboom en een comfortcontrole 2R + T, in inch of cm.",
     keywords: ["trap berekenen", "optrede berekenen", "aantal treden", "lengte trapboom", "optrede en aantrede", "traphoek", "afmetingen trap", "trapcalculator"],
     intro: [
       "Een trap verdeelt de hoogte tussen twee verdiepingen in gelijke treden. Elke trede heeft een optrede (de hoogte) en een aantrede (de diepte). Het aantal optreden hangt af van de totale hoogte en de hoogste optrede die je accepteert; er is altijd één aantrede minder dan optreden, omdat de bovenste trede de bovenverdieping zelf is.",

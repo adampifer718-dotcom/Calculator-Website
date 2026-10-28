@@ -6,8 +6,8 @@ const fr: CalculatorTranslation<BakersPercentageText> = {
     title: "Calculateur de pourcentage du boulanger",
     shortTitle: "Pourcentage du boulanger",
     summary: "Convertissez des pourcentages du boulanger en poids d’ingrédients à partir du poids de farine, ou trouvez la farine nécessaire pour un poids de pâte visé, avec l’hydratation.",
-    metaTitle: "Calculateur de pourcentage du boulanger – Pâte et hydratation",
-    metaDescription: "Convertissez des pourcentages du boulanger en grammes ou en onces de farine, d’eau, de sel et de levure, trouvez la farine pour un poids de pâte et voyez l’hydratation.",
+    metaTitle: "Calculateur de pourcentage du boulanger – Hydratation",
+    metaDescription: "Convertissez des pourcentages du boulanger en grammes ou onces de farine, d’eau, de sel et de levure, trouvez la farine pour un poids de pâte et l’hydratation.",
     keywords: ["pourcentage du boulanger", "pourcentages en boulangerie", "hydratation pâte", "calcul pâte à pain", "recette de pain en pourcentage", "poids pâte à pizza", "taux d’hydratation"],
     intro: [
       "Les boulangers écrivent leurs recettes de pain en pourcentages de la farine. La farine vaut toujours 100 %, et chaque autre ingrédient est exprimé par rapport à elle : une pâte à 70 % d’eau utilise 700 g d’eau pour 1 000 g de farine. Comme les pourcentages sont rapportés à la farine, leur somme dépasse 100 %.",
