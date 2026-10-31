@@ -17,7 +17,7 @@ export type FertilizerValues = {
 export const ATOMIC_WEIGHT = { P: 30.973762, K: 39.0983, O: 15.999 } as const;
 /** Mass fraction of P in P₂O₅ (≈ 0.4364). */
 export const P_PER_P2O5 = (2 * ATOMIC_WEIGHT.P) / (2 * ATOMIC_WEIGHT.P + 5 * ATOMIC_WEIGHT.O);
-/** Mass fraction of K in K₂O (≈ 0.8301). */
+/** Mass fraction of K in K₂O (≈ 0.8302). */
 export const K_PER_K2O = (2 * ATOMIC_WEIGHT.K) / (2 * ATOMIC_WEIGHT.K + ATOMIC_WEIGHT.O);
 
 export const LB_KG = 0.45359237;

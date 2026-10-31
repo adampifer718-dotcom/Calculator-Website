@@ -159,7 +159,7 @@ describe("fertilizer", () => {
     expect(P_PER_P2O5).toBeCloseTo(0.4364, 4);
     // python: 2*39.0983/(2*39.0983+15.999) = 0.8301513021839662
     expect(K_PER_K2O).toBeCloseTo(0.8301513021839662, 12);
-    expect(K_PER_K2O).toBeCloseTo(0.8301, 4);
+    expect(K_PER_K2O).toBeCloseTo(0.8302, 4); // the spec rounds it down to 0.8301; 0.83015 rounds to 0.8302
   });
 
   it("matches reference values", () => {

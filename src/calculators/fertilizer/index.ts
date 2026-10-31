@@ -49,7 +49,7 @@ export const fertilizer = defineCalculator({
   formulas: [
     { title: "Product needed", expression: "product = rate × area ÷ (grade % ÷ 100)", explanation: "The grade % is the number on the bag for the chosen nutrient. Rate and area are converted to a common unit first." },
     { title: "Nutrients supplied", expression: "N = product × N%;  P₂O₅ = product × P₂O₅%;  K₂O = product × K₂O%", explanation: "Each percentage is the corresponding grade number ÷ 100." },
-    { title: "Elemental phosphorus and potassium", expression: "P = P₂O₅ × 0.4364;  K = K₂O × 0.8301", explanation: "The factors are the mass shares 2P ÷ P₂O₅ and 2K ÷ K₂O, computed from standard atomic weights (P 30.973762, K 39.0983, O 15.999)." },
+    { title: "Elemental phosphorus and potassium", expression: "P = P₂O₅ × 0.4364;  K = K₂O × 0.8302", explanation: "The factors are the mass shares 2P ÷ P₂O₅ and 2K ÷ K₂O, computed from standard atomic weights (P 30.973762, K 39.0983, O 15.999)." },
   ],
   examples: [
     {
