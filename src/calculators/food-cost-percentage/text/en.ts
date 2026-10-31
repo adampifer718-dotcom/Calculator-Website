@@ -1,0 +1,37 @@
+const text = {
+  mode: "Calculate for",
+  modes: { dish: "One dish", period: "A period (inventory)" },
+  plateCost: "Plate cost",
+  plateCostHelp: "The cost of all the ingredients in one portion, including garnish and sides.",
+  menuPrice: "Menu price",
+  menuPriceHelp: "The selling price of the dish, before sales tax.",
+  beginInventory: "Beginning inventory",
+  beginInventoryHelp: "The value of food in stock at the start of the period.",
+  purchases: "Food purchases",
+  purchasesHelp: "The value of food bought during the period.",
+  endInventory: "Ending inventory",
+  endInventoryHelp: "The value of food in stock at the end of the period.",
+  sales: "Food sales",
+  salesHelp: "Net food sales for the same period, before sales tax.",
+  target: "Target food cost % (optional)",
+  targetHelp: "The food cost percentage you aim for, to get a suggested menu price or the sales it implies.",
+  errors: {
+    inventory: "Ending inventory cannot be more than beginning inventory plus purchases.",
+  },
+  foodCost: "Food cost percentage",
+  captionDish: "Plate cost {cost} ÷ menu price {price}.",
+  captionPeriod: "Cost of goods sold {cogs} ÷ food sales {sales}.",
+  grossProfitPlate: "Gross profit per plate",
+  grossProfitPeriod: "Gross profit on food for the period",
+  margin: "Contribution margin after food cost",
+  suggestedPrice: "Suggested menu price at the target",
+  salesAtTarget: "Food sales needed at the target",
+  cogs: "Cost of goods sold (food)",
+  notes: {
+    margin: "The margin here only deducts food cost. Labor, rent and other costs still have to come out of it.",
+    rounding: "The suggested price is the price at which this plate cost equals the target percentage. Menu prices are often rounded to a convenient figure.",
+    above100: "The food cost is more than the selling price, so each sale loses money on ingredients alone.",
+  },
+};
+export type FoodCostPercentageText = typeof text;
+export default text;

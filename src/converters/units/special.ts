@@ -47,5 +47,17 @@ export const fraction: ToolSpec = { id: "fraction", slug: "decimal-to-fraction-c
 
 export const paperSize: ToolSpec = { id: "paper-size", slug: "paper-size-converter", group: "other", kind: "tool", tool: "paper-size", related: ["paper-weight", "typography", "image-resolution"] };
 
+export const wordCount: ToolSpec = { id: "word-count", slug: "word-counter", group: "other", kind: "tool", tool: "word-count", related: ["case", "unicode", "text-binary"] };
+
+export const htmlEntities: ToolSpec = { id: "html-entities", slug: "html-entity-encoder", group: "other", kind: "tool", tool: "html-entities", related: ["url", "unicode", "base64"] };
+
+export const hash: ToolSpec = { id: "hash", slug: "hash-generator", group: "other", kind: "tool", tool: "hash", related: ["base64", "text-binary", "unicode"] };
+
+export const unicode: ToolSpec = { id: "unicode", slug: "unicode-converter", group: "other", kind: "tool", tool: "unicode", related: ["html-entities", "text-binary", "url"] };
+
+export const timeZone: ToolSpec = { id: "time-zone", slug: "time-zone-converter", group: "other", kind: "tool", tool: "time-zone", related: ["unix-time", "time", "coordinates"] };
+
+export const json: ToolSpec = { id: "json", slug: "json-formatter", group: "other", kind: "tool", tool: "json", related: ["base64", "url", "html-entities"] };
+
 /** The text-based tools, in directory order. */
-export const toolConverters: readonly ToolSpec[] = [roman, unixTime, color, morse, textBinary, coordinates, base64, url, tire, fraction, paperSize];
+export const toolConverters: readonly ToolSpec[] = [roman, unixTime, color, morse, textBinary, coordinates, base64, url, tire, fraction, paperSize, wordCount, htmlEntities, hash, unicode, timeZone, json];

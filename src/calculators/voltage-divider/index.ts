@@ -13,7 +13,7 @@ export const voltageDivider = defineCalculator({
   collections: ["education-research", "manufacturing-operations"],
   summary: "Find the output voltage of a two-resistor divider, or the resistor needed for a target voltage, with current, power, load effect and the nearest E24 value.",
   metaTitle: "Voltage Divider Calculator – Vout, R1, R2 and Load",
-  metaDescription: "Calculate a resistive voltage divider's output voltage, or solve for R1 or R2, with divider current, resistor power, the loaded output and the nearest E24 value.",
+  metaDescription: "Calculate the output voltage of a resistive voltage divider, or solve for R1 or R2, with current, resistor power, the loaded output and the nearest E24 value.",
   keywords: ["voltage divider", "resistor divider", "vout formula", "potential divider", "r1 r2 calculator", "divider ratio", "loaded voltage divider", "e24 resistor"],
   addedOn: "2026-10-28",
   sources: [

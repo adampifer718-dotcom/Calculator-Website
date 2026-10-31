@@ -1,0 +1,35 @@
+const text = {
+  earnedRuns: "Earned runs allowed",
+  earnedRunsHelp: "Runs that scored without the help of an error or a passed ball, as decided by the official scorer.",
+  innings: "Innings pitched (whole innings)",
+  inningsHelp: "Enter complete innings here and any extra outs in the next field. 6⅔ innings, written 6.2 in box scores, is 6 innings and 2 outs.",
+  outs: "Extra outs",
+  outsOptions: { "0": "0 outs", "1": "1 out (⅓ inning)", "2": "2 outs (⅔ inning)" },
+  gameLength: "Innings per game",
+  gameLengthHelp: "Use 9 for professional and most college baseball, 7 for softball and many high school and youth leagues.",
+  gameLengths: { "9": "9 innings (baseball)", "7": "7 innings (softball, many youth leagues)" },
+  hits: "Hits allowed (optional)",
+  walks: "Walks allowed (optional)",
+  walksHelp: "Bases on balls. Hit batters are not counted in WHIP.",
+  strikeouts: "Strikeouts (optional)",
+  errors: {
+    noInnings: "Enter at least one out pitched.",
+  },
+  era: "Earned run average (ERA)",
+  caption: "{er} earned runs × {length} ÷ {ip} innings pitched ({notation} in box-score notation).",
+  notation: "{whole}.{outs}",
+  inningsNotation: "Innings pitched (baseball notation)",
+  inningsDecimal: "Innings pitched as a decimal",
+  totalOuts: "Outs recorded",
+  whip: "WHIP (walks + hits per inning)",
+  k9: "Strikeouts per 9 innings (K/9)",
+  bb9: "Walks per 9 innings (BB/9)",
+  kbb: "Strikeout-to-walk ratio",
+  notes: {
+    notation: "In box scores, the digit after the point counts outs, not tenths: 6.1 means 6⅓ innings and 6.2 means 6⅔ innings.",
+    whip: "Enter both hits and walks to see WHIP.",
+    perNine: "K/9 and BB/9 are always per 9 innings, whatever the game length.",
+  },
+};
+export type EraText = typeof text;
+export default text;

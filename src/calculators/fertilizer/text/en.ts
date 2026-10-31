@@ -14,6 +14,7 @@ const text = {
   area: "Area to fertilize",
   areaUnit: "Area unit",
   areaUnits: { ft2: "Square feet (ft²)", m2: "Square meters (m²)", acre: "Acres", ha: "Hectares (ha)" },
+  areaSymbols: { ft2: "ft²", m2: "m²", acre: "acres", ha: "ha" },
   errors: {
     zeroGrade: "This product contains none of the chosen nutrient. Choose another nutrient or a product with a non-zero number for it.",
     gradeSum: "The three grade numbers add up to more than 100%. Check the label.",

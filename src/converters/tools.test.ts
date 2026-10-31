@@ -29,6 +29,24 @@ import {
   parseExactFraction,
   parseTireSize,
 } from "./tools";
+import {
+  HTML_NAMED_ENTITIES,
+  decodeHtml,
+  describeText,
+  durationSeconds,
+  encodeHtml,
+  formatJson,
+  formatOffset,
+  hashText,
+  parseCodePoints,
+  parseJson,
+  parseWallTime,
+  supportedTimeZones,
+  textStats,
+  zoneOffsetMs,
+  zonedToInstant,
+  type JsonNode,
+} from "./tools";
 
 describe("Roman numerals", () => {
   it("converts numbers to standard numerals", () => {
@@ -337,5 +355,229 @@ describe("paper sizes", () => {
     const letter = paperDimensions(get("letter"), 300).mm;
     expect(letter[0]).toBeCloseTo(215.9, 9);
     expect(letter[1]).toBeCloseTo(279.4, 9);
+  });
+});
+
+describe("word and character counter", () => {
+  it("counts an English text", () => {
+    const text = "Hello, world! It's 2026.\nSecond line.\n\nNew paragraph here.";
+    expect(textStats(text, "en-US")).toEqual({ words: 9, characters: 58, charactersNoSpaces: 49, sentences: 4, paragraphs: 2, lines: 4, bytes: 58 });
+  });
+  it("counts mixed scripts with Intl.Segmenter", () => {
+    // Urdu (4 words, Urdu full stop), Arabic (2 words) and Chinese (2 dictionary words, no spaces)
+    expect(textStats("یہ ایک جملہ ہے۔", "ur").words).toBe(4);
+    expect(textStats("مرحبا بالعالم", "ar").words).toBe(2);
+    expect(textStats("你好世界", "en").words).toBe(2);
+    expect(textStats("Hello مرحبا", "en")).toMatchObject({ words: 2, characters: 11, bytes: 16 });
+  });
+  it("counts emoji and combining marks as single characters", () => {
+    expect(textStats("👍🏽", "en")).toMatchObject({ characters: 1, charactersNoSpaces: 1, words: 0, bytes: 8 });
+    // e + combining acute, and a family ZWJ sequence
+    expect(textStats("e\u0301 👨‍👩‍👧", "en")).toMatchObject({ characters: 3, charactersNoSpaces: 2 });
+  });
+  it("handles empty input and the whitespace fallback", () => {
+    expect(textStats("", "en")).toEqual({ words: 0, characters: 0, charactersNoSpaces: 0, sentences: 0, paragraphs: 0, lines: 0, bytes: 0 });
+    expect(textStats("  \n ", "en")).toMatchObject({ words: 0, paragraphs: 0, lines: 2 });
+    expect(textStats("one two  three. Four!", "en", false)).toMatchObject({ words: 4, sentences: 2, characters: 21 });
+    expect(textStats("a\r\nb", "en").lines).toBe(2);
+  });
+  it("computes reading and speaking time", () => {
+    expect(durationSeconds(200, 200)).toBe(60);
+    expect(durationSeconds(1000, 238)).toBe(253);
+    expect(durationSeconds(0, 200)).toBe(0);
+    expect(durationSeconds(10, 0)).toBe(0);
+  });
+});
+
+describe("HTML entities", () => {
+  it("encodes the five special characters, and optionally non-ASCII by code point", () => {
+    expect(encodeHtml(`<a href="x">Tom & Jerry's</a>`, false)).toMatchObject({ output: "&lt;a href=&quot;x&quot;&gt;Tom &amp; Jerry&#39;s&lt;/a&gt;" });
+    expect(encodeHtml("café 😀", false)).toMatchObject({ output: "café 😀" });
+    // 😀 is one code point (U+1F600), not two UTF-16 units
+    expect(encodeHtml("café 😀", true)).toMatchObject({ output: "caf&#xE9; &#x1F600;" });
+    expect(encodeHtml("", false)).toEqual({ ok: false, error: "empty" });
+  });
+  it("decodes named and numeric references", () => {
+    expect(decodeHtml("&lt;p&gt; &amp;amp; &copy; &eacute;&Eacute; &hellip; &euro;5 &frac12;")).toMatchObject({ output: "<p> &amp; © éÉ … €5 ½", replaced: 0, unknown: [] });
+    expect(decodeHtml("&#65;&#x42;&#X43; &#128512; &#x1F600;")).toMatchObject({ output: "ABC 😀 😀" });
+    expect(decodeHtml("&nbsp;&apos;&#39;&quot;")).toMatchObject({ output: "\u00a0''\"" });
+  });
+  it("replaces invalid code points with U+FFFD and maps C1 controls like the HTML parser", () => {
+    expect(decodeHtml("&#0;&#xD800;&#x110000;&#99999999999;")).toMatchObject({ output: "\uFFFD\uFFFD\uFFFD\uFFFD", replaced: 4 });
+    expect(decodeHtml("&#150;&#x80;")).toMatchObject({ output: "–€" });
+  });
+  it("leaves unknown names and references without a semicolon unchanged", () => {
+    expect(decodeHtml("&foo; &amp &bogus;")).toMatchObject({ output: "&foo; &amp &bogus;", unknown: ["&foo;", "&bogus;"] });
+  });
+  it("covers the required named references and the whole Latin-1 range", () => {
+    const required = "amp lt gt quot apos nbsp copy reg trade hellip mdash ndash lsquo rsquo ldquo rdquo euro pound yen cent deg plusmn times divide micro para sect middot laquo raquo frac12 frac14 frac34 sup2 sup3 iexcl iquest Agrave eacute ntilde szlig yuml".split(" ");
+    for (const name of required) expect(HTML_NAMED_ENTITIES[name], name).toBeDefined();
+    expect(HTML_NAMED_ENTITIES.yuml).toBe(0xff);
+    expect(HTML_NAMED_ENTITIES.times).toBe(0xd7);
+    expect(HTML_NAMED_ENTITIES.divide).toBe(0xf7);
+    expect(HTML_NAMED_ENTITIES.iquest).toBe(0xbf);
+  });
+  it("round-trips encoded text", () => {
+    const text = `5 > 3 & "quotes" 'single' — ünïcødé 😀`;
+    const enc = encodeHtml(text, true);
+    expect(enc.ok && decodeHtml(enc.output)).toMatchObject({ output: text });
+  });
+});
+
+describe("SHA hashes", () => {
+  // FIPS 180-4 example messages ("abc") and the empty message; cross-checked with Python hashlib.
+  const vectors: [string, string, string, string][] = [
+    ["SHA-1", "abc", "a9993e364706816aba3e25717850c26c9cd0d89d", "da39a3ee5e6b4b0d3255bfef95601890afd80709"],
+    ["SHA-256", "abc", "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"],
+    ["SHA-384", "abc", "cb00753f45a35e8bb5a03d699ac65007272c32ab0eded1631a8b605a43ff5bed8086072ba1e7cc2358baeca134c825a7", "38b060a751ac96384cd9327eb1b1e36a21fdb71114be07434c0cc7bf63f6e1da274edebfe76f65fbd51ad2f14898b95b"],
+    ["SHA-512", "abc", "ddaf35a193617abacc417349ae20413112e6fa4e89a97ea20a9eeee64b55d39a2192992a274fc1a836ba3c23a3feebbd454d4423643ce80e2a9ac94fa54ca49f", "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e"],
+  ];
+  it.each(vectors)("%s of 'abc' and of the empty string", async (algorithm, message, abc, empty) => {
+    expect((await hashText(message, algorithm as "SHA-256")).hex).toBe(abc);
+    expect((await hashText("", algorithm as "SHA-256")).hex).toBe(empty);
+  });
+  it("gives Base64 output and hashes the UTF-8 bytes", async () => {
+    // python: base64.b64encode(hashlib.sha256(b"abc").digest())
+    expect((await hashText("abc", "SHA-256")).base64).toBe("ungWv48Bz+pBQUDeXa4iI7ADYaOWF3qctBD/YfIAFa0=");
+    // python: hashlib.sha256("é".encode()).hexdigest()
+    expect((await hashText("é", "SHA-256")).hex).toBe("4a99557e4033c3539de2eb65472017cad5f9557f7a0625a09f1c3f6e2ba69c4c");
+  });
+});
+
+describe("Unicode code points", () => {
+  it("describes each code point", () => {
+    const { rows, total } = describeText("é😀A");
+    expect(total).toBe(3);
+    expect(rows[0]).toMatchObject({ notation: "U+00E9", codePoint: 233, utf8: "C3 A9", utf16: "00E9", html: "&#xE9;", js: "\\u{E9}" });
+    expect(rows[1]).toMatchObject({ notation: "U+1F600", codePoint: 128512, utf8: "F0 9F 98 80", utf16: "D83D DE00", html: "&#x1F600;", js: "\\u{1F600}" });
+    expect(rows[2]).toMatchObject({ notation: "U+0041", utf8: "41" });
+    expect(describeText("€").rows[0].utf8).toBe("E2 82 AC");
+    expect(describeText("\uD800").rows[0]).toMatchObject({ loneSurrogate: true, utf8: "" });
+  });
+  it("caps the table but counts every code point", () => {
+    const r = describeText("a".repeat(600));
+    expect(r.rows.length).toBe(500);
+    expect(r.total).toBe(600);
+  });
+  it("parses every notation, including surrogate pairs", () => {
+    expect(parseCodePoints("U+0048 u+69 0x21")).toEqual({ ok: true, text: "Hi!", count: 3 });
+    expect(parseCodePoints("\\uD83D\\uDE00, \\u{1F600} U+1F600")).toEqual({ ok: true, text: "😀😀😀", count: 3 });
+    expect(parseCodePoints("\\u0041\\u0042")).toEqual({ ok: true, text: "AB", count: 2 });
+  });
+  it("rejects invalid tokens, lone surrogates and values above U+10FFFF", () => {
+    expect(parseCodePoints("U+110000")).toEqual({ ok: false, error: "range", token: "U+110000" });
+    expect(parseCodePoints("U+D800")).toEqual({ ok: false, error: "surrogate", token: "U+D800" });
+    expect(parseCodePoints("\\uD83D")).toEqual({ ok: false, error: "loneSurrogate", token: "\\uD83D" });
+    expect(parseCodePoints("\\uDE00\\uD83D")).toMatchObject({ ok: false, error: "loneSurrogate" });
+    expect(parseCodePoints("U+0048 hello")).toEqual({ ok: false, error: "invalidToken", token: "hello" });
+    expect(parseCodePoints("U+12345678")).toMatchObject({ ok: false, error: "invalidToken" });
+    expect(parseCodePoints("\\u12")).toMatchObject({ ok: false, error: "invalidToken" });
+    expect(parseCodePoints("")).toEqual({ ok: false, error: "empty" });
+  });
+});
+
+describe("time zones", () => {
+  const at = (iso: string) => Date.parse(iso);
+  it("reads offsets from the tz database", () => {
+    expect(formatOffset(zoneOffsetMs(at("2026-01-15T12:00:00Z"), "America/New_York"))).toBe("-05:00");
+    expect(formatOffset(zoneOffsetMs(at("2026-07-15T12:00:00Z"), "America/New_York"))).toBe("-04:00");
+    expect(formatOffset(zoneOffsetMs(at("2026-07-15T12:00:00Z"), "Asia/Karachi"))).toBe("+05:00");
+    expect(formatOffset(zoneOffsetMs(at("2026-01-15T12:00:00Z"), "Asia/Kolkata"))).toBe("+05:30");
+    expect(formatOffset(zoneOffsetMs(at("2026-01-15T12:00:00Z"), "UTC"))).toBe("+00:00");
+    expect(formatOffset(-(4 * 3600 + 56 * 60 + 2) * 1000)).toBe("-04:56:02");
+  });
+  it("converts a wall time to an instant", () => {
+    const wall = parseWallTime("2026-01-15T12:00");
+    expect(wall.ok).toBe(true);
+    if (!wall.ok) return;
+    expect(zonedToInstant(wall.wall, "UTC")).toMatchObject({ ok: true, ms: at("2026-01-15T12:00:00Z"), status: "exact" });
+    expect(zonedToInstant(wall.wall, "America/New_York")).toMatchObject({ ms: at("2026-01-15T17:00:00Z"), offsetMs: -5 * 3600e3, status: "exact" });
+    expect(zonedToInstant(wall.wall, "Asia/Kolkata")).toMatchObject({ ms: at("2026-01-15T06:30:00Z"), status: "exact" });
+    expect(zonedToInstant(wall.wall, "Asia/Tokyo")).toMatchObject({ ms: at("2026-01-15T03:00:00Z") });
+  });
+  it("moves a time in the spring-forward gap forward (2026-03-08 02:30 New York)", () => {
+    const wall = parseWallTime("2026-03-08T02:30");
+    if (!wall.ok) throw new Error("parse");
+    // 02:30 EST would be 07:30Z, but clocks jump from 02:00 EST to 03:00 EDT; 07:30Z is 03:30 EDT.
+    expect(zonedToInstant(wall.wall, "America/New_York")).toEqual({ ok: true, ms: at("2026-03-08T07:30:00Z"), offsetMs: -4 * 3600e3, status: "gap" });
+  });
+  it("takes the earlier instant in the fall-back overlap (2026-11-01 01:30 New York)", () => {
+    const wall = parseWallTime("2026-11-01T01:30");
+    if (!wall.ok) throw new Error("parse");
+    expect(zonedToInstant(wall.wall, "America/New_York")).toEqual({ ok: true, ms: at("2026-11-01T05:30:00Z"), offsetMs: -4 * 3600e3, status: "ambiguous", laterOffsetMs: -5 * 3600e3 });
+  });
+  it("validates input and zones", () => {
+    expect(parseWallTime("2026-02-29T10:00")).toEqual({ ok: false, error: "invalid" });
+    expect(parseWallTime("2024-02-29T10:00").ok).toBe(true);
+    expect(parseWallTime("2026-13-01T10:00")).toEqual({ ok: false, error: "invalid" });
+    expect(parseWallTime("2026-01-01 24:00")).toEqual({ ok: false, error: "invalid" });
+    expect(parseWallTime("")).toEqual({ ok: false, error: "empty" });
+    const wall = parseWallTime("2026-01-15T12:00:30");
+    expect(wall.ok && zonedToInstant(wall.wall, "Mars/Olympus")).toEqual({ ok: false, error: "zone" });
+    expect(supportedTimeZones()[0]).toBe("UTC");
+    expect(supportedTimeZones()).toContain("Asia/Karachi");
+  });
+});
+
+describe("JSON formatter", () => {
+  const ok = (text: string) => {
+    const r = parseJson(text);
+    if (!r.ok) throw new Error(`${r.error} at ${r.line}:${r.column}`);
+    return r;
+  };
+  it("formats with spaces or tabs and minifies", () => {
+    const r = ok(' {"b": [1, 2, {"c": null}], "a": "x\\u00e9", "e": {}, "f": []} ');
+    expect(formatJson(r.value, "  ", false)).toBe('{\n  "b": [\n    1,\n    2,\n    {\n      "c": null\n    }\n  ],\n  "a": "xé",\n  "e": {},\n  "f": []\n}');
+    expect(formatJson(r.value, "", false)).toBe('{"b":[1,2,{"c":null}],"a":"xé","e":{},"f":[]}');
+    expect(formatJson(r.value, "\t", false).split("\n")[1]).toBe('\t"b": [');
+    // Same as JSON.stringify for ordinary documents
+    const doc = '{"x":[true,false,null,-15.25,"a\\nb"],"y":{"z":0}}';
+    expect(formatJson(ok(doc).value, "    ", false)).toBe(JSON.stringify(JSON.parse(doc), null, 4));
+  });
+  it("sorts keys recursively", () => {
+    const r = ok('{"b":1,"a":{"d":1,"c":[{"z":1,"y":2}]},"B":0}');
+    expect(formatJson(r.value, "", true)).toBe('{"B":0,"a":{"c":[{"y":2,"z":1}],"d":1},"b":1}');
+  });
+  it("keeps large numbers exactly as written", () => {
+    const r = ok('{"id": 12345678901234567890, "x": 1.10, "e": 1E+2}');
+    expect(formatJson(r.value, "", false)).toBe('{"id":12345678901234567890,"x":1.10,"e":1E+2}');
+  });
+  it("lets the last duplicate key win and counts duplicates", () => {
+    const r = ok('{"a":1,"b":2,"a":3}');
+    expect(r.duplicateKeys).toBe(1);
+    expect(formatJson(r.value, "", false)).toBe('{"a":3,"b":2}');
+  });
+  it("handles deep nesting up to the limit", () => {
+    const deep = "[".repeat(1000) + "]".repeat(1000);
+    expect(formatJson(ok(deep).value, "", false)).toBe(deep);
+    expect(parseJson("[".repeat(1002) + "]".repeat(1002))).toMatchObject({ ok: false, error: "tooDeep" });
+  });
+  it("reports the reason, line and column of errors", () => {
+    const err = (text: string) => {
+      const r = parseJson(text);
+      return r.ok ? null : { error: r.error, line: r.line, column: r.column };
+    };
+    expect(err('{"a": 1,}')).toEqual({ error: "trailingComma", line: 1, column: 9 });
+    expect(err("[1, 2,]")).toEqual({ error: "trailingComma", line: 1, column: 7 });
+    expect(err('{\n  "a": 1\n  "b": 2\n}')).toEqual({ error: "unexpectedToken", line: 3, column: 3 });
+    expect(err('{"a": "abc')).toEqual({ error: "unterminatedString", line: 1, column: 7 });
+    expect(err('{"a": "x\\q"}')).toEqual({ error: "invalidEscape", line: 1, column: 9 });
+    expect(err('"tab\there"')).toEqual({ error: "controlCharacter", line: 1, column: 5 });
+    expect(err("{'a': 1}")).toEqual({ error: "expectedKey", line: 1, column: 2 });
+    expect(err("{a: 1}")).toEqual({ error: "expectedKey", line: 1, column: 2 });
+    expect(err('{"a" 1}')).toEqual({ error: "expectedColon", line: 1, column: 6 });
+    expect(err("[01]")).toEqual({ error: "invalidNumber", line: 1, column: 3 });
+    expect(err("[1.]")).toEqual({ error: "invalidNumber", line: 1, column: 3 });
+    expect(err("[-]")).toEqual({ error: "invalidNumber", line: 1, column: 2 });
+    expect(err("[NaN]")).toEqual({ error: "unexpectedToken", line: 1, column: 2 });
+    expect(err("[1, 2")).toEqual({ error: "unexpectedEnd", line: 1, column: 6 });
+    expect(err("{} []")).toEqual({ error: "trailingData", line: 1, column: 4 });
+    expect(err('["😀", x]')).toEqual({ error: "unexpectedToken", line: 1, column: 7 });
+    expect(err("   ")).toEqual({ error: "empty", line: 1, column: 1 });
+  });
+  it("accepts every RFC 8259 value at the top level", () => {
+    for (const text of ["0", "-0.5e-3", '"s"', "true", "false", "null", "[]", "{}", "\uFEFF[1]"]) expect(parseJson(text).ok, text).toBe(true);
+    const node: JsonNode = ok("3").value;
+    expect(node).toEqual({ type: "number", raw: "3" });
   });
 });

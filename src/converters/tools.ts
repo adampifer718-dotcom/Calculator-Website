@@ -1,6 +1,7 @@
 /*
  * Logic for the text-based converter tools: Roman numerals, Unix time, CSS
- * colours, Morse code, text ↔ UTF-8 bytes and geographic coordinates.
+ * colours, Morse code, text ↔ UTF-8 bytes, geographic coordinates and the
+ * text tools (counts, HTML entities, hashes, Unicode, time zones, JSON).
  * Pure functions with no prose; the widgets translate the error codes.
  */
 
@@ -734,4 +735,758 @@ export function paperDimensions(size: PaperSize, dpi: number) {
     pt: [inches[0] * 72, inches[1] * 72] as [number, number],
     px: [Math.round(inches[0] * dpi), Math.round(inches[1] * dpi)] as [number, number],
   };
+}
+
+// ── Word and character counts ─────────────────────────────────────────────
+
+export interface TextStats {
+  words: number;
+  /** User-perceived characters (extended grapheme clusters). */
+  characters: number;
+  charactersNoSpaces: number;
+  sentences: number;
+  /** Blocks of text separated by one or more blank lines. */
+  paragraphs: number;
+  lines: number;
+  bytes: number;
+}
+
+export const TEXT_STATS_MAX_CHARS = 1_000_000;
+
+type SegmenterLike = { segment(text: string): Iterable<{ segment: string; isWordLike?: boolean }> };
+type SegmenterCtor = new (locale: string, options: { granularity: "grapheme" | "word" | "sentence" }) => SegmenterLike;
+
+function segmenter(locale: string, granularity: "grapheme" | "word" | "sentence"): SegmenterLike | null {
+  const Ctor = (Intl as unknown as { Segmenter?: SegmenterCtor }).Segmenter;
+  if (!Ctor) return null;
+  try {
+    return new Ctor(locale, { granularity });
+  } catch {
+    return new Ctor("en", { granularity });
+  }
+}
+
+const WHITESPACE = /^\s+$/u;
+
+/**
+ * Counts words, characters, sentences, paragraphs, lines and UTF-8 bytes.
+ * Words and sentences use Intl.Segmenter (Unicode UAX #29 with the browser's
+ * dictionaries), so scripts without spaces between words are handled; without
+ * Segmenter, words are split on whitespace. Pass `useSegmenter = false` to force the fallback.
+ */
+export function textStats(text: string, locale: string, useSegmenter = true): TextStats {
+  const normalized = text.replace(/\r\n?/g, "\n");
+  const graphemes = useSegmenter ? segmenter(locale, "grapheme") : null;
+  const wordSeg = useSegmenter ? segmenter(locale, "word") : null;
+  const sentenceSeg = useSegmenter ? segmenter(locale, "sentence") : null;
+
+  let characters = 0;
+  let charactersNoSpaces = 0;
+  const chars = graphemes ? Array.from(graphemes.segment(normalized), (s) => s.segment) : Array.from(normalized);
+  for (const c of chars) {
+    characters++;
+    if (!WHITESPACE.test(c)) charactersNoSpaces++;
+  }
+
+  let words = 0;
+  if (wordSeg) {
+    for (const s of wordSeg.segment(normalized)) if (s.isWordLike) words++;
+  } else {
+    words = normalized.split(/\s+/u).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
+  }
+
+  let sentences = 0;
+  if (sentenceSeg) {
+    for (const s of sentenceSeg.segment(normalized)) if (/[\p{L}\p{N}]/u.test(s.segment)) sentences++;
+  } else {
+    sentences = normalized.split(/[.!?。؟۔]+(?:\s+|$)/u).filter((s) => /[\p{L}\p{N}]/u.test(s)).length;
+  }
+
+  const paragraphs = normalized.split(/\n[^\S\n]*\n\s*/).filter((p) => p.trim() !== "").length;
+  const lines = normalized === "" ? 0 : normalized.split("\n").length;
+  return { words, characters, charactersNoSpaces, sentences, paragraphs, lines, bytes: new TextEncoder().encode(text).length };
+}
+
+/** Time to read or speak a number of words at a rate in words per minute, in whole seconds (rounded up). */
+export function durationSeconds(words: number, wordsPerMinute: number): number {
+  if (!(wordsPerMinute > 0) || words <= 0) return 0;
+  return Math.ceil((words / wordsPerMinute) * 60);
+}
+
+// ── HTML character references (WHATWG HTML) ───────────────────────────────
+
+/** Latin-1 Supplement names, U+00A0 to U+00FF in order. */
+const LATIN1_NAMES =
+  "nbsp iexcl cent pound curren yen brvbar sect uml copy ordf laquo not shy reg macr deg plusmn sup2 sup3 acute micro para middot cedil sup1 ordm raquo frac14 frac12 frac34 iquest Agrave Aacute Acirc Atilde Auml Aring AElig Ccedil Egrave Eacute Ecirc Euml Igrave Iacute Icirc Iuml ETH Ntilde Ograve Oacute Ocirc Otilde Ouml times Oslash Ugrave Uacute Ucirc Uuml Yacute THORN szlig agrave aacute acirc atilde auml aring aelig ccedil egrave eacute ecirc euml igrave iacute icirc iuml eth ntilde ograve oacute ocirc otilde ouml divide oslash ugrave uacute ucirc uuml yacute thorn yuml".split(
+    " ",
+  );
+
+/** Common named character references decoded by the tool (a subset of the WHATWG list). */
+export const HTML_NAMED_ENTITIES: Readonly<Record<string, number>> = {
+  amp: 0x26,
+  lt: 0x3c,
+  gt: 0x3e,
+  quot: 0x22,
+  apos: 0x27,
+  ...Object.fromEntries(LATIN1_NAMES.map((name, i) => [name, 0xa0 + i])),
+  OElig: 0x152,
+  oelig: 0x153,
+  Scaron: 0x160,
+  scaron: 0x161,
+  Yuml: 0x178,
+  fnof: 0x192,
+  circ: 0x2c6,
+  tilde: 0x2dc,
+  ensp: 0x2002,
+  emsp: 0x2003,
+  thinsp: 0x2009,
+  zwnj: 0x200c,
+  zwj: 0x200d,
+  lrm: 0x200e,
+  rlm: 0x200f,
+  ndash: 0x2013,
+  mdash: 0x2014,
+  lsquo: 0x2018,
+  rsquo: 0x2019,
+  sbquo: 0x201a,
+  ldquo: 0x201c,
+  rdquo: 0x201d,
+  bdquo: 0x201e,
+  dagger: 0x2020,
+  Dagger: 0x2021,
+  bull: 0x2022,
+  hellip: 0x2026,
+  permil: 0x2030,
+  prime: 0x2032,
+  Prime: 0x2033,
+  lsaquo: 0x2039,
+  rsaquo: 0x203a,
+  euro: 0x20ac,
+  trade: 0x2122,
+  larr: 0x2190,
+  uarr: 0x2191,
+  rarr: 0x2192,
+  darr: 0x2193,
+  harr: 0x2194,
+  minus: 0x2212,
+  infin: 0x221e,
+  asymp: 0x2248,
+  ne: 0x2260,
+  le: 0x2264,
+  ge: 0x2265,
+};
+
+/** WHATWG HTML: numeric references to C1 controls 0x80–0x9F map to their windows-1252 characters. */
+const C1_REPLACEMENTS: Readonly<Record<number, number>> = {
+  0x80: 0x20ac, 0x82: 0x201a, 0x83: 0x0192, 0x84: 0x201e, 0x85: 0x2026, 0x86: 0x2020, 0x87: 0x2021, 0x88: 0x02c6, 0x89: 0x2030, 0x8a: 0x0160, 0x8b: 0x2039, 0x8c: 0x0152, 0x8e: 0x017d,
+  0x91: 0x2018, 0x92: 0x2019, 0x93: 0x201c, 0x94: 0x201d, 0x95: 0x2022, 0x96: 0x2013, 0x97: 0x2014, 0x98: 0x02dc, 0x99: 0x2122, 0x9a: 0x0161, 0x9b: 0x203a, 0x9c: 0x0153, 0x9e: 0x017e, 0x9f: 0x0178,
+};
+
+export const HTML_MAX_CHARS = 200_000;
+
+export type HtmlResult = { ok: true; output: string; replaced: number; unknown: string[] } | { ok: false; error: "empty" | "tooLong" };
+
+const isSurrogate = (cp: number) => cp >= 0xd800 && cp <= 0xdfff;
+const hexUpper = (n: number) => n.toString(16).toUpperCase();
+
+/** Escapes & < > " ' (the apostrophe as &#39;); optionally writes every non-ASCII character as &#x…; by code point. */
+export function encodeHtml(text: string, nonAscii: boolean): HtmlResult {
+  if (text === "") return { ok: false, error: "empty" };
+  if (text.length > HTML_MAX_CHARS) return { ok: false, error: "tooLong" };
+  const basic: Record<string, string> = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
+  let out = "";
+  for (const ch of text) {
+    const cp = ch.codePointAt(0)!;
+    if (basic[ch]) out += basic[ch];
+    else if (nonAscii && cp > 0x7f) out += `&#x${hexUpper(isSurrogate(cp) ? 0xfffd : cp)};`;
+    else out += ch;
+  }
+  return { ok: true, output: out, replaced: 0, unknown: [] };
+}
+
+/**
+ * Decodes decimal and hexadecimal numeric references and the common named
+ * references above. Following the WHATWG HTML parser, a numeric reference to
+ * 0, a surrogate or a value above 0x10FFFF becomes U+FFFD and C1 controls map
+ * to windows-1252. Unknown names (and references without a semicolon) are left as they are.
+ */
+export function decodeHtml(text: string): HtmlResult {
+  if (text === "") return { ok: false, error: "empty" };
+  if (text.length > HTML_MAX_CHARS) return { ok: false, error: "tooLong" };
+  let replaced = 0;
+  const unknown = new Set<string>();
+  const output = text.replace(/&(?:#([0-9]+)|#[xX]([0-9A-Fa-f]+)|([A-Za-z][A-Za-z0-9]*));/g, (match, dec: string | undefined, hex: string | undefined, name: string | undefined) => {
+    if (name !== undefined) {
+      const cp = HTML_NAMED_ENTITIES[name];
+      if (cp === undefined) {
+        unknown.add(match);
+        return match;
+      }
+      return String.fromCodePoint(cp);
+    }
+    const digits = (dec ?? hex)!.replace(/^0+/, "");
+    let cp = digits.length > 8 ? Infinity : parseInt(digits || "0", dec !== undefined ? 10 : 16);
+    if (cp === 0 || cp > 0x10ffff || isSurrogate(cp)) {
+      replaced++;
+      cp = 0xfffd;
+    } else if (C1_REPLACEMENTS[cp]) cp = C1_REPLACEMENTS[cp];
+    return String.fromCodePoint(cp);
+  });
+  return { ok: true, output, replaced, unknown: [...unknown] };
+}
+
+// ── SHA hashes (FIPS 180-4, via Web Crypto) ───────────────────────────────
+
+export const HASH_ALGORITHMS = ["SHA-1", "SHA-256", "SHA-384", "SHA-512"] as const;
+export type HashAlgorithm = (typeof HASH_ALGORITHMS)[number];
+export const HASH_MAX_CHARS = 5_000_000;
+
+export function bytesToHex(bytes: Uint8Array): string {
+  let out = "";
+  for (const b of bytes) out += b.toString(16).padStart(2, "0");
+  return out;
+}
+
+export function bytesToBase64(bytes: Uint8Array): string {
+  return btoa(bytesToBinary(bytes));
+}
+
+/** Whether the browser offers crypto.subtle (only in secure contexts: HTTPS or localhost). */
+export function hashAvailable(): boolean {
+  return typeof globalThis.crypto !== "undefined" && typeof globalThis.crypto.subtle?.digest === "function";
+}
+
+/** Digest of the UTF-8 bytes of a text, as lower-case hex and Base64. */
+export async function hashText(text: string, algorithm: HashAlgorithm): Promise<{ hex: string; base64: string }> {
+  const digest = new Uint8Array(await globalThis.crypto.subtle.digest(algorithm, new TextEncoder().encode(text)));
+  return { hex: bytesToHex(digest), base64: bytesToBase64(digest) };
+}
+
+// ── Unicode code points (The Unicode Standard, RFC 3629) ──────────────────
+
+export const MAX_CODE_POINT = 0x10ffff;
+export const CODE_POINT_TABLE_LIMIT = 500;
+
+export interface CodePointInfo {
+  char: string;
+  codePoint: number;
+  /** U+00E9 */
+  notation: string;
+  /** UTF-8 bytes in hex, e.g. "C3 A9"; empty for a lone surrogate, which has no UTF-8 form. */
+  utf8: string;
+  /** UTF-16 code units in hex, e.g. "D83D DE00". */
+  utf16: string;
+  html: string;
+  js: string;
+  /** A lone surrogate code unit (not a Unicode scalar value). */
+  loneSurrogate: boolean;
+}
+
+export const codePointNotation = (cp: number) => `U+${hexUpper(cp).padStart(4, "0")}`;
+
+/** UTF-8 encoding of a Unicode scalar value (RFC 3629 §3). */
+export function utf8Bytes(cp: number): number[] {
+  if (cp < 0x80) return [cp];
+  if (cp < 0x800) return [0xc0 | (cp >> 6), 0x80 | (cp & 0x3f)];
+  if (cp < 0x10000) return [0xe0 | (cp >> 12), 0x80 | ((cp >> 6) & 0x3f), 0x80 | (cp & 0x3f)];
+  return [0xf0 | (cp >> 18), 0x80 | ((cp >> 12) & 0x3f), 0x80 | ((cp >> 6) & 0x3f), 0x80 | (cp & 0x3f)];
+}
+
+export function utf16Units(cp: number): number[] {
+  if (cp < 0x10000) return [cp];
+  const v = cp - 0x10000;
+  return [0xd800 + (v >> 10), 0xdc00 + (v & 0x3ff)];
+}
+
+export function describeCodePoint(char: string): CodePointInfo {
+  const cp = char.codePointAt(0)!;
+  const lone = isSurrogate(cp);
+  const hex2 = (n: number) => hexUpper(n).padStart(2, "0");
+  return {
+    char,
+    codePoint: cp,
+    notation: codePointNotation(cp),
+    utf8: lone ? "" : utf8Bytes(cp).map(hex2).join(" "),
+    utf16: utf16Units(cp)
+      .map((u) => hexUpper(u).padStart(4, "0"))
+      .join(" "),
+    html: `&#x${hexUpper(lone ? 0xfffd : cp)};`,
+    js: `\\u{${hexUpper(cp)}}`,
+    loneSurrogate: lone,
+  };
+}
+
+/** One row per code point (not per UTF-16 unit), capped at `limit` rows. */
+export function describeText(text: string, limit = CODE_POINT_TABLE_LIMIT): { rows: CodePointInfo[]; total: number } {
+  const rows: CodePointInfo[] = [];
+  let total = 0;
+  for (const ch of text) {
+    if (total < limit) rows.push(describeCodePoint(ch));
+    total++;
+  }
+  return { rows, total };
+}
+
+export type CodePointParseResult =
+  | { ok: true; text: string; count: number }
+  | { ok: false; error: "empty" | "invalidToken" | "range" | "surrogate" | "loneSurrogate" | "tooLong"; token?: string };
+
+export const CODE_POINT_MAX_TOKENS = 5000;
+
+/**
+ * Parses code points written as U+XXXX, 0xXXXX, \u{X…} or \uXXXX (UTF-16 units;
+ * a high and low surrogate in a row form one character), separated by spaces or commas.
+ */
+export function parseCodePoints(raw: string): CodePointParseResult {
+  const text = raw.trim();
+  if (text === "") return { ok: false, error: "empty" };
+  const token = /(?:[Uu]\+([0-9A-Fa-f]{1,6})|0[xX]([0-9A-Fa-f]{1,6})|\\u\{([0-9A-Fa-f]{1,6})\}|\\u([0-9A-Fa-f]{4}))(?=$|[\s,]|\\u)/y;
+  const separator = /[\s,]*/y;
+  const units: { value: number; raw: string; utf16: boolean }[] = [];
+  let pos = 0;
+  while (pos < text.length) {
+    token.lastIndex = pos;
+    const m = token.exec(text);
+    if (!m) {
+      const bad = /^[^\s,]+/.exec(text.slice(pos))?.[0] ?? text.slice(pos, pos + 1);
+      return { ok: false, error: "invalidToken", token: bad };
+    }
+    const hex = m[1] ?? m[2] ?? m[3] ?? m[4];
+    units.push({ value: parseInt(hex, 16), raw: m[0], utf16: m[4] !== undefined });
+    if (units.length > CODE_POINT_MAX_TOKENS) return { ok: false, error: "tooLong" };
+    pos = token.lastIndex;
+    separator.lastIndex = pos;
+    separator.exec(text);
+    pos = separator.lastIndex;
+  }
+  let out = "";
+  let count = 0;
+  for (let i = 0; i < units.length; i++) {
+    const u = units[i];
+    if (u.value > MAX_CODE_POINT) return { ok: false, error: "range", token: u.raw };
+    if (isSurrogate(u.value)) {
+      const next = units[i + 1];
+      const pair = u.utf16 && u.value <= 0xdbff && next?.utf16 && next.value >= 0xdc00 && next.value <= 0xdfff;
+      if (pair) {
+        out += String.fromCharCode(u.value, next.value);
+        i++;
+        count++;
+        continue;
+      }
+      return { ok: false, error: u.utf16 ? "loneSurrogate" : "surrogate", token: u.raw };
+    }
+    out += String.fromCodePoint(u.value);
+    count++;
+  }
+  return { ok: true, text: out, count };
+}
+
+// ── Time zones (IANA tz database via Intl) ────────────────────────────────
+
+/** Used when Intl.supportedValuesOf is missing, and for the first (server) render. */
+export const FALLBACK_TIME_ZONES: readonly string[] = [
+  "UTC",
+  "Africa/Cairo",
+  "Africa/Johannesburg",
+  "Africa/Lagos",
+  "America/Chicago",
+  "America/Denver",
+  "America/Los_Angeles",
+  "America/Mexico_City",
+  "America/New_York",
+  "America/Sao_Paulo",
+  "America/Toronto",
+  "Asia/Dhaka",
+  "Asia/Dubai",
+  "Asia/Hong_Kong",
+  "Asia/Jakarta",
+  "Asia/Karachi",
+  "Asia/Kolkata",
+  "Asia/Riyadh",
+  "Asia/Seoul",
+  "Asia/Shanghai",
+  "Asia/Singapore",
+  "Asia/Tokyo",
+  "Australia/Sydney",
+  "Europe/Amsterdam",
+  "Europe/Berlin",
+  "Europe/Istanbul",
+  "Europe/Lisbon",
+  "Europe/London",
+  "Europe/Madrid",
+  "Europe/Moscow",
+  "Europe/Paris",
+  "Europe/Rome",
+  "Pacific/Auckland",
+];
+
+/** Every IANA zone the browser knows, with UTC first. */
+export function supportedTimeZones(): string[] {
+  const list = (Intl as unknown as { supportedValuesOf?: (key: string) => string[] }).supportedValuesOf?.("timeZone");
+  if (!list || list.length === 0) return [...FALLBACK_TIME_ZONES];
+  return ["UTC", ...list.filter((z) => z !== "UTC")];
+}
+
+export function isTimeZone(zone: string): boolean {
+  try {
+    new Intl.DateTimeFormat("en-US", { timeZone: zone });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export interface WallTime {
+  year: number;
+  month: number;
+  day: number;
+  hour: number;
+  minute: number;
+  second: number;
+}
+
+export type WallTimeResult = { ok: true; wall: WallTime } | { ok: false; error: "empty" | "invalid" };
+
+/** Reads "YYYY-MM-DDTHH:mm" with optional ":ss" (a space instead of T is also accepted); years 1–9999. */
+export function parseWallTime(raw: string): WallTimeResult {
+  const text = raw.trim();
+  if (text === "") return { ok: false, error: "empty" };
+  const m = /^(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2})(?::(\d{2}))?$/.exec(text);
+  if (!m) return { ok: false, error: "invalid" };
+  const [year, month, day, hour, minute, second] = m.slice(1).map((v) => Number(v ?? 0));
+  if (year < 1 || month < 1 || month > 12 || hour > 23 || minute > 59 || second > 59) return { ok: false, error: "invalid" };
+  const daysInMonth = new Date(Date.UTC(2000, month, 0)).getUTCDate() - (month === 2 && !isLeap(year) ? 1 : 0);
+  if (day < 1 || day > daysInMonth) return { ok: false, error: "invalid" };
+  return { ok: true, wall: { year, month, day, hour, minute, second } };
+}
+
+const isLeap = (y: number) => (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;
+
+/** The wall time read as if it were UTC, in milliseconds (handles years below 100). */
+export function wallAsUtc(w: WallTime): number {
+  const d = new Date(Date.UTC(2000, w.month - 1, w.day, w.hour, w.minute, w.second));
+  d.setUTCFullYear(w.year);
+  return d.getTime();
+}
+
+const PART_FORMATS = new Map<string, Intl.DateTimeFormat>();
+
+/** Wall-clock time of an instant in a zone. */
+export function wallTimeAt(ms: number, timeZone: string): WallTime {
+  let dtf = PART_FORMATS.get(timeZone);
+  if (!dtf) {
+    dtf = new Intl.DateTimeFormat("en-US", { timeZone, hourCycle: "h23", era: "short", year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" });
+    PART_FORMATS.set(timeZone, dtf);
+  }
+  const parts: Record<string, string> = {};
+  for (const p of dtf.formatToParts(new Date(ms))) parts[p.type] = p.value;
+  const year = Number(parts.year);
+  return {
+    year: /^B/.test(parts.era ?? "") ? 1 - year : year,
+    month: Number(parts.month),
+    day: Number(parts.day),
+    hour: Number(parts.hour) % 24,
+    minute: Number(parts.minute),
+    second: Number(parts.second),
+  };
+}
+
+/** Offset of a zone from UTC at an instant, in milliseconds (local − UTC). */
+export function zoneOffsetMs(ms: number, timeZone: string): number {
+  const whole = Math.floor(ms / 1000) * 1000;
+  return wallAsUtc(wallTimeAt(whole, timeZone)) - whole;
+}
+
+export type ZonedResult = { ok: true; ms: number; offsetMs: number; status: "exact" | "gap" | "ambiguous"; laterOffsetMs?: number } | { ok: false; error: "zone" };
+
+/**
+ * The instant at which a zone's clocks show a wall time. Candidate offsets are
+ * taken a day before and after, and kept when they map back to the same wall
+ * time. Two matches (clocks set back): the earlier instant is used. No match
+ * (clocks set forward): the time is moved forward by the gap, as most calendar software does.
+ */
+export function zonedToInstant(wall: WallTime, timeZone: string): ZonedResult {
+  if (!isTimeZone(timeZone)) return { ok: false, error: "zone" };
+  const local = wallAsUtc(wall);
+  const day = 86_400_000;
+  const before = zoneOffsetMs(local - day, timeZone);
+  const after = zoneOffsetMs(local + day, timeZone);
+  const offsets = [...new Set([before, zoneOffsetMs(local, timeZone), after])];
+  const matches = offsets
+    .map((offset) => local - offset)
+    .filter((ms) => zoneOffsetMs(ms, timeZone) === local - ms)
+    .sort((a, b) => a - b);
+  const unique = [...new Set(matches)];
+  if (unique.length >= 2) {
+    return { ok: true, ms: unique[0], offsetMs: local - unique[0], status: "ambiguous", laterOffsetMs: local - unique[unique.length - 1] };
+  }
+  if (unique.length === 1) return { ok: true, ms: unique[0], offsetMs: local - unique[0], status: "exact" };
+  const ms = local - before;
+  return { ok: true, ms, offsetMs: zoneOffsetMs(ms, timeZone), status: "gap" };
+}
+
+/** ±hh:mm (±hh:mm:ss for historical offsets with seconds). */
+export function formatOffset(offsetMs: number): string {
+  const sign = offsetMs < 0 ? "-" : "+";
+  const total = Math.round(Math.abs(offsetMs) / 1000);
+  const h = Math.floor(total / 3600);
+  const m = Math.floor((total % 3600) / 60);
+  const s = total % 60;
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${sign}${pad(h)}:${pad(m)}${s ? `:${pad(s)}` : ""}`;
+}
+
+/** "YYYY-MM-DDTHH:mm" for a datetime-local input. */
+export function formatWallInput(w: WallTime): string {
+  const pad = (n: number, l = 2) => String(n).padStart(l, "0");
+  return `${pad(w.year, 4)}-${pad(w.month)}-${pad(w.day)}T${pad(w.hour)}:${pad(w.minute)}`;
+}
+
+// ── JSON (RFC 8259) ───────────────────────────────────────────────────────
+
+export type JsonNode =
+  | { type: "object"; entries: [string, JsonNode][] }
+  | { type: "array"; items: JsonNode[] }
+  | { type: "string"; value: string }
+  /** Number tokens keep their source text, so no precision is lost when reformatting. */
+  | { type: "number"; raw: string }
+  | { type: "literal"; raw: "true" | "false" | "null" };
+
+export type JsonErrorCode =
+  | "empty"
+  | "tooLong"
+  | "tooDeep"
+  | "unexpectedToken"
+  | "unexpectedEnd"
+  | "unterminatedString"
+  | "invalidEscape"
+  | "controlCharacter"
+  | "invalidNumber"
+  | "trailingComma"
+  | "expectedColon"
+  | "expectedKey"
+  | "trailingData";
+
+export type JsonParseResult =
+  | { ok: true; value: JsonNode; duplicateKeys: number }
+  | { ok: false; error: JsonErrorCode; offset: number; line: number; column: number };
+
+export const JSON_MAX_CHARS = 2_000_000;
+export const JSON_MAX_DEPTH = 1000;
+
+class JsonSyntaxError extends Error {
+  constructor(
+    readonly code: JsonErrorCode,
+    readonly offset: number,
+  ) {
+    super(code);
+  }
+}
+
+/** 1-based line and column (in code points) of a UTF-16 offset. */
+export function lineColumn(text: string, offset: number): { line: number; column: number } {
+  const before = text.slice(0, offset);
+  const lineStart = before.lastIndexOf("\n") + 1;
+  const line = (before.match(/\n/g)?.length ?? 0) + 1;
+  return { line, column: Array.from(before.slice(lineStart)).length + 1 };
+}
+
+/** A strict RFC 8259 parser that reports where and why a document is invalid. Duplicate keys: the last value wins, as in JSON.parse. */
+export function parseJson(text: string): JsonParseResult {
+  if (text.trim() === "") return { ok: false, error: "empty", offset: 0, line: 1, column: 1 };
+  if (text.length > JSON_MAX_CHARS) return { ok: false, error: "tooLong", offset: 0, line: 1, column: 1 };
+  let pos = text.charCodeAt(0) === 0xfeff ? 1 : 0;
+  let duplicateKeys = 0;
+  const fail = (code: JsonErrorCode, at = pos): never => {
+    throw new JsonSyntaxError(code, at);
+  };
+  const ws = () => {
+    while (pos < text.length) {
+      const c = text.charCodeAt(pos);
+      if (c === 0x20 || c === 0x09 || c === 0x0a || c === 0x0d) pos++;
+      else break;
+    }
+  };
+  const unexpected = (): never => fail(pos >= text.length ? "unexpectedEnd" : "unexpectedToken");
+
+  const parseString = (): string => {
+    const start = pos;
+    pos++; // opening quote
+    let out = "";
+    let chunk = pos;
+    while (true) {
+      if (pos >= text.length) fail("unterminatedString", start);
+      const c = text.charCodeAt(pos);
+      if (c === 0x22) {
+        out += text.slice(chunk, pos);
+        pos++;
+        return out;
+      }
+      if (c < 0x20) fail(c === 0x0a ? "unterminatedString" : "controlCharacter", c === 0x0a ? start : pos);
+      if (c === 0x5c) {
+        out += text.slice(chunk, pos);
+        const e = text[pos + 1];
+        const simple: Record<string, string> = { '"': '"', "\\": "\\", "/": "/", b: "\b", f: "\f", n: "\n", r: "\r", t: "\t" };
+        if (e !== undefined && simple[e] !== undefined) {
+          out += simple[e];
+          pos += 2;
+        } else if (e === "u" && /^[0-9A-Fa-f]{4}$/.test(text.slice(pos + 2, pos + 6))) {
+          out += String.fromCharCode(parseInt(text.slice(pos + 2, pos + 6), 16));
+          pos += 6;
+        } else fail(e === undefined ? "unterminatedString" : "invalidEscape", e === undefined ? start : pos);
+        chunk = pos;
+        continue;
+      }
+      pos++;
+    }
+  };
+
+  const parseNumber = (): string => {
+    const m = /-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?/y;
+    m.lastIndex = pos;
+    const found = m.exec(text);
+    if (!found) fail("invalidNumber");
+    const end = m.lastIndex;
+    // A number immediately followed by more number-like characters (01, 1., 1e, 1.5.2) is malformed.
+    if (end < text.length && /[0-9.eE+\-]/.test(text[end])) fail("invalidNumber", end);
+    pos = end;
+    return found![0];
+  };
+
+  const parseValue = (depth: number): JsonNode => {
+    if (depth > JSON_MAX_DEPTH) fail("tooDeep");
+    ws();
+    const c = text[pos];
+    if (c === "{") {
+      pos++;
+      const entries: [string, JsonNode][] = [];
+      const index = new Map<string, number>();
+      ws();
+      if (text[pos] === "}") {
+        pos++;
+        return { type: "object", entries };
+      }
+      while (true) {
+        ws();
+        if (text[pos] !== '"') fail(text[pos] === "}" ? "trailingComma" : pos >= text.length ? "unexpectedEnd" : "expectedKey");
+        const key = parseString();
+        ws();
+        if (text[pos] !== ":") fail(pos >= text.length ? "unexpectedEnd" : "expectedColon");
+        pos++;
+        const value = parseValue(depth + 1);
+        const existing = index.get(key);
+        if (existing !== undefined) {
+          entries[existing] = [key, value];
+          duplicateKeys++;
+        } else {
+          index.set(key, entries.length);
+          entries.push([key, value]);
+        }
+        ws();
+        if (text[pos] === ",") {
+          pos++;
+          continue;
+        }
+        if (text[pos] === "}") {
+          pos++;
+          return { type: "object", entries };
+        }
+        unexpected();
+      }
+    }
+    if (c === "[") {
+      pos++;
+      const items: JsonNode[] = [];
+      ws();
+      if (text[pos] === "]") {
+        pos++;
+        return { type: "array", items };
+      }
+      while (true) {
+        ws();
+        if (text[pos] === "]") fail("trailingComma");
+        items.push(parseValue(depth + 1));
+        ws();
+        if (text[pos] === ",") {
+          pos++;
+          continue;
+        }
+        if (text[pos] === "]") {
+          pos++;
+          return { type: "array", items };
+        }
+        unexpected();
+      }
+    }
+    if (c === '"') return { type: "string", value: parseString() };
+    if (c === "-" || (c !== undefined && c >= "0" && c <= "9")) return { type: "number", raw: parseNumber() };
+    for (const word of ["true", "false", "null"] as const) {
+      if (text.startsWith(word, pos)) {
+        pos += word.length;
+        return { type: "literal", raw: word };
+      }
+    }
+    return unexpected();
+  };
+
+  try {
+    const value = parseValue(0);
+    ws();
+    if (pos < text.length) fail("trailingData");
+    return { ok: true, value, duplicateKeys };
+  } catch (e) {
+    if (!(e instanceof JsonSyntaxError)) throw e;
+    return { ok: false, error: e.code, offset: e.offset, ...lineColumn(text, e.offset) };
+  }
+}
+
+/** Serializes a parse tree. indent "" = minified; keys can be sorted recursively (by UTF-16 code units, like Array.prototype.sort). */
+export function formatJson(node: JsonNode, indent: string, sortKeys: boolean): string {
+  const newline = indent ? "\n" : "";
+  const colon = indent ? ": " : ":";
+  const out: string[] = [];
+  const write = (n: JsonNode, level: number) => {
+    switch (n.type) {
+      case "string":
+        out.push(JSON.stringify(n.value));
+        return;
+      case "number":
+      case "literal":
+        out.push(n.raw);
+        return;
+      case "array": {
+        if (n.items.length === 0) {
+          out.push("[]");
+          return;
+        }
+        const inner = indent.repeat(level + 1);
+        out.push("[", newline);
+        n.items.forEach((item, i) => {
+          out.push(inner);
+          write(item, level + 1);
+          out.push(i < n.items.length - 1 ? "," : "", newline);
+        });
+        out.push(indent.repeat(level), "]");
+        return;
+      }
+      case "object": {
+        if (n.entries.length === 0) {
+          out.push("{}");
+          return;
+        }
+        const entries = sortKeys ? [...n.entries].sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)) : n.entries;
+        const inner = indent.repeat(level + 1);
+        out.push("{", newline);
+        entries.forEach(([key, value], i) => {
+          out.push(inner, JSON.stringify(key), colon);
+          write(value, level + 1);
+          out.push(i < entries.length - 1 ? "," : "", newline);
+        });
+        out.push(indent.repeat(level), "}");
+        return;
+      }
+    }
+  };
+  write(node, 0);
+  return out.join("");
 }

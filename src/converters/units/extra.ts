@@ -1,4 +1,4 @@
-import { C_LIGHT, GRAIN, IMPERIAL_GALLON, INCH, JULIAN_YEAR, MILE, US_GALLON } from "../constants";
+import { C_LIGHT, GRAIN, IMPERIAL_GALLON, INCH, JULIAN_YEAR, MILE, POUND, US_GALLON, YARD } from "../constants";
 import type { LinearSpec } from "../types";
 
 /*
@@ -317,4 +317,80 @@ export const paperWeight: LinearSpec = {
   ],
 };
 
-export const extraLinearConverters = { glucose, waterHardness, wireGauge, astronomical, rfPower, partsPer, paperWeight };
+/*
+ * Yarn count: linear density, base tex (grams per 1,000 m). Direct systems give
+ * mass per length; indirect systems give length per mass, so tex = K ÷ count with
+ * K = 1,000,000 × (grams per pound ÷ 1,000) ÷ (hank length in m) computed from the
+ * exact pound (0.45359237 kg) and yard (0.9144 m).
+ */
+/** tex for count 1 of an indirect system with `yards` per hank and one hank per pound. */
+const indirect = (yards: number) => (1e6 * POUND) / (yards * YARD);
+/** English cotton count Ne: 840-yard hanks per pound (K ≈ 590.5412). */
+export const YARN_NE = indirect(840);
+/** Worsted count: 560-yard hanks per pound. */
+export const YARN_WORSTED = indirect(560);
+/** Linen (lea) count: 300-yard leas per pound. */
+export const YARN_LEA = indirect(300);
+/** Woollen count, Yorkshire skein: 256 yards per pound. */
+export const YARN_YORKSHIRE = indirect(256);
+const reciprocal = (k: number) => ({ toBase: (n: number) => k / n, fromBase: (tex: number) => k / tex, min: 0, minExclusive: true });
+
+export const yarnCount: LinearSpec = {
+  id: "yarn-count",
+  slug: "yarn-count-converter",
+  group: "other",
+  kind: "linear",
+  dimension: "linear-mass-density",
+  baseUnit: "tex",
+  units: [
+    { id: "tex", symbol: "tex", factor: 1, system: "si", min: 0, minExclusive: true },
+    { id: "dtex", symbol: "dtex", factor: 0.1, system: "si", min: 0, minExclusive: true },
+    { id: "ktex", symbol: "ktex", factor: 1000, system: "si", min: 0, minExclusive: true },
+    // denier: grams per 9,000 m
+    { id: "denier", symbol: "den", factor: 1 / 9, system: "metric", min: 0, minExclusive: true },
+    // metric count: km per kg = m per g
+    { id: "nm", symbol: "Nm", ...reciprocal(1000), system: "metric" },
+    { id: "ne", symbol: "Ne", ...reciprocal(YARN_NE), system: "imperial" },
+    { id: "worsted", symbol: "NeK", ...reciprocal(YARN_WORSTED), system: "imperial" },
+    { id: "lea", symbol: "NeL", ...reciprocal(YARN_LEA), system: "imperial" },
+    { id: "yorkshire", symbol: "YSW", ...reciprocal(YARN_YORKSHIRE), system: "imperial" },
+    // grains per yard (slivers and rovings): 64.79891 mg per 0.9144 m
+    { id: "gr-yd", symbol: "gr/yd", factor: (GRAIN * 1e6) / YARD, system: "us", min: 0, minExclusive: true },
+    // American grain count: grains per 120 yards
+    { id: "grain-count", symbol: "gr/120 yd", factor: (GRAIN * 1e6) / (120 * YARD), system: "us", min: 0, minExclusive: true },
+  ],
+  defaultFrom: "ne",
+  defaultTo: "tex",
+  defaultValue: 30,
+  popularPairs: [
+    ["ne", "tex"],
+    ["denier", "dtex"],
+    ["tex", "ne"],
+    ["nm", "ne"],
+    ["denier", "tex"],
+    ["ne", "denier"],
+  ],
+  related: ["paper-weight", "weight", "length"],
+  known: [
+    // python: 1e6*0.45359237/(840*0.9144)/30
+    { value: 30, from: "ne", to: "tex", expected: 19.68470824827452 },
+    { value: 1, from: "ne", to: "tex", expected: 590.5412474482356 },
+    // 1000 / (590.5412…/30)
+    { value: 30, from: "ne", to: "nm", expected: 50.80085452054672 },
+    // 9 × 590.5412… / 20
+    { value: 20, from: "ne", to: "denier", expected: 265.74356135170603 },
+    { value: 150, from: "denier", to: "dtex", expected: 166.66666666666669 },
+    { value: 50, from: "nm", to: "tex", expected: 20 },
+    // 1e6*0.45359237/(560*0.9144)/20
+    { value: 20, from: "worsted", to: "tex", expected: 44.29059355861768 },
+    // 1e6*0.45359237/(300*0.9144)/40
+    { value: 40, from: "lea", to: "tex", expected: 41.3378873213765 },
+    // 1e6*0.45359237/(256*0.9144)/16
+    { value: 16, from: "yorkshire", to: "tex", expected: 121.1070917618452 },
+    // ASTM D2260 Table 1: grain count → tex factor 0.590541
+    { value: 1, from: "grain-count", to: "tex", expected: 0.5905412474482358 },
+    { value: 1, from: "gr-yd", to: "tex", expected: 70.86494969378829 },
+  ],
+};
+
+export const extraLinearConverters = { glucose, waterHardness, wireGauge, astronomical, rfPower, partsPer, paperWeight, yarnCount };

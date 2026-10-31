@@ -1,0 +1,37 @@
+const text = {
+  unit: "Mass unit",
+  units: { kg: "Kilograms (kg)", lb: "Pounds (lb)" },
+  feed: "Feed consumed",
+  feedHelp: "Total feed eaten by the group over the period, in the chosen unit.",
+  initial: "Initial total live weight",
+  initialHelp: "Combined weight of the animals at the start of the period.",
+  final: "Final total live weight",
+  finalHelp: "Combined weight of the animals still present at the end of the period.",
+  removed: "Weight of animals that died or were removed",
+  removedHelp: "Optional. Their weight when they died or left the group. Adding it gives the mortality-adjusted FCR.",
+  price: "Feed price per unit of mass",
+  priceHelp: "Optional. The price of 1 kg or 1 lb of feed, in the mass unit chosen above. Used for the feed cost per unit of gain.",
+  head: "Number of animals",
+  headHelp: "Optional. Used for the gain per head.",
+  errors: {
+    noGain: "The live-weight gain is zero or negative, so the feed conversion ratio cannot be calculated. Check the weights.",
+  },
+  result: "Feed conversion ratio (FCR)",
+  resultAdjusted: "Feed conversion ratio (FCR), mortality-adjusted",
+  caption: "Feed consumed ÷ live-weight gain",
+  unadjusted: "FCR without the removed animals",
+  unadjustedNone: "Not meaningful (no gain among the remaining animals)",
+  efficiency: "Feed efficiency (gain ÷ feed)",
+  gain: "Total live-weight gain",
+  gainUnadjusted: "Gain of the remaining animals only",
+  gainPerHead: "Gain per head",
+  feedCost: "Total feed cost",
+  costPerGain: "Feed cost per {unit} of gain",
+  notes: {
+    meaning: "An FCR of {fcr} means {fcr} {unit} of feed per {unit} of live-weight gain. Lower is more efficient.",
+    adjusted: "The removed animals' weight is added to the gain, so their feed is not counted as wasted. The unadjusted figure is shown for comparison.",
+    general: "Typical values vary widely with species, age, breed, diet and how feed and weights are measured, so compare FCRs only when they are measured the same way.",
+  },
+};
+export type FeedConversionRatioText = typeof text;
+export default text;

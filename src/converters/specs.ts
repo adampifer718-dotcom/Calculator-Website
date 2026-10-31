@@ -38,6 +38,7 @@ export const ALL_CONVERTERS: readonly ConverterSpec[] = [
   extraLinearConverters.astronomical,
   extraLinearConverters.partsPer,
   extraLinearConverters.paperWeight,
+  extraLinearConverters.yarnCount,
   ...toolConverters,
 ];
 
