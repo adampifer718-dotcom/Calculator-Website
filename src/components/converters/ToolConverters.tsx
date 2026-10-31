@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { useId, useState, useSyncExternalStore } from "react";
+import { useEffect, useId, useState, useSyncExternalStore } from "react";
 import {
   BYTE_FORMATS,
   contrastRatios,
@@ -32,6 +32,28 @@ import {
   parseExactFraction,
   parseTireSize,
   reduceFraction,
+  FALLBACK_TIME_ZONES,
+  HASH_ALGORITHMS,
+  HASH_MAX_CHARS,
+  TEXT_STATS_MAX_CHARS,
+  decodeHtml,
+  describeText,
+  durationSeconds,
+  encodeHtml,
+  formatJson,
+  formatOffset,
+  formatWallInput,
+  hashAvailable,
+  hashText,
+  parseCodePoints,
+  parseJson,
+  parseWallTime,
+  supportedTimeZones,
+  textStats,
+  wallAsUtc,
+  wallTimeAt,
+  zoneOffsetMs,
+  zonedToInstant,
   type UrlMode,
   type ByteFormat,
   type CoordinateAxis,
@@ -966,6 +988,501 @@ function PaperSizeTool() {
   );
 }
 
+const WPM_MAX = 2000;
+
+function WordCountTool() {
+  const locale = useLocale() as Locale;
+  const t = useTranslations("converters.widget");
+  const uid = useId();
+  const isClient = useIsClient();
+  const fmt = getFormatter(locale);
+  const [input, setInput] = useState(() => t("tools.words.sample"));
+  const [readText, setReadText] = useState("200");
+  const [speakText, setSpeakText] = useState("130");
+  const rate = (text: string) => {
+    const v = Number(normalizeNumberText(text, locale));
+    return Number.isFinite(v) && v >= 1 && v <= WPM_MAX ? v : null;
+  };
+  const readRate = rate(readText);
+  const speakRate = rate(speakText);
+  const tooLong = input.length > TEXT_STATS_MAX_CHARS;
+  // Word and sentence boundaries come from the browser's Intl.Segmenter data, so counts are rendered after hydration only.
+  const stats = isClient && !tooLong ? textStats(input, LOCALE_INFO[locale].intl) : null;
+  const duration = (wpm: number | null) => {
+    if (!stats || wpm === null) return "";
+    const s = durationSeconds(stats.words, wpm);
+    return t("tools.words.duration", { minutes: fmt.number(Math.floor(s / 60), 0), seconds: fmt.number(s % 60, 0) });
+  };
+  const rows: [string, string][] = stats
+    ? [
+        [t("tools.words.words"), fmt.number(stats.words, 0)],
+        [t("tools.words.characters"), fmt.number(stats.characters, 0)],
+        [t("tools.words.charactersNoSpaces"), fmt.number(stats.charactersNoSpaces, 0)],
+        [t("tools.words.sentences"), fmt.number(stats.sentences, 0)],
+        [t("tools.words.paragraphs"), fmt.number(stats.paragraphs, 0)],
+        [t("tools.words.lines"), fmt.number(stats.lines, 0)],
+        [t("tools.words.bytes"), fmt.number(stats.bytes, 0)],
+        [t("tools.words.readingTime"), duration(readRate)],
+        [t("tools.words.speakingTime"), duration(speakRate)],
+      ]
+    : [];
+  const rateField = (id: string, label: string, value: string, set: (v: string) => void, ok: boolean) => (
+    <div>
+      <label htmlFor={`${uid}-${id}`} className={LABEL}>
+        {label}
+      </label>
+      <input
+        id={`${uid}-${id}`}
+        type="text"
+        inputMode="decimal"
+        dir="ltr"
+        autoComplete="off"
+        value={value}
+        onChange={(e) => set(e.target.value)}
+        aria-invalid={ok ? undefined : true}
+        aria-describedby={ok ? undefined : `${uid}-${id}-error`}
+        className={`${FIELD} tabular-nums`}
+      />
+      {!ok && <ErrorText id={`${uid}-${id}-error`}>{t("tools.words.errors.rate")}</ErrorText>}
+    </div>
+  );
+  return (
+    <div className="card overflow-hidden">
+      <div className="grid gap-4 p-5 sm:grid-cols-2 sm:p-7">
+        <div className="sm:col-span-2">
+          <label htmlFor={`${uid}-input`} className={LABEL}>
+            {t("tools.words.input")}
+          </label>
+          <textarea
+            id={`${uid}-input`}
+            dir="auto"
+            rows={8}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            aria-invalid={tooLong ? true : undefined}
+            aria-describedby={tooLong ? `${uid}-error` : undefined}
+            className={`${FIELD} h-auto min-h-40 py-3 leading-relaxed [overflow-wrap:anywhere]`}
+          />
+          {tooLong && <ErrorText id={`${uid}-error`}>{t("tools.words.errors.tooLong")}</ErrorText>}
+        </div>
+        {rateField("read", t("tools.words.readingRate"), readText, setReadText, readRate !== null)}
+        {rateField("speak", t("tools.words.speakingRate"), speakText, setSpeakText, speakRate !== null)}
+      </div>
+      <div className={RESULT_PANEL} aria-live="polite">
+        {stats ? (
+          <dl className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            {rows.map(([label, value], i) => (
+              <div key={label} className="min-w-0 rounded-2xl bg-white p-4 ring-1 ring-line">
+                <dt className="text-xs font-semibold text-neutral-600">{label}</dt>
+                <dd className="mt-1 text-xl font-extrabold break-words text-ink-900 tabular-nums" {...(i === 0 ? { "data-tool-result": true } : { "data-tool-value": true })}>
+                  {value || "—"}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        ) : (
+          <p className="text-sm text-neutral-700">{tooLong ? "—" : t("tools.words.loading")}</p>
+        )}
+        <div className="mt-4 flex flex-wrap gap-2">
+          <button type="button" onClick={() => setInput("")} className={GHOST_BUTTON}>
+            {t("clear")}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HtmlEntitiesTool() {
+  const t = useTranslations("converters.widget");
+  const uid = useId();
+  const [mode, setMode] = useState<"encode" | "decode">("encode");
+  const [nonAscii, setNonAscii] = useState(false);
+  const [input, setInput] = useState(`<p class="note">Tom & Jerry's café</p>`);
+  const result = mode === "encode" ? encodeHtml(input, nonAscii) : decodeHtml(input);
+  const error = !result.ok && result.error !== "empty" ? t(`tools.htmlEntities.errors.${result.error}`) : null;
+  const notes = result.ok && mode === "decode" ? (
+    <>
+      {result.unknown.length > 0 && (
+        <p className="mt-2 text-sm break-all text-neutral-700">{t("tools.htmlEntities.unknown", { names: result.unknown.slice(0, 20).join(" ") })}</p>
+      )}
+      {result.replaced > 0 && <p className="mt-2 text-sm text-neutral-700">{t("tools.htmlEntities.replaced", { count: result.replaced })}</p>}
+    </>
+  ) : null;
+  return (
+    <EncodeLayout
+      uid={uid}
+      controls={
+        <>
+          <SelectField
+            id={`${uid}-mode`}
+            label={t("tools.htmlEntities.mode")}
+            value={mode}
+            onChange={(v) => setMode(v as "encode" | "decode")}
+            options={[
+              { value: "encode", label: t("tools.htmlEntities.encode") },
+              { value: "decode", label: t("tools.htmlEntities.decode") },
+            ]}
+          />
+          {mode === "encode" ? (
+            <label className="flex items-center gap-2 self-end pb-3 text-sm font-semibold text-ink-800">
+              <input type="checkbox" checked={nonAscii} onChange={(e) => setNonAscii(e.target.checked)} className="size-4 shrink-0 accent-brand-600" />
+              {t("tools.htmlEntities.nonAscii")}
+            </label>
+          ) : (
+            <div aria-hidden="true" />
+          )}
+        </>
+      }
+      inputLabel={t("tools.htmlEntities.input")}
+      input={input}
+      setInput={setInput}
+      output={result.ok ? result.output : ""}
+      error={error}
+      monoInput={mode === "decode"}
+      monoOutput={mode === "encode"}
+      footer={notes}
+    />
+  );
+}
+
+function HashTool() {
+  const t = useTranslations("converters.widget");
+  const uid = useId();
+  const isClient = useIsClient();
+  const [input, setInput] = useState("Hello, world!");
+  const [format, setFormat] = useState<"hex" | "base64">("hex");
+  const [hashes, setHashes] = useState<{ input: string; values: { hex: string; base64: string }[] } | null>(null);
+  const available = isClient && hashAvailable();
+  const tooLong = input.length > HASH_MAX_CHARS;
+  useEffect(() => {
+    if (!hashAvailable() || input.length > HASH_MAX_CHARS) return;
+    let cancelled = false;
+    Promise.all(HASH_ALGORITHMS.map((a) => hashText(input, a))).then(
+      (values) => {
+        if (!cancelled) setHashes({ input, values });
+      },
+      () => {},
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [input]);
+  const current = hashes && hashes.input === input && !tooLong ? hashes.values : null;
+  const error = tooLong ? t("tools.hash.errors.tooLong") : isClient && !available ? t("tools.hash.errors.unavailable") : null;
+  return (
+    <div className="card overflow-hidden">
+      <div className="grid gap-4 p-5 sm:grid-cols-2 sm:p-7">
+        <div className="sm:col-span-2">
+          <label htmlFor={`${uid}-input`} className={LABEL}>
+            {t("tools.hash.input")}
+          </label>
+          <textarea
+            id={`${uid}-input`}
+            dir="auto"
+            rows={4}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            aria-invalid={error ? true : undefined}
+            aria-describedby={`${uid}-help${error ? ` ${uid}-error` : ""}`}
+            className={`${FIELD} h-auto min-h-28 py-3 leading-relaxed [overflow-wrap:anywhere]`}
+          />
+          <p id={`${uid}-help`} className="mt-1.5 text-xs text-neutral-600">
+            {t("tools.hash.private")}
+          </p>
+          {error && <ErrorText id={`${uid}-error`}>{error}</ErrorText>}
+        </div>
+        <SelectField
+          id={`${uid}-format`}
+          label={t("tools.hash.format")}
+          value={format}
+          onChange={(v) => setFormat(v as "hex" | "base64")}
+          options={[
+            { value: "hex", label: t("tools.hash.hex") },
+            { value: "base64", label: t("tools.hash.base64") },
+          ]}
+        />
+      </div>
+      <div className={RESULT_PANEL} aria-live="polite">
+        <ul className="grid gap-3" data-tool-result>
+          {HASH_ALGORITHMS.map((algorithm, i) => (
+            <ValueRow key={algorithm} label={algorithm} value={current ? current[i][format] : ""} />
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+const CODE_POINT_FORMS = "U+00E9, 0xE9, \\u00E9, \\uD83D\\uDE00, \\u{1F600}";
+
+function UnicodeTool() {
+  const locale = useLocale() as Locale;
+  const t = useTranslations("converters.widget");
+  const uid = useId();
+  const fmt = getFormatter(locale);
+  const [mode, setMode] = useState<"toCodes" | "toText">("toCodes");
+  const [text, setText] = useState("Héllo 😀");
+  const [codes, setCodes] = useState("U+0048 U+00E9 U+006C U+006C U+006F U+0020 U+1F600");
+  const parsed = mode === "toText" ? parseCodePoints(codes) : null;
+  const error = parsed && !parsed.ok && parsed.error !== "empty" ? t(`tools.unicode.errors.${parsed.error}`, { token: parsed.token ?? "", forms: CODE_POINT_FORMS }) : null;
+  const described = mode === "toCodes" ? describeText(text) : null;
+  const columns = [t("tools.unicode.character"), t("tools.unicode.codePoint"), t("tools.unicode.decimal"), t("tools.unicode.utf8"), t("tools.unicode.utf16"), t("tools.unicode.html"), t("tools.unicode.js")];
+  const input = mode === "toCodes" ? text : codes;
+  const setInput = mode === "toCodes" ? setText : setCodes;
+  return (
+    <div className="card overflow-hidden">
+      <div className="grid gap-4 p-5 sm:grid-cols-2 sm:p-7">
+        <SelectField
+          id={`${uid}-mode`}
+          label={t("tools.unicode.mode")}
+          value={mode}
+          onChange={(v) => setMode(v as "toCodes" | "toText")}
+          options={[
+            { value: "toCodes", label: t("tools.unicode.toCodes") },
+            { value: "toText", label: t("tools.unicode.toText") },
+          ]}
+        />
+        <div aria-hidden="true" />
+        <div className="sm:col-span-2">
+          <label htmlFor={`${uid}-input`} className={LABEL}>
+            {mode === "toCodes" ? t("tools.unicode.inputText") : t("tools.unicode.inputCodes")}
+          </label>
+          <textarea
+            id={`${uid}-input`}
+            dir={mode === "toCodes" ? "auto" : "ltr"}
+            rows={3}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            aria-invalid={error ? true : undefined}
+            aria-describedby={[mode === "toText" ? `${uid}-help` : "", error ? `${uid}-error` : ""].filter(Boolean).join(" ") || undefined}
+            className={`${FIELD} h-auto min-h-24 py-3 leading-relaxed break-all ${mode === "toText" ? "font-mono" : ""}`}
+          />
+          {mode === "toText" && (
+            <p id={`${uid}-help`} className="mt-1.5 text-xs break-all text-neutral-600">
+              {t("tools.unicode.codesHelp", { examples: CODE_POINT_FORMS })}
+            </p>
+          )}
+          {error && <ErrorText id={`${uid}-error`}>{error}</ErrorText>}
+        </div>
+      </div>
+      <div className={RESULT_PANEL} aria-live="polite">
+        {described ? (
+          <>
+            <p className="text-sm font-semibold text-neutral-700" data-tool-result>
+              {t("tools.unicode.count", { count: described.total })}
+            </p>
+            {described.rows.length > 0 && (
+              <div className="mt-3 max-h-[32rem] overflow-auto rounded-2xl bg-white ring-1 ring-line">
+                <table className="w-full min-w-[40rem] text-sm">
+                  <caption className="sr-only">{t("tools.unicode.tableCaption")}</caption>
+                  <thead className="sticky top-0 bg-white">
+                    <tr>
+                      {columns.map((c) => (
+                        <th key={c} scope="col" className="px-3 py-2 text-start font-semibold whitespace-nowrap text-neutral-700">
+                          {c}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {described.rows.map((r, i) => (
+                      <tr key={i} className="border-t border-line">
+                        <td className="px-3 py-2 text-lg" dir="ltr">
+                          {r.loneSurrogate ? "�" : r.char.trim() === "" ? "␣" : r.char}
+                        </td>
+                        <th scope="row" className="px-3 py-2 text-start font-mono font-bold whitespace-nowrap text-ink-900" data-tool-value>
+                          {r.notation}
+                        </th>
+                        <td className="px-3 py-2 font-mono tabular-nums">{r.codePoint}</td>
+                        <td className="px-3 py-2 font-mono whitespace-nowrap" title={r.loneSurrogate ? t("tools.unicode.loneSurrogate") : undefined}>
+                          {r.utf8 || "—"}
+                        </td>
+                        <td className="px-3 py-2 font-mono whitespace-nowrap">{r.utf16}</td>
+                        <td className="px-3 py-2 font-mono whitespace-nowrap">{r.html}</td>
+                        <td className="px-3 py-2 font-mono whitespace-nowrap">{r.js}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+            {described.rows.some((r) => r.loneSurrogate) && <p className="mt-2 text-sm text-neutral-700">{t("tools.unicode.loneSurrogate")}</p>}
+            {described.total > described.rows.length && (
+              <p className="mt-2 text-sm text-neutral-700">{t("tools.unicode.truncated", { shown: fmt.number(described.rows.length, 0), total: fmt.number(described.total, 0) })}</p>
+            )}
+          </>
+        ) : (
+          <>
+            <label htmlFor={`${uid}-output`} className="eyebrow text-brand-800">
+              {t("tools.unicode.output")}
+            </label>
+            <textarea
+              id={`${uid}-output`}
+              readOnly
+              dir="auto"
+              rows={3}
+              value={parsed && parsed.ok ? parsed.text : ""}
+              className={`${FIELD} mt-2 h-auto min-h-24 py-3 leading-relaxed break-all`}
+              data-tool-result
+            />
+            {parsed && parsed.ok && <p className="mt-2 text-sm text-neutral-700">{t("tools.unicode.count", { count: parsed.count })}</p>}
+            <div className="mt-4 flex flex-wrap gap-2">
+              <CopyButton text={parsed && parsed.ok ? parsed.text : ""} label={t("copy")} copiedLabel={t("copied")} disabled={!(parsed && parsed.ok)} />
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+const DEFAULT_TARGETS = ["America/New_York", "Europe/London", "Asia/Karachi", "Asia/Tokyo"];
+const typographicOffset = (offsetMs: number) => formatOffset(offsetMs).replace("-", "−");
+
+function TimeZoneTool() {
+  const locale = useLocale() as Locale;
+  const t = useTranslations("converters.widget");
+  const uid = useId();
+  const isClient = useIsClient();
+  const intl = LOCALE_INFO[locale].intl;
+  const [dateText, setDateText] = useState("2026-01-15T12:00");
+  const [source, setSource] = useState("UTC");
+  const [targets, setTargets] = useState<string[]>(DEFAULT_TARGETS);
+  // The full zone list depends on the browser's tz data, so the server and the first render use the built-in list.
+  const zones = isClient ? supportedTimeZones() : [...FALLBACK_TIME_ZONES];
+  const zoneOptions = (extra: string[]) => [...new Set([...zones, ...extra.filter(Boolean)])].map((z) => ({ value: z, label: z.replace(/_/g, " ") }));
+  const wall = parseWallTime(dateText);
+  const dateError = !wall.ok && wall.error !== "empty" ? t("tools.timeZone.errors.invalid") : null;
+  const instant = isClient && wall.ok ? zonedToInstant(wall.wall, source) : null;
+  const zoneError = instant && !instant.ok ? t("tools.timeZone.errors.zone") : null;
+  const describe = (ms: number, timeZone: string) => new Intl.DateTimeFormat(intl, { dateStyle: "full", timeStyle: "short", timeZone }).format(new Date(ms));
+  const wallText = wall.ok ? new Intl.DateTimeFormat(intl, { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" }).format(new Date(wallAsUtc(wall.wall))) : "";
+  const useNow = () => {
+    setDateText(formatWallInput(wallTimeAt(Date.now(), source)));
+  };
+  const setTarget = (i: number, zone: string) => setTargets((prev) => prev.map((z, j) => (j === i ? zone : z)));
+  const rowValue = (ms: number, zone: string) => `${describe(ms, zone)} (${t("tools.timeZone.offset", { offset: typographicOffset(zoneOffsetMs(ms, zone)) })})`;
+  return (
+    <div className="card overflow-hidden">
+      <div className="grid gap-4 p-5 sm:grid-cols-2 sm:p-7">
+        <div>
+          <label htmlFor={`${uid}-date`} className={LABEL}>
+            {t("tools.timeZone.dateTime")}
+          </label>
+          <input
+            id={`${uid}-date`}
+            type="datetime-local"
+            dir="ltr"
+            value={dateText}
+            onChange={(e) => setDateText(e.target.value)}
+            aria-invalid={dateError ? true : undefined}
+            aria-describedby={dateError ? `${uid}-date-error` : undefined}
+            className={`${FIELD} tabular-nums`}
+          />
+          {dateError && <ErrorText id={`${uid}-date-error`}>{dateError}</ErrorText>}
+        </div>
+        <div>
+          <SelectField id={`${uid}-source`} label={t("tools.timeZone.from")} value={source} onChange={setSource} options={zoneOptions([source])} />
+          {zoneError && <ErrorText id={`${uid}-zone-error`}>{zoneError}</ErrorText>}
+        </div>
+        {targets.map((zone, i) => (
+          <SelectField
+            key={i}
+            id={`${uid}-target-${i}`}
+            label={t("tools.timeZone.target", { n: i + 1 })}
+            value={zone}
+            onChange={(v) => setTarget(i, v)}
+            options={[{ value: "", label: t("tools.timeZone.none") }, ...zoneOptions([zone])]}
+          />
+        ))}
+        <p className="text-xs text-neutral-600 sm:col-span-2">{t("tools.timeZone.dataNote")}</p>
+      </div>
+      <div className={RESULT_PANEL} aria-live="polite">
+        {instant && instant.ok ? (
+          <>
+            {instant.status === "gap" && <p className="mb-3 text-sm font-semibold text-ink-800">{t("tools.timeZone.gap", { time: wallText, zone: source, resolved: rowValue(instant.ms, source) })}</p>}
+            {instant.status === "ambiguous" && (
+              <p className="mb-3 text-sm font-semibold text-ink-800">
+                {t("tools.timeZone.ambiguous", { time: wallText, zone: source, offset: typographicOffset(instant.offsetMs), later: typographicOffset(instant.laterOffsetMs ?? instant.offsetMs) })}
+              </p>
+            )}
+            <ul className="grid gap-3" data-tool-result>
+              {targets.filter(Boolean).map((zone, i) => (
+                <ValueRow key={`${zone}-${i}`} label={zone.replace(/_/g, " ")} value={rowValue(instant.ms, zone)} mono={false} />
+              ))}
+              <ValueRow label={t("tools.timeZone.utc")} value={new Date(instant.ms).toISOString().replace(".000Z", "Z")} />
+            </ul>
+          </>
+        ) : (
+          <p className="text-sm text-neutral-700">{isClient ? "—" : t("tools.timeZone.loading")}</p>
+        )}
+        <div className="mt-4 flex flex-wrap gap-2">
+          <button type="button" onClick={useNow} className={GHOST_BUTTON}>
+            {t("tools.timeZone.now")}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const JSON_INDENTS = { indent2: "  ", indent4: "    ", tab: "\t", minify: "" } as const;
+type JsonIndent = keyof typeof JSON_INDENTS;
+
+function JsonTool() {
+  const locale = useLocale() as Locale;
+  const t = useTranslations("converters.widget");
+  const uid = useId();
+  const fmt = getFormatter(locale);
+  const [input, setInput] = useState('{"name":"Ada","languages":["en","ur"],"id":12345678901234567890,"active":true,"tags":[]}');
+  const [indent, setIndent] = useState<JsonIndent>("indent2");
+  const [sortKeys, setSortKeys] = useState(false);
+  const result = parseJson(input);
+  const error =
+    !result.ok && result.error !== "empty"
+      ? result.error === "tooLong"
+        ? t("tools.json.errors.tooLong")
+        : t("tools.json.position", { line: fmt.number(result.line, 0), column: fmt.number(result.column, 0), reason: t(`tools.json.errors.${result.error}`) })
+      : null;
+  const output = result.ok ? formatJson(result.value, JSON_INDENTS[indent], sortKeys) : "";
+  return (
+    <EncodeLayout
+      uid={uid}
+      controls={
+        <>
+          <SelectField
+            id={`${uid}-format`}
+            label={t("tools.json.format")}
+            value={indent}
+            onChange={(v) => setIndent(v as JsonIndent)}
+            options={(Object.keys(JSON_INDENTS) as JsonIndent[]).map((k) => ({ value: k, label: t(`tools.json.${k}`) }))}
+          />
+          <label className="flex items-center gap-2 self-end pb-3 text-sm font-semibold text-ink-800">
+            <input type="checkbox" checked={sortKeys} onChange={(e) => setSortKeys(e.target.checked)} className="size-4 shrink-0 accent-brand-600" />
+            {t("tools.json.sortKeys")}
+          </label>
+        </>
+      }
+      inputLabel={t("tools.json.input")}
+      input={input}
+      setInput={setInput}
+      output={output}
+      error={error}
+      monoInput
+      monoOutput
+      footer={
+        result.ok ? (
+          <p className="mt-2 text-sm text-neutral-700">
+            <span className="font-semibold text-ink-900">{t("tools.json.valid")}</span>
+            {result.duplicateKeys > 0 && <> · {t("tools.json.duplicates", { count: result.duplicateKeys })}</>}
+          </p>
+        ) : null
+      }
+    />
+  );
+}
+
 export function ToolConverter({ tool }: { tool: ToolId }) {
   switch (tool) {
     case "roman":
@@ -990,5 +1507,17 @@ export function ToolConverter({ tool }: { tool: ToolId }) {
       return <FractionTool />;
     case "paper-size":
       return <PaperSizeTool />;
+    case "word-count":
+      return <WordCountTool />;
+    case "html-entities":
+      return <HtmlEntitiesTool />;
+    case "hash":
+      return <HashTool />;
+    case "unicode":
+      return <UnicodeTool />;
+    case "time-zone":
+      return <TimeZoneTool />;
+    case "json":
+      return <JsonTool />;
   }
 }

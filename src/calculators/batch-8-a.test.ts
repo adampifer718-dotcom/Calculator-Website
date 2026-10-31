@@ -329,8 +329,8 @@ describe("Shannon diversity index calculator", () => {
     const table = ok(shannonIndexEngine, { counts: "12 0 30 8 0 25 5", base: "e" }).tables![0];
     expect(table.rows.map((r) => r.label)).toEqual(["Species 1", "Species 3", "Species 4", "Species 6", "Species 7"]);
     expect(num(table.rows[1].cells[1])).toBeCloseTo(30 / 80, 12);
-    // python: -(30/80)*ln(30/80) = 0.36780750740761804
-    expect(num(table.rows[1].cells[2])).toBeCloseTo(0.36780750740761804, 9);
+    // python: -(30/80)*ln(30/80) = 0.3678109698793973
+    expect(num(table.rows[1].cells[2])).toBeCloseTo(0.3678109698793973, 9);
   });
 
   it("handles edge cases", () => {
