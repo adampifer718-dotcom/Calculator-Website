@@ -719,7 +719,7 @@ export const extraContent: Record<string, ConverterContent> = {
     shortTitle: "Título de hilo",
     summary: "Convierte títulos de hilo entre tex, decitex, denier, número métrico (Nm), número inglés de algodón (Ne) y los números de estambre, lino y lana cardada.",
     metaTitle: "Conversor de títulos de hilo – Ne, Nm, tex y denier",
-    metaDescription: "Convierte la finura de hilos y fibras entre tex, dtex, denier, Nm y el número inglés de algodón Ne, además de los números de estambre, lino (lea) y lana de Yorkshire.",
+    metaDescription: "Convierte la finura de hilos y fibras entre tex, dtex, denier, Nm y Ne (algodón), además de los números de estambre, lino (lea) y lana cardada de Yorkshire.",
     keywords: ["conversor de título de hilo", "ne a tex", "denier a dtex", "nm a ne", "tex a denier", "título de algodón", "sistemas de numeración de hilos"],
     intro: [
       "La finura de un hilo se expresa en dos tipos de sistemas. Los sistemas directos, como el tex y el denier, dan la masa de una longitud fija, así que un número mayor significa un hilo más grueso. Los sistemas indirectos, como el número métrico Nm y el número inglés de algodón Ne, dan la longitud de una masa fija, así que un número mayor significa un hilo más fino.",

@@ -632,7 +632,7 @@ export const extraContent: Record<string, ConverterContent> = {
     shortTitle: "Points de code Unicode",
     summary: "Affichez le point de code Unicode, les octets UTF-8, les unités UTF-16 et les échappements HTML et JavaScript de chaque caractère, ou transformez des codes U+ en texte.",
     metaTitle: "Convertisseur Unicode – points de code, UTF-8 et UTF-16",
-    metaDescription: "Trouvez le point de code U+, la valeur décimale, les octets UTF-8, les unités UTF-16 et les échappements HTML ou JS de chaque caractère, ou passez de U+XXXX au texte.",
+    metaDescription: "Trouvez le point de code U+, la valeur décimale, les octets UTF-8 et UTF-16 et les échappements HTML ou JS de chaque caractère, ou passez de U+XXXX au texte.",
     keywords: ["convertisseur unicode", "point de code unicode", "convertisseur utf-8", "u+ en texte", "code d’un caractère", "paire de substitution utf-16", "échappement unicode"],
     intro: [
       "Chaque caractère Unicode a un numéro, son point de code, noté U+ suivi d’au moins quatre chiffres hexadécimaux : A est U+0041, é est U+00E9 et 😀 est U+1F600. La façon dont ce numéro est stocké dépend de l’encodage : l’UTF-8 utilise de 1 à 4 octets, l’UTF-16 une ou deux unités de 16 bits.",
@@ -690,7 +690,7 @@ export const extraContent: Record<string, ConverterContent> = {
     shortTitle: "Formateur JSON",
     summary: "Mettez en forme, minifiez et validez du JSON, triez les clés des objets et trouvez la ligne et la colonne de toute erreur de syntaxe.",
     metaTitle: "Formateur et validateur JSON – indenter et minifier",
-    metaDescription: "Indentez du JSON avec 2 ou 4 espaces ou des tabulations, minifiez-le, triez les clés et localisez les erreurs par ligne et colonne. Les grands nombres restent exacts.",
+    metaDescription: "Indentez du JSON avec 2 ou 4 espaces ou des tabulations, minifiez-le, triez les clés et repérez les erreurs par ligne et colonne. Grands nombres conservés.",
     keywords: ["formateur json", "validateur json", "embellir du json", "indenter du json", "minifier du json", "json lint", "trier les clés json"],
     intro: [
       "Collez du JSON pour vérifier qu’il est valide et le remettre en forme : indenté avec 2 ou 4 espaces ou des tabulations pour la lecture, ou minifié sur une seule ligne pour gagner de la place. Vous pouvez aussi trier par ordre alphabétique les clés de chaque objet, ce qui facilite la comparaison de deux documents.",
