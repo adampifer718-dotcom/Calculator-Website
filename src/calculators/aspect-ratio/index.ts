@@ -56,7 +56,7 @@ export const aspectRatio = defineCalculator({
     {
       title: "An ultrawide monitor at 2560 × 1080 pixels",
       inputs: { mode: "simplify", width: 2560, height: 1080 },
-      steps: ["gcd(2560, 1080) = 40", "2560 ÷ 40 = 64 and 1080 ÷ 40 = 27, so the ratio is 64:27", "64 ÷ 27 ≈ 2.3704, about 1.59% wider than 21:9 (2.3333)"],
+      steps: ["gcd(2560, 1080) = 40", "2560 ÷ 40 = 64 and 1080 ÷ 40 = 27, so the ratio is 64:27", "64 ÷ 27 ≈ 2.3704: 1.59% wider than “21:9” (2.3333) and 0.82% narrower than 2.39:1, the nearest common ratio"],
       expectedPrimary: "64:27",
     },
     {

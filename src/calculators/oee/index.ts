@@ -13,7 +13,7 @@ export const oee = defineCalculator({
   collections: ["manufacturing-operations", "business"],
   summary: "Calculate overall equipment effectiveness from planned time, stops, ideal cycle time and piece counts, with availability, performance, quality and the time lost to each.",
   metaTitle: "OEE Calculator – Availability × Performance × Quality",
-  metaDescription: "Work out overall equipment effectiveness (OEE) from planned time, stop time, ideal cycle time or rate and good and rejected pieces, with the time lost to each loss.",
+  metaDescription: "Work out overall equipment effectiveness (OEE) from planned time, stops, ideal cycle time or rate and rejected pieces, with the time lost to each loss.",
   keywords: ["oee calculator", "overall equipment effectiveness", "oee formula", "availability performance quality", "ideal cycle time", "manufacturing efficiency", "machine utilization", "production losses"],
   addedOn: "2026-10-28",
   sources: [

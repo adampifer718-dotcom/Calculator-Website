@@ -9,9 +9,9 @@ Every factor is defined in code from exact definitions or NIST SP 811 values and
 
 | | Count |
 | --- | --- |
-| Converters in the catalogue | 97 |
+| Converters in the catalogue | 104 |
 | Served by existing calculator pages (reused, not duplicated) | 7 |
-| New converter pages under `/unit-converters/` | 90 |
+| New converter pages under `/unit-converters/` | 97 |
 | New converter pages complete in all 9 languages | 90 |
 
 Currency runs in manual-rate mode: no exchange-rate provider is configured, so no rates are fetched or stored.
@@ -134,7 +134,7 @@ Currency runs in manual-rate mode: no exchange-rate provider is configured, so n
 | Radiation Exposure Converter | `/unit-converters/radiation-exposure-converter` | 8 | exact | 9 / 9 | [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8) |
 | Absorbed Dose Converter | `/unit-converters/radiation-absorbed-dose-converter` | 10 | exact | 9 / 9 | [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8), [Bureau International des Poids et Mesures](https://www.bipm.org/en/si-brochure-9) |
 
-## Other (19)
+## Other (26)
 
 | Converter | Page | Units | Verification | Languages | Sources |
 | --- | --- | --- | --- | --- | --- |
@@ -146,6 +146,7 @@ Currency runs in manual-rate mode: no exchange-rate provider is configured, so n
 | Astronomical Distance Converter | `/unit-converters/astronomical-distance-converter` | 8 | exact | 9 / 9 | [Paris Observatory – PSL](https://observatoiredeparis.psl.eu/the-new-definition-of-the-astronomical-unit.html), International Astronomical Union |
 | Parts Per Million Converter | `/unit-converters/ppm-converter` | 8 | exact | 9 / 9 | [National Institute of Standards and Technology](https://www.nist.gov/pml/special-publication-811) |
 | Paper Weight Converter | `/unit-converters/paper-weight-converter` | 7 | standard | 9 / 9 | [Neenah Paper](https://www.neenahpaper.com/resources/paper-101/basis-weights) |
+| Yarn Count Converter | `/unit-converters/yarn-count-converter` | 11 | standard | 1 / 9 | [ASTM International](https://www.astm.org/d2260-03r13.html), [Swicofil](https://www.swicofil.com/commerce/basic-information/yarn-manual/yarn-numbering-systems), [National Institute of Standards and Technology (NIST)](https://doi.org/10.6028/NIST.SP.811e2008) |
 | Roman Numeral Converter | `/unit-converters/roman-numeral-converter` | tool | exact | 9 / 9 | Encyclopaedia Britannica |
 | Unix Timestamp Converter | `/unit-converters/unix-timestamp-converter` | tool | exact | 9 / 9 | [The Open Group / Linux man-pages project](https://man.archlinux.org/man/time.3p.en), [Ecma International (TC39)](https://tc39.es/ecma262/pr/3966/multipage/dates-and-temporal.html) |
 | Color Converter | `/unit-converters/color-converter` | tool | exact | 9 / 9 | [World Wide Web Consortium (W3C)](https://drafts.csswg.org/css-color/Overview.bs) |
@@ -157,6 +158,12 @@ Currency runs in manual-rate mode: no exchange-rate provider is configured, so n
 | Tire Size Converter | `/unit-converters/tire-size-converter` | tool | exact | 9 / 9 | Tire and Rim Association / ETRTO conventions |
 | Decimal to Fraction Converter | `/unit-converters/decimal-to-fraction-converter` | tool | exact | 9 / 9 | Encyclopaedia Britannica |
 | Paper Size Converter | `/unit-converters/paper-size-converter` | tool | exact | 9 / 9 | International Organization for Standardization |
+| Word and Character Counter | `/unit-converters/word-counter` | tool | standard | 1 / 9 | [Marc Brysbaert, Journal of Memory and Language 109 (2019)](https://doi.org/10.1016/j.jml.2019.104047), [Unicode Consortium](https://www.unicode.org/reports/tr29/) |
+| HTML Entity Encoder and Decoder | `/unit-converters/html-entity-encoder` | tool | exact | 1 / 9 | [WHATWG](https://html.spec.whatwg.org/multipage/named-characters.html) |
+| SHA Hash Generator | `/unit-converters/hash-generator` | tool | exact | 1 / 9 | [National Institute of Standards and Technology (NIST)](https://csrc.nist.gov/pubs/fips/180-4/upd1/final), [MDN Web Docs](https://developer.mozilla.org/docs/Web/API/SubtleCrypto/digest) |
+| Unicode Code Point Converter | `/unit-converters/unicode-converter` | tool | exact | 1 / 9 | [Unicode Consortium](https://www.unicode.org/versions/latest/), [Internet Engineering Task Force (IETF)](https://www.rfc-editor.org/rfc/rfc3629) |
+| Time Zone Converter | `/unit-converters/time-zone-converter` | tool | standard | 1 / 9 | [Internet Assigned Numbers Authority (IANA)](https://www.iana.org/time-zones) |
+| JSON Formatter and Validator | `/unit-converters/json-formatter` | tool | exact | 1 / 9 | [Internet Engineering Task Force (IETF)](https://www.rfc-editor.org/rfc/rfc8259) |
 
 ## Not implemented
 

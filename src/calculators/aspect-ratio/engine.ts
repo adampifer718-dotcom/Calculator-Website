@@ -163,7 +163,7 @@ export function makeAspectRatioEngine(ctx: EngineContext<AspectRatioText>) {
             highlight: i === near.index,
           })),
         };
-        const marketing = COMMON_RATIOS[near.index].w === 21;
+        const marketing = Math.abs(decimal / (21 / 9) - 1) < 0.03;
         return {
           primary: {
             label: t.primaryRatio,

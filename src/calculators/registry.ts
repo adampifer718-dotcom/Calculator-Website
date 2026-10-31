@@ -83,6 +83,26 @@ import { coffeeRatio } from "./coffee-ratio";
 import { carbonFootprintDriving } from "./carbon-footprint-driving";
 import { windTurbine } from "./wind-turbine";
 import { batteryLife } from "./battery-life";
+import { aspectRatio } from "./aspect-ratio";
+import { uptimeSla } from "./uptime-sla";
+import { oee } from "./oee";
+import { taktTime } from "./takt-time";
+import { resistorColorCode } from "./resistor-color-code";
+import { dnaToMrna } from "./dna-to-mrna";
+import { hemocytometer } from "./hemocytometer";
+import { proteinConcentration } from "./protein-concentration";
+import { feedConversionRatio } from "./feed-conversion-ratio";
+import { shannonIndex } from "./shannon-index";
+import { solarPanelOutput } from "./solar-panel-output";
+import { fertilizer } from "./fertilizer";
+import { waterFootprint } from "./water-footprint";
+import { foodCostPercentage } from "./food-cost-percentage";
+import { abv } from "./abv";
+import { voltageDivider } from "./voltage-divider";
+import { waistToHeight } from "./waist-to-height";
+import { bsa } from "./bsa";
+import { passerRating } from "./passer-rating";
+import { era } from "./era";
 import { passwordEntropy } from "./password-entropy";
 import { subnet } from "./subnet";
 import { npv } from "./npv";
@@ -268,6 +288,26 @@ export const ALL_CALCULATORS: readonly CalculatorDefinition[] = [] = [
   bakersPercentage,
   roofing,
   stairs,
+  dnaToMrna,
+  hemocytometer,
+  proteinConcentration,
+  feedConversionRatio,
+  shannonIndex,
+  solarPanelOutput,
+  fertilizer,
+  waterFootprint,
+  foodCostPercentage,
+  abv,
+  voltageDivider,
+  waistToHeight,
+  bsa,
+  passerRating,
+  era,
+  aspectRatio,
+  uptimeSla,
+  oee,
+  taktTime,
+  resistorColorCode,
 ];
 
 /**
