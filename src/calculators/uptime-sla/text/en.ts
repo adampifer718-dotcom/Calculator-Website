@@ -64,7 +64,8 @@ const text = {
     h: "{n} h",
     min: "{n} min",
     s: "{n} s",
-    join: " ",
+    /** Joins two parts of a duration, e.g. "2 h" and "5 min". */
+    pair: "{a} {b}",
   },
   notes: {
     periods: "A year is taken as 365 days and a month as one twelfth of that (30.42 days). Contracts may define the period differently, for example as a calendar month, and often exclude planned maintenance.",

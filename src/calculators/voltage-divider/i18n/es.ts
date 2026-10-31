@@ -9,7 +9,7 @@ const es: CalculatorTranslation<VoltageDividerText> = {
       "Calcula la tensión de salida de un divisor de dos resistencias, o la resistencia necesaria para una tensión objetivo, con la corriente, la potencia, el efecto de la carga y el valor E24 más cercano.",
     metaTitle: "Calculadora de divisor de tensión – Vout, R1, R2 y carga",
     metaDescription:
-      "Calcula la tensión de salida de un divisor resistivo, o despeja R1 o R2, con la corriente, la potencia en cada resistencia, la salida con carga y el valor E24 más cercano.",
+      "Calcula la tensión de salida de un divisor resistivo o despeja R1 o R2, con la corriente, la potencia de cada resistencia, la salida con carga y el valor E24.",
     keywords: [
       "divisor de tensión",
       "divisor de voltaje",
@@ -38,7 +38,7 @@ const es: CalculatorTranslation<VoltageDividerText> = {
       },
       {
         title: "Cálculo de una resistencia",
-        expression: "R2 = R1 × Vout ÷ (Vin − Vout)\nR1 = R2 × (Vin − Vout) ÷ Vout",
+        expression: "R2 = R1 × Vout ÷ (Vin − Vout)\no bien R1 = R2 × (Vin − Vout) ÷ Vout",
         explanation: "Despejadas de la ecuación del divisor. Vout debe estar entre 0 y Vin.",
       },
       {

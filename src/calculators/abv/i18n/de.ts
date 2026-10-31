@@ -7,7 +7,7 @@ const de: CalculatorTranslation<AbvText> = {
     shortTitle: "Alkohol aus Stammwürze",
     summary: "Schätzen Sie den Alkoholgehalt von selbst gebrautem Bier, Wein oder Cidre aus Stammwürze und Restextrakt, als spezifisches Gewicht oder in Grad Plato.",
     metaTitle: "Alkoholgehaltrechner (ABV) – Vol.-% aus OG und FG",
-    metaDescription: "Schätzen Sie den Alkoholgehalt (Vol.-%) Ihres Hausgebrauten aus Stammwürze und Restextrakt (SG oder °P) – mit Standard- und Alternativformel, Gew.-% und Vergärungsgrad.",
+    metaDescription: "Schätzen Sie den Alkoholgehalt Ihres Hausgebrauten aus Stammwürze und Restextrakt (SG oder °P) – mit zwei Formeln, Gew.-% und scheinbarem Vergärungsgrad.",
     keywords: ["Alkoholgehalt berechnen", "ABV Rechner", "Vol.-% Bier", "Stammwürze", "Restextrakt", "Bierbrauen Alkohol", "Grad Plato", "scheinbarer Vergärungsgrad"],
     intro: [
       "Hefe wandelt Zucker in Alkohol und Kohlendioxid um, und weil Alkohol leichter als Wasser ist, sinkt die Dichte von Bier, Wein oder Cidre während der Gärung. Hobbybrauer messen diese Dichte vor und nach der Gärung mit einer Bierspindel (Aräometer) oder einem Refraktometer, als Stammwürze (Original Gravity, OG) und als Restextrakt (Final Gravity, FG).",

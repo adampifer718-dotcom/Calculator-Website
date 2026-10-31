@@ -9,7 +9,7 @@ const es: CalculatorTranslation<AbvText> = {
       "Estima el contenido alcohólico de una cerveza, un vino o una sidra caseros a partir de la densidad original y la final, en densidad relativa o en grados Plato.",
     metaTitle: "Calculadora de grado alcohólico (ABV) – Con OG y FG",
     metaDescription:
-      "Estima el ABV de tu cerveza casera a partir de la densidad original y la final (SG o °Plato) con la fórmula estándar y la alternativa, más el ABW y la atenuación aparente.",
+      "Estima el ABV de tu cerveza casera con la densidad original y la final (SG o °Plato), con la fórmula estándar y la alternativa, el ABW y la atenuación aparente.",
     keywords: [
       "calculadora ABV",
       "grado alcohólico",

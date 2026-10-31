@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<AbvText> = {
     summary: "Schat het alcoholgehalte van zelfgebrouwen bier, wijn of cider uit de begin- en einddichtheid, in soortelijk gewicht of graden Plato.",
     metaTitle: "Alcoholpercentagecalculator – ABV uit OG en FG",
     metaDescription:
-      "Schat het alcoholpercentage van zelfgebrouwen bier uit begin- en einddichtheid (SG of °Plato) met de standaard- en alternatieve formule, plus ABW en vergistingsgraad.",
+      "Schat het alcoholpercentage van zelfgebrouwen bier uit begin- en einddichtheid (SG of °Plato) met twee formules, plus ABW en schijnbare vergistingsgraad.",
     keywords: ["alcoholpercentage berekenen", "abv calculator", "begindichtheid", "einddichtheid", "bier brouwen", "hydrometer", "graden plato", "vergistingsgraad"],
     intro: [
       "Gist zet suiker om in alcohol en koolzuur, en omdat alcohol lichter is dan water, daalt de dichtheid van bier, wijn of cider tijdens de vergisting. Thuisbrouwers meten die dichtheid met een hydrometer of refractometer voor en na de vergisting, als begindichtheid (OG) en einddichtheid (FG).",

@@ -7,7 +7,7 @@ const de: CalculatorTranslation<VoltageDividerText> = {
     shortTitle: "Spannungsteiler",
     summary: "Ermitteln Sie die Ausgangsspannung eines Spannungsteilers aus zwei Widerständen oder den Widerstand für eine Zielspannung – mit Strom, Leistung, Lasteinfluss und nächstem E24-Wert.",
     metaTitle: "Spannungsteilerrechner – Vout, R1, R2 und Last",
-    metaDescription: "Berechnen Sie die Ausgangsspannung eines Spannungsteilers oder lösen Sie nach R1 oder R2 auf – mit Strom, Verlustleistung, belasteter Spannung und nächstem E24-Wert.",
+    metaDescription: "Berechnen Sie die Ausgangsspannung eines Spannungsteilers oder lösen Sie nach R1 oder R2 auf – mit Strom, Leistung, Lasteinfluss und nächstem E24-Wert.",
     keywords: ["Spannungsteiler berechnen", "Widerstandsteiler", "Vout Formel", "Spannungsteiler Formel", "R1 R2 Rechner", "Teilerverhältnis", "belasteter Spannungsteiler", "E24-Reihe"],
     intro: [
       "Ein Spannungsteiler besteht aus zwei in Reihe geschalteten Widerständen an einer Spannung. Der Punkt zwischen ihnen liegt auf einem festen Bruchteil der Eingangsspannung, der allein vom Verhältnis der Widerstände bestimmt wird. Spannungsteiler dienen dazu, ein Signal für den Eingang eines Mikrocontrollers herunterzuskalieren, einen Arbeitspunkt einzustellen oder eine Referenz zu erzeugen.",
@@ -27,7 +27,7 @@ const de: CalculatorTranslation<VoltageDividerText> = {
       },
       {
         title: "Auflösen nach einem Widerstand",
-        expression: "R2 = R1 × Vout ÷ (Vin − Vout)\nR1 = R2 × (Vin − Vout) ÷ Vout",
+        expression: "R2 = R1 × Vout ÷ (Vin − Vout)\nbzw. R1 = R2 × (Vin − Vout) ÷ Vout",
         explanation: "Umgestellt aus der Teilergleichung. Vout muss zwischen 0 und Vin liegen.",
       },
       {

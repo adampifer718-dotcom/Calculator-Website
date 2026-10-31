@@ -9,7 +9,7 @@ const es: CalculatorTranslation<ShannonIndexText> = {
       "Calcula el índice de diversidad de Shannon H′, la equitatividad de Pielou, el número efectivo de especies y los índices de Simpson a partir del número de individuos por especie.",
     metaTitle: "Índice de Shannon – Calcula H′ y la equitatividad",
     metaDescription:
-      "Obtén el índice de Shannon H′ a partir de recuentos de especies en ln, log2 o log10, con la equitatividad de Pielou J′, el número efectivo de especies y los índices de Simpson.",
+      "Calcula el índice de Shannon H′ (ln, log2 o log10) de tus recuentos de especies, con la equitatividad J′, el número efectivo de especies y el índice de Simpson.",
     keywords: [
       "índice de Shannon",
       "índice de Shannon-Wiener",
@@ -25,7 +25,7 @@ const es: CalculatorTranslation<ShannonIndexText> = {
       "Esta calculadora da H′ en la base logarítmica que elijas, la equitatividad de Pielou J′, el número efectivo de especies y el índice de Simpson con sus formas de Gini-Simpson e inversa, además de una tabla con la proporción del total que representa cada especie.",
     ],
     howToUse: [
-      "Introduce el número de individuos contados de cada especie, un recuento por especie, separados por comas, espacios o saltos de línea.",
+      "Introduce el número de individuos contados de cada especie, un recuento por especie, separados por punto y coma, espacios o saltos de línea.",
       "Elige la base del logaritmo. El logaritmo natural es el más habitual en ecología; la base 2 da H′ en bits.",
       "Consulta H′ y los demás índices. Se admiten recuentos de cero, pero se ignoran, y el resultado indica cuántos había.",
     ],
@@ -106,13 +106,13 @@ const es: CalculatorTranslation<ShannonIndexText> = {
   },
   text: {
     counts: "Individuos contados por especie",
-    countsHelp: "Un recuento entero por especie, separado por comas, espacios o saltos de línea. Los ceros se ignoran.",
+    countsHelp: "Un recuento entero por especie, separado por punto y coma, espacios o saltos de línea. Los ceros se ignoran.",
     base: "Base del logaritmo",
     bases: { e: "Logaritmo natural (ln), la opción habitual", "2": "Base 2 (bits)", "10": "Base 10" },
     errors: {
       empty: "Introduce al menos un recuento.",
       tooMany: "Introduce como máximo {max} recuentos.",
-      notNumber: "«{token}» no es un número. Separa los recuentos con comas, espacios o saltos de línea.",
+      notNumber: "«{token}» no es un número. Separa los recuentos con punto y coma, espacios o saltos de línea.",
       tooLarge: "«{token}» es demasiado grande.",
       notInteger: "{value} no es un número entero. Introduce el número de individuos de cada especie.",
       negative: "Los recuentos no pueden ser negativos ({value}).",

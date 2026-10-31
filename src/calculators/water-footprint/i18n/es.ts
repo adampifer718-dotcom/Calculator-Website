@@ -9,7 +9,7 @@ const es: CalculatorTranslation<WaterFootprintText> = {
       "Estima cuánta agua gastan al año las duchas de tu hogar, la energía y el coste de calentarla, y cuánto ahorraría una alcachofa de menor caudal.",
     metaTitle: "Calculadora del consumo de agua en la ducha – Litros y kWh",
     metaDescription:
-      "Estima el agua anual de las duchas a partir del caudal, la duración y la frecuencia, con la energía y el coste de calentarla y el ahorro de una alcachofa de bajo caudal.",
+      "Estima el agua anual de tus duchas según caudal, duración y frecuencia, la energía y el coste de calentarla y el ahorro de una alcachofa de bajo caudal.",
     keywords: [
       "consumo de agua ducha",
       "litros por ducha",

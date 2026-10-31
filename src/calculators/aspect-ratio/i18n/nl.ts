@@ -1,0 +1,128 @@
+import type { CalculatorTranslation } from "@/calculators/framework/types";
+import type { AspectRatioText } from "../text/en";
+
+const nl: CalculatorTranslation<AspectRatioText> = {
+  content: {
+    title: "Beeldverhoudingcalculator",
+    shortTitle: "Beeldverhouding",
+    summary: "Bepaal de beeldverhouding van een afbeelding of schermformaat, schaal zonder vervorming naar een verhouding, of bereken de breedte en hoogte van een scherm uit de diagonaal.",
+    metaTitle: "Beeldverhoudingcalculator – vereenvoudigen en schalen",
+    metaDescription:
+      "Herleid breedte × hoogte tot een beeldverhouding, vind de dichtstbijzijnde gangbare verhouding, schaal in hele pixels of bereken een scherm uit de diagonaal.",
+    keywords: ["beeldverhouding berekenen", "16:9 calculator", "afbeelding schalen", "schermformaat berekenen", "aspect ratio", "21:9 verhouding", "breedte hoogte verhouding", "tv afmetingen diagonaal"],
+    intro: [
+      "Een beeldverhouding beschrijft de vorm van een afbeelding of scherm: de breedte vergeleken met de hoogte, geschreven als B:H. Een video van 1920 × 1080 en een van 3840 × 2160 verschillen in grootte, maar hebben dezelfde 16:9-vorm, dus de ene kan zonder uitrekken naar de andere worden geschaald.",
+      "Deze calculator doet drie dingen. Hij herleidt elke breedte en hoogte tot de kleinste verhouding in hele getallen en vergelijkt die met gangbare formaten; hij berekent de ontbrekende zijde als je naar een verhouding schaalt; en hij zet de diagonaal van een scherm om in breedte, hoogte en oppervlakte. Voor algemene verhoudingen tussen willekeurige grootheden kun je de Verhoudingscalculator gebruiken.",
+    ],
+    howToUse: [
+      "Kies wat je wilt doen.",
+      "Vul om een verhouding te vinden de breedte en hoogte in dezelfde eenheid in, meestal pixels. Decimale getallen worden eerst naar hele getallen geschaald voordat de verhouding wordt vereenvoudigd.",
+      "Vul om te schalen de verhouding in (bijvoorbeeld 16 en 9), kies of je de nieuwe breedte of de nieuwe hoogte weet en vul die in. De andere zijde wordt exact getoond en afgerond op hele pixels.",
+      "Vul voor een scherm de diagonaal in inch of centimeter in en de verhouding. De breedte, hoogte en oppervlakte worden in beide eenheden getoond.",
+    ],
+    formulas: [
+      { title: "Vereenvoudigde verhouding", expression: "B:H = (breedte ÷ g) : (hoogte ÷ g), g = ggd(breedte, hoogte)", explanation: "g is de grootste gemene deler, gevonden met het algoritme van Euclides. Decimale maten worden eerst met een macht van 10 vermenigvuldigd om er hele getallen van te maken." },
+      { title: "Schalen", expression: "nieuwe hoogte = nieuwe breedte × H ÷ B;  nieuwe breedte = nieuwe hoogte × B ÷ H", explanation: "Dezelfde verhouding behouden betekent beide zijden met dezelfde factor schalen." },
+      { title: "Schermformaat", expression: "breedte = d × B ÷ √(B² + H²);  hoogte = d × H ÷ √(B² + H²)", explanation: "De diagonaal d is de schuine zijde van een rechthoekige driehoek waarvan de zijden zich verhouden als B:H. De oppervlakte is breedte × hoogte." },
+      { title: "Verschil met een gangbare verhouding", expression: "verschil = (breedte ÷ hoogte) ÷ (Bc ÷ Hc) − 1", explanation: "Weergegeven als percentage. De dichtstbijzijnde gangbare verhouding is die met het kleinste verschil." },
+    ],
+    examples: [
+      {
+        title: "Een ultrabrede monitor van 2560 × 1080 pixels",
+        steps: ["ggd(2560, 1080) = 40", "2560 ÷ 40 = 64 en 1080 ÷ 40 = 27, dus de verhouding is 64:27", "64 ÷ 27 ≈ 2,3704: 1,59% breder dan „21:9” (2,3333) en 0,82% smaller dan 2,39:1, de dichtstbijzijnde gangbare verhouding"],
+      },
+      {
+        title: "Een 4:3-dia schalen naar een hoogte van 900 pixels",
+        steps: ["Nieuwe breedte = 900 × 4 ÷ 3 = 1.200", "Beide zijden zijn al hele getallen, dus afronden is niet nodig"],
+      },
+      {
+        title: "Een scherm van 81 cm in 4:3",
+        steps: ["√(4² + 3²) = 5", "Breedte = 81 × 4 ÷ 5 = 64,8 cm; hoogte = 81 × 3 ÷ 5 = 48,6 cm", "Oppervlakte = 64,8 × 48,6 = 3.149,28 cm²"],
+      },
+    ],
+    assumptions: [
+      "De breedte en hoogte gebruiken dezelfde eenheid en beschrijven vierkante pixels. Sommige oudere videoformaten gebruiken niet-vierkante pixels, waardoor de opgeslagen grootte en de weergegeven vorm verschillen.",
+      "De lijst met gangbare verhoudingen dient alleen ter vergelijking. Vooral „21:9” is een marketingnaam: schermen van 2560 × 1080 zijn 64:27, en breedbeeld in de bioscoop wordt vaak opgegeven als 2,39:1.",
+      "De diagonaal van een scherm wordt gemeten over het zichtbare beeld. Randen, de bezel en de kromming van gebogen schermen tellen niet mee.",
+    ],
+    faqs: [
+      { question: "Waarom is 1366 × 768 niet precies 16:9?", answer: "1366 × 768 herleidt tot 683:384, ongeveer 1,7786:1, wat binnen 0,05% van 16:9 (1,7778:1) ligt. Schermfabrikanten rondden de breedte af op een handig getal, dus het wordt als 16:9 verkocht, ook al is de vereenvoudigde verhouding dat niet." },
+      { question: "Hoe houd ik de verhouding exact bij het schalen?", answer: "Kies een breedte die een veelvoud is van het breedtedeel van de verhouding. Bij 16:9 geeft elke breedte die een veelvoud van 16 is, zoals 1280 of 1920, een hoogte in hele getallen. Andere breedtes moeten worden afgerond, wat de vorm een heel klein beetje verandert." },
+      { question: "Laat een groter 21:9-scherm meer zien dan een 16:9-scherm met dezelfde diagonaal?", answer: "Niet per se. Bij dezelfde diagonaal is een breder scherm lager en is de oppervlakte kleiner. Gebruik de modus voor het schermformaat voor beide vormen en vergelijk de hoogte en oppervlakte." },
+    ],
+    sourcesUsedFor: [
+      "Dat „21:9” een marketingnaam is voor ultrabrede schermen waarvan de werkelijke verhouding 64:27 is (ongeveer 2,37:1), bijvoorbeeld 2560 × 1080.",
+      "Resoluties van ultrabrede schermen en hun exacte verhoudingen, zoals 2560 × 1080 (64:27).",
+      "De breedte en hoogte van een scherm uit de diagonaal en de beeldverhouding met de stelling van Pythagoras.",
+    ],
+  },
+  text: {
+    mode: "Wat wil je doen?",
+    modes: {
+      simplify: "De verhouding van een formaat bepalen",
+      resize: "Schalen naar een verhouding",
+      screen: "Schermformaat uit de diagonaal",
+    },
+    width: "Breedte",
+    height: "Hoogte",
+    sizeHelp: "In pixels of een andere eenheid, zolang beide dezelfde gebruiken. Decimalen zijn toegestaan.",
+    ratioWidth: "Breedte van de verhouding (B)",
+    ratioHeight: "Hoogte van de verhouding (H)",
+    ratioHelp: "Vul voor 16:9 16 en 9 in. Decimale verhoudingen zoals 2,39:1 werken ook.",
+    knownSide: "Welke nieuwe zijde weet je?",
+    knownSides: { width: "De nieuwe breedte", height: "De nieuwe hoogte" },
+    newSize: "Nieuwe maat",
+    newSizeHelp: "De gewenste breedte of hoogte, meestal in pixels.",
+    diagonal: "Schermdiagonaal",
+    lengthUnit: "Eenheid van lengte",
+    lengthUnits: { in: "Inch (in)", cm: "Centimeter (cm)" },
+    errors: {
+      tooPrecise: "Gebruik hoogstens 6 decimalen, zodat de verhouding exact kan worden vereenvoudigd.",
+      tooLarge: "Deze waarden zijn te groot om exact te vereenvoudigen. Gebruik kleinere getallen.",
+    },
+    ratioText: "{w}:{h}",
+    sizeText: "{w} × {h}",
+    sizeUnitText: "{w} × {h} {unit}",
+    primaryRatio: "Vereenvoudigde beeldverhouding",
+    primaryResize: "Nieuw formaat (hele pixels)",
+    primaryScreen: "Breedte × hoogte van het scherm",
+    captionSimplify: "{w} × {h} herleidt tot {ratio} door beide zijden te delen door {gcd}.",
+    captionResize: "Met behoud van de {ratio}-vorm: {side} van {size}.",
+    captionScreen: "Een diagonaal van {diagonal} {unit} bij {ratio}.",
+    sides: { width: "een breedte", height: "een hoogte" },
+    decimalRatio: "Decimale verhouding (breedte ÷ hoogte)",
+    decimalSuffix: ":1",
+    nearest: "Dichtstbijzijnde gangbare verhouding",
+    difference: "Verschil met de dichtstbijzijnde gangbare verhouding",
+    orientation: "Oriëntatie",
+    orientations: { landscape: "Liggend (breder dan hoog)", portrait: "Staand (hoger dan breed)", square: "Vierkant" },
+    pixels: "Totaal aantal pixels (als het formaat in pixels is)",
+    inputRatio: "Verhouding in kleinste termen",
+    exactWidth: "Exacte breedte",
+    exactHeight: "Exacte hoogte",
+    roundedWidth: "Breedte afgerond op hele pixels",
+    roundedHeight: "Hoogte afgerond op hele pixels",
+    roundedRatio: "Decimale verhouding na afronding",
+    screenWidth: "Breedte",
+    screenHeight: "Hoogte",
+    screenArea: "Schermoppervlakte",
+    otherWidth: "Breedte in {unit}",
+    otherHeight: "Hoogte in {unit}",
+    otherArea: "Oppervlakte in {unit}",
+    table: {
+      caption: "Gangbare beeldverhoudingen vergeleken met de jouwe",
+      ratio: "Verhouding",
+      decimal: "Decimaal (B ÷ H)",
+      difference: "Jouw verhouding vergeleken hiermee",
+    },
+    notes: {
+      marketing: "„21:9” is een marketingnaam. Ultrabrede monitoren zoals 2560 × 1080 zijn eigenlijk 64:27 (ongeveer 2,37:1), en 3440 × 1440 is 43:18 (ongeveer 2,39:1).",
+      rounding: "Afronden op hele pixels verandert de vorm heel licht. Breedtes die een veelvoud van {w} zijn, of hoogtes die een veelvoud van {h} zijn, houden de verhouding exact.",
+      roundingSimple: "Afronden op hele pixels verandert de vorm heel licht.",
+      diagonal: "Schermformaten worden diagonaal over het zichtbare beeld gemeten. De rand (bezel) telt niet mee, en gebogen schermen worden langs de kromming gemeten.",
+      difference: "Het verschil is jouw decimale verhouding vergeleken met elke gangbare verhouding: een positieve waarde betekent dat jouw vorm breder is.",
+    },
+  },
+};
+
+export default nl;

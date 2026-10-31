@@ -9,7 +9,7 @@ const pt: CalculatorTranslation<SolarPanelOutputText> = {
       "Estime quantos quilowatts-hora um conjunto de painéis solares produz por dia, mês e ano, e que dimensão de sistema cobriria o seu consumo de eletricidade.",
     metaTitle: "Produção de painéis solares – kWh por dia e por ano",
     metaDescription:
-      "Estime a produção de painéis solares em kWh por dia, mês e ano a partir da potência, das horas de sol de pico e das perdas, e dimensione um sistema para o seu consumo.",
+      "Estime a produção solar em kWh por dia, mês e ano pela potência dos painéis, horas de sol de pico e perdas, e dimensione o sistema para o seu consumo.",
     keywords: ["calculadora de painéis solares", "produção solar", "kWh por ano", "horas de sol de pico", "dimensão do sistema fotovoltaico", "quantos painéis solares", "perdas fotovoltaicas"],
     intro: [
       "A potência nominal de um painel solar indica quanta potência produz em condições de teste padrão: sol pleno de 1000 watts por metro quadrado com uma temperatura das células de 25 °C. A produção real depende da quantidade de luz solar que chega efetivamente aos painéis ao longo do dia, normalmente resumida em horas de sol de pico, e das perdas no resto do sistema.",

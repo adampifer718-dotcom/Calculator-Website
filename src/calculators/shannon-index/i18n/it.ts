@@ -9,7 +9,7 @@ const it: CalculatorTranslation<ShannonIndexText> = {
       "Calcola l'indice di diversità di Shannon H′, l'equiripartizione di Pielou, il numero effettivo di specie e gli indici di Simpson dal numero di individui per specie.",
     metaTitle: "Indice di diversità di Shannon – H′ ed equiripartizione",
     metaDescription:
-      "Trova l'indice di Shannon H′ dai conteggi per specie in ln, log2 o log10, con l'equiripartizione di Pielou J′, il numero effettivo di specie e gli indici di Simpson.",
+      "Trova l'indice di Shannon H′ dai conteggi per specie in ln, log2 o log10, con equiripartizione di Pielou J′, numero effettivo di specie e indici di Simpson.",
     keywords: [
       "indice di Shannon",
       "indice di Shannon-Wiener",
@@ -25,7 +25,7 @@ const it: CalculatorTranslation<ShannonIndexText> = {
       "Questo calcolatore fornisce H′ nella base del logaritmo che scegli, l'equiripartizione di Pielou J′, il numero effettivo di specie e l'indice di Simpson con le sue forme di Gini-Simpson e inversa, oltre a una tabella con la proporzione di ciascuna specie sul totale.",
     ],
     howToUse: [
-      "Inserisci il numero di individui contati per ciascuna specie, un conteggio per specie, separati da virgole, spazi o a capo.",
+      "Inserisci il numero di individui contati per ciascuna specie, un conteggio per specie, separati da punti e virgola, spazi o a capo.",
       "Scegli la base del logaritmo. Il logaritmo naturale è il più comune in ecologia; la base 2 dà H′ in bit.",
       "Leggi H′ e gli altri indici. I conteggi pari a zero sono ammessi ma ignorati, e il risultato indica quanti erano.",
     ],
@@ -106,13 +106,13 @@ const it: CalculatorTranslation<ShannonIndexText> = {
   },
   text: {
     counts: "Individui contati per specie",
-    countsHelp: "Un conteggio intero per specie, separati da virgole, spazi o a capo. Gli zeri vengono ignorati.",
+    countsHelp: "Un conteggio intero per specie, separati da punti e virgola, spazi o a capo. Gli zeri vengono ignorati.",
     base: "Base del logaritmo",
     bases: { e: "Logaritmo naturale (ln), la scelta abituale", "2": "Base 2 (bit)", "10": "Base 10" },
     errors: {
       empty: "Inserisci almeno un conteggio.",
       tooMany: "Inserisci al massimo {max} conteggi.",
-      notNumber: "“{token}” non è un numero. Separa i conteggi con virgole, spazi o a capo.",
+      notNumber: "“{token}” non è un numero. Separa i conteggi con punti e virgola, spazi o a capo.",
       tooLarge: "“{token}” è troppo grande.",
       notInteger: "{value} non è un numero intero. Inserisci il numero di individui di ciascuna specie.",
       negative: "I conteggi non possono essere negativi ({value}).",

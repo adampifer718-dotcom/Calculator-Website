@@ -9,7 +9,7 @@ const es: CalculatorTranslation<DnaToMrnaText> = {
       "Transcribe una secuencia de ADN a ARNm y tradúcela a proteína con el código genético estándar, con la cadena complementaria y el contenido en GC.",
     metaTitle: "Traductor de ADN a ARNm – Transcripción y traducción",
     metaDescription:
-      "Convierte una cadena de ADN codificante o molde en ARNm y luego en proteína, con códigos de una y tres letras según el código genético estándar y el contenido en GC.",
+      "Pasa una cadena de ADN codificante o molde a ARNm y luego a proteína (código de una y tres letras) con el código genético estándar, más el contenido en GC.",
     keywords: [
       "adn a arnm",
       "transcripción",

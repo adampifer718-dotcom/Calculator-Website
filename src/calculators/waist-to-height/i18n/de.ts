@@ -7,7 +7,7 @@ const de: CalculatorTranslation<WaistToHeightText> = {
     shortTitle: "Taille-Größe-Verhältnis",
     summary: "Teilen Sie Ihren Taillenumfang durch Ihre Körpergröße, um das Taille-Größe-Verhältnis zu erhalten, und sehen Sie, in welchen NICE-Referenzbereich für Erwachsene es fällt.",
     metaTitle: "Taille-Größe-Verhältnis – WHtR und NICE-Bereiche",
-    metaDescription: "Berechnen Sie Ihr Taille-Größe-Verhältnis in cm oder Zoll, vergleichen Sie es mit den NICE-Referenzbereichen für Erwachsene und sehen Sie die Taille bei halber Körpergröße.",
+    metaDescription: "Berechnen Sie Ihr Taille-Größe-Verhältnis in cm oder Zoll, vergleichen Sie es mit den NICE-Bereichen für Erwachsene und sehen Sie die Taille bei halber Größe.",
     keywords: ["Taille-Größe-Verhältnis", "WHtR berechnen", "Waist-to-Height-Ratio", "Taillenumfang", "Bauchfett", "Taille halbe Körpergröße", "NICE Taille Größe"],
     intro: [
       "Das Taille-Größe-Verhältnis (englisch Waist-to-Height Ratio, WHtR) ist Ihr Taillenumfang geteilt durch Ihre Körpergröße. Es ist eine einfache Möglichkeit abzuschätzen, wie viel Fett in der Körpermitte sitzt (zentrale Adipositas), was mit Typ-2-Diabetes, Bluthochdruck und Herzerkrankungen in Verbindung steht.",

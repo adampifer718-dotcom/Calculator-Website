@@ -9,7 +9,7 @@ const pt: CalculatorTranslation<FoodCostPercentageText> = {
       "Calcule a percentagem do custo de alimentos de um prato ou de todo um período a partir do inventário e das vendas, e o preço de carta que atinge um custo de alimentos pretendido.",
     metaTitle: "Custo de alimentos (%) – Custo do prato e preço de carta",
     metaDescription:
-      "Calcule a percentagem do custo de alimentos de um prato ou período a partir do inventário, compras e vendas, com o lucro bruto e o preço de carta para o seu objetivo.",
+      "Calcule a percentagem do custo de alimentos de um prato ou período pelo inventário, compras e vendas, com o lucro bruto e o preço de carta para o seu objetivo.",
     keywords: ["custo de alimentos", "percentagem do custo de alimentos", "food cost", "custo por prato", "preço de carta", "custo das mercadorias vendidas", "restauração"],
     intro: [
       "A percentagem do custo de alimentos é a parte do preço de carta, ou das vendas de comida de um restaurante, que é gasta nos ingredientes. É um dos números mais acompanhados na restauração, porque mostra rapidamente se os preços acompanham o que custa comprar a comida.",

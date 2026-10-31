@@ -9,7 +9,7 @@ const pt: CalculatorTranslation<WaterFootprintText> = {
       "Estime quanta água gastam os duches da sua casa num ano, a energia e o custo de a aquecer e quanto pouparia um chuveiro de caudal reduzido.",
     metaTitle: "Consumo de água no duche – Litros, galões e kWh",
     metaDescription:
-      "Estime a água gasta por ano nos duches a partir do caudal, da duração e da frequência, com a energia e o custo de aquecimento e a poupança de um chuveiro eficiente.",
+      "Estime a água gasta por ano nos duches pelo caudal, duração e frequência, com a energia e o custo de a aquecer e a poupança de um chuveiro de caudal reduzido.",
     keywords: ["consumo de água no duche", "litros por duche", "caudal do chuveiro", "chuveiro de caudal reduzido", "poupança de água", "custo de aquecer água", "pegada hídrica"],
     intro: [
       "Os duches são um dos maiores consumos de água na maioria das casas e, como a água é aquecida, também têm um peso visível na fatura de energia. O consumo depende de poucos fatores: o caudal do chuveiro, a duração de cada duche e a frequência com que as pessoas tomam duche.",

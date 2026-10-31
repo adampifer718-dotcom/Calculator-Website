@@ -9,7 +9,7 @@ const es: CalculatorTranslation<SolarPanelOutputText> = {
       "Estima cuántos kilovatios hora produce un conjunto de paneles solares al día, al mes y al año, y qué tamaño de instalación cubriría tu consumo eléctrico.",
     metaTitle: "Producción de paneles solares – kWh al día y al año",
     metaDescription:
-      "Estima la producción de paneles solares en kWh al día, al mes y al año a partir de los vatios, las horas solares pico y las pérdidas, y dimensiona la instalación según tu consumo.",
+      "Estima la producción solar en kWh al día, al mes y al año con los vatios, las horas solares pico y las pérdidas, y dimensiona la instalación para tu consumo.",
     keywords: [
       "calculadora paneles solares",
       "producción paneles solares",

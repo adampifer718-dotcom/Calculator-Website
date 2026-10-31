@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<FeedConversionRatioText> = {
     summary: "Bereken de voederconversie (FCR) van vee, pluimvee of vis uit het verbruikte voer en de gewichtstoename, met een voor uitval gecorrigeerde voederconversie en de voerkosten per eenheid groei.",
     metaTitle: "Voederconversiecalculator – FCR voor vee en vis",
     metaDescription:
-      "Bereken de voederconversie als voeropname ÷ groei in levend gewicht, met een voor uitval gecorrigeerde waarde, voerefficiëntie, groei per dier en voerkosten per kg.",
+      "Bereken de voederconversie als voeropname ÷ groei in levend gewicht, gecorrigeerd voor uitval, met voerefficiëntie, groei per dier en voerkosten per kg.",
     keywords: ["voederconversie", "fcr", "voerefficiëntie", "veehouderij", "pluimvee", "aquacultuur", "gewichtstoename", "voerkosten"],
     intro: [
       "De voederconversie (FCR) geeft aan hoeveel voer dieren nodig hebben om één eenheid levend gewicht aan te zetten. Een voederconversie van 2 betekent 2 kg voer per kilogram groei, of 2 lb per pond: de eenheid valt weg zolang voer en gewicht dezelfde eenheid gebruiken. Een lagere voederconversie betekent dat het voer efficiënter in groei wordt omgezet.",

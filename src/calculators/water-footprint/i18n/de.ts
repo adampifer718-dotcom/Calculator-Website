@@ -7,7 +7,7 @@ const de: CalculatorTranslation<WaterFootprintText> = {
     shortTitle: "Duschwasser",
     summary: "Schätzen Sie, wie viel Wasser die Duschen Ihres Haushalts im Jahr verbrauchen, was das Erwärmen an Energie und Geld kostet und was ein Sparduschkopf einsparen würde.",
     metaTitle: "Duschwasserrechner – Liter, Gallonen und kWh",
-    metaDescription: "Schätzen Sie den jährlichen Wasserverbrauch beim Duschen aus Durchfluss, Duschdauer und Häufigkeit – mit Energie und Kosten fürs Erwärmen und der Ersparnis eines Sparduschkopfs.",
+    metaDescription: "Schätzen Sie den Wasserverbrauch beim Duschen pro Jahr aus Durchfluss, Dauer und Häufigkeit – mit Heizenergie, Kosten und Ersparnis durch einen Sparduschkopf.",
     keywords: ["Wasserverbrauch Duschen", "Duschwasser berechnen", "Liter pro Dusche", "Sparduschkopf Ersparnis", "Durchfluss Duschkopf", "Energiekosten Duschen", "Warmwasser Kosten", "Wasserfußabdruck"],
     intro: [
       "Duschen gehören in den meisten Haushalten zu den größeren Wasserverbrauchern, und weil das Wasser erwärmt wird, machen sie auch einen spürbaren Teil der Energierechnung aus. Wie viel sie verbrauchen, hängt von wenigen Dingen ab: dem Durchfluss des Duschkopfs, der Dauer jeder Dusche und wie oft geduscht wird.",

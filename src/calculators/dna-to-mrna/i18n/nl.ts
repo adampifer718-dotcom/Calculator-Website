@@ -34,7 +34,7 @@ const nl: CalculatorTranslation<DnaToMrnaText> = {
         steps: [
           "Vervang T door U: GCAUGCCGUGGAAAUAGC.",
           "Het eerste AUG begint bij base 3, dus het leesraam is AUG CCG UGG AAA UAG, met één base (C) over.",
-          "AUG = Met, CCG = Pro, UGG = Trp, AAA = Lys, UAG = stop.",
+          "AUG = Met, CCG = Pro, UGG = Trp, AAA = Lys, UAG = stopcodon.",
           "Eiwit: MPWK (Met-Pro-Trp-Lys).",
         ],
       },
@@ -43,14 +43,14 @@ const nl: CalculatorTranslation<DnaToMrnaText> = {
         steps: [
           "Reverse complement van TCACTTAGCCAT: ATGGCTAAGTGA.",
           "Vervang T door U: AUG GCU AAG UGA.",
-          "AUG = Met, GCU = Ala, AAG = Lys, UGA = stop, dus MAK.",
+          "AUG = Met, GCU = Ala, AAG = Lys, UGA = stopcodon, dus MAK.",
         ],
       },
       {
         title: "Doorlezen bij stopcodons",
         steps: [
           "Hoofdletters, spaties verwijderd en T → U: AUG UAA CAG UGG UAG.",
-          "AUG = Met, UAA = stop, CAG = Gln, UGG = Trp, UAG = stop.",
+          "AUG = Met, UAA = stopcodon, CAG = Gln, UGG = Trp, UAG = stopcodon.",
           "Met doorlezen wordt het eiwit weergegeven als M*QW*.",
         ],
       },

@@ -7,7 +7,7 @@ const de: CalculatorTranslation<SolarPanelOutputText> = {
     shortTitle: "Solarertrag",
     summary: "Schätzen Sie, wie viele Kilowattstunden eine Anzahl Solarmodule pro Tag, Monat und Jahr erzeugt und wie groß eine Anlage für Ihren Stromverbrauch sein müsste.",
     metaTitle: "Solarertragsrechner – kWh pro Tag und Jahr",
-    metaDescription: "Schätzen Sie den Ertrag von Solarmodulen in kWh pro Tag, Monat und Jahr aus Nennleistung, Spitzensonnenstunden und Systemverlusten – mit Anlagengröße für Ihren Verbrauch.",
+    metaDescription: "Schätzen Sie den Solarertrag in kWh pro Tag, Monat und Jahr aus Modulleistung, Spitzensonnenstunden und Verlusten – mit Anlagengröße für Ihren Verbrauch.",
     keywords: ["Solarrechner", "Solarertrag berechnen", "PV-Ertrag pro Jahr", "Spitzensonnenstunden", "PV-Anlage Größe", "wie viele Solarmodule", "Systemverluste PV", "Photovoltaik Ertrag"],
     intro: [
       "Die Nennleistung eines Solarmoduls gibt an, wie viel Leistung es unter Standardtestbedingungen erzeugt: volle Sonneneinstrahlung von 1.000 Watt pro Quadratmeter bei einer Zelltemperatur von 25 °C. Der tatsächliche Ertrag hängt davon ab, wie viel Sonnenlicht im Laufe eines Tages wirklich auf die Module trifft, meist zusammengefasst als Spitzensonnenstunden (Peak Sun Hours), und von den Verlusten im übrigen System.",

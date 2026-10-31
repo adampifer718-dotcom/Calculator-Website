@@ -8,7 +8,7 @@ const fr: CalculatorTranslation<ProteinConcentrationText> = {
     summary: "Convertissez une absorbance A280 en concentration protéique en mg/mL et en µM avec la loi de Beer-Lambert, à partir d’un coefficient d’extinction molaire ou massique.",
     metaTitle: "Calculateur de concentration en protéines – A280 en mg/mL",
     metaDescription:
-      "Convertissez une A280 en concentration protéique en mg/mL et en µM avec un coefficient d’extinction molaire ou massique, ou estimez ε à partir de Trp, Tyr et cystines.",
+      "Convertissez une A280 en concentration protéique (mg/mL et µM) avec un coefficient d’extinction molaire ou massique, ou estimez ε via Trp, Tyr et cystines.",
     keywords: ["concentration en protéines", "A280", "coefficient d’extinction", "loi de Beer-Lambert", "coefficient d’absorption molaire", "dosage des protéines", "mg/mL", "tryptophane tyrosine"],
     intro: [
       "Les protéines absorbent la lumière ultraviolette vers 280 nm, surtout grâce aux acides aminés aromatiques tryptophane et tyrosine, avec une petite contribution des ponts disulfure (cystines). Selon la loi de Beer-Lambert, l’absorbance est proportionnelle à la concentration, au trajet optique et à un coefficient d’extinction propre à chaque protéine.",
@@ -34,11 +34,11 @@ const fr: CalculatorTranslation<ProteinConcentrationText> = {
       {
         title: "Coefficient d’extinction massique",
         expression: "c (mg/mL) = A × dilution ÷ (E0.1% × l), avec E0.1% = ε ÷ MM",
-        explanation: "E0.1% est l’absorbance d’une solution à 1 mg/mL (0,1 %) sur 1 cm.",
+        explanation: "E0.1% est l’absorbance d’une solution à 1 mg/mL (0,1 %) sur 1 cm.",
       },
       {
         title: "ε estimé (Pace et al. 1995)",
-        expression: "ε₂₈₀ = 5 500 × nTrp + 1 490 × nTyr + 125 × nCystine",
+        expression: "ε₂₈₀ = 5 500 × nTrp + 1 490 × nTyr + 125 × nCystine",
         explanation: "En M⁻¹ cm⁻¹, pour une protéine repliée dans l’eau. Une cystine est un pont disulfure entre deux cystéines.",
       },
     ],
@@ -46,46 +46,46 @@ const fr: CalculatorTranslation<ProteinConcentrationText> = {
       {
         title: "À partir d’un coefficient d’extinction molaire connu",
         steps: [
-          "c = 0,72 ÷ (43 824 × 1) = 1,643 × 10⁻⁵ M = 16,43 µM.",
-          "mg/mL = 1,643 × 10⁻⁵ mol/L × 66 463 g/mol = 1,092 g/L = 1,092 mg/mL.",
-          "Dans 2 mL : 1,092 × 2 ≈ 2,18 mg.",
+          "c = 0,72 ÷ (43 824 × 1) = 1,643 × 10⁻⁵ M = 16,43 µM.",
+          "mg/mL = 1,643 × 10⁻⁵ mol/L × 66 463 g/mol = 1,092 g/L = 1,092 mg/mL.",
+          "Dans 2 mL : 1,092 × 2 ≈ 2,18 mg.",
         ],
       },
       {
         title: "Estimation de ε à partir de la séquence",
         steps: [
-          "ε = 5 500 × 6 + 1 490 × 3 + 125 × 4 = 37 970 M⁻¹ cm⁻¹.",
-          "c = 0,5 ÷ 37 970 = 1,317 × 10⁻⁵ M = 13,17 µM.",
-          "mg/mL = 1,317 × 10⁻⁵ × 14 307 ≈ 0,1884 mg/mL.",
+          "ε = 5 500 × 6 + 1 490 × 3 + 125 × 4 = 37 970 M⁻¹ cm⁻¹.",
+          "c = 0,5 ÷ 37 970 = 1,317 × 10⁻⁵ M = 13,17 µM.",
+          "mg/mL = 1,317 × 10⁻⁵ × 14 307 ≈ 0,1884 mg/mL.",
         ],
       },
       {
         title: "Avec un coefficient d’extinction massique, un trajet court et une dilution",
-        steps: ["Correction de la dilution : 0,88 × 4 = 3,52.", "mg/mL = 3,52 ÷ (1,45 × 0,5 cm) ≈ 4,855 mg/mL."],
+        steps: ["Correction de la dilution : 0,88 × 4 = 3,52.", "mg/mL = 3,52 ÷ (1,45 × 0,5 cm) ≈ 4,855 mg/mL."],
       },
     ],
     assumptions: [
-      "La lecture A280 est corrigée par un blanc du même tampon et se situe dans la plage linéaire de l’appareil. Beaucoup de spectrophotomètres perdent leur linéarité aux fortes absorbances : diluez donc les échantillons très concentrés.",
-      "Le coefficient d’extinction s’applique à votre protéine dans son tampon. Les estimations fondées sur la composition en acides aminés sont assez fiables pour les protéines qui contiennent du tryptophane, et moins fiables pour celles qui n’en ont pas ; mesurer ε vaut mieux que le prédire.",
+      "La lecture A280 est corrigée par un blanc du même tampon et se situe dans la plage linéaire de l’appareil. Beaucoup de spectrophotomètres perdent leur linéarité aux fortes absorbances : diluez donc les échantillons très concentrés.",
+      "Le coefficient d’extinction s’applique à votre protéine dans son tampon. Les estimations fondées sur la composition en acides aminés sont assez fiables pour les protéines qui contiennent du tryptophane, et moins fiables pour celles qui n’en ont pas ; mesurer ε vaut mieux que le prédire.",
       "Toutes les substances qui absorbent à 280 nm sont prises en compte, y compris les acides nucléiques, certains tampons et la lumière diffusée par les agrégats. Elles donnent un résultat trop élevé.",
-      "Le facteur de dilution est appliqué à l’absorbance avant le calcul de la concentration : le résultat concerne donc la solution mère non diluée.",
+      "Le facteur de dilution est appliqué à l’absorbance avant le calcul de la concentration : le résultat concerne donc la solution mère non diluée.",
     ],
     faqs: [
       {
-        question: "Pourquoi les mg/mL sont-ils égaux aux g/L ?",
-        answer: "Un millilitre est un millième de litre et un milligramme un millième de gramme : les deux millièmes s’annulent. C’est pourquoi la molarité (mol/L) multipliée par la masse moléculaire (g/mol) donne directement des mg/mL.",
+        question: "Pourquoi les mg/mL sont-ils égaux aux g/L ?",
+        answer: "Un millilitre est un millième de litre et un milligramme un millième de gramme : les deux millièmes s’annulent. C’est pourquoi la molarité (mol/L) multipliée par la masse moléculaire (g/mol) donne directement des mg/mL.",
       },
       {
-        question: "Et si je ne connais pas le coefficient d’extinction ?",
+        question: "Et si je ne connais pas le coefficient d’extinction ?",
         answer: "Si vous connaissez la séquence, comptez les tryptophanes, les tyrosines et les ponts disulfure, et utilisez le mode d’estimation. Pour un mélange inconnu, on utilise parfois un coefficient d’extinction massique d’environ 1,0 comme repère grossier, mais le résultat peut alors être faux d’un facteur important.",
       },
       {
-        question: "Faut-il compter les cystéines ou les cystines ?",
-        answer: "Les cystines : chaque pont disulfure entre deux cystéines compte une fois. Les cystéines libres (thiols réduits) absorbent très peu à 280 nm. Pour une protéine entièrement réduite, saisissez 0 cystine.",
+        question: "Faut-il compter les cystéines ou les cystines ?",
+        answer: "Les cystines : chaque pont disulfure entre deux cystéines compte une fois. Les cystéines libres (thiols réduits) absorbent très peu à 280 nm. Pour une protéine entièrement réduite, saisissez 0 cystine.",
       },
     ],
     sourcesUsedFor: [
-      "L’estimation ε₂₈₀ = 5 500 × Trp + 1 490 × Tyr + 125 × cystine pour une protéine repliée dans l’eau, et sa moindre fiabilité pour les protéines sans tryptophane.",
+      "L’estimation ε₂₈₀ = 5 500 × Trp + 1 490 × Tyr + 125 × cystine pour une protéine repliée dans l’eau, et sa moindre fiabilité pour les protéines sans tryptophane.",
       "Le calcul de la concentration à partir de l’A280 avec un coefficient d’extinction massique, et le repère approximatif selon lequel une solution protéique à 1 mg/mL donne une A280 d’environ 1,0 sur 1 cm.",
     ],
   },
@@ -105,7 +105,7 @@ const fr: CalculatorTranslation<ProteinConcentrationText> = {
     epsilon: "Coefficient d’extinction molaire ε",
     epsilonHelp: "À 280 nm, en M⁻¹ cm⁻¹, par exemple d’après la séquence de la protéine ou une fiche de base de données.",
     mw: "Masse moléculaire",
-    mwHelp: "En daltons (g/mol). 1 kDa = 1 000 Da.",
+    mwHelp: "En daltons (g/mol). 1 kDa = 1 000 Da.",
     mwOptional: "Masse moléculaire (facultatif)",
     mwOptionalHelp: "Facultatif, en daltons (g/mol). Nécessaire pour la concentration molaire (µM).",
     e01: "Coefficient d’extinction massique E0.1%",
@@ -127,10 +127,10 @@ const fr: CalculatorTranslation<ProteinConcentrationText> = {
     e01Used: "Coefficient d’extinction massique E0.1% utilisé",
     a280Normalized: "A280 pour un trajet de 1 cm (telle que mesurée)",
     notes: {
-      range: "L’absorbance mesurée par cm dépasse environ 1,5. Beaucoup de spectrophotomètres ne sont plus linéaires aux fortes absorbances : vérifiez la plage de votre appareil et envisagez de diluer l’échantillon.",
+      range: "L’absorbance mesurée par cm dépasse environ 1,5. Beaucoup de spectrophotomètres ne sont plus linéaires aux fortes absorbances : vérifiez la plage de votre appareil et envisagez de diluer l’échantillon.",
       low: "L’absorbance mesurée par cm est inférieure à environ 0,1, où les lectures sont souvent moins précises par rapport au bruit et aux erreurs de blanc.",
-      pace: "ε = 5 500 × Trp + 1 490 × Tyr + 125 × cystine est une estimation pour une protéine repliée dans l’eau (Pace et al., 1995). Elle est moins fiable pour les protéines sans tryptophane.",
-      noTrp: "Cette protéine ne contient pas de tryptophane : le ε estimé est donc moins fiable.",
+      pace: "ε = 5 500 × Trp + 1 490 × Tyr + 125 × cystine est une estimation pour une protéine repliée dans l’eau (Pace et al., 1995). Elle est moins fiable pour les protéines sans tryptophane.",
+      noTrp: "Cette protéine ne contient pas de tryptophane : le ε estimé est donc moins fiable.",
       general: "L’A280 prend en compte toutes les substances qui absorbent à 280 nm, y compris les acides nucléiques et d’autres contaminants, et suppose que le coefficient d’extinction convient à votre protéine.",
     },
   },

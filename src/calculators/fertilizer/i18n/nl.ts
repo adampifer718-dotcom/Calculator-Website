@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<FertilizerText> = {
     summary: "Bereken hoeveel N-P-K-meststof je moet strooien om een gewenste gift stikstof, fosfaat of kali op een gazon, tuin of akker te geven.",
     metaTitle: "Meststofcalculator (N-P-K) – benodigde hoeveelheid mest",
     metaDescription:
-      "Bereken hoeveel meststof je moet geven uit het N-P-K-gehalte, de gewenste nutriëntengift per oppervlakte en het oppervlak, met de geleverde stikstof, fosfaat en kali.",
+      "Bereken hoeveel meststof je nodig hebt uit het N-P-K-gehalte, de gewenste gift per oppervlakte en het oppervlak, met de geleverde stikstof, fosfaat en kali.",
     keywords: ["meststofcalculator", "npk calculator", "bemesting berekenen", "kg n per hectare", "stikstofgift", "p2o5 naar p", "k2o naar k", "hoeveel kunstmest"],
     intro: [
       "Op zakken meststof staan drie getallen, zoals 10-10-10 of 46-0-0. Dat zijn de gewichtspercentages stikstof (N), fosfaat (P₂O₅) en kali (K₂O). Grondonderzoeken en teeltadviezen geven meestal een hoeveelheid nutriënt per oppervlakte aan, niet een hoeveelheid product, dus je moet het een in het ander omrekenen.",

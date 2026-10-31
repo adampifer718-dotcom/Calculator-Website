@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<WaistToHeightText> = {
     summary: "Deel je tailleomtrek door je lengte voor de taille-lengteverhouding, en zie in welke referentieband voor volwassenen van NICE die valt.",
     metaTitle: "Taille-lengteverhouding berekenen – WHtR en NICE-banden",
     metaDescription:
-      "Bereken je taille-lengteverhouding in cm of inch, vergelijk die met de NICE-referentiebanden voor volwassenen en zie welke tailleomtrek gelijk is aan je halve lengte.",
+      "Bereken je taille-lengteverhouding in cm of inch, vergelijk die met de NICE-banden voor volwassenen en zie welke taille gelijk is aan je halve lengte.",
     keywords: ["taille-lengteverhouding", "whtr", "taille lengte ratio", "buikvet meten", "tailleomtrek", "centrale adipositas", "taille minder dan halve lengte"],
     intro: [
       "De taille-lengteverhouding (WHtR) is je tailleomtrek gedeeld door je lengte. Het is een eenvoudige manier om te schatten hoeveel vet er rond het midden van het lichaam zit, centrale adipositas genoemd, wat in verband wordt gebracht met diabetes type 2, hoge bloeddruk en hart- en vaatziekten.",

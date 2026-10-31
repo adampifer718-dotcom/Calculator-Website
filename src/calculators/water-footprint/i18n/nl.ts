@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<WaterFootprintText> = {
     summary: "Schat hoeveel water de douches in je huishouden per jaar gebruiken, de energie en kosten om het te verwarmen, en wat een zuinigere douchekop zou besparen.",
     metaTitle: "Douchewatercalculator – liter, gallon en kWh per jaar",
     metaDescription:
-      "Schat het jaarlijkse waterverbruik van je douche uit doorstroming, douchetijd en frequentie, plus energie en kosten voor het verwarmen en de besparing van een waterbesparende kop.",
+      "Schat het jaarlijkse waterverbruik van je douche uit doorstroming, douchetijd en frequentie, met de energie en kosten van het verwarmen en de besparing.",
     keywords: ["douchewater berekenen", "waterverbruik douche", "liter per douchebeurt", "waterbesparende douchekop", "energiekosten douchen", "watervoetafdruk", "doorstroming douche"],
     intro: [
       "Douchen is in de meeste huizen een van de grotere waterverbruikers, en omdat het water wordt verwarmd, is het ook een merkbaar deel van de energierekening. Hoeveel je verbruikt, hangt van maar een paar dingen af: de doorstroming van de douchekop, hoe lang elke douchebeurt duurt en hoe vaak er wordt gedoucht.",

@@ -71,7 +71,7 @@ export function makeUptimeSlaEngine(ctx: EngineContext<UptimeSlaText>) {
     if (hours) parts.push(fill(d.h, { n: ctx.fmt.number(hours, 0) }));
     if (minutes) parts.push(fill(d.min, { n: ctx.fmt.number(minutes, 0) }));
     if (secs) parts.push(fill(d.s, { n: ctx.fmt.number(secs, 0) }));
-    return parts.join(d.join);
+    return parts.reduce((joined, part) => fill(d.pair, { a: joined, b: part }));
   };
   const parseList = (text: string) => {
     const parsed = parseNumberList(text, ctx.locale);

@@ -9,14 +9,14 @@ const pt: CalculatorTranslation<ShannonIndexText> = {
       "Calcule o índice de diversidade de Shannon H′, a equitabilidade de Pielou, o número efetivo de espécies e os índices de Simpson a partir das contagens de indivíduos por espécie.",
     metaTitle: "Índice de Shannon – Diversidade H′ e equitabilidade",
     metaDescription:
-      "Obtenha o índice de Shannon H′ a partir de contagens de espécies em ln, log2 ou log10, com a equitabilidade de Pielou J′, o número efetivo de espécies e os índices de Simpson.",
+      "Obtenha o índice de Shannon H′ a partir de contagens em ln, log2 ou log10, com equitabilidade de Pielou J′, número efetivo de espécies e índice de Simpson.",
     keywords: ["índice de shannon", "índice de shannon-wiener", "diversidade de espécies", "índice de biodiversidade", "equitabilidade de pielou", "índice de simpson", "riqueza específica", "ecologia"],
     intro: [
       "O índice de Shannon H′ (também chamado de Shannon–Wiener ou Shannon–Weaver) mede a diversidade de uma comunidade a partir do número de indivíduos de cada espécie que contou. Aumenta com o número de espécies e com a uniformidade com que os indivíduos se repartem entre elas, e é 0 quando só existe uma espécie.",
       "Esta calculadora dá H′ na base logarítmica que escolher, a equitabilidade de Pielou J′, o número efetivo de espécies e o índice de Simpson com as suas formas de Gini–Simpson e inversa, além de uma tabela com a proporção de cada espécie no total.",
     ],
     howToUse: [
-      "Introduza o número de indivíduos contados de cada espécie, uma contagem por espécie, separadas por vírgulas, espaços ou mudanças de linha.",
+      "Introduza o número de indivíduos contados de cada espécie, uma contagem por espécie, separadas por ponto e vírgula, espaços ou mudanças de linha.",
       "Escolha a base do logaritmo. O logaritmo natural é o mais comum em ecologia; a base 2 dá H′ em bits.",
       "Consulte H′ e os restantes índices. As contagens nulas são permitidas mas ignoradas, e o resultado indica quantas havia.",
     ],
@@ -97,13 +97,13 @@ const pt: CalculatorTranslation<ShannonIndexText> = {
   },
   text: {
     counts: "Indivíduos contados por espécie",
-    countsHelp: "Uma contagem inteira por espécie, separadas por vírgulas, espaços ou mudanças de linha. Os zeros são ignorados.",
+    countsHelp: "Uma contagem inteira por espécie, separadas por ponto e vírgula, espaços ou mudanças de linha. Os zeros são ignorados.",
     base: "Base do logaritmo",
     bases: { e: "Logaritmo natural (ln), a escolha habitual", "2": "Base 2 (bits)", "10": "Base 10" },
     errors: {
       empty: "Introduza pelo menos uma contagem.",
       tooMany: "Introduza no máximo {max} contagens.",
-      notNumber: "«{token}» não é um número. Separe as contagens com vírgulas, espaços ou mudanças de linha.",
+      notNumber: "«{token}» não é um número. Separe as contagens com ponto e vírgula, espaços ou mudanças de linha.",
       tooLarge: "«{token}» é demasiado grande.",
       notInteger: "{value} não é um número inteiro. Introduza o número de indivíduos de cada espécie.",
       negative: "As contagens não podem ser negativas ({value}).",

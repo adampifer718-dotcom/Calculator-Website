@@ -37,7 +37,7 @@ const it: CalculatorTranslation<VoltageDividerText> = {
       },
       {
         title: "Calcolo di un resistore",
-        expression: "R2 = R1 × Vout ÷ (Vin − Vout)\nR1 = R2 × (Vin − Vout) ÷ Vout",
+        expression: "R2 = R1 × Vout ÷ (Vin − Vout)\noppure R1 = R2 × (Vin − Vout) ÷ Vout",
         explanation: "Ricavate dall'equazione del partitore. Vout deve essere compresa tra 0 e Vin.",
       },
       {

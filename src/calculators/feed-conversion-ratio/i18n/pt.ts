@@ -9,7 +9,7 @@ const pt: CalculatorTranslation<FeedConversionRatioText> = {
       "Calcule o índice de conversão alimentar (ICA) de gado, aves ou peixes a partir da ração consumida e do peso ganho, com o ICA ajustado à mortalidade e o custo de ração por unidade de ganho.",
     metaTitle: "Índice de conversão alimentar – Calculadora de ICA (FCR)",
     metaDescription:
-      "Calcule o ICA como ração consumida ÷ ganho de peso vivo, com ICA ajustado à mortalidade, eficiência alimentar, ganho por cabeça e custo de ração por kg ou lb ganho.",
+      "Calcule o ICA como ração ÷ ganho de peso vivo, com ICA ajustado à mortalidade, eficiência alimentar, ganho por cabeça e custo de ração por kg ou lb ganho.",
     keywords: ["índice de conversão alimentar", "ica", "fcr", "eficiência alimentar", "pecuária", "avicultura", "aquacultura", "custo da ração"],
     intro: [
       "O índice de conversão alimentar (ICA) indica quanta ração os animais precisam para ganhar uma unidade de peso vivo. Um ICA de 2 significa 2 kg de ração por cada quilograma ganho, ou 2 lb por libra: a unidade anula-se desde que a ração e o peso usem a mesma. Um ICA mais baixo significa que a ração é transformada em crescimento de forma mais eficiente.",

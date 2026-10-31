@@ -9,7 +9,7 @@ const pt: CalculatorTranslation<HemocytometerText> = {
       "Converta contagens no hemocitómetro em células por mL, com a viabilidade, o total de células vivas na amostra e o volume para semear um número-alvo de células.",
     metaTitle: "Contagem de células no hemocitómetro – Células por mL",
     metaDescription:
-      "Calcule as células vivas e totais por mL a partir de contagens na câmara de Neubauer melhorada, com fator de diluição, viabilidade com azul de tripano e volume a semear.",
+      "Calcule as células vivas e totais por mL a partir de contagens na câmara de Neubauer, com fator de diluição, viabilidade com azul de tripano e volume a semear.",
     keywords: ["hemocitómetro", "contagem de células", "células por ml", "câmara de neubauer", "azul de tripano", "viabilidade celular", "densidade celular"],
     intro: [
       "Um hemocitómetro é uma lâmina de vidro espessa com uma grelha de contagem gravada numa câmara de profundidade conhecida. Numa câmara de Neubauer melhorada, cada um dos nove quadrados grandes mede 1 mm × 1 mm e a câmara tem 0,1 mm de profundidade, pelo que o líquido sobre um quadrado grande é 0,1 µL, ou seja, um décimo de milésimo de mililitro.",

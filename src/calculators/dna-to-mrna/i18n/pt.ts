@@ -18,7 +18,7 @@ const pt: CalculatorTranslation<DnaToMrnaText> = {
       "Transcreva uma sequência de ADN em ARNm e traduza-a numa proteína com o código genético padrão, com a cadeia complementar e o conteúdo em GC.",
     metaTitle: "ADN para ARNm – Transcrição e tradução de sequências",
     metaDescription:
-      "Converta uma cadeia de ADN codificante ou molde em ARNm e depois em proteína, com códigos de uma e três letras, segundo o código genético padrão, e o teor de GC.",
+      "Converta uma cadeia de ADN codificante ou molde em ARNm e em proteína, com códigos de uma e três letras, segundo o código genético padrão, e o teor de GC.",
     keywords: ["adn para arnm", "transcrição", "tradução", "codão", "código genético", "complemento reverso", "sequência proteica", "aminoácidos"],
     intro: [
       "Um gene é copiado para ARN mensageiro (transcrição) e o ARNm é lido três bases de cada vez para construir uma proteína (tradução). Esta ferramenta faz os dois passos para uma sequência de ADN que cole, com o código genético padrão partilhado pela maioria dos organismos.",

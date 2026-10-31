@@ -9,7 +9,7 @@ const it: CalculatorTranslation<WaterFootprintText> = {
       "Stima quanta acqua consumano in un anno le docce della tua famiglia, l'energia e il costo per scaldarla e quanto risparmieresti con un soffione a basso flusso.",
     metaTitle: "Consumo d'acqua della doccia – Litri, galloni e kWh",
     metaDescription:
-      "Stima il consumo annuo d'acqua per la doccia da portata, durata e frequenza, con l'energia e il costo per scaldarla e il risparmio di un soffione a basso flusso.",
+      "Stima l'acqua usata ogni anno per la doccia da portata, durata e frequenza, con energia e costo per scaldarla e il risparmio di un soffione a basso flusso.",
     keywords: [
       "consumo acqua doccia",
       "litri per doccia",

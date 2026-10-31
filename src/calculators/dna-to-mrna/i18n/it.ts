@@ -11,7 +11,7 @@ const it: CalculatorTranslation<DnaToMrnaText> = {
       "Trascrivi una sequenza di DNA in mRNA e traducila in proteina con il codice genetico standard, con il filamento complementare e il contenuto in GC.",
     metaTitle: "Da DNA a mRNA – Trascrizione e traduzione in proteina",
     metaDescription:
-      "Trasforma un filamento di DNA codificante o stampo in mRNA e poi in proteina, con codici a una e tre lettere secondo il codice genetico standard e il contenuto in GC.",
+      "Trasforma un filamento di DNA codificante o stampo in mRNA e poi in proteina, con codici a una e tre lettere, codice genetico standard e contenuto in GC.",
     keywords: [
       "da DNA a mRNA",
       "trascrizione",
@@ -62,7 +62,7 @@ const it: CalculatorTranslation<DnaToMrnaText> = {
         steps: [
           "Sostituisci T con U: GCAUGCCGUGGAAAUAGC.",
           "Il primo AUG inizia alla base 3, quindi la cornice di lettura è AUG CCG UGG AAA UAG, con una base (C) avanzata.",
-          "AUG = Met, CCG = Pro, UGG = Trp, AAA = Lys, UAG = stop.",
+          "AUG = Met, CCG = Pro, UGG = Trp, AAA = Lys, UAG = codone di stop.",
           "Proteina: MPWK (Met-Pro-Trp-Lys).",
         ],
       },
@@ -78,7 +78,7 @@ const it: CalculatorTranslation<DnaToMrnaText> = {
         title: "Lettura oltre i codoni di stop",
         steps: [
           "Maiuscole, spazi rimossi e T → U: AUG UAA CAG UGG UAG.",
-          "AUG = Met, UAA = stop, CAG = Gln, UGG = Trp, UAG = stop.",
+          "AUG = Met, UAA = stop, CAG = Gln, UGG = Trp, UAG = codone di stop.",
           "Proseguendo oltre gli stop, la proteina viene mostrata come M*QW*.",
         ],
       },

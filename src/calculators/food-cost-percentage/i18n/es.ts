@@ -9,7 +9,7 @@ const es: CalculatorTranslation<FoodCostPercentageText> = {
       "Calcula el porcentaje de coste de materia prima (food cost) de un plato o de todo un periodo a partir del inventario y las ventas, y el precio de carta que alcanza un objetivo.",
     metaTitle: "Coste de materia prima – Food cost y precio de carta",
     metaDescription:
-      "Calcula el food cost de un plato o de un periodo a partir del inventario, las compras y las ventas, con el beneficio bruto y el precio de carta para tu porcentaje objetivo.",
+      "Calcula el food cost de un plato o de un periodo con el inventario, las compras y las ventas, con el beneficio bruto y el precio de carta para tu objetivo.",
     keywords: [
       "food cost",
       "porcentaje de coste de materia prima",

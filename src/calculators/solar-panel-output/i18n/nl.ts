@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<SolarPanelOutputText> = {
     summary: "Schat hoeveel kilowattuur een set zonnepanelen per dag, maand en jaar oplevert, en hoe groot een installatie moet zijn om je stroomverbruik te dekken.",
     metaTitle: "Opbrengstcalculator zonnepanelen – kWh per dag en jaar",
     metaDescription:
-      "Schat de opbrengst van zonnepanelen in kWh per dag, maand en jaar uit het paneelvermogen, de piekzonuren en de systeemverliezen, en bepaal de juiste systeemgrootte.",
+      "Schat de opbrengst van zonnepanelen in kWh per dag, maand en jaar uit paneelvermogen, piekzonuren en systeemverliezen, en bepaal de benodigde systeemgrootte.",
     keywords: ["zonnepanelen calculator", "opbrengst zonnepanelen", "kwh per jaar", "piekzonuren", "hoeveel zonnepanelen", "systeemverliezen", "zonne-energie"],
     intro: [
       "Het vermogen van een zonnepaneel geeft aan hoeveel stroom het levert onder standaardtestomstandigheden: vol zonlicht van 1.000 watt per vierkante meter bij een celtemperatuur van 25 °C. De werkelijke opbrengst hangt af van hoeveel zonlicht de panelen over een dag echt bereikt, meestal samengevat als piekzonuren, en van verliezen in de rest van het systeem.",

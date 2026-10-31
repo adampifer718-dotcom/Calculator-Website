@@ -9,7 +9,7 @@ const es: CalculatorTranslation<HemocytometerText> = {
       "Convierte los recuentos del hemocitómetro en células por mL, con la viabilidad, el total de células vivas de la muestra y el volumen necesario para sembrar un número objetivo de células.",
     metaTitle: "Calculadora de recuento celular – Células por mL",
     metaDescription:
-      "Calcula las células vivas y totales por mL a partir de recuentos en cámara de Neubauer mejorada, con el factor de dilución, la viabilidad con azul tripán y el volumen de siembra.",
+      "Calcula células vivas y totales por mL con recuentos en cámara de Neubauer, con el factor de dilución, la viabilidad con azul tripán y el volumen de siembra.",
     keywords: [
       "hemocitómetro",
       "cámara de Neubauer",

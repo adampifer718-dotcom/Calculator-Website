@@ -57,7 +57,7 @@ const de: CalculatorTranslation<DnaToMrnaText> = {
           "T durch U ersetzen: GCAUGCCGUGGAAAUAGC.",
           "Das erste AUG beginnt bei Base 3, das Leseraster ist also AUG CCG UGG AAA UAG, und eine Base (C) bleibt übrig.",
           "AUG = Met, CCG = Pro, UGG = Trp, AAA = Lys, UAG = Stopp.",
-          "Protein: MPWK (Met-Pro-Trp-Lys).",
+          "Das Protein lautet MPWK (Met-Pro-Trp-Lys).",
         ],
       },
       {

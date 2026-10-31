@@ -9,7 +9,7 @@ const es: CalculatorTranslation<ProteinConcentrationText> = {
       "Convierte una lectura de absorbancia A280 en una concentración de proteína en mg/mL y µM con la ley de Beer-Lambert, a partir de un coeficiente de extinción molar o másico.",
     metaTitle: "Concentración de proteínas – A280 a mg/mL",
     metaDescription:
-      "Convierte lecturas de A280 en concentración de proteína en mg/mL y µM con un coeficiente de extinción molar o másico, o estima ε a partir de Trp, Tyr y cistinas.",
+      "Convierte lecturas de A280 en concentración de proteína (mg/mL y µM) con un coeficiente de extinción molar o másico, o estima ε a partir de Trp, Tyr y cistinas.",
     keywords: [
       "concentración de proteínas",
       "a280",

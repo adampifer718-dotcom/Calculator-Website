@@ -9,7 +9,7 @@ const es: CalculatorTranslation<FeedConversionRatioText> = {
       "Calcula el índice de conversión alimenticia (IC) de ganado, aves o peces a partir del pienso consumido y el peso ganado, con un IC ajustado por mortalidad y el coste del pienso por unidad de ganancia.",
     metaTitle: "Calculadora del índice de conversión alimenticia (IC)",
     metaDescription:
-      "Calcula el IC como pienso consumido ÷ ganancia de peso vivo, con un índice ajustado por mortalidad, la eficiencia alimenticia, la ganancia por cabeza y el coste por kg o lb.",
+      "Calcula el IC como pienso consumido ÷ ganancia de peso vivo, con IC ajustado por mortalidad, eficiencia alimenticia, ganancia por cabeza y coste por kg o lb.",
     keywords: [
       "índice de conversión alimenticia",
       "conversión alimenticia",

@@ -8,7 +8,7 @@ const nl: CalculatorTranslation<VoltageDividerText> = {
     summary: "Bereken de uitgangsspanning van een spanningsdeler met twee weerstanden, of de weerstand voor een gewenste spanning, met stroom, vermogen, belastingseffect en de dichtstbijzijnde E24-waarde.",
     metaTitle: "Spanningsdelercalculator – Vout, R1, R2 en belasting",
     metaDescription:
-      "Bereken de uitgangsspanning van een resistieve spanningsdeler, of los R1 of R2 op, met stroom, weerstandsvermogen, de belaste uitgang en de dichtstbijzijnde E24-waarde.",
+      "Bereken de uitgangsspanning van een spanningsdeler of los R1 of R2 op, met stroom, vermogen per weerstand, de belaste uitgang en de dichtstbijzijnde E24-waarde.",
     keywords: ["spanningsdeler", "weerstandsdeler", "vout formule", "spanningsdeler berekenen", "r1 r2 berekenen", "delingsverhouding", "belaste spanningsdeler", "e24-reeks"],
     intro: [
       "Een spanningsdeler bestaat uit twee weerstanden in serie over een spanning. Het punt tussen beide ligt op een vaste fractie van de ingangsspanning, die alleen wordt bepaald door de verhouding van de weerstanden. Spanningsdelers worden gebruikt om een signaal te verlagen voor de ingang van een microcontroller, een instelpunt te maken of een referentie te vormen.",
@@ -22,7 +22,7 @@ const nl: CalculatorTranslation<VoltageDividerText> = {
     ],
     formulas: [
       { title: "Onbelaste uitgang", expression: "Vout = Vin × R2 ÷ (R1 + R2)", explanation: "R1 is de bovenste weerstand (van ingang naar uitgang) en R2 de onderste (van uitgang naar massa)." },
-      { title: "Een weerstand berekenen", expression: "R2 = R1 × Vout ÷ (Vin − Vout)\nR1 = R2 × (Vin − Vout) ÷ Vout", explanation: "Omgewerkt uit de vergelijking van de spanningsdeler. Vout moet tussen 0 en Vin liggen." },
+      { title: "Een weerstand berekenen", expression: "R2 = R1 × Vout ÷ (Vin − Vout)\nof R1 = R2 × (Vin − Vout) ÷ Vout", explanation: "Omgewerkt uit de vergelijking van de spanningsdeler. Vout moet tussen 0 en Vin liggen." },
       { title: "Stroom en vermogen", expression: "I = Vin ÷ (R1 + R2)\nP1 = I² × R1, P2 = I² × R2", explanation: "Door beide weerstanden loopt dezelfde stroom als er niets op de uitgang is aangesloten." },
       { title: "Belaste uitgang", expression: "R2′ = R2 × RL ÷ (R2 + RL)\nVout,belast = Vin × R2′ ÷ (R1 + R2′)", explanation: "Een belasting RL staat parallel aan R2, wat de effectieve onderste weerstand en dus de uitgang verlaagt." },
     ],

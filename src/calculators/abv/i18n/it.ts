@@ -9,7 +9,7 @@ const it: CalculatorTranslation<AbvText> = {
       "Stima il contenuto alcolico di birra, vino o sidro fatti in casa dalla densità iniziale e finale, in peso specifico o in gradi Plato.",
     metaTitle: "Calcolatore ABV – Grado alcolico da OG e FG",
     metaDescription:
-      "Stima l'ABV della tua birra fatta in casa da densità iniziale e finale (SG o °Plato) con la formula standard e quella alternativa, più ABW e attenuazione apparente.",
+      "Stima l'ABV della birra fatta in casa da densità iniziale e finale (SG o °Plato) con la formula standard e quella alternativa, più ABW e attenuazione apparente.",
     keywords: [
       "calcolo ABV",
       "grado alcolico in volume",

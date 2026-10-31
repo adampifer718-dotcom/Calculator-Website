@@ -8,10 +8,10 @@ const fr: CalculatorTranslation<FeedConversionRatioText> = {
     summary: "Calculez l’indice de consommation (IC) du bétail, de la volaille ou des poissons à partir de l’aliment consommé et du gain de poids, avec un IC corrigé de la mortalité et le coût alimentaire par unité de gain.",
     metaTitle: "Calculateur d’indice de consommation (IC) – Aliment et gain",
     metaDescription:
-      "Calculez l’IC = aliment consommé ÷ gain de poids vif, avec un indice corrigé de la mortalité, l’efficacité alimentaire, le gain par tête et le coût alimentaire par kg ou lb.",
+      "Calculez l’IC = aliment consommé ÷ gain de poids vif, avec l’IC corrigé de la mortalité, l’efficacité alimentaire, le gain par tête et le coût par kg gagné.",
     keywords: ["indice de consommation", "IC", "taux de conversion alimentaire", "efficacité alimentaire", "élevage", "volaille", "aquaculture", "coût alimentaire"],
     intro: [
-      "L’indice de consommation (IC) indique la quantité d’aliment dont les animaux ont besoin pour gagner une unité de poids vif. Un IC de 2 signifie 2 kg d’aliment par kilogramme gagné, ou 2 lb par livre : l’unité s’annule tant que l’aliment et le poids sont exprimés dans la même. Plus l’IC est bas, plus l’aliment est transformé efficacement en croissance.",
+      "L’indice de consommation (IC) indique la quantité d’aliment dont les animaux ont besoin pour gagner une unité de poids vif. Un IC de 2 signifie 2 kg d’aliment par kilogramme gagné, ou 2 lb par livre : l’unité s’annule tant que l’aliment et le poids sont exprimés dans la même. Plus l’IC est bas, plus l’aliment est transformé efficacement en croissance.",
       "Saisissez l’aliment consommé sur une période et le poids vif total du lot au début et à la fin. Si des animaux sont morts ou ont été retirés, ajoutez leur poids pour obtenir l’IC corrigé de la mortalité, qui ne compte pas leur aliment comme perdu. Avec un prix de l’aliment et un effectif, vous obtenez aussi le coût alimentaire par unité de gain et le gain par animal.",
     ],
     howToUse: [
@@ -29,11 +29,11 @@ const fr: CalculatorTranslation<FeedConversionRatioText> = {
       {
         title: "Indice de consommation",
         expression: "IC = aliment consommé ÷ gain de poids vif",
-        explanation: "L’aliment et les poids sont dans la même unité : l’indice n’a donc pas d’unité.",
+        explanation: "L’aliment et les poids sont dans la même unité : l’indice n’a donc pas d’unité.",
       },
       {
         title: "Efficacité alimentaire",
-        expression: "efficacité alimentaire = gain ÷ aliment × 100 %",
+        expression: "efficacité alimentaire = gain ÷ aliment × 100 %",
         explanation: "L’inverse de l’IC, exprimé en pourcentage.",
       },
       {
@@ -45,39 +45,39 @@ const fr: CalculatorTranslation<FeedConversionRatioText> = {
     examples: [
       {
         title: "Un lot de porcs sur une période de croissance",
-        steps: ["Gain : 2 850 − 900 = 1 950 kg.", "IC : 4 200 ÷ 1 950 ≈ 2,15.", "Efficacité alimentaire : 1 950 ÷ 4 200 ≈ 46,4 %."],
+        steps: ["Gain : 2 850 − 900 = 1 950 kg.", "IC : 4 200 ÷ 1 950 ≈ 2,15.", "Efficacité alimentaire : 1 950 ÷ 4 200 ≈ 46,4 %."],
       },
       {
         title: "Un lot de poulets de chair avec des pertes et un prix de l’aliment",
         steps: [
-          "Gain en incluant les oiseaux retirés : 4 510 − 1 080 + 160 = 3 590 kg.",
-          "IC corrigé de la mortalité : 5 300 ÷ 3 590 ≈ 1,48 (sans les oiseaux retirés : 5 300 ÷ 3 430 ≈ 1,55).",
-          "Coût alimentaire par kg de gain : 5 300 × 0,21 $US ÷ 3 590 ≈ 0,31 $US.",
+          "Gain en incluant les oiseaux retirés : 4 510 − 1 080 + 160 = 3 590 kg.",
+          "IC corrigé de la mortalité : 5 300 ÷ 3 590 ≈ 1,48 (sans les oiseaux retirés : 5 300 ÷ 3 430 ≈ 1,55).",
+          "Coût alimentaire par kg de gain : 5 300 × 0,21 $US ÷ 3 590 ≈ 0,31 $US.",
         ],
       },
       {
         title: "Des agneaux pesés en livres",
-        steps: ["Gain : 612 − 410 = 202 lb.", "IC : 380 ÷ 202 ≈ 1,88 lb d’aliment par lb de gain."],
+        steps: ["Gain : 612 − 410 = 202 lb.", "IC : 380 ÷ 202 ≈ 1,88 lb d’aliment par lb de gain."],
       },
     ],
     assumptions: [
       "L’aliment et tous les poids sont dans la même unité, et la quantité d’aliment est celle que les animaux ont réellement mangée (ou l’aliment livré, moins les restes et le gaspillage, si c’est ainsi que vous l’enregistrez).",
       "Les poids sont les poids vifs totaux du lot. Les poids de carcasse donnent un autre indice.",
-      "L’IC corrigé de la mortalité ajoute au gain le poids des animaux morts ou retirés. Certains éleveurs l’enregistrent autrement, par exemple avec le poids au départ ou en excluant les réformes : vérifiez donc la méthode avant de comparer des chiffres.",
+      "L’IC corrigé de la mortalité ajoute au gain le poids des animaux morts ou retirés. Certains éleveurs l’enregistrent autrement, par exemple avec le poids au départ ou en excluant les réformes : vérifiez donc la méthode avant de comparer des chiffres.",
       "Aucune valeur de référence n’est donnée, car les IC habituels varient fortement selon l’espèce, l’âge, la race, l’alimentation et la méthode d’enregistrement.",
     ],
     faqs: [
       {
-        question: "Un IC bas ou élevé, lequel est meilleur ?",
-        answer: "Un IC bas. Un IC de 1,5 signifie 1,5 unité d’aliment par unité de gain, alors que 2,0 en signifie 2. L’efficacité alimentaire, qui en est l’inverse, fonctionne dans l’autre sens : plus elle est élevée, mieux c’est.",
+        question: "Un IC bas ou élevé, lequel est meilleur ?",
+        answer: "Un IC bas. Un IC de 1,5 signifie 1,5 unité d’aliment par unité de gain, alors que 2,0 en signifie 2. L’efficacité alimentaire, qui en est l’inverse, fonctionne dans l’autre sens : plus elle est élevée, mieux c’est.",
       },
       {
-        question: "Pourquoi ajouter le poids des animaux morts ?",
+        question: "Pourquoi ajouter le poids des animaux morts ?",
         answer: "Ces animaux ont mangé de l’aliment et grandi avant de mourir ou d’être retirés. Ignorer leur poids fait paraître l’aliment moins efficace qu’il ne l’a été, ce qui mêle les pertes par mortalité à l’IC. Afficher les deux chiffres permet de séparer les deux effets.",
       },
       {
-        question: "L’unité a-t-elle de l’importance ?",
-        answer: "Non, tant que l’aliment et les poids utilisent la même. L’IC est un rapport : 2,15 kg/kg équivaut à 2,15 lb/lb. Seul le coût alimentaire par unité de gain dépend de l’unité, car le prix est exprimé par kg ou par lb.",
+        question: "L’unité a-t-elle de l’importance ?",
+        answer: "Non, tant que l’aliment et les poids utilisent la même. L’IC est un rapport : 2,15 kg/kg équivaut à 2,15 lb/lb. Seul le coût alimentaire par unité de gain dépend de l’unité, car le prix est exprimé par kg ou par lb.",
       },
     ],
     sourcesUsedFor: [
@@ -101,7 +101,7 @@ const fr: CalculatorTranslation<FeedConversionRatioText> = {
     head: "Nombre d’animaux",
     headHelp: "Facultatif. Sert au gain par tête.",
     errors: {
-      noGain: "Le gain de poids vif est nul ou négatif : l’indice de consommation ne peut donc pas être calculé. Vérifiez les poids.",
+      noGain: "Le gain de poids vif est nul ou négatif : l’indice de consommation ne peut donc pas être calculé. Vérifiez les poids.",
     },
     result: "Indice de consommation (IC)",
     resultAdjusted: "Indice de consommation (IC), corrigé de la mortalité",
@@ -116,8 +116,8 @@ const fr: CalculatorTranslation<FeedConversionRatioText> = {
     costPerGain: "Coût alimentaire par {unit} de gain",
     notes: {
       meaning: "Un IC de {fcr} signifie {fcr} {unit} d’aliment par {unit} de gain de poids vif. Plus il est bas, plus il est efficace.",
-      adjusted: "Le poids des animaux retirés est ajouté au gain : leur aliment n’est donc pas compté comme perdu. Le chiffre non corrigé est affiché pour comparaison.",
-      general: "Les valeurs habituelles varient fortement selon l’espèce, l’âge, la race, l’alimentation et la façon de mesurer l’aliment et les poids : ne comparez donc les IC que s’ils sont mesurés de la même manière.",
+      adjusted: "Le poids des animaux retirés est ajouté au gain : leur aliment n’est donc pas compté comme perdu. Le chiffre non corrigé est affiché pour comparaison.",
+      general: "Les valeurs habituelles varient fortement selon l’espèce, l’âge, la race, l’alimentation et la façon de mesurer l’aliment et les poids : ne comparez donc les IC que s’ils sont mesurés de la même manière.",
     },
   },
 };
