@@ -105,10 +105,10 @@ const de: CalculatorTranslation<DnaToMrnaText> = {
   text: {
     sequence: "DNA-Sequenz",
     sequenceHelp: "Die Buchstaben A, C, G und T, groß oder klein geschrieben. Leerzeichen, Zeilenumbrüche und Positionsnummern werden ignoriert.",
-    strand: "Die Sequenz ist der …",
+    strand: "Die Sequenz ist …",
     strands: {
-      coding: "Codierende Strang (Sense), 5′→3′",
-      template: "Codogene Strang (Matrize, Antisense), 5′→3′",
+      coding: "der codierende Strang (Sense), 5′→3′",
+      template: "der codogene Strang (Matrize, Antisense), 5′→3′",
     },
     frame: "Translation beginnen bei",
     frames: {
