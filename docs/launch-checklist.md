@@ -686,3 +686,35 @@ The crawls cover the same checks as in section 9.4, in all nine languages, now i
 - the Next.js security upgrade (blocker 6, mandatory before any deployment);
 - no `main` branch or CI run;
 - the production domain has not been checked live.
+
+### 9.6 Batch 8 run (150 calculators, 104 converters; 1 November 2026)
+
+The final results come from a clean production build of commit `491e7b6` (build ID `I7_fhEF5SVN64N_9pXgAN`). It was built with `NEXT_PUBLIC_SITE_URL=https://hourlytosalarycalculator.net` and served with `next start -p 3100`. Both crawls ran one after the other against the same server.
+
+| Check | Command | Result |
+| --- | --- | --- |
+| Lint | `npm run lint` | Pass (0 errors) |
+| TypeScript | `npx tsc --noEmit` | Pass (0 errors) |
+| Unit tests | `npx vitest run` | **4,898 passed**, 0 failed (50 files) |
+| Production build | `rm -rf .next && npx next build` | Pass; 2,588 static pages. The first attempt generated every page but exited with the Next.js security-upgrade notice. The retry the notice allows passed. The upgrade was not performed (blocker 6 in section 8). |
+| SEO audit | `node scripts/seo-audit.mjs http://localhost:3100 https://hourlytosalarycalculator.net` | 2,520 sitemap URLs (280 × 9 languages) and 7,164 internal links checked; no problems found |
+| Playwright, all non-crawl specs (batches 6–8, calculators, converters, home, i18n, navigation, new calculators) | `npx playwright test` on every spec except `e2e/pages.spec.ts` | **234 passed**, 0 failed (desktop and mobile); the batch-8 spec has 12 of these |
+| Playwright sitemap crawl, desktop | `npx playwright test e2e/pages.spec.ts --project=desktop --workers=4` | **31 passed, 0 failed, 0 skipped, 0 timed out**; 53.0 min |
+| Playwright sitemap crawl, mobile | `npx playwright test e2e/pages.spec.ts --project=mobile --workers=4` | **31 passed, 0 failed, 0 skipped, 0 timed out**; 47.3 min |
+
+**A defect found by the first crawl and fixed.** The first full run used build `zcnq3fwB1M9sylTegSIz2` of commit `8afe4ae`.
+- **Desktop:** 31 passed.
+- **Mobile:** 22 passed and 9 failed, one per language, all on `/unit-converters/unicode-converter`.
+- **Cause:** the code-point table scrolls inside its own box on a phone, and that box could not be focused with the keyboard (axe `scrollable-region-focusable`). The same failure output also showed "RangeError: Invalid string length", which came from reporting the failure, not from the page.
+- **Fix:** the box is now a labelled region with `tabIndex={0}` (commit `491e7b6`), the pattern the site already uses for its other scrolling tables.
+- **Rerun:** the build, the SEO audit, the non-crawl specs and both crawls were all rerun on the fixed build. The table above shows those results.
+
+**What the crawls cover.** The same checks as section 9.4, in all nine languages, now including the 20 batch-8 calculators and the 7 batch-8 converters and text tools.
+
+**Still open.** These are not covered by automated tests:
+- native-speaker proofreading (612 flagged terms);
+- unverified source links (sections 3.1 and 3.6–3.9; the environment blocked every source page in batches 7 and 8);
+- professional review (section 4);
+- the Next.js security upgrade (blocker 6, mandatory before any deployment);
+- no `main` branch or CI run;
+- the production domain has not been checked live.
