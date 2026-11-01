@@ -7,7 +7,7 @@ const pt: CalculatorTranslation<FoodCostPercentageText> = {
     shortTitle: "Percentagem do custo de alimentos",
     summary:
       "Calcule a percentagem do custo de alimentos de um prato ou de todo um período a partir do inventário e das vendas, e o preço de carta que atinge um custo de alimentos pretendido.",
-    metaTitle: "Custo de alimentos (%) – Custo do prato e preço de carta",
+    metaTitle: "Percentagem do custo de alimentos – Prato e preço de carta",
     metaDescription:
       "Calcule a percentagem do custo de alimentos de um prato ou período pelo inventário, compras e vendas, com o lucro bruto e o preço de carta para o seu objetivo.",
     keywords: ["custo de alimentos", "percentagem do custo de alimentos", "food cost", "custo por prato", "preço de carta", "custo das mercadorias vendidas", "restauração"],

@@ -6,7 +6,7 @@ const nl: CalculatorTranslation<FoodCostPercentageText> = {
     title: "Foodcostcalculator voor de horeca",
     shortTitle: "Foodcostpercentage",
     summary: "Bereken het foodcostpercentage van een gerecht of van een hele periode uit voorraad en omzet, en de menuprijs die een gewenst foodcostpercentage oplevert.",
-    metaTitle: "Foodcostcalculator – kostprijs per bord en menuprijs",
+    metaTitle: "Foodcostpercentage berekenen – bordkosten en menuprijs",
     metaDescription:
       "Bereken het foodcostpercentage van een gerecht of een periode uit voorraad, inkopen en omzet, met brutowinst en een menuprijs voor je gewenste foodcost.",
     keywords: ["foodcost berekenen", "foodcostpercentage", "kostprijs gerecht", "menuprijs berekenen", "foodcost restaurant", "inkoopwaarde van de omzet", "kostprijsberekening horeca"],
