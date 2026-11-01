@@ -60,7 +60,7 @@ describe("batch 8 group D: content and examples", () => {
     expect(d.sources.length).toBeGreaterThan(0);
     expect(d.popularRank).toBeUndefined();
     expect(d.featured).toBeUndefined();
-    expect(Object.keys(d.translations)).toEqual([]);
+    expect(Object.keys(d.translations).sort()).toEqual(["ar", "de", "es", "fr", "it", "nl", "pt", "ur"]);
     const ids = (d.engine.fields as readonly { id: string }[]).map((f) => f.id);
     expect(new Set(ids).size).toBe(ids.length);
     expect(evaluate(d.engine, defaultRawValues(d.engine)).ok).toBe(true);

@@ -60,7 +60,7 @@ describe("batch 8 group A: content and examples", () => {
     expect(def.expertReview).toBeUndefined();
     expect(def.popularRank).toBeUndefined();
     expect(def.featured).toBeUndefined();
-    expect(Object.keys(def.translations)).toEqual([]);
+    expect(Object.keys(def.translations).sort()).toEqual(["ar", "de", "es", "fr", "it", "nl", "pt", "ur"]);
   });
 
   it("uses the specified ids, slugs and categories", () => {
