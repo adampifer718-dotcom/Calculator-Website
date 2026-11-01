@@ -1273,7 +1273,7 @@ function UnicodeTool() {
               {t("tools.unicode.count", { count: described.total })}
             </p>
             {described.rows.length > 0 && (
-              <div className="mt-3 max-h-[32rem] overflow-auto rounded-2xl bg-white ring-1 ring-line">
+              <div role="region" aria-label={t("tools.unicode.tableCaption")} tabIndex={0} className="focus-ring mt-3 max-h-[32rem] overflow-auto rounded-2xl bg-white ring-1 ring-line">
                 <table className="w-full min-w-[40rem] text-sm">
                   <caption className="sr-only">{t("tools.unicode.tableCaption")}</caption>
                   <thead className="sticky top-0 bg-white">
