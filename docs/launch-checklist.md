@@ -1,6 +1,6 @@
 # HourlyToSalaryCalculator.net launch checklist
 
-Status as of 28 October 2026, branch `claude/magical-planck-oou76v`.
+Status as of 1 November 2026, branch `claude/magical-planck-oou76v`.
 
 **Recommendation: NO-GO for a public production launch until the blockers in section 8 are closed.**
 The code, routing, SEO and automated tests are in launch condition (section 9), so a soft launch to a staging or preview domain is reasonable now. A public launch should wait for the production domain to be connected and verified live, the unverified sources and the professional and native-speaker reviews listed below.
@@ -207,6 +207,88 @@ These 24 rely on arithmetic or definitions only. Adding a reference would help r
   - **Tire size:** ISO metric sizes only.
 - **IRR backlog item removed:** the NPV and IRR Calculator covers it.
 
+### 3.8 Batch 8: 20 calculators and 7 converters (28 October – 1 November 2026)
+
+- **Network access:** the build environment's network policy blocked every source page the agents tried to open. That included ncbi.nlm.nih.gov, openstax.org, nice.org.uk, epa.gov, nrel.gov, brewersfriend.com, mlb.com, profootballhof.com, en.wikipedia.org and vde-verlag.de. **So every batch-8 source is unverified (search snippet only).**
+- **Source links, all unverified:**
+  - **Biology:**
+    - NCBI genetic code table 1 (DNA → mRNA). The codon table was written from memory and checked by tests: 3 stops, 6 codons each for Leu, Ser and Arg.
+    - UNC and Lonza cell-count protocols (hemocytometer).
+    - Pace et al. 1995 (PMC) and a UW–Madison NanoDrop page on a "wwwtest" host (protein A280).
+    - UF IFAS and Alberta 4-H (feed conversion ratio).
+    - UF, UKY and DeJong 1975 (Shannon index).
+  - **Ecology and food:**
+    - The NREL PVWatts v5 manual, OSTI record (14% default losses; the page calls it "a commonly used default").
+    - Iowa State and Cornell extension pages, plus CIAAW (fertilizer).
+    - The EPA WaterSense supporting statement, DOE showerhead guidance and HyperPhysics (shower water).
+    - An ISBE lesson and ChowNow, a commercial source (food cost).
+    - Brewer's Friend, brewday docs and Grainfather (ABV).
+  - **Technology and manufacturing:**
+    - Wikipedia, Elite Screens (aspect ratio).
+    - The Google SRE book and AWS (uptime).
+    - Reliamag and Kaizen (OEE).
+    - Lean Enterprise Institute and GoLeanSixSigma (takt time).
+    - IEC 60062 preview, Farnell, Oregon State and All About Circuits (resistor colours).
+  - **Physics, health and sports:**
+    - UMass Open Books and an IEC 60063 record (voltage divider, E24).
+    - NICE NG246 and the NICE news item (waist-to-height).
+    - PubMed (Mosteller), the MSD Manual (Du Bois), and EPA HERO records (Haycock, Gehan–George) for body surface area.
+    - The Pro Football Hall of Fame and Wikipedia (passer rating).
+    - The MLB.com glossary (ERA, WHIP).
+  - **Converters:**
+    - Brysbaert 2019 and Unicode UAX #29 (word counter).
+    - WHATWG named character references (HTML entities).
+    - NIST FIPS 180-4 and MDN (hashes).
+    - The Unicode Standard and RFC 3629 (Unicode).
+    - The IANA tz database (time zones).
+    - RFC 8259 (JSON).
+    - ASTM D2260, textile pages and NIST SP 811 (yarn count).
+- **Values to confirm:**
+  - **Calculator constants:**
+    - The Haycock and Gehan–George BSA constants (from calculator-site snippets).
+    - The NICE waist-to-height bands and the BMI < 35 scope.
+    - The ABV formulas (131.25 and the "alternative" formula) and the Plato conversion.
+    - The resistor tolerance and temperature-coefficient tables. Grey, orange and yellow tolerances and pink ×0.001 were left out because sources disagreed.
+  - **Converter and planning figures:**
+    - The yarn-count symbols NeK, NeL and YSW.
+    - The 200 wpm reading and 130 wpm speaking defaults; the speaking figure has no study behind it.
+    - The often-quoted 85% OEE and 28–35% food-cost figures, labelled as such on the pages.
+- **Spec changes made by the build agents (all documented on the pages):**
+  - **Shower:** uses 365.2425 ÷ 7 weeks per year.
+  - **Fertilizer:** uses K = K₂O × 0.8302, computed from atomic weights.
+  - **Hemocytometer:** the counting-range note uses 20–50 cells per square.
+  - **Resistor:** the reverse mode rejects values that need more significant digits.
+- **Duplicates avoided:**
+  - The Markup Calculator concept (already covered by the Profit Margin Calculator) was removed from the backlog.
+  - The planned specific-energy converter was not built, because the existing fuel efficiency (mass) converter already has the same J/kg units.
+- **A defect found and fixed during translation:** the uptime calculator joined duration parts with a translatable single space. The translation check treats that as empty, so no language could pass. It now uses a pattern ("{a} {b}"; Arabic "{a} و{b}").
+- **Known limitations:**
+  - **ERA:** innings are entered as whole innings plus outs, rather than "6.2" notation.
+  - **Time-zone converter:** depends on the browser's tz data.
+  - **Word counter:** counts only after the page loads.
+  - **ABV:** applies no hydrometer temperature correction.
+  - **Solar output:** uses a single peak-sun-hours value rather than location data.
+
+### 3.9 Batch 7 values re-checked (31 October 2026)
+
+A research pass tried to open the sources for the batch-7 values listed in section 3.7. **Every fetch was blocked** (pacompendium.com, apps.dtic.mil, epa.gov, sigmaaldrich.com, sca.coffee, en.wikipedia.org and others), so the results below rest on search snippets only and are **not** verified:
+
+| Value | Snippet finding | Status |
+| --- | --- | --- |
+| US Navy body-fat constants, men and women | Match the DoDI 1308.3 values (DTIC summary, Army G-1 FAQ) | Consistent; unverified |
+| Tris pKa 8.07; ammonium 9.25 | Matched (Bates–Hetzer value as cited in a 2021 paper) | Consistent; unverified |
+| Acetic 4.76, carbonic 6.35, phosphate 7.21 | Sources give 4.74–4.75, 6.37–6.4 and 7.2 | Close but not confirmed to two decimals; unverified |
+| SCA ratio of about 55 g/L | SCA Standard 310-2021: "55 g of coffee per 1.000 kg of water". The Golden Cup itself is a strength/extraction target | Consistent; unverified |
+| US paper basis sheet sizes | Neenah, Spicers and others | Consistent; unverified |
+| ISO A/B/C sizes | Spot checks (A10, B10, C10, C7) match | Consistent; full table not seen |
+| EPA 8,887 / 10,180 g CO₂ per gallon | EPA page snippet | Consistent; unverified |
+| MET values | Most 2011 values match. Hiking, yoga, tennis and gardening were not found. Jump rope 11.8 vs 11.0 differs between secondary sites. The 2024 Compendium changes some values | Partly unresolved |
+| TDEE activity multipliers | No authoritative origin found | Unresolved |
+
+One possible error was found: the Compendium **activity codes in two code comments** for swimming (calories-burned engine) appear shifted. The MET values themselves look right. This was left unchanged until the Compendium can be opened.
+
+**To verify these properly,** allow the source hosts in the environment's network settings and rerun the check.
+
 ## 4. Professional review checklist
 
 | Calculator | Area | Mathematically tested | Professionally reviewed |
@@ -232,6 +314,8 @@ These 24 rely on arithmetic or definitions only. Adding a reference would help r
 | Stairs | Safety (building code) | Yes | **No (pending)** |
 | Password entropy | Safety (security) | Yes | **No (pending)** |
 | NPV and IRR | Financial | Yes | **No (pending)** |
+| Waist-to-height ratio | Medical | Yes | **No (pending)** |
+| Body surface area | Medical | Yes | **No (pending)** |
 
 All other calculators are mathematically tested and not flagged for review. Salary, sales tax, ROI, electricity, fuel cost and rainwater give general estimates; a general content review is still advisable.
 
@@ -290,6 +374,10 @@ All other calculators are mathematically tested and not flagged for review. Sala
 **Financial reviewer, batch 7** (NPV and IRR):
 - [ ] End-of-period cash flows, the IRR solver (no or multiple IRRs), the profitability index and the discounted payback.
 
+**Medical reviewer, batch 8** (waist-to-height ratio, body surface area):
+- [ ] Waist-to-height: the NICE NG246 bands (0.4–0.49, 0.5–0.59, ≥ 0.6), banding on the ratio rounded to 2 decimals, the BMI < 35 adult scope, and the "below the lowest band" wording under 0.4.
+- [ ] Body surface area: the Mosteller, Du Bois, Haycock and Gehan–George constants, the plausible input ranges, and the warning never to use the result for dosing without clinical confirmation.
+
 Record the reviewer's name, qualification, date and outcome here before changing a calculator's `expertReview.status` to `"completed"`.
 
 ## 5. Native-speaker proofreading
@@ -298,17 +386,17 @@ AI agents produced every translation, and automated tests checked them for compl
 
 | Language | Scope | Proofread |
 | --- | --- | --- |
-| Urdu (اردو) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
-| Arabic (العربية) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
-| Spanish (Español) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
-| French (Français) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
-| German (Deutsch) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
-| Italian (Italiano) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
-| European Portuguese (Português) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
-| Dutch (Nederlands) | Interface, categories, collections, 130 calculators, 90 unit converters | **No** |
+| Urdu (اردو) | Interface, categories, collections, 150 calculators, 97 unit converters | **No** |
+| Arabic (العربية) | Interface, categories, collections, 150 calculators, 97 unit converters | **No** |
+| Spanish (Español) | Interface, categories, collections, 150 calculators, 97 unit converters | **No** |
+| French (Français) | Interface, categories, collections, 150 calculators, 97 unit converters | **No** |
+| German (Deutsch) | Interface, categories, collections, 150 calculators, 97 unit converters | **No** |
+| Italian (Italiano) | Interface, categories, collections, 150 calculators, 97 unit converters | **No** |
+| European Portuguese (Português) | Interface, categories, collections, 150 calculators, 97 unit converters | **No** |
+| Dutch (Nederlands) | Interface, categories, collections, 150 calculators, 97 unit converters | **No** |
 
 **Italian, European Portuguese and Dutch (added 21 October 2026):**
-- The translators flagged 410 terms for proofreading (180 earlier, 85 in batch 6, 145 in batch 7); they are listed in `docs/translation-proofreading.md`. Check these first.
+- The translators flagged 612 terms for proofreading (180 earlier, 85 in batch 6, 145 in batch 7, 202 in batch 8); they are listed in `docs/translation-proofreading.md`. Check these first.
 - European Portuguese must read as pt-PT, not Brazilian Portuguese. The language selector and `hreflang` use `pt-PT`, and the URL prefix is `/pt`.
 - Metadata (titles and descriptions) in all nine languages was rewritten on 21 October 2026 to fit search snippets (about 60 and 70–160 characters). The new wording also needs proofreading.
 
@@ -447,8 +535,8 @@ Measured on `next start` (gzip enabled), in Chromium.
    - Still to do: the hosting environment variable, the domain and `www` redirect in the hosting dashboard, the DNS records at the registrar, TLS, and a production redeploy (section 6).
    - Live DNS, HTTPS and redirects could not be checked from the build environment, because its outbound proxy refused connections to the domain.
 2. **Source links unverified** (section 3.1), including the ingredient densities in section 3.2.
-3. **Professional review pending** for BMI, BMR, waist-to-hip ratio, heart rate zones (medical); loan payment, mortgage, compound interest, credit card payoff, debt-to-income, savings goal (financial); and concrete (engineering); and the batch-6 and batch-7 rows in section 4 (overtime pay, depreciation, cap rate, TDEE, due date, body fat, calories burned, stairs, password entropy, NPV) (section 4). The pages already say they are estimates, not advice. Either complete the reviews or accept the risk explicitly and keep the disclaimers.
-4. **Native-speaker proofreading pending** for Urdu, Arabic, Spanish, French, German, Italian, European Portuguese and Dutch (section 5, plus the 410 flagged terms in `docs/translation-proofreading.md`). Alternatively, launch English first and publish other languages as reviews complete; the site only publishes a language when its files exist.
+3. **Professional review pending** for BMI, BMR, waist-to-hip ratio, heart rate zones (medical); loan payment, mortgage, compound interest, credit card payoff, debt-to-income, savings goal (financial); and concrete (engineering); and the batch-6 and batch-7 rows in section 4 (overtime pay, depreciation, cap rate, TDEE, due date, body fat, calories burned, stairs, password entropy, NPV, waist-to-height ratio, body surface area) (section 4). The pages already say they are estimates, not advice. Either complete the reviews or accept the risk explicitly and keep the disclaimers.
+4. **Native-speaker proofreading pending** for Urdu, Arabic, Spanish, French, German, Italian, European Portuguese and Dutch (section 5, plus the 612 flagged terms in `docs/translation-proofreading.md`). Alternatively, launch English first and publish other languages as reviews complete; the site only publishes a language when its files exist.
 5. **No `main` branch / CI never run on GitHub.** Create the default branch, merge, and confirm CI passes.
 6. **Next.js security upgrade required before any deployment.**
    - **What happened:** on 24 October 2026, `next build` stopped with "Your version of Next.js is affected by a known security vulnerability" for the installed `next@16.4.0`. The build only completed on the retry the notice allows.

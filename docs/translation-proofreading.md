@@ -484,3 +484,235 @@ Several translation runs were interrupted by usage limits and resumed, and some 
 - percent-yield: title "Rendementscalculator voor chemische reacties"; "beperkende reactant" vs "beperkende stof"; "opwerking" for work-up
 - henderson-hasselbalch: "base-zuurverhouding", "diwaterstoffosfaat / waterstoffosfaat", "trisbase", "werkzaam bufferbereik"
 - linear-regression: "intercept" vs "snijpunt met de y-as"; "kleinste-kwadratenaanpassing"; "residuele standaardfout"; "IJklijn"
+
+## Batch 8: 20 calculators and 7 converters (28 October – 1 November 2026)
+
+All eight languages were drafted by AI translation agents and checked automatically: structure, placeholders, untranslated English, metadata length, title uniqueness, and identical calculator results. **No human linguistic review has taken place.**
+
+Every translation run was interrupted at least once by usage limits and resumed. These lists only hold the terms the agents recorded, so the whole batch-8 content should get a general read. Specialist vocabulary needs a reader with that background: genetics and cell culture, brewing, restaurant costing, fertilizer labels, electronics, American football and baseball. The waist-to-height ratio and body surface area pages are medical and need a reader with a clinical background. One garbled Arabic note (water-footprint) was left out.
+
+### Urdu (`ur`) — 28 items
+
+- dna-to-mrna: لڑی (strand), کوڈنگ/ٹیمپلیٹ لڑی, ریورس کمپلیمنٹ, ریڈنگ فریم — transliterated genetics terms; check against Urdu biology textbooks
+- hemocytometer: زندہ پذیری (viability), معلق محلول (cell suspension), سیڈنگ (seeding), امپروڈ نیوبار چیمبر — coined/transliterated
+- protein-concentration: سسٹائن (cystine) vs سسٹین (cysteine) — spelling distinction chosen to keep the two apart; ایکسٹنکشن کوایفیشنٹ, تہہ شدہ (folded) پروٹین
+- feed-conversion-ratio: فیڈ کنورژن ریشو kept transliterated; "اموات سے درست FCR" for mortality-adjusted FCR
+- shannon-index: یکسانیت (evenness), انواع کی کثرت (species richness), اساس (log base), نیٹس/بٹس
+- solar-panel-output: پیک سن آورز (peak sun hours) transliterated; سولر ریسورس ٹول
+- fertilizer: غذائی جزو/اجزا (nutrient), عنصری فاسفورس (elemental P), گریڈ (fertilizer grade)
+- water-footprint: داخلی درجۂ حرارت (inlet temperature); title "شاور میں پانی کا استعمال کیلکولیٹر"
+- food-cost-percentage: فوڈ کاسٹ (kept English loan), فروخت شدہ مال کی لاگت (COGS), کنٹری بیوشن مارجن
+- abv: اوریجنل/فائنل گریویٹی, ظاہری اٹینیوایشن, ڈگری پلاٹو, تخمیر — brewing loanwords
+- voltage-divider: ریزسٹو, آوارہ کپیسیٹنس (stray capacitance), فی دہائی (per decade)
+- waist-to-height: مرکزی موٹاپا (central adiposity), حوالہ درجہ (reference band) — medical caveats kept, please verify tone
+- bsa: جسم کا سطحی رقبہ (body surface area), کارڈیک انڈیکس — medical caveats kept, please verify
+- passer-rating: اٹیمپٹس, کمپلیشنز, انٹرسیپشنز, سیکس, رشنگ, فمبلز — American football terms transliterated
+- era: ارنڈ رن ایوریج, اننگز/اننگ, واکس, اسٹرائیک آؤٹس, اَن ارنڈ, پاسڈ بال — baseball terms transliterated
+- aspect-ratio: اسپیکٹ ریشو (vs تناسب), ضلع/اضلاع for sides, ڈائیگنل
+- uptime-sla: نائنز (nines), متبادل اجزا (redundant components), سیریز/متوازی
+- oee: مجموعی آلاتی مؤثریت (OEE), چینج اوورز, ڈسکریٹ مینوفیکچرنگ
+- takt-time: ٹیکٹ ٹائم, کام کا مواد (work content)
+- resistor-color-code: ضارب (multiplier band), سنہری/چاندی bands, اہم ہندسے (significant digits)
+- converters/yarn-count: یارن کاؤنٹ کنورٹر / دھاگے کی کاؤنٹ — industry loanword "کاؤنٹ" (and its gender, used as feminine) vs a native term
+- converters/yarn-count units: ورسٹڈ کاؤنٹ، لینن لی کاؤنٹ، اونی کاؤنٹ (یارکشائر اسکین)، گرین فی گز، امریکی گرین کاؤنٹ — transliterated textile jargon
+- converters/yarn-count: لچھی (hank/skein)، بٹے ہوئے (plied)، سلیور اور روونگ (sliver/roving) — trade terms
+- converters/word-count: الفاظ اور حروف کاؤنٹر; گریفیم کلسٹرز; یونیکوڈ ٹیکسٹ سیگمنٹیشن — transliterated technical terms
+- converters/html-entities: اینٹیٹی، کریکٹر ریفرنس، ایسکیپ/ان ایسکیپ — transliterated web terms
+- converters/unicode: سروگیٹ پیئر، اونچا/نیچا سروگیٹ (high/low surrogate)
+- converters/json: ویلیڈیٹر، مختصر کریں (minify)، دہری کی/کیز (duplicate key)، ارے (array)
+- converters/time-zone: ڈے لائٹ سیونگ ٹائم، آفسیٹ — loanwords vs native wording
+
+### Spanish (`es`) — 24 items
+
+- feed-conversion-ratio: "índice de conversión alimenticia (IC)" for FCR, "pienso" for feed — IC vs ICA vs keeping FCR varies by sector/region
+- food-cost-percentage: "coste de materia prima" / "food cost" (anglicism kept) and "CMV (coste de la mercancía vendida)" for COGS; "coste por ración" for plate cost
+- fertilizer: "riqueza" for fertilizer grade; "fósforo (P₂O₅)" / "potasio (K₂O)" used instead of literal "fosfato"/"potasa"; "Calculadora de abonos" as title
+- abv: OG/FG kept as symbols with "densidad original/final"; "densidad relativa (SG)"; "densímetro" for hydrometer; "pale ale", "strong ale" left as style names
+- passer-rating: "rating de pasador" (also "passer rating" in keywords); "pases completos", "intentos"; quarterback kept in English
+- era: "promedio de carreras limpias (ERA)", "entradas" for innings, "ponches", "bases por bolas", "hoja de anotación" for box score; box-score notation 6.2 kept with a dot on purpose
+- hemocytometer: "hemocitómetro", "cámara de Neubauer mejorada", "azul tripán", "siembra" for seeding
+- dna-to-mrna: "cadena codificante (con sentido)" / "cadena molde (antisentido)", "codón de parada", "corte y empalme" for splicing, "lectura continua" for read-through
+- shannon-index: "equitatividad de Pielou" for evenness (alt: "uniformidad")
+- water-footprint: "alcachofa" (Spain) for shower head — LatAm would say "regadera"/"cabezal"
+- solar-panel-output: "horas solares pico", "instalación" for system, "vertido a la red" for grid export
+- voltage-divider: "tensión" (not "voltaje"), "masa" for ground, "búfer"
+- oee: "eficiencia general de los equipos", "cambios de formato" for changeovers, "microparadas"
+- takt-time: "takt time" kept as is; "contenido de trabajo"; "operarios o puestos"
+- uptime-sla: "inactividad" for downtime, "tiempo activo" for uptime, "nueves"
+- resistor-color-code: "Oro"/"Plata" for gold/silver bands (alt "dorado"/"plateado"); "polímetro" for multimeter (Spain)
+- aspect-ratio: "relación de aspecto"; "ultrapanorámico" for ultrawide
+- waist-to-height / bsa: "índice cintura-altura (ICA)", "franjas de referencia del NICE"; "superficie corporal (SC)"
+- converters/titles: "Contador de palabras y caracteres", "Codificador y descodificador de entidades HTML", "Generador de hash SHA", "Formateador y validador de JSON" — follow the English (Counter/Encoder/Generator/Formatter) rather than the "Conversor de …" rule
+- converters/yarn-count: "título de hilo", "número de estambre" (worsted), "lana cardada" (woollen), "lea de lino", "cintas y mechas" (slivers/rovings), "madeja" (hank/skein) — textile terminology
+- converters/unicode, html-entities: "sustituto", "par sustituto" (surrogate, surrogate pair) — "suplente" is also used
+- converters/time-zone: "desfase" for UTC offset; "Karachi" kept in its RAE spelling
+- converters/json: "minificar", "embellecer", "sangrado"; "corchete de cierre" for "closing bracket"
+- converters/word-count: "tiempo de habla", "oraciones" (sentences)
+
+### French (`fr`) — 26 items
+
+- feed-conversion-ratio: « indice de consommation (IC) » for FCR — standard in livestock; aquaculture sometimes says « taux de conversion alimentaire »
+- solar-panel-output: « heures de plein soleil » for peak sun hours — alternatives « heures d’ensoleillement crête », « heures équivalentes plein soleil »
+- hemocytometer: « hématimètre » / « cellule de Neubauer améliorée » — in France « cellule de Malassez » is common; title uses hématimètre
+- protein-concentration: « coefficient d’extinction » (vs « coefficient d’absorption molaire »), « trajet optique » for path length, MW written « MM »
+- abv: OG/FG rendered as « DI »/« DF » (densité initiale/finale); title keeps « taux d’alcool (ABV) » rather than « TAV »
+- food-cost-percentage: « ratio coût matière », « coût portion », « CMV » for COGS, « prix de carte »
+- fertilizer: « formule » for grade, « phosphate (P₂O₅) » and « potasse (K₂O) » (agronomy texts also say « anhydride phosphorique »)
+- waist-to-height: « rapport tour de taille/taille (RTT) » — clumsy but avoids clash with the existing « rapport taille/hanches »
+- bsa: « surface corporelle (SC) »
+- passer-rating: « évaluation du passeur » with « passer rating » kept in parentheses; « passes complétées », « tentatives »
+- era: « moyenne de points mérités », « retraits sur prises », « buts sur balles », « coups sûrs », « retraits » (outs), « feuille de match » for box score; box-score notation 6.2 kept with a dot
+- dna-to-mrna: « brin codant/matrice », « codon d’initiation », « codon stop », « lecture continue » for read-through
+- shannon-index: « équitabilité de Pielou », « nombre effectif d’espèces », « logarithme népérien »
+- voltage-divider: « résistance haute/basse » for top/bottom resistor, « à vide »/« en charge », « étage tampon » for buffer
+- aspect-ratio: « format d’image » as title (« Calculateur de ratio » already exists); L:H used for W:H in formulas
+- uptime-sla: « indisponibilité » for downtime, « nombre de neuf » for nines; duration unit « j » for days
+- oee: « TRS (taux de rendement synthétique) » for OEE, « micro-arrêts », « changements de série »
+- takt-time: kept « takt time » (French lean usage); « contenu de travail »
+- resistor-color-code: « Marron » for brown, « Or »/« Argent »; standard cited as « CEI 60062 »; value samples like 4.7k kept with a dot
+- converters/word-count: title "Convertisseur de texte en nombre de mots" — forced by the "Convertisseur " title rule; the shortTitle/metaTitle use "Compteur de mots"
+- converters/hash: "empreinte" for hash/digest, title "Convertisseur de texte en empreinte SHA" — "hash" or "condensat" are also used
+- converters/json: title "Convertisseur et validateur JSON", "Formateur JSON", "minifier", "indenter" — check that the anglicisms read naturally
+- converters/unicode: "substitut haut/bas", "paire de substitution", "unités de substitution" for UTF-16 surrogates — check terminology
+- converters/yarn-count: "titre de fil", "numéro métrique (Nm)", "numéro anglais coton (Ne)", "numéro laine peignée (worsted)", "numéro lin (lea)", "numéro laine cardée (écheveau Yorkshire)", "numéro américain en grains", "rubans et mèches" (slivers/rovings) — textile terms
+- converters/time-zone: prose times written "12 h", "2 h 30" (French style); UTC offsets kept as UTC−05:00
+- converters/words: "Vitesse de parole" / "Temps de parole" for speaking speed/time
+
+### German (`de`) — 27 items
+
+- dna-to-mrna: "codierender Strang" (coding/sense) vs "codogener Strang" (template/antisense); "translatieren" as verb — check school/university usage
+- dna-to-mrna: title "Rechner für DNA in mRNA und Protein" — natural title wording?
+- hemocytometer: "Neubauer-improved-Kammer", "Großquadrat", "Vitalität" (vs. "Viabilität") for cell viability
+- protein-concentration: "massenbezogener Extinktionskoeffizient" for mass extinction coefficient E0.1%; "Molekülmasse" vs "Molekulargewicht"
+- feed-conversion-ratio: "Futterverwertung (FCR)" vs "Futteraufwand"; "verlustbereinigt" for mortality-adjusted; "Merztiere" for culls
+- shannon-index: "Evenness nach Pielou" (kept English "Evenness"); "Bit"/"Nat" as units
+- solar-panel-output: "Spitzensonnenstunden (Peak Sun Hours)" — German PV practice often uses kWh/kWp or Volllaststunden instead
+- fertilizer: "Nährstoffgehalt" for grade, "Gabe" for rate, "Kali" for potash (K₂O)
+- water-footprint: title "Duschwasserrechner"; "Warmwasserbereiter" for water heater; "US-Bundeshöchstwert"
+- food-cost-percentage: "Wareneinsatz"/"Wareneinsatzquote" for food cost/COGS, "Tellerkosten" for plate cost, "Menüpreis" for menu price, "Deckungsbeitrag nach Wareneinsatz"
+- abv: "Stammwürze" for OG and "Restextrakt" for FG even when entered as SG; "Spindel" for hydrometer; "Dichtepunkte" for gravity points
+- voltage-divider: "bzw." added in the R2/R1 formula so it differs from English; "Puffer" for buffer amplifier
+- waist-to-height: "Taille-Größe-Verhältnis" (WHtR) — alternative "Taille-zu-Größe-Verhältnis"; "Pflegefachpersonal" for nurse
+- bsa: "KOF" abbreviation for Körperoberfläche
+- passer-rating: English sport terms kept (Completions, Interceptions, Passing Yards); "angekommene Pässe" for completions
+- era: baseball terms kept in English (Earned Runs, Innings, Walks, Strikeouts, Box Score); "{whole}.{outs}" notation kept with a dot
+- oee: "ideale Zykluszeit" for ideal cycle time (Taktzeit reserved for takt time), "Leistung" for performance, "Stückgutfertigung" for discrete manufacturing
+- takt-time: "Mitarbeitende"/"Mindestbesetzung" for operators; "austakten" for line balancing
+- uptime-sla: "Neunen" for nines of availability; "in Reihe"/"parallel"
+- resistor-color-code: "Ringe" for bands; "TK" for TCR; valueHelp examples keep dot decimals (parser input) while error messages use comma
+- converters/word-count: title "Wortzähler und Lesezeitumrechner" — the test requires "umrechner"; "Wort- und Zeichenzähler" would be more natural
+- converters/json: title "JSON-Umrechner zum Formatieren und Prüfen" — forced "Umrechner" wording for a formatter/validator
+- converters/hash: title "Umrechner für SHA-Hashwerte" — forced "Umrechner" for a hash generator
+- converters/html-entities: "HTML-Entities" / "maskieren" — Anglicism vs. "Zeichenreferenzen"; "maskieren" for escape
+- converters/yarn-count: "Englische Kammgarnnummer", "Leinengarnnummer (Lea)", "Streichgarnnummer (Yorkshire-Strang)", "Amerikanische Grain-Nummer", "Bänder und Vorgarne" (slivers/rovings) — textile terms to check
+- converters/time-zone: "UTC-Versatz" for UTC offset — "Zeitverschiebung" or "UTC-Abweichung" may be more common
+- converters/json messages: "minifizieren", "Escape-Sequenz", "String" — kept as developer jargon
+
+### Arabic (`ar`) — 24 items
+
+- dna-to-mrna: السلسلة المشفِّرة / السلسلة القالب، المتمم العكسي، "ضع U مكان T" — check established genetics terms (sense/antisense kept in Latin)
+- hemocytometer: الهيموسيتومتر، حجرة نيوباور المحسّنة، التريبان الأزرق، المعلّق، الحيوية — check lab usage
+- protein-concentration: معامل الخمود (extinction coefficient), السيستين/السيستئين (cystine vs cysteine) — spelling distinction may be unclear to readers
+- feed-conversion-ratio: معامل التحويل الغذائي، المعدَّل للنفوق، العليقة — check livestock terminology
+- shannon-index: تجانس بيلو (Pielou evenness), غنى الأنواع، العدد الفعّال للأنواع، بالنات/بالبت
+- solar-panel-output: ساعات ذروة الشمس، فواقد النظام، العاكس (inverter)، عدم التوافق (mismatch)، التوافرية (availability)
+- fertilizer: التركيبة (grade), البوتاس، أكر (acre; deliberately not فدان, which is a different unit)
+- food-cost-percentage: مخزون أول المدة / آخر المدة، تكلفة البضاعة المباعة، هامش المساهمة
+- abv: الكثافة الأصلية/النهائية (OG/FG), التخمّر الظاهري (apparent attenuation), نقيع الشعير (wort), التوسيم
+- voltage-divider: مقسّم الجهد، الأرضي، مضخّم عازل (buffer), عقد (decade)
+- waist-to-height / bsa: medical caveats kept (estimate, not medical advice, not yet professionally reviewed; no dosing); names موستيلر، دوبوا، هايكوك، جيهان-جورج transliterated
+- passer-rating: تقييم الممرر، لاعب الوسط (الكوارترباك)، التاتشداون، الاعتراضات، الإسقاطات (sacks); formula abbreviations Cmp/Att/Yds replaced by Arabic words (TD/INT kept)
+- era: run = نقطة، inning = شوط، out = إقصاء، walk = تمشية، strikeout = إقصاء بالضربات، hit = ضربة ناجحة، passed ball = كرة فائتة — Arabic baseball terms are not well established
+- uptime-sla: التوافرية، عدد التسعات؛ duration join set to " و" (e.g. "43 min و48 s") because a plain space fails the empty-string check
+- oee / takt-time: الفعالية الكلية للمعدات، تغيير التجهيزات (changeover)، التصنيع المتقطع (discrete), زمن التاكت، محتوى العمل
+- resistor-color-code: حلقات الألوان، المضاعِف، التفاوت، معامل الحرارة، الأرقام المعنوية
+- converters/word-count: عدّاد الكلمات والمحارف; "محرف/محارف" (as in existing ar files) vs "حرف/أحرف"; عناقيد الحروف (grapheme clusters)
+- converters/word-count: duration "{minutes} د {seconds} ث" — abbreviation style for minutes/seconds
+- converters/html-entities: كيانات HTML; تهريب/إلغاء التهريب (escape/unescape); مراجع المحارف المسمّاة
+- converters/hash: تجزئة (hash), ملخّص (digest), القوة الغاشمة, ملح (salt), المجموع الاختباري (checksum)
+- converters/unicode: النقطة الرمزية (code point), البدائل / زوج بدائل (surrogates), بديل علوي/سفلي
+- converters/json: منسّق JSON والمدقّق; ضغط (minify); محلّل (parser); قوس معقوف (brace)
+- converters/yarn-count: نمرة/نمر الغزل; الصوف الممشط (worsted); الصوف المسرّح (woollen); شلة/شلل (hank/skein); الخيوط المزوية (plied); الشرائط والمبرومات (slivers/rovings); حبّات (grains)
+- converters/time-zone: فرق التوقيت عن UTC (offset); keyword "تحويل utc إلى توقيت مكة"
+
+### Italian (`it`) — 26 items
+
+- dna-to-mrna: "filamento stampo / codificante", "cornice di lettura", "complementare inverso" — check against Italian genetics textbooks (alt. "modulo di lettura", "inverso complementare").
+- hemocytometer: "camera di Neubauer migliorata", "trypan blue" kept in English (alt. "blu tripano") — check lab usage.
+- protein-concentration: "coefficiente di estinzione massico", "E0,1%" (decimal comma inside the label) — check if labs keep "E0.1%".
+- feed-conversion-ratio: kept "FCR" throughout (Italian zootecnia also uses "ICA, indice di conversione alimentare"); "accrescimento" for gain; "capi allontanati" for removed animals.
+- shannon-index: "equiripartizione di Pielou" for evenness (alt. "equitabilità"); "quadrati di campionamento" for quadrats.
+- solar-panel-output: "ore di picco solare" for peak sun hours (alt. "ore equivalenti di sole pieno"); "disaccoppiamento tra moduli" for mismatch; "taglia dell'impianto".
+- fertilizer: "titolo" for N-P-K grade, "anidride fosforica (P₂O₅)", "ossido di potassio (K₂O)" for phosphate/potash; "concime" vs "fertilizzante".
+- water-footprint: "soffione a basso flusso", "scaldacqua", "rendimento" for heater efficiency.
+- food-cost-percentage: kept "food cost" as the Italian trade term; "costo del venduto (COGS)"; "margine di contribuzione".
+- abv: "densità iniziale/finale (OG/FG)", "peso specifico", "attenuazione apparente", "densimetro" — check homebrewing usage (some write "OG/FG" only).
+- voltage-divider: "a vuoto" / "sotto carico", "resistore superiore/inferiore", "rapporto di partizione".
+- waist-to-height: "statura" for height; caveat translated as "non è ancora stato verificato da professionisti".
+- bsa: "équipe di cura"; caveat "Non usarlo mai per calcolare la dose di un farmaco senza la conferma di un medico qualificato" — check medical register.
+- passer-rating: kept "passer rating"; "passaggi tentati/completati", "intercetti", "tabellino".
+- era: "media dei punti guadagnati (ERA)", "inning", "eliminazioni", "valide", "basi su ball", "classificatore ufficiale", "palla mancata" (passed ball) — check against FIBS terminology; box-score notation "6.2" kept with a dot on purpose.
+- uptime-sla: "nove" for "nines" ("tre nove"), duration unit "g" for days.
+- oee: "efficienza complessiva dell'impianto", "cadenza ideale", "tempo ciclo", "microfermate", "classe mondiale".
+- takt-time: kept "takt time"; "contenuto di lavoro", "postazioni".
+- resistor-color-code: "fasce" for bands, "resistore" (vs colloquial "resistenza"), "toll." abbreviation in the tolerance formula.
+- aspect-ratio: "rapporto d'aspetto" (alt. "proporzioni"); "nome commerciale" for marketing name.
+- converters/word-count: title "Convertitore di testo in numero di parole" (keeps the "Convertitore …" convention); shortTitle "Conta parole"; "tempo/velocità di esposizione" for speaking time/speed
+- converters/hash: "violato" for "broken" (SHA-1/MD5); "impronta", "digest", "salt" kept
+- converters/json: "Formattatore JSON", "minimizza" for minify, "apici singoli" for single quotes
+- converters/unicode: "surrogato alto/basso", "coppia surrogata", "punto di codice" — check terminology
+- converters/yarn-count: "titolo dei filati", "titolo metrico (Nm)", "titolo inglese cotone (Ne)", "titolo inglese pettinato (worsted)", "titolo lino (lea)", "titolo cardato (matassa Yorkshire)", "Denari" for denier, "titolo americano in grani", "nastri e stoppini" (slivers/rovings) — textile terms
+- converters/timeZone: messages "Le {time} non esistono…" / "Le {time} si ripetono…" assume {time} is a clock time such as 02:30
+
+### European Portuguese (`pt`) — 26 items
+
+- dna-to-mrna: "cadeia codificante / cadeia molde", "grelha de leitura", "codão de iniciação / de terminação", "complemento reverso", "leitura contínua" (read-through) — check pt-PT genetics usage
+- hemocytometer: "hemocitómetro", "semear / sementeira" (cell seeding), "câmara de Neubauer melhorada" — lab jargon varies
+- protein-concentration: "proteína enovelada" (folded), "pontes dissulfureto", "coeficiente de extinção mássico", "MW" kept as symbol in formula
+- feed-conversion-ratio: "índice de conversão alimentar (ICA)" used for FCR; "animais refugados" for culls; "pesos limpos ou de carcaça"
+- solar-panel-output: "horas de sol de pico" (peak sun hours), "dimensão do sistema", "injeção na rede"
+- fertilizer: "fórmula" for N-P-K grade; "anidrido fosfórico (P₂O₅)" for phosphate and "óxido de potássio (K₂O)" for potash; "azoto"
+- water-footprint: "chuveiro de caudal reduzido", "rendimento do aquecedor", "esquentadores a gás"
+- food-cost-percentage: "custo das mercadorias vendidas (CMV)" for COGS; "preço de carta"; "custo por prato" (plate cost)
+- abv: "densidade original/final" with OG/FG kept as symbols; "densidade relativa (SG)"; "densímetro"; "atenuação aparente"; style names (pale ale, strong ale, lager) left in English
+- voltage-divider: "massa" for ground; "Vout,carga" subscript translated; "buffer" kept
+- waist-to-height: "relação cintura-altura" with English abbreviation WHtR kept; "faixas de referência do NICE"
+- bsa: "superfície corporal (SC)" for BSA
+- passer-rating: "passer rating" kept in English (title "Calculadora do passer rating da NFL"); "passes completos", "interceções", "jardas"; Cmp/Att/Yds/TD/INT kept in formulas
+- era: "média de corridas limpas", "entradas", "eliminações", "batidas" (hits), walks/strikeouts kept in English; box-score notation "6.2" kept with a dot in «»
+- aspect-ratio: "relação de aspeto", "ultrapanorâmico", L:A used for W:H in formulas
+- uptime-sla: "tempo de inatividade", "noves", "disponibilidade alcançada"
+- oee: "eficiência global do equipamento", "mudanças de série" (changeovers), "micro-paragens", "classe mundial"
+- takt-time: "takt time" kept; "conteúdo de trabalho", "balanceamento de linha"
+- resistor-color-code: colours "Castanho", "Cinzento", "Dourado", "Prateado"; "montagem convencional" for through-hole
+- converters/titles: "Contador de palavras e caracteres", "Codificador e descodificador de entidades HTML", "Gerador de hash SHA", "Formatador e validador de JSON" — follow the English rather than the "Conversor de …" rule
+- converters/yarn-count: "título de fio", "lã penteada" (worsted), "lã cardada" (woollen), "lea de linho", "fitas e mechas" (slivers/rovings), "meada", "Quilotex" — pt-PT textile terminology
+- converters/unicode, html-entities: "substituto", "par substituto" (surrogate)
+- converters/time-zone: "desvio" for UTC offset; "Carachi" and "Nova Iorque" spellings
+- converters/json: "chaveta" (brace) vs "chave" (key), "parêntese reto", "minificar", "embelezar"
+- converters/hash: "comprometido" for "broken for security"; "soma de verificação" (checksum)
+- converters/tools: "timestamps" kept in the group description, as it already was
+
+### Dutch (`nl`) — 21 items
+
+- dna-to-mrna: "template-streng", "reverse complement", "leesraam" — mixed English/Dutch genetics terms; "matrijsstreng"/"omgekeerd complement" are alternatives
+- hemocytometer: "verbeterde Neubauer-telkamer", "viabiliteit", "uitzaaien" (cell seeding) — check lab usage (Bürker-Türk is more common in NL labs)
+- protein-concentration: "massa-extinctiecoëfficiënt E0.1%", "weglengte", "stockoplossing" — check established lab phrasing
+- feed-conversion-ratio: "voederconversie" vs "voerconversie"; "voor uitval gecorrigeerd" for mortality-adjusted
+- shannon-index: "evenness van Pielou" kept as loanword; "gelijkmatigheid" is an alternative
+- solar-panel-output: "piekzonuren" for peak sun hours; Dutch sites often use "zonuren" or kWh/Wp instead
+- fertilizer: "gift" (nutrient rate), "gehalte" (fertilizer grade), "kali" for K₂O
+- food-cost-percentage: "foodcost", "foodomzet", "inkoopwaarde van de omzet" (COGS), "kostprijs per bord" — horeca jargon
+- abv: "begindichtheid/einddichtheid" for OG/FG, "schijnbare vergistingsgraad" for apparent attenuation; homebrewers also say "begin-SG"/"eind-SG"
+- voltage-divider: "massa" for ground, "uitgangsknooppunt", "strooicapaciteit"
+- passer-rating: "geslaagde passes", "passpogingen", "passyards", "intercepties" — American-football terms are often left in English in Dutch
+- era: "verdiende punten", "uit" (outs), "honkslagen", "vrije lopen", "vier wijd", "doorgeschoten bal" (passed ball) — KNBSB terminology check
+- uptime-sla: "negens" for "nines"; duration unit "u" for hours
+- oee: "prestatie" for performance factor, "looptijd" for run time, "afkeur"
+- takt-time: "werkinhoud" (work content), "operators", "werkplekken" (stations)
+- resistor-color-code: "ringen" for bands, "vermenigvuldigerring", "tolerantiering"
+- converters/yarn-count: "kamgarennummer", "linnennummer (lea)", "kaardgarennummer (Yorkshire-streng)", "Amerikaans grainnummer", "lonten en voorgarens" (slivers/rovings), "getwijnde garens" — textile terms to check
+- converters/time-zone: "UTC-verschuiving" for UTC offset — "UTC-afwijking" or "tijdsverschil" may be more common
+- converters/html-entities: "escapen", "HTML-entiteiten", "tekenreferenties" — developer jargon choice
+- converters/json: "minificeren", "ongeëscapete stuurtekens", "escapereeks" — developer jargon choice
+- converters/word-count: "grafeemclusters" for grapheme clusters
