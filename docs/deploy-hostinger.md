@@ -7,12 +7,9 @@ This site is a Next.js **server** app, not a set of static files. It needs a run
 
 Hostinger's **Business** web hosting plan runs Node.js web apps, including Next.js, from hPanel. Use that option. Do **not** upload files to `public_html`, because a static upload would break routing.
 
-## ⚠️ Before going live: mandatory blocker
+## Security status
 
-**Next.js 16.4.0 has a known security vulnerability.** The build prints `SecurityFatalError: Your version of Next.js is affected by a known security vulnerability` (see blocker 6 in `docs/launch-checklist.md`).
-- **Do not make the site public on 16.4.0.**
-- **The build may also fail on Hostinger.** The local build only completes on a retry that the notice allows, and Hostinger may not retry.
-- **Fix:** run the Next.js security upgrade first (`next upgrade`), then rerun lint, type checks, unit tests, the build, the SEO audit and the Playwright crawls.
+The site runs on **Next.js 16.4.6**. The earlier security notice on 16.4.0 (blocker 6 in `docs/launch-checklist.md`) is resolved. `npm audit --omit=dev` reports 0 vulnerabilities, and the build passes on the first attempt. Full results are in section 9.7 of the checklist.
 
 ## hPanel settings
 
@@ -38,9 +35,13 @@ Hostinger's **Business** web hosting plan runs Node.js web apps, including Next.
 ## Domain and HTTPS
 
 1. **Domain:** connect `hourlytosalarycalculator.net` to the Node.js app in hPanel, and add `www.hourlytosalarycalculator.net` as well. The app itself permanently redirects `www` to the bare domain, which is the canonical one.
-2. **DNS:**
-   - If the domain is registered at Hostinger, hPanel sets the records.
-   - If it is registered elsewhere, point the nameservers or the A/CNAME records to Hostinger as hPanel shows.
+2. **DNS (the domain is registered at Websouls):**
+   1. In hPanel, add `hourlytosalarycalculator.net` to the Node.js app and note the nameservers hPanel shows (usually `ns1.dns-parking.com` and `ns2.dns-parking.com`). If hPanel shows different values, use those.
+   2. In the Websouls client area, go to **My Domains → hourlytosalarycalculator.net → Manage → Nameservers**. Choose custom nameservers, replace the old ones with Hostinger's two, and save.
+   3. Wait for propagation: usually a few hours, at most 24–48 hours.
+   - The domain stays registered (and auto-renewing) at Websouls; only the nameservers change.
+   - Any email hosted on Websouls for this domain stops working after the switch until it is set up again at Hostinger.
+   - The alternative is to keep Websouls DNS and add the A/CNAME records hPanel shows instead of changing nameservers.
 3. **HTTPS:** enable the free SSL certificate for both the bare and `www` hosts.
 
 ## Check after deploying
@@ -64,4 +65,4 @@ node scripts/seo-audit.mjs https://hourlytosalarycalculator.net https://hourlyto
 - **Node.js websites:** Business allows 5 Node.js websites and a shared process limit. Hostinger manages the process, so do not add PM2 or cluster mode.
 - **Request timeout:** requests time out after 120 seconds. Pages are prerendered, so this is not expected to matter.
 
-Hostinger's docs: [Node.js web apps](https://docs.hostinger.com/node.js/overview), [Next.js settings](https://docs.hostinger.com/node.js/overview-1/next), [creating an app](https://docs.hostinger.com/node.js/creating-an-app), [plan limits](https://www.hostinger.com/support/6976044-parameters-and-limits-of-hosting-plans-in-hostinger/).
+Hostinger's docs: [pointing a domain to Hostinger](https://www.hostinger.com/in/tutorials/how-to-point-domain-to-hostinger/), [where to find nameservers](https://support.hostinger.com/dns/where-can-i-find-nameservers), [Node.js web apps](https://docs.hostinger.com/node.js/overview), [Next.js settings](https://docs.hostinger.com/node.js/overview-1/next), [creating an app](https://docs.hostinger.com/node.js/creating-an-app), [plan limits](https://www.hostinger.com/support/6976044-parameters-and-limits-of-hosting-plans-in-hostinger/).

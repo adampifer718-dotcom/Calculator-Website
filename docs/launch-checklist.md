@@ -438,7 +438,7 @@ AI agents produced every translation, and automated tests checked them for compl
 
 ## 6. Production configuration
 
-**Hosting target: Hostinger Business (Node.js web app).** The step-by-step settings are in `docs/deploy-hostinger.md`. Blocker 6, the Next.js security upgrade, must be done before going live there.
+**Hosting target: Hostinger Business (Node.js web app).** The step-by-step settings are in `docs/deploy-hostinger.md`. Blocker 6, the Next.js security upgrade, is resolved: the site now runs on Next.js 16.4.6 (section 9.7).
 
 **Domain.** The production origin is `https://hourlytosalarycalculator.net` (non-www). It is set in `src/lib/site.ts` (`PRODUCTION_ORIGIN`) and resolved as follows:
 
@@ -540,11 +540,11 @@ Measured on `next start` (gzip enabled), in Chromium.
 3. **Professional review pending** for BMI, BMR, waist-to-hip ratio, heart rate zones (medical); loan payment, mortgage, compound interest, credit card payoff, debt-to-income, savings goal (financial); and concrete (engineering); and the batch-6 and batch-7 rows in section 4 (overtime pay, depreciation, cap rate, TDEE, due date, body fat, calories burned, stairs, password entropy, NPV, waist-to-height ratio, body surface area) (section 4). The pages already say they are estimates, not advice. Either complete the reviews or accept the risk explicitly and keep the disclaimers.
 4. **Native-speaker proofreading pending** for Urdu, Arabic, Spanish, French, German, Italian, European Portuguese and Dutch (section 5, plus the 612 flagged terms in `docs/translation-proofreading.md`). Alternatively, launch English first and publish other languages as reviews complete; the site only publishes a language when its files exist.
 5. **No `main` branch / CI never run on GitHub.** Create the default branch, merge, and confirm CI passes.
-6. **Next.js security upgrade required before any deployment.**
-   - **What happened:** on 24 October 2026, `next build` stopped with "Your version of Next.js is affected by a known security vulnerability" for the installed `next@16.4.0`. The build only completed on the retry the notice allows.
-   - **Decision:** the upgrade was deliberately deferred at the owner's request. The site must not be deployed or exposed publicly on 16.4.0.
-   - **Before launch:** run the recommended upgrade (`next upgrade`, ideally in a separate worktree). Then re-run lint, TypeScript, unit tests, the production build, the SEO audit and the Playwright desktop and mobile suites.
-   - **Advisory:** the specific advisory was not inspected from the build environment.
+6. ~~Next.js security upgrade required before any deployment.~~ **Resolved on 12 November 2026.**
+   - **What happened:** on 24 October 2026, `next build` on `next@16.4.0` stopped with "Your version of Next.js is affected by a known security vulnerability". It only completed on the retry the notice allows. The upgrade was deferred at the owner's request until the owner asked to go live on Hostinger.
+   - **Fix:** commit `9b54c57` upgrades `next` and `eslint-config-next` from 16.4.0 to **16.4.6** (same major, no codemods). `npm audit --omit=dev` now reports 0 vulnerabilities, and the clean build passes on the first attempt with no security notice.
+   - **Re-verified:** lint, TypeScript, unit tests, the production build, the SEO audit and the Playwright desktop and mobile suites all pass on 16.4.6 (section 9.7).
+   - **Advisory:** the specific advisory text was not inspected from the build environment.
 
 **Not blockers, but recommended:**
 - A manual screen-reader check.
@@ -720,3 +720,22 @@ The final results come from a clean production build of commit `491e7b6` (build 
 - the Next.js security upgrade (blocker 6, mandatory before any deployment);
 - no `main` branch or CI run;
 - the production domain has not been checked live.
+
+### 9.7 Next.js 16.4.6 security upgrade run (12 November 2026)
+
+Same content as section 9.6 (150 calculators, 104 converters, 9 languages), rebuilt after the upgrade from Next.js 16.4.0 to 16.4.6 (commit `9b54c57`). Clean production build `NcgUNckgNotFgMfsPtd5U`, built with `NEXT_PUBLIC_SITE_URL=https://hourlytosalarycalculator.net` and served with `next start -p 3100`. Both crawls ran one after the other against that server.
+
+| Check | Command | Result |
+| --- | --- | --- |
+| Installed version | `npx next --version` | 16.4.6 |
+| Dependency audit | `npm audit --omit=dev` | 0 vulnerabilities |
+| Lint | `npm run lint` | Pass (0 errors) |
+| TypeScript | `npx tsc --noEmit` | Pass (0 errors) |
+| Unit tests | `npx vitest run` | **4,898 passed**, 0 failed |
+| Production build | `rm -rf .next && npx next build` | Pass on the **first attempt**; 2,588 static pages; no security notice |
+| SEO audit | `node scripts/seo-audit.mjs http://localhost:3100 https://hourlytosalarycalculator.net` | 2,520 sitemap URLs and 7,164 internal links checked; no problems found |
+| Playwright, all non-crawl specs | `npx playwright test` on every spec except `e2e/pages.spec.ts` | **234 passed**, 0 failed |
+| Playwright sitemap crawl, desktop | `npx playwright test e2e/pages.spec.ts --project=desktop --workers=4` | **31 passed, 0 failed, 0 skipped, 0 timed out**; 50.4 min |
+| Playwright sitemap crawl, mobile | `npx playwright test e2e/pages.spec.ts --project=mobile --workers=4` | **31 passed, 0 failed, 0 skipped, 0 timed out**; 44.9 min |
+
+**Still open.** Native-speaker proofreading, unverified source links, professional review (section 4), no `main` branch or CI run, and the live domain check (blockers 1–5). Deployment to Hostinger is done by the owner from hPanel (`docs/deploy-hostinger.md`); it was not performed from this environment.
