@@ -438,6 +438,8 @@ AI agents produced every translation, and automated tests checked them for compl
 
 ## 6. Production configuration
 
+**Hosting target: Hostinger Business (Node.js web app).** The step-by-step settings are in `docs/deploy-hostinger.md`. Blocker 6, the Next.js security upgrade, must be done before going live there.
+
 **Domain.** The production origin is `https://hourlytosalarycalculator.net` (non-www). It is set in `src/lib/site.ts` (`PRODUCTION_ORIGIN`) and resolved as follows:
 
 1. If `NEXT_PUBLIC_SITE_URL` is set, it is used, normalized to a bare origin. A trailing slash, duplicate slashes, a path or an upper-case host are removed.
